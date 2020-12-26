@@ -1,0 +1,253 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Apel et~al.(2018)Apel, Abdykerimova, Agalhanova, Baimaganbetov,
+  Gavrilenko, Gerlitz et~al.}]{Apel_2018}
+Apel, H., Abdykerimova, Z., Agalhanova, M., Baimaganbetov, A., Gavrilenko, N.,
+  Gerlitz, L., et~al. (2018).
+\newblock Statistical forecast of seasonal discharge in central asia using
+  observational records: development of a generic linear modelling tool for
+  operational water resource management.
+\newblock \emph{Hydrology and Earth System Sciences} 22, 2225--2254.
+\newblock \doi{10.5194/hess-22-2225-2018}
+\bibAnnoteFile{Apel_2018}
+
+\bibitem[{Bonales et~al.(2017)Bonales, Rodriguez, and Sanz}]{Bonales_2017}
+Bonales, L.~J., Rodriguez, A.~C., and Sanz, P.~D. (2017).
+\newblock Thermal conductivity of ice prepared under different conditions.
+\newblock \emph{International Journal of Food Properties} 20, 610--619.
+\newblock \doi{10.1080/10942912.2017.1306551}
+\bibAnnoteFile{Bonales_2017}
+
+\bibitem[{Brutsaert(1975)}]{Brutsaert_1975}
+Brutsaert, W. (1975).
+\newblock On a derivable formula for long-wave radiation from clear skies.
+\newblock \emph{Water Resources Research} 11, 742–744.
+\newblock \doi{10.1029/WR011i005p00742}
+\bibAnnoteFile{Brutsaert_1975}
+
+\bibitem[{Brutsaert(1982)}]{Brutsaert_1982}
+Brutsaert, W. (1982).
+\newblock \emph{Evaporation into the Atmosphere. Theory, History and
+  Application} (Kluwer Academic Publishers)
+\bibAnnoteFile{Brutsaert_1982}
+
+\bibitem[{Buytaert et~al.(2017)Buytaert, Moulds, Acosta, Bievre, Olmos,
+  Villacis et~al.}]{Buytaert_2017}
+Buytaert, W., Moulds, S., Acosta, L., Bievre, B.~D., Olmos, C., Villacis, M.,
+  et~al. (2017).
+\newblock Glacial melt content of water use in the tropical andes.
+\newblock \emph{Environmental Research Letters} 12, 114014.
+\newblock \doi{10.1088/1748-9326/aa926c}
+\bibAnnoteFile{Buytaert_2017}
+
+\bibitem[{Chen et~al.(2016)Chen, Li, Deng, Fang, and Li}]{Chen_2016}
+Chen, Y., Li, W., Deng, H., Fang, G., and Li, Z. (2016).
+\newblock Changes in central asia’s water tower: Past, present and future.
+\newblock \emph{Nature} \doi{10.1088/1748-9326/aa926c}
+\bibAnnoteFile{Chen_2016}
+
+\bibitem[{Chevuturi et~al.(2018)Chevuturi, Dimri, and Thayyen}]{Chevuturi_2018}
+Chevuturi, A., Dimri, A.~P., and Thayyen, R.~J. (2018).
+\newblock Climate change over leh (ladakh), india.
+\newblock \emph{Theoretical and Applied Climatology} 131, 531--545.
+\newblock \doi{10.1007/s00704-016-1989-1}
+\bibAnnoteFile{Chevuturi_2018}
+
+\bibitem[{{Copernicus Climate Change Service (C3S)}(2017)}]{era5}
+[Dataset] {Copernicus Climate Change Service (C3S)} (2017).
+\newblock Era5: Fifth generation of ecmwf atmospheric reanalyses of the global
+  climate
+\bibAnnoteFile{era5}
+
+\bibitem[{Cuffey and Paterson(2010)}]{CuffeyPaterson_2010}
+Cuffey, K.~M. and Paterson, W. S.~B. (2010).
+\newblock \emph{The Physics Of Glaciers} (Elsevier)
+\bibAnnoteFile{CuffeyPaterson_2010}
+
+\bibitem[{Fujita and Ageta(2000)}]{FujitaAgeta_2000}
+Fujita, K. and Ageta, Y. (2000).
+\newblock Effect of summer accumulation on glacier mass balance on the tibetan
+  plateau revealed by mass-balance model.
+\newblock \emph{Journal of Glaciology} 46, 244–252.
+\newblock \doi{10.3189/172756500781832945}
+\bibAnnoteFile{FujitaAgeta_2000}
+
+\bibitem[{Garratt(1992)}]{Garratt_1992}
+Garratt, J.~R. (1992).
+\newblock \emph{The Atmospheric Boundary Layer} (Cambridge University Press)
+\bibAnnoteFile{Garratt_1992}
+
+\bibitem[{Grossman(2015)}]{zanskar}
+Grossman, D. (2015).
+\newblock As himalayan glaciers melt, two towns face the fallout
+\bibAnnoteFile{zanskar}
+
+\bibitem[{Hock et~al.(2019)Hock, Rasul, Adler, Cáceres, Gruber, Hirabayashi
+  et~al.}]{IPCC_2019}
+Hock, R., Rasul, G., Adler, C., Cáceres, B., Gruber, S., Hirabayashi, Y.,
+  et~al. (2019).
+\newblock 2019: High mountain areas.
+\newblock \emph{IPCC Special Report on the Ocean and Cryosphere in a Changing
+  Climate [H.-O. Pörtner, D.C. Roberts, V. Masson-Delmotte, P. Zhai, M.
+  Tignor, E. Poloczanska, K. Mintenbeck, A. Alegría, M. Nicolai, A. Okem, J.
+  Petzold, B. Rama, N.M. Weyer (eds.)]}
+\bibAnnoteFile{IPCC_2019}
+
+\bibitem[{Hoelzle et~al.(2019)Hoelzle, Barandun, Bolch, Fiddes, Gafurov,
+  Muccione et~al.}]{HoelzleBarandun_2019}
+Hoelzle, M., Barandun, M., Bolch, T., Fiddes, J., Gafurov, A., Muccione, V.,
+  et~al. (2019).
+\newblock \emph{The status and role of the alpine cryosphere in Central Asia}.
+\newblock \doi{10.4324/9780429436475-8}
+\bibAnnoteFile{HoelzleBarandun_2019}
+
+\bibitem[{{IDAWEB}(2019)}]{meteoswiss}
+[Dataset] {IDAWEB} (2019).
+\newblock Meteoswiss, federal office of meteorology and climatology
+\bibAnnoteFile{meteoswiss}
+
+\bibitem[{Immerzeel et~al.(2019)Immerzeel, Lutz, Andrade, Bahl, Biemans, Bolch
+  et~al.}]{Immerzeel_2020}
+Immerzeel, W.~W., Lutz, A.~F., Andrade, M., Bahl, A., Biemans, H., Bolch, T.,
+  et~al. (2019).
+\newblock Importance and vulnerability of the world's water towers.
+\newblock \emph{Nature} 577, 364 -- 369.
+\newblock \doi{10.1038/s41586-019-1822-y}
+\bibAnnoteFile{Immerzeel_2020}
+
+\bibitem[{Meteoblue(2020)}]{eispalast}
+Meteoblue (2020).
+\newblock Climate schwarzsee
+\bibAnnoteFile{eispalast}
+
+\bibitem[{Mölg and Hardy(2004)}]{MolgHardy_2004}
+Mölg, T. and Hardy, D.~R. (2004).
+\newblock Ablation and associated energy balance of a horizontal glacier
+  surface on kilimanjaro.
+\newblock \emph{J. Geophys. Res.-Atmos.} 109, 1--13.
+\newblock \doi{10.1029/2003JD004338}
+\bibAnnoteFile{MolgHardy_2004}
+
+\bibitem[{Nüsser et~al.(2019{\natexlab{a}})Nüsser, Dame, Kraus, Baghel, and
+  Schmidt}]{Nusser_2018}
+Nüsser, M., Dame, J., Kraus, B., Baghel, R., and Schmidt, S.
+  (2019{\natexlab{a}}).
+\newblock Socio-hydrology of artificial glaciers in ladakh, india: assessing
+  adaptive strategies in a changing cryosphere.
+\newblock \emph{Regional Environmental Change} \doi{10.1007/s10113-018-1372-0}
+\bibAnnoteFile{Nusser_2018}
+
+\bibitem[{Nüsser et~al.(2019{\natexlab{b}})Nüsser, Dame, Parveen, Kraus,
+  Baghel, and Schmidt}]{10.1659/MRD-JOURNAL-D-18-00072.1}
+Nüsser, M., Dame, J., Parveen, S., Kraus, B., Baghel, R., and Schmidt, S.
+  (2019{\natexlab{b}}).
+\newblock {Cryosphere-Fed Irrigation Networks in the Northwestern Himalaya:
+  Precarious Livelihoods and Adaptation Strategies Under the Impact of Climate
+  Change}.
+\newblock \emph{Mountain Research and Development} 39.
+\newblock \doi{10.1659/MRD-JOURNAL-D-18-00072.1}
+\bibAnnoteFile{10.1659/MRD-JOURNAL-D-18-00072.1}
+
+\bibitem[{Oerlemans and Knap(1998)}]{OerlemansKnap_1998}
+Oerlemans, J. and Knap, W.~H. (1998).
+\newblock A 1 year record of global radiation and albedo in the ablation zone
+  of morteratschgletscher, switzerland.
+\newblock \emph{Journal of Glaciology} 44, 231--238.
+\newblock \doi{10.3189/S0022143000002574}
+\bibAnnoteFile{OerlemansKnap_1998}
+
+\bibitem[{Schmidt et~al.(2017)Schmidt, Aðalgeirsdóttir, Guðmundsson, Langen,
+  Pálsson, Mottram et~al.}]{Schmidt_2017}
+Schmidt, L.~S., Aðalgeirsdóttir, G., Guðmundsson, S., Langen, P.~L.,
+  Pálsson, F., Mottram, R., et~al. (2017).
+\newblock The importance of accurate glacier albedo for estimates of surface
+  mass balance on vatnaj\"okull: evaluating the surface energy budget in a
+  regional climate model with automatic weather station observations.
+\newblock \emph{The Cryosphere} 11, 1665--1684.
+\newblock \doi{10.5194/tc-11-1665-2017}
+\bibAnnoteFile{Schmidt_2017}
+
+\bibitem[{Stigter et~al.(2018)Stigter, Litt, Steiner, Bonekamp, Shea, Bierkens
+  et~al.}]{Stigter_2018}
+Stigter, E.~E., Litt, M., Steiner, J.~F., Bonekamp, P. N.~J., Shea, J.~M.,
+  Bierkens, M. F.~P., et~al. (2018).
+\newblock The importance of snow sublimation on a himalayan glacier.
+\newblock \emph{Frontiers in Earth Science} 6, 108.
+\newblock \doi{10.3389/feart.2018.00108}
+\bibAnnoteFile{Stigter_2018}
+
+\bibitem[{Unger-Shayesteh et~al.(2013)Unger-Shayesteh, Vorogushyn, Farinotti,
+  Gafurov, Duethmann, Mandychev et~al.}]{UNGERSHAYESTEH_2013}
+Unger-Shayesteh, K., Vorogushyn, S., Farinotti, D., Gafurov, A., Duethmann, D.,
+  Mandychev, A., et~al. (2013).
+\newblock What do we know about past changes in the water cycle of central
+  asian headwaters? a review.
+\newblock \emph{Global and Planetary Change} 110, 4 -- 25.
+\newblock \doi{10.1016/j.gloplacha.2013.02.004}.
+\newblock Water in Central Asia – Perspectives under global change
+\bibAnnoteFile{UNGERSHAYESTEH_2013}
+
+\bibitem[{Wangchuk(2014)}]{campaign}
+Wangchuk, S. (2014).
+\newblock Ice stupa artificial glaciers of ladakh
+\bibAnnoteFile{campaign}
+
+\bibitem[{Wangchuk(2015{\natexlab{a}})}]{waterstart}
+Wangchuk, S. (2015{\natexlab{a}}).
+\newblock The good news at ice stupa 24th january 2015
+\bibAnnoteFile{waterstart}
+
+\bibitem[{Wangchuk(2015{\natexlab{b}})}]{waterend}
+Wangchuk, S. (2015{\natexlab{b}}).
+\newblock Ice stupa artificial glacier inaugurated 5th of march 2015
+\bibAnnoteFile{waterend}
+
+\bibitem[{Wangchuk(2015{\natexlab{c}})}]{iceheight}
+Wangchuk, S. (2015{\natexlab{c}}).
+\newblock Ice stupa surpasses guiness world record
+\bibAnnoteFile{iceheight}
+
+\bibitem[{Wangchuk(2015{\natexlab{d}})}]{iceends}
+Wangchuk, S. (2015{\natexlab{d}}).
+\newblock Ice stupa way of celebrating a special day
+\bibAnnoteFile{iceends}
+
+\bibitem[{Wangchuk(2015{\natexlab{e}})}]{waterinput}
+Wangchuk, S. (2015{\natexlab{e}}).
+\newblock World water day at ice stupa
+\bibAnnoteFile{waterinput}
+
+\bibitem[{WMO(2018)}]{WMO_2018}
+WMO (2018).
+\newblock \emph{Guide to Instruments and Methods of Observation} (World
+  Meteorological Organization ; 2018 (2018 Edition))
+\bibAnnoteFile{WMO_2018}
+
+\bibitem[{Woolf(1968)}]{Woolf_1968}
+Woolf, H.~M. (1968).
+\newblock \emph{On the Computation of Solar Elevation Angles and the
+  determination of sunrise and sunset times} (National Aeronautics and Space
+  Administration)
+\bibAnnoteFile{Woolf_1968}
+
+\bibitem[{Zhou et~al.(2010)Zhou, Gao, and Zhang}]{Zhou_2010}
+Zhou, S., ShiQiao nd~Kang, Gao, T., and Zhang, G. (2010).
+\newblock Response of zhadang glacier runoff in nam co basin, tibet, to changes
+  in air temperature and precipitation form.
+\newblock \emph{Chinese Science Bulletin} 55, 2103--2110.
+\newblock \doi{10.1007/s11434-010-3290-5}
+\bibAnnoteFile{Zhou_2010}
+
+\end{thebibliography}
