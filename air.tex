@@ -47,16 +47,16 @@ $^{5}$Academia Engiadina, Samedan, Switzerland}
 Artificial Ice Reservoirs (AIR) have been successful in storing water during winter and releasing the water during
 spring and summer. This has made them a reliable fresh water resource for irrigation in dry environments. Several AIRs
 have been built but studies of their water storage capacity and efficiency are scarce. This study attempts to model a
-cone-shaped AIR popularly called Icestupa . Important processes involved in the development and temporal evolution of an
-Icestupa are calculated by a physically-based model using equations governing the heat transfer, vapour diffusion and
-water transport of a phase changing water mass. These processes were quantified by using meteorological data in
+cone-shaped AIR popularly called Icestupa . Important processes involved in the development and temporal evolution of
+an Icestupa are calculated by a physically-based model using equations governing the heat transfer, vapour diffusion
+and water transport of a phase changing water mass. These processes were quantified using meteorological data in
 conjunction with fountain spray information (mass input of an Icestupa) to estimate the quantity of frozen, melted,
 evaporated and drained water at a location called 'Eispalast' in the Schwarzsee region in the Canton of Fribourg,
-Switzerland. At this measurement site, an Icestupa was built for model validation purposes. The model was further tested
-by performing sensitivity and uncertainty study showing that the most sensitive parameters are the temperature threshold
-used to determine precipitation phase and the ice emissivity. Model calculations estimate that the Schwarzsee Icestupa
-only stored about 8\% of the total water sprayed as ice. In addition, we found that reducing nozzle diameter of the
-fountain to 3 $mm$ increases the storage efficiency up to 93\% without compromising on the storage duration.
+Switzerland. At this measurement site, an Icestupa was built for model validation purposes. The model was further
+tested by performing sensitivity and uncertainty study showing that the most sensitive parameters are the temperature
+threshold used to determine precipitation phase and the ice emissivity. Model calculations estimate that the Schwarzsee
+Icestupa only stored about 8\% of the total water sprayed as ice. In addition, we found that reducing nozzle diameter
+of the fountain to 3 $mm$ increases the storage efficiency up to 93\% without compromising on the storage duration.
 
 \tiny
  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -64,39 +64,30 @@ fountain to 3 $mm$ increases the storage efficiency up to 93\% without compromis
 
 \section{Introduction}
 
-Seasonal snow cover, glaciers and permafrost are expected to change their water
-storage capacity due to climate change with major consequences for downriver
-water supply \citep{Immerzeel_2020}. The challenges brought about by these
-changes are especially important for dry mountain environments such as in
-Central Asia or Andes, which directly rely on the seasonal meltwater for their
-farming and drinking needs \citep{HoelzleBarandun_2019, Apel_2018,
-Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India
-have already been forced to relocate due to glacial retreat and the
-corresponding loss of their main fresh water resources \citep{zanskar}. 
+Seasonal snow cover, glaciers and permafrost are expected to change their water storage capacity due to climate change
+with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about by these
+changes are especially important for dry mountain environments such as in Central Asia or the Andes, which directly
+rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019, Apel_2018,
+Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate due
+to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}. 
 
-Artificial Ice Reservoirs (AIR) have been considered to be a feasible way to
-adapt to these changes \citep{IPCC_2019, 10.1659/MRD-JOURNAL-D-18-00072.1}. An
-artificial ice reservoir is a human-made ice structure typically constructed
-during the cold winter months and designed to slowly release freshwater during
-the warm and dry spring and summer months. The main purpose of AIR is
-irrigation. Therefore, AIRs are designed to store water in the form of ice as
-long into the summer as possible. The energy required to construct an AIR is
-usually derived from the gravitational head of the source water body. Some are
-constructed horizontally by freezing water using a series of checkdams and
-others are built vertically by spraying water through fountain systems
-\citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and
-are the subject of this study.
+Artificial Ice Reservoirs (AIR) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
+10.1659/MRD-JOURNAL-D-18-00072.1}. An artificial ice reservoir is a human-made ice structure typically constructed
+during the cold winter months and designed to slowly release freshwater during the warm and dry spring and summer
+months. The main purpose of AIR is irrigation. Therefore, AIRs are designed to store water in the form of ice as long
+into the summer as possible. The energy required to construct an AIR is usually derived from the gravitational head of
+the source water body. Some are constructed horizontally by freezing water using a series of checkdams and others are
+built vertically by spraying water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred
+to as Icestupas and are the subject of this study.
 
 Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
-Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to other
-water storage technologies. Compared to other AIR geometries, the conical shape of the Icestupas (Fig. \ref{fig:cone})
-have been proven as an optimal geometry, which can be built at lower altitudes and last much longer into the summer than
-ice structures with other geometries \citep{campaign}.
+Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to
+other water storage technologies. Compared to other AIR geometries, Icestupas (Fig.  \ref{fig:cone}) can be built at
+lower altitudes and last much longer into the summer than other types of ice structures \citep{campaign}.
 
 If AIR are to become a viable water resource management tool, it is crucial to be able to propose suitable construction
-sites, and to identify and optimize water losses. However, to date, no reliable estimates exist about the amount of
-sprayed water that is necessary to create them and the meltwater they provide \citep{Nusser_2018}. Moreover, such
-estimates depend heavily on the prevailing weather conditions and water availability at the construction site. Rough
+sites, and to identify and minimize water losses. However, to date, no reliable estimates exist about the amount of
+sprayed water that is necessary to create them and the meltwater they provide \citep{Nusser_2018}. Rough
 estimates of Icestupa meltwater in Ladakh suggest that the water loss during the construction process is considerable
 (see Appendix \ref{section:ladakhloss}). A complete set of measurements of the water and energy balance are urgently
 required to understand the cause of the water losses better and increase the construction efficiency.
