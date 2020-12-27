@@ -54,9 +54,10 @@ conjunction with fountain spray information (mass input of an Icestupa) to estim
 evaporated and drained water at a location called 'Eispalast' in the Schwarzsee region in the Canton of Fribourg,
 Switzerland. At this measurement site, an Icestupa was built for model validation purposes. The model was further
 tested by performing sensitivity and uncertainty study showing that the most sensitive parameters are the temperature
-threshold used to determine precipitation phase and the ice emissivity. Model calculations estimate that the Schwarzsee
-Icestupa only stored about 8\% of the total water sprayed as ice. In addition, we found that reducing nozzle diameter
-of the fountain to 3 $mm$ increases the storage efficiency up to 93\% without compromising on the storage duration.
+threshold used to determine precipitation phase and the ice emissivity. Model calculations estimate that the
+Schwarzsee Icestupa only stored about 8\% of the total water sprayed as ice. In addition, we found that reducing
+nozzle diameter of the fountain to 3 $mm$ increases the storage efficiency up to 93\% without compromising on the
+storage duration.
 
 \tiny
  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -68,8 +69,8 @@ Seasonal snow cover, glaciers and permafrost are expected to change their water 
 with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about by these
 changes are especially important for dry mountain environments such as in Central Asia or the Andes, which directly
 rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019, Apel_2018,
-Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate due
-to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}. 
+Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate
+due to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}. 
 
 Artificial Ice Reservoirs (AIR) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
 10.1659/MRD-JOURNAL-D-18-00072.1}. An artificial ice reservoir is a human-made ice structure typically constructed
@@ -85,54 +86,56 @@ Northern India since they require very little infrastructure, skills and energy 
 other water storage technologies. Compared to other AIR geometries, Icestupas (Fig.  \ref{fig:cone}) can be built at
 lower altitudes and last much longer into the summer than other types of ice structures \citep{campaign}.
 
-If AIR are to become a viable water resource management tool, it is crucial to be able to propose suitable construction
-sites, and to identify and minimize water losses. However, to date, no reliable estimates exist about the amount of
-sprayed water that is necessary to create them and the meltwater they provide \citep{Nusser_2018}. Rough
+If AIR are to become a viable water resource management tool, it is crucial to be able to propose suitable
+construction sites, and to identify and minimize water losses. However, to date, no reliable estimates exist about the
+amount of sprayed water that is necessary to create them and the meltwater they provide \citep{Nusser_2018}. Rough
 estimates of Icestupa meltwater in Ladakh suggest that the water loss during the construction process is considerable
-(see Appendix \ref{section:ladakhloss}). A complete set of measurements of the water and energy balance are urgently
-required to understand the cause of the water losses better and increase the construction efficiency.
+(see Appendix \ref{section:ladakhloss}). A complete set of measurements of the water storage and energy balance are
+urgently required to understand the cause of the water losses better and increase the construction efficiency.
 
   \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg} \end{center} \caption{Icestupa in
 Ladakh, India on March 2017 was 24 $m$ tall and contained around 3.7 million litres of water. Picture Credits: Lobzang
 Dadul} \label{fig:cone} \end{figure}
   
-
 In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
 storage efficiency using existing weather and water usage information. Mass and energy balance equations were used to
 estimate the quantity of water frozen, melted, evaporated and wasted. Sensitivity and uncertainty analysis were
-performed to identify the most sensitive parameters and the variance caused by them. For validation, we created an
-Icestupa at a well accessible site (called Eispalast) near Schwarzsee in the Canton of Fribourg, Switzerland, allowing
+performed to identify the most critical parameters and the variance caused by them. For validation, we created an
+Icestupa at an accessible site (called Eispalast) near Schwarzsee in the Canton of Fribourg, Switzerland, allowing
 easy maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
-temperatures only a small Icestupa could be established during winter 2018/19 for providing us with model validation
-data. Our model and validation experiments provide first steps towards an evaluation of the effectiveness of a vertical
+temperatures, only a small Icestupa could be established during winter 2018/19 for providing us with model validation
+data. Our model and validation experiments provide first steps towards evaluating the effectiveness of a vertical
 AIR for irrigation and finally we outline some preliminary guidelines for consideration when a construction of an
 Icestupa for water storage is envisaged.
 
 
-\section{Study Site} The 'Eispalast' site in the Schwarzsee region lies on 967 $m$ a.s.l. In the winter (Oct-Mar), the
-mean daily maximum and minimum of the air temperatures vary between 14 to -4 $\degree C$. Clear skies are rare averaging
-around 7 days and precipitation amounts average at 155 mm per month during winter \citep{eispalast}. The site was also
-situated adjacent to a stream resulting in high humidity values across the study period. Within the 'Eispalast' site, an
-enclosure of 1.8\,$m$ in radius was constructed for the experiment. An automatic weather station (AWS) was set in place
-adjacent to the wooden boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle
-diameter of 5\,$mm$ and a height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was
-transferred from a spring water source at 1267 $m$ a.s.l. by a pipeline and flowed via a flowmeter and an air escape
-valve to the nozzle, where it was sprinkled with a spray radius of around 1.7\,$m$. The air escape valve was installed
-to avoid errors in the flow measurements due to air bubbles. In addition, a webcam guaranteed a continuous survey of the
-site during the construction of the Icestupa. 
+\section{Study Site}
+
+The 'Eispalast' site in the Schwarzsee region lies at 967 $m$ a.s.l. In the winter (Oct-Mar), 
+mean daily maximum and minimum air temperatures vary between 14 to -4 $\degree C$. Clear skies are rare,
+averaging around 7 days, and precipitation amounts average 155 mm per month during winter \citep{eispalast}. The
+site was situated adjacent to a stream resulting in high humidity values across the study period. Within the
+'Eispalast' site, 1.8\,$m$ in radius enclosure was constructed for the experiment. An automatic weather station
+(AWS) was set in place adjacent to the wooden boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying
+water had a nozzle diameter of 5\,$mm$ and a height of 1.35\,$m$, and was placed in the centre of the wooden
+enclosure. The water was transferred from a spring water source at 1267 $m$ a.s.l. by pipeline and flowed via a
+flowmeter and an air escape valve to the nozzle, where it was sprinkled with a spray radius of around 1.7\,$m$. The
+air escape valve was installed to avoid errors in the flow measurements due to air bubbles. In addition, a webcam
+guaranteed a continuous survey of the site during the construction of the Icestupa. 
 
 \begin{figure}[htb] \centering \begin{tabular}{@{}cc@{}} \includegraphics[width=15cm]{./Figures/Figure_2.jpg} &
 \end{tabular} \caption{The ice structure during the first validation measurement as seen on the webcam image of
-$14^{th}$ Feb. The corresponding cross section of the Schwarzsee ice structure with the field estimates of $r, R, h,
+  $14^{th}$ Feb. The corresponding cross section of the Schwarzsee ice structure with the field estimates of $r, R, h,
 H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
 
-\subsection{Construction} From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the
-fountain spray, which was manually switched on if measured air temperature was below -5 \degree C after sunset and was
-switched off as soon as the ice was exposed to daylight or temperatures were above 0 \degree C. The water spray of the
-fountain was initially adjusted so that most of the water droplets land within the wooden boundary zone. The ice
-formation was guided by adding a metal framework at the ice structure base after the first night of operation. Several
-cotton threads were tied between the ice structure base and fountain pole for accelerating and further guiding the ice
-formation process. 
+\subsection{Construction}
+
+From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
+manually switched on if measured air temperature was below -5 \degree C after sunset and was switched off as soon as
+the ice was exposed to daylight or temperatures were above 0 \degree C. The water spray of the fountain was initially
+adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided by
+adding a metal framework at the ice structure base after the first night of operation. Several cotton threads were
+tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
 
 \subsection{Measurements and Data}
 
@@ -163,12 +166,12 @@ completely melt the Icestupa.
 \subsubsection{Field Measurements for validation} \label{section:validation} Estimates of the ice volumes were obtained
 by two manual measurements of the ice structure dimensions. The first corresponds to the end of the freezing period on
 $14^{th}$ February 16:00 (only one more fountain run was possible after this date). The second corresponds to the end of
-the melting process on $10^{th}$ March 18:00. The field validations are shown by green line segments in Fig.
+the melting process on $10^{th}$ March 18:00. The field validations are shown by green lines in Fig.
 \ref{fig:results}.
 
 On $14^{th}$ February the ice volume was calculated using a simplistic cross section of the structure as shown in Fig.
-\ref{fig:site}. We used the following field estimates of $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the different
-geometry components) to determine the maximum and minimum volumes:
+\ref{fig:site}. We used the following field estimates of $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the
+different geometry components) to determine the maximum and minimum volumes:
 
 \begin{equation} 0.55\leq r\leq 1 m\textit{ ; }1.1\leq R\leq 1.2 m\textit{ ; }0.1\leq h\leq 0.2 m\textit{ ; }0.6\leq
 H_i\leq 0.8 m\textit{ ; }1.3\leq H_f\leq 1.4 m \end{equation}
@@ -240,21 +243,21 @@ q_{net} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} \label{eqn:EF} \end{eq
 
 where $q_{net}$ is the net energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net
 longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
-exchange created due to the additional water and ice boundary present during fountain on time steps. $q_{G}$ represents
-ground heat flux between Icestupa surface and Icestupa interior. Energy transferred in the direction of the ice surface
-is always denoted as positive and away as negative. Also, all temperature variables are assigned in units of [$\degree
-C$]. 
+exchange created due to the additional water and ice boundary present during fountain on time steps. $q_{G}$
+represents ground heat flux between Icestupa surface and Icestupa interior. Energy transferred in the direction of the
+ice surface is always denoted as positive and away as negative. Also, all temperature variables are assigned in units
+of [$\degree C$]. 
 
-Equation \ref{eqn:EF} is usually referred to as the energy budget for “the surface”, but practically it must apply to a
-surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the Icestupa surface layer which has
-an upper and a lower boundary defined by the atmosphere and the ice body of the Icestupa, respectively. The parameter
-selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be small
-enough to represent the daily surface temperature variations with its high amplitude. (b) $\Delta x$ requires to be
-large enough for these temperature variations to not reach the bottom of the surface layer.  Therefore, we introduced a
-5 $mm$ thick ice surface layer, over which the energy balance is calculated. A sensitivity analysis was later performed
-to understand the influence of this factor. Here, we define the surface temperature $T_{ice}$ to be the modelled average
-temperature of the Icestupa surface layer and the energy flux $q_{net}$ is assumed to act uniformly across the Icestupa
-area $A$.
+Equation \ref{eqn:EF} is usually referred to as the energy budget for “the surface”, but practically it must apply to
+a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the Icestupa surface layer which
+has an upper and a lower boundary defined by the atmosphere and the ice body of the Icestupa, respectively. The
+parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
+small enough to represent the daily surface temperature variations and (b) $\Delta x$ should be large enough for
+these temperature variations to not reach the bottom of the surface layer.  Therefore, we introduced a 5 $mm$ thick
+ice surface layer, over which the energy balance is calculated. A sensitivity analysis was later performed to
+understand the influence of this factor. Here, we define the surface temperature $T_{ice}$ to be the modelled average
+temperature of the Icestupa surface layer and the energy flux $q_{net}$ is assumed to act uniformly across the
+Icestupa area $A$.
 
 \subsubsection{Net Shortwave Radiation $q_{SW}$} The net shortwave radiation $q_{SW}$ is computed as follows:
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
@@ -558,7 +561,7 @@ $\degree C$ during fountain activity. The corresponding bulk temperature is show
 
 
 Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (a). On average during the
-experiment duration, the total energy flux from the atmosphere to the Icestupa are almost balanced. Net shortwave
+experiment duration, the total energy flux between the atmosphere and the Icestupa are almost balanced. Net shortwave
 radiation (28 $Wm^{-2}$), sensible (17 $Wm^{-2}$) and latent heat flux (9 $Wm^{-2}$) with a mostly positive flux towards
 the surface of the icestupa are compensated by the net longwave radiation (- 36 $Wm^{-2}$) and the melt energy (-19
 $Wm^{-2}$). The contribution of other fluxes are negligible in comparison.
@@ -573,7 +576,7 @@ snowfall thus decreases the energy available for melt due to the corresponding i
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
 structure. The incoming longwave radiation was strongly dependent on atmospheric emissivity which had a mean value of
-0.77. Atmospheric emissivity in turn depended on the measured cloudiness factor. Daily values of $q_{LW}$ ranged from
+0.77. Atmospheric emissivity in turn depended on the cloudiness factor. Daily values of $q_{LW}$ ranged from
 -95 to 7 $Wm^{-2}$.  $q_{LW}$ and $q_{S}$ were both proportional to the temperature gradient between the air and the
 Icestupa surface. Turbulent sensible heat flux $q_{S}$ contributed mostly to the melt of the ice structure. Daily values
 of $q_{S}$ ranged from -16 to 59 $Wm^{-2}$. Turbulent latent heat flux $q_{L}$ was predominantly positive suggesting
@@ -600,7 +603,7 @@ resulting in a steep increase and gradual melting of ice volume as can be seen i
 The total water used for the Icestupa development includes contributions from the fountain (97.2\%), snowfall (2.5 \%)
 and deposition/condensation (0.3 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole measurement
 period was 1158 $kg$, which occurred after the last fountain run on Feb $16^{th}$ in the morning. Therefore, in the case
-of Schwarzsee we used a water input of 18,584 $kg$, which is then resulting in a storage efficiency of only 7.5 \%.
+of Schwarzsee we used a water input of 18,584 $kg$, with a resultant storage efficiency of only 7.5 \%.
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
     volume during the lifetime of the Schwarzsee Icestupa (blue curve). Green line segments indicate the first and
@@ -691,12 +694,11 @@ assumptions and their potential to cause errors are discussed below.
 
 \end{itemize}
 
-\subsection{Schwarzsee vs Ladakh Icestupa} Icestupa 2014/15 in Ladakh had a storage quantity of around 2 million litres
-of water and a storage duration of around 5 months (see Appendix \ref{section:ladakhloss}). In contrast, the presented
-Schwarzsee Icestupa has only a storage quantity of 1392 $litres$ and a storage duration of 61 days, which is not very
-representative to fully capture the seasonal Icestupa dynamics. However, this is the only Icestupa dataset available to
-this date. We believe that the model is capable to capture at least the most important processes involved in the build
-up and melt of a simplified Icestupa assuming a cone shaped structure.
+\subsection{Schwarzsee vs Ladakh Icestupa}
+  
+It could be argued that the relatively small Schwarzsee Icestupa cannot be compared with the much larger Icestupas in
+Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
+this is the only Icestupa dataset available for such a model validation.
 
 Table \ref{table:MB} clearly shows that for our Schwarzsee experiment most of the input water (92 \%) simply drained
 away. This high water loss through drainage is due to the fact that the average spray rate of the fountain
@@ -754,8 +756,8 @@ the Icestupa significantly.
 \section{Conclusions} We have outlined a methodology for estimating ice, liquid water, water vapour and drained
 quantities produced during the construction of an Icestupa using measurements of fountain spray rate, air temperature,
 radiation, humidity, pressure, wind and cloudiness at the Schwarzsee study site. The comparison with validation
-measurements at two different dates during the experiment led to satisfying results. However, the validation quality
-still could have been improved by having performed more such measurements.
+measurements at two different dates during the experiment led to satisfying results, although a more rigorous model
+validation was not possible due to few icestupa volume measurements.
 
 According to the model, the Schwarzsee Icestupa achieved a storage quantity of 1392 litres of water with a storage
 duration of 61 days. However, the corresponding storage efficiency was very low with only 7.5 \% for a water input of
