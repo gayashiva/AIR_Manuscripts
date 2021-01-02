@@ -556,12 +556,12 @@ fountain on time steps.  $q_{G}$ quantifies the heat conduction process between 
 body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance calculation}
 
 \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
-    parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the black
-    curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow
-    albedo to ice albedo can also be observed. The blue curve shows how the solar radiation area fraction varied
-diurnally with variations in the solar elevation angle. In (b), the surface temperature (black curve) was forced to be
-0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the blue curve.}
-\label{fig:derived} \end{figure}
+  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the black curve
+  shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
+  to ice albedo can also be observed. The blue curve shows how the solar radiation area fraction varied diurnally with
+  variations in the solar elevation angle. In (b), the surface temperature (black curve) was forced to be 0 $\degree C$
+  during fountain activity. The corresponding bulk temperature is shown with the blue curve.} \label{fig:derived}
+  \end{figure}
   
 
 \begin{table} \caption{Summary of calculated mass balance components for the Schwarzsee experiment after the fountain
@@ -649,26 +649,24 @@ has a subjective part that influences the results and conclusions obtained in th
 model outputs $y_k$ is evaluated to quantify the local sensitivities $s_{j,k}$ that are defined here as the 95\% range
 of the simulated outputs.
 
-To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least
-$0.1 m^3$. All other parameters were fixed at their baseline value.
-
-\subsection{Model Simulations} The sensitivity and uncertainty analyses were performed systematically for each of the
-10 parameters. In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32
-simulations. Fig. \ref{fig:sensitivity} shows all the variance produced by these uncertain parameters in maximum ice
-volume calculation. It shows that $\epsilon_{ice}$ and $T_{rain}$ are the only parameters with a maximal sensitivity
-of more than 0.1 $m^3$ for the maximum ice volume estimate. Consequently, all other parameters were excluded from the
-subsequent uncertainty analysis.
+To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
+m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
+produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{rain}$
+are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
+Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
 
 The temperature threshold below which precipitation falls as snow ($T_{rain}$) was found to be the most sensitive
 parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
-lower $T_{rain}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than
-when snow-covered) . The variation of $T_{rain}$ by 5\% caused maximum ice volume variation of $1.2 \pm 0.2 m^3$. 
+lower $T_{rain}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
+snow-covered) . The variation of $T_{rain}$ by 5\% caused maximum ice volume variation of $1.2 \pm 0.2 m^3$. 
 
 Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
 volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
 maximum ice volume range from $1.3 \pm 0.1 m^3$. 
 
-  \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_9.jpg} \end{center}
+In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
+
+\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_9.jpg} \end{center}
 \caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
 \ref{table:parameters}).  Outliers in the bar plot are shown as 'o'.} \label{fig:sensitivity} \end{figure}
   
