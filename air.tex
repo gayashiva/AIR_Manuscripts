@@ -124,10 +124,7 @@ construction of the Icestupa.
 \end{tabular} \caption{The ice structure during the first validation measurement as seen on the webcam image of
   $14^{th}$ Feb. The corresponding cross section of the Schwarzsee ice structure with the field estimates of $r, R, h,
 H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
-
-\subsection{Construction}
-
-From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
+\subsection{Construction} From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
 manually switched on if measured air temperature was below -5 \degree C after sunset and was switched off as soon as
 the ice was exposed to daylight or temperatures were above 0 \degree C. The water spray of the fountain was initially
 adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided by
@@ -158,13 +155,20 @@ ultrasonic wind sensor was blocked and recorded zero values.
 
 These data gaps and errors were filled with the ERA5 reanalysis dataset. ERA5 dataset is produced at a 1-hourly time
 step. Its horizontal resolution is approximately 30 km and it computes atmospheric variables at 137 pressure levels
-\citep{ERA5_2020}. The closest grid point(Latitude 46.640, Longitude 7.240) to the Schwarzsee site was chosen to
-extract the corresponding data. In order to fit the corresponding variables in the Schwarzee dataset, several
-modifications were necessary on the extracted ERA5 dataset to make it usable. The hourly ERA5 data were linearly
-interpolated to the 5 minute data frequency of the Schwarzsee AWS. These are listed as follows: 
+\citep{ERA5_2020}. The ERA5 grid point chosen(Latitude 46.640, Longitude 7.240) for the Schwarzsee site was around 9 km
+away from the actual site. So in order to fit the corresponding variables in the Schwarzee dataset, several
+modifications were necessary. First, the hourly ERA5 data were linearly interpolated to the 5 minute data frequency of
+the Schwarzsee AWS. Then, selected variables of the ERA5 dataset were matched with Schwarzsee variables as follows: 
 
-\begin{itemize} \item
-Air temperature: \item Air pressure \item Wind speed \item Relative humidity \end{itemize}
+\begin{itemize} 
+  \item Schwarzsee Air temperature: This variable correlated well() with 2m temperature of ERA5.
+  \item Schwarzsee Air Pressure: This variable correlated well() with surface pressure of ERA5.
+  \item Schwarzsee Wind Speed: This variable correlated well() with 10m wind speed of ERA5.
+  \item Schwarzsee Precipitation: Since no precipitation measurements were made in Schwarzsee, the nearby Plaffein
+    weather station was used for precipitation data instead as shown in \ref{fig:input}
+  \item Schwarzsee Relative Humidity: This variable was derived from the 2m dewpoint temperature and 2m temperature of ERA5 using
+the following equation: 
+\end{itemize}
 
 This paper only looks at hourly
 single level data of 2m temperature, 2m dewpoint temperature, surface pressure, surfacesolarradiationdownwards,
