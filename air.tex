@@ -154,11 +154,31 @@ Plaffeien AWS data were linearly interpolated to the 5 minute data frequency of 
 
 Due to a power failure, all data from the Schwarzsee AWS was lost between $27^{th}$ February 15:20 to $2^{nd}$ March
 15:00. Consequently, the amount of missing data in the dataset was around 6.7\%.  During heavy snowfall events, the
-ultrasonic wind sensor was blocked and recorded zero values. These data gaps and errors were filled with the  Plaffeien
-AWS precipitation and ERA5 reanalysis dataset. ERA5 air temperature was found to be highly correlated ($r^2 = 0.85$)
-with the Schwarzsee dataset but the corresponding wind speed values were poorly correlated ($r^2 = 0.18$). However, in a
+ultrasonic wind sensor was blocked and recorded zero values. 
+
+These data gaps and errors were filled with the ERA5 reanalysis dataset. ERA5 dataset is produced at a 1-hourly time
+step. Its horizontal resolution is approximately 30 km and it computes atmospheric variables at 137 pressure levels
+\citep{ERA5_2020}. The closest grid point(Latitude 46.640, Longitude 7.240) to the Schwarzsee site was chosen to
+extract the corresponding data. In order to fit the corresponding variables in the Schwarzee dataset, several
+modifications were necessary on the extracted ERA5 dataset to make it usable. The hourly ERA5 data were linearly
+interpolated to the 5 minute data frequency of the Schwarzsee AWS. These are listed as follows: 
+
+\begin{itemize} \item
+Air temperature: \item Air pressure \item Wind speed \item Relative humidity \end{itemize}
+
+This paper only looks at hourly
+single level data of 2m temperature, 2m dewpoint temperature, surface pressure, surfacesolarradiationdownwards,
+total sky direct solar radiation at surface and total cloud cover.
+
+However, in a
 second step, we further extended the dataset beyond $18^{th}$ March 2019 (Fig.  \ref{fig:input}) to enable the model to
 completely melt the Icestupa.
+
+
+
+ERA5 air temperature was found to be highly correlated ($r^2 = 0.85$)
+but the corresponding wind speed values were poorly correlated ($r^2 = 0.18$). 
+ 
 
 \subsubsection{Field Measurements for validation} \label{section:validation} Estimates of the ice volumes were obtained
 by two manual measurements of the ice structure dimensions. The first corresponds to the end of the freezing period on
@@ -193,7 +213,6 @@ current time step.
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
 schematic showing the algorithm used in the model at every time step. Further details about these variables can be
 found in the associated tables and figures.} \label{fig:schema} \end{figure}
-
 \subsection{Icestupa geometric evolution}
 
 Radius $r_{ice}$ and height $h_{ice}$ define the dimensions of the Icestupa assuming its geometry to be a cone as
@@ -627,8 +646,6 @@ second validation measurements. The prediction interval is based on the ice volu
 sensitive parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
 \label{fig:results} \end{figure}
   
-
-
 \section{Model Sensitivity and Uncertainty analysis}
 
 The icestupa model can be regarded as a function $f(x_1,x_2 \dots, x_n) = (y_1,y_2 \dots, y_m)$, where $(x_1,x_2
@@ -669,8 +686,6 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_9.jpg} \end{center}
 \caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
 \ref{table:parameters}).  Outliers in the bar plot are shown as 'o'.} \label{fig:sensitivity} \end{figure}
-  
-
 \section{Discussion}
 
 \subsection{Model validation quality}
@@ -770,8 +785,8 @@ the 3 $mm$ ice structure. Fig.  \ref{fig:dia_f} shows that a nozzle diameter of 
 $l \,min^{-1} w.e.$) which is large enough to increase the storage efficiency and small enough to not reduce the
 storage duration of the Icestupa significantly.
 
-\section{Conclusions} We have outlined a methodology for estimating ice, liquid water, water vapour and drained
-quantities produced during the construction of an Icestupa using measurements of fountain spray rate, air temperature,
+\section{Conclusions} We outlined a methodology for estimating ice, liquid water, water vapour and drained
+quantities produced during the construction of an Icestupa using m:easurements of fountain spray rate, air temperature,
 radiation, humidity, pressure, wind and cloudiness at the Schwarzsee study site. The comparison with validation
 measurements at two different dates during the experiment led to satisfying results, although a more rigorous model
 validation was not possible due to few icestupa volume measurements.
