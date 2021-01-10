@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.8)  10 JAN 2021 15:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.9.8)  10 JAN 2021 19:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -599,23 +599,27 @@ Underfull \hbox (badness 10000) detected at line 44
 <Figures/Figure_1.jpg, id=158, 569.12625pt x 379.4175pt>
 File: Figures/Figure_1.jpg Graphic file (type jpg)
 <use Figures/Figure_1.jpg>
-Package pdftex.def Info: Figures/Figure_1.jpg  used on input line 107.
+Package pdftex.def Info: Figures/Figure_1.jpg  used on input line 116.
 (pdftex.def)             Requested size: 284.52756pt x 189.6909pt.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 123.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 132.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [2]
-<./Figures/Figure_2.jpg, id=179, 1112.155pt x 409.53pt>
+<./Figures/Figure_2.jpg, id=177, 1112.155pt x 409.53pt>
 File: ./Figures/Figure_2.jpg Graphic file (type jpg)
 <use ./Figures/Figure_2.jpg>
-Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 124.
+Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 133.
 (pdftex.def)             Requested size: 426.79134pt x 157.16025pt.
-<./Figures/Figure_3.jpg, id=180, 4097.3075pt x 3144.74875pt>
+
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
+ [3 <./Figures/Figure_1.jpg> <./Figures/Figure_2.jpg>]
+<./Figures/Figure_3.jpg, id=187, 4097.3075pt x 3144.74875pt>
 File: ./Figures/Figure_3.jpg Graphic file (type jpg)
 <use ./Figures/Figure_3.jpg>
-Package pdftex.def Info: ./Figures/Figure_3.jpg  used on input line 137.
+Package pdftex.def Info: ./Figures/Figure_3.jpg  used on input line 147.
 (pdftex.def)             Requested size: 504.0pt x 386.80661pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -623,110 +627,93 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [3 <./Figures/Figure_1.jpg> <./Figures/Figure_2.jpg>]
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
  [4 <./Figures/Figure_3.jpg>]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 164.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 176.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 164.
+(Font)              size <5> substituted on input line 176.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 164.
+(Font)              size <5> substituted on input line 176.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 164.
+(Font)              size <5> substituted on input line 176.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 164.
+(Font)              size <5> substituted on input line 176.
 
+
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
+ [5]
+<Figures/Figure_4.jpg, id=224, 2852.6575pt x 2057.6875pt>
+File: Figures/Figure_4.jpg Graphic file (type jpg)
+<use Figures/Figure_4.jpg>
+Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 238.
+(pdftex.def)             Requested size: 426.79134pt x 307.85486pt.
+
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
+ [6]
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
+ [7 <./Figures/Figure_4.jpg>]
+<Figures/Figure_5.jpg, id=248, 64.49292pt x 54.06024pt>
+File: Figures/Figure_5.jpg Graphic file (type jpg)
+<use Figures/Figure_5.jpg>
+Package pdftex.def Info: Figures/Figure_5.jpg  used on input line 277.
+(pdftex.def)             Requested size: 284.52756pt x 238.5892pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [5]
-<Figures/Figure_4.jpg, id=226, 2852.6575pt x 2057.6875pt>
-File: Figures/Figure_4.jpg Graphic file (type jpg)
-<use Figures/Figure_4.jpg>
-Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 233.
-(pdftex.def)             Requested size: 426.79134pt x 307.85486pt.
-
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
- [6]
-<Figures/Figure_5.jpg, id=243, 64.49292pt x 54.06024pt>
-File: Figures/Figure_5.jpg Graphic file (type jpg)
-<use Figures/Figure_5.jpg>
-Package pdftex.def Info: Figures/Figure_5.jpg  used on input line 272.
-(pdftex.def)             Requested size: 284.52756pt x 238.5892pt.
-
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
- [7 <./Figures/Figure_4.jpg>]
-Overfull \hbox (24.3814pt too wide) detected at line 285
+ [8 <./Figures/Figure_5.jpg>]
+Overfull \hbox (24.3814pt too wide) detected at line 290
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 r[];  h[]\OT1/cmr/m/n/12 ) = []
  []
 
-
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
- [8 <./Figures/Figure_5.jpg>]
-LaTeX Font Info:    Calculating math sizes for size <11.5> on input line 312.
-
+LaTeX Font Info:    Calculating math sizes for size <11.5> on input line 317.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 312.
+(Font)              size <12> substituted on input line 317.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <11.5> not available
-(Font)              size <12> substituted on input line 312.
+(Font)              size <12> substituted on input line 317.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 312.
+(Font)              size <12> substituted on input line 317.
 
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 312.
+(Font)              size <12> substituted on input line 317.
 
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8.04996> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 312.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 317.
 
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5.75> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 312.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 317.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 312.
+(hyperref)                removing `math shift' on input line 317.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 312.
+(hyperref)                removing `subscript' on input line 317.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 312.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 347.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 347.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 347.
+(hyperref)                removing `math shift' on input line 317.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
@@ -734,27 +721,15 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
  [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 379.
+(hyperref)                removing `math shift' on input line 352.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 379.
+(hyperref)                removing `subscript' on input line 352.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 379.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 379.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 379.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 379.
+(hyperref)                removing `math shift' on input line 352.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
@@ -762,192 +737,226 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
  [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 403.
+(hyperref)                removing `math shift' on input line 384.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 403.
+(hyperref)                removing `subscript' on input line 384.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 403.
+(hyperref)                removing `math shift' on input line 384.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 422.
+(hyperref)                removing `math shift' on input line 384.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 422.
+(hyperref)                removing `subscript' on input line 384.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 422.
+(hyperref)                removing `math shift' on input line 384.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 438.
+(hyperref)                removing `math shift' on input line 408.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 438.
+(hyperref)                removing `subscript' on input line 408.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 438.
+(hyperref)                removing `math shift' on input line 408.
 
 
-Overfull \hbox (34.57729pt too wide) detected at line 456
-[][] \OT1/cmr/m/n/12 = []
- []
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 427.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 427.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [11]
-Overfull \hbox (7.30063pt too wide) detected at line 474
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 443.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 443.
+
+
+Overfull \hbox (34.57729pt too wide) detected at line 461
+[][] \OT1/cmr/m/n/12 = []
+ []
+
+
+Overfull \hbox (7.30063pt too wide) detected at line 479
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 q[]; q[]\OT1/cmr/m/n/12 ) = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Stefan Boltzmann
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Latent Heat of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Latent Heat of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Gravitational
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Precipitation
- []
-
-
-Underfull \hbox (badness 1173) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) B: []Schmidt et al.[]; U:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Fountain nozzle
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 515--515
-[]|\OT1/ptm/m/n/12 (+20) Fountain water
- []
-
-
-LaTeX Warning: Float too large for page by 9.89783pt on input line 515.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [12]
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Stefan Boltzmann
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Latent Heat of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Latent Heat of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Gravitational
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Precipitation
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) B: []Schmidt et al.[]; U:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Fountain nozzle
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 520--520
+[]|\OT1/ptm/m/n/12 (+20) Fountain water
+ []
+
+
+LaTeX Warning: Float too large for page by 9.89783pt on input line 520.
+
+
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [13]
-Overfull \hbox (110.86493pt too wide) detected at line 570
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
+ [14]
+Overfull \hbox (110.86493pt too wide) detected at line 575
 [] [] \OT1/cmr/m/n/12 = []
  []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [14
+ [15
 
 ]
-<Figures/Figure_6.jpg, id=417, 2447.1425pt x 2445.135pt>
+<Figures/Figure_6.jpg, id=419, 2447.1425pt x 2445.135pt>
 File: Figures/Figure_6.jpg Graphic file (type jpg)
 <use Figures/Figure_6.jpg>
-Package pdftex.def Info: Figures/Figure_6.jpg  used on input line 590.
+Package pdftex.def Info: Figures/Figure_6.jpg  used on input line 595.
 (pdftex.def)             Requested size: 504.0pt x 503.56912pt.
-<Figures/Figure_7.jpg, id=418, 1860.9525pt x 1196.47pt>
+<Figures/Figure_7.jpg, id=420, 1860.9525pt x 1196.47pt>
 File: Figures/Figure_7.jpg Graphic file (type jpg)
 <use Figures/Figure_7.jpg>
-Package pdftex.def Info: Figures/Figure_7.jpg  used on input line 597.
+Package pdftex.def Info: Figures/Figure_7.jpg  used on input line 602.
 (pdftex.def)             Requested size: 426.79134pt x 274.39728pt.
 
-Overfull \hbox (4.92336pt too wide) in paragraph at lines 610--610
+Overfull \hbox (4.92336pt too wide) in paragraph at lines 615--615
 [][] 
  []
 
 
-Overfull \hbox (5.09122pt too wide) in paragraph at lines 611--611
+Overfull \hbox (5.09122pt too wide) in paragraph at lines 616--616
 [][] 
  []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [15]
+ [16]
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [16 <./Figures/Figure_6.jpg>]
+ [17 <./Figures/Figure_6.jpg>]
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [17 <./Figures/Figure_7.jpg>]
-<Figures/Figure_8.jpg, id=445, 411.2163pt x 283.0575pt>
+ [18 <./Figures/Figure_7.jpg>]
+<Figures/Figure_8.jpg, id=447, 411.2163pt x 283.0575pt>
 File: Figures/Figure_8.jpg Graphic file (type jpg)
 <use Figures/Figure_8.jpg>
-Package pdftex.def Info: Figures/Figure_8.jpg  used on input line 663.
+Package pdftex.def Info: Figures/Figure_8.jpg  used on input line 668.
 (pdftex.def)             Requested size: 426.79134pt x 293.79408pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [18 <./Figures/Figure_8.jpg>]
-<Figures/Figure_9.jpg, id=452, 418.2024pt x 313.17pt>
+ [19 <./Figures/Figure_8.jpg>]
+<Figures/Figure_9.jpg, id=455, 418.2024pt x 313.17pt>
 File: Figures/Figure_9.jpg Graphic file (type jpg)
 <use Figures/Figure_9.jpg>
-Package pdftex.def Info: Figures/Figure_9.jpg  used on input line 706.
+Package pdftex.def Info: Figures/Figure_9.jpg  used on input line 711.
 (pdftex.def)             Requested size: 284.52756pt x 213.07224pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [19]
+ [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [20 <./Figures/Figure_9.jpg>]
-<Figures/Figure_10.jpg, id=473, 2723.17375pt x 1827.82875pt>
+ [21 <./Figures/Figure_9.jpg>]
+<Figures/Figure_10.jpg, id=475, 2723.17375pt x 1827.82875pt>
 File: Figures/Figure_10.jpg Graphic file (type jpg)
 <use Figures/Figure_10.jpg>
-Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 772.
+Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 777.
 (pdftex.def)             Requested size: 426.79134pt x 286.46214pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [21 <./Figures/Figure_10.jpg>]
+ [22 <./Figures/Figure_10.jpg>]
 
-LaTeX Warning: Reference `section:rF' on page 22 undefined on input line 794.
+LaTeX Warning: Reference `section:rF' on page 23 undefined on input line 799.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [22] (./air.bbl
+ [23] (./air.bbl
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [23]
+ [24]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [24])
+ [25])
 
 Package caption Warning: Unused \captionsetup[sub] on input line 4.
 See the caption package documentation for explanation.
@@ -955,12 +964,12 @@ See the caption package documentation for explanation.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 868.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 868.
+ [26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 873.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 873.
  (./air.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 868.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 868.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 873.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 873.
 Package rerunfilecheck Info: File `air.out' has not changed.
 (rerunfilecheck)             Checksum: F761F4EDB7FA9153A71B0E13CAAD69BA;1791.
 
@@ -973,18 +982,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13029 strings out of 481239
- 196483 string characters out of 5920378
- 540589 words of memory out of 5000000
+ 13030 strings out of 481239
+ 196490 string characters out of 5920378
+ 538161 words of memory out of 5000000
  27647 multiletter control sequences out of 15000+600000
  581304 words of font info for 242 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  63i,17n,100p,1049b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on air.pdf (25 pages, 4533194 bytes).
+Output written on air.pdf (26 pages, 4534546 bytes).
 PDF statistics:
- 610 PDF objects out of 1000 (max. 8388607)
- 502 compressed objects within 6 object streams
- 132 named destinations out of 1000 (max. 500000)
+ 613 PDF objects out of 1000 (max. 8388607)
+ 504 compressed objects within 6 object streams
+ 133 named destinations out of 1000 (max. 500000)
  35072 words of extra memory for PDF output out of 35830 (max. 10000000)
 
