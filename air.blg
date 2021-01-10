@@ -13,45 +13,45 @@ Warning--empty journal in waterend
 Warning--empty journal in iceheight
 Warning--empty journal in iceends
 Warning--empty journal in waterinput
-You've used 34 entries,
+You've used 36 entries,
             3029 wiz_defined-function locations,
-            827 strings with 12778 characters,
-and the built_in function-call counts, 21395 in all, are:
-= -- 1723
-> -- 1226
-< -- 19
-+ -- 619
-- -- 334
-* -- 1511
-:= -- 3303
-add.period$ -- 69
-call.type$ -- 34
-change.case$ -- 276
-chr.to.int$ -- 35
-cite$ -- 77
-duplicate$ -- 1361
-empty$ -- 1434
-format.name$ -- 413
-if$ -- 4282
+            842 strings with 13032 characters,
+and the built_in function-call counts, 22418 in all, are:
+= -- 1809
+> -- 1246
+< -- 21
++ -- 627
+- -- 340
+* -- 1575
+:= -- 3466
+add.period$ -- 72
+call.type$ -- 36
+change.case$ -- 288
+chr.to.int$ -- 37
+cite$ -- 81
+duplicate$ -- 1437
+empty$ -- 1532
+format.name$ -- 421
+if$ -- 4493
 int.to.chr$ -- 6
 int.to.str$ -- 1
-missing$ -- 320
-newline$ -- 219
-num.names$ -- 136
-pop$ -- 637
+missing$ -- 336
+newline$ -- 230
+num.names$ -- 144
+pop$ -- 658
 preamble$ -- 1
-purify$ -- 247
+purify$ -- 257
 quote$ -- 0
-skip$ -- 893
+skip$ -- 919
 stack$ -- 0
-substring$ -- 721
-swap$ -- 599
+substring$ -- 803
+swap$ -- 631
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 288
+type$ -- 306
 warning$ -- 9
-while$ -- 121
+while$ -- 129
 width$ -- 0
-write$ -- 481
+write$ -- 507
 (There were 9 warnings)

@@ -10,7 +10,8 @@
 \DeclareUnicodeCharacter{2212}{}
 \DeclareUnicodeCharacter{0301}{}
 \usepackage{wasysym} % provides \DH, \dh, \Thorn, \thorn
-% Leave a blank line between paragraphs instead of using \\
+% Leave a blank\usepackage{amsmath}
+%\DeclareMathOperator{\sign}{sign} line between paragraphs instead of using \\
 
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
@@ -151,38 +152,53 @@ Plaffeien AWS data were linearly interpolated to the 5 minute data frequency of 
 
 Due to a power failure, all data from the Schwarzsee AWS was lost between $27^{th}$ February 15:20 to $2^{nd}$ March
 15:00. Consequently, the amount of missing data in the dataset was around 6.7\%.  During heavy snowfall events, the
-ultrasonic wind sensor was blocked and recorded zero values. 
-
-These data gaps and errors were filled with the ERA5 reanalysis dataset. ERA5 dataset is produced at a 1-hourly time
-step. Its horizontal resolution is approximately 30 km and it computes atmospheric variables at 137 pressure levels
-\citep{ERA5_2020}. The ERA5 grid point chosen(Latitude 46.640, Longitude 7.240) for the Schwarzsee site was around 9 km
-away from the actual site. So in order to fit the corresponding variables in the Schwarzee dataset, several
-modifications were necessary. First, the hourly ERA5 data were linearly interpolated to the 5 minute data frequency of
-the Schwarzsee AWS. Then, selected variables of the ERA5 dataset were matched with Schwarzsee variables as follows: 
+ultrasonic wind sensor was blocked and recorded zero values. These data gaps and errors were filled with the ERA5
+reanalysis dataset. ERA5 dataset is produced at a 1-hourly time step. Its horizontal resolution is approximately 30 km
+and it computes atmospheric variables at 137 pressure levels \citep{ERA5_2020}. The ERA5 grid point chosen(Latitude
+46.640, Longitude 7.240) for the Schwarzsee site was around 9 km away from the actual site. So in order to fit the
+corresponding variables in the Schwarzee dataset, several modifications were necessary. First, the hourly ERA5 data
+were linearly interpolated to the 5 minute data frequency of the Schwarzsee AWS. Then, selected variables of the ERA5
+dataset were matched with Schwarzsee variables as follows: 
 
 \begin{itemize} 
-  \item Schwarzsee Air temperature: This variable correlated well() with 2m temperature of ERA5.
-  \item Schwarzsee Air Pressure: This variable correlated well() with surface pressure of ERA5.
-  \item Schwarzsee Wind Speed: This variable correlated well() with 10m wind speed of ERA5.
-  \item Schwarzsee Precipitation: Since no precipitation measurements were made in Schwarzsee, the nearby Plaffein
-    weather station was used for precipitation data instead as shown in \ref{fig:input}
-  \item Schwarzsee Relative Humidity: This variable was derived from the 2m dewpoint temperature and 2m temperature of ERA5 using
-the following equation: 
+  \item Precipitation: Since no precipitation measurements were made in Schwarzsee, the nearby Plaffein
+    weather station was used for precipitation data instead as shown in Fig. \ref{fig:input}.
+  \item Air temperature: This variable correlated well ($r^2=0.73$) with 2m temperature of ERA5. It was further corrected
+    using the following equation:
+    \begin{equation}
+      f_{corr}(x,y) = y + sgn(rmse(x,y)) \cdot rmse(x,y)
+    \end{equation}
+    where $f_{corr}$ was the correction function used, $x$ was the Schwarzsee temperature dataset ($T_{SZ}$), $y$ was
+    the ERA5 temperature dataset ($T_{ERA5}$), $sgn$ is the signum function  and $rmse$ was the root mean square error
+    function defined as: $$rmse(x,y) = \sqrt{(\frac{1}{n})\sum_{i=1}^{n}(y_{i} - x_{i})^{2}}$$
+  \item Global and diffuse radiation: Since this variable was not measured in Schwarzsee, ERA5 surface solar radiation
+    downwards was used as a proxy for global radiation and total sky direct solar radiation was subtracted from it
+    to derive the diffuse radiation shown in Fig. \ref{fig:input}.
+  \item Relative Humidity: Near-surface humidity is not archived directly in ERA datasets, but 
+    from near-surface (2m from the surface) temperature ($T_{ERA5}$) and dew point temperature ($Td_{ERA5}$)
+    one can calculate relative humidity($RH$) at 2m as follows:
+     \begin{equation}
+       RH = 100 \cdot \frac{e_{sat}(Td_{ERA5})}{e_{sat}(T_{ERA5})}
+      \end{equation}
+      where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
+\begin{equation}
+  e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} 
+\end{equation}
+with T in $\degree C$ and the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502
+and $a_4$= 32.19 K) according to \cite{Buck_1981}. This derived variable was poorly correlated ($r^2=0.38$) with the
+Schwarzsee measurements.
+  \item Air Pressure: This variable correlated well ($r^2=0.99$) with surface pressure of ERA5. It was further modified
+    using the correction function $f_{corr}(T_{SZ},T_{ERA5})$.
+  \item Wind Speed: This variable correlated poorly($r^2=0.49$) with 10m wind speed of ERA5. We applied the
+    $f_{corr}(T_{SZ},T_{ERA5})$ function to better fit ERA5 to Schwarzsee. There was another cause of missing wind
+    speed data as the ultrasonic wind sensor recorded zero wind speed values due to snow accumulation on it. So all
+    zero wind speed values were also replaced with the corrected ERA5 data. 
+  \item Cloudiness index: Since this variable was not measured in Schwarzsee, ERA5 total cloud cover was used as a
+proxy instead.
 \end{itemize}
 
-This paper only looks at hourly
-single level data of 2m temperature, 2m dewpoint temperature, surface pressure, surfacesolarradiationdownwards,
-total sky direct solar radiation at surface and total cloud cover.
-
-However, in a
-second step, we further extended the dataset beyond $18^{th}$ March 2019 (Fig.  \ref{fig:input}) to enable the model to
-completely melt the Icestupa.
-
-
-
-ERA5 air temperature was found to be highly correlated ($r^2 = 0.85$)
-but the corresponding wind speed values were poorly correlated ($r^2 = 0.18$). 
- 
+Later, we further extended the Schwarzsee dataset beyond $18^{th}$ March 2019 using this modified ERA5 dataset to
+enable the model to completely melt the Icestupa.
 
 \subsubsection{Field Measurements for validation} \label{section:validation} Estimates of the ice volumes were obtained
 by two manual measurements of the ice structure dimensions. The first corresponds to the end of the freezing period on
