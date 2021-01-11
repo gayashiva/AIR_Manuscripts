@@ -15,37 +15,37 @@ Warning--empty journal in iceends
 Warning--empty journal in waterinput
 You've used 36 entries,
             3029 wiz_defined-function locations,
-            842 strings with 13032 characters,
-and the built_in function-call counts, 22418 in all, are:
-= -- 1809
-> -- 1246
+            842 strings with 13033 characters,
+and the built_in function-call counts, 22493 in all, are:
+= -- 1814
+> -- 1257
 < -- 21
-+ -- 627
-- -- 340
-* -- 1575
-:= -- 3466
++ -- 633
+- -- 343
+* -- 1581
+:= -- 3475
 add.period$ -- 72
 call.type$ -- 36
-change.case$ -- 288
+change.case$ -- 289
 chr.to.int$ -- 37
 cite$ -- 81
-duplicate$ -- 1437
-empty$ -- 1532
-format.name$ -- 421
-if$ -- 4493
+duplicate$ -- 1439
+empty$ -- 1533
+format.name$ -- 424
+if$ -- 4508
 int.to.chr$ -- 6
 int.to.str$ -- 1
-missing$ -- 336
+missing$ -- 337
 newline$ -- 230
 num.names$ -- 144
-pop$ -- 658
+pop$ -- 663
 preamble$ -- 1
-purify$ -- 257
+purify$ -- 258
 quote$ -- 0
-skip$ -- 919
+skip$ -- 923
 stack$ -- 0
 substring$ -- 803
-swap$ -- 631
+swap$ -- 633
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0

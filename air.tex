@@ -4,7 +4,7 @@
 \usepackage[onehalfspacing]{setspace}
 
 \usepackage{tabularx}
-\renewcommand{\arraystretch}{1.5}
+%\renewcommand{\arraystretch}{1.5}
 %\usepackage{rotating}
 \linenumbers
 \DeclareUnicodeCharacter{2212}{}
@@ -73,6 +73,10 @@ rely on the seasonal meltwater for their farming and drinking needs \citep{Hoelz
 Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate
 due to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}. 
 
+\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg}
+\end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3.7 million litres
+of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
+
 Artificial Ice Reservoirs (AIR) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
 10.1659/MRD-JOURNAL-D-18-00072.1}. An artificial ice reservoir is a human-made ice structure typically constructed
 during the cold winter months and designed to slowly release freshwater during the warm and dry spring and summer
@@ -113,9 +117,6 @@ temperatures, only a small Icestupa could be established during winter 2018/19 f
 data. Our model and validation experiments provide first steps towards evaluating the effectiveness of a vertical AIR
 for irrigation and finally we outline some preliminary guidelines for consideration when a construction of an Icestupa
 for water storage is envisaged. 
-\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg}
-\end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3.7 million litres
-of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
 
 \section{Study Site}
 The 'Eispalast' site in the Schwarzsee region lies at 967 $m$ a.s.l. In the winter (Oct-Mar), mean daily maximum and
@@ -134,35 +135,35 @@ construction of the Icestupa.
 \end{tabular} \caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
   $14^{th}$ Feb. (b) The corresponding cross section of the Schwarzsee ice structure with the field estimates of $r, R,
   h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
+
 \subsection{Construction} 
-  From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
-  manually switched on if measured air temperature was below -5 \degree C after sunset and was switched off as soon as
-  the ice was exposed to daylight or temperatures were above 0 \degree C. The water spray of the fountain was initially
-  adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided by
-  adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
-  tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
+From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
+manually switched on if measured air temperature was below -5 $\degree C$ after sunset and was switched off as soon as
+the ice was exposed to daylight or temperatures were above 0 $\degree C$. The water spray of the fountain was initially
+adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided by
+adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
+tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
 
 \subsection{Measurements and Data}
-
-\begin{figure}[htpb] \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS
-  of Schwarzsee (black) were used as main model input data in 5 minute frequency. Plaffeien AWS (blue) provided the
-precipitation data.  Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset
-(orange).} \label{fig:input} \end{figure}
-%\begin{sidewaysfigure}[hbtp] \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at
-%the AWS of Schwarzsee were used as main model input data in 5 minute frequency. Plaffeien AWS provided the
-%precipitation data. Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset.}
-%\label{fig:input} \end{sidewaysfigure}
-
 The Schwarzsee AWS was located at 967 $m$ a.s.l. It was in operation from $30^{th}$  January to $18^{th}$ March 2019.
 Measurements comprise air temperature, relative humidity, water flow, wind speed and direction. All these measurements
 were stored as 5 minute means. Precipitation data was derived from the Plaffeien AWS \citep{meteoswiss} located 8.8 km
 away from the measurement site at an altitude of 1042 $m$ a.s.l.  
 
+%\begin{sidewaysfigure}[hbtp] \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at
+%the AWS of Schwarzsee were used as main model input data in 5 minute frequency. Plaffeien AWS provided the
+%precipitation data. Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset.}
+%\label{fig:input} \end{sidewaysfigure}
 ERA5 reanalysis dataset \citep{era5} was used to obtain the rest of the meteorological parameters namely the global and
 diffuse shortwave radiation and the cloudiness index. ERA5 surface solar radiation downwards parameter was used as a
 proxy for global radiation and total sky direct solar radiation parameter was subtracted from it to derive the diffuse
 radiation.  Total cloud cover parameter of ERA5 represented the cloudiness index.  The hourly ERA5 data and the 10
 minute Plaffeien AWS data were linearly interpolated to the 5 minute data frequency of the Schwarzsee AWS. 
+
+\begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS
+  of Schwarzsee (black) were used as main model input data in 5 minute frequency. Plaffeien AWS (blue) provided the
+precipitation data.  Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset
+(orange).} \label{fig:input} \end{figure}
 
 Due to a power failure, all data from the Schwarzsee AWS was lost between $27^{th}$ February 15:20 to $2^{nd}$ March
 15:00. Consequently, the amount of missing data in the dataset was around 6.7\%.  During heavy snowfall events, the
@@ -200,10 +201,11 @@ Schwarzsee measurements.
     $f_{corr}$ function to better fit ERA5 to Schwarzsee. There was another cause of missing wind
     speed data as the ultrasonic wind sensor recorded zero wind speed values due to snow accumulation on it. So all
     zero wind speed values were also replaced with the corrected ERA5 data. 
-\end{itemize}
+\end{itemize} 
 
-Later, we further extended the Schwarzsee dataset beyond $18^{th}$ March 2019 using this modified ERA5 dataset to
-enable the model to completely melt the Icestupa.
+Through this modified ERA5 dataset, we were also able to further extend the Schwarzsee dataset and allow the model to
+run beyond $18^{th}$ March 2019. Precipitation was filled as null values beyond $18^{th}$ March 2019.
+
 
 \subsubsection{Field Measurements for validation} \label{section:validation} Estimates of the ice volumes were obtained
 by two manual measurements of the ice structure dimensions. The first corresponds to the end of the freezing period on
@@ -238,6 +240,7 @@ current time step.
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
 schematic showing the algorithm used in the model at every time step. Further details about these variables can be
 found in the associated tables and figures.} \label{fig:schema} \end{figure}
+
 \subsection{Icestupa geometric evolution}
 
 Radius $r_{ice}$ and height $h_{ice}$ define the dimensions of the Icestupa assuming its geometry to be a cone as
@@ -404,7 +407,6 @@ is the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karm
 of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and
 scalar).
 
-
 \subsubsection{Fountain water heat flux $q_{F}$ }
 
 The total energy flux is further influenced through the heat flux caused by the water that was additionally added to
@@ -424,9 +426,10 @@ follows:
          
     \end{array} \right.  \label{eqn:qF} \end{equation} with $c_{ice}$ as the specific heat of ice. 
 
-\subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux} The bulk Icestupa heat flux $q_{G}$ corresponds
-to the ground heat flux in normal soils and is caused by the temperature gradient between the surface layer and the
-ice body. It is expressed by using the heat conduction equation as follows:
+\subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux}
+The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in normal soils and is caused by the
+temperature gradient between the surface layer and the ice body. It is expressed by using the heat conduction equation
+as follows:
 
 \begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice})/l_{ice} \label{eqn:qG}    \end{equation}
 
@@ -438,17 +441,17 @@ in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined
 
 Since we assume a conical shape with $r_{ice} > h_{ice}$, $l_{ice}$ cannot be greater than $2r_{ice}$ and also cannot
 be less than $\Delta x$. Therefore, the average distance from any point on the surface to any point inside is $\Delta
-x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$ .
+x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$.
+
 
 \subsubsection{Surface temperature changes and melt energy $q_{melt}$}
-
 The available net energy $q_{net}$ partly increases surface temperature, but also contributes to ice melt at the
 surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
 denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewritten as: \begin{equation} q_{net} =
 q_{melt} + q_{T} \end{equation}
 
-The temperature fluctuates based on 3 scenarios namely, (a) the energy flux is negative but cannot freeze all the
-fountain water output; (b) the energy flux is negative and can freeze all the fountain water output and (c) the
+The temperature fluctuates based on 3 scenarios namely, (1) the energy flux is negative but cannot freeze all the
+fountain water output; (2) the energy flux is negative and can freeze all the fountain water output and (3) the
 fountain is inactive ($\Delta M_{F}=0$). Also, the latent heat always contributes to temperature fluctuations.
 Therefore, we express the rate of change of temperature as follows:
 
@@ -465,17 +468,13 @@ corresponding time step and additional energy contributes to $q_{melt}$. Combini
 
 \begin{equation} (q_{T}, q_{melt}) = \left\{ \begin{array}{ll} ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot
     \frac{\Delta T}{\Delta t}, q_{net}-q_{L}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-    & \textit{ if } T_{ice}^{i+1}\leq 0 \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
+    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
     \cdot \frac{\Delta T}{\Delta t}, q_{net}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-    & \textit{ if } T_{ice}^{i+1}\leq 0 \textit{ and } \Delta M_{F} = 0\\
-        % ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{-T_{ice}^{i-1}}{\Delta t}, q_{net}-q_{L}) & \textit{
-    % if } T_{ice}\leq 0 \textit{ and } (q_{net}-q_{L}) < 0 \textit{ and } \Delta M_{F} < -(q_{net}-q_{L})\cdot A
-    % \cdot \Delta t/L_f  \\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T_{ice}}{\Delta t} , 0) &
-    % \textit{ if } T_{ice}\leq 0 \textit{ and } \Delta M_{F} = 0\\
+    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} = 0\\
         ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}-q_{L}+\rho_{ice} \cdot
-    c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \textit{ and } \Delta
+    c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and } \Delta
     M_{F} > 0\\ ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}+\rho_{ice}
-    \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \textit{ and }
+    \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and }
 \Delta M_{F} = 0\\ \end{array} \right.  \label{eqn:qt} \end{equation}
 
 \begin{table*}[p] \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
@@ -546,7 +545,7 @@ where $\rho_{w}$ is the density of water (1000 $kg\,m^{-3}$), $ppt$ is the measu
 events were identified using $T_{rain}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
 deposition over the entire circular footprint of the Icestupa. 
 
-The latent heat energy is used to estimate either the evaporation and condensation processes or sublimation and
+The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and
 deposition processes. Deposition and sublimation involve phase change between vapour and ice whereas evaporation and
 condensation involve phase change between meltwater and ice. To differentiate between these two possibilities, we
 classify the time steps into humid or non-humid if the corresponding relative humidity value is above or below 60 \%
@@ -556,7 +555,7 @@ steps and latent heat of sublimation ($L_s$) is used for non-humid time steps. W
 the Icestupa surface is calculated as follows:
 
 \begin{equation} (\frac{\Delta M_{vapour}}{\Delta t}, \frac{\Delta M_{dpt}}{\Delta t}) = \left\{ \begin{array}{ll}
-(q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,-q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
+(-q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
 \right.  \label{eqn:vap} \end{equation}
 
 where $ L = \left\{ \begin{array}{ll} L_e & \textit{ if } RH\geq60\\ L_s & \textit{ if } RH<60 \\ \end{array} \right.
@@ -567,8 +566,8 @@ Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap} we a
 melt energy as follows:
 
 \begin{equation} \left.\begin{aligned} (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta M_{dpt} + \Delta M_{vapour}}{\Delta
-    t}, \frac{\Delta M_{melt}}{\Delta t})\\ \textit{ if } RH \leq 60\\ (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta
-  M_{dpt}}{\Delta t}, \frac{\Delta M_{melt}+ \Delta M_{vapour}}{\Delta t})\\ \textit{ if } RH > 60 \end{aligned}
+    t}, \frac{\Delta M_{melt}}{\Delta t})\\ \textit{ if } RH < 60\\ (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta
+  M_{dpt}}{\Delta t}, \frac{\Delta M_{melt}+ \Delta M_{vapour}}{\Delta t})\\ \textit{ if } RH \geq 60 \end{aligned}
 \right\}= \left\{ \begin{array}{ll} \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 1 )& \textit{ if } q_{melt} \geq 0 \\
 \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 0) & \textit{ if } q_{melt} < 0 \textit{ and } \frac{\Delta M_{F}}{\Delta t}
 \geq -q_{melt}\cdot A/L_f  \\ (\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
@@ -730,7 +729,7 @@ solar radiation and fountain droplets. The sensitivity of the model results to t
 to the relatively small volume of the Schwarzsee Icestupa. In summary, more validation measurements on a more
 voluminous Icestupa would have increased confidence on the model results.
 
-\subsection{Important assumptions} \label{section:assumptions} In the sensitivity and uncertainty analysis presented
+\subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
 above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
 Some assumptions and their potential to cause errors are discussed below.
 
