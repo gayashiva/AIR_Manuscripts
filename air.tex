@@ -48,17 +48,16 @@ $^{5}$Academia Engiadina, Samedan, Switzerland}
 Artificial Ice Reservoirs (AIR) have been successful in storing water during winter and releasing the water during
 spring and summer. This has made them a reliable fresh water resource for irrigation in dry environments. Several AIRs
 have been built but studies of their water storage capacity and efficiency are scarce. This study attempts to model a
-cone-shaped AIR popularly called Icestupa . Important processes involved in the development and temporal evolution of
-an Icestupa are calculated by a physically-based model using equations governing the heat transfer, vapour diffusion
-and water transport of a phase changing water mass. These processes were quantified using meteorological data in
+cone-shaped AIR popularly called Icestupa . Important processes involved in the development and temporal evolution of an
+Icestupa are calculated by a physically-based model using equations governing the heat transfer, vapour diffusion and
+transport of water that undergoes phase changes.  These processes were quantified using meteorological data in
 conjunction with fountain spray information (mass input of an Icestupa) to estimate the quantity of frozen, melted,
-evaporated and drained water at a location called 'Eispalast' in the Schwarzsee region in the Canton of Fribourg,
-Switzerland. At this measurement site, an Icestupa was built for model validation purposes. The model was further
-tested by performing sensitivity and uncertainty study showing that the most sensitive parameters are the temperature
-threshold used to determine precipitation phase and the ice emissivity. Model calculations estimate that the
-Schwarzsee Icestupa only stored about 8\% of the total water sprayed as ice. In addition, we found that reducing
-nozzle diameter of the fountain to 3 $mm$ increases the storage efficiency up to 93\% without compromising on the
-storage duration.
+evaporated and drained water at a location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an
+Icestupa was built for model validation purposes. The model was further tested by performing sensitivity and uncertainty
+study showing that the most sensitive parameters are the ice emissivity and the temperature threshold used to determine
+precipitation phase. Model calculations estimate that the Schwarzsee Icestupa stored about 8\% of the total water
+sprayed as ice. In addition, we found that reducing nozzle diameter of the fountain to 3 $mm$ increases the storage
+efficiency up to 93\% without compromising on the storage duration.
 
 \tiny
  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -77,7 +76,7 @@ due to glacial retreat and the corresponding loss of their main fresh water reso
 \end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3.7 million litres
 of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
 
-Artificial Ice Reservoirs (AIR) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
+AIRs have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
 10.1659/MRD-JOURNAL-D-18-00072.1}. An artificial ice reservoir is a human-made ice structure typically constructed
 during the cold winter months and designed to slowly release freshwater during the warm and dry spring and summer
 months. The main purpose of AIR is irrigation. Therefore, AIRs are designed to store water in the form of ice as long
@@ -104,12 +103,12 @@ If AIR are to become a viable water resource management tool, it is crucial to b
 sites, and to identify and minimize water losses. However, to date, no reliable estimates exist about the amount of
 sprayed water that is necessary to create them and the meltwater they provide \citep{Nusser_2018}. Rough estimates of
 Icestupa meltwater in Ladakh suggest that the water loss during the construction process is considerable (see Appendix
-\ref{section:ladakhloss}). A complete set of measurements of the water storage and energy balance are urgently required
+\ref{section:ladakhloss}). A complete set of measurements of the water storage and energy balance are required
 to understand the cause of the water losses better and increase the construction efficiency.
  
 In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
 storage efficiency using existing weather and water usage information. Mass and energy balance equations were used to
-estimate the quantity of water frozen, melted, evaporated and wasted. Sensitivity and uncertainty analysis were
+estimate the quantity of water frozen, melted, evaporated and drained. Sensitivity and uncertainty analysis were
 performed to identify the most critical parameters and the variance caused by them. For validation, we created an
 Icestupa at an accessible site (called Eispalast) near Schwarzsee in the Canton of Fribourg, Switzerland, allowing easy
 maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
@@ -119,10 +118,10 @@ for irrigation and finally we outline some preliminary guidelines for considerat
 for water storage is envisaged. 
 
 \section{Study Site}
-The 'Eispalast' site in the Schwarzsee region lies at 967 $m$ a.s.l. In the winter (Oct-Mar), mean daily maximum and
+The Eispalast site in the Schwarzsee region lies at 967 $m$ a.s.l. In the winter (Oct-Apr), mean daily maximum and
 minimum air temperatures vary between 14 to -4 $\degree C$. Clear skies are rare, averaging around 7 days, and
 precipitation amounts average 155 mm per month during winter \citep{eispalast}. The site was situated adjacent to a
-stream resulting in high humidity values across the study period. Within the 'Eispalast' site, 1.8\,$m$ in radius
+stream resulting in high humidity values across the study period. Within the Eispalast site, 1.8\,$m$ in radius
 enclosure was constructed for the experiment. An automatic weather station (AWS) was set in place adjacent to the
 wooden boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle diameter of 5\,$mm$
 and a height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was transferred from a
@@ -154,73 +153,53 @@ away from the measurement site at an altitude of 1042 $m$ a.s.l.
 %the AWS of Schwarzsee were used as main model input data in 5 minute frequency. Plaffeien AWS provided the
 %precipitation data. Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset.}
 %\label{fig:input} \end{sidewaysfigure}
-ERA5 reanalysis dataset \citep{era5} was used to obtain the rest of the meteorological parameters namely the global and
-diffuse shortwave radiation and the cloudiness index. ERA5 surface solar radiation downwards parameter was used as a
-proxy for global radiation and total sky direct solar radiation parameter was subtracted from it to derive the diffuse
-radiation.  Total cloud cover parameter of ERA5 represented the cloudiness index.  The hourly ERA5 data and the 10
-minute Plaffeien AWS data were linearly interpolated to the 5 minute data frequency of the Schwarzsee AWS. 
+
+ERA5 reanalysis dataset \citep{era5} was used to obtain the rest of the meteorological parameters. It has a horizontal
+resolution of approximately 30 km \citep{ERA5_2020}. Direct and diffuse shortwave radiation were derived from ERA5
+surface solar radiation downwards and total sky direct solar radiation parameter. Total cloud cover parameter of ERA5
+represented the cloudiness index.  The hourly ERA5 data and the 10 minute Plaffeien AWS data were linearly interpolated
+to the 5 minute data frequency of the Schwarzsee AWS. 
 
 \begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS
   of Schwarzsee (black) were used as main model input data in 5 minute frequency. Plaffeien AWS (blue) provided the
 precipitation data.  Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset
 (orange).} \label{fig:input} \end{figure}
 
-Due to a power failure, all data from the Schwarzsee AWS was lost between $27^{th}$ February 15:20 to $2^{nd}$ March
-15:00. Consequently, the amount of missing data in the dataset was around 6.7\%.  During heavy snowfall events, the
-ultrasonic wind sensor was blocked and recorded zero values. These data gaps and errors were filled with the ERA5
-reanalysis dataset. ERA5 dataset is produced at a 1-hourly time step. Its horizontal resolution is approximately 30 km
-and it computes atmospheric variables at 137 pressure levels \citep{ERA5_2020}. The ERA5 grid point chosen(Latitude
-46.640, Longitude 7.240) for the Schwarzsee site was around 9 km away from the actual site. So in order to fit the
-corresponding variables in the Schwarzee dataset, the following modifications on the ERA5 parameters were necessary:
+Due to a power failure, all data from the Schwarzsee AWS was lost between $27^{th}$ February 15:20 2019 to $2^{nd}$
+March 15:00 2019. Consequently, the amount of missing data in the dataset was around 7\%.  During heavy snowfall
+events, the ultrasonic wind sensor was blocked and recorded zero values. To fill such errors and data gaps, we used the
+ERA5 reanalysis dataset as it was better correlated with the associated parameters in Schwarzsee compared to Plaffeien
+dataset. Namely, the 2m temperature parameter correlated ($r^2 = $) with air temperature, surface pressure parameter
+correlated ($r^2 = $) with air pressure and 10m wind speed parameter (derived from horizontal and vertical components)
+correlated ($r^2 = $) with wind speed. Near-surface humidity is not archived directly in ERA datasets, but from
+near-surface (2m from the surface) temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) one can calculate
+relative humidity($RH$) at 2m as follows: \begin{equation} RH = 100 \cdot \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})}
+  \end{equation} where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula
+  \citep{Tetens}: \begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T
+  in $\degree C$ and the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19
+  K) according to \cite{Buck_1981}.  Zero wind speed values were recorded whenever snow accumulated on the ultrasonic
+  wind sensor. So all null values were replaced using the ERA5 dataset. 
 
-\begin{itemize} 
-  \item Air temperature: This variable correlated well ($r^2=0.73$) with 2m temperature of ERA5. It was further corrected
-    using the following equation:
-    \begin{equation}
-      f_{corr}(x,y) = y + sgn(rmse(x,y)) \cdot rmse(x,y)
-    \end{equation}
-    where $f_{corr}$ was the correction function used, $x$ was the Schwarzsee temperature dataset ($T_{SZ}$), $y$ was
-    the ERA5 temperature dataset ($T_{ERA5}$), $sgn$ is the signum function  and $rmse$ was the root mean square error
-    function defined as: $$rmse(x,y) = \sqrt{(\frac{1}{n})\sum_{i=1}^{n}(y_{i} - x_{i})^{2}}$$
-  \item Relative Humidity: Near-surface humidity is not archived directly in ERA datasets, but 
-    from near-surface (2m from the surface) temperature ($T_{ERA5}$) and dew point temperature ($Td_{ERA5}$)
-    one can calculate relative humidity($RH$) at 2m as follows:
-     \begin{equation}
-       RH = 100 \cdot \frac{e_{sat}(Td_{ERA5})}{e_{sat}(T_{ERA5})}
-      \end{equation}
-      where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
-\begin{equation}
-  e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} 
-\end{equation}
-with T in $\degree C$ and the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502
-and $a_4$= 32.19 K) according to \cite{Buck_1981}. This derived variable was poorly correlated ($r^2=0.38$) with the
-Schwarzsee measurements.
-  \item Air Pressure: This variable correlated well ($r^2=0.99$) with surface pressure of ERA5. It was further modified
-    using the correction function $f_{corr}$.
-  \item Wind Speed: This variable correlated poorly ($r^2=0.49$) with 10m wind speed of ERA5. We applied the
-    $f_{corr}$ function to better fit ERA5 to Schwarzsee. There was another cause of missing wind
-    speed data as the ultrasonic wind sensor recorded zero wind speed values due to snow accumulation on it. So all
-    zero wind speed values were also replaced with the corrected ERA5 data. 
-\end{itemize} 
-
+The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the Schwarzsee site was around 9 km
+away from the actual site.  So all the ERA5 variables were fitted with the Schwarzee dataset via linear regressions.
 Through this modified ERA5 dataset, we were also able to further extend the Schwarzsee dataset and allow the model to
 run beyond $18^{th}$ March 2019. Precipitation was filled as null values beyond $18^{th}$ March 2019.
 
 
 \subsubsection{Field Measurements for validation} \label{section:validation} Estimates of the ice volumes were obtained
 by two manual measurements of the ice structure dimensions. The first corresponds to the end of the freezing period on
-$14^{th}$ February 16:00 (only one more fountain run was possible after this date). The second corresponds to the end of
-the melting process on $10^{th}$ March 18:00. The field validations are shown by green lines in Fig.
+$14^{th}$ February 16:00 2019 (only one more fountain run was possible after this date). The second corresponds to the end of
+the melting process on $10^{th}$ March 18:00 2019. The field validations are shown by green lines in Fig.
 \ref{fig:results}.
 
-On $14^{th}$ February the ice volume was calculated using a simplistic cross section of the structure as shown in Fig.
+On $14^{th}$ February 2019 the ice volume was calculated using a simplistic cross section of the structure as shown in Fig.
 \ref{fig:site}. We used the following field estimates of $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the
 different geometry components) to determine the maximum and minimum volumes:
 
 \begin{equation} 0.55\leq r\leq 1 m\textit{ ; }1.1\leq R\leq 1.2 m\textit{ ; }0.1\leq h\leq 0.2 m\textit{ ; }0.6\leq
 H_i\leq 0.8 m\textit{ ; }1.3\leq H_f\leq 1.4 m \end{equation}
 
-The second validation point was considered to be on March $10^{th}$ 18:00.  Based on the webcam imagery and manual
+The second validation point was considered to be on March $10^{th}$ 18:00 2019.  Based on the webcam imagery and manual
 measurement, a thin layer of ice with an observed thickness between 0.01 to 0.06 m could be quantified. This results in
 an ice volume estimate for the first validation date on $14^{th}$ February 2019 to be 0.857 $\pm$ 0.186 $m^{3}$ and for
 the second validation date on $11^{th}$ March 2019 to be 0.13 $\pm$ 0.09 $m^{3}$.
@@ -244,7 +223,7 @@ found in the associated tables and figures.} \label{fig:schema} \end{figure}
 \subsection{Icestupa geometric evolution}
 
 Radius $r_{ice}$ and height $h_{ice}$ define the dimensions of the Icestupa assuming its geometry to be a cone as
-shown in Fig. \ref{fig:shape}. The surface area $A$ and volume $V$ exposed to the atmosphere are:
+shown in Fig. \ref{fig:shape}. The surface area $A$ exposed to the atmosphere and volume $V$ are:
 
 \begin{equation} A = \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
 
@@ -320,9 +299,8 @@ of the Icestupa surface layer and the energy flux $q_{net}$ is assumed to act un
 \subsubsection{Net Shortwave Radiation $q_{SW}$} The net shortwave radiation $q_{SW}$ is computed as follows:
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
 
-where $SW_{direct} = SW_{global} - SW_{diffuse}$ with the measured global and diffuse short wave radiation as
-$SW_{global}$ and $SW_{diffuse}$, the modelled albedo as $\alpha$ and with $f_{cone}$ as the area fraction of the ice
-structure exposed to the direct shortwave radiation.
+where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse short wave radiation, $\alpha$ is the modelled
+albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave radiation.
 
 We model the albedo using a scheme described in \cite{OerlemansKnap_1998}. The scheme records the decay of albedo with
 time after fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last snowfall
@@ -608,7 +586,7 @@ body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance calculat
   
 
 \begin{table} \caption{Summary of calculated mass balance components for the Schwarzsee experiment after the fountain
-    spray was stopped on $15^{th}$ February and at the end of the model run on $1^{st}$ April.} \centering
+    spray was stopped on $15^{th}$ February 2019 and at the end of the model run on $1^{st}$ April.} \centering
     \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
     & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
     \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 439 $kg$ & 463 $kg$\\ & $M_{dpt}$ & 14 $kg$ & 62
@@ -839,7 +817,7 @@ on the results.
 \subsection{Ladakh Icestupa 2014/15} \label{section:ladakhloss} A 20 $m$ tall Icestupa \citep{iceheight} was built in
 Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l. Assuming a conical shape with a diameter of 20 $m$, the
 corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,919,587 litres w.e. The fountain sprayed water at a rate
-of $3.5\, l\,s^{-1}$ \citep{waterinput} from $21^{st}$ January \citep{waterstart} to at least until $5^{th}$ March
+of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$ January \citep{waterstart} to at least until $5^{th}$ March
 2015 \citep{waterend} (around 43 nights). Assuming fountain spray was active for 8 hours each night, we estimate water
 consumption to be around 4,334,400 litres. So just during construction/freezing period of the Icestupa, roughly 56 \%
 of the water provided was wasted. The actual water loss is bound to be much higher due to further vapour losses during
