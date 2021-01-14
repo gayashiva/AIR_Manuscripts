@@ -52,7 +52,7 @@ cone-shaped AIR popularly called Icestupa . Important processes involved in the 
 Icestupa are calculated by a physically-based model using equations governing the heat transfer, vapour diffusion and
 transport of water that undergoes phase changes.  These processes were quantified using meteorological data in
 conjunction with fountain spray information (mass input of an Icestupa) to estimate the quantity of frozen, melted,
-evaporated and drained water at a location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an
+evaporated and runoff water at a location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an
 Icestupa was built for model validation purposes. The model was further tested by performing sensitivity and uncertainty
 study showing that the most sensitive parameters are the ice emissivity and the temperature threshold used to determine
 precipitation phase. Model calculations estimate that the Schwarzsee Icestupa stored about 8\% of the total water
@@ -108,7 +108,7 @@ to understand the cause of the water losses better and increase the construction
  
 In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
 storage efficiency using existing weather and water usage information. Mass and energy balance equations were used to
-estimate the quantity of water frozen, melted, evaporated and drained. Sensitivity and uncertainty analysis were
+estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty analysis were
 performed to identify the most critical parameters and the variance caused by them. For validation, we created an
 Icestupa at an accessible site (called Eispalast) near Schwarzsee in the Canton of Fribourg, Switzerland, allowing easy
 maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
@@ -160,10 +160,10 @@ surface solar radiation downwards and total sky direct solar radiation parameter
 represented the cloudiness index.  The hourly ERA5 data and the 10 minute Plaffeien AWS data were linearly interpolated
 to the 5 minute data frequency of the Schwarzsee AWS. 
 
-\begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS
-  of Schwarzsee (black) were used as main model input data in 5 minute frequency. Plaffeien AWS (blue) provided the
-precipitation data.  Cloudiness and incoming shortwave radiation were obtained from the ERA5 reanalysis dataset
-(orange).} \label{fig:input} \end{figure}
+\begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS of
+    Schwarzsee were used as main model input data in 5 minute frequency. Plaffeien AWS provided the precipitation data.
+    Incoming shortwave and longwave radiation were obtained from ERA5 reanalysis dataset. Several data gaps and errors
+    were also filled from the ERA5 dataset (shaded regions).} \label{fig:input} \end{figure}
 
 Due to a power failure, all data from the Schwarzsee AWS was lost between $27^{th}$ February 15:20 2019 to $2^{nd}$
 March 15:00 2019. Consequently, the amount of missing data in the dataset was around 7\%.  During heavy snowfall
@@ -214,7 +214,7 @@ apply the modelling strategy described below.
 
 The model (implemented in python) consists of three parts calculating a) the geometric evolution of the Icestupa, b)
 the energy balance and c) the mass balance as shown schematically in Fig. \ref{fig:schema}. A bulk energy and mass
-balance model is used to calculate the amounts of ice, liquid water, water vapour and drained water of the Icestupa
+balance model is used to calculate the amounts of ice, liquid water, water vapour and runoff water of the Icestupa
 every 5 minutes. The equations used henceforth display model time step superscript only if it is different from the
 current time step.
 
@@ -285,8 +285,7 @@ where $q_{net}$ is the net energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net sho
 longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
 exchange created due to the additional water and ice boundary present during fountain on time steps. $q_{G}$
 represents ground heat flux between Icestupa surface and Icestupa interior. Energy transferred in the direction of the
-ice surface is always denoted as positive and away as negative. Also, all temperature variables are assigned in units
-of [$\degree C$]. 
+ice surface is always denoted as positive and away as negative.  
 
 Equation \ref{eqn:EF} is usually referred to as the energy budget for “the surface”, but practically it must apply to
 a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the Icestupa surface layer which
@@ -337,32 +336,14 @@ The measured diffuse shortwave radiation is assumed to impact the conical Icestu
 The net longwave radiation $q_{LW}$, for which there were no direct measurements available at Schwarzsee, is
 determined as follows:
 
-\begin{equation} q_{LW}=\sigma \cdot (\epsilon_a \cdot {(T_a+ 273.15)}^4-\epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4)
+\begin{equation} q_{LW}= LW_{in}-\sigma \cdot \epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4
 \label{eqn:LW} \end{equation}
 
 where $T_a$ represents the measured air temperature, $T_{ice}$ is the modelled surface temperature, both temperatures
-are given in [$\degree C$], $\sigma=5.67 \cdot 10^{−8}$ is the Stefan-Boltzmann constant, $\epsilon_a$ denotes the
-atmospheric emissivity and $\epsilon_{ice}$ is the corresponding emissivity value for the Icestupa surface (see Table
-\ref{table:parameters}).
-
-For the calculation of the incoming longwave radiation, we approximate atmospheric emissivity $\epsilon_a$ using the
-equation suggested by \cite{Brutsaert_1982}, considering air temperature and vapor pressure (Eqn.  \ref{eqn:atm_e}).
-The vapor pressures over air and ice was obtained using the following formulation given in \cite{WMO_2018}:
-
-\begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
-3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
-\end{split} \label{eqn:vp} \end{equation}
-
-where $p_{v,a}$ denotes the saturation vapor pressure of air, $p_{v,ice}$ denotes the saturation vapor pressure of ice
-and $p_{a}$ is the measured air pressure in [$hPa$]. The expression defined in \cite{Brutsaert_1975} for clear skies
-(first term in equation \ref{eqn:atm_e}) is extended with the correction for cloudy skies after \cite{Brutsaert_1982}
-as follows:
- 
-\begin{equation} \epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{c}^2) \label{eqn:atm_e}
-\end{equation}
-
-with a cloudiness index $c$, ranging from 0 for clear skies to 1 for complete overcast skies, obtained from the ERA5
-reanalysis data as shown in Fig.  \ref{fig:input}.
+are given in [$\degree C$], $\sigma=5.67 \cdot 10^{−8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant,
+$LW_{in}$
+denotes the incoming longwave radiation derived from the ERA5 dataset and $\epsilon_{ice}$ is the corresponding
+emissivity value for the Icestupa surface (see Table \ref{table:parameters}).
 
 \subsubsection{Turbulent sensible $q_{S}$ and latent $q_{L}$ heat fluxes }
 
@@ -385,8 +366,13 @@ where $h_{AWS}$ is the measurement height above the ground surface of the AWS (i
 pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$
 is the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat
 of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and
-scalar).
+scalar).The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
 
+\begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
+3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
+\end{split} \label{eqn:vp} \end{equation}
+
+where $p_{a}$ is the measured air pressure in [$hPa$]. 
 \subsubsection{Fountain water heat flux $q_{F}$ }
 
 The total energy flux is further influenced through the heat flux caused by the water that was additionally added to
@@ -462,7 +448,6 @@ corresponding time step and additional energy contributes to $q_{melt}$. Combini
 to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
 \%).}
     
-%    \begin{tabular}{*5l}
     \begin{tabularx}{\linewidth}{ X l X l X  } \hline Constant Parameters & Symbol & Value & Range  & References \\
       \hline Van Karman constant & $\kappa$ & 0.4 & n.a.   & B: \citeauthor{CuffeyPaterson_2010}\\ Stefan Boltzmann
       constant & $\sigma$ & $5.67 \cdot 10^{-8} W\, m^{-2}\, K^{-4}$& n.a.   & B: \citeauthor{CuffeyPaterson_2010}\\
@@ -492,26 +477,26 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         % \ref{sec:Bulkflux}\\
         
         \hline Site Parameters& & & & \\ \hline Fountain nozzle diameter & $dia_{F}$ & $5 \,mm$ & $\pm$ 1 $\%$   & B:
-        meas. ; U: assum.\\ Fountain Height & $h_{F}$ & $1.35 \,m$ &  $\pm$ 1 $\%$   & B: meas. ; U: assum.\\ Fountain
-        water temperature & $T_{water}$ & 5 $\,\degree C$ & $[0,9] \,\degree C$   & B: meas. ; U: meas.\\ AWS Height &
+        meas. ; U: assum.\\ Fountain height & $h_{F}$ & $1.35 \,m$ &  $\pm$ 1 $\%$   & B: meas. ; U: assum.\\ Fountain
+        water temperature & $T_{water}$ & 5 $\,\degree C$ & $[0,9] \,\degree C$   & B: meas. ; U: meas.\\ AWS height &
         $h_{AWS}$ & $3 \,m$ & $\pm$ 1 $\%$   & B: meas. ; U: assum.\\
         
         \hline \end{tabularx} \label{table:parameters} \end{table*} \clearpage
 
 
-\begin{equation} M_{F} + M_{ppt} + M_{dpt} = M_{ice} + M_{melt} + M_{vapour} + M_{drained} \label{eqn:M}
+\begin{equation} M_{F} + M_{ppt} + M_{dpt} = M_{ice} + M_{melt} + M_{vapour} + M_{runoff} \label{eqn:M}
 \end{equation}
 
 where $M_{F}$ denotes the cumulative water input; $M_{ppt}$ is the cumulative precipitation and $M_{dpt}$ is the
 cumulative accumulation through water vapour condensation or deposition; $M_{ice}$ is the cumulative mass of ice;
 $M_{melt}$ is the cumulative mass of melt water; $M_{vapour}$ represents the cumulative water vapor loss by
-evaporation or sublimation and $M_{drained}$ is the cumulative water that drains away.
+evaporation or sublimation and $M_{runoff}$ is the cumulative water that drains away.
 
 Equation \ref{eqn:M} can be rewritten using the mass balance change as:
 
 \begin{equation} \begin{split} \frac{\Delta M_{F}}{\Delta t} + \frac{\Delta M_{ppt}}{\Delta t} + \frac{\Delta
 M_{dpt}}{\Delta t} &=  \frac{\Delta M_{ice}}{\Delta t} + \frac{\Delta M_{melt}}{\Delta t} +  \frac{\Delta
-M_{vapour}}{\Delta t} + \frac{\Delta M_{drained}}{\Delta t}\\ \end{split} \label{eqn:mb} \end{equation}
+M_{vapour}}{\Delta t} + \frac{\Delta M_{runoff}}{\Delta t}\\ \end{split} \label{eqn:mb} \end{equation}
 
 where $\Delta M = M^{i} - M^{i-1}$. Here $\frac{\Delta M_{F}}{\Delta t} = d_F$ where $d_F$ is the spray of the
 fountain measured in [$kg\,s^{-1}$].  Precipitation input is calculated as:
@@ -526,8 +511,7 @@ events were identified using $T_{rain}$ as $1 \degree C$. Snow mass input is cal
 deposition over the entire circular footprint of the Icestupa. 
 
 The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and
-deposition processes. Deposition and sublimation involve phase change between vapour and ice whereas evaporation and
-condensation involve phase change between meltwater and ice. To differentiate between these two possibilities, we
+deposition processes.  To differentiate between these two possibilities, we
 classify the time steps into humid or non-humid if the corresponding relative humidity value is above or below 60 \%
 \citep{Stigter_2018}. On humid time steps we assume condensation or evaporation to occur whereas on non-humid time
 steps deposition or sublimation can occur. Correspondingly, latent heat of evaporation ($L_e$) is used for humid time
@@ -553,9 +537,9 @@ melt energy as follows:
 \geq -q_{melt}\cdot A/L_f  \\ (\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
 \frac{\Delta M_{F}}{\Delta t} < -q_{melt}\cdot A/L_f\\ \end{array} \right.  \end{equation}
 
-Now, with all the other terms known in Eqn. \ref{eqn:mb}, the water drained from the Icestupa can be expressed as: 
+Now, with all the other terms known in Eqn. \ref{eqn:mb}, the water runoff from the Icestupa can be expressed as: 
 
-\begin{equation} \frac{\Delta M_{drained}}{\Delta t} = \frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dpt} - \Delta
+\begin{equation} \frac{\Delta M_{runoff}}{\Delta t} = \frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dpt} - \Delta
 M_{ice} -\Delta M_{melt} - \Delta M_{vapour}}{\Delta t} \end{equation}
 
 Considering AIR as water reservoirs, we can quantify their potential through the amount of water they store (storage
@@ -593,7 +577,7 @@ body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance calculat
     & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
     \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 439 $kg$ & 463 $kg$\\ & $M_{dpt}$ & 14 $kg$ & 62
     $kg$ \\ \hline & $M_{melt}$ & 166 $kg$ & 1392 $kg$\\ \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ &
-    1158 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 4 $kg$ & 8 $kg$\\ & $M_{drained}$ & 17184 $kg$ & 17184 $kg$\\
+    1158 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 4 $kg$ & 8 $kg$\\ & $M_{runoff}$ & 17184 $kg$ & 17184 $kg$\\
  
  \hline \end{tabular} \label{table:MB} \end{table}
 
@@ -721,7 +705,7 @@ Some assumptions and their potential to cause errors are discussed below.
 
 \item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
   fountain spray available for freezing. For the Schwarzsee experiment, inclusion of this parameter does not influence
-  results since it is already accounted for in the drained water discharge rate which was at least $3\, l\,min^{-1}$.
+  results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
 
 \item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
   contact if nucleation occurs during flight time. For the Schwarzsee experiment, this process will further increase
@@ -735,7 +719,7 @@ It could be argued that the relatively small Schwarzsee Icestupa cannot be compa
 Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
 this is the only Icestupa dataset available for such a model validation.
 
-Table \ref{table:MB} clearly shows that for our Schwarzsee experiment most of the input water (92 \%) simply drained
+Table \ref{table:MB} clearly shows that for our Schwarzsee experiment most of the input water (92 \%) simply runoff
 away. This high water loss through drainage is due to the fact that the average spray rate of the fountain
 ($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
 ($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 1\, l\,min^{-1}\, \textit{(w.e.)}$ ).
@@ -789,7 +773,7 @@ the 3 $mm$ ice structure. Fig.  \ref{fig:dia_f} shows that a nozzle diameter of 
 $l \,min^{-1} w.e.$) which is large enough to increase the storage efficiency and small enough to not reduce the
 storage duration of the Icestupa significantly.
 
-\section{Conclusions} We outlined a methodology for estimating ice, liquid water, water vapour and drained
+\section{Conclusions} We outlined a methodology for estimating ice, liquid water, water vapour and runoff
 quantities produced during the construction of an Icestupa using m:easurements of fountain spray rate, air temperature,
 radiation, humidity, pressure, wind and cloudiness at the Schwarzsee study site. The comparison with validation
 measurements at two different dates during the experiment led to satisfying results, although a more rigorous model

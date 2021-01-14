@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -29,19 +29,6 @@ Bonales, L.~J., Rodriguez, A.~C., and Sanz, P.~D. (2017).
 \newblock \emph{International Journal of Food Properties} 20, 610--619.
 \newblock \doi{10.1080/10942912.2017.1306551}
 \bibAnnoteFile{Bonales_2017}
-
-\bibitem[{Brutsaert(1975)}]{Brutsaert_1975}
-Brutsaert, W. (1975).
-\newblock On a derivable formula for long-wave radiation from clear skies.
-\newblock \emph{Water Resources Research} 11, 742–744.
-\newblock \doi{10.1029/WR011i005p00742}
-\bibAnnoteFile{Brutsaert_1975}
-
-\bibitem[{Brutsaert(1982)}]{Brutsaert_1982}
-Brutsaert, W. (1982).
-\newblock \emph{Evaporation into the Atmosphere. Theory, History and
-  Application} (Kluwer Academic Publishers)
-\bibAnnoteFile{Brutsaert_1982}
 
 \bibitem[{Buck(1981)}]{Buck_1981}
 Buck, A.~L. (1981).
