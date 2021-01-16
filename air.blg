@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: air.aux
 The style file: frontiersinSCNS_ENG_HUMS.bst
@@ -15,37 +15,37 @@ Warning--empty journal in iceends
 Warning--empty journal in waterinput
 You've used 34 entries,
             3029 wiz_defined-function locations,
-            828 strings with 12744 characters,
-and the built_in function-call counts, 21565 in all, are:
-= -- 1738
-> -- 1237
-< -- 19
-+ -- 625
-- -- 337
-* -- 1522
-:= -- 3321
-add.period$ -- 68
+            827 strings with 11928 characters,
+and the built_in function-call counts, 21075 in all, are:
+= -- 1703
+> -- 1170
+< -- 20
++ -- 587
+- -- 319
+* -- 1481
+:= -- 3260
+add.period$ -- 69
 call.type$ -- 34
-change.case$ -- 278
+change.case$ -- 272
 chr.to.int$ -- 35
 cite$ -- 77
-duplicate$ -- 1369
-empty$ -- 1445
-format.name$ -- 416
-if$ -- 4318
+duplicate$ -- 1355
+empty$ -- 1436
+format.name$ -- 396
+if$ -- 4219
 int.to.chr$ -- 6
 int.to.str$ -- 1
-missing$ -- 321
-newline$ -- 218
+missing$ -- 315
+newline$ -- 219
 num.names$ -- 136
-pop$ -- 639
+pop$ -- 625
 preamble$ -- 1
-purify$ -- 248
+purify$ -- 242
 quote$ -- 0
-skip$ -- 895
+skip$ -- 857
 stack$ -- 0
-substring$ -- 754
-swap$ -- 606
+substring$ -- 743
+swap$ -- 594
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
@@ -53,5 +53,5 @@ type$ -- 291
 warning$ -- 9
 while$ -- 122
 width$ -- 0
-write$ -- 479
+write$ -- 481
 (There were 9 warnings)

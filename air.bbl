@@ -88,15 +88,6 @@ Grossman, D. (2015).
 \newblock As himalayan glaciers melt, two towns face the fallout
 \bibAnnoteFile{zanskar}
 
-\bibitem[{Hersbach et~al.(2020)Hersbach, Bell, Berrisford, Hirahara, Horányi,
-  Muñoz-Sabater et~al.}]{ERA5_2020}
-Hersbach, H., Bell, B., Berrisford, P., Hirahara, S., Horányi, A.,
-  Muñoz-Sabater, J., et~al. (2020).
-\newblock The era5 global reanalysis.
-\newblock \emph{Quarterly Journal of the Royal Meteorological Society} 146,
-  1999--2049
-\bibAnnoteFile{ERA5_2020}
-
 \bibitem[{Hock et~al.(2019)Hock, Rasul, Adler, Cáceres, Gruber, Hirabayashi
   et~al.}]{IPCC_2019}
 Hock, R., Rasul, G., Adler, C., Cáceres, B., Gruber, S., Hirabayashi, Y.,
@@ -170,6 +161,14 @@ Oerlemans, J. and Knap, W.~H. (1998).
 \newblock \emph{Journal of Glaciology} 44, 231--238.
 \newblock \doi{10.3189/S0022143000002574}
 \bibAnnoteFile{OerlemansKnap_1998}
+
+\bibitem[{Scherrer(2020)}]{Scherrer_2020}
+Scherrer, S.~C. (2020).
+\newblock Temperature monitoring in mountain regions using reanalyses: lessons
+  from the alps.
+\newblock \emph{Environmental Research Letters} 15, 044005.
+\newblock \doi{10.1088/1748-9326/ab702d}
+\bibAnnoteFile{Scherrer_2020}
 
 \bibitem[{Schmidt et~al.(2017)Schmidt, Aðalgeirsdóttir, Guðmundsson, Langen,
   Pálsson, Mottram et~al.}]{Schmidt_2017}
