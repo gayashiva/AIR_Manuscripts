@@ -348,20 +348,16 @@ The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with 
 \begin{equation} q_{S}=c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
 (T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
 
-\begin{equation} q_{L} = \left\{ \begin{array}{ll}
-        
-         0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-         v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} & \textit{ if } \Delta M_{F} = 0\\ 0 & \textit{
-       if } \Delta M_{F} > 0 \textit{ where } \Delta M_{F} = M_{F}^{i} - M_{F}^{i-1}
-         
-    \end{array} \right.  \label{eqn:ql} \end{equation}
+\begin{equation} q_{L}=0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
+         v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2}
+\end{equation}
 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
 [$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
 pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$
 is the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat
 of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and
-scalar).The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
+scalar) described in \citep{Garratt_1992}.The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
 
 \begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
 3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
@@ -411,16 +407,17 @@ surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface
 denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewritten as: \begin{equation} q_{net} =
 q_{melt} + q_{T} \end{equation}
 
-The temperature fluctuates based on 3 scenarios namely, (1) the energy flux is negative but cannot freeze all the
-fountain water output; (2) the energy flux is negative and can freeze all the fountain water output and (3) the
-fountain is inactive ($\Delta M_{F}=0$). Also, the latent heat always contributes to temperature fluctuations.
+We define the freezing energy as $q_{freeze} = (q_{net}-q_{L})$. This is because the latent heat always contributes to
+temperature fluctuations. Now, the temperature fluctuates based on 3 scenarios namely, (1) the freezing energy flux is
+negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze all
+the fountain water output; (3) the freezing energy is positive and (4) the fountain is inactive ($\Delta M_{F}=0$).
 Therefore, we express the rate of change of temperature as follows:
 
 \begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
-    (q_{net}-q_{L}) < 0 \textit{ and } \Delta M_{F} \geq -(q_{net}-q_{L})\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
-    \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if } (q_{net}-q_{L}) < 0
-    \textit{ and } \Delta M_{F} < -(q_{net}-q_{L})\cdot A \cdot \Delta t/L_f  \\ q_{net}/ (\rho_{ice}\cdot c_{ice}
-    \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0
+     q_{freeze} < 0 \textit{ and } \Delta M_{F} \geq -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
+    \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if }  q_{freeze}< 0
+    \textit{ and } \Delta M_{F} < -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ q_{net}/ (\rho_{ice}\cdot c_{ice}
+    \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0 \textit{ or }  q_{freeze}> 0
          
     \end{array} \right.  \label{eqn:T} \end{equation}
 
@@ -522,7 +519,7 @@ the Icestupa surface is calculated as follows:
 (-q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
 \right.  \label{eqn:vap} \end{equation}
 
-where $ L = \left\{ \begin{array}{ll} L_e & \textit{ if } RH\geq60\\ L_s & \textit{ if } RH<60 \\ \end{array} \right.
+where $ L = \left\{ \begin{array}{ll} L_s & \textit{ if } RH<60 \\ L_e & \textit{ if } RH\geq60\\  \end{array} \right.
 $
 
 Using the melt energy $q_{melt}$, we estimate the frozen and melted ice mass ($\Delta M_{ice}$, $\Delta M_{melt}$).
@@ -530,12 +527,13 @@ Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap} we a
 melt energy as follows:
 
 \begin{equation} \left.\begin{aligned} (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta M_{dpt} + \Delta M_{vapour}}{\Delta
-    t}, \frac{\Delta M_{melt}}{\Delta t})\\ \textit{ if } RH < 60\\ (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta
-  M_{dpt}}{\Delta t}, \frac{\Delta M_{melt}+ \Delta M_{vapour}}{\Delta t})\\ \textit{ if } RH \geq 60 \end{aligned}
+    t},\\ \frac{\Delta M_{melt}}{\Delta t}) \textit{ if } RH < 60\\ (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta
+  M_{dpt}}{\Delta t}, \\ \frac{\Delta M_{melt}+ \Delta M_{vapour}}{\Delta t}) \textit{ if } RH \geq 60 \end{aligned}
 \right\}= \left\{ \begin{array}{ll} \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 1 )& \textit{ if } q_{melt} \geq 0 \\
 \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 0) & \textit{ if } q_{melt} < 0 \textit{ and } \frac{\Delta M_{F}}{\Delta t}
-\geq -q_{melt}\cdot A/L_f  \\ (\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
-\frac{\Delta M_{F}}{\Delta t} < -q_{melt}\cdot A/L_f\\ \end{array} \right.  \end{equation}
+\geq -\frac{q_{melt} \cdot A }{L_f} \\
+(\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
+\frac{\Delta M_{F}}{\Delta t} < -\frac{q_{melt} \cdot A }{L_f}\\ \end{array} \right.  \end{equation}
 
 Now, with all the other terms known in Eqn. \ref{eqn:M}, the water drainage/runoff can now be determined. 
 
