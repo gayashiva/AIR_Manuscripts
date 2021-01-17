@@ -48,7 +48,7 @@ $^{5}$Academia Engiadina, Samedan, Switzerland}
 Artificial Ice Reservoirs (AIRs) have been successful in storing water during winter and releasing the water during
 spring and summer. This has made them a reliable fresh water resource for irrigation in dry environments. Several AIRs
 have been built but studies of their water storage capacity and efficiency are scarce. This study attempts to model a
-cone-shaped AIR popularly called Icestupa . Important processes involved in the development and temporal evolution of
+cone-shaped AIR popularly called Icestupa. Important processes involved in the development and temporal evolution of
 an Icestupa are calculated by a physically-based model using equations governing the heat transfer, vapour diffusion
 and transport of water that undergoes phase changes.  These processes were quantified using meteorological data in
 conjunction with fountain spray information (mass input of an Icestupa) to estimate the quantity of frozen, melted,
@@ -96,7 +96,7 @@ the ice formation.
 
 Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
 Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to
-other water storage technologies. Compared to other AIRs geometries, Icestupas (Fig.  \ref{fig:cone}) can be built at
+other water storage technologies. Compared to other AIR geometries, Icestupas (Fig.  \ref{fig:cone}) can be built at
 lower altitudes and last much longer into the summer than other types of ice structures \citep{campaign}. However, to
 date, no reliable estimates exist about the amount of sprayed water that is necessary to create them and the meltwater
 they provide \citep{Nusser_2018}. Rough estimates of Icestupa meltwater in Ladakh suggest that the water loss during
@@ -314,17 +314,17 @@ water onto the current ice surface and to the value of fresh snow albedo if a sn
 are assumed if the air temperature is below $T_{rain}=1 \degree C$ \citep{FujitaAgeta_2000}.
 
 The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
-considered. This factor is derived by calculating the area influenced by the vertical and horizontal components of the
-direct solar radiation. For a conical shape, half of the total curved surface is exposed to the vertical component of
-the direct shortwave radiation and the projected triangle of the curved surface is exposed to the horizontal component
-of the direct shortwave radiation. The solar elevation angle $\theta_{sun}$ used is modelled using the parametrisation
-proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
+considered. The direct solar radiation incident on the AIR surface is first decomposed into horizontal and vertical
+components using the solar elevation angle $\theta_{sun}$. For a conical shape, half of the total curved surface is
+exposed to the vertical component of the direct shortwave radiation and the projected triangle of the curved surface is
+exposed to the horizontal component of the direct shortwave radiation. The solar elevation angle $\theta_{sun}$ used is
+modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
 
 \begin{equation} \begin{split} f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
 {r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
 \label{eqn:f_{cone}} \end{equation}
 
-The measured diffuse shortwave radiation is assumed to impact the conical Icestupa  surface uniformly. 
+The measured diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
 
 \subsubsection{Net Longwave Radiation $q_{LW}$}
 
@@ -478,17 +478,17 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         \hline \end{tabularx} \label{table:parameters} \end{table*} \clearpage
 
 \subsection{Mass Balance} 
-
+The mass balance equation is used to derive the water that drains away $M_{runoff}$ as follows:
 %\begin{equation} M_{F} + M_{ppt} + M_{dpt} = M_{ice} + M_{melt} + M_{vapour} + M_{runoff} \label{eqn:M}
 %\end{equation}
 
 \begin{equation} \frac{\Delta M_{runoff}}{\Delta t} = \frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dpt} - \Delta
-M_{ice} -\Delta M_{melt} - \Delta M_{vapour}}{\Delta t} \end{equation}
+M_{ice} -\Delta M_{melt} - \Delta M_{vapour}}{\Delta t} \label{eqn:M} \end{equation}
 where $\Delta M = M^{i} - M^{i-1}$. Here $\frac{\Delta M_{F}}{\Delta t} = d_F$ where $d_F$ is the spray of the
 fountain measured in [$kg\,s^{-1}$]; $M_{ppt}$ is the cumulative precipitation and $M_{dpt}$ is the
 cumulative accumulation through water vapour condensation or deposition; $M_{ice}$ is the cumulative mass of ice;
-$M_{melt}$ is the cumulative mass of melt water; $M_{vapour}$ represents the cumulative water vapor loss by
-evaporation or sublimation and $M_{runoff}$ is the cumulative water that drains away.
+$M_{melt}$ is the cumulative mass of melt water and $M_{vapour}$ represents the cumulative water vapor loss by
+evaporation or sublimation. 
 
 %Equation \ref{eqn:M} can be rewritten using the mass balance change as:
 
@@ -537,7 +537,7 @@ melt energy as follows:
 \geq -q_{melt}\cdot A/L_f  \\ (\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
 \frac{\Delta M_{F}}{\Delta t} < -q_{melt}\cdot A/L_f\\ \end{array} \right.  \end{equation}
 
-Now, with all the other terms known in Eqn. \ref{eqn:mb}, the water runoff from the Icestupa can be expressed as: 
+Now, with all the other terms known in Eqn. \ref{eqn:M}, the water drainage/runoff can now be determined. 
 
 %\begin{equation} \frac{\Delta M_{runoff}}{\Delta t} = \frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dpt} - \Delta
 %M_{ice} -\Delta M_{melt} - \Delta M_{vapour}}{\Delta t} \end{equation}
@@ -717,7 +717,7 @@ Some assumptions and their potential to cause errors are discussed below.
 
 \end{itemize}
 
-\subsection{Swiss  vs Ladakh Icestupa}
+\subsection{Schwarzsee vs Leh Icestupa}
   
 It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
 Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
