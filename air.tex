@@ -271,7 +271,7 @@ otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
 
 \subsection{Energy Balance} \label{section:EB}
 
-The energy balance equation for the Icestupa is formulated as follows:
+The energy balance equation \citep{Hock_2005} for the Icestupa is formulated as follows:
 
 \begin{equation} q_{net} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} \label{eqn:EF} \end{equation}
 
@@ -311,7 +311,7 @@ and its maximal value is set based on observations by \cite{OerlemansKnap_1998} 
 \ref{table:parameters}.  Furthermore, the albedo $\alpha$ varies depending on the water source that formed the current
 Icestupa surface.  Correspondingly, the albedo is reset to the value of bare ice albedo if the fountain is spraying
 water onto the current ice surface and to the value of fresh snow albedo if a snowfall event occurred. Snowfall events
-are assumed if the air temperature is below $T_{rain}=1 \degree C$ \citep{FujitaAgeta_2000}.
+are assumed if the air temperature is below $T_{ppt}=1 \degree C$ \citep{FujitaAgeta_2000}.
 
 The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
 considered. The direct solar radiation incident on the AIR surface is first decomposed into horizontal and vertical
@@ -455,10 +455,11 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
       \citeauthor{CuffeyPaterson_2010}\\ Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B:
       \citeauthor{CuffeyPaterson_2010}\\ Gravitational acceleration & $g$ & 9.81 $m\, s^{-2}$ &    & B:
       \citeauthor{CuffeyPaterson_2010}\\ \hline Uncertain Parameters& & & Range   & \\ \hline Precipitation Temperature
-      threshold & $T_{rain}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},
+      threshold & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},
       \citeauthor{Zhou_2010}\\
         
-        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.\\
+        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U:
+        \citeauthor{HORI2006486}\\
         Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
         
         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
@@ -499,17 +500,17 @@ evaporation or sublimation.
 Precipitation input is calculated as:
 
 \begin{equation} \frac{\Delta M_{ppt}}{\Delta t}  = \left\{ \begin{array}{ll} \pi \cdot {r_{ice}}^2 \cdot
-\rho_{w}\cdot ppt& \textit{ if } T_{a} < T_{rain} \\ 0 & \textit{ if } T_{a} \geq T_{rain} \\ \end{array} \right.
+\rho_{w}\cdot ppt& \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\ \end{array} \right.
     \end{equation}
 
 where $\rho_{w}$ is the density of water (1000 $kg\,m^{-3}$), $ppt$ is the measured precipitation rate in
-[$m\,s^{-1}$] and $T_{rain}$ is the temperature threshold below which precipitation falls as snow. Here, snowfall
-events were identified using $T_{rain}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
+[$m\,s^{-1}$] and $T_{ppt}$ is the temperature threshold below which precipitation falls as snow. Here, snowfall
+events were identified using $T_{ppt}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
 deposition over the entire circular footprint of the Icestupa. 
 
 The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and deposition
 processes.  To differentiate between these two possibilities, we classify the time steps into humid or non-humid if the
-%corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps we assume
+corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps we assume
 condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can occur.
 Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation ($L_s$)
 is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as follows:
@@ -569,8 +570,9 @@ calculation}
   \end{figure}
   
 
-\begin{table} \caption{Summary of calculated mass balance components for the EP experiment after the fountain
-    spray was stopped on $15^{th}$ February 2019 and at the end of the model run on $5^{th}$ April.} \centering
+\begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
+  spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
+except $M_{F}$ were modelled.} \centering
     \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
     & \multicolumn{1}{c|}{Model ends} \\
       \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
@@ -657,14 +659,15 @@ of the simulated outputs.
 
 To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
 m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
-produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{rain}$
+produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$
 are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
 Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
 
-The temperature threshold below which precipitation falls as snow ($T_{rain}$) was found to be the most sensitive
+The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
 parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
-lower $T_{rain}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
-snow-covered) . The variation of $T_{rain}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $1.2 \pm 0.2 m^3$. 
+lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
+snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $1.2 \pm 0.2
+m^3$. 
 
 Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
 volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
@@ -774,6 +777,15 @@ diameter, the ice structure’s average slope increases and so the 5 $mm$ nozzle
 the 3 $mm$ ice structure. Fig.  \ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (3.2
 $l \,min^{-1} w.e.$) which is large enough to increase the storage efficiency and small enough to not reduce the
 storage duration of the Icestupa significantly.
+
+\subsection{Artificial snow production vs Artificial ice reservoirs}
+Both Artificial snow and ice are produced by expelling small liquid water droplets from the snow gun or fountain
+nozzles at high speed \citep{BoundaryConditionsforArtificialSnowProductionintheAustrianAlps}. The crucial factor that
+determines ice or snow production is whether these water droplets remain unfrozen or freeze before reaching the
+ice/snow surface. According to \citep{HARTL2018123}, the production potential of artificial snowmaking is proportional
+to the wet-bulb temperature and the threshold mean daily wet bulb temperature for potential snow making days was $- 2
+\, \degree C$ which corresponds well with the threshold mean daily air temperature for potential ice making days of EP
+site ($- 1 \, \degree C$).
 
 \section{Conclusions} We outlined a methodology for estimating ice, liquid water, water vapour and runoff
 quantities produced during the construction of an Icestupa using m:easurements of fountain spray rate, air temperature,
