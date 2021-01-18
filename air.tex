@@ -507,13 +507,12 @@ where $\rho_{w}$ is the density of water (1000 $kg\,m^{-3}$), $ppt$ is the measu
 events were identified using $T_{rain}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
 deposition over the entire circular footprint of the Icestupa. 
 
-The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and
-deposition processes.  To differentiate between these two possibilities, we
-classify the time steps into humid or non-humid if the corresponding relative humidity value is above or below 60 \%
-\citep{Stigter_2018}. On humid time steps we assume condensation or evaporation to occur whereas on non-humid time
-steps deposition or sublimation can occur. Correspondingly, latent heat of evaporation ($L_e$) is used for humid time
-steps and latent heat of sublimation ($L_s$) is used for non-humid time steps. Water accumulation and vapour loss from
-the Icestupa surface is calculated as follows:
+The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and deposition
+processes.  To differentiate between these two possibilities, we classify the time steps into humid or non-humid if the
+corresponding relative humidity value is above or below $60 \%$ \citep{Stigter_2018}. On humid time steps we assume
+condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can occur.
+Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation ($L_s$)
+is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as follows:
 
 \begin{equation} (\frac{\Delta M_{vapour}}{\Delta t}, \frac{\Delta M_{dpt}}{\Delta t}) = \left\{ \begin{array}{ll}
 (-q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
