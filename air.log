@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.15)  17 JAN 2021 20:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.15)  18 JAN 2021 11:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -616,11 +616,11 @@ Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 131.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [3 <./Figures/Figure_2.jpg>]
-<./Figures/Figure_3.jpg, id=199, 3213.00375pt x 3114.63625pt>
+<./Figures/Figure_3.jpg, id=199, 771.1209pt x 747.0309pt>
 File: ./Figures/Figure_3.jpg Graphic file (type jpg)
 <use ./Figures/Figure_3.jpg>
 Package pdftex.def Info: ./Figures/Figure_3.jpg  used on input line 160.
-(pdftex.def)             Requested size: 504.0pt x 488.56174pt.
+(pdftex.def)             Requested size: 504.0pt x 488.26584pt.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 177.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -849,16 +849,16 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
  [13
 
 ]
-<Figures/Figure_6.jpg, id=403, 3574.35374pt x 4183.63pt>
+<Figures/Figure_6.jpg, id=403, 857.604pt x 1004.3121pt>
 File: Figures/Figure_6.jpg Graphic file (type jpg)
 <use Figures/Figure_6.jpg>
 Package pdftex.def Info: Figures/Figure_6.jpg  used on input line 556.
-(pdftex.def)             Requested size: 504.0pt x 589.85362pt.
-<Figures/Figure_7.jpg, id=404, 3935.70375pt x 2669.975pt>
+(pdftex.def)             Requested size: 504.0pt x 590.20969pt.
+<Figures/Figure_7.jpg, id=404, 944.8098pt x 641.2758pt>
 File: Figures/Figure_7.jpg Graphic file (type jpg)
 <use Figures/Figure_7.jpg>
 Package pdftex.def Info: Figures/Figure_7.jpg  used on input line 564.
-(pdftex.def)             Requested size: 426.79134pt x 289.50189pt.
+(pdftex.def)             Requested size: 426.79134pt x 289.67715pt.
 
 Overfull \hbox (4.92336pt too wide) in paragraph at lines 578--578
 [][] 
@@ -931,14 +931,14 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 <Figures/Figure_10.jpg, id=458, 2723.17375pt x 1827.82875pt>
 File: Figures/Figure_10.jpg Graphic file (type jpg)
 <use Figures/Figure_10.jpg>
-Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 742.
+Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 743.
 (pdftex.def)             Requested size: 426.79134pt x 286.46214pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [20 <./Figures/Figure_10.jpg>]
 
-LaTeX Warning: Reference `section:rF' on page 21 undefined on input line 764.
+LaTeX Warning: Reference `section:rF' on page 21 undefined on input line 765.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
@@ -961,11 +961,11 @@ See the caption package documentation for explanation.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 838.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 838.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 839.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 839.
  (./air.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 838.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 838.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 839.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 839.
 Package rerunfilecheck Info: File `air.out' has not changed.
 (rerunfilecheck)             Checksum: 20922672CF0B0DB3F32EE2A212529937;1850.
 
@@ -980,13 +980,13 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  13121 strings out of 480910
  198520 string characters out of 5910947
- 553467 words of memory out of 5000000
+ 553463 words of memory out of 5000000
  28055 multiletter control sequences out of 15000+600000
  584732 words of font info for 256 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  63i,17n,100p,1049b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on air.pdf (24 pages, 5285221 bytes).
+Output written on air.pdf (24 pages, 5459055 bytes).
 PDF statistics:
  593 PDF objects out of 1000 (max. 8388607)
  487 compressed objects within 5 object streams
