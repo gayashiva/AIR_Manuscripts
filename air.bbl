@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{33}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -180,15 +180,6 @@ Schmidt, L.~S., Aðalgeirsdóttir, G., Guðmundsson, S., Langen, P.~L.,
 \newblock \emph{The Cryosphere} 11, 1665--1684.
 \newblock \doi{10.5194/tc-11-1665-2017}
 \bibAnnoteFile{Schmidt_2017}
-
-\bibitem[{Stigter et~al.(2018)Stigter, Litt, Steiner, Bonekamp, Shea, Bierkens
-  et~al.}]{Stigter_2018}
-Stigter, E.~E., Litt, M., Steiner, J.~F., Bonekamp, P. N.~J., Shea, J.~M.,
-  Bierkens, M. F.~P., et~al. (2018).
-\newblock The importance of snow sublimation on a himalayan glacier.
-\newblock \emph{Frontiers in Earth Science} 6, 108.
-\newblock \doi{10.3389/feart.2018.00108}
-\bibAnnoteFile{Stigter_2018}
 
 \bibitem[{Tetens(1930)}]{Tetens}
 Tetens, O. (1930).
