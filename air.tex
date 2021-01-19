@@ -55,7 +55,7 @@ conjunction with fountain spray information (mass input of an Icestupa) to estim
 evaporated and runoff water at a location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an
 Icestupa was built for model validation purposes. The model was further tested by performing a sensitivity and
 uncertainty study showing that the most sensitive parameters are the ice emissivity and the temperature threshold used
-to determine precipitation phase. Model calculations estimate that the Eispalast Icestupa stored about 8\% of the
+to determine precipitation phase. Model calculations estimate that the Eispalast Icestupa stored about 6\% of the
 total water sprayed as ice. In addition, we found that reducing nozzle diameter of the fountain from 5 $mm$ to 3 $mm$
 increases the storage efficiency up to 93\% without compromising on the storage duration.
 
@@ -456,7 +456,7 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
       threshold & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},
       \citeauthor{Zhou_2010}\\
         
-        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U:
+        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] & B: \citeauthor{CuffeyPaterson_2010}; U:
         \citeauthor{HORI2006486}\\
         Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
         
@@ -545,10 +545,10 @@ the Icestupa.
 calculation}
 
 \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
-  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the black curve
+  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the green curve
   shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
-  to ice albedo can also be observed. The green curve shows how the solar radiation area fraction varied diurnally with
-  variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
+  to ice albedo can also be observed. The orange curve shows how the solar radiation area fraction varied diurnally
+  with variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
   $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
 \label{fig:derived} \end{figure}
   
@@ -726,21 +726,19 @@ optimization possibilities of Icestupa constructions through fountain decisions.
 in storage efficiency (black dots) and storage duration (coloured dots) with changes in fountain nozzle's nozzle
 diameter.  The dot colours represent average freeze rate based on the color bar.} \label{fig:dia_f} \end{figure}
   
-
 Assuming a constant spray for the fountain, we can divide the fountain decisions into fountain state (on/off) and type
 (height and nozzle diameter).  From an energy balance point of view, the fountain should be switched on for all time
 intervals when $q_{net} < 0$. However, in our experiment, the fountain state decision was set based on whether the
 ambient temperature was above or below a critical temperature of $-5 \degree C$. Ambient temperature can serve as an
 indicator of $q_{net}$ as it was correlated ($r^2 = 0.53$).  However, $q_{net}$ was found to be negative already at a
 critical temperature of $-1 \degree C$. Therefore, using air temperature to determine when the fountain should be
-switched on is justified but a higher critical temperature could have been used in the case of the EP
-Icestupa. 
+switched on is justified but a higher critical temperature could have been used in the case of the EP Icestupa. 
 
 The fountain type used can be characterised by the physical structure of the fountain, namely its height and nozzle
 diameter. Maintaining the same spray rate and height, one can optimize the Icestupa development by identifying the
 minimum nozzle diameter that yields the maximum storage efficiency. 
 
-Fig. \ref{fig:dia_f} shows reducing the nozzle diameter to 3 $mm$ increases storage efficiency up to 93 \% without
+Fig. \ref{fig:dia_f} shows reducing the nozzle diameter to 3 $mm$ increases storage efficiency up to 78 \% without
 compromising much on storage duration.  The corresponding storage quantity of the 3 $mm$ nozzle diameter was more than
 20 times higher than the 5 $mm$ fountain used in our experiment. This is because the spray radius $r_F$ of the 3 $mm$
 fountain was much higher at 8.5 $m$ compared to the 1.7 $m$ spray radius of the 5 $mm$ fountain (see Appendix Section
@@ -750,11 +748,11 @@ proportional to the surface area. However, since the freeze rate cannot increase
 min^{-1}$ (except during precipitation or deposition/condensation events), an optimum spray radius or nozzle diameter
 exists, beyond which storage duration suffers due to a disproportionate increase in melt rate compared to the freeze
 rate. So even though 3 $mm$ nozzle diameter had a much higher storage quantity than the 5 $mm$ nozzle, its storage
-duration was around 6 days less than the 5 $mm$ nozzle. One physical cause of this effect is the different shapes of
+duration was around 3 days less than the 5 $mm$ nozzle. One physical cause of this effect is the different shapes of
 both the ice structures. A flat sheet of ice (effectively a cone with a high spray radius) with higher mass might have
 a storage duration shorter than a conical ice structure. As the spray radius decreases with increasing nozzle
 diameter, the ice structure’s average slope increases and so the 5 $mm$ nozzle's ice structure is "more" conical than
-the 3 $mm$ ice structure. Fig.  \ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (3.2
+the 3 $mm$ ice structure. Fig.  \ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (2.4
 $l \,min^{-1} w.e.$) which is large enough to increase the storage efficiency and small enough to not reduce the
 storage duration of the Icestupa significantly.
 
