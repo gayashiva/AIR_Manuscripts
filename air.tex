@@ -216,509 +216,509 @@ current time step.
 schematic showing the algorithm used in the model at every time step. Further details about these variables can be
 found in the associated tables and figures.} \label{fig:schema} \end{figure}
 
-\subsection{Icestupa geometric evolution}
-
-Radius $r_{ice}$ and height $h_{ice}$ define the dimensions of the Icestupa assuming its geometry to be a cone as
-shown in Fig. \ref{fig:shape}. The surface area $A$ exposed to the atmosphere and volume $V$ are:
-
-\begin{equation} A = \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
-
-\begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
-
-With the mass of the Icestupa $M_{ice}$, its current volume can also be expressed as:
-
-\begin{equation} V = M_{ice} / \rho_{ice} \label{eqn:V1} \end{equation}
-
-where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). The model of the Icestupa is initialised with a
-thickness of $\Delta x$ (defined in \ref{section:EB}) and a circular area of radius $r_F$. The constant $r_F$
-represents the mean spray radius of the fountain.  This fountain spray radius is determined by modelling the
-projectile motion of the water droplets. Using mass conservation the droplet speed $v_F$ can be determined from the
-spray rate $d_F$ and the diameter $dia_F$ of the nozzle as follows:
-
-\begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
-
-Afterwards, we assume that the water droplets move with an air friction free projectile motion from the fountain
-nozzle with a height $h_F$ to the ice/ground surface. The resulting spray radius $r_F$ was then determined from the
-projectile motion equation as follows:
-
-\begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
-\cdot g \cdot h_F})}{g} \end{equation}
-
-where $g = 9.8 m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
-
-During subsequent time steps, the dimensions of the Icestupa evolve assuming a uniform ice formation and decay across
-its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ as shown in Fig.  \ref{fig:shape}.
-During these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:
-
-\begin{equation} V = \pi/3 \cdot {r_{ice}}^3 \cdot s_{cone} \label{eqn:V2} \end{equation}
-
-  \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape and
-fountain parameters of the EP Icestupa. $r_{ice}$ is the radius, $h_{ice}$ is the height and $s_{cone}$ is the
-slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the height and $dia_F$ is the nozzle diameter of the
-fountain.} \label{fig:shape} \end{figure}
-  
-However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
-equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$
-can be determined by considering the following rules:
-
-\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, \Delta x) & \textit{ if } i=0\\
-    (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
-    r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \textit{ where } \Delta M_{ice} = M_{ice}^{i-1} -
-    M_{ice}^{i-2}\\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
-otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
-
-\subsection{Energy Balance} \label{section:EB}
-
-The energy balance equation \citep{Hock_2005} for the Icestupa is formulated as follows:
-
-\begin{equation} q_{net} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} \label{eqn:EF} \end{equation}
-
-where $q_{net}$ is the net energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net
-longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
-exchange of the fountain water droplets with the AIR ice surface during fountain on time steps. $q_{G}$
-represents ground heat flux between Icestupa surface and Icestupa interior. Energy transferred in the direction of the
-ice surface is always denoted as positive and away as negative.  
-
-Equation \ref{eqn:EF} is usually referred to as the energy budget for “the surface”, but practically it must apply to
-a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the Icestupa surface layer which
-has an upper and a lower boundary defined by the atmosphere and the ice body of the Icestupa, respectively. The
-parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
-small enough to represent the daily surface temperature variations and (b) $\Delta x$ should be large enough for these
-temperature variations to not reach the bottom of the surface layer.  Therefore, we introduced a 5 $mm$ thick ice
-surface layer, over which the energy balance is calculated. A sensitivity analysis was later performed to understand
-the influence of this factor. Here, we define the surface temperature $T_{ice}$ to be the modelled average temperature
-of the Icestupa surface layer and the energy flux $q_{net}$ is assumed to act uniformly across the Icestupa area $A$.
-
-\subsubsection{Net Shortwave Radiation $q_{SW}$} The net shortwave radiation $q_{SW}$ is computed as follows:
-\begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
-
-where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse short wave radiation, $\alpha$ is the modelled
-albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave radiation.
-
-We model the albedo using a scheme described in \cite{OerlemansKnap_1998}. The scheme records the decay of albedo with
-time after fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last snowfall
-event. After snowfall, albedo changes over a time step, $\delta t$ , as
-
-\begin{equation} \alpha=\alpha_{ice}+(\alpha_{snow}-\alpha_{ice}) \cdot e^{(-\delta t)/\tau} \label{eqn:a}
-\end{equation}
-
-where $\alpha_{ice}$ is the bare ice albedo value (0.35), $\alpha_{snow}$ is the snow ice albedo value (0.85) and
-$\tau$ is a decay rate, which determines how fast the albedo of the ageing snow reaches this value.  The decay rate
-$\tau$ is assumed to have a base value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces
-and its maximal value is set based on observations by \cite{OerlemansKnap_1998} as shown in Table
-\ref{table:parameters}.  Furthermore, the albedo $\alpha$ varies depending on the water source that formed the current
-Icestupa surface.  Correspondingly, the albedo is reset to the value of bare ice albedo if the fountain is spraying
-water onto the current ice surface and to the value of fresh snow albedo if a snowfall event occurred. Snowfall events
-are assumed if the air temperature is below $T_{ppt}=1 \degree C$ \citep{FujitaAgeta_2000}.
-
-The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
-considered. The direct solar radiation incident on the AIR surface is first decomposed into horizontal and vertical
-components using the solar elevation angle $\theta_{sun}$. For a conical shape, half of the total curved surface is
-exposed to the vertical component of the direct shortwave radiation and the projected triangle of the curved surface is
-exposed to the horizontal component of the direct shortwave radiation. The solar elevation angle $\theta_{sun}$ used is
-modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
-
-\begin{equation} \begin{split} f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
-{r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
-\label{eqn:f_{cone}} \end{equation}
-
-The measured diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
-
-\subsubsection{Net Longwave Radiation $q_{LW}$}
-
-The net longwave radiation $q_{LW}$, for which there were no direct measurements available at EP, is
-determined as follows:
-
-\begin{equation} q_{LW}= LW_{in}-\sigma \cdot \epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4
-\label{eqn:LW} \end{equation}
-
-where $T_a$ represents the measured air temperature, $T_{ice}$ is the modelled surface temperature, both temperatures
-are given in [$\degree C$], $\sigma=5.67 \cdot 10^{−8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant,
-$LW_{in}$
-denotes the incoming longwave radiation derived from the ERA5 dataset and $\epsilon_{ice}$ is the corresponding
-emissivity value for the Icestupa surface (see Table \ref{table:parameters}).
-
-\subsubsection{Turbulent sensible $q_{S}$ and latent $q_{L}$ heat fluxes }
-
-The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions proposed by
-\cite{Garratt_1992}:
-
-\begin{equation} q_{S}=c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
-(T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
-
-\begin{equation} q_{L}=0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-         v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2}
-\end{equation}
-
-where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
-[$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
-pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$
-is the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat
-of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and
-scalar) described in \citep{Garratt_1992}.The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
-
-\begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
-3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
-\end{split} \label{eqn:vp} \end{equation}
-
-where $p_{a}$ is the measured air pressure in [$hPa$]. 
-\subsubsection{Fountain water heat flux $q_{F}$ }
-
-The total energy flux is further influenced through the heat flux caused by the water that was additionally added to
-the surface of the Icestupa during the time the fountain was running. We take this interaction between the fountain
-water and the ice surface into account by assuming that the ice surface temperature stays constantly at 0 $\degree C$
-during time steps when the fountain is active. This process can be divided into two simultaneous steps: (a) the water
-temperature $T_{water}$ is cooled to 0 $\degree C$ and (b) the ice surface temperature is warmed to 0 $\degree C$.
-Process (a) transfers hereby the necessary energy for process (b) throughout the fountain runtime. We further assume
-that this process is instantaneous, i.e. the ice temperature is immediately set to 0 $\degree C$ within just one time
-step $\Delta t$ when the fountain is switched on. Thus, the heat flux caused by the fountain water is calculated as
-follows:
-
-\begin{equation} q_{F} = \left\{ \begin{array}{ll}
-        
-         0 & \textit{ if } \Delta M_{F} = 0\\ \frac{ \Delta M_F \cdot c_{water} \cdot T_{water}}{\Delta t \cdot A} +
-         \frac{\rho_{ice} \cdot \Delta x \cdot c_{ice} \cdot T_{ice}}{\Delta t} & \textit{ if } \Delta M_{F} > 0 
-         
-    \end{array} \right.  \label{eqn:qF} \end{equation} with $c_{ice}$ as the specific heat of ice. 
-
-\subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux}
-The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in normal soils and is caused by the
-temperature gradient between the surface layer and the ice body. It is expressed by using the heat conduction equation
-as follows:
-
-\begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice})/l_{ice} \label{eqn:qG}    \end{equation}
-
-where $k_{ice}$ is the thermal conductivity of ice in [$W\, m^{-1}\,K^{-1}$] , $T_{bulk}$ is the mean temperature of
-the ice body within the Icestupa and $l_{ice}$ is the average distance of any point in the surface to any other point
-in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined from Eqn. \ref{eqn:qG} as follows:
-
-\begin{equation} T_{bulk} = T_{bulk}^{i-1} - (q_{G} \cdot A \cdot \Delta t)/(M_{ice} \cdot c_{ice}) \end{equation}
-
-Since we assume a conical shape with $r_{ice} > h_{ice}$, $l_{ice}$ cannot be greater than $2r_{ice}$ and also cannot
-be less than $\Delta x$. Therefore, the average distance from any point on the surface to any point inside is $\Delta
-x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$.
-
-
-\subsubsection{Surface temperature changes and melt energy $q_{melt}$}
-The available net energy $q_{net}$ partly increases surface temperature, but also contributes to ice melt at the
-surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
-denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewritten as: \begin{equation} q_{net} =
-q_{melt} + q_{T} \end{equation}
-
-We define the freezing energy as $q_{freeze} = (q_{net}-q_{L})$. This is because the latent heat always contributes to
-temperature fluctuations. Now, the temperature fluctuates based on 3 scenarios namely, (1) the freezing energy flux is
-negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze all
-the fountain water output; (3) the freezing energy is positive and (4) the fountain is inactive ($\Delta M_{F}=0$).
-Therefore, we express the rate of change of temperature as follows:
-
-\begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
-     q_{freeze} < 0 \textit{ and } \Delta M_{F} \geq -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
-    \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if }  q_{freeze}< 0
-    \textit{ and } \Delta M_{F} < -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ q_{net}/ (\rho_{ice}\cdot c_{ice}
-    \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0 \textit{ or }  q_{freeze}> 0
-         
-    \end{array} \right.  \label{eqn:T} \end{equation}
-
-Whenever the model predicts $T_{ice}^{i+1} > 0 \degree C$, then the surface temperature is set to 0 $\degree C$ in the
-corresponding time step and additional energy contributes to $q_{melt}$. Combining these requirements, we get:
-
-\begin{equation} (q_{T}, q_{melt}) = \left\{ \begin{array}{ll} ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot
-    \frac{\Delta T}{\Delta t}, q_{net}-q_{L}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
-    \cdot \frac{\Delta T}{\Delta t}, q_{net}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} = 0\\
-        ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}-q_{L}+\rho_{ice} \cdot
-    c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and } \Delta
-    M_{F} > 0\\ ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}+\rho_{ice}
-    \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and }
-\Delta M_{F} = 0\\ \end{array} \right.  \label{eqn:qt} \end{equation}
-
-\begin{table*}[p] \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
-  value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
-to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
-\%).}
-    
-    \begin{tabularx}{\linewidth}{ X l X l X  } \hline Constant Parameters & Symbol & Value & & References \\ \hline Van
-      Karman constant & $\kappa$ & 0.4 &  & B: \citeauthor{CuffeyPaterson_2010}\\ Stefan Boltzmann constant & $\sigma$
-                      & $5.67 \cdot 10^{-8} W\, m^{-2}\, K^{-4}$&  & B: \citeauthor{CuffeyPaterson_2010}\\ Air pressure
-      at sea level & $p_{0,a}$ & 1013 $hPa$ &  & B: \citeauthor{MolgHardy_2004}\\ Density of water & $\rho_{w}$ & 1000
-      $kg\, m^{-3}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ Density of ice & $\rho_{ice}$ & 917 $kg\, m^{-3}$ &
-                    & B: \citeauthor{CuffeyPaterson_2010}\\ Density of air & $\rho_{a}$ &  1.29 $kg\, m^{-3}$ &   & B:
-      \citeauthor{MolgHardy_2004}\\ Specific heat of water & $c_{w}$ & 4186 $J\, kg^{-1}\,\degree C^{-1}$ &   & B:
-      \citeauthor{CuffeyPaterson_2010}\\ Specific heat of ice & $c_{ice}$ & 2097 $J\, kg^{-1}\,\degree C^{-1}$ &    &
-      B: \citeauthor{CuffeyPaterson_2010}\\ Specific heat of air & $c_{a}$ & 1010 $J\, kg^{-1}\,\degree C^{-1}$ &   &
-      B: \citeauthor{MolgHardy_2004}\\ Thermal conductivity of ice & $k_{ice}$ & 2.123  $W\, m^{-1}\, K^{-1}$ &  & B:
-      \citeauthor{Bonales_2017} \\ Latent Heat of Sublimation & $L_{s}$ & 2848 $kJ\, kg^{-1}$ &    & B:
-      \citeauthor{CuffeyPaterson_2010}\\ Latent Heat of Evaporation & $L_{e}$ & 2514 $kJ\, kg^{-1}$ &    & B:
-      \citeauthor{CuffeyPaterson_2010}\\ Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B:
-      \citeauthor{CuffeyPaterson_2010}\\ Gravitational acceleration & $g$ & 9.81 $m\, s^{-2}$ &    & B:
-      \citeauthor{CuffeyPaterson_2010}\\ \hline Uncertain Parameters& & & Range   & \\ \hline Precipitation Temperature
-      threshold & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},
-      \citeauthor{Zhou_2010}\\
-        
-        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U:
-        \citeauthor{HORI2006486}\\
-        Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
-        
-        Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
-        Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:
-        \citeauthor{OerlemansKnap_1998}  \\ Ice layer thickness & $\Delta x$ & 5 $\,mm$ & $[1,10]\, mm$   & assum.\\
-        % Ice body and surface distance & $l_{ice}$ & $r_{ice}/2$ & $[\Delta x, r_{ice}]\, mm$   & B + U: Section
+%\subsection{Icestupa geometric evolution}
+%
+%Radius $r_{ice}$ and height $h_{ice}$ define the dimensions of the Icestupa assuming its geometry to be a cone as
+%shown in Fig. \ref{fig:shape}. The surface area $A$ exposed to the atmosphere and volume $V$ are:
+%
+%\begin{equation} A = \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
+%
+%\begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
+%
+%With the mass of the Icestupa $M_{ice}$, its current volume can also be expressed as:
+%
+%\begin{equation} V = M_{ice} / \rho_{ice} \label{eqn:V1} \end{equation}
+%
+%where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). The model of the Icestupa is initialised with a
+%thickness of $\Delta x$ (defined in \ref{section:EB}) and a circular area of radius $r_F$. The constant $r_F$
+%represents the mean spray radius of the fountain.  This fountain spray radius is determined by modelling the
+%projectile motion of the water droplets. Using mass conservation the droplet speed $v_F$ can be determined from the
+%spray rate $d_F$ and the diameter $dia_F$ of the nozzle as follows:
+%
+%\begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
+%
+%Afterwards, we assume that the water droplets move with an air friction free projectile motion from the fountain
+%nozzle with a height $h_F$ to the ice/ground surface. The resulting spray radius $r_F$ was then determined from the
+%projectile motion equation as follows:
+%
+%\begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
+%\cdot g \cdot h_F})}{g} \end{equation}
+%
+%where $g = 9.8 m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
+%
+%During subsequent time steps, the dimensions of the Icestupa evolve assuming a uniform ice formation and decay across
+%its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ as shown in Fig.  \ref{fig:shape}.
+%During these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:
+%
+%\begin{equation} V = \pi/3 \cdot {r_{ice}}^3 \cdot s_{cone} \label{eqn:V2} \end{equation}
+%
+%  \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape and
+%fountain parameters of the EP Icestupa. $r_{ice}$ is the radius, $h_{ice}$ is the height and $s_{cone}$ is the
+%slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the height and $dia_F$ is the nozzle diameter of the
+%fountain.} \label{fig:shape} \end{figure}
+%  
+%However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
+%equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$
+%can be determined by considering the following rules:
+%
+%\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, \Delta x) & \textit{ if } i=0\\
+%    (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
+%    r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \textit{ where } \Delta M_{ice} = M_{ice}^{i-1} -
+%    M_{ice}^{i-2}\\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
+%otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
+%
+%\subsection{Energy Balance} \label{section:EB}
+%
+%The energy balance equation \citep{Hock_2005} for the Icestupa is formulated as follows:
+%
+%\begin{equation} q_{net} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} \label{eqn:EF} \end{equation}
+%
+%where $q_{net}$ is the net energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net
+%longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
+%exchange of the fountain water droplets with the AIR ice surface during fountain on time steps. $q_{G}$
+%represents ground heat flux between Icestupa surface and Icestupa interior. Energy transferred in the direction of the
+%ice surface is always denoted as positive and away as negative.  
+%
+%Equation \ref{eqn:EF} is usually referred to as the energy budget for “the surface”, but practically it must apply to
+%a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the Icestupa surface layer which
+%has an upper and a lower boundary defined by the atmosphere and the ice body of the Icestupa, respectively. The
+%parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
+%small enough to represent the daily surface temperature variations and (b) $\Delta x$ should be large enough for these
+%temperature variations to not reach the bottom of the surface layer.  Therefore, we introduced a 5 $mm$ thick ice
+%surface layer, over which the energy balance is calculated. A sensitivity analysis was later performed to understand
+%the influence of this factor. Here, we define the surface temperature $T_{ice}$ to be the modelled average temperature
+%of the Icestupa surface layer and the energy flux $q_{net}$ is assumed to act uniformly across the Icestupa area $A$.
+%
+%\subsubsection{Net Shortwave Radiation $q_{SW}$} The net shortwave radiation $q_{SW}$ is computed as follows:
+%\begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
+%
+%where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse short wave radiation, $\alpha$ is the modelled
+%albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave radiation.
+%
+%We model the albedo using a scheme described in \cite{OerlemansKnap_1998}. The scheme records the decay of albedo with
+%time after fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last snowfall
+%event. After snowfall, albedo changes over a time step, $\delta t$ , as
+%
+%\begin{equation} \alpha=\alpha_{ice}+(\alpha_{snow}-\alpha_{ice}) \cdot e^{(-\delta t)/\tau} \label{eqn:a}
+%\end{equation}
+%
+%where $\alpha_{ice}$ is the bare ice albedo value (0.35), $\alpha_{snow}$ is the snow ice albedo value (0.85) and
+%$\tau$ is a decay rate, which determines how fast the albedo of the ageing snow reaches this value.  The decay rate
+%$\tau$ is assumed to have a base value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces
+%and its maximal value is set based on observations by \cite{OerlemansKnap_1998} as shown in Table
+%\ref{table:parameters}.  Furthermore, the albedo $\alpha$ varies depending on the water source that formed the current
+%Icestupa surface.  Correspondingly, the albedo is reset to the value of bare ice albedo if the fountain is spraying
+%water onto the current ice surface and to the value of fresh snow albedo if a snowfall event occurred. Snowfall events
+%are assumed if the air temperature is below $T_{ppt}=1 \degree C$ \citep{FujitaAgeta_2000}.
+%
+%The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
+%considered. The direct solar radiation incident on the AIR surface is first decomposed into horizontal and vertical
+%components using the solar elevation angle $\theta_{sun}$. For a conical shape, half of the total curved surface is
+%exposed to the vertical component of the direct shortwave radiation and the projected triangle of the curved surface is
+%exposed to the horizontal component of the direct shortwave radiation. The solar elevation angle $\theta_{sun}$ used is
+%modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
+%
+%\begin{equation} \begin{split} f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
+%{r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
+%\label{eqn:f_{cone}} \end{equation}
+%
+%The measured diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
+%
+%\subsubsection{Net Longwave Radiation $q_{LW}$}
+%
+%The net longwave radiation $q_{LW}$, for which there were no direct measurements available at EP, is
+%determined as follows:
+%
+%\begin{equation} q_{LW}= LW_{in}-\sigma \cdot \epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4
+%\label{eqn:LW} \end{equation}
+%
+%where $T_a$ represents the measured air temperature, $T_{ice}$ is the modelled surface temperature, both temperatures
+%are given in [$\degree C$], $\sigma=5.67 \cdot 10^{−8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant,
+%$LW_{in}$
+%denotes the incoming longwave radiation derived from the ERA5 dataset and $\epsilon_{ice}$ is the corresponding
+%emissivity value for the Icestupa surface (see Table \ref{table:parameters}).
+%
+%\subsubsection{Turbulent sensible $q_{S}$ and latent $q_{L}$ heat fluxes }
+%
+%The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions proposed by
+%\cite{Garratt_1992}:
+%
+%\begin{equation} q_{S}=c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
+%(T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
+%
+%\begin{equation} q_{L}=0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
+%         v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2}
+%\end{equation}
+%
+%where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
+%[$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
+%pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$
+%is the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat
+%of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and
+%scalar) described in \citep{Garratt_1992}.The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
+%
+%\begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
+%3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
+%\end{split} \label{eqn:vp} \end{equation}
+%
+%where $p_{a}$ is the measured air pressure in [$hPa$]. 
+%\subsubsection{Fountain water heat flux $q_{F}$ }
+%
+%The total energy flux is further influenced through the heat flux caused by the water that was additionally added to
+%the surface of the Icestupa during the time the fountain was running. We take this interaction between the fountain
+%water and the ice surface into account by assuming that the ice surface temperature stays constantly at 0 $\degree C$
+%during time steps when the fountain is active. This process can be divided into two simultaneous steps: (a) the water
+%temperature $T_{water}$ is cooled to 0 $\degree C$ and (b) the ice surface temperature is warmed to 0 $\degree C$.
+%Process (a) transfers hereby the necessary energy for process (b) throughout the fountain runtime. We further assume
+%that this process is instantaneous, i.e. the ice temperature is immediately set to 0 $\degree C$ within just one time
+%step $\Delta t$ when the fountain is switched on. Thus, the heat flux caused by the fountain water is calculated as
+%follows:
+%
+%\begin{equation} q_{F} = \left\{ \begin{array}{ll}
+%        
+%         0 & \textit{ if } \Delta M_{F} = 0\\ \frac{ \Delta M_F \cdot c_{water} \cdot T_{water}}{\Delta t \cdot A} +
+%         \frac{\rho_{ice} \cdot \Delta x \cdot c_{ice} \cdot T_{ice}}{\Delta t} & \textit{ if } \Delta M_{F} > 0 
+%         
+%    \end{array} \right.  \label{eqn:qF} \end{equation} with $c_{ice}$ as the specific heat of ice. 
+%
+%\subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux}
+%The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in normal soils and is caused by the
+%temperature gradient between the surface layer and the ice body. It is expressed by using the heat conduction equation
+%as follows:
+%
+%\begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice})/l_{ice} \label{eqn:qG}    \end{equation}
+%
+%where $k_{ice}$ is the thermal conductivity of ice in [$W\, m^{-1}\,K^{-1}$] , $T_{bulk}$ is the mean temperature of
+%the ice body within the Icestupa and $l_{ice}$ is the average distance of any point in the surface to any other point
+%in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined from Eqn. \ref{eqn:qG} as follows:
+%
+%\begin{equation} T_{bulk} = T_{bulk}^{i-1} - (q_{G} \cdot A \cdot \Delta t)/(M_{ice} \cdot c_{ice}) \end{equation}
+%
+%Since we assume a conical shape with $r_{ice} > h_{ice}$, $l_{ice}$ cannot be greater than $2r_{ice}$ and also cannot
+%be less than $\Delta x$. Therefore, the average distance from any point on the surface to any point inside is $\Delta
+%x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$.
+%
+%
+%\subsubsection{Surface temperature changes and melt energy $q_{melt}$}
+%The available net energy $q_{net}$ partly increases surface temperature, but also contributes to ice melt at the
+%surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
+%denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewritten as: \begin{equation} q_{net} =
+%q_{melt} + q_{T} \end{equation}
+%
+%We define the freezing energy as $q_{freeze} = (q_{net}-q_{L})$. This is because the latent heat always contributes to
+%temperature fluctuations. Now, the temperature fluctuates based on 3 scenarios namely, (1) the freezing energy flux is
+%negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze all
+%the fountain water output; (3) the freezing energy is positive and (4) the fountain is inactive ($\Delta M_{F}=0$).
+%Therefore, we express the rate of change of temperature as follows:
+%
+%\begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
+%     q_{freeze} < 0 \textit{ and } \Delta M_{F} \geq -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
+%    \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if }  q_{freeze}< 0
+%    \textit{ and } \Delta M_{F} < -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ q_{net}/ (\rho_{ice}\cdot c_{ice}
+%    \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0 \textit{ or }  q_{freeze}> 0
+%         
+%    \end{array} \right.  \label{eqn:T} \end{equation}
+%
+%Whenever the model predicts $T_{ice}^{i+1} > 0 \degree C$, then the surface temperature is set to 0 $\degree C$ in the
+%corresponding time step and additional energy contributes to $q_{melt}$. Combining these requirements, we get:
+%
+%\begin{equation} (q_{T}, q_{melt}) = \left\{ \begin{array}{ll} ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot
+%    \frac{\Delta T}{\Delta t}, q_{net}-q_{L}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
+%    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
+%    \cdot \frac{\Delta T}{\Delta t}, q_{net}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
+%    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} = 0\\
+%        ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}-q_{L}+\rho_{ice} \cdot
+%    c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and } \Delta
+%    M_{F} > 0\\ ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}+\rho_{ice}
+%    \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and }
+%\Delta M_{F} = 0\\ \end{array} \right.  \label{eqn:qt} \end{equation}
+%
+%\begin{table*}[p] \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
+%  value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
+%to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
+%\%).}
+%    
+%    \begin{tabularx}{\linewidth}{ X l X l X  } \hline Constant Parameters & Symbol & Value & & References \\ \hline Van
+%      Karman constant & $\kappa$ & 0.4 &  & B: \citeauthor{CuffeyPaterson_2010}\\ Stefan Boltzmann constant & $\sigma$
+%                      & $5.67 \cdot 10^{-8} W\, m^{-2}\, K^{-4}$&  & B: \citeauthor{CuffeyPaterson_2010}\\ Air pressure
+%      at sea level & $p_{0,a}$ & 1013 $hPa$ &  & B: \citeauthor{MolgHardy_2004}\\ Density of water & $\rho_{w}$ & 1000
+%      $kg\, m^{-3}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ Density of ice & $\rho_{ice}$ & 917 $kg\, m^{-3}$ &
+%                    & B: \citeauthor{CuffeyPaterson_2010}\\ Density of air & $\rho_{a}$ &  1.29 $kg\, m^{-3}$ &   & B:
+%      \citeauthor{MolgHardy_2004}\\ Specific heat of water & $c_{w}$ & 4186 $J\, kg^{-1}\,\degree C^{-1}$ &   & B:
+%      \citeauthor{CuffeyPaterson_2010}\\ Specific heat of ice & $c_{ice}$ & 2097 $J\, kg^{-1}\,\degree C^{-1}$ &    &
+%      B: \citeauthor{CuffeyPaterson_2010}\\ Specific heat of air & $c_{a}$ & 1010 $J\, kg^{-1}\,\degree C^{-1}$ &   &
+%      B: \citeauthor{MolgHardy_2004}\\ Thermal conductivity of ice & $k_{ice}$ & 2.123  $W\, m^{-1}\, K^{-1}$ &  & B:
+%      \citeauthor{Bonales_2017} \\ Latent Heat of Sublimation & $L_{s}$ & 2848 $kJ\, kg^{-1}$ &    & B:
+%      \citeauthor{CuffeyPaterson_2010}\\ Latent Heat of Evaporation & $L_{e}$ & 2514 $kJ\, kg^{-1}$ &    & B:
+%      \citeauthor{CuffeyPaterson_2010}\\ Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B:
+%      \citeauthor{CuffeyPaterson_2010}\\ Gravitational acceleration & $g$ & 9.81 $m\, s^{-2}$ &    & B:
+%      \citeauthor{CuffeyPaterson_2010}\\ \hline Uncertain Parameters& & & Range   & \\ \hline Precipitation Temperature
+%      threshold & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},
+%      \citeauthor{Zhou_2010}\\
+%        
+%        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] & B: \citeauthor{CuffeyPaterson_2010}; U:
+%        \citeauthor{HORI2006486}\\
+%        Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
+%        
+%        Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
+%        Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:
+%        \citeauthor{OerlemansKnap_1998}  \\ Ice layer thickness & $\Delta x$ & 5 $\,mm$ & $[1,10]\, mm$   & assum.\\
+%        % Ice body and surface distance & $l_{ice}$ & $r_{ice}/2$ & $[\Delta x, r_{ice}]\, mm$   & B + U: Section
         % \ref{sec:Bulkflux}\\
         
-        \hline Site Parameters& & & & \\ \hline Fountain nozzle diameter & $dia_{F}$ & $5 \,mm$ & $\pm$ 1 $\%$   & B:
-        meas. ; U: assum.\\ Fountain height & $h_{F}$ & $1.35 \,m$ &  $\pm$ 1 $\%$   & B: meas. ; U: assum.\\ Fountain
-        water temperature & $T_{water}$ & 5 $\,\degree C$ & $[0,9] \,\degree C$   & B: meas. ; U: meas.\\ AWS height &
-        $h_{AWS}$ & $3 \,m$ & $\pm$ 1 $\%$   & B: meas. ; U: assum.\\
-        
-        \hline \end{tabularx} \label{table:parameters} \end{table*} \clearpage
-
-\subsection{Mass Balance} 
-The mass balance equation is used to derive the water that drains away $M_{runoff}$ as follows:
-
-\begin{equation} \frac{\Delta M_{runoff}}{\Delta t} = \frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dpt} - \Delta
-M_{ice} -\Delta M_{melt} - \Delta M_{vapour}}{\Delta t} \label{eqn:M} \end{equation}
-where $\Delta M = M^{i} - M^{i-1}$. Here $\frac{\Delta M_{F}}{\Delta t} = d_F$ where $d_F$ is the spray of the
-fountain measured in [$kg\,s^{-1}$]; $M_{ppt}$ is the cumulative precipitation and $M_{dpt}$ is the
-cumulative accumulation through water vapour condensation or deposition; $M_{ice}$ is the cumulative mass of ice;
-$M_{melt}$ is the cumulative mass of melt water and $M_{vapour}$ represents the cumulative water vapor loss by
-evaporation or sublimation. 
-
-Precipitation input is calculated as:
-
-\begin{equation} \frac{\Delta M_{ppt}}{\Delta t}  = \left\{ \begin{array}{ll} \pi \cdot {r_{ice}}^2 \cdot
-\rho_{w}\cdot ppt& \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\ \end{array} \right.
-    \end{equation}
-
-where $\rho_{w}$ is the density of water (1000 $kg\,m^{-3}$), $ppt$ is the measured precipitation rate in
-[$m\,s^{-1}$] and $T_{ppt}$ is the temperature threshold below which precipitation falls as snow. Here, snowfall
-events were identified using $T_{ppt}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
-deposition over the entire circular footprint of the Icestupa. 
-
-The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and deposition
-processes.  To differentiate between these two possibilities, we classify the time steps into humid or non-humid if the
-corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps we assume
-condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can occur.
-Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation ($L_s$)
-is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as follows:
-
-\begin{equation} (\frac{\Delta M_{vapour}}{\Delta t}, \frac{\Delta M_{dpt}}{\Delta t}) = \left\{ \begin{array}{ll}
-(-q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
-\right.  \label{eqn:vap} \end{equation}
-
-where $ L = \left\{ \begin{array}{ll} L_s & \textit{ if } RH<60 \\ L_e & \textit{ if } RH\geq60\\  \end{array} \right.
-$
-
-Using the melt energy $q_{melt}$, we estimate the frozen and melted ice mass ($\Delta M_{ice}$, $\Delta M_{melt}$).
-Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap} we are left with the contribution from the
-melt energy as follows:
-
-\begin{equation} \left.\begin{aligned} (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta M_{dpt} + \Delta M_{vapour}}{\Delta
-    t},\\ \frac{\Delta M_{melt}}{\Delta t}) \textit{ if } RH < 60\\ (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta
-  M_{dpt}}{\Delta t}, \\ \frac{\Delta M_{melt}+ \Delta M_{vapour}}{\Delta t}) \textit{ if } RH \geq 60 \end{aligned}
-\right\}= \left\{ \begin{array}{ll} \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 1 )& \textit{ if } q_{melt} \geq 0 \\
-\frac{q_{melt} \cdot A }{L_f} \cdot (-1, 0) & \textit{ if } q_{melt} < 0 \textit{ and } \frac{\Delta M_{F}}{\Delta t}
-\geq -\frac{q_{melt} \cdot A }{L_f} \\
-(\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
-\frac{\Delta M_{F}}{\Delta t} < -\frac{q_{melt} \cdot A }{L_f}\\ \end{array} \right.  \end{equation}
-
-Now, with all the other terms known in Eqn. \ref{eqn:M}, the water drainage/runoff can now be determined. 
-
-Considering AIRs as water reservoirs, we can quantify their potential through the amount of water they store (storage
-quantity) and the length of time they store it (storage duration). Another means of comparing different Icestupas is
-through their water storage efficiency defined accordingly as:
-
-\begin{equation} \textit{Storage Efficiency} = \frac{M_{melt}}{(M_F+M_{ppt}+M_{dpt})} \cdot 100 \end{equation}
-
-
-
-\section{Model Results} 
-The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
-\ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
-the Icestupa.
-
-\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Figure_6.jpg} \end{center}
-\caption{(a)Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
-  the Icestupa in daily time steps.  $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation;
-  $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
-  ice-water boundary during fountain on time steps.  $q_{G}$ quantifies the heat conduction process between the
-  Icestupa surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
-calculation}
-
-\begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
-  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the black curve
-  shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
-  to ice albedo can also be observed. The blue curve shows how the solar radiation area fraction varied diurnally with
-  variations in the solar elevation angle. In (b), the surface temperature (black curve) was forced to be 0 $\degree C$
-  during fountain activity. The corresponding bulk temperature is shown with the blue curve.} \label{fig:derived}
-  \end{figure}
-  
-
-\begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
-  spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
-except $M_{F}$ were modelled.} \centering
-    \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
-    & \multicolumn{1}{c|}{Model ends} \\
-      \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
-    \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 467 $kg$\\
-                                                    & $M_{dpt}$ & 7 $kg$ & 33
-    $kg$ \\ \hline & $M_{melt}$ & 165 $kg$ & 1023 $kg$\\
-    \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ &
-    814 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 3 $kg$ & 8 $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
- 
- \hline \end{tabular} \label{table:MB} \end{table}
-
-
-Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (a). On average during the
-experiment duration, the total energy flux between the atmosphere and the Icestupa are almost balanced. Net shortwave
-radiation (28 $Wm^{-2}$), sensible (17 $Wm^{-2}$) and latent heat flux (9 $Wm^{-2}$) with a mostly positive flux
-towards the surface of the icestupa are compensated by the net longwave radiation (- 36 $Wm^{-2}$) and the melt energy
-(-19 $Wm^{-2}$). The contribution of other fluxes are negligible in comparison.
-
-Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
-controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
-the energy balance (Fig. \ref{fig:derived} (a)). Although global radiation flux reached a daily maximum value of 304
-$Wm^{-2}$, $q_{SW}$ only went up to 68 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct
-solar radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived}
-(a).  Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more
-frequent snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
-
-$q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
-structure. The incoming longwave radiation was strongly dependent on atmospheric emissivity which had a mean value of
-0.77. Atmospheric emissivity in turn depended on the cloudiness factor. Daily values of $q_{LW}$ ranged from -95 to 7
-$Wm^{-2}$.  $q_{LW}$ and $q_{S}$ were both proportional to the temperature gradient between the air and the Icestupa
-surface. Turbulent sensible heat flux $q_{S}$ contributed mostly to the melt of the ice structure. Daily values of
-$q_{S}$ ranged from -16 to 59 $Wm^{-2}$. Turbulent latent heat flux $q_{L}$ was predominantly positive suggesting that
-it favoured deposition/condensation over evaporation/sublimation. Daily values of $q_{L}$ ranged from -4 to 47
-$Wm^{-2}$. Therefore, the Icestupa gained mass cumulatively from the atmosphere due to the deposition/condensation
-process. Fountain water heat flux $q_{F}$ had a mean of zero as it was only nonzero during 1002 time steps or around
-100 hours. Daily values of $q_{F}$ ranged from 0 to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$
-was minimal as it only varied between -7 to 7 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface
-temperature changes ($q_{T}$) was insignificant in comparison to the energy spent on freezing and melting
-($q_{melt}$).  The resulting bulk temperature and the surface temperature are shown in Fig. \ref{fig:derived} (b).
-For the total considered period, $q_{LW}$ accounted for 28.3\% of overall energy turnover. The energy turnover is
-calculated as the sum of energy fluxes in absolute values. $q_{SW}$ accounted for 21.7\%, followed by $q_{melt}$
-(25.4\%), $q_{S}$ (14.6\%), $q_{L}$ (7.5\%), $q_{G}$ (1.8\%), $q_{F}$ (0.3\%) and $q_{T}$ (0.3\%).
-
-Fig. \ref{fig:EB} (b) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
-the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
-deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
-shows a strong correlation with net energy flux ($r^2 = 0.44$) but poor correlation with Icestupa surface area ($r^2 =
-0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{net}$ as illustrated in Fig.
-\ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_F$, the surface area maintains a maximum
-initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
-resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
-
-The total water used for the Icestupa development includes contributions from the fountain (97.2\%), snowfall (2.5 \%)
-and deposition/condensation (0.3 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
-measurement period was 1158 $kg$, which occurred after the last fountain run on Feb $16^{th}$ in the morning.
-Therefore, in the case of EP we used a water input of 18,584 $kg$, with a resultant storage efficiency of only
-7.5 \%.
-
-  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
-  volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and
-second validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most
-sensitive parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
-\label{fig:results} \end{figure}
-  
-\section{Model Sensitivity and Uncertainty analysis}
-
-The icestupa model can be regarded as a function $f(x_1,x_2 \dots, x_n) = (y_1,y_2 \dots, y_m)$, where $(x_1,x_2
-\dots, x_n)$ are the model parameters and $(y_1,y_2 \dots, y_m)$ are the model outputs. The influence of each
-parameter on the output variables of interest were quantified and the most important physical parameters for the
-subsequent uncertainty analysis were determined. The sensitivity of a parameter $x_j$ is determined by keeping all
-other parameters $x_i, i \neq j$ fixed at their baseline value and varying $x_j$ within values that are physically
-plausible.
-
-A sensitivity study on the parameters (listed in Table \ref{table:parameters}) was performed with the maximum ice
-volume as the target variable. All the parameters were assumed to be independent of each other with a uniform
-distribution.  This assumption ignores the auto-correlation present among the parameters associated with the albedo
-parameterisation.  The range of uncertain parameters were set based on available literature values or varied $\pm$ 5\%
-from the base value if no such reference was available. The uncertainty of all the site parameters were caused due to
-parallax errors during manual measurement. This was quantified with a range of $\pm$ 1\% from the base value. However,
-it must be kept in mind that, even though intended to be as objective as possible, the selection of a parameter range
-has a subjective part that influences the results and conclusions obtained in this analysis.  The variation of the
-model outputs $y_k$ is evaluated to quantify the local sensitivities $s_{j,k}$ that are defined here as the 95\% range
-of the simulated outputs.
-
-To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
-m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
-produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$
-are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
-Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
-
-The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
-parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
-lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
-snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $1.2 \pm 0.2
-m^3$. 
-
-Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
-volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
-maximum ice volume range from $1.3 \pm 0.1 m^3$. 
-
-In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
-
-\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_9.jpg} \end{center}
-\caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
-\ref{table:parameters}).  Outliers in the bar plot are shown as 'o'.} \label{fig:sensitivity} \end{figure}
-\section{Discussion}
-
-\subsection{Model validation quality}
-
-We first evaluate the model against the validation measurements at the EP site. The uncalibrated model is able
-to capture both the freezing and the melting process sufficiently well as the modelled ice volume lies within the
-uncertainty of both validation measurements. Furthermore, the validation measurements fit well within the estimated
-model uncertainty.  However, since this validation is based on only two points, it does limit the confidence in the
-model results. Moreover, the model seems to overestimate the ice volume at both validation points. This could be due
-to the underestimation of the surface area which underestimates the melt rates (absolute growth rate when
-$\frac{\Delta M_{F}}{\Delta t} < 0$) and the freeze rates(absolute growth rate when $\frac{\Delta M_{F}}{\Delta t} >
-0$). However, as the fountain was mostly inactive during the study period, the underestimation of surface area
-disproportionately undervalues the melt rates over the freeze rates. One major cause of this underestimation was the
-conical shape assumption, as in reality, the Icestupa shape ranged between a cone and a cylinder (Fig.
-\ref{fig:site}).  Another cause was the surface irregularities that were observed due to uneven exposure to direct
-solar radiation and fountain droplets. The sensitivity of the model results to these errors was further amplified due
-to the relatively small volume of the EP Icestupa. In summary, more validation measurements on a more
-voluminous Icestupa would have increased confidence on the model results.
-
-\subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
-above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
-Some assumptions and their potential to cause errors are discussed below.
-
-\begin{itemize}
-
-\item  Turbulent Sensible and Latent Heat Fluxes: The method used to calculate the turbulent heat fluxes by
-  \cite{Garratt_1992} assumes that the turbulent heat fluxes are acting over a uniform planar surface to determine the
-  roughness length. Since our application is on a conical surface, the distance to the ice surface is not
-  uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
-
-\item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
-  fountain spray available for freezing. For the EP experiment, inclusion of this parameter does not influence
-  results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
-
-\item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
-  contact if nucleation occurs during flight time. For the EP experiment, this process will further increase
-  the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
-
-\end{itemize}
-
-\subsection{Schwarzsee vs Leh Icestupa}
-  
-It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
-Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
-this is the only Icestupa dataset available for such a model validation.
-
-Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (92 \%) simply runoff
-away. This high water loss through drainage is due to the fact that the average spray rate of the fountain
-($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
-($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 1\, l\,min^{-1}\, \textit{(w.e.)}$ ).
-
-In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to −27.9 $\degree
-C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just -11.6 $\degree C$ during the
-study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the EP
-site compared to the 43 nights of fountain operation possible in Ladakh (see Appendix \ref{section:ladakhloss}). Thus,
-the Icestupa growth rate is expected to be much higher in Ladakh. However, water spray rates in Ladakh are also much
-higher (around 210 $l\,min^{-1}$). So the water losses in Ladakh could also be caused due to excessive fountain spray.
+%        \hline Site Parameters& & & & \\ \hline Fountain nozzle diameter & $dia_{F}$ & $5 \,mm$ & $\pm$ 1 $\%$   & B:
+%        meas. ; U: assum.\\ Fountain height & $h_{F}$ & $1.35 \,m$ &  $\pm$ 1 $\%$   & B: meas. ; U: assum.\\ Fountain
+%        water temperature & $T_{water}$ & 5 $\,\degree C$ & $[0,9] \,\degree C$   & B: meas. ; U: meas.\\ AWS height &
+%        $h_{AWS}$ & $3 \,m$ & $\pm$ 1 $\%$   & B: meas. ; U: assum.\\
+%        
+%        \hline \end{tabularx} \label{table:parameters} \end{table*} \clearpage
+%
+%\subsection{Mass Balance} 
+%The mass balance equation is used to derive the water that drains away $M_{runoff}$ as follows:
+%
+%\begin{equation} \frac{\Delta M_{runoff}}{\Delta t} = \frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dpt} - \Delta
+%M_{ice} -\Delta M_{melt} - \Delta M_{vapour}}{\Delta t} \label{eqn:M} \end{equation}
+%where $\Delta M = M^{i} - M^{i-1}$. Here $\frac{\Delta M_{F}}{\Delta t} = d_F$ where $d_F$ is the spray of the
+%fountain measured in [$kg\,s^{-1}$]; $M_{ppt}$ is the cumulative precipitation and $M_{dpt}$ is the
+%cumulative accumulation through water vapour condensation or deposition; $M_{ice}$ is the cumulative mass of ice;
+%$M_{melt}$ is the cumulative mass of melt water and $M_{vapour}$ represents the cumulative water vapor loss by
+%evaporation or sublimation. 
+%
+%Precipitation input is calculated as:
+%
+%\begin{equation} \frac{\Delta M_{ppt}}{\Delta t}  = \left\{ \begin{array}{ll} \pi \cdot {r_{ice}}^2 \cdot
+%\rho_{w}\cdot ppt& \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\ \end{array} \right.
+%    \end{equation}
+%
+%where $\rho_{w}$ is the density of water (1000 $kg\,m^{-3}$), $ppt$ is the measured precipitation rate in
+%[$m\,s^{-1}$] and $T_{ppt}$ is the temperature threshold below which precipitation falls as snow. Here, snowfall
+%events were identified using $T_{ppt}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
+%deposition over the entire circular footprint of the Icestupa. 
+%
+%The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and deposition
+%processes.  To differentiate between these two possibilities, we classify the time steps into humid or non-humid if the
+%corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps we assume
+%condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can occur.
+%Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation ($L_s$)
+%is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as follows:
+%
+%\begin{equation} (\frac{\Delta M_{vapour}}{\Delta t}, \frac{\Delta M_{dpt}}{\Delta t}) = \left\{ \begin{array}{ll}
+%(-q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
+%\right.  \label{eqn:vap} \end{equation}
+%
+%where $ L = \left\{ \begin{array}{ll} L_s & \textit{ if } RH<60 \\ L_e & \textit{ if } RH\geq60\\  \end{array} \right.
+%$
+%
+%Using the melt energy $q_{melt}$, we estimate the frozen and melted ice mass ($\Delta M_{ice}$, $\Delta M_{melt}$).
+%Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap} we are left with the contribution from the
+%melt energy as follows:
+%
+%\begin{equation} \left.\begin{aligned} (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta M_{dpt} + \Delta M_{vapour}}{\Delta
+%    t},\\ \frac{\Delta M_{melt}}{\Delta t}) \textit{ if } RH < 60\\ (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta
+%  M_{dpt}}{\Delta t}, \\ \frac{\Delta M_{melt}+ \Delta M_{vapour}}{\Delta t}) \textit{ if } RH \geq 60 \end{aligned}
+%\right\}= \left\{ \begin{array}{ll} \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 1 )& \textit{ if } q_{melt} \geq 0 \\
+%\frac{q_{melt} \cdot A }{L_f} \cdot (-1, 0) & \textit{ if } q_{melt} < 0 \textit{ and } \frac{\Delta M_{F}}{\Delta t}
+%\geq -\frac{q_{melt} \cdot A }{L_f} \\
+%(\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
+%\frac{\Delta M_{F}}{\Delta t} < -\frac{q_{melt} \cdot A }{L_f}\\ \end{array} \right.  \end{equation}
+%
+%Now, with all the other terms known in Eqn. \ref{eqn:M}, the water drainage/runoff can now be determined. 
+%
+%Considering AIRs as water reservoirs, we can quantify their potential through the amount of water they store (storage
+%quantity) and the length of time they store it (storage duration). Another means of comparing different Icestupas is
+%through their water storage efficiency defined accordingly as:
+%
+%\begin{equation} \textit{Storage Efficiency} = \frac{M_{melt}}{(M_F+M_{ppt}+M_{dpt})} \cdot 100 \end{equation}
+%
+%
+%
+%\section{Model Results} 
+%The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
+%\ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
+%the Icestupa.
+%
+%\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Figure_6.jpg} \end{center}
+%\caption{(a)Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
+%  the Icestupa in daily time steps.  $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation;
+%  $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
+%  ice-water boundary during fountain on time steps.  $q_{G}$ quantifies the heat conduction process between the
+%  Icestupa surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
+%calculation}
+%
+%\begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
+%  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the black curve
+%  shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
+%  to ice albedo can also be observed. The blue curve shows how the solar radiation area fraction varied diurnally with
+%  variations in the solar elevation angle. In (b), the surface temperature (black curve) was forced to be 0 $\degree C$
+%  during fountain activity. The corresponding bulk temperature is shown with the blue curve.} \label{fig:derived}
+%  \end{figure}
+%  
+%
+%\begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
+%  spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
+%except $M_{F}$ were modelled.} \centering
+%    \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
+%    & \multicolumn{1}{c|}{Model ends} \\
+%      \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
+%    \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 467 $kg$\\
+%                                                    & $M_{dpt}$ & 7 $kg$ & 33
+%    $kg$ \\ \hline & $M_{melt}$ & 165 $kg$ & 1023 $kg$\\
+%    \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ &
+%    814 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 3 $kg$ & 8 $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
+% 
+% \hline \end{tabular} \label{table:MB} \end{table}
+%
+%
+%Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (a). On average during the
+%experiment duration, the total energy flux between the atmosphere and the Icestupa are almost balanced. Net shortwave
+%radiation (28 $Wm^{-2}$), sensible (17 $Wm^{-2}$) and latent heat flux (9 $Wm^{-2}$) with a mostly positive flux
+%towards the surface of the icestupa are compensated by the net longwave radiation (- 36 $Wm^{-2}$) and the melt energy
+%(-19 $Wm^{-2}$). The contribution of other fluxes are negligible in comparison.
+%
+%Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
+%controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
+%the energy balance (Fig. \ref{fig:derived} (a)). Although global radiation flux reached a daily maximum value of 304
+%$Wm^{-2}$, $q_{SW}$ only went up to 68 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct
+%solar radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived}
+%(a).  Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more
+%frequent snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
+%
+%$q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
+%structure. The incoming longwave radiation was strongly dependent on atmospheric emissivity which had a mean value of
+%0.77. Atmospheric emissivity in turn depended on the cloudiness factor. Daily values of $q_{LW}$ ranged from -95 to 7
+%$Wm^{-2}$.  $q_{LW}$ and $q_{S}$ were both proportional to the temperature gradient between the air and the Icestupa
+%surface. Turbulent sensible heat flux $q_{S}$ contributed mostly to the melt of the ice structure. Daily values of
+%$q_{S}$ ranged from -16 to 59 $Wm^{-2}$. Turbulent latent heat flux $q_{L}$ was predominantly positive suggesting that
+%it favoured deposition/condensation over evaporation/sublimation. Daily values of $q_{L}$ ranged from -4 to 47
+%$Wm^{-2}$. Therefore, the Icestupa gained mass cumulatively from the atmosphere due to the deposition/condensation
+%process. Fountain water heat flux $q_{F}$ had a mean of zero as it was only nonzero during 1002 time steps or around
+%100 hours. Daily values of $q_{F}$ ranged from 0 to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$
+%was minimal as it only varied between -7 to 7 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface
+%temperature changes ($q_{T}$) was insignificant in comparison to the energy spent on freezing and melting
+%($q_{melt}$).  The resulting bulk temperature and the surface temperature are shown in Fig. \ref{fig:derived} (b).
+%For the total considered period, $q_{LW}$ accounted for 28.3\% of overall energy turnover. The energy turnover is
+%calculated as the sum of energy fluxes in absolute values. $q_{SW}$ accounted for 21.7\%, followed by $q_{melt}$
+%(25.4\%), $q_{S}$ (14.6\%), $q_{L}$ (7.5\%), $q_{G}$ (1.8\%), $q_{F}$ (0.3\%) and $q_{T}$ (0.3\%).
+%
+%Fig. \ref{fig:EB} (b) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
+%the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
+%deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
+%shows a strong correlation with net energy flux ($r^2 = 0.44$) but poor correlation with Icestupa surface area ($r^2 =
+%0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{net}$ as illustrated in Fig.
+%\ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_F$, the surface area maintains a maximum
+%initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
+%resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
+%
+%The total water used for the Icestupa development includes contributions from the fountain (97.2\%), snowfall (2.5 \%)
+%and deposition/condensation (0.3 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
+%measurement period was 1158 $kg$, which occurred after the last fountain run on Feb $16^{th}$ in the morning.
+%Therefore, in the case of EP we used a water input of 18,584 $kg$, with a resultant storage efficiency of only
+%7.5 \%.
+%
+%  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
+%  volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and
+%second validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most
+%sensitive parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
+%\label{fig:results} \end{figure}
+%  
+%\section{Model Sensitivity and Uncertainty analysis}
+%
+%The icestupa model can be regarded as a function $f(x_1,x_2 \dots, x_n) = (y_1,y_2 \dots, y_m)$, where $(x_1,x_2
+%\dots, x_n)$ are the model parameters and $(y_1,y_2 \dots, y_m)$ are the model outputs. The influence of each
+%parameter on the output variables of interest were quantified and the most important physical parameters for the
+%subsequent uncertainty analysis were determined. The sensitivity of a parameter $x_j$ is determined by keeping all
+%other parameters $x_i, i \neq j$ fixed at their baseline value and varying $x_j$ within values that are physically
+%plausible.
+%
+%A sensitivity study on the parameters (listed in Table \ref{table:parameters}) was performed with the maximum ice
+%volume as the target variable. All the parameters were assumed to be independent of each other with a uniform
+%distribution.  This assumption ignores the auto-correlation present among the parameters associated with the albedo
+%parameterisation.  The range of uncertain parameters were set based on available literature values or varied $\pm$ 5\%
+%from the base value if no such reference was available. The uncertainty of all the site parameters were caused due to
+%parallax errors during manual measurement. This was quantified with a range of $\pm$ 1\% from the base value. However,
+%it must be kept in mind that, even though intended to be as objective as possible, the selection of a parameter range
+%has a subjective part that influences the results and conclusions obtained in this analysis.  The variation of the
+%model outputs $y_k$ is evaluated to quantify the local sensitivities $s_{j,k}$ that are defined here as the 95\% range
+%of the simulated outputs.
+%
+%To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
+%m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
+%produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$
+%are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
+%Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
+%
+%The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
+%parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
+%lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
+%snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $1.2 \pm 0.2
+%m^3$. 
+%
+%Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
+%volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
+%maximum ice volume range from $1.3 \pm 0.1 m^3$. 
+%
+%In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
+%
+%\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_9.jpg} \end{center}
+%\caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
+%\ref{table:parameters}).  Outliers in the bar plot are shown as 'o'.} \label{fig:sensitivity} \end{figure}
+%\section{Discussion}
+%
+%\subsection{Model validation quality}
+%
+%We first evaluate the model against the validation measurements at the EP site. The uncalibrated model is able
+%to capture both the freezing and the melting process sufficiently well as the modelled ice volume lies within the
+%uncertainty of both validation measurements. Furthermore, the validation measurements fit well within the estimated
+%model uncertainty.  However, since this validation is based on only two points, it does limit the confidence in the
+%model results. Moreover, the model seems to overestimate the ice volume at both validation points. This could be due
+%to the underestimation of the surface area which underestimates the melt rates (absolute growth rate when
+%$\frac{\Delta M_{F}}{\Delta t} < 0$) and the freeze rates(absolute growth rate when $\frac{\Delta M_{F}}{\Delta t} >
+%0$). However, as the fountain was mostly inactive during the study period, the underestimation of surface area
+%disproportionately undervalues the melt rates over the freeze rates. One major cause of this underestimation was the
+%conical shape assumption, as in reality, the Icestupa shape ranged between a cone and a cylinder (Fig.
+%\ref{fig:site}).  Another cause was the surface irregularities that were observed due to uneven exposure to direct
+%solar radiation and fountain droplets. The sensitivity of the model results to these errors was further amplified due
+%to the relatively small volume of the EP Icestupa. In summary, more validation measurements on a more
+%voluminous Icestupa would have increased confidence on the model results.
+%
+%\subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
+%above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
+%Some assumptions and their potential to cause errors are discussed below.
+%
+%\begin{itemize}
+%
+%\item  Turbulent Sensible and Latent Heat Fluxes: The method used to calculate the turbulent heat fluxes by
+%  \cite{Garratt_1992} assumes that the turbulent heat fluxes are acting over a uniform planar surface to determine the
+%  roughness length. Since our application is on a conical surface, the distance to the ice surface is not
+%  uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
+%
+%\item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
+%  fountain spray available for freezing. For the EP experiment, inclusion of this parameter does not influence
+%  results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
+%
+%\item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
+%  contact if nucleation occurs during flight time. For the EP experiment, this process will further increase
+%  the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
+%
+%\end{itemize}
+%
+%\subsection{Schwarzsee vs Leh Icestupa}
+%  
+%It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
+%Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
+%this is the only Icestupa dataset available for such a model validation.
+%
+%Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (92 \%) simply runoff
+%away. This high water loss through drainage is due to the fact that the average spray rate of the fountain
+%($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
+%($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 1\, l\,min^{-1}\, \textit{(w.e.)}$ ).
+%
+%In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to −27.9 $\degree
+%C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just -11.6 $\degree C$ during the
+%study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the EP
+%site compared to the 43 nights of fountain operation possible in Ladakh (see Appendix \ref{section:ladakhloss}). Thus,
+%the Icestupa growth rate is expected to be much higher in Ladakh. However, water spray rates in Ladakh are also much
+%higher (around 210 $l\,min^{-1}$). So the water losses in Ladakh could also be caused due to excessive fountain spray.
 
 \subsection{Icestupa construction decisions} There are several decisions one has to take when constructing Icestupas.
 These can be broadly divided into two types of decisions, namely fountain and location decisions.  Both the
