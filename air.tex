@@ -531,7 +531,6 @@ through their water storage efficiency defined accordingly as:
 \begin{equation} \textit{Storage Efficiency} = \frac{M_{melt}}{(M_F+M_{ppt}+M_{dpt})} \cdot 100 \end{equation}
 
 
-
 \section{Model Results} 
 The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
 \ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
@@ -569,56 +568,53 @@ except $M_{F}$ were modelled.} \centering
  \hline \end{tabular} \label{table:MB} \end{table}
 
 
-Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (a). On average during the
+Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
 experiment duration, the total energy flux between the atmosphere and the Icestupa are almost balanced. Net shortwave
-radiation (28 $Wm^{-2}$), sensible (17 $Wm^{-2}$) and latent heat flux (9 $Wm^{-2}$) with a mostly positive flux
-towards the surface of the icestupa are compensated by the net longwave radiation (- 36 $Wm^{-2}$) and the melt energy
-(-19 $Wm^{-2}$). The contribution of other fluxes are negligible in comparison.
+radiation (32 $Wm^{-2}$), sensible (9 $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux
+towards the surface of the icestupa are compensated by the net longwave radiation (- 32 $Wm^{-2}$) and the melt energy
+(-12 $Wm^{-2}$). The contribution of other fluxes are negligible in comparison.
 
 Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
 controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
-the energy balance (Fig. \ref{fig:derived} (a)). Although global radiation flux reached a daily maximum value of 304
-$Wm^{-2}$, $q_{SW}$ only went up to 68 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct
+the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 339
+$Wm^{-2}$, $q_{SW}$ only went up to 98 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct
 solar radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived}
 (a).  Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more
 frequent snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
-structure. The incoming longwave radiation was strongly dependent on atmospheric emissivity which had a mean value of
-0.77. Daily values of $q_{LW}$ ranged from -95 to 7
-$Wm^{-2}$. $q_{LW}$ and $q_{S}$ were both proportional to the temperature gradient between the air and the Icestupa
-surface. Turbulent sensible heat flux $q_{S}$ contributed mostly to the melt of the ice structure. Daily values of
-$q_{S}$ ranged from -16 to 59 $Wm^{-2}$. Turbulent latent heat flux $q_{L}$ was predominantly positive suggesting that
-it favoured deposition/condensation over evaporation/sublimation. Daily values of $q_{L}$ ranged from -4 to 47
-$Wm^{-2}$. Therefore, the Icestupa gained mass cumulatively from the atmosphere due to the deposition/condensation
-process. Fountain water heat flux $q_{F}$ had a mean of zero as it was only nonzero during 1002 time steps or around
-100 hours. Daily values of $q_{F}$ ranged from 0 to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$
-was minimal as it only varied between -7 to 7 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface
-temperature changes ($q_{T}$) was insignificant in comparison to the energy spent on freezing and melting
-($q_{melt}$).  The resulting bulk temperature and the surface temperature are shown in Fig. \ref{fig:derived} (b).
-For the total considered period, $q_{LW}$ accounted for 28.3\% of overall energy turnover. The energy turnover is
-calculated as the sum of energy fluxes in absolute values. $q_{SW}$ accounted for 21.7\%, followed by $q_{melt}$
-(25.4\%), $q_{S}$ (14.6\%), $q_{L}$ (7.5\%), $q_{G}$ (1.8\%), $q_{F}$ (0.3\%) and $q_{T}$ (0.3\%).
+structure. Daily values of $q_{LW}$ ranged from -90 to 23 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
+mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -15 to 26 $Wm^{-2}$. Turbulent latent heat
+flux Mean of $q_{L}$ across model runtime was positive suggesting that it favoured deposition/condensation over
+evaporation/sublimation.  Daily values of $q_{L}$ ranged from -10 to 14 $Wm^{-2}$. Therefore, the Icestupa gained mass
+cumulatively from the atmosphere due to the deposition/condensation process. Fountain water heat flux $q_{F}$ had a
+mean of zero as it was only nonzero during 1002 time steps or around 100 hours. Daily values of $q_{F}$ ranged from -1
+to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was minimal as it only varied between -7 to 8
+$Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was
+insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk temperature
+and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{LW}$
+accounted for 32.5\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in
+absolute values. $q_{SW}$ accounted for 31.5\%, followed by $q_{melt}$ (20\%), $q_{S}$ (9.8\%), $q_{L}$ (3.2\%),
+$q_{G}$ (2\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
 
-Fig. \ref{fig:EB} (b) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
+Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
 the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
-deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
-shows a strong correlation with net energy flux ($r^2 = 0.44$) but poor correlation with Icestupa surface area ($r^2 =
-0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{net}$ as illustrated in Fig.
+deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$) shows
+a strong correlation with net energy flux ($r^2 = 0.31$) but poor correlation with Icestupa surface area ($r^2 =
+0.03$).  This is because the variance in growth rate is mostly due to the variance in $q_{net}$ as illustrated in Fig.
 \ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_F$, the surface area maintains a maximum
 initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
 resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
 
-The total water used for the Icestupa development includes contributions from the fountain (97.2\%), snowfall (2.5 \%)
-and deposition/condensation (0.3 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
-measurement period was 1158 $kg$, which occurred after the last fountain run on Feb $16^{th}$ in the morning.
-Therefore, in the case of EP we used a water input of 18,584 $kg$, with a resultant storage efficiency of only
-7.5 \%.
+The total water used for the Icestupa development includes contributions from the fountain (97.3\%), snowfall (2.5 \%)
+and deposition/condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
+measurement period was 806 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
+Therefore, in the case of EP we used a water input of 18,560 $kg$, with a resultant storage efficiency of only 5.5 \%.
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
-  volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and
-second validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most
-sensitive parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
+  volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
+validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
+parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
 \label{fig:results} \end{figure}
   
 \section{Model Sensitivity and Uncertainty analysis}
@@ -643,8 +639,8 @@ of the simulated outputs.
 
 To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
 m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
-produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$
-are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
+produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ 
+is the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
 Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
 
 The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.15)  19 JAN 2021 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.15)  19 JAN 2021 12:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -448,6 +448,18 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count311
 \l__pdf_internal_box=\box57
 ) (./air.aux)
+Runaway argument?
+{\contentsline {figure}{\numberline {7}{\ignorespaces Some derived pa\ETC.
+./air.tex:31: File ended while scanning use of \@writefile.
+<inserted text> 
+                \par 
+l.31 \begin{document}
+                     
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
 \openout1 = `air.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -467,7 +479,7 @@ LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 31.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -553,7 +565,7 @@ Package epstopdf Info: Source file: <./logo1.eps>
 (epstopdf)             Command: <repstopdf --outfile=./logo1-eps-converted-to.pdf ./logo1.eps>
 (epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
-<./logo1-eps-converted-to.pdf, id=112, 284.06125pt x 80.3pt>
+<./logo1-eps-converted-to.pdf, id=4, 284.06125pt x 80.3pt>
 File: ./logo1-eps-converted-to.pdf Graphic file (type pdf)
 <use ./logo1-eps-converted-to.pdf>
 Package pdftex.def Info: ./logo1-eps-converted-to.pdf  used on input line 44.
@@ -591,23 +603,68 @@ Underfull \hbox (badness 10000) detected at line 44
 []
  []
 
+
+Package natbib Warning: Citation `Immerzeel_2020' on page 1 undefined on input line 69.
+
+
+Package natbib Warning: Citation `HoelzleBarandun_2019' on page 1 undefined on input line 72.
+
+
+Package natbib Warning: Citation `Apel_2018' on page 1 undefined on input line 72.
+
+
+Package natbib Warning: Citation `Buytaert_2017' on page 1 undefined on input line 72.
+
+
+Package natbib Warning: Citation `Chen_2016' on page 1 undefined on input line 72.
+
+
+Package natbib Warning: Citation `UNGERSHAYESTEH_2013' on page 1 undefined on input line 72.
+
+
+Package natbib Warning: Citation `zanskar' on page 1 undefined on input line 73.
+
+<Figures/Figure_1.jpg, id=5, 569.12625pt x 379.4175pt>
+File: Figures/Figure_1.jpg Graphic file (type jpg)
+<use Figures/Figure_1.jpg>
+Package pdftex.def Info: Figures/Figure_1.jpg  used on input line 75.
+(pdftex.def)             Requested size: 284.52756pt x 189.6909pt.
+
+Package natbib Warning: Citation `IPCC_2019' on page 1 undefined on input line 80.
+
+
+Package natbib Warning: Citation `10.1659/MRD-JOURNAL-D-18-00072.1' on page 1 undefined on input line 80.
+
+
+Package natbib Warning: Citation `Nusser_2018' on page 1 undefined on input line 85.
+
 [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo1-eps-converted-to.pdf>]
-<Figures/Figure_1.jpg, id=152, 569.12625pt x 379.4175pt>
-File: Figures/Figure_1.jpg Graphic file (type jpg)
-<use Figures/Figure_1.jpg>
-Package pdftex.def Info: Figures/Figure_1.jpg  used on input line 75.
-(pdftex.def)             Requested size: 284.52756pt x 189.6909pt.
+
+Package natbib Warning: Citation `campaign' on page 2 undefined on input line 97.
+
+
+Package natbib Warning: Citation `campaign' on page 2 undefined on input line 100.
+
+
+Package natbib Warning: Citation `Nusser_2018' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Reference `section:ladakhloss' on page 2 undefined on input line 103.
+
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
 (Font)              Font shape `OT1/phv/b/sl' tried instead on input line 117.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [2 <./Figures/Figure_1.jpg>]
-<./Figures/Figure_2.jpg, id=189, 1162.3425pt x 409.53pt>
+
+Package natbib Warning: Citation `eispalast' on page 3 undefined on input line 121.
+
+<./Figures/Figure_2.jpg, id=33, 1162.3425pt x 409.53pt>
 File: ./Figures/Figure_2.jpg Graphic file (type jpg)
 <use ./Figures/Figure_2.jpg>
 Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 131.
@@ -616,18 +673,30 @@ Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 131.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [3 <./Figures/Figure_2.jpg>]
-<./Figures/Figure_3.jpg, id=203, 771.1209pt x 747.0309pt>
+
+Package natbib Warning: Citation `meteoswiss' on page 4 undefined on input line 149.
+
+
+Package natbib Warning: Citation `era5' on page 4 undefined on input line 151.
+
+
+Package natbib Warning: Citation `Scherrer_2020' on page 4 undefined on input line 157.
+
+<./Figures/Figure_3.jpg, id=42, 771.1209pt x 747.0309pt>
 File: ./Figures/Figure_3.jpg Graphic file (type jpg)
 <use ./Figures/Figure_3.jpg>
 Package pdftex.def Info: ./Figures/Figure_3.jpg  used on input line 160.
 (pdftex.def)             Requested size: 504.0pt x 488.26584pt.
+
+Package natbib Warning: Citation `Tetens' on page 4 undefined on input line 171.
+
+
+Package natbib Warning: Citation `Buck_1981' on page 4 undefined on input line 173.
+
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 177.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [4]
@@ -637,7 +706,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [5 <./Figures/Figure_3.jpg>]
-<Figures/Figure_4.jpg, id=232, 2852.6575pt x 2057.6875pt>
+<Figures/Figure_4.jpg, id=64, 2852.6575pt x 2057.6875pt>
 File: Figures/Figure_4.jpg Graphic file (type jpg)
 <use Figures/Figure_4.jpg>
 Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 215.
@@ -646,7 +715,7 @@ Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 215.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [6 <./Figures/Figure_4.jpg>]
-<Figures/Figure_5.jpg, id=243, 64.49292pt x 54.06024pt>
+<Figures/Figure_5.jpg, id=79, 64.49292pt x 54.06024pt>
 File: Figures/Figure_5.jpg Graphic file (type jpg)
 <use Figures/Figure_5.jpg>
 Package pdftex.def Info: Figures/Figure_5.jpg  used on input line 255.
@@ -661,6 +730,9 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 Overfull \hbox (24.3814pt too wide) detected at line 268
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 r[];  h[]\OT1/cmr/m/n/12 ) = []
  []
+
+
+Package natbib Warning: Citation `Hock_2005' on page 8 undefined on input line 272.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
@@ -705,6 +777,21 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 292.
 
 
+Package natbib Warning: Citation `OerlemansKnap_1998' on page 9 undefined on input line 298.
+
+
+Package natbib Warning: Citation `Schmidt_2017' on page 9 undefined on input line 307.
+
+
+Package natbib Warning: Citation `OerlemansKnap_1998' on page 9 undefined on input line 308.
+
+
+Package natbib Warning: Citation `FujitaAgeta_2000' on page 9 undefined on input line 312.
+
+
+Package natbib Warning: Citation `Woolf_1968' on page 9 undefined on input line 319.
+
+
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 327.
 
@@ -743,6 +830,15 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 341.
+
+
+Package natbib Warning: Citation `Garratt_1992' on page 10 undefined on input line 344.
+
+
+Package natbib Warning: Citation `Garratt_1992' on page 10 undefined on input line 358.
+
+
+Package natbib Warning: Citation `WMO_2018' on page 10 undefined on input line 358.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -790,9 +886,7 @@ Overfull \hbox (21.69383pt too wide) detected at line 434
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 474--474
@@ -805,9 +899,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 474--474
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 2799) in paragraph at lines 474--474
@@ -815,34 +907,28 @@ Underfull \hbox (badness 2799) in paragraph at lines 474--474
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `MolgHardy_2004' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `MolgHardy_2004' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) Latent Heat of
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
+
+
+Package natbib Warning: Citation `MolgHardy_2004' on page 11 undefined on input line 474.
+
+
+Package natbib Warning: Citation `Bonales_2017' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 474--474
@@ -850,14 +936,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 474--474
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
+[]|\OT1/ptm/m/n/12 (+20) Latent Heat of
  []
+
+
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
+
+
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 474--474
@@ -865,9 +955,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 474--474
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 474--474
@@ -875,29 +963,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 474--474
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B + U: []Fujita and
- []
+Package natbib Warning: Citation `FujitaAgeta_2000' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `Zhou_2010' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-\OT1/ptm/m/n/12 (+20) Paterson[]; U: []Hori
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `HORI2006486' on page 11 undefined on input line 474.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--474
-[]|\OT1/ptm/m/n/12 (+20) B: []Cuffey and
- []
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
+
+
+Package natbib Warning: Citation `CuffeyPaterson_2010' on page 11 undefined on input line 474.
+
+
+Package natbib Warning: Citation `Schmidt_2017' on page 11 undefined on input line 474.
+
+
+Package natbib Warning: Citation `OerlemansKnap_1998' on page 11 undefined on input line 474.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 474--474
@@ -919,6 +1006,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [12]
+
+Package natbib Warning: Citation `Stigter_2018' on page 13 undefined on input line 500.
+
+
 Overfull \hbox (32.83401pt too wide) detected at line 523
 [] [] \OT1/cmr/m/n/12 = []
  []
@@ -932,25 +1023,31 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
  [13
 
 ]
-<Figures/Figure_6.jpg, id=429, 857.604pt x 1004.3121pt>
+<Figures/Figure_6.jpg, id=157, 857.604pt x 1004.3121pt>
 File: Figures/Figure_6.jpg Graphic file (type jpg)
 <use Figures/Figure_6.jpg>
-Package pdftex.def Info: Figures/Figure_6.jpg  used on input line 540.
+Package pdftex.def Info: Figures/Figure_6.jpg  used on input line 539.
 (pdftex.def)             Requested size: 504.0pt x 590.20969pt.
-<Figures/Figure_7.jpg, id=430, 944.8098pt x 641.2758pt>
+<Figures/Figure_7.jpg, id=158, 944.8098pt x 641.2758pt>
 File: Figures/Figure_7.jpg Graphic file (type jpg)
 <use Figures/Figure_7.jpg>
-Package pdftex.def Info: Figures/Figure_7.jpg  used on input line 548.
+Package pdftex.def Info: Figures/Figure_7.jpg  used on input line 547.
 (pdftex.def)             Requested size: 426.79134pt x 289.67715pt.
 
-Overfull \hbox (4.92336pt too wide) in paragraph at lines 563--563
+Overfull \hbox (4.92336pt too wide) in paragraph at lines 562--562
 [][] 
  []
 
 
-Overfull \hbox (5.09122pt too wide) in paragraph at lines 566--566
+Overfull \hbox (5.09122pt too wide) in paragraph at lines 565--565
 [][] 
  []
+
+
+LaTeX Warning: Reference `fig:derived' on page 14 undefined on input line 579.
+
+
+LaTeX Warning: Reference `fig:derived' on page 14 undefined on input line 581.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
@@ -962,74 +1059,121 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [15 <./Figures/Figure_6.jpg>]
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [16 <./Figures/Figure_7.jpg>]
-<Figures/Figure_8.jpg, id=456, 411.2163pt x 283.5393pt>
-File: Figures/Figure_8.jpg Graphic file (type jpg)
-<use Figures/Figure_8.jpg>
-Package pdftex.def Info: Figures/Figure_8.jpg  used on input line 618.
-(pdftex.def)             Requested size: 426.79134pt x 294.29416pt.
+LaTeX Warning: Reference `fig:derived' on page 16 undefined on input line 595.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
+ [16 <./Figures/Figure_7.jpg>]
+
+LaTeX Warning: Reference `fig:results' on page 17 undefined on input line 607.
+
+<Figures/Figure_8.jpg, id=182, 411.2163pt x 283.5393pt>
+File: Figures/Figure_8.jpg Graphic file (type jpg)
+<use Figures/Figure_8.jpg>
+Package pdftex.def Info: Figures/Figure_8.jpg  used on input line 614.
+(pdftex.def)             Requested size: 426.79134pt x 294.29416pt.
+
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
  [17 <./Figures/Figure_8.jpg>]
-<Figures/Figure_9.jpg, id=464, 418.2024pt x 313.17pt>
+
+LaTeX Warning: Reference `fig:sensitivity' on page 18 undefined on input line 641.
+
+<Figures/Figure_9.jpg, id=190, 418.2024pt x 313.17pt>
 File: Figures/Figure_9.jpg Graphic file (type jpg)
 <use Figures/Figure_9.jpg>
-Package pdftex.def Info: Figures/Figure_9.jpg  used on input line 662.
+Package pdftex.def Info: Figures/Figure_9.jpg  used on input line 658.
 (pdftex.def)             Requested size: 284.52756pt x 213.07224pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [18]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 690.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 686.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 690.
+(Font)              size <5> substituted on input line 686.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 690.
+(Font)              size <5> substituted on input line 686.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 690.
+(Font)              size <5> substituted on input line 686.
 
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 690.
+(Font)              size <5> substituted on input line 686.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package natbib Warning: Citation `Garratt_1992' on page 19 undefined on input line 687.
+
+
+LaTeX Warning: Reference `section:ladakhloss' on page 19 undefined on input line 704.
+
+
+Package natbib Warning: Citation `Chevuturi_2018' on page 19 undefined on input line 713.
+
+
+LaTeX Warning: Reference `section:ladakhloss' on page 19 undefined on input line 715.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [19 <./Figures/Figure_9.jpg>]
-<Figures/Figure_10.jpg, id=485, 2723.17375pt x 1827.82875pt>
+<Figures/Figure_10.jpg, id=208, 2723.17375pt x 1827.82875pt>
 File: Figures/Figure_10.jpg Graphic file (type jpg)
 <use Figures/Figure_10.jpg>
-Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 729.
+Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 725.
 (pdftex.def)             Requested size: 426.79134pt x 286.46214pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [20 <./Figures/Figure_10.jpg>]
 
-LaTeX Warning: Reference `section:rF' on page 21 undefined on input line 751.
+LaTeX Warning: Reference `fig:dia_f' on page 21 undefined on input line 743.
+
+
+LaTeX Warning: Reference `section:rF' on page 21 undefined on input line 747.
+
+
+LaTeX Warning: Reference `fig:dia_f' on page 21 undefined on input line 757.
+
+
+Package natbib Warning: Citation `BoundaryConditionsforArtificialSnowProductionintheAustrianAlps' on page 21 undefined on input line 763.
+
+
+Package natbib Warning: Citation `HARTL2018123' on page 21 undefined on input line 765.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [21]
+
+Package natbib Warning: Citation `iceheight' on page 22 undefined on input line 797.
+
+
+Package natbib Warning: Citation `waterinput' on page 22 undefined on input line 800.
+
+
+Package natbib Warning: Citation `waterstart' on page 22 undefined on input line 800.
+
+
+Package natbib Warning: Citation `waterend' on page 22 undefined on input line 801.
+
+
+Package natbib Warning: Citation `iceends' on page 22 undefined on input line 804.
+
+(./air.bbl
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [22] (./air.bbl
+ [22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1044,14 +1188,28 @@ See the caption package documentation for explanation.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 834.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 834.
- (./air.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 834.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 834.
-Package rerunfilecheck Info: File `air.out' has not changed.
-(rerunfilecheck)             Checksum: 963F5E07A6BEABA0EA036DFC55248D8B;1955.
 
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 830.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 830.
+(./air.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 830.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 830.
+
+
+Package rerunfilecheck Warning: File `air.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `air.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  963F5E07A6BEABA0EA036DFC55248D8B;1955.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1059,7 +1217,448 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
+Here is how much of TeX's memory you used:
+ 13111 strings out of 480910
+ 198650 string characters out of 5910947
+ 545576 words of memory out of 5000000
+ 28043 multiletter control sequences out of 15000+600000
+ 584625 words of font info for 254 fonts, out of 8000000 for 9000
+ 1145 hyphenation exceptions out of 8191
+ 63i,17n,100p,1049b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
+Output written on air.pdf (24 pages, 5455287 bytes).
+PDF statistics:
+ 368 PDF objects out of 1000 (max. 8388607)
+ 305 compressed objects within 4 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 35384 words of extra memory for PDF output out of 35830 (max. 10000000)
+
+       ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+A funny symbol that I can't read has just been input.
+Continue, and I'll forget that it ever happened.
+
+./air.aux:1: Text line contains an invalid character.
+l.1 ...@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@^^@
+                                                  ^^@^^@^^@^^@^^@^^@^^@^^@^^...
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
  13140 strings out of 480910
  199112 string characters out of 5910947
@@ -1067,12 +1666,6 @@ Here is how much of TeX's memory you used:
  28072 multiletter control sequences out of 15000+600000
  584625 words of font info for 254 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 63i,17n,100p,1049b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on air.pdf (24 pages, 5462124 bytes).
-PDF statistics:
- 627 PDF objects out of 1000 (max. 8388607)
- 518 compressed objects within 6 object streams
- 131 named destinations out of 1000 (max. 500000)
- 35600 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 63i,17n,100p,12564b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+./air.aux:1:  ==> Fatal error occurred, no output PDF file produced!
