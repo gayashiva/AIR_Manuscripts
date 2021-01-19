@@ -331,14 +331,6 @@ The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with 
 \begin{equation} q_{S}=c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
 (T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
 
-\begin{equation} q_{L} = \left\{ \begin{array}{ll}
-        
-         0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-         v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} & \textit{ if } \Delta M_{F} = 0\\ 0 & \textit{ if
-       } \Delta M_{F} > 0 \textit{ where } \Delta M_{F} = M_{F}^{i} - M_{F}^{i-1}
-         
-    \end{array} \right.  \label{eqn:ql} \end{equation}
-
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
 [$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
 pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is
