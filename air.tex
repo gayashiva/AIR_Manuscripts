@@ -53,7 +53,7 @@ an Icestupa are calculated by a physically-based model using equations governing
 and transport of water that undergoes phase changes.  These processes were quantified using meteorological data in
 conjunction with fountain spray information (mass input of an Icestupa) to estimate the quantity of frozen, melted,
 evaporated and runoff water at a location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an
-Icestupa was built for model validation purposes. The model was further tested by performing sensitivity and
+Icestupa was built for model validation purposes. The model was further tested by performing a sensitivity and
 uncertainty study showing that the most sensitive parameters are the ice emissivity and the temperature threshold used
 to determine precipitation phase. Model calculations estimate that the Eispalast Icestupa stored about 8\% of the
 total water sprayed as ice. In addition, we found that reducing nozzle diameter of the fountain from 5 $mm$ to 3 $mm$
@@ -76,14 +76,14 @@ due to glacial retreat and the corresponding loss of their main fresh water reso
 \end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3700 $m^3$ 
 of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
 
-AIRs have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
-10.1659/MRD-JOURNAL-D-18-00072.1}. An artificial ice reservoir is a human-made ice structure typically constructed
-during the cold winter months and designed to slowly release freshwater during the warm and dry spring and summer
-months. The main purpose of AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long
-into the summer as possible. The energy required to construct an AIR is usually derived from the gravitational head of
-the source water body. Some are constructed horizontally by freezing water using a series of checkdams and others are
-built vertically by spraying water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred
-to as Icestupas and are the subject of this study.
+Artificial ice reservoirs (AIRs) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
+10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed during the cold winter
+months and designed to slowly release freshwater during the warm and dry spring and summer months. The main purpose of
+AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long into the summer as possible.
+The energy required to construct an AIR is usually derived from the gravitational head of the source water body. Some
+are constructed horizontally by freezing water using a series of checkdams and others are built vertically by spraying
+water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the
+subject of this study.
 
 A typical Icestupa just requires a pipeline attached to a vertically mounted metal pipe with a fountain nozzle for
 construction. Water source is usually a high altitude lake or glacial stream. Due to the altitude difference between
@@ -108,8 +108,8 @@ In this paper, we aim to develop a physically-based model of a vertical AIR (or 
 storage efficiency using existing weather and water usage information. Mass and energy balance equations were used to
 estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty analysis were
 performed to identify the most critical parameters and the variance caused by them. For validation, we created an
-Icestupa at an accessible site (called Eispalast) near Schwarzsee in the Canton of Fribourg, Switzerland, allowing easy
-maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
+Icestupa at an accessible site (called Eispalast) near Schwarzsee close to the city of Fribourg, Switzerland, allowing
+easy maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
 temperatures, only a small Icestupa could be established during winter 2018/19 for providing us with model validation
 data. Our model and validation experiments provide first steps towards evaluating the effectiveness of a vertical AIR
 for irrigation and finally we outline some preliminary guidelines for consideration when a construction of an Icestupa
@@ -119,7 +119,7 @@ for water storage is envisaged.
 The Eispalast (EP) site in the Schwarzsee region lies at 967 $m$ a.s.l.. In the winter (Oct-Apr), mean daily maximum
 and minimum air temperatures vary between 14 to -4 $\degree C$. Clear skies are rare, averaging around 7 days, and
 precipitation amounts average 155 mm per month during winter \citep{eispalast}. The site was situated adjacent to a
-stream resulting in high humidity values across the study period. Within the Eispalast site, 1.8\,$m$ in radius
+stream resulting in high humidity values across the study period. Within the EP site, 1.8\,$m$ in radius
 enclosure was constructed for the experiment. An automatic weather station (AWS) was set in place adjacent to the
 wooden boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle diameter of 5\,$mm$
 and a height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was transferred from a
@@ -148,35 +148,35 @@ measurements were stored at a 5 minute sample rate. The water flow rate or disch
 sensor attached to the fountain supply pipeline. Precipitation data was derived from the Plaffeien AWS
 \citep{meteoswiss} located 8.8 km away from the measurement site at an altitude of 1042 $m$ a.s.l.  
 
-ERA5 reanalysis dataset \citep{era5} correlates much better to lower elevation sites in Switzerland
-\citep{Scherrer_2020}. Moreover, all the EP meteorological parameters except precipitation correlated better with ERA5
-dataset compared to the nearby Plaffein AWS. Namely, the $2\,m$ temperature parameter correlated ($r^2 =0.9 $) with air
-temperature, surface pressure parameter correlated ($r^2 = 1$) with air pressure and 10m wind speed parameter (derived
-from horizontal and vertical components) correlated ($r^2 =0.6 $) with wind speed.  Direct and diffuse shortwave
-radiation were also derived from ERA5 surface solar radiation downwards and total sky direct solar radiation parameter.
-The hourly ERA5 data and the 10 minute Plaffeien AWS data were linearly interpolated to the 5 minute data frequency of
-the EP AWS. 
+In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured
+directly at the EP site. We recognised during our data analysis that, except precipitation, all the other
+meteorological variables of the EP site correlated much better with the ERA5 dataset compared to the nearby Plaffeien
+AWS dataset. Namely, the $2\,m$ temperature parameter correlated ($r^2 =0.9 $) with air temperature, surface pressure
+parameter correlated ($r^2 = 1$) with air pressure and 10m wind speed parameter (derived from horizontal and vertical
+components) correlated ($r^2 =0.6 $) with wind speed. ERA5 reanalysis dataset has been found to have good correlation
+with lower elevation sites in Switzerland \citep{Scherrer_2020}.The hourly ERA5 data and the 10 minute Plaffeien AWS
+data were linearly interpolated to the 5 minute data frequency of the EP AWS. 
+  
+\begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS of EP
+were used as main model input data in 5 minute frequency. Plaffeien AWS provided the precipitation data.  Incoming
+shortwave and longwave radiation were obtained from ERA5 reanalysis dataset. Several data gaps and errors were also
+filled from the ERA5 dataset (shaded regions).} \label{fig:input} \end{figure}
 
-\begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS of
-    EP were used as main model input data in 5 minute frequency. Plaffeien AWS provided the precipitation data.
-    Incoming shortwave and longwave radiation were obtained from ERA5 reanalysis dataset. Several data gaps and errors
-    were also filled from the ERA5 dataset (shaded regions).} \label{fig:input} \end{figure}
-
-Due to a power failure, all data from the EP AWS was lost between $27^{th}$ February 15:20 2019 to $2^{nd}$ March 15:00
+Due to a power failure, all data from the EP AWS was lost from $27^{th}$ February 15:20 2019 to $2^{nd}$ March 15:00
 2019. Consequently, the amount of missing data in the dataset was around 7\%.  During heavy snowfall events, the
 ultrasonic wind sensor was blocked and recorded zero values. ERA5 was used to fill such errors and data gaps .
-Near-surface humidity is not archived directly in ERA datasets, but from near-surface ($2\,m$ from the surface)
-temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) one can calculate relative humidity($RH$) at $2\,m$ as
-follows: \begin{equation} RH = 100 \cdot \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} where the
-saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}: \begin{equation}
-e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and the parameters
-set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to \cite{Buck_1981}.
-Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. So all null values were
-replaced using the ERA5 dataset. 
+Near-surface humidity is not archived directly in ERA5 dataset, but from near-surface ($2\,m$ from the surface)
+temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was calculated
+as: \begin{equation} RH = 100 \cdot \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} where the saturation
+vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}: \begin{equation} e_{sat}(T)=
+a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and the parameters set for
+saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to \cite{Buck_1981}.  Zero wind
+speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. All null values were replaced
+using the ERA5 dataset. 
 
 The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km
-away from the actual site.  So all the ERA5 variables were fitted with the Schwarzee dataset via linear regressions.
-Through this modified ERA5 dataset, we were also able to further extend the EP dataset and allow the model to
+away from the actual site.  So all the ERA5 variables were fitted with the EP dataset via linear regressions.
+With the help of the modified ERA5 dataset, we were also able to further extend the EP dataset and allow the model to
 run beyond $18^{th}$ March 2019. Precipitation was filled as null values beyond $18^{th}$ March 2019.
 
 
@@ -213,7 +213,7 @@ every 5 minutes. The equations used henceforth display model time step superscri
 current time step.
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
-schematic showing the algorithm used in the model at every time step. Further details about these variables can be
+schematic showing the algorithm used in the model at every time step. Further details about the variables can be
 found in the associated tables and figures.} \label{fig:schema} \end{figure}
 
 \subsection{Icestupa geometric evolution}
@@ -389,7 +389,7 @@ as follows:
 
 \begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice})/l_{ice} \label{eqn:qG}    \end{equation}
 
-where $k_{ice}$ is the thermal conductivity of ice in [$W\, m^{-1}\,K^{-1}$] , $T_{bulk}$ is the mean temperature of
+where $k_{ice}$ is the thermal conductivity of ice (2.123 $W\, m^{-1}\,K^{-1}$) , $T_{bulk}$ is the mean temperature of
 the ice body within the Icestupa and $l_{ice}$ is the average distance of any point in the surface to any other point
 in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined from Eqn. \ref{eqn:qG} as follows:
 
@@ -407,9 +407,9 @@ denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewrit
 q_{melt} + q_{T} \end{equation}
 
 We define the freezing energy as $q_{freeze} = (q_{net}-q_{L})$. This is because the latent heat always contributes to
-temperature fluctuations. Now, the temperature fluctuates based on 3 scenarios namely, (1) the freezing energy flux is
+temperature fluctuations. Now, the temperature fluctuates based on three scenarios namely, (1) the freezing energy flux is
 negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze all
-the fountain water output; (3) the freezing energy is positive and (4) the fountain is inactive ($\Delta M_{F}=0$).
+the fountain water output; (3) the freezing energy is positive or the fountain is inactive ($\Delta M_{F}=0$).
 Therefore, we express the rate of change of temperature as follows:
 
 \begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
@@ -497,7 +497,7 @@ deposition over the entire circular footprint of the Icestupa.
 
 The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and deposition
 processes.  To differentiate between these two possibilities, we classify the time steps into humid or non-humid if the
-corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps we assume
+corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps, we assume
 condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can occur.
 Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation ($L_s$)
 is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as follows:
@@ -538,7 +538,7 @@ The model was forced with meteorological data from $30^{th}$ January to $5^{th}$
 the Icestupa.
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Figure_6.jpg} \end{center}
-\caption{(a)Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
+\caption{(a) Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
   the Icestupa in daily time steps.  $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation;
   $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
   ice-water boundary during fountain on time steps.  $q_{G}$ quantifies the heat conduction process between the
@@ -548,10 +548,10 @@ calculation}
 \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
   parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the black curve
   shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
-  to ice albedo can also be observed. The blue curve shows how the solar radiation area fraction varied diurnally with
-  variations in the solar elevation angle. In (b), the surface temperature (black curve) was forced to be 0 $\degree C$
-  during fountain activity. The corresponding bulk temperature is shown with the blue curve.} \label{fig:derived}
-  \end{figure}
+  to ice albedo can also be observed. The green curve shows how the solar radiation area fraction varied diurnally with
+  variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
+  $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
+\label{fig:derived} \end{figure}
   
 
 \begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
@@ -585,7 +585,7 @@ frequent snowfall thus decreases the energy available for melt due to the corres
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
 structure. The incoming longwave radiation was strongly dependent on atmospheric emissivity which had a mean value of
-0.77. Atmospheric emissivity in turn depended on the cloudiness factor. Daily values of $q_{LW}$ ranged from -95 to 7
+0.77. Daily values of $q_{LW}$ ranged from -95 to 7
 $Wm^{-2}$. $q_{LW}$ and $q_{S}$ were both proportional to the temperature gradient between the air and the Icestupa
 surface. Turbulent sensible heat flux $q_{S}$ contributed mostly to the melt of the ice structure. Daily values of
 $q_{S}$ ranged from -16 to 59 $Wm^{-2}$. Turbulent latent heat flux $q_{L}$ was predominantly positive suggesting that
@@ -666,20 +666,20 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 
 \subsection{Model validation quality}
 
-We first evaluate the model against the validation measurements at the EP site. The uncalibrated model is able
-to capture both the freezing and the melting process sufficiently well as the modelled ice volume lies within the
+We first evaluate the model against the validation measurements at the EP site. The uncalibrated model is able to
+capture both the freezing and the melting process sufficiently well as the modelled ice volume lies within the
 uncertainty of both validation measurements. Furthermore, the validation measurements fit well within the estimated
 model uncertainty.  However, since this validation is based on only two points, it does limit the confidence in the
-model results. Moreover, the model seems to overestimate the ice volume at both validation points. This could be due
-to the underestimation of the surface area which underestimates the melt rates (absolute growth rate when
-$\frac{\Delta M_{F}}{\Delta t} < 0$) and the freeze rates(absolute growth rate when $\frac{\Delta M_{F}}{\Delta t} >
-0$). However, as the fountain was mostly inactive during the study period, the underestimation of surface area
+model results. Moreover, the model seems to overestimate the ice volume at both validation points. This could be due to
+the underestimation of the surface area which underestimates the melt rates (absolute growth rate when $\frac{\Delta
+M_{F}}{\Delta t} < 0$) and the freeze rates (absolute growth rate when $\frac{\Delta M_{F}}{\Delta t} > 0$).
+However, as the fountain was mostly inactive during the study period, the underestimation of surface area
 disproportionately undervalues the melt rates over the freeze rates. One major cause of this underestimation was the
 conical shape assumption, as in reality, the Icestupa shape ranged between a cone and a cylinder (Fig.
 \ref{fig:site}).  Another cause was the surface irregularities that were observed due to uneven exposure to direct
 solar radiation and fountain droplets. The sensitivity of the model results to these errors was further amplified due
-to the relatively small volume of the EP Icestupa. In summary, more validation measurements on a more
-voluminous Icestupa would have increased confidence on the model results.
+to the relatively small volume of the EP Icestupa. In summary, more validation measurements on a more voluminous
+Icestupa would have increased confidence on the model results.
 
 \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
 above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
@@ -706,15 +706,15 @@ Some assumptions and their potential to cause errors are discussed below.
   
 It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
 Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
-this is the only Icestupa dataset available for such a model validation.
+this is the only Icestupa dataset currently available for such a model validation.
 
-Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (92 \%) simply runoff
-away. This high water loss through drainage is due to the fact that the average spray rate of the fountain
+Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (92 \%) simply drained away
+($M_{runoff}$) . This high water loss through drainage is due to the fact that the average spray rate of the fountain
 ($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
 ($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 1\, l\,min^{-1}\, \textit{(w.e.)}$ ).
 
-In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to −27.9 $\degree
-C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just -11.6 $\degree C$ during the
+In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to $-27.9\, \degree
+C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just  $-11.6\,\degree C$ during the
 study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the EP
 site compared to the 43 nights of fountain operation possible in Ladakh (see Appendix \ref{section:ladakhloss}). Thus,
 the Icestupa growth rate is expected to be much higher in Ladakh. However, water spray rates in Ladakh are also much
@@ -821,9 +821,9 @@ Excellence Scholarship (Suryanarayanan Balasubramanian).
 
 \section*{Acknowledgments} We thank Mr. Adolf Kaeser and Mr. Flavio Catillaz at Eispalast Schwarzsee for their active
 participation in the fieldwork. We would also like to thank Digmesa AG for subsidising their flowmeter used in the
-experiment. We would particularly like to thank the editor Prof. Thomas Schuler who gave us important inputs to
-improve the paper and we thank also Prof. Christian Hauck and Prof. Nanna B. Karlsson for valuable suggestions that
-improved the manuscript.
+experiment. We would particularly like to thank the editor Prof. Thomas Schuler and 2 anonymous reviewers who gave us
+important inputs to improve the paper. We also thank Prof. Christian Hauck and Prof. Nanna B. Karlsson for valuable
+suggestions that improved the manuscript.
 
 
 \section*{Data Availability Statement} The data and code used to produce results and figures will be published at a
