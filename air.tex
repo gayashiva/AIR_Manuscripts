@@ -374,12 +374,13 @@ that this process is instantaneous, i.e. the ice temperature is immediately set 
 step $\Delta t$ when the fountain is switched on. Thus, the heat flux caused by the fountain water is calculated as
 follows:
 
-\begin{equation} q_{F} = \left\{ \begin{array}{ll}
-        
+\begin{equation} 
+  q_{F} = \left\{ \begin{array}{ll}
          0 & \textit{ if } \Delta M_{F} = 0\\ \frac{ \Delta M_F \cdot c_{water} \cdot T_{water}}{\Delta t \cdot A} +
          \frac{\rho_{ice} \cdot \Delta x \cdot c_{ice} \cdot T_{ice}}{\Delta t} & \textit{ if } \Delta M_{F} > 0 
-         
-    \end{array} \right.  \label{eqn:qF} \end{equation} with $c_{ice}$ as the specific heat of ice. 
+    \end{array} \right.  \label{eqn:qF}
+\end{equation} 
+with $c_{ice}$ as the specific heat of ice. 
 
 \subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux}
 The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in normal soils and is caused by the
