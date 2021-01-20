@@ -55,9 +55,9 @@ conjunction with fountain spray information (mass input of an Icestupa) to estim
 evaporated and runoff water at a location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an
 Icestupa was built for model validation purposes. The model was further tested by performing a sensitivity and
 uncertainty study showing that the most sensitive parameters are the ice emissivity and the temperature threshold used
-to determine precipitation phase. Model calculations estimate that the Eispalast Icestupa stored about 6\% of the
+to determine precipitation phase. Model calculations estimate that the Eispalast Icestupa stored about 5\% of the
 total water sprayed as ice. In addition, we found that reducing nozzle diameter of the fountain from 5 $mm$ to 3 $mm$
-increases the storage efficiency up to 93\% without compromising on the storage duration.
+increases the storage efficiency up to 78\% without compromising on the storage duration.
 
 \tiny
  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -91,7 +91,7 @@ the pipeline input and fountain output, water ejects from the fountain nozzle as
 latent heat to the atmosphere and accumulate as ice around the metal pipe. The fountain nozzle is raised through
 addition of further pipes as and when significant ice accumulates. Typically, a dome of branches is constructed around
 the metal pipe so that such pipe extensions can be done from within this dome. During the winter, the fountain is
-manually activated between sunset and sunrise. Threads, tree branches and fishing nets are used to guide and accelerate
+manually activated from sunset to sunrise. Threads, tree branches and fishing nets are used to guide and accelerate
 the ice formation.
 
 Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
@@ -171,7 +171,7 @@ as: \begin{equation} RH = 100 \cdot \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})}
 vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}: \begin{equation} e_{sat}(T)=
 a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and the parameters set for
 saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to \cite{Buck_1981}.  Zero wind
-speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. All null values were replaced
+speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. All such null values were replaced
 using the ERA5 dataset. 
 
 The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km
@@ -208,9 +208,8 @@ apply the modelling strategy described below.
 
 The model (implemented in python) consists of three parts calculating a) the geometric evolution of the Icestupa, b)
 the energy balance and c) the mass balance as shown schematically in Fig. \ref{fig:schema}. A bulk energy and mass
-balance model is used to calculate the amounts of ice, liquid water, water vapour and runoff water of the Icestupa
-every 5 minutes. The equations used henceforth display model time step superscript only if it is different from the
-current time step.
+balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water of the Icestupa
+every 5 minutes. 
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
 schematic showing the algorithm used in the model at every time step. Further details about the variables can be
@@ -218,12 +217,16 @@ found in the associated tables and figures.} \label{fig:schema} \end{figure}
 
 \subsection{Icestupa geometric evolution}
 
-Radius $r_{ice}$ and height $h_{ice}$ define the dimensions of the Icestupa assuming its geometry to be a cone as
-shown in Fig. \ref{fig:shape}. The surface area $A$ exposed to the atmosphere and volume $V$ are:
+Radius $r_{ice}^i$ and height $h_{ice}^i$ define the dimensions of the Icestupa assuming its geometry to be a cone as
+shown in Fig. \ref{fig:shape}. The surface area $A^i$ exposed to the atmosphere and volume $V^i$ are:
 
 \begin{equation} A = \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
 
 \begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
+
+Note that we do not specify the time step superscript $i$ of the shape variables $A$, $V$, $r_{ice}$ and $h_{ice}$ for
+brevity.  The equations used henceforth display model time step superscript $i$ only if it is different from the
+current time step.
 
 With the mass of the Icestupa $M_{ice}$, its current volume can also be expressed as:
 
@@ -232,7 +235,7 @@ With the mass of the Icestupa $M_{ice}$, its current volume can also be expresse
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). The model of the Icestupa is initialised with a
 thickness of $\Delta x$ (defined in \ref{section:EB}) and a circular area of radius $r_F$. The constant $r_F$
 represents the mean spray radius of the fountain.  This fountain spray radius is determined by modelling the
-projectile motion of the water droplets. Using mass conservation the droplet speed $v_F$ can be determined from the
+projectile motion of the water droplets. Using mass conservation, the droplet speed $v_F$ can be determined from the
 spray rate $d_F$ and the diameter $dia_F$ of the nozzle as follows:
 
 \begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
@@ -244,7 +247,7 @@ projectile motion equation as follows:
 \begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
 \cdot g \cdot h_F})}{g} \end{equation}
 
-where $g = 9.8 m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
+where $g = 9.8\, m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
 
 During subsequent time steps, the dimensions of the Icestupa evolve assuming a uniform ice formation and decay across
 its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ as shown in Fig.  \ref{fig:shape}.
@@ -252,14 +255,14 @@ During these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:
 
 \begin{equation} V = \pi/3 \cdot {r_{ice}}^3 \cdot s_{cone} \label{eqn:V2} \end{equation}
 
-  \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape and
-fountain parameters of the EP Icestupa. $r_{ice}$ is the radius, $h_{ice}$ is the height and $s_{cone}$ is the
-slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the height and $dia_F$ is the nozzle diameter of the
+  \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape
+variables and fountain constants of the EP Icestupa. $r_{ice}$ is the radius, $h_{ice}$ is the height and $s_{cone}$ is
+the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the height and $dia_F$ is the nozzle diameter of the
 fountain.} \label{fig:shape} \end{figure}
   
 However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
-equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$
-can be determined by considering the following rules:
+equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
+be determined by considering the following rules:
 
 \begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, \Delta x) & \textit{ if } i=0\\
     (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
@@ -322,7 +325,7 @@ modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $
 {r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
 \label{eqn:f_{cone}} \end{equation}
 
-The measured diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
+The ERA5 diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
 
 \subsubsection{Net Longwave Radiation $q_{LW}$}
 
@@ -495,12 +498,13 @@ where $\rho_{w}$ is the density of water (1000 $kg\,m^{-3}$), $ppt$ is the measu
 events were identified using $T_{ppt}$ as $1 \degree C$. Snow mass input is calculated by assuming a uniform
 deposition over the entire circular footprint of the Icestupa. 
 
-The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and deposition
-processes.  To differentiate between these two possibilities, we classify the time steps into humid or non-humid if the
-corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time steps, we assume
-condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can occur.
-Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation ($L_s$)
-is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as follows:
+The latent heat flux is used to estimate either the evaporation and condensation processes or sublimation and
+deposition processes.  To differentiate between these two possibilities, we classify the time steps into humid or
+non-humid if the corresponding relative humidity value is above or below 60\% \citep{Stigter_2018}. On humid time
+steps, we assume condensation or evaporation to occur whereas on non-humid time steps deposition or sublimation can
+occur.  Correspondingly, latent heat of evaporation ($L_e$) is used for humid time steps and latent heat of sublimation
+($L_s$) is used for non-humid time steps. Water accumulation and vapour loss from the Icestupa surface is calculated as
+follows:
 
 \begin{equation} (\frac{\Delta M_{vapour}}{\Delta t}, \frac{\Delta M_{dpt}}{\Delta t}) = \left\{ \begin{array}{ll}
 (-q_{L} \cdot A /L,0) & \textit{ if } q_{L}<0 \\ (0,q_{L} \cdot A /L) & \textit{ if } q_{L}\geq0 \\ \end{array}
@@ -559,11 +563,11 @@ except $M_{F}$ were modelled.} \centering
     \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
     & \multicolumn{1}{c|}{Model ends} \\
       \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
-    \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 467 $kg$\\
+    \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 438 $kg$ & 461 $kg$\\
                                                     & $M_{dpt}$ & 7 $kg$ & 33
-    $kg$ \\ \hline & $M_{melt}$ & 165 $kg$ & 1023 $kg$\\
+    $kg$ \\ \hline & $M_{melt}$ & 154 $kg$ & 1005 $kg$\\
     \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ &
-    814 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 3 $kg$ & 8 $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
+    808 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 11 $kg$ & 16 $kg$\\ & $M_{runoff}$ & 17532 $kg$ & 17532 $kg$\\
  
  \hline \end{tabular} \label{table:MB} \end{table}
 
@@ -584,12 +588,12 @@ frequent snowfall thus decreases the energy available for melt due to the corres
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
 structure. Daily values of $q_{LW}$ ranged from -90 to 23 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
-mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -15 to 26 $Wm^{-2}$. Turbulent latent heat
-flux Mean of $q_{L}$ across model runtime was positive suggesting that it favoured deposition/condensation over
+mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -15 to 26 $Wm^{-2}$. Mean of turbulent
+latent heat flux $q_{L}$ across model runtime was positive suggesting that it favoured deposition/condensation over
 evaporation/sublimation.  Daily values of $q_{L}$ ranged from -10 to 14 $Wm^{-2}$. Therefore, the Icestupa gained mass
 cumulatively from the atmosphere due to the deposition/condensation process. Fountain water heat flux $q_{F}$ had a
 mean of zero as it was only nonzero during 1002 time steps or around 100 hours. Daily values of $q_{F}$ ranged from -1
-to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was minimal as it only varied between -7 to 8
+to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was also minimal as it only varied between -7 to 8
 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was
 insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk temperature
 and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{LW}$
@@ -609,7 +613,7 @@ resulting in a steep increase and gradual melting of ice volume as can be seen i
 The total water used for the Icestupa development includes contributions from the fountain (97.3\%), snowfall (2.5 \%)
 and deposition/condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
 measurement period was 806 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
-Therefore, in the case of EP we used a water input of 18,560 $kg$, with a resultant storage efficiency of only 5.5 \%.
+Therefore, in the case of EP we used a water input of 18,560 $kg$, with a resultant storage efficiency of only 5.4 \%.
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
   volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
@@ -639,19 +643,19 @@ of the simulated outputs.
 
 To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
 m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
-produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ 
-is the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
+produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$ 
+are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
 Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
 
 The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
 parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
 lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
-snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $1.2 \pm 0.2
+snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $0.83 \pm 0.2
 m^3$. 
 
 Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
 volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
-maximum ice volume range from $1.3 \pm 0.1 m^3$. 
+maximum ice volume range from $0.98 \pm 0.1 m^3$. 
 
 In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
 
@@ -666,16 +670,14 @@ We first evaluate the model against the validation measurements at the EP site. 
 capture both the freezing and the melting process sufficiently well as the modelled ice volume lies within the
 uncertainty of both validation measurements. Furthermore, the validation measurements fit well within the estimated
 model uncertainty.  However, since this validation is based on only two points, it does limit the confidence in the
-model results. Moreover, the model seems to overestimate the ice volume at both validation points. This could be due to
-the underestimation of the surface area which underestimates the melt rates (absolute growth rate when $\frac{\Delta
-M_{F}}{\Delta t} < 0$) and the freeze rates (absolute growth rate when $\frac{\Delta M_{F}}{\Delta t} > 0$).
-However, as the fountain was mostly inactive during the study period, the underestimation of surface area
-disproportionately undervalues the melt rates over the freeze rates. One major cause of this underestimation was the
-conical shape assumption, as in reality, the Icestupa shape ranged between a cone and a cylinder (Fig.
-\ref{fig:site}).  Another cause was the surface irregularities that were observed due to uneven exposure to direct
-solar radiation and fountain droplets. The sensitivity of the model results to these errors was further amplified due
-to the relatively small volume of the EP Icestupa. In summary, more validation measurements on a more voluminous
-Icestupa would have increased confidence on the model results.
+model results. Even though the model estimates validate well with the ice volume, the same is not the case for the
+surface area. The surface area estimated from the first validation measurement is just around $4\,m^2$, roughly half
+the model estimated surface area. However, the validation surface area estimate again underestimates the surface area
+as the actual surface area in contact with the atmosphere could have been amplified by the inherent roughness of the
+ice surface. Another major cause of this discrepancy was the conical shape assumption, as in reality, the Icestupa
+shape ranged between a cone and a cylinder (Fig.  \ref{fig:site}).   The sensitivity of the model results to these
+errors was further amplified due to the relatively small volume of the EP Icestupa. In summary, better and frequent
+validation measurements on a more voluminous Icestupa would have increased confidence on the model results.
 
 \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
 above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
@@ -704,10 +706,10 @@ It could be argued that the relatively small EP Icestupa cannot be compared with
 Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
 this is the only Icestupa dataset currently available for such a model validation.
 
-Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (92 \%) simply drained away
+Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (94.5 \%) simply drained away
 ($M_{runoff}$) . This high water loss through drainage is due to the fact that the average spray rate of the fountain
 ($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
-($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 1\, l\,min^{-1}\, \textit{(w.e.)}$ ).
+($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 0.9\, l\,min^{-1}\, \textit{(w.e.)}$ ).
 
 In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to $-27.9\, \degree
 C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just  $-11.6\,\degree C$ during the
@@ -728,36 +730,38 @@ diameter.  The dot colours represent average freeze rate based on the color bar.
   
 Assuming a constant spray for the fountain, we can divide the fountain decisions into fountain state (on/off) and type
 (height and nozzle diameter).  From an energy balance point of view, the fountain should be switched on for all time
-intervals when $q_{net} < 0$. However, in our experiment, the fountain state decision was set based on whether the
-ambient temperature was above or below a critical temperature of $-5 \degree C$. Ambient temperature can serve as an
-indicator of $q_{net}$ as it was correlated ($r^2 = 0.53$).  However, $q_{net}$ was found to be negative already at a
-critical temperature of $-1 \degree C$. Therefore, using air temperature to determine when the fountain should be
-switched on is justified but a higher critical temperature could have been used in the case of the EP Icestupa. 
+intervals when $q_{net} < 0$. However, in our experiment, the fountain state decision was set on the basis of prior
+Icestupa construction experience which recommended a critical temperature of $-5 \degree C$. Ambient temperature can
+serve as an indicator of $q_{net}$ as it was correlated ($r^2 = 0.53$).  However, $q_{net}$ was found to be negative
+already at a critical temperature of $-1 \degree C$. Therefore, using air temperature to determine when the fountain
+should be switched on is justified but a higher critical temperature could have been used in the case of the EP
+Icestupa. 
 
 The fountain type used can be characterised by the physical structure of the fountain, namely its height and nozzle
 diameter. Maintaining the same spray rate and height, one can optimize the Icestupa development by identifying the
-minimum nozzle diameter that yields the maximum storage efficiency. 
+minimum nozzle diameter that yields the maximum storage efficiency. Since we never changed the fountain height for the
+EP Icestupa, we only focus on optimization of fountain diameter below.
 
 Fig. \ref{fig:dia_f} shows reducing the nozzle diameter to 3 $mm$ increases storage efficiency up to 78 \% without
 compromising much on storage duration.  The corresponding storage quantity of the 3 $mm$ nozzle diameter was more than
 20 times higher than the 5 $mm$ fountain used in our experiment. This is because the spray radius $r_F$ of the 3 $mm$
-fountain was much higher at 8.5 $m$ compared to the 1.7 $m$ spray radius of the 5 $mm$ fountain (see Appendix Section
-\ref{section:rF}). Here, we define growth rate as freeze rate when fountain is active and melt rate otherwise. So this
-higher spray radius both, increases the freeze rate  and increases the melt rate since they are both directly
-proportional to the surface area. However, since the freeze rate cannot increase beyond a spray rate of 3.6 $l
-min^{-1}$ (except during precipitation or deposition/condensation events), an optimum spray radius or nozzle diameter
-exists, beyond which storage duration suffers due to a disproportionate increase in melt rate compared to the freeze
-rate. So even though 3 $mm$ nozzle diameter had a much higher storage quantity than the 5 $mm$ nozzle, its storage
-duration was around 3 days less than the 5 $mm$ nozzle. One physical cause of this effect is the different shapes of
-both the ice structures. A flat sheet of ice (effectively a cone with a high spray radius) with higher mass might have
-a storage duration shorter than a conical ice structure. As the spray radius decreases with increasing nozzle
-diameter, the ice structure’s average slope increases and so the 5 $mm$ nozzle's ice structure is "more" conical than
-the 3 $mm$ ice structure. Fig.  \ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (2.4
-$l \,min^{-1} w.e.$) which is large enough to increase the storage efficiency and small enough to not reduce the
-storage duration of the Icestupa significantly.
+fountain was much higher at 8.5 $m$ compared to the 1.7 $m$ spray radius of the 5 $mm$ fountain . Here, we define
+growth rate as freeze rate when fountain is active and melt rate otherwise. Therefore, this higher spray radius both,
+increases the freeze rate  and increases the melt rate since they are both directly proportional to the surface area.
+However, since the freeze rate cannot increase beyond a spray rate of 3.6 $l min^{-1}$ (except during precipitation or
+deposition/condensation events), an optimum spray radius or nozzle diameter exists, beyond which storage duration
+suffers due to a disproportionate increase in melt rate compared to the freeze rate. So even though 3 $mm$ nozzle
+diameter had a much higher storage quantity than the 5 $mm$ nozzle, its storage duration was around 3 days less than
+the 5 $mm$ nozzle. One physical cause of this effect is the different shapes of both the ice structures. A flat sheet
+of ice (effectively a cone with a high spray radius) with higher mass might have a storage duration shorter than a
+conical ice structure. As the spray radius decreases with increasing nozzle diameter, the ice structure’s average slope
+increases and so the 5 $mm$ nozzle's ice structure is "more" conical than the 3 $mm$ ice structure. Fig.
+\ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (2.4 $l \,min^{-1} w.e.$) which is
+large enough to increase the storage efficiency and small enough to not reduce the storage duration of the Icestupa
+significantly.
 
 \subsection{Artificial snow production vs Artificial ice reservoirs}
-Both Artificial snow and ice are produced by expelling small liquid water droplets from the snow gun or fountain
+Both artificial snow and ice are produced by expelling small liquid water droplets from the snow gun or fountain
 nozzles at high speed \citep{BoundaryConditionsforArtificialSnowProductionintheAustrianAlps}. The crucial factor that
 determines ice or snow production is whether these water droplets remain unfrozen or freeze before reaching the
 ice/snow surface. According to \citep{HARTL2018123}, the production potential of artificial snowmaking is proportional
@@ -766,17 +770,17 @@ to the wet-bulb temperature and the threshold mean daily wet bulb temperature fo
 site ($- 1 \, \degree C$).
 
 \section{Conclusions} We outlined a methodology for estimating ice, liquid water, water vapour and runoff
-quantities produced during the construction of an Icestupa using m:easurements of fountain spray rate, air temperature,
+quantities produced during the construction of an Icestupa using measurements of fountain spray rate, air temperature,
 radiation, humidity, pressure, wind and cloudiness at the EP study site. The comparison with validation
 measurements at two different dates during the experiment led to satisfying results, although a more rigorous model
 validation was not possible due to few icestupa volume measurements.
 
-According to the model, the EP Icestupa achieved a storage quantity of 1392 litres of water with a storage
-duration of 61 days. However, the corresponding storage efficiency was very low with only 7.5 \% for a water input of
-18,584 litres. These estimates were most sensitive to the temperature threshold that determined precipitation phase
-and ice emissivity parameters which created an uncertainty of $1.2 \pm 0.3 m^3$ in the maximum ice volume calculated.
-This is to be expected as net longwave radiation and net shortwave radiation together accounted for around 50 \% of
-the overall energy turnover.
+According to the model, the EP Icestupa achieved a storage quantity of 1005 litres of water with a storage
+duration of 65 days. However, the corresponding storage efficiency of 5.4 \% was very low for a water input of 18,560
+litres. These estimates were most sensitive to the temperature threshold that determined precipitation phase and ice
+emissivity parameters which created an uncertainty of $0.9 \pm 0.2 m^3$ in the maximum ice volume calculated.  This is
+to be expected as net longwave radiation and net shortwave radiation together accounted for around 64 \% of the overall
+energy turnover.
 
 Although the location, storage quantity and duration of our experimental EP Icestupa are not representative of
 the much larger Icestupas of Ladakh, the model results do support the hypothesis that there could be considerable
@@ -794,10 +798,10 @@ on the results.
 
 \subsection{Ladakh Icestupa 2014/15} \label{section:ladakhloss} A 20 $m$ tall Icestupa \citep{iceheight} was built in
 Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l. Assuming a conical shape with a diameter of 20 $m$, the
-corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,919,587 litres w.e. The fountain sprayed water at a rate
+corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,920 $m^3$ w.e. The fountain sprayed water at a rate
 of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$ January \citep{waterstart} to at least until $5^{th}$ March
 2015 \citep{waterend} (around 43 nights). Assuming fountain spray was active for 8 hours each night, we estimate water
-consumption to be around 4,334,400 litres. So just during construction/freezing period of the Icestupa, roughly 56 \%
+consumption to be around 4,334 $m^3$. So just during construction/freezing period of the Icestupa, roughly 56 \%
 of the water provided was wasted. The actual water loss is bound to be much higher due to further vapour losses during
 the melting period. This Icestupa completely melted away on $6^{th}$ July 2015 \citep{iceends}. Therefore, the storage
 duration was 166 days or roughly 5 months. 
