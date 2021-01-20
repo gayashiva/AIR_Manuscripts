@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.15)  20 JAN 2021 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.15)  20 JAN 2021 12:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -616,11 +616,11 @@ Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 131.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [3 <./Figures/Figure_2.jpg>]
-<./Figures/Figure_3.jpg, id=203, 771.1209pt x 747.0309pt>
+<./Figures/Figure_3.jpg, id=203, 771.1209pt x 932.0421pt>
 File: ./Figures/Figure_3.jpg Graphic file (type jpg)
 <use ./Figures/Figure_3.jpg>
 Package pdftex.def Info: ./Figures/Figure_3.jpg  used on input line 160.
-(pdftex.def)             Requested size: 504.0pt x 488.26584pt.
+(pdftex.def)             Requested size: 504.0pt x 609.19075pt.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 177.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -637,7 +637,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [5 <./Figures/Figure_3.jpg>]
-<Figures/Figure_4.jpg, id=232, 2852.6575pt x 2057.6875pt>
+<Figures/Figure_4.jpg, id=231, 2852.6575pt x 2057.6875pt>
 File: Figures/Figure_4.jpg Graphic file (type jpg)
 <use Figures/Figure_4.jpg>
 Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 214.
@@ -645,8 +645,8 @@ Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 214.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [6 <./Figures/Figure_4.jpg>]
-<Figures/Figure_5.jpg, id=243, 64.49292pt x 54.06024pt>
+ [6]
+<Figures/Figure_5.jpg, id=247, 64.49292pt x 54.06024pt>
 File: Figures/Figure_5.jpg Graphic file (type jpg)
 <use Figures/Figure_5.jpg>
 Package pdftex.def Info: Figures/Figure_5.jpg  used on input line 258.
@@ -657,7 +657,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [7]
+ [7 <./Figures/Figure_4.jpg>]
 Overfull \hbox (24.3814pt too wide) detected at line 271
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 r[];  h[]\OT1/cmr/m/n/12 ) = []
  []
@@ -968,13 +968,13 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  13139 strings out of 480910
  199100 string characters out of 5910947
- 553894 words of memory out of 5000000
+ 553886 words of memory out of 5000000
  28071 multiletter control sequences out of 15000+600000
  584625 words of font info for 254 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  63i,17n,100p,1049b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on air.pdf (24 pages, 5456070 bytes).
+Output written on air.pdf (24 pages, 5642469 bytes).
 PDF statistics:
  612 PDF objects out of 1000 (max. 8388607)
  503 compressed objects within 6 object streams

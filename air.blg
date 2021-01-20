@@ -15,7 +15,7 @@ Warning--empty journal in iceends
 Warning--empty journal in waterinput
 You've used 38 entries,
             3029 wiz_defined-function locations,
-            855 strings with 12924 characters,
+            854 strings with 12912 characters,
 and the built_in function-call counts, 23927 in all, are:
 = -- 1938
 > -- 1325
