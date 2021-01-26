@@ -572,10 +572,10 @@ except $M_{F}$ were modelled.} \centering
 
 
 Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
-experiment duration, the total energy flux between the atmosphere and the Icestupa were almost balanced. Net shortwave
-radiation (32 $Wm^{-2}$), sensible (9 $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux
-towards the surface of the icestupa were compensated by the net longwave radiation (- 32 $Wm^{-2}$) and the melt energy
-(-12 $Wm^{-2}$). The contributions of other fluxes were negligible in comparison.
+experiment duration, the total energy balance was almost zero. Net shortwave radiation (32 $Wm^{-2}$), sensible (9
+$Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
+compensated by the net longwave radiation (- 32 $Wm^{-2}$) and the melt energy (-12 $Wm^{-2}$). The contributions of
+other fluxes were negligible in comparison.
 
 Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
 controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
@@ -587,18 +587,18 @@ frequent snowfall thus decreases the energy available for melt due to the corres
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
 structure. Daily values of $q_{LW}$ ranged from -90 to 23 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
-mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -15 to 26 $Wm^{-2}$. The mean of the
-turbulent latent heat flux $q_{L}$ across model runtime was positive suggesting that it favoured
-deposition/condensation over evaporation/sublimation.  Daily values of $q_{L}$ ranged from -10 to 14 $Wm^{-2}$.
-Therefore, the Icestupa gained mass cumulatively from the atmosphere due to the deposition/condensation process.
-Fountain water heat flux $q_{F}$ had a mean of zero as it was only nonzero during 1002 time steps or around 100 hours.
-Daily values of $q_{F}$ ranged from -1 to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was also
-minimal as it only varied between -7 to 8 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface
-temperature changes ($q_{T}$) was insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).
-The resulting bulk temperature and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total
-considered period, $q_{LW}$ accounted for 32.5\% of overall energy turnover. The energy turnover is calculated as the
-sum of energy fluxes in absolute values. $q_{SW}$ accounted for 31.5\%, followed by $q_{melt}$ (20\%), $q_{S}$ (9.8\%),
-$q_{L}$ (3.2\%), $q_{G}$ (2\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
+mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -15 to 26 $Wm^{-2}$.
+Deposition/condensation was favored over evaporation/sublimation so the mean of the turbulent latent heat flux $q_{L}$
+across model runtime was positive.  Daily values of $q_{L}$ ranged from -10 to 14 $Wm^{-2}$.  Therefore, the Icestupa
+gained mass cumulatively from the atmosphere due to the deposition/condensation process.  Fountain water heat flux
+$q_{F}$ had a mean of zero as it was only nonzero during 1002 time steps or around 100 hours.  Daily values of $q_{F}$
+ranged from -1 to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was also minimal as it only varied
+between -7 to 8 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$)
+was insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk
+temperature and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period,
+$q_{LW}$ accounted for 32.5\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes
+in absolute values. $q_{SW}$ accounted for 31.5\%, followed by $q_{melt}$ (20\%), $q_{S}$ (9.8\%), $q_{L}$ (3.2\%),
+$q_{G}$ (2\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
 
 Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
 the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
@@ -696,6 +696,10 @@ Some assumptions and their potential to cause errors are discussed below.
 \item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
   contact if nucleation occurs during flight time. For the EP experiment, this process will further increase
   the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
+\item Shape Effects: The suppression of heat exchange between the snow/ice surface and the air adjacent to the surface
+  effectively slows down snow/ice ablation in spring and promotes the stagnation of the cold air within topographical
+  depressions \citep{Fujita_2010}. The quantitative contribution of the atmospheric decoupling over melting snow
+  for the total mass and energy balance is ignored in the model.
 
 \end{itemize}
 
@@ -777,7 +781,7 @@ validation was not possible due to few icestupa volume measurements.
 According to the model, the EP Icestupa achieved a storage quantity of 1005 litres of water with a storage
 duration of 65 days. However, the corresponding storage efficiency of 5.4 \% was very low for a water input of 18,560
 litres. These estimates were most sensitive to the temperature threshold that determined precipitation phase and ice
-emissivity parameters which created an uncertainty of $0.9 \pm 0.2 m^3$ in the maximum ice volume calculated.  This is
+emissivity parameters which created an uncertainty of $0.2 m^3$ in the maximum ice volume calculated.  This is
 to be expected as net longwave radiation and net shortwave radiation together accounted for around 64 \% of the overall
 energy turnover.
 

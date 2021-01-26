@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -77,6 +77,14 @@ Fujita, K. and Ageta, Y. (2000).
 \newblock \emph{Journal of Glaciology} 46, 244–252.
 \newblock \doi{10.3189/172756500781832945}
 \bibAnnoteFile{FujitaAgeta_2000}
+
+\bibitem[{Fujita et~al.(2010)Fujita, Hiyama, Iida, and Ageta}]{Fujita_2010}
+Fujita, K., Hiyama, K., Iida, H., and Ageta, Y. (2010).
+\newblock Self-regulated fluctuations in the ablation of a snow patch over four
+  decades.
+\newblock \emph{Water Resources Research} 46, W11541.
+\newblock \doi{10.1029/2009WR008383}
+\bibAnnoteFile{Fujita_2010}
 
 \bibitem[{Garratt(1992)}]{Garratt_1992}
 Garratt, J.~R. (1992).
