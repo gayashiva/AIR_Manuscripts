@@ -387,8 +387,8 @@ with $c_{ice}$ as the specific heat of ice.
 
 \subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux}
 The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in normal soils and is caused by the
-temperature gradient between the surface layer and the ice body. It is expressed by using the heat conduction equation
-as follows:
+temperature gradient between the surface layer ($T_{ice}$) and the ice body ($T_{bulk}$). It is expressed by using the
+heat conduction equation as follows:
 
 \begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice})/l_{ice} \label{eqn:qG}    \end{equation}
 
@@ -396,7 +396,7 @@ where $k_{ice}$ is the thermal conductivity of ice (2.123 $W\, m^{-1}\,K^{-1}$) 
 the ice body within the Icestupa and $l_{ice}$ is the average distance of any point in the surface to any other point
 in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined from Eqn. \ref{eqn:qG} as follows:
 
-\begin{equation} T_{bulk} = T_{bulk}^{i-1} - (q_{G} \cdot A \cdot \Delta t)/(M_{ice} \cdot c_{ice}) \end{equation}
+\begin{equation} T_{bulk}^{i+1} = T_{bulk} - (q_{G} \cdot A \cdot \Delta t)/(M_{ice} \cdot c_{ice}) \end{equation}
 
 Since we assume a conical shape with $r_{ice} > h_{ice}$, $l_{ice}$ cannot be greater than $2r_{ice}$ and also cannot
 be less than $\Delta x$. Therefore, the average distance from any point on the surface to any point inside is $\Delta
@@ -731,7 +731,7 @@ diameter.  The dot colours represent average freeze rate based on the color bar.
 Assuming a constant spray for the fountain, we can divide the fountain decisions into fountain state (on/off) and type
 (height and nozzle diameter).  From an energy balance point of view, the fountain should be switched on for all time
 intervals when $q_{net} < 0$. However, in our experiment, the fountain state decision was set on the basis of prior
-Icestupa construction experience which recommended a critical temperature of $-5 \degree C$. Ambient temperature can
+Icestupa construction experience where a critical temperature of $-5 \degree C$ was recommended . Ambient temperature can
 serve as an indicator of $q_{net}$ as it was correlated ($r^2 = 0.53$).  However, $q_{net}$ was found to be negative
 already at a critical temperature of $-1 \degree C$. Therefore, using air temperature to determine when the fountain
 should be switched on is justified but a higher critical temperature could have been used in the case of the EP
