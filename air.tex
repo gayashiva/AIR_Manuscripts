@@ -7,7 +7,7 @@
 %\renewcommand{\arraystretch}{1.5}
 %\usepackage{rotating}
 \linenumbers
-\DeclareUnicodeCharacter{2212}{}
+%\DeclareUnicodeCharacter{2212}{}
 \DeclareUnicodeCharacter{0301}{}
 \usepackage{wasysym} % provides \DH, \dh, \Thorn, \thorn
 % Leave a blank\usepackage{amsmath}
@@ -291,7 +291,7 @@ surface layer, over which the energy balance is calculated. A sensitivity analys
 the influence of this factor. Here, we define the surface temperature $T_{ice}$ to be the modelled average temperature
 of the Icestupa surface layer and the energy flux $q_{net}$ is assumed to act uniformly across the Icestupa area $A$.
 
-\subsubsection{Net Shortwave Radiation $q_{SW}$} The net shortwave radiation $q_{SW}$ is computed as follows:
+\subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}} The net shortwave radiation $q_{SW}$ is computed as follows:
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
 
 where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse short wave radiation, $\alpha$ is the modelled
@@ -326,7 +326,7 @@ modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $
 
 The ERA5 diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
 
-\subsubsection{Net Longwave Radiation $q_{LW}$}
+\subsubsection{Net Longwave Radiation \texorpdfstring{$q_{LW}$}{Lg}}
 
 The net longwave radiation $q_{LW}$, for which there were no direct measurements available at EP, is
 determined as follows:
@@ -335,12 +335,11 @@ determined as follows:
 \label{eqn:LW} \end{equation}
 
 where $T_a$ represents the measured air temperature, $T_{ice}$ is the modelled surface temperature, both temperatures
-are given in [$\degree C$], $\sigma=5.67 \cdot 10^{−8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant,
-$LW_{in}$
+are given in [$\degree C$], $\sigma=5.67\cdot 10^{-8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant, $LW_{in}$
 denotes the incoming longwave radiation derived from the ERA5 dataset and $\epsilon_{ice}$ is the corresponding
 emissivity value for the Icestupa surface (see Table \ref{table:parameters}).
 
-\subsubsection{Turbulent sensible $q_{S}$ and latent $q_{L}$ heat fluxes }
+\subsubsection{Turbulent sensible \texorpdfstring{$q_{S}$}{Lg} and latent \texorpdfstring{$q_{L}$}{Lg} heat fluxes }
 
 The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions proposed by
 \cite{Garratt_1992}:
@@ -349,26 +348,26 @@ The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with 
 (T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
 
 \begin{equation} q_{L}=0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-         v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2}
-\end{equation}
+v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \end{equation}
 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
 [$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
-pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$
-is the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat
-of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and
-scalar) described in \citep{Garratt_1992}.The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
+pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is
+the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat of
+sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and scalar)
+described in \citep{Garratt_1992}.The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the
+following formulation given in \cite{WMO_2018}:
 
 \begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
 3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
 \end{split} \label{eqn:vp} \end{equation}
 
-where $p_{a}$ is the measured air pressure in [$hPa$]. 
-\subsubsection{Fountain water heat flux $q_{F}$ }
+where $p_{a}$ is the measured air pressure in [$hPa$].  \subsubsection{Fountain water heat flux
+\texorpdfstring{$q_{F}$}{Lg} }
 
-The total energy flux is further influenced through the heat flux caused by the water that was additionally added to
-the surface of the Icestupa during the time the fountain was running. We take this interaction between the fountain
-water and the ice surface into account by assuming that the ice surface temperature remains constant at 0 $\degree C$
+The total energy flux is further influenced through the heat flux caused by the water that was additionally added to the
+surface of the Icestupa during the time the fountain was running. We take this interaction between the fountain water
+and the ice surface into account by assuming that the ice surface temperature remains constant at 0 $\degree C$
 during time steps when the fountain is active. This process can be divided into two simultaneous steps: (a) the water
 temperature $T_{water}$ is cooled to 0 $\degree C$ and (b) the ice surface temperature is warmed to 0 $\degree C$.
 Process (a) transfers the necessary energy for process (b) throughout the fountain runtime. We further assume
@@ -384,7 +383,7 @@ follows:
 \end{equation} 
 with $c_{ice}$ as the specific heat of ice. 
 
-\subsubsection{Bulk Icestupa heat flux $q_{G}$} \label{sec:Bulkflux}
+\subsubsection{Bulk Icestupa heat flux \texorpdfstring{$q_{G}$}{Lg}} \label{sec:Bulkflux}
 The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in normal soils and is caused by the
 temperature gradient between the surface layer ($T_{ice}$) and the ice body ($T_{bulk}$). It is expressed by using the
 heat conduction equation as follows:
@@ -402,7 +401,7 @@ be less than $\Delta x$. Therefore, the average distance from any point on the s
 x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$.
 
 
-\subsubsection{Surface temperature changes and melt energy $q_{melt}$}
+\subsubsection{Surface temperature changes and melt energy \texorpdfstring{$q_{melt}$}{Lg}}
 The available net energy $q_{net}$ partly increases surface temperature, but also contributes to ice melt at the
 surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
 denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewritten as: \begin{equation} q_{net} =
@@ -513,7 +512,7 @@ where $ L = \left\{ \begin{array}{ll} L_s & \textit{ if } RH<60 \\ L_e & \textit
 $
 
 Using the melt energy $q_{melt}$, we estimate the frozen and melted ice mass ($\Delta M_{ice}$, $\Delta M_{melt}$).
-Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap} we are left with the contribution from the
+  Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap} we are left with the contribution from the
 melt energy as follows:
 
 \begin{equation} \left.\begin{aligned} (\frac{\Delta M_{ice}-\Delta M_{ppt}-\Delta M_{dpt} + \Delta M_{vapour}}{\Delta
