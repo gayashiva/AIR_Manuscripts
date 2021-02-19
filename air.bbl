@@ -62,7 +62,9 @@ Chevuturi, A., Dimri, A.~P., and Thayyen, R.~J. (2018).
 \bibitem[{{Copernicus Climate Change Service (C3S)}(2017)}]{era5}
 [Dataset] {Copernicus Climate Change Service (C3S)} (2017).
 \newblock Era5: Fifth generation of ecmwf atmospheric reanalyses of the global
-  climate
+  climate.
+\newblock [Available at \url{https://cds.climate.copernicus.eu/cdsapp#!/home},
+  accessed 2019-10-01]
 \bibAnnoteFile{era5}
 
 \bibitem[{Cuffey and Paterson(2010)}]{CuffeyPaterson_2010}
@@ -93,7 +95,9 @@ Garratt, J.~R. (1992).
 
 \bibitem[{Grossman(2015)}]{zanskar}
 Grossman, D. (2015).
-\newblock As himalayan glaciers melt, two towns face the fallout
+\newblock As himalayan glaciers melt, two towns face the fallout [Available at
+  \url{https://e360.yale.edu/features/as_himalayan_glaciers_melt_two_towns_face_the_fallout},
+  accessed 2019-10-01]
 \bibAnnoteFile{zanskar}
 
 \bibitem[{Hartl et~al.(2018)Hartl, Fischer, and Olefs}]{HARTL2018123}
@@ -140,7 +144,9 @@ Hori, M., Aoki, T., Tanikawa, T., Motoyoshi, H., Hachikubo, A., Sugiura, K.,
 
 \bibitem[{{IDAWEB}(2019)}]{meteoswiss}
 [Dataset] {IDAWEB} (2019).
-\newblock Meteoswiss, federal office of meteorology and climatology
+\newblock Meteoswiss, federal office of meteorology and climatology.
+\newblock [Available at \url{https://gate.meteoswiss.ch/idaweb/login.do},
+  accessed 2019-10-01]
 \bibAnnoteFile{meteoswiss}
 
 \bibitem[{Immerzeel et~al.(2019)Immerzeel, Lutz, Andrade, Bahl, Biemans, Bolch
@@ -154,7 +160,9 @@ Immerzeel, W.~W., Lutz, A.~F., Andrade, M., Bahl, A., Biemans, H., Bolch, T.,
 
 \bibitem[{Meteoblue(2020)}]{eispalast}
 Meteoblue (2020).
-\newblock Climate schwarzsee
+\newblock Climate schwarzsee [Available at
+  \url{https://www.meteoblue.com/en/weather/historyclimate/climatemodelled/schwarzsee_switzerland_11790334},
+  accessed 2019-10-01]
 \bibAnnoteFile{eispalast}
 
 \bibitem[{Mölg and Hardy(2004)}]{MolgHardy_2004}
@@ -248,32 +256,45 @@ Unger-Shayesteh, K., Vorogushyn, S., Farinotti, D., Gafurov, A., Duethmann, D.,
 
 \bibitem[{Wangchuk(2014)}]{campaign}
 Wangchuk, S. (2014).
-\newblock Ice stupa artificial glaciers of ladakh
+\newblock Ice stupa artificial glaciers of ladakh [Available at
+  \url{www.indiegogo.com/projects/ice-stupa-artificial-glaciers-of-ladakh#/},
+  accessed 2019-10-01]
 \bibAnnoteFile{campaign}
 
 \bibitem[{Wangchuk(2015{\natexlab{a}})}]{waterstart}
 Wangchuk, S. (2015{\natexlab{a}}).
-\newblock The good news at ice stupa 24th january 2015
+\newblock The good news at ice stupa 24th january 2015 [Available at
+  \url{http://icestupa.org/news/the-good-news-at-ice-stupa}, accessed
+  2019-10-01]
 \bibAnnoteFile{waterstart}
 
 \bibitem[{Wangchuk(2015{\natexlab{b}})}]{waterend}
 Wangchuk, S. (2015{\natexlab{b}}).
-\newblock Ice stupa artificial glacier inaugurated 5th of march 2015
+\newblock Ice stupa artificial glacier inaugurated 5th of march 2015 [Available
+  at
+  \url{http://icestupa.org/news/ice-stupa-artificial-glacier-inaugurated-5th-of-march},
+  accessed 2019-10-01]
 \bibAnnoteFile{waterend}
 
 \bibitem[{Wangchuk(2015{\natexlab{c}})}]{iceheight}
 Wangchuk, S. (2015{\natexlab{c}}).
-\newblock Ice stupa surpasses guiness world record
+\newblock Ice stupa surpasses guiness world record [Available at
+  \url{http://icestupa.org/news/ice-stupa-surpasses-guinness-world-record},
+  accessed 2019-10-01]
 \bibAnnoteFile{iceheight}
 
 \bibitem[{Wangchuk(2015{\natexlab{d}})}]{iceends}
 Wangchuk, S. (2015{\natexlab{d}}).
-\newblock Ice stupa way of celebrating a special day
+\newblock Ice stupa way of celebrating a special day [Available at
+  \url{http://icestupa.org/news/ice-stupa-way-of-celebrating-a-special-day6th-of-ju},
+  accessed 2019-10-01]
 \bibAnnoteFile{iceends}
 
 \bibitem[{Wangchuk(2015{\natexlab{e}})}]{waterinput}
 Wangchuk, S. (2015{\natexlab{e}}).
-\newblock World water day at ice stupa
+\newblock World water day at ice stupa [Available at
+  \url{http://icestupa.org/news/world-water-day-at-ice-stupa}, accessed
+  2019-10-01]
 \bibAnnoteFile{waterinput}
 
 \bibitem[{WMO(2018)}]{WMO_2018}

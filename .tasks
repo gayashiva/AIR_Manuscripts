@@ -1,6 +1,6 @@
 [file-run]
 command:tex=:VimtexCompile
-cwd=$(VIM_FILEDIR)
+# cwd=$(VIM_FILEDIR)
 output=terminal
 save=2
 
@@ -12,6 +12,6 @@ save=2
 # define a new task named "file-build"
 [file-compile]
 command:tex=:VimtexErrors
-cwd=$(VIM_FILEDIR)
+# cwd=$(VIM_FILEDIR)
 save=2
 

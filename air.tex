@@ -559,13 +559,12 @@ calculation}
   spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
 except $M_{F}$ were modelled.} \centering
     \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
-    & \multicolumn{1}{c|}{Model ends} \\
-      \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
-    \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 438 $kg$ & 461 $kg$\\
-                                                    & $M_{dpt}$ & 7 $kg$ & 33
-    $kg$ \\ \hline & $M_{melt}$ & 154 $kg$ & 1005 $kg$\\
-    \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ &
-    808 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 11 $kg$ & 16 $kg$\\ & $M_{runoff}$ & 17532 $kg$ & 17532 $kg$\\
+    & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
+      \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 466 $kg$\\ & $M_{dpt}$ & 0 $kg$ & 0
+      $kg$ \\ & $M_{cdt}$ & 7 $kg$ & 32 $kg$ \\
+      \hline & $M_{melt}$ & 163 $kg$ & 1013 $kg$\\
+      \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 809 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 11 $kg$ & 16
+      $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
  
  \hline \end{tabular} \label{table:MB} \end{table}
 
@@ -579,10 +578,10 @@ other fluxes were negligible in comparison.
 Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
 controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
 the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 339
-$Wm^{-2}$, $q_{SW}$ only went up to 98 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct
-solar radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived}
-(a).  Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more
-frequent snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
+$Wm^{-2}$, $q_{SW}$ only went up to 98 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct solar
+radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived} (a).
+Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more frequent
+snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
 structure. Daily values of $q_{LW}$ ranged from -90 to 23 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
@@ -595,14 +594,14 @@ ranged from -1 to 7 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G
 between -7 to 8 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$)
 was insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk
 temperature and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period,
-$q_{LW}$ accounted for 32.5\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes
-in absolute values. $q_{SW}$ accounted for 31.5\%, followed by $q_{melt}$ (20\%), $q_{S}$ (9.8\%), $q_{L}$ (3.2\%),
-$q_{G}$ (2\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
+$q_{LW}$ accounted for 32.5\% of overall energy turnover. The energy turnover is calculated as the sum of energy
+fluxes in absolute values. $q_{SW}$ accounted for 31.5\%, followed by $q_{melt}$ (20\%), $q_{S}$ (9.8\%), $q_{L}$
+(3.2\%), $q_{G}$ (2\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
 
 Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
 the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
-deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$) shows
-a strong correlation with net energy flux ($r^2 = 0.31$) but poor correlation with Icestupa surface area ($r^2 =
+deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
+shows a strong correlation with net energy flux ($r^2 = 0.31$) but poor correlation with Icestupa surface area ($r^2 =
 0.03$).  This is because the variance in growth rate is mostly due to the variance in $q_{net}$ as illustrated in Fig.
 \ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_F$, the surface area maintains a maximum
 initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
