@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -100,13 +100,6 @@ Grossman, D. (2015).
   accessed 2019-10-01]
 \bibAnnoteFile{zanskar}
 
-\bibitem[{Hartl et~al.(2018)Hartl, Fischer, and Olefs}]{HARTL2018123}
-Hartl, L., Fischer, A., and Olefs, M. (2018).
-\newblock Analysis of past changes in wet bulb temperature in relation to snow
-  making conditions based on long term observations austria and germany.
-\newblock \emph{Global and Planetary Change} 167, 123 -- 136
-\bibAnnoteFile{HARTL2018123}
-
 \bibitem[{Hock(2005)}]{Hock_2005}
 Hock, R. (2005).
 \newblock Glacier melt: a review of processes and their modelling.
@@ -200,15 +193,6 @@ Oerlemans, J. and Knap, W.~H. (1998).
 \newblock \emph{Journal of Glaciology} 44, 231--238.
 \newblock \doi{10.3189/S0022143000002574}
 \bibAnnoteFile{OerlemansKnap_1998}
-
-\bibitem[{Olefs et~al.(2010)Olefs, Fischer, and
-  Lang}]{BoundaryConditionsforArtificialSnowProductionintheAustrianAlps}
-Olefs, M., Fischer, A., and Lang, J. (2010).
-\newblock Boundary conditions for artificial snow production in the austrian
-  alps.
-\newblock \emph{Journal of Applied Meteorology and Climatology} 49, 1096 --
-  1113
-\bibAnnoteFile{BoundaryConditionsforArtificialSnowProductionintheAustrianAlps}
 
 \bibitem[{Scherrer(2020)}]{Scherrer_2020}
 Scherrer, S.~C. (2020).
