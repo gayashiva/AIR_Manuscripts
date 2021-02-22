@@ -467,8 +467,6 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
         Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:
         \citeauthor{OerlemansKnap_1998}  \\ Ice layer thickness & $\Delta x$ & 5 $\,mm$ & $[1,10]\, mm$   & assum.\\
-        % Ice body and surface distance & $l_{ice}$ & $r_{ice}/2$ & $[\Delta x, r_{ice}]\, mm$   & B + U: Section
-        % \ref{sec:Bulkflux}\\
         
         \hline Site Parameters& & & & \\ \hline Fountain nozzle diameter & $dia_{F}$ & $5 \,mm$ & $\pm$ 1 $\%$   & B:
         meas. ; U: assum.\\ Fountain height & $h_{F}$ & $1.35 \,m$ &  $\pm$ 1 $\%$   & B: meas. ; U: assum.\\ Fountain
@@ -651,17 +649,17 @@ has a subjective part that influences the results and conclusions obtained in th
 model outputs $y_k$ is evaluated to quantify the local sensitivities $s_{j,k}$ that are defined here as the 95\% range
 of the simulated outputs.
 
-To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least $0.1
-m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
-produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$ 
+To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least
+$0.1 m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
+produced by these uncertain parameters in maximum ice volume calculation. It shows that $\epsilon_{ice}$ and $T_{ppt}$
 are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
 Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
 
 The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
 parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
 lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
-snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $0.84 \pm 0.2
-m^3$. 
+snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $0.84 \pm
+0.2 m^3$. 
 
 Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
 volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
@@ -672,6 +670,7 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_9.jpg} \end{center}
 \caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
 \ref{table:parameters}).  Outliers in the bar plot are shown as 'o'.} \label{fig:sensitivity} \end{figure}
+
 \section{Discussion}
 
 \subsection{Model validation quality}
@@ -714,24 +713,6 @@ Some assumptions and their potential to cause errors are discussed below.
 
 \end{itemize}
 
-\subsection{Schwarzsee vs Leh Icestupa}
-  
-It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
-Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
-this is the only Icestupa dataset currently available for such a model validation.
-
-Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (94.5 \%) simply drained away
-($M_{runoff}$) . This high water loss through drainage is due to the fact that the average spray rate of the fountain
-($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
-($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 0.9\, l\,min^{-1}\, \textit{(w.e.)}$ ).
-
-In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to $-27.9\, \degree
-C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just  $-11.6\,\degree C$ during the
-study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the EP
-site compared to the 43 nights of fountain operation possible in Ladakh (see Appendix \ref{section:ladakhloss}). Thus,
-the Icestupa growth rate is expected to be much higher in Ladakh. However, water spray rates in Ladakh are also much
-higher (around 210 $l\,min^{-1}$). This suggests that the water losses in Ladakh could be caused by excessive fountain spray.
-
 \subsection{Icestupa construction decisions} There are several decisions one has to take when constructing Icestupas.
 These can be broadly divided into two types of decisions, namely location and fountain decisions.  Both the
 meteorological conditions of the location and the surface area produced by the fountain significantly influence the
@@ -772,6 +753,48 @@ slope increases and so the 5 $mm$ nozzle's ice structure is ``more'' conical tha
 \ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (2.4 $l \,min^{-1} w.e.$) which is
 large enough to increase the storage efficiency and small enough to not reduce the storage duration of the Icestupa
 significantly.
+
+
+\subsection{Meteorological sensitivity}
+
+
+The sensitivity of maximum ice volume associated with changes in meteorological parameters was quantified. The
+meteorological parameters include $T_a$, $RH$, $v_a$, $p_a$, $SW_{direct}$, $SW_{diffuse}$ and $LW_{in}$. In each perturbation
+scenario, a certain meteorological parameter was perturbed to a certain extent.  Among those changes, $T_a$ was absolute
+changes ($\pm$ 1 \degree C) and other parameters were relative variations($\pm$ 5 \%).   All perturbations were
+implemented uniformly in space on the modeling domain and in time through the modeling periods.  To separate the effects
+of individual meteorological parameters, only one parameter was changed in each case, while all the other parameters
+were kept unchanged. Please note that these types of perturbations are not what happens in the real world, where
+meteorological parameters are inter-linked.  
+
+\begin{figure} \begin{center} \includegraphics[width=10
+cm]{Figures/Figure_11.jpg} \end{center} \caption{Sensitivities of maximum ice volume to all the meteorological input
+  parameters used in the model (Figure \ref{fig:input}).  Outliers in the bar plot are shown as 'o'.}
+\label{fig:msensitivity} \end{figure}
+
+As can be seen from Fig. \ref{fig:msensitivity}, the maximum ice volume is most sensitive to $LW_{in}$. This
+suggests that there could be significant influence of nearby topological features on the growth rate of the Icestupa
+even within the same valley. Hence choice of appropriate location with minimal exposure to longwave radiation is
+crucial.
+
+\subsection{Schwarzsee vs Leh Icestupa}
+  
+It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
+Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
+this is the only Icestupa dataset currently available for such a model validation.
+
+Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (94.5 \%) simply drained away
+($M_{runoff}$) . This high water loss through drainage is due to the fact that the average spray rate of the fountain
+($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
+($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 0.9\, l\,min^{-1}\, \textit{(w.e.)}$ ).
+
+In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to $-27.9\, \degree
+C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just  $-11.6\,\degree C$ during the
+study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the EP
+site compared to the 43 nights of fountain operation possible in Ladakh (see Appendix \ref{section:ladakhloss}). Thus,
+the Icestupa growth rate is expected to be much higher in Ladakh. However, water spray rates in Ladakh are also much
+higher (around 210 $l\,min^{-1}$). This suggests that the water losses in Ladakh could be caused by excessive fountain spray.
+
 
 % \subsection{Artificial snow production vs Artificial ice reservoirs}
 % Both artificial snow and ice are produced by expelling small liquid water droplets from the snow gun or fountain
