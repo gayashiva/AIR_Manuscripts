@@ -355,9 +355,9 @@ where $h_{AWS}$ is the measurement height above the ground surface of the AWS (i
 [$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
 pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is
 the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat of
-sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and scalar)
-described in \citep{Garratt_1992}.The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the
-following formulation given in \cite{WMO_2018}:
+sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and scalar).
+The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in
+\cite{WMO_2018}:
 
 \begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
 3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
@@ -739,17 +739,16 @@ observed growth rate. Since our validation is restricted to just one location, w
 optimization possibilities of Icestupa constructions through fountain decisions.
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_10.jpg} \end{center} \caption{Variation
-in storage efficiency (black dots) and storage duration (coloured dots) with changes in fountain nozzle's nozzle
+in storage efficiency (black dots) and storage duration (coloured dots) with changes in fountain's nozzle
 diameter.  The dot colours represent average freeze rate based on the color bar.} \label{fig:dia_f} \end{figure}
   
 Assuming a constant spray for the fountain, we can divide the fountain decisions into fountain state (on/off) and type
 (height and nozzle diameter).  From an energy balance point of view, the fountain should be switched on for all time
-intervals when $q_{net} < 0$. However, in our experiment, the fountain state decision was set on the basis of prior
-Icestupa construction experience where a critical temperature of $-5 \degree C$ was recommended . Ambient temperature can
-serve as an indicator of $q_{net}$ as it was correlated ($r^2 = 0.53$).  However, $q_{net}$ was found to be negative
-already at a critical temperature of $-1 \degree C$. Therefore, using air temperature to determine when the fountain
-should be switched on is justified but a higher critical temperature could have been used in the case of the EP
-Icestupa. 
+intervals when $q_{net} < 0$ which would have increased the fountain discharge duration from 90 hours to 850 hours.
+However, in our experiment, the fountain state decision was set on the basis of prior Icestupa construction
+experience where a critical temperature of $-5 \degree C$ was recommended. But ambient temperature was a poor
+indicator of $q_{net}$ ($r^2 = 0.17$).  Therefore, using air temperature to determine when the fountain should be
+switched on was not ideal. 
 
 The fountain type used can be characterised by the physical structure of the fountain, namely its height and nozzle
 diameter. Maintaining the same spray rate and height, one can optimize the Icestupa development by identifying the
@@ -758,18 +757,18 @@ EP Icestupa, we only focus on optimization of fountain diameter below.
 
 Fig. \ref{fig:dia_f} shows reducing the nozzle diameter to 3 $mm$ increases storage efficiency up to 78 \% without
 compromising much on storage duration.  The corresponding storage quantity of the 3 $mm$ nozzle diameter was more than
-20 times higher than the 5 $mm$ fountain used in our experiment. This is because the spray radius $r_F$ of the 3 $mm$
+23 times higher than the 5 $mm$ fountain used in our experiment. This is because the spray radius $r_F$ of the 3 $mm$
 fountain was much higher at 8.5 $m$ compared to the 1.7 $m$ spray radius of the 5 $mm$ fountain . Here, we define
 growth rate as freeze rate when fountain is active and melt rate otherwise. Therefore, this higher spray radius both
 increases the freeze rate  and increases the melt rate since they are both directly proportional to the surface area.
 However, since the freeze rate cannot increase beyond a spray rate of 3.6 $l min^{-1}$ (except during precipitation or
 deposition/condensation events), an optimum spray radius or nozzle diameter exists, beyond which storage duration
 suffers due to a disproportionate increase in melt rate compared to the freeze rate. So even though 3 $mm$ nozzle
-diameter had a much higher storage quantity than the 5 $mm$ nozzle, its storage duration was around 3 days less than
+diameter had a much higher storage quantity than the 5 $mm$ nozzle, its storage duration was around 2 days less than
 the 5 $mm$ nozzle. One physical cause of this effect is the different shapes of both the ice structures. A flat sheet
 of ice (effectively a cone with a high spray radius) with higher mass might have a storage duration shorter than a
-conical ice structure. As the spray radius decreases with increasing nozzle diameter, the ice structure’s average slope
-increases and so the 5 $mm$ nozzle's ice structure is "more" conical than the 3 $mm$ ice structure. Fig.
+conical ice structure. As the spray radius decreases with increasing nozzle diameter, the ice structure’s average
+slope increases and so the 5 $mm$ nozzle's ice structure is ``more'' conical than the 3 $mm$ ice structure. Fig.
 \ref{fig:dia_f} shows that a nozzle diameter of 3 $mm$ has an average freeze rate (2.4 $l \,min^{-1} w.e.$) which is
 large enough to increase the storage efficiency and small enough to not reduce the storage duration of the Icestupa
 significantly.
@@ -829,7 +828,7 @@ the initial manuscript and helped improve it. SB developed the methodology with 
 analysis with support from MH and ML. SB and MH participated in the fieldwork.
 
 \section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
-Excellence Scholarship (Suryanarayanan Balasubramanian).
+Excellence Scholarship (SB).
 
 \section*{Acknowledgments} We thank Mr. Adolf Kaeser and Mr. Flavio Catillaz at Eispalast Schwarzsee for their active
 participation in the fieldwork. We would also like to thank Digmesa AG for subsidising their flowmeter used in the
