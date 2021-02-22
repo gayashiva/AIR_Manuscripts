@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.12)  22 FEB 2021 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.12)  22 FEB 2021 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -948,33 +948,24 @@ LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [19 <./Figures/Figure_9.jpg>]
-<Figures/Figure_10.jpg, id=468, 654.0435pt x 439.1607pt>
+<Figures/Figure_10.jpg, id=463, 654.0435pt x 439.1607pt>
 File: Figures/Figure_10.jpg Graphic file (type jpg)
 <use Figures/Figure_10.jpg>
-Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 730.
+Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 712.
 (pdftex.def)             Requested size: 426.79134pt x 286.57014pt.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [20 <./Figures/Figure_10.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [21]
+ [21] (./air.bbl
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [22] (./air.bbl
+ [22]
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
- [24])
+ [23])
 
 Package caption Warning: Unused \captionsetup[sub] on input line 4.
 See the caption package documentation for explanation.
@@ -982,28 +973,35 @@ See the caption package documentation for explanation.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [25] (./air.aux)
-Package rerunfilecheck Info: File `air.out' has not changed.
-(rerunfilecheck)             Checksum: 963F5E07A6BEABA0EA036DFC55248D8B;1955.
+ [24] (./air.aux)
 
+Package rerunfilecheck Warning: File `air.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `air.out':
+(rerunfilecheck)             Before: 963F5E07A6BEABA0EA036DFC55248D8B;1955
+(rerunfilecheck)             After:  130ED5A1A244E48B4006814CE15A57A4;1850.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 13300 strings out of 479383
- 202054 string characters out of 5875830
+ 13299 strings out of 479383
+ 202047 string characters out of 5875830
  592621 words of memory out of 5000000
  29725 multiletter control sequences out of 15000+600000
  453595 words of font info for 256 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 94i,17n,128p,1049b,531s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,17n,128p,1049b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{subsection.6.5} has been referenced but does not exist, replaced by a fixed one
+
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on air.pdf (25 pages, 1533926 bytes).
+Output written on air.pdf (24 pages, 1532518 bytes).
 PDF statistics:
- 620 PDF objects out of 1000 (max. 8388607)
- 512 compressed objects within 6 object streams
- 133 named destinations out of 1000 (max. 500000)
+ 610 PDF objects out of 1000 (max. 8388607)
+ 503 compressed objects within 6 object streams
+ 132 named destinations out of 1000 (max. 500000)
  36097 words of extra memory for PDF output out of 42996 (max. 10000000)
 
