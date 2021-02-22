@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.12)  22 FEB 2021 15:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.12)  22 FEB 2021 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -545,7 +545,7 @@ Package epstopdf Info: Source file: <./logo1.eps>
 (epstopdf)             Command: <repstopdf --outfile=./logo1-eps-converted-to.pdf ./logo1.eps>
 (epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
-<./logo1-eps-converted-to.pdf, id=112, 284.06125pt x 80.3pt>
+<./logo1-eps-converted-to.pdf, id=108, 284.06125pt x 80.3pt>
 File: ./logo1-eps-converted-to.pdf Graphic file (type pdf)
 <use ./logo1-eps-converted-to.pdf>
 Package pdftex.def Info: ./logo1-eps-converted-to.pdf  used on input line 44.
@@ -588,7 +588,7 @@ Underfull \hbox (badness 10000) detected at line 44
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo1-eps-converted-to.pdf>]
-<Figures/Figure_1.jpg, id=152, 569.12625pt x 379.4175pt>
+<Figures/Figure_1.jpg, id=148, 569.12625pt x 379.4175pt>
 File: Figures/Figure_1.jpg Graphic file (type jpg)
 <use Figures/Figure_1.jpg>
 Package pdftex.def Info: Figures/Figure_1.jpg  used on input line 75.
@@ -599,7 +599,7 @@ LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <11> not available
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [2 <./Figures/Figure_1.jpg>]
-<./Figures/Figure_2.jpg, id=189, 1162.3425pt x 409.53pt>
+<./Figures/Figure_2.jpg, id=184, 1162.3425pt x 409.53pt>
 File: ./Figures/Figure_2.jpg Graphic file (type jpg)
 <use ./Figures/Figure_2.jpg>
 Package pdftex.def Info: ./Figures/Figure_2.jpg  used on input line 131.
@@ -632,7 +632,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [4]
-<Figures/Figure_4.jpg, id=225, 2852.6575pt x 2057.6875pt>
+<Figures/Figure_4.jpg, id=221, 2852.6575pt x 2057.6875pt>
 File: Figures/Figure_4.jpg Graphic file (type jpg)
 <use Figures/Figure_4.jpg>
 Package pdftex.def Info: Figures/Figure_4.jpg  used on input line 213.
@@ -644,7 +644,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [6 <./Figures/Figure_4.jpg>]
-<Figures/Figure_5.jpg, id=248, 64.49292pt x 54.06024pt>
+<Figures/Figure_5.jpg, id=244, 64.49292pt x 54.06024pt>
 File: Figures/Figure_5.jpg Graphic file (type jpg)
 <use Figures/Figure_5.jpg>
 Package pdftex.def Info: Figures/Figure_5.jpg  used on input line 257.
@@ -908,7 +908,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [16]
-<Figures/Figure_8.jpg, id=437, 411.2163pt x 283.5393pt>
+<Figures/Figure_8.jpg, id=433, 411.2163pt x 283.5393pt>
 File: Figures/Figure_8.jpg Graphic file (type jpg)
 <use Figures/Figure_8.jpg>
 Package pdftex.def Info: Figures/Figure_8.jpg  used on input line 617.
@@ -917,7 +917,7 @@ Package pdftex.def Info: Figures/Figure_8.jpg  used on input line 617.
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [17 <./Figures/Figure_8.jpg>]
-<Figures/Figure_9.jpg, id=445, 412.1799pt x 314.1336pt>
+<Figures/Figure_9.jpg, id=441, 412.1799pt x 314.1336pt>
 File: Figures/Figure_9.jpg Graphic file (type jpg)
 <use Figures/Figure_9.jpg>
 Package pdftex.def Info: Figures/Figure_9.jpg  used on input line 661.
@@ -948,7 +948,7 @@ LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [19 <./Figures/Figure_9.jpg>]
-<Figures/Figure_10.jpg, id=463, 654.0435pt x 439.1607pt>
+<Figures/Figure_10.jpg, id=459, 654.0435pt x 439.1607pt>
 File: Figures/Figure_10.jpg Graphic file (type jpg)
 <use Figures/Figure_10.jpg>
 Package pdftex.def Info: Figures/Figure_10.jpg  used on input line 712.
@@ -963,6 +963,9 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
  [23])
@@ -973,35 +976,33 @@ See the caption package documentation for explanation.
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
- [24] (./air.aux)
+ [24] (./air.aux
 
-Package rerunfilecheck Warning: File `air.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
 
-Package rerunfilecheck Info: Checksums for `air.out':
-(rerunfilecheck)             Before: 963F5E07A6BEABA0EA036DFC55248D8B;1955
-(rerunfilecheck)             After:  130ED5A1A244E48B4006814CE15A57A4;1850.
+)
+Package rerunfilecheck Info: File `air.out' has not changed.
+(rerunfilecheck)             Checksum: 130ED5A1A244E48B4006814CE15A57A4;1850.
+
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 13299 strings out of 479383
- 202047 string characters out of 5875830
+ 13289 strings out of 479383
+ 201667 string characters out of 5875830
  592621 words of memory out of 5000000
- 29725 multiletter control sequences out of 15000+600000
+ 29718 multiletter control sequences out of 15000+600000
  453595 words of font info for 256 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 94i,17n,128p,1049b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.6.5} has been referenced but does not exist, replaced by a fixed one
-
+ 94i,17n,128p,1049b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
-Output written on air.pdf (24 pages, 1532518 bytes).
+Output written on air.pdf (24 pages, 1531799 bytes).
 PDF statistics:
- 610 PDF objects out of 1000 (max. 8388607)
- 503 compressed objects within 6 object streams
- 132 named destinations out of 1000 (max. 500000)
- 36097 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 603 PDF objects out of 1000 (max. 8388607)
+ 497 compressed objects within 5 object streams
+ 129 named destinations out of 1000 (max. 500000)
+ 36089 words of extra memory for PDF output out of 42996 (max. 10000000)
 
