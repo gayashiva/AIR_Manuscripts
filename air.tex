@@ -275,7 +275,7 @@ otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
 
 The energy balance equation \citep{Hock_2005} for the Icestupa is formulated as follows:
 
-\begin{equation} q_{net} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} \label{eqn:EF} \end{equation}
+\begin{equation} q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} + q_{Ice} +  q_{T} = 0 \label{eqn:EB} \end{equation}
 
 where $q_{net}$ is the net energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net
 longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
@@ -283,7 +283,7 @@ exchange of the fountain water droplets with the AIR ice surface during fountain
 represents ground heat flux between Icestupa surface and Icestupa interior. Energy transferred in the direction of the
 ice surface is always denoted as positive and away as negative.  
 
-Equation \ref{eqn:EF} is usually referred to as the energy budget for “the surface”, but practically it must apply to
+Equation \ref{eqn:EB} is usually referred to as the energy budget for “the surface”, but practically it must apply to
 a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the Icestupa surface layer which
 has an upper and a lower boundary defined by the atmosphere and the ice body of the Icestupa, respectively. The
 parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
@@ -407,7 +407,7 @@ x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{i
 \subsubsection{Surface temperature changes and melt energy \texorpdfstring{$q_{melt}$}{Lg}}
 The available net energy $q_{net}$ partly increases surface temperature, but also contributes to ice melt at the
 surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
-denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EF} can be rewritten as: \begin{equation} q_{net} =
+denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{net} =
 q_{melt} + q_{T} \end{equation}
 
 We define the freezing energy as $q_{freeze} = (q_{net}-q_{L})$. This is because the latent heat always contributes to
