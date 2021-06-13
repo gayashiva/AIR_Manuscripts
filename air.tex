@@ -230,41 +230,28 @@ brevity.  The equations used henceforth display model time step superscript $i$ 
 current time step.
 
 With the mass of the Icestupa $M_{ice}$, its current volume can also be expressed as:
-
-\begin{equation} V = M_{ice} / \rho_{ice} \label{eqn:V1} \end{equation}
-
-where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). The model of the Icestupa is initialised with a
-thickness of $\Delta x$ (defined in \ref{section:EB}) and a circular area of radius $r_F$. The constant $r_F$
-represents the mean spray radius of the fountain.  This fountain spray radius is determined by modelling the
-projectile motion of the water droplets. Using mass conservation, the droplet speed $v_F$ can be determined from the
-spray rate $d_F$ and the diameter $dia_F$ of the nozzle as follows:
-
-\begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
-
-Afterwards, we assume that the water droplets move with an air friction free projectile motion from the fountain
-nozzle with a height $h_F$ to the ice/ground surface. The resulting spray radius $r_F$ was then determined from the
-projectile motion equation as follows:
-
-\begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
-\cdot g \cdot h_F})}{g} \end{equation}
-
-where $g = 9.8\, m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
+\begin{equation} V = M_{ice} / \rho_{ice} \label{eqn:V1} \end{equation} where $\rho_{ice}$ is the density of ice (917
+$kg\, m^{-3}$). The model of the Icestupa is initialised with a thickness of $\Delta x$ (defined in \ref{section:EB})
+and a circular area of radius $r_F$. The constant $r_F$ represents the mean spray radius of the fountain.  This fountain
+spray radius is determined by modelling the projectile motion of the water droplets. Using mass conservation, the
+droplet speed $v_F$ can be determined from the spray rate $d_F$ and the diameter $dia_F$ of the nozzle as
+follows:\begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}Afterwards, we assume that the water
+droplets move with an air friction free projectile motion from the fountain nozzle with a height $h_F$ to the ice/ground
+surface. The resulting spray radius $r_F$ was then determined from the projectile motion equation as
+follows:\begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} +
+2 \cdot g \cdot h_F})}{g} \end{equation}where $g = 9.8\, m s^{-2}$ is the acceleration due to gravity and $\theta_F$ =
+45 $\degree$ is the angle of launch.
 
 During subsequent time steps, the dimensions of the Icestupa evolve assuming a uniform ice formation and decay across
-its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ as shown in Fig.  \ref{fig:shape}.
-During these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:
-
-\begin{equation} V = \pi/3 \cdot {r_{ice}}^3 \cdot s_{cone} \label{eqn:V2} \end{equation}
-
-  \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape
-variables and fountain constants of the EP Icestupa. $r_{ice}$ is the radius, $h_{ice}$ is the height and $s_{cone}$ is
-the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the height and $dia_F$ is the nozzle diameter of the
-fountain.} \label{fig:shape} \end{figure}
-  
-However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
-equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
-be determined by considering the following rules:
-
+its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ as shown in Fig.  \ref{fig:shape}.  During
+these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:\begin{equation} V = \pi/3 \cdot {r_{ice}}^3
+  \cdot s_{cone} \label{eqn:V2} \end{equation} \begin{figure} \begin{center} \includegraphics[width=10
+cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the EP Icestupa. $r_{ice}$ is
+the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
+height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}However, the Icestupa cannot
+outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining equations \ref{eqn:V},
+\ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can be determined by
+considering the following rules:
 \begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, \Delta x) & \textit{ if } i=0\\
     (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
     r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \textit{ where } \Delta M_{ice} = M_{ice}^{i-1} -
