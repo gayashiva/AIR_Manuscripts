@@ -208,15 +208,15 @@ $^{5}$Academia Engiadina, Samedan, Switzerland}
 % 
 \section{Model setup}
 
-The model consists of three parts which calculate, a) the geometric evolution of the Icestupa, b) the energy balance
-and c) the mass balance as shown schematically in Fig. \ref{fig:schema}. A bulk energy and mass balance model is used
-to calculate the amounts of ice, meltwater, water vapour and runoff water of the Icestupa every 5 minutes. 
+A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
+of the AIR every hour. This model consists of four modules which calculate its, a) geometric evolution , b) energy
+balance c) surface temperature and d) mass balance as shown schematically in Fig. \ref{fig:schema}. 
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
 schematic showing the algorithm used in the model at every time step. Further details about the variables can be
 found in the associated tables and figures.} \label{fig:schema} \end{figure}
 
-\subsection{Icestupa geometric evolution}
+\subsection{Geometric evolution}
 
 Radius $r_{ice}^i$ and height $h_{ice}^i$ define the dimensions of the Icestupa assuming its geometry to be a cone as
 shown in Fig. \ref{fig:shape}. The surface area $A^i$ exposed to the atmosphere and volume $V^i$ are:
@@ -264,9 +264,9 @@ otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
 
 The energy balance equation \citep{Hock_2005} for the Icestupa is formulated as follows:
 
-\begin{equation} q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} = q_{net} \label{eqn:EB} \end{equation}
+\begin{equation} q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} = q_{surf} \label{eqn:EB} \end{equation}
 
-where $q_{net}$ is the net energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net
+where $q_{surf}$ is the surf energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the surf shortwave radiation; $q_{LW}$ is the surf
 longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
 exchange of the fountain water droplets with the AIR ice surface. $q_{G}$ represents ground heat flux between Icestupa
 surface and Icestupa interior. Energy transferred in the direction of the ice surface is always denoted as positive and
@@ -281,10 +281,10 @@ small enough to represent the surface temperature variations every model time st
 be large enough for these temperature variations to not reach the bottom of the surface layer.  Therefore, we introduced
 a 20 $mm$ thick surface layer for a model time step of 1 hour, over which the energy balance is calculated. A
 sensitivity analysis was later performed to understand the influence of this factor. Here, we define the surface
-temperature $T_{ice}$ to be the modelled average temperature of the Icestupa surface layer and the energy flux $q_{net}$
+temperature $T_{ice}$ to be the modelled average temperature of the Icestupa surface layer and the energy flux $q_{surf}$
 is assumed to act uniformly across the Icestupa area $A$.
 
-\subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}} The net shortwave radiation $q_{SW}$ is computed
+\subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}} The surf shortwave radiation $q_{SW}$ is computed
 as follows:
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
 
@@ -322,7 +322,7 @@ The ERA5 diffuse shortwave radiation is assumed to impact the conical Icestupa s
 
 \subsubsection{Net Longwave Radiation \texorpdfstring{$q_{LW}$}{Lg}}
 
-The net longwave radiation $q_{LW}$, for which there were no direct measurements available at EP, is
+The surf longwave radiation $q_{LW}$, for which there were no direct measurements available at EP, is
 determined as follows:
 
 \begin{equation} q_{LW}= LW_{in}-\sigma \cdot \epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4
@@ -398,38 +398,83 @@ Since we assume a conical shape with $r_{ice} > h_{ice}$, $l_{ice}$ cannot be gr
 be less than $\Delta x$. Therefore, the average distance from any point on the surface to any point inside is $\Delta
 x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$.
 
-\subsubsection{Surface temperature changes and melt energy \texorpdfstring{$q_{melt}$}{Lg}}
-The available net energy $q_{net}$ partly increases surface temperature, but also contributes to ice melt at the
-surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
-denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{net} =
-q_{melt} + q_{T} \end{equation}
+\subsection{Surface Temperature} 
+The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
+c) freeze ice. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/melt} +
+q_{T} \end{equation}
+where $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with process (a), (b) and (c) respectively.
 
-We define the freezing energy as $q_{freeze} = (q_{net}-q_{L})$. This is because the latent heat always contributes to
-temperature fluctuations. Now, the temperature fluctuates based on three scenarios, namely (1) the freezing energy flux
-is negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze
-all the fountain water output; (3) the freezing energy is positive or the fountain is inactive ($\Delta M_{F}=0$).
-Therefore, we express the rate of change of temperature as follows:
+To distribute the surface energy flux into these three components, we categorize the model time steps as freezing or
+melting events.
 
-\begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
-     q_{freeze} < 0 \textit{ and } \Delta M_{F} \geq -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
-    \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if }  q_{freeze}< 0
-    \textit{ and } \Delta M_{F} < -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ q_{net}/ (\rho_{ice}\cdot c_{ice}
-    \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0 \textit{ or }  q_{freeze}> 0\\
-    \end{array} \right.  \label{eqn:T} \end{equation}
+Freezing events ($q_{melt}=0$) can only occur if there is fountain water available and the surface energy flux is
+negative. But just these two conditions are not sufficient as the latent heat energy can only contribute to temperature
+fluctuations.  Therefore, freezing events occur when $ \Delta M_{F} > 0 \textit{ and } q_{surf} < 0 \textit{ and }
+(q_{surf}-q_{L}) < 0$. Melting events ($q_{freeze}=0$) occur in the rest of the time steps.
 
-Whenever the model predicts $T_{ice}^{i+1} > 0 \degree C$, then the surface temperature is set to 0 $\degree C$ in the
-corresponding time step and additional energy contributes to $q_{melt}$. Combining these requirements, we get:
+During a freezing event, the available energy $(q_{surf}-q_{L})$ can either be sufficient or insufficient to freeze the
+fountain water available. If insufficient, the freezing energy becomes $q_{freeze} = -\Delta M_{F} \cdot A \cdot \Delta
+t/L_f$ and the additional energy further cools down the surface temperature.
 
-\begin{equation} (q_{T}, q_{melt}) = \left\{ \begin{array}{ll} ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot
-    \frac{\Delta T}{\Delta t}, q_{net}-q_{L}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
-    \cdot \frac{\Delta T}{\Delta t}, q_{net}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-    & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} = 0\\
-        ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}-q_{L}+\rho_{ice} \cdot
-    c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and } \Delta
-    M_{F} > 0\\ ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{net}+\rho_{ice}
-    \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and }
-\Delta M_{F} = 0\\ \end{array} \right.  \label{eqn:qt} \end{equation}
+\begin{equation} 
+    (q_{freeze}, q_{T}) = \left\{ \begin{array}{ll}
+            (q_{surf}-q_{L}, q_{L}) & \textit{ if } (q_{surf}-q_{L})< -\Delta M_{F} \cdot A \cdot \Delta
+t/L_f \\
+(\frac{-\Delta M_{F} \cdot A \cdot \Delta
+        t}{L_f}, q_{surf}+\frac{\Delta M_{F} \cdot A \cdot \Delta
+        t}{L_f}) & \textit{ if } (q_{surf}-q_{L})> -\Delta M_{F} \cdot A \cdot \Delta
+t/L_f 
+    \end{array} \right. 
+\end{equation} 
+
+During a melting event, the surface energy flux ($q_{surf}$) is first used to change the temperature to $T_{temp}$
+calculated as:
+\begin{equation} T_{temp} =\frac{q_{surf} \cdot \Delta t}{\rho_{ice} \cdot c_{ice} \cdot \Delta x} + T_{ice}^{i} \end{equation}
+
+If $T_{temp}^{i+1} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ to reset $T_{ice}^{i+1} = 0
+\degree C$ and produce meltwater.
+
+These steps can be summarised as:
+\begin{equation} 
+    (q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
+            (0, q_{surf}) & \textit{ if } T_{temp} < 0\\
+            (\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}, q_{surf}-\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}  ) & \textit{ if } T_{temp} > 0
+    \end{array} \right.  
+\end{equation} 
+
+
+% \subsubsection{Surface temperature changes and melt energy \texorpdfstring{$q_{melt}$}{Lg}}
+% The available energy $q_{surf}$ partly increases surface temperature, but also contributes to ice melt at the
+% surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
+% denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} =
+% q_{melt} + q_{T} \end{equation}
+% 
+% We define the freezing energy as $q_{freeze} = (q_{surf}-q_{L})$. This is because the latent heat always contributes to
+% temperature fluctuations. Now, the temperature fluctuates based on three scenarios, namely (1) the freezing energy flux
+% is negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze
+% all the fountain water output; (3) the freezing energy is positive or the fountain is inactive ($\Delta M_{F}=0$).
+% Therefore, we express the rate of change of temperature as follows:
+% 
+% \begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
+%      q_{freeze} < 0 \textit{ and } \Delta M_{F} \geq -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
+%     \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if }  q_{freeze}< 0
+%     \textit{ and } \Delta M_{F} < -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ q_{surf}/ (\rho_{ice}\cdot c_{ice}
+%     \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0 \textit{ or }  q_{freeze}> 0\\
+%     \end{array} \right.  \label{eqn:T} \end{equation}
+% 
+% Whenever the model predicts $T_{ice}^{i+1} > 0 \degree C$, then the surface temperature is set to 0 $\degree C$ in the
+% corresponding time step and additional energy contributes to $q_{melt}$. Combining these requirements, we get:
+% 
+% \begin{equation} (q_{T}, q_{melt}) = \left\{ \begin{array}{ll} ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot
+%     \frac{\Delta T}{\Delta t}, q_{surf}-q_{L}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
+%     & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
+%     \cdot \frac{\Delta T}{\Delta t}, q_{surf}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
+%     & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} = 0\\
+%         ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{surf}-q_{L}+\rho_{ice} \cdot
+%     c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and } \Delta
+%     M_{F} > 0\\ ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{surf}+\rho_{ice}
+%     \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and }
+% \Delta M_{F} = 0\\ \end{array} \right.  \label{eqn:qt} \end{equation}
 
 \begin{table}[h] \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
   value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
@@ -443,7 +488,8 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
       $kg\, m^{-3}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ Density of ice & $\rho_{ice}$ & 917 $kg\, m^{-3}$ &
                     & B: \citeauthor{CuffeyPaterson_2010}\\ Density of air & $\rho_{a}$ &  1.29 $kg\, m^{-3}$ &   & B:
       \citeauthor{MolgHardy_2004}\\  Specific heat of ice & $c_{ice}$ & 2097 $J\, kg^{-1}\,\degree C^{-1}$ &    &
-      B: \citeauthor{CuffeyPaterson_2010}\\ Specific heat of air & $c_{a}$ & 1010 $J\, kg^{-1}\,\degree C^{-1}$ &   &
+      B: \citeauthor{CuffeyPaterson_2010}\\ Specific heat of water & $c_{w}$ & 4186 $J\, kg^{-1}\,\degree C^{-1}$ &   & B:
+      \citeauthor{CuffeyPaterson_2010}\\ Specific heat of air & $c_{a}$ & 1010 $J\, kg^{-1}\,\degree C^{-1}$ &   &
       B: \citeauthor{MolgHardy_2004}\\ Thermal conductivity of ice & $k_{ice}$ & 2.123  $W\, m^{-1}\, K^{-1}$ &  & B:
       \citeauthor{Bonales_2017} \\ Latent Heat of Sublimation & $L_{s}$ & 2848 $kJ\, kg^{-1}$ &    & B:
       \citeauthor{CuffeyPaterson_2010}\\  Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B:
@@ -460,6 +506,7 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         \citeauthor{OerlemansKnap_1998}  \\ Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $[1,10]\, mm$   & assum.\\
         
         \hline \end{tabularx} \label{table:parameters} \end{table} 
+
 
 \subsection{Mass Balance} 
 The mass balance equation is used to derive the water that drains away ($M_{runoff}$) as follows:
@@ -523,7 +570,7 @@ through their water storage efficiency defined accordingly as:
 % 
 % \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Figure_6.jpg} \end{center}
 % \caption{(a) Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
-%   the Icestupa in daily time steps.  $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation;
+%   the Icestupa in daily time steps.  $q_{SW}$ is the surf shortwave radiation; $q_{LW}$ is the surf longwave radiation;
 %   $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
 %   ice-water boundary during fountain on time steps.  $q_{G}$ quantifies the heat conduction process between the
 %   Icestupa surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
@@ -555,7 +602,7 @@ through their water storage efficiency defined accordingly as:
 % Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
 % experiment duration, the total energy balance was almost zero. Net shortwave radiation (33 $Wm^{-2}$), sensible (10
 % $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
-% compensated by the net longwave radiation (- 34 $Wm^{-2}$) and the melt energy (-12 $Wm^{-2}$). The contributions of
+% compensated by the surf longwave radiation (- 34 $Wm^{-2}$) and the melt energy (-12 $Wm^{-2}$). The contributions of
 % other fluxes were negligible in comparison.
 % 
 % Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
@@ -584,8 +631,8 @@ through their water storage efficiency defined accordingly as:
 % Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
 % the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
 % deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
-% shows a better correlation with net energy flux ($r^2 = 0.15$) compared to Icestupa surface area ($r^2 =
-% 0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{net}$ as illustrated in Fig.
+% shows a better correlation with surf energy flux ($r^2 = 0.15$) compared to Icestupa surface area ($r^2 =
+% 0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{surf}$ as illustrated in Fig.
 % \ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_F$, the surface area maintains a maximum
 % initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
 % resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
@@ -697,10 +744,10 @@ through their water storage efficiency defined accordingly as:
 %   
 % Assuming a constant spray for the fountain, we can divide the fountain decisions into fountain state (on/off) and type
 % (height and nozzle diameter).  From an energy balance point of view, the fountain should be switched on for all time
-% intervals when $q_{net} < 0$ which would have increased the fountain discharge duration from 90 hours to 850 hours.
+% intervals when $q_{surf} < 0$ which would have increased the fountain discharge duration from 90 hours to 850 hours.
 % However, in our experiment, the fountain state decision was set on the basis of prior Icestupa construction
 % experience where a critical temperature of $-5 \degree C$ was recommended. But ambient temperature was a poor
-% indicator of $q_{net}$ ($r^2 = 0.17$).  Therefore, using air temperature to determine when the fountain should be
+% indicator of $q_{surf}$ ($r^2 = 0.17$).  Therefore, using air temperature to determine when the fountain should be
 % switched on was not ideal. 
 % 
 % The fountain type used can be characterised by the physical structure of the fountain, namely its height and nozzle
@@ -795,7 +842,7 @@ through their water storage efficiency defined accordingly as:
 % water loss during the formation of Icestupas particularly due to excessive fountain spray. Using model calculations,
 % it was shown that a decreased fountain nozzle diameter of 3 $mm$ can increase the storage efficiency drastically. This
 % is because a change in the fountain nozzle diameter causes an effective change of the ice surface area over which the
-% net energy flux can act. This result has relevance on the future design of Icestupa fountains. However, care has to be
+% surf energy flux can act. This result has relevance on the future design of Icestupa fountains. However, care has to be
 % taken as our model is currently only validated by one experiment at the EP site. Further experiments at
 % different locations with different fountains are required to better understand the influence of construction decisions
 % on the results. 
