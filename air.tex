@@ -210,11 +210,11 @@ $^{5}$Academia Engiadina, Samedan, Switzerland}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
 of the AIR every hour. This model consists of four modules which calculate its, a) geometric evolution , b) energy
-balance c) surface temperature and d) mass balance as shown schematically in Fig. \ref{fig:schema}. 
+balance, c) surface temperature and d) mass balance as shown schematically in Fig. \ref{fig:schema}. 
 
-  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
-schematic showing the algorithm used in the model at every time step. Further details about the variables can be
-found in the associated tables and figures.} \label{fig:schema} \end{figure}
+%   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
+% schematic showing the algorithm used in the model at every time step. Further details about the variables can be
+% found in the associated tables and figures.} \label{fig:schema} \end{figure}
 
 \subsection{Geometric evolution}
 
@@ -266,7 +266,7 @@ The energy balance equation \citep{Hock_2005} for the Icestupa is formulated as 
 
 \begin{equation} q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G} = q_{surf} \label{eqn:EB} \end{equation}
 
-where $q_{surf}$ is the surf energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the surf shortwave radiation; $q_{LW}$ is the surf
+where $q_{surf}$ is the surface energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the surf shortwave radiation; $q_{LW}$ is the surf
 longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat
 exchange of the fountain water droplets with the AIR ice surface. $q_{G}$ represents ground heat flux between Icestupa
 surface and Icestupa interior. Energy transferred in the direction of the ice surface is always denoted as positive and
@@ -398,85 +398,7 @@ Since we assume a conical shape with $r_{ice} > h_{ice}$, $l_{ice}$ cannot be gr
 be less than $\Delta x$. Therefore, the average distance from any point on the surface to any point inside is $\Delta
 x \leq l_{ice} \leq r_{ice}$. We calculate $q_{G}$ here assuming $l_{ice} = r_{ice}/2$.
 
-\subsection{Surface Temperature} 
-The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
-c) freeze ice. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/melt} +
-q_{T} \end{equation}
-where $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with process (a), (b) and (c) respectively.
-
-To distribute the surface energy flux into these three components, we categorize the model time steps as freezing or
-melting events.
-
-Freezing events ($q_{melt}=0$) can only occur if there is fountain water available and the surface energy flux is
-negative. But just these two conditions are not sufficient as the latent heat energy can only contribute to temperature
-fluctuations.  Therefore, freezing events occur when $ \Delta M_{F} > 0 \textit{ and } q_{surf} < 0 \textit{ and }
-(q_{surf}-q_{L}) < 0$. Melting events ($q_{freeze}=0$) occur in the rest of the time steps.
-
-During a freezing event, the available energy $(q_{surf}-q_{L})$ can either be sufficient or insufficient to freeze the
-fountain water available. If insufficient, the freezing energy becomes $q_{freeze} = -\Delta M_{F} \cdot A \cdot \Delta
-t/L_f$ and the additional energy further cools down the surface temperature.
-
-\begin{equation} 
-    (q_{freeze}, q_{T}) = \left\{ \begin{array}{ll}
-            (q_{surf}-q_{L}, q_{L}) & \textit{ if } (q_{surf}-q_{L})< -\Delta M_{F} \cdot A \cdot \Delta
-t/L_f \\
-(\frac{-\Delta M_{F} \cdot A \cdot \Delta
-        t}{L_f}, q_{surf}+\frac{\Delta M_{F} \cdot A \cdot \Delta
-        t}{L_f}) & \textit{ if } (q_{surf}-q_{L})> -\Delta M_{F} \cdot A \cdot \Delta
-t/L_f 
-    \end{array} \right. 
-\end{equation} 
-
-During a melting event, the surface energy flux ($q_{surf}$) is first used to change the temperature to $T_{temp}$
-calculated as:
-\begin{equation} T_{temp} =\frac{q_{surf} \cdot \Delta t}{\rho_{ice} \cdot c_{ice} \cdot \Delta x} + T_{ice}^{i} \end{equation}
-
-If $T_{temp}^{i+1} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ to reset $T_{ice}^{i+1} = 0
-\degree C$ and produce meltwater.
-
-These steps can be summarised as:
-\begin{equation} 
-    (q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
-            (0, q_{surf}) & \textit{ if } T_{temp} < 0\\
-            (\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}, q_{surf}-\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}  ) & \textit{ if } T_{temp} > 0
-    \end{array} \right.  
-\end{equation} 
-
-
-% \subsubsection{Surface temperature changes and melt energy \texorpdfstring{$q_{melt}$}{Lg}}
-% The available energy $q_{surf}$ partly increases surface temperature, but also contributes to ice melt at the
-% surface of the Icestupa. $q_{T}$ denotes the energy used on changing the surface temperature $T_{ice}$ and $q_{melt}$
-% denotes the energy used to produce meltwater. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} =
-% q_{melt} + q_{T} \end{equation}
-% 
-% We define the freezing energy as $q_{freeze} = (q_{surf}-q_{L})$. This is because the latent heat always contributes to
-% temperature fluctuations. Now, the temperature fluctuates based on three scenarios, namely (1) the freezing energy flux
-% is negative but cannot freeze all the fountain water output; (2) the freezing energy flux is negative and can freeze
-% all the fountain water output; (3) the freezing energy is positive or the fountain is inactive ($\Delta M_{F}=0$).
-% Therefore, we express the rate of change of temperature as follows:
-% 
-% \begin{equation} \frac{\Delta T}{\Delta t} = \left\{ \begin{array}{ll} -T_{ice}^{i-1}/\Delta t & \textit{ if }
-%      q_{freeze} < 0 \textit{ and } \Delta M_{F} \geq -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ (\Delta M_{F}
-%     \cdot L_f )/(\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot A \cdot \Delta t) & \textit{ if }  q_{freeze}< 0
-%     \textit{ and } \Delta M_{F} < -q_{freeze}\cdot A \cdot \Delta t/L_f  \\ q_{surf}/ (\rho_{ice}\cdot c_{ice}
-%     \cdot \Delta x)& \textit{ if } \Delta M_{F} = 0 \textit{ or }  q_{freeze}> 0\\
-%     \end{array} \right.  \label{eqn:T} \end{equation}
-% 
-% Whenever the model predicts $T_{ice}^{i+1} > 0 \degree C$, then the surface temperature is set to 0 $\degree C$ in the
-% corresponding time step and additional energy contributes to $q_{melt}$. Combining these requirements, we get:
-% 
-% \begin{equation} (q_{T}, q_{melt}) = \left\{ \begin{array}{ll} ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot
-%     \frac{\Delta T}{\Delta t}, q_{surf}-q_{L}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-%     & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} > 0\\ ( \rho_{ice} \cdot c_{ice} \cdot  \Delta x
-%     \cdot \frac{\Delta T}{\Delta t}, q_{surf}-\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{\Delta T}{\Delta t})
-%     & \textit{ if } T_{ice}^{i+1}\leq 0 \degree C \textit{ and } \Delta M_{F} = 0\\
-%         ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{surf}-q_{L}+\rho_{ice} \cdot
-%     c_{ice} \cdot \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and } \Delta
-%     M_{F} > 0\\ ( -\rho_{ice} \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}, q_{surf}+\rho_{ice}
-%     \cdot c_{ice} \cdot  \Delta x \cdot \frac{T_{ice}^{i}}{\Delta t}) & \textit{ if } T_{ice}^{i+1}> 0 \degree C \textit{ and }
-% \Delta M_{F} = 0\\ \end{array} \right.  \label{eqn:qt} \end{equation}
-
-\begin{table}[h] \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
+\begin{table} \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
   value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
 to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
 \%).}
@@ -506,6 +428,54 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         \citeauthor{OerlemansKnap_1998}  \\ Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $[1,10]\, mm$   & assum.\\
         
         \hline \end{tabularx} \label{table:parameters} \end{table} 
+
+\subsection{Surface temperature and phase change processes} 
+The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
+c) freeze ice. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/melt} +
+q_{T} \end{equation}
+where $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with process (a), (b) and (c) respectively.
+
+To distribute the surface energy flux into these three components, we categorize the model time steps as freezing or
+melting events. Freezing events can only occur if there is fountain water available and the surface energy flux is
+negative. But just these two conditions are not sufficient as the latent heat energy can only contribute to temperature
+fluctuations.
+
+\begin{equation} 
+    q_{freeze/melt} = \left\{ \begin{array}{ll}
+            q_{freeze} & \textit{ if } \Delta M_{F} > 0 \textit{ and } q_{surf} < 0 \textit{ and }(q_{surf}-q_{L}) < 0 \\
+            q_{melt} & \textit{ otherwise} 
+    \end{array} \right. 
+\end{equation} 
+
+During a freezing event, the available energy $(q_{surf}-q_{L})$ can either be sufficient or insufficient to freeze the
+fountain water available. If insufficient, the additional energy further cools down the surface temperature. So the
+surface energy flux distribution during a freezing event can be represented as:
+
+\begin{equation} 
+    (q_{freeze}, q_{T}) = \left\{ \begin{array}{ll}
+            (q_{surf}-q_{L}, q_{L}) & \textit{ if } \Delta M_{F} \geq -\frac{(q_{surf}-q_{L}) A \cdot \Delta
+        t}{L_f} \\
+(\frac{\Delta M_{F} \cdot L_f 
+        }{A \cdot \Delta t}
+        , q_{surf}+\frac{\Delta M_{F} \cdot L_f 
+        }{A \cdot \Delta t}) & \textit{ if } \Delta M_{F} < -\frac{(q_{surf}-q_{L}) A \cdot \Delta
+        t}{L_f}
+    \end{array} \right. 
+\end{equation} 
+
+During a melting event, the surface energy flux ($q_{surf}$) is first used to change the surface temperature to $T_{temp}$
+calculated as:
+\begin{equation} T_{temp} =\frac{q_{surf} \cdot \Delta t}{\rho_{ice} \cdot c_{ice} \cdot \Delta x} + T_{ice} \end{equation}
+
+If $T_{temp} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ and produce meltwater. So the surface energy flux distribution
+during a melting event can be represented as:
+
+\begin{equation} 
+    (q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
+            (0, q_{surf}) & \textit{ if } T_{temp} < 0\\
+            (\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}, q_{surf}-\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}  ) & \textit{ if } T_{temp} > 0
+    \end{array} \right.  
+\end{equation} 
 
 
 \subsection{Mass Balance} 
@@ -546,13 +516,10 @@ Removing the contribution of precipitation and combining Eqn. \ref{eqn:vap}, we 
 the contribution from the melt energy as follows:
 
 \begin{equation} (\frac{\Delta M_{ice} + \Delta M_{vapour} - \Delta M_{dpt}-\Delta M_{ppt}}{\Delta
-    t}, \frac{\Delta M_{melt}}{\Delta t})
-= \left\{ \begin{array}{ll} \frac{q_{melt} \cdot A }{L_f} \cdot (-1, 1 )& \textit{ if } q_{melt} \geq 0 \\
-\frac{q_{melt} \cdot A }{L_f} \cdot (-1, 0) & \textit{ if } q_{melt} < 0 \textit{ and } \frac{\Delta M_{F}}{\Delta t}
-\geq -\frac{q_{melt} \cdot A }{L_f} \\
-(\frac{\Delta M_{F}}{\Delta t}, 0) & \textit{ if } q_{melt} < 0 \textit{ and } 0 \leq
-\frac{\Delta M_{F}}{\Delta t} < -\frac{q_{melt} \cdot A }{L_f}\\ \end{array} \right.  \end{equation}
-
+        t}, \frac{\Delta M_{melt}}{\Delta t})  = \left\{ \begin{array}{ll} \frac{q_{freeze/melt} \cdot A }{L_f} \cdot (-1,1) &
+        \textit{ if } q_{freeze/melt} \geq 0 \\ \frac{q_{freeze/melt} \cdot A }{L_f} \cdot (1,0) & \textit{ if } q_{freeze/melt} < 0 
+\end{array} \right.
+    \end{equation}
 
 Now, with all the other terms known in Eqn. \ref{eqn:M}, the water drainage/runoff can be determined. 
 
