@@ -242,6 +242,7 @@ $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation} 
     h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_{spray}^2 } 
+\label{eqn:h0}
   \end{equation}
 
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{section:EB})
@@ -257,7 +258,7 @@ these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:\begin{e
 % height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}
 
 However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
-equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
+equations \ref{eqn:V}, \ref{eqn:h0}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
 be determined by considering the following rules:
 
 \begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_{spray} ,\, h_0) & \textit{ if } i=0\\
