@@ -236,12 +236,12 @@ With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). 
 
 
-The influence of the AIR fountain is parameterised by the fountain water temperature $T_w$ and its spray radius $r_F$.
-The initial radius $r_0$ of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume
+The influence of the AIR fountain is parameterised by the fountain water temperature $T_{w}$ and its spray radius $r_{spray}$.
+The initial radius $r_0$ of the AIR is assumed to be $r_{spray}$. The initial height $h_0$ depends on the dome volume
 $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation} 
-    h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_F^2 } 
+    h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_{spray}^2 } 
   \end{equation}
 
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{section:EB})
@@ -253,14 +253,14 @@ these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:\begin{e
 
 %     \begin{figure} \begin{center} \includegraphics[width=10
 % cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the EP Icestupa. $r_{ice}$ is
-% the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
+% the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_{spray}$ is the spray radius, $h_F$ is the
 % height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}
 
 However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
 equations \ref{eqn:V}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
 be determined by considering the following rules:
 
-\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, h_0) & \textit{ if } i=0\\
+\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_{spray} ,\, h_0) & \textit{ if } i=0\\
     (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
     r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \textit{ where } \Delta M_{ice} = M_{ice}^{i-1} -
     M_{ice}^{i-2}\\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
@@ -350,12 +350,11 @@ The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with 
 v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \end{equation}
 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
-[$m\,s^{-1}$] and $M_{F}$ denotes fountain water spray mass in [$kg$]. $c_a$ is the specific heat of air at constant
-pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is
-the air pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $L_s$ is the heat of
-sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7 $mm$) denotes the roughness length of ice (momentum and scalar).
-The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in
-\cite{WMO_2018}:
+[$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air
+density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air pressure at standard sea level (1013 $hPa$),
+$\kappa$ is the von Karman constant (0.4), $L_s$ is the heat of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7
+$mm$) denotes the roughness length of ice (momentum and scalar).  The vapor pressures over air ($p_{v,a}$) and ice
+($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
 
 \begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
 3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
@@ -366,16 +365,13 @@ where $p_{a}$ is the measured air pressure in [$hPa$].
 \subsubsection{Fountain water heat flux
 \texorpdfstring{$q_{F}$}{Lg} }
 
-% TODO Stress fountain contribution
-The total energy flux is further influenced through the heat flux caused by the water that was additionally added to the
-surface of the Icestupa during the time the fountain was running. We take this interaction between the fountain water
-and the ice surface into account by assuming that the ice surface temperature remains constant at 0 $\degree C$
-during time steps when the fountain is active. This process can be divided into two simultaneous steps: (a) the water
-temperature $T_{water}$ is cooled to 0 $\degree C$ and (b) the ice surface temperature is warmed to 0 $\degree C$.
-Process (a) transfers the necessary energy for process (b) throughout the fountain runtime. We further assume
-that this process is instantaneous, i.e. the ice temperature is immediately set to 0 $\degree C$ within just one time
-step $\Delta t$ when the fountain is switched on. Thus, the heat flux caused by the fountain water is calculated as
-follows:
+The interaction between the fountain water and the ice surface is taken into account by assuming that the ice surface
+temperature remains constant at 0 $\degree C$ during time steps when the fountain is active. This process can be divided
+into two simultaneous steps: (a) the water temperature $T_{water}$ is cooled to 0 $\degree C$ and (b) the ice surface
+temperature is warmed to 0 $\degree C$.  Process (a) transfers the necessary energy for process (b) throughout the
+fountain runtime. We further assume that this process is instantaneous, i.e. the ice temperature is immediately set to 0
+$\degree C$ within just one time step $\Delta t$ when the fountain is switched on. Thus, the heat flux caused by the
+fountain water is calculated as follows:
 
 \begin{equation} 
   q_{F} = \left\{ \begin{array}{ll}
@@ -399,9 +395,9 @@ the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined fr
 
 \begin{equation} T_{bulk}^{i+1} = T_{bulk} - (q_{G} \cdot A \cdot \Delta t)/(M_{ice} \cdot c_{ice}) \end{equation}
 
-Since AIR's typically have conical shapes with $r_{ice} >> h_{ice}$, we assume that the center of mass of the
-icestupa is near the base of the fountain. Now, $l_{ice}$ has a minimum and maximum of $h_{ice}$ and $r_{ice}$
-respectively. So we calculate $q_{G}$ here assuming $l_{ice} = (r_{ice} + h_{ice})/2$.
+Since AIR's typically have conical shapes with $r_{ice} >> h_{ice}$, we assume that the center of mass of the ice body
+is near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the ice body's center
+of mass is between $h_{ice}$ and $r_{ice}$. So we calculate $q_{G}$ here assuming $l_{ice} = (r_{ice} + h_{ice})/2$. 
 
 \begin{table} \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
   value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
@@ -432,11 +428,11 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:
         \citeauthor{OerlemansKnap_1998}  \\ Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $[1,10]\, mm$   & assum.\\
         \hline Fountain Parameters& & & Range   & \\ \hline 
-        Spray Radius & $r_F$ &  & $\pm$ 5 \%   & \\
-        Water temperature & $T_w$ & 1$\degree C$ & $[0,5]\, \degree C$   & \\
+        Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & \\
+        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & \\
         \hline \end{tabularx} \label{table:parameters} \end{table} 
 
-\subsection{Surface temperature and phase change processes} 
+\subsection{Surface temperature}
 The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
 c) freeze ice. So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/melt} +
 q_{T} \end{equation}
@@ -445,7 +441,8 @@ where $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with proc
 To distribute the surface energy flux into these three components, we categorize the model time steps as freezing or
 melting events. Freezing events can only occur if there is fountain water available and the surface energy flux is
 negative. But just these two conditions are not sufficient as the latent heat energy can only contribute to temperature
-fluctuations.
+fluctuations. So to prevent latent heat energy from turning a melting event into a freezing event an additional
+condition namely $(q_{surf}-q_{L}) < 0$ is required. Thus, freezing and melting events are identified as follows:
 
 \begin{equation} 
     q_{freeze/melt} = \left\{ \begin{array}{ll}
@@ -470,12 +467,13 @@ surface energy flux distribution during a freezing event can be represented as:
     \end{array} \right. 
 \end{equation} 
 
-During a melting event, the surface energy flux ($q_{surf}$) is first used to change the surface temperature to $T_{temp}$
-calculated as:
+During a melting event, the surface energy flux ($q_{surf}$) is first used to change the surface temperature to
+$T_{temp}$ calculated as:
+
 \begin{equation} T_{temp} =\frac{q_{surf} \cdot \Delta t}{\rho_{ice} \cdot c_{ice} \cdot \Delta x} + T_{ice} \end{equation}
 
-If $T_{temp} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ and produce meltwater. So the surface energy flux distribution
-during a melting event can be represented as:
+If $T_{temp} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ to maintain surface temperature at
+melting point. So the surface energy flux distribution during a melting event can be represented as:
 
 \begin{equation} 
     (q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
@@ -509,11 +507,11 @@ The latent heat flux is used to estimate either the evaporation and condensation
 processes as shown in equation \ref{eq:vap}. During time steps at which surface temperature is below 0 $\degree C$ only
 sublimation and deposition can occur, but if the surface temperature reaches 0 $\degree C$, evaporation and condensation
 can also occur. As the differentiation between evaporation and sublimation (and condensation and deposition) when the
-air temperature reaches 0 $\degree C$ is difficult, we assume that negative (positive) latent heat fluxes correspond
+air temperature reaches 0 $\degree C$ is challenging, we assume that negative (positive) latent heat fluxes correspond
 only to sublimation (deposition), i.e. no evaporation (condensation) is calculated.
 
 Since we have categorized every time step as a freezing and melting event, we can determine the meltwater and  ice
-generated using the energy flux associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mice}. Having
+generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mice}. Having
 calculated all the other mass components the fountain wastewater generated every time step can be calculated using
 equation \ref{eq:mftn}.
 
@@ -614,7 +612,7 @@ through their water storage efficiency defined accordingly as:
 % deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
 % shows a better correlation with surf energy flux ($r^2 = 0.15$) compared to Icestupa surface area ($r^2 =
 % 0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{surf}$ as illustrated in Fig.
-% \ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_F$, the surface area maintains a maximum
+% \ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_{spray}$, the surface area maintains a maximum
 % initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
 % resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
 % 
@@ -738,7 +736,7 @@ through their water storage efficiency defined accordingly as:
 % 
 % Fig. \ref{fig:dia_f} shows reducing the nozzle diameter to 3 $mm$ increases storage efficiency up to 78 \% without
 % compromising much on storage duration.  The corresponding storage quantity of the 3 $mm$ nozzle diameter was more than
-% 23 times higher than the 5 $mm$ fountain used in our experiment. This is because the spray radius $r_F$ of the 3 $mm$
+% 23 times higher than the 5 $mm$ fountain used in our experiment. This is because the spray radius $r_{spray}$ of the 3 $mm$
 % fountain was much higher at 8.5 $m$ compared to the 1.7 $m$ spray radius of the 5 $mm$ fountain . Here, we define
 % growth rate as freeze rate when fountain is active and melt rate otherwise. Therefore, this higher spray radius both
 % increases the freeze rate  and increases the melt rate since they are both directly proportional to the surface area.
