@@ -115,24 +115,23 @@ $^{6}$ETH, Zürich, Switzerland}
 % for irrigation and allow us to outline some preliminary guidelines for consideration when a construction of an Icestupa
 % for water storage is envisaged. 
 % 
-% \section{Study Site}
-% The Eispalast (EP) site in the Schwarzsee region lies at 967 $m$ a.s.l.. In the winter (Oct-Apr), mean daily maximum
-% and minimum air temperatures vary between -4 and 14 $\degree C$. Clear skies are rare, averaging around 7 days, and
-% precipitation amounts average 155 mm per month during winter \citep{eispalast}. The site was situated adjacent to a
-% stream resulting in high humidity values across the study period. Within the EP site, an enclosure with a 1.8\,$m$
-% radius was constructed for the experiment. An automatic weather station (AWS) was adjacent to the wooden
-% boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle diameter of 5\,$mm$ and a
-% height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was transferred from a spring
-% water source at 1267 $m$ a.s.l. by pipeline and flowed via a flowmeter and an air escape valve to the nozzle, where it
-% was sprinkled with a spray radius of around 1.7\,$m$. The air escape valve was installed to avoid errors in the flow
-% measurements due to air bubbles. In addition, a webcam guaranteed a continuous survey of the site during the
-% construction of the Icestupa. 
-% 
+
+\section{Study Site}
+The Guttannen (GT) site in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and maximum
+air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during winter
+\citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values across the study period.
+An automatic weather station (AWS) was adjacent to the wooden boundary as shown in Fig. \ref{fig:site}. The fountain
+used for spraying water had a height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was
+transferred from a spring water source and flowed via a flowmeter and an air escape valve to the nozzle. The air escape
+valve was installed to avoid errors in the flow measurements due to air bubbles. In addition, a webcam guaranteed a
+continuous survey of the site during the construction of the Icestupa. 
+
+
 % \begin{figure} \centering \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
 % \caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
 %   $14^{th}$ Feb. (b) The corresponding cross section of the EP ice structure with the field estimates of $r, R,
 %   h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
-% 
+
 % \subsection{Construction} 
 % From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
 % manually switched on if measured air temperature was below -5 $\degree C$ after sunset and was switched off as soon as
@@ -140,73 +139,51 @@ $^{6}$ETH, Zürich, Switzerland}
 % adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided by
 % adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
 % tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
-% 
-% \subsection{Measurements and Data}
-% Measurements comprising air temperature, relative humidity, water flow rate, wind speed and direction were made every
-% 5 minutes throughout the construction period. The water flow rate or discharge was measured via an ultrasonic
-% sensor attached to the fountain supply pipeline. Precipitation data was derived from the Plaffeien AWS
-% \citep{meteoswiss} located 8.8 km away from the measurement site at an altitude of 1042 $m$ a.s.l.  
-% 
-% In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured
-% directly at the EP site. We recognised during our data analysis that, except precipitation, all the other
-% meteorological variables of the EP site correlated much better with the ERA5 dataset than the nearby Plaffeien
-% AWS dataset. The $2\,m$ temperature parameter correlated with air temperature ($r^2 =0.9 $), surface pressure
-% parameter correlated with air pressure ($r^2 = 1$) and 10m wind speed parameter (derived from horizontal and vertical
-% components) correlated with wind speed ($r^2 =0.6 $) . The ERA5 reanalysis dataset has a good
-% correlation with lower elevation sites in Switzerland \citep{Scherrer_2020}. The hourly ERA5 data and the 10 minute
-% Plaffeien AWS data were linearly interpolated to the 5 minute data frequency of the EP AWS. 
-%   
-% \begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Figure_3} \caption{Measurements at the AWS of EP
-% were used as main model input data in 5 minute frequency. Plaffeien AWS provided the precipitation data.  Incoming
-% shortwave and longwave radiation were obtained from ERA5 reanalysis dataset. Several data gaps and errors were also
-% filled from the ERA5 dataset (shaded regions).} \label{fig:input} \end{figure}
-% 
-% Due to a power failure, all data from the EP AWS was lost from $27^{th}$ February 15:20 2019 to $2^{nd}$ March 15:00
-% 2019 (equivalent to around 7\% of the measurement period). During heavy snowfall events, the ultrasonic wind sensor was
-% blocked and recorded zero values. ERA5 was used to fill such errors and data gaps .  Near-surface humidity is not
-% provided directly in ERA5 dataset, but from near-surface ($2\,m$ from the surface) temperature ($T_{ERA5}$) and dew
-% point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was calculated as: 
-% \begin{equation} 
-%   RH = 100 \cdot \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} 
-% \end{equation} 
-% where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}: 
-%   \begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} 
-% with T in $\degree C$ and the parameters set for saturation over water
-% ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to \cite{Buck_1981}.  Zero wind speed values were
-% recorded whenever snow accumulated on the ultrasonic wind sensor. All such null values were replaced using the ERA5
-% dataset. 
-% 
-% The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km
-% away from the actual site.  All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.
-% With the modified ERA5 dataset, we were also able to further extend the EP dataset and allow the model to
-% run beyond $18^{th}$ March 2019. Precipitation was filled as null values beyond $18^{th}$ March 2019.
-% 
-% 
-% \subsubsection{Field Measurements for validation} \label{section:validation} 
-% The volume was determined by decomposing the ice structure into a cylinder (length $2R$ and height $h$) and a
-% cone (radius $r$ and height $(H_i-h)$) through the following equation: 
-% \begin{equation} V = \pi \cdot R^2 \cdot h + 1/3 \cdot \pi \cdot r^2 \cdot (H_i-h) \end{equation}
-% 
-% Manual measurements were performed at the end of the freezing period on $14^{th}$ February 16:00 2019 (only one more
-% fountain run was possible after this date) to estimate $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the different
-% geometry components):
-% 
-% $$ 0.55\leq r\leq 1 m\textit{ ; }1.1\leq R\leq 1.2 m\textit{ ; }0.1\leq h\leq 0.2 m\textit{ ; }0.6\leq
-% H_i\leq 0.8 m\textit{ ; }1.3\leq H_f\leq 1.4 m  $$
-% 
-% The ranges of the variables show the variance of the Icestupa's dimensions across different compass orientations.
-% Correspondingly, the volume range estimated for the first validation point was 0.857 $\pm$ 0.186 $m^{3}$ on $14^{th}$
-% February 16:00 2019.
-% 
-% The second validation point corresponds to the end of the melting process on $10^{th}$ March 18:00 2019.  Based on the
-% webcam imagery and manual measurement, a thin layer of ice with an observed thickness between 0.01 to 0.06 m could be
-% quantified. This results in the volume range for the second validation to be 0.13 $\pm$ 0.09 $m^{3}$ on $11^{th}$ March
-% 2019 
-% 
-% In reality, the EP ice structure was more cylindrical until a height of 0.2\,$m$ and conical afterwards until a
-% height of 0.6\,$m$ with a radius of 1.18\,$m$. However, we assume a conical shape of this ice structure in order to
-% apply the modelling strategy described below.
-% 
+
+\subsection{Measurements and Data}
+Measurements comprising air temperature, relative humidity, water flow rate, wind speed and direction were made every
+5 minutes throughout the construction period. The water flow rate or discharge was measured via an ultrasonic
+sensor attached to the fountain supply pipeline.   
+
+In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured
+directly at the EP site. The $2\,m$ temperature parameter correlated with air temperature ($r^2 =0.9 $), surface
+pressure parameter correlated with air pressure ($r^2 = 1$) and 10m wind speed parameter (derived from horizontal and
+vertical components) correlated with wind speed ($r^2 =0.6 $) . The ERA5 reanalysis dataset has a good correlation with
+lower elevation sites in Switzerland \citep{Scherrer_2020}. The hourly ERA5 data and the 10 minute Plaffeien AWS data
+were linearly interpolated to the 5 minute data frequency of the EP AWS. 
+  
+\begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Model_Input_Manual.jpg} 
+
+\caption{Measurements at the AWS of GB21 were used as main model input data in hourly frequency. Missing data, data gaps
+and errors were filled from the ERA5 dataset (shaded regions).} 
+
+    \label{fig:input} \end{figure}
+
+The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km
+away from the actual site.  All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.
+
+\subsubsection{Drone Measurements for calibration and validation} \label{section:validation} 
+Several Drone flights were conducted in every AIR site. The DEM generated through these flights were analysed to obtain
+the circumference and volume of the ice structure. The mean circumference measured during the fountain duration was set
+as the spray radius ($r_{spray}$) and the volume obtained in the first drone flight was set as the dome
+volume ($V_{dome}$) for model initialisation.
+
+\begin{center}
+ \begin{tabular}{|c| c c c c |} 
+ \hline
+ Name & Location & Shortname & Fountain duration & Spray radius\\ [0.5ex] 
+ \hline\hline
+ Icestupa Competition 2021 & Gangles, India& IC21 & Jan 18 - Mar 10 & 10.8$m$\\
+ \hline
+ Guttannen Bewegt 2021 & Guttannen, Switzerland & GB21 & Nov 22 - Feb 21 & 6.9 $m$\\ 
+ \hline
+ Guttannen Bewegt 2020 & Guttannen, Switzerland& GB20 & Jan 3 - Feb 27 & 7.7 $m$\\ 
+ \hline
+ Eispalast 2019 & Schwarzsee, Switzerland& EP19 & Jan 30 - Feb 16 & 1.2 $m$\\
+ \hline
+\end{tabular}
+\end{center}
+
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
@@ -263,9 +240,10 @@ be determined by considering the following rules:
 
 \begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_{spray} ,\, h_0) & \textit{ if } i=0\\
     (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
-    r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \textit{ where } \Delta M_{ice} = M_{ice}^{i-1} -
-    M_{ice}^{i-2}\\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
+    r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
 otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
+
+where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
 \subsection{Energy Balance} \label{section:EB}
 
@@ -543,19 +521,19 @@ through their water storage efficiency defined accordingly as:
 \begin{equation} \textit{Storage Efficiency} = \frac{M_{water}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 
-% \section{Model Results} 
-% The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
-% \ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
-% the Icestupa.
-% 
-% \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Figure_6.jpg} \end{center}
-% \caption{(a) Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
-%   the Icestupa in daily time steps.  $q_{SW}$ is the surf shortwave radiation; $q_{LW}$ is the surf longwave radiation;
-%   $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
-%   ice-water boundary during fountain on time steps.  $q_{G}$ quantifies the heat conduction process between the
-%   Icestupa surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
-% calculation}
-% 
+\section{Model Results} 
+The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
+\ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
+the Icestupa.
+
+\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output_Manual.jpg} \end{center}
+\caption{(a) Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
+  the Icestupa in daily time steps.  $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation;
+  $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
+  fountain water with the AIR surface layer.  $q_{G}$ quantifies the heat conduction process between the
+  AIR surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
+calculation}
+
 % \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
 %   parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the green curve
 %   shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
@@ -563,70 +541,70 @@ through their water storage efficiency defined accordingly as:
 %   with variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
 %   $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
 % \label{fig:derived} \end{figure}
-%   
-% 
-% \begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
-%   spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
-% except $M_{F}$ were modelled.} \centering
-%     \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
-%     & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
-%       \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 466 $kg$\\ & $M_{dpt}$ & 0 $kg$ & 0
-%       $kg$ \\ & $M_{cdt}$ & 7 $kg$ & 32 $kg$ \\
-%       \hline & $M_{water}$ & 163 $kg$ & 1013 $kg$\\
-%       \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 809 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 11 $kg$ & 16
-%       $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
-%  
-%  \hline \end{tabular} \label{table:MB} \end{table}
-% 
-% 
-% Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
-% experiment duration, the total energy balance was almost zero. Net shortwave radiation (33 $Wm^{-2}$), sensible (10
-% $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
-% compensated by the surf longwave radiation (- 34 $Wm^{-2}$) and the melt energy (-12 $Wm^{-2}$). The contributions of
-% other fluxes were negligible in comparison.
-% 
-% Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
-% controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
-% the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 339
-% $Wm^{-2}$, $q_{SW}$ only went up to 98 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct solar
-% radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived} (a).
-% Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more frequent
-% snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
-% 
-% $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
-% structure. Daily values of $q_{LW}$ ranged from -89 to 21 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
-% mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -14 to 26 $Wm^{-2}$.
-% Deposition/condensation was favored over evaporation/sublimation during 95 \% of the model runtime.  Daily values of the
-% turbulent latent heat flux $q_{L}$ ranged from -10 to 15 $Wm^{-2}$.  Since the mean of $q_{L}$ was positive, the
-% Icestupa gained mass cumulatively from the atmosphere due to the condensation process.  Fountain water heat flux $q_{F}$
-% had a mean of zero as it was only nonzero during 1002 time steps or around 100 hours.  Daily values of $q_{F}$ ranged
-% from -1 to 6 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was also minimal as it only varied between
-% -6 to 12 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was
-% insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk temperature
-% and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{LW}$
-% accounted for 33.8\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in
-% absolute values. $q_{SW}$ accounted for 31.3\%, followed by $q_{melt}$ (19\%), $q_{S}$ (9.6\%), $q_{L}$ (3.6\%), $q_{G}$
-% (2.4\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
-% 
-% Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
-% the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
-% deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
-% shows a better correlation with surf energy flux ($r^2 = 0.15$) compared to Icestupa surface area ($r^2 =
-% 0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{surf}$ as illustrated in Fig.
-% \ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_{spray}$, the surface area maintains a maximum
-% initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
-% resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
-% 
-% The total water used for the Icestupa development includes contributions from the fountain (97.3\%), snowfall (2.5 \%),
-% condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
-% measurement period was 809 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
-% Therefore, in the case of EP we used a water input of 18,558 $kg$, with a resultant storage efficiency of only 5.5 \%.
-% 
-%   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
-%   volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
-% validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
-% parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
-% \label{fig:results} \end{figure}
+  
+
+\begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
+  spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
+except $M_{F}$ were modelled.} \centering
+    \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
+    & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
+      \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 466 $kg$\\ & $M_{dpt}$ & 0 $kg$ & 0
+      $kg$ \\ & $M_{cdt}$ & 7 $kg$ & 32 $kg$ \\
+      \hline & $M_{water}$ & 163 $kg$ & 1013 $kg$\\
+      \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 809 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 11 $kg$ & 16
+      $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
+ 
+ \hline \end{tabular} \label{table:MB} \end{table}
+
+
+Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
+experiment duration, the total energy balance was almost zero. Net shortwave radiation (33 $Wm^{-2}$), sensible (10
+$Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
+compensated by the surf longwave radiation (- 34 $Wm^{-2}$) and the melt energy (-12 $Wm^{-2}$). The contributions of
+other fluxes were negligible in comparison.
+
+Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
+controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
+the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 339
+$Wm^{-2}$, $q_{SW}$ only went up to 98 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct solar
+radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived} (a).
+Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more frequent
+snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
+
+$q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
+structure. Daily values of $q_{LW}$ ranged from -89 to 21 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
+mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -14 to 26 $Wm^{-2}$.
+Deposition/condensation was favored over evaporation/sublimation during 95 \% of the model runtime.  Daily values of the
+turbulent latent heat flux $q_{L}$ ranged from -10 to 15 $Wm^{-2}$.  Since the mean of $q_{L}$ was positive, the
+Icestupa gained mass cumulatively from the atmosphere due to the condensation process.  Fountain water heat flux $q_{F}$
+had a mean of zero as it was only nonzero during 1002 time steps or around 100 hours.  Daily values of $q_{F}$ ranged
+from -1 to 6 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was also minimal as it only varied between
+-6 to 12 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was
+insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk temperature
+and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{LW}$
+accounted for 33.8\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in
+absolute values. $q_{SW}$ accounted for 31.3\%, followed by $q_{melt}$ (19\%), $q_{S}$ (9.6\%), $q_{L}$ (3.6\%), $q_{G}$
+(2.4\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
+
+Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
+the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
+deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
+shows a better correlation with surf energy flux ($r^2 = 0.15$) compared to Icestupa surface area ($r^2 =
+0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{surf}$ as illustrated in Fig.
+\ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_{spray}$, the surface area maintains a maximum
+initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
+resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
+
+The total water used for the Icestupa development includes contributions from the fountain (97.3\%), snowfall (2.5 \%),
+condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
+measurement period was 809 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
+Therefore, in the case of EP we used a water input of 18,558 $kg$, with a resultant storage efficiency of only 5.5 \%.
+
+  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
+  volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
+validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
+parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
+\label{fig:results} \end{figure}
 %   
 % \section{Model Sensitivity and Uncertainty analysis}
 % 
