@@ -12,6 +12,7 @@
 % Leave a blank\usepackage{amsmath}
 %\DeclareMathOperator{\sign}{sign} line between paragraphs instead of using \\
 
+\usepackage{csvsimple} % for csv tables
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Balasubramanian {et~al.}} %use et al only if is more than 1 author
@@ -165,21 +166,20 @@ away from the actual site.  All the ERA5 variables were therefore fitted with th
 \subsubsection{Drone Measurements for calibration and validation} \label{section:validation} 
 Several Drone flights were conducted in every AIR site. The DEM generated through these flights were analysed to obtain
 the circumference and volume of the ice structure. The mean circumference measured during the fountain duration was set
-as the spray radius ($r_{spray}$) and the volume obtained in the first drone flight was set as the dome
-volume ($V_{dome}$) for model initialisation.
+as the spray radius ($r_{spray}$) for model initialisation.
 
 \begin{center}
- \begin{tabular}{|c| c c c c |} 
+ \begin{tabular}{|c| c c c c c |} 
  \hline
- Name & Location & Shortname & Fountain duration & Spray radius\\ [0.5ex] 
+ Team & Location & Code & Fountain duration & Drone flights & $r_{spray}$\\ [0.5ex] 
  \hline\hline
- Icestupa Competition 2021 & Gangles, India& IC21 & Jan 18 - Mar 10 & 10.8$m$\\
+ Icestupa Competition & Gangles, India& IC21 & Jan 18 - Mar 10, 2021 & 6 & 10.8$m$\\
  \hline
- Guttannen Bewegt 2021 & Guttannen, Switzerland & GB21 & Nov 22 - Feb 21 & 6.9 $m$\\ 
+ Guttannen Bewegt& Guttannen, Switzerland & GB21 & Nov 22 - Feb 21, 2021 & 9 & 6.9 $m$\\ 
  \hline
- Guttannen Bewegt 2020 & Guttannen, Switzerland& GB20 & Jan 3 - Feb 27 & 7.7 $m$\\ 
+ Guttannen Bewegt& Guttannen, Switzerland& GB20 & Jan 3 - Feb 27, 2020 & 3 & 7.7 $m$\\ 
  \hline
- Eispalast 2019 & Schwarzsee, Switzerland& EP19 & Jan 30 - Feb 16 & 1.2 $m$\\
+ Eispalast& Schwarzsee, Switzerland& EP19 & Jan 30 - Feb 16, 2019 & 0 & 1.2 $m$\\
  \hline
 \end{tabular}
 \end{center}
@@ -522,6 +522,10 @@ through their water storage efficiency defined accordingly as:
 
 
 \section{Model Results} 
+\begin{center}
+\csvautotabular{/home/suryab/work/air_model/data/paper/mass_bal.csv}
+\end{center}
+
 The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
 \ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
 the Icestupa.
@@ -542,17 +546,17 @@ calculation}
 %   $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
 % \label{fig:derived} \end{figure}
   
-
 \begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
   spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
 except $M_{F}$ were modelled.} \centering
-    \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass Component} & \multicolumn{1}{c|}{Fountain spray ends}
-    & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ & 18060 $kg$ & 18060 $kg$\\
-      \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ & 444 $kg$ & 466 $kg$\\ & $M_{dpt}$ & 0 $kg$ & 0
-      $kg$ \\ & $M_{cdt}$ & 7 $kg$ & 32 $kg$ \\
-      \hline & $M_{water}$ & 163 $kg$ & 1013 $kg$\\
-      \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 809 $kg$ & 0 $kg$\\ & $M_{vapour}$ & 11 $kg$ & 16
-      $kg$\\ & $M_{runoff}$ & 17529 $kg$ & 17529 $kg$\\
+    \begin{tabular}{|c|c|c|c|} 
+        \hline & \multicolumn{1}{c|}{Mass Component}  & \multicolumn{1}{c|}{Model ends} \\ 
+        \hline & $M_F$ &  1,000,041 $kg$\\
+      \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ &  29,533 $kg$\\ & $M_{dep}$ & 4,755 
+      $kg$ \\ 
+      \hline & $M_{water}$ & 196,011$kg$\\
+      \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 12,304 $kg$\\ & $M_{sub}$ & 4,747 
+      $kg$\\ & $M_{runoff}$  & 821,267 $kg$\\
  
  \hline \end{tabular} \label{table:MB} \end{table}
 
@@ -600,11 +604,11 @@ condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass dur
 measurement period was 809 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
 Therefore, in the case of EP we used a water input of 18,558 $kg$, with a resultant storage efficiency of only 5.5 \%.
 
-  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
-  volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
-validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
-parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
-\label{fig:results} \end{figure}
+%   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
+%   volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
+% validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
+% parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
+% \label{fig:results} \end{figure}
 %   
 % \section{Model Sensitivity and Uncertainty analysis}
 % 
