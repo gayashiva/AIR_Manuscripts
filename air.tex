@@ -6,8 +6,8 @@
 
 \usepackage{tabularx}
 \linenumbers
-\DeclareUnicodeCharacter{0301}{}
-\DeclareUnicodeCharacter{2212}{}
+% \DeclareUnicodeCharacter{0301}{}
+% \DeclareUnicodeCharacter{2212}{}
 \usepackage{wasysym} % provides \DH, \dh, \Thorn, \thorn
 % Leave a blank\usepackage{amsmath}
 %\DeclareMathOperator{\sign}{sign} line between paragraphs instead of using \\
@@ -33,7 +33,7 @@ $^{6}$ETH, Zürich, Switzerland}
 \onecolumn
 \firstpage{1}
 
-\title[Artificial Ice Reservoirs]{Mass and energy balance calculations for an artificial ice reservoir (Icestupa)}
+\title[Artificial Ice Reservoirs]{Mass and energy balance calculations for artificial ice reservoirs (Icestupas)}
 
 \author[\firstAuthorLast ]{\Authors}
 \address{}
@@ -117,20 +117,40 @@ $^{6}$ETH, Zürich, Switzerland}
 % for water storage is envisaged. 
 % 
 
-\section{Study Site}
-The Guttannen (GT) site in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and maximum
-air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during winter
-\citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values across the study period.
-An automatic weather station (AWS) was adjacent to the wooden boundary as shown in Fig. \ref{fig:site}. The fountain
-used for spraying water had a height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was
-transferred from a spring water source and flowed via a flowmeter and an air escape valve to the nozzle. The air escape
-valve was installed to avoid errors in the flow measurements due to air bubbles. In addition, a webcam guaranteed a
-continuous survey of the site during the construction of the Icestupa. 
+\section{Study Sites}
+To accurately estimate and validate the ice volume of AIR the model requires three kinds of datasets namely, weather, water and
+ice volume. So through the winters of 2019, 2020 and 2021 several scientific AIR were constructed by teams in Switzerland and
+India. Each site had an Automatic Weather Station (AWS) nearby. Also drone flights were conducted periodically to record
+AIR ice volume. For this analysis, we have chosen 4 of the AIR which have a relatively complete dataset associated with them.
+
+\subsection{Construction} 
+The construction strategy used in each site varied. CH20 and CH21 AIR was constructed on a garden
+adjacent to a stream. To initiate the ice formation process, tree branches were laid covering the fountain pipe.  The
+fountain height varied between 2 to 5\,$m$ during the construction period. Fountain operation was guided by temperature
+conditions. 
+
+The IC21 AIR was constructed adjacent to another AIR and merged with it. To initiate the ice formation process, a dome
+of 2\,$m$ radius was constructed and the fountain pipeline was erected at the center using a tripod. Fountain operation was
+interrupted only due to pipeline freezing events. The fountain height varied between 5 to 9\,$m$.
+
+The EP19 AIR was constructed inside a wooden boundary adjacent to a stream. Fountain operation was guided by temperature
+conditions.  The water spray of the fountain was initially adjusted so that most of the water droplets land within the
+wooden boundary zone. The ice formation was guided by adding a metal framework at the ice structure base after the first
+night of operation.  Several cotton threads were tied between the ice structure base and fountain pole for accelerating
+and further guiding the ice formation process. 
+
+% The Guttannen (CH21) site in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and
+% maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during
+% winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values across the study
+% period.  An automatic weather station (AWS) was adjacent to the wooden boundary as shown in Fig. \ref{fig:site}. The
+% fountain used for spraying water had an initial height of 2.3\,$m$. The water was transferred from a spring water
+% source and flowed via a flowmeter to the nozzle.  In addition, a webcam guaranteed a continuous survey of the site
+% during the construction of the Icestupa. 
 
 
 % \begin{figure} \centering \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
 % \caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
-%   $14^{th}$ Feb. (b) The corresponding cross section of the EP ice structure with the field estimates of $r, R,
+%   $14^{th}$ Feb. (b) The corresponding cross section of the CH21 ice structure with the field estimates of $r, R,
 %   h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
 
 % \subsection{Construction} 
@@ -141,49 +161,78 @@ continuous survey of the site during the construction of the Icestupa.
 % adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
 % tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
 
-\subsection{Measurements and Data}
-Measurements comprising air temperature, relative humidity, water flow rate, wind speed and direction were made every
-5 minutes throughout the construction period. The water flow rate or discharge was measured via an ultrasonic
-sensor attached to the fountain supply pipeline.   
+\subsection{Measurements}
 
-In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured
-directly at the EP site. The $2\,m$ temperature parameter correlated with air temperature ($r^2 =0.9 $), surface
-pressure parameter correlated with air pressure ($r^2 = 1$) and 10m wind speed parameter (derived from horizontal and
-vertical components) correlated with wind speed ($r^2 =0.6 $) . The ERA5 reanalysis dataset has a good correlation with
-lower elevation sites in Switzerland \citep{Scherrer_2020}. The hourly ERA5 data and the 10 minute Plaffeien AWS data
-were linearly interpolated to the 5 minute data frequency of the EP AWS. 
+\subsubsection{Weather measurements} 
+Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
+to calculate the surface energy balance of an AIR. All the 4 sites had AWS near the construction site which measured
+most of these parameters. The specific corrections applied on the input dataset for each site is described in the
+Appendix. In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding
+data that were not measured directly at the respective site. The ERA5 reanalysis dataset has a good correlation with
+lower elevation sites in Switzerland \citep{Scherrer_2020} but a poor correlation for the Indian (IN21) site. So the
+weather dataset for the IN21 site was completed using another AWS nearby as described in the Appendix.
   
+% The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the CH21 site was around 9 km away
+% from the actual site.  All the ERA5 variables were therefore fitted with the CH21 dataset via linear regressions.
+
+\subsubsection{Discharge measurements}
+The water flow rate or discharge was measured via an ultrasonic sensor attached to the fountain supply pipeline for all
+the sites. However, due to various malfunctions, the discharge measurements were incomplete for all the sites except
+CH19. Using the hourly webcam images of the CH sites, the discharge duration was determined. The available discharge
+measurement was later used to determine the average discharge quantity during these periods. 
+
 \begin{figure} \centering \includegraphics[width=\linewidth]{./Figures/Model_Input_Manual.jpg} 
-
-\caption{Measurements at the AWS of GB21 were used as main model input data in hourly frequency. Missing data, data gaps
+\caption{Measurements at the AWS of CH21 were used as main model input data in hourly frequency. Missing data, data gaps
 and errors were filled from the ERA5 dataset (shaded regions).} 
-
     \label{fig:input} \end{figure}
 
-The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km
-away from the actual site.  All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.
-
-\subsubsection{Drone Measurements for calibration and validation} \label{section:validation} 
+\subsubsection{Ice volume measurements}
+% \subsubsection{Drone Measurements for calibration and validation} \label{section:validation} 
 Several Drone flights were conducted in every AIR site. The DEM generated through these flights were analysed to obtain
 the circumference and volume of the ice structure. The mean circumference measured during the fountain duration was set
-as the spray radius ($r_{spray}$) for model initialisation.
+as the spray radius ($r_{spray}$) and the first drone flight was used to set the dome volume ($V_{dome}$) for model
+initialisation. The ice volume data was later used for calibration and validation of the model. There were no drone
+flights conducted for CH19 AIR, so the $r_{spray}$ was instead calculated from fountain attributes as described in
+Appendix.
+
+% \begin{center}
+%  \begin{tabular}{|c| c c c c c c |} 
+%  \hline
+%  Team & Location & Code & Fountain duration & Drone flights & $r_{spray}$ & $V_{dome}$\\ [0.5ex] 
+%  \hline\hline
+%  Icestupa Competition & Gangles (IN)& IN21 & Jan 18 - Mar 10, 2021 & 6 & 10.8$m$\\
+%  \hline
+%  Guttannen Bewegt& Guttannen (CH)& CH21 & Nov 22 - Feb 21, 2021 & 9 & 6.9 $m$\\ 
+%  \hline
+%  Guttannen Bewegt& Guttannen (CH)& CH20 & Jan 3 - Feb 27, 2020 & 3 & 7.7 $m$\\ 
+%  \hline
+%  Eispalast& Schwarzsee (CH)& CH19 & Jan 30 - Feb 16, 2019 & 0 & 1.2 $m$\\
+%  \hline
+% \end{tabular}
+% \end{center}
 
 \begin{center}
- \begin{tabular}{|c| c c c c c |} 
+ \begin{tabular}{|c| c c c c |} 
  \hline
- Team & Location & Code & Fountain duration & Drone flights & $r_{spray}$\\ [0.5ex] 
+ AIR & Gangles, 2021 & Guttannen, 2021& Guttannen, 2020 & Schwarzsee, 2019\\ [0.5ex] 
  \hline\hline
- Icestupa Competition & Gangles, India& IC21 & Jan 18 - Mar 10, 2021 & 6 & 10.8$m$\\
+ Code & IN21 & CH21& CH20 & CH19\\
  \hline
- Guttannen Bewegt& Guttannen, Switzerland & GB21 & Nov 22 - Feb 21, 2021 & 9 & 6.9 $m$\\ 
+ Altitude [$m$ a.s.l.] & 4025&1047 & 1047& 967\\ 
  \hline
- Guttannen Bewegt& Guttannen, Switzerland& GB20 & Jan 3 - Feb 27, 2020 & 3 & 7.7 $m$\\ 
+ Construction Team& Icestupa Competition& Guttannen Bewegt& Guttannen Bewegt& Eispalast\\ 
  \hline
- Eispalast& Schwarzsee, Switzerland& EP19 & Jan 30 - Feb 16, 2019 & 0 & 1.2 $m$\\
+ Fountain Duration &Jan 18 - Mar 10&Nov 22 - Feb 21&Jan 3 - Feb 27&Jan 30 - Feb 16\\ 
+ \hline
+ Drone Flights & 6&9&3&0 \\
+ \hline
+ $r_{spray}$ [$m$] & 10.8&6.9&7.7&1.2 \\
+ \hline
+ $V_{dome}$ [$m^{3}$]& 78.5&13.2&23.9&0 \\
  \hline
 \end{tabular}
 \end{center}
-
+% 
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
@@ -230,7 +279,7 @@ these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:\begin{e
     \cdot s_{cone}}{3} \label{eqn:V2} \end{equation} 
 
 %     \begin{figure} \begin{center} \includegraphics[width=10
-% cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the EP Icestupa. $r_{ice}$ is
+% cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the CH21 Icestupa. $r_{ice}$ is
 % the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_{spray}$ is the spray radius, $h_F$ is the
 % height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}
 
@@ -522,9 +571,9 @@ through their water storage efficiency defined accordingly as:
 
 
 \section{Model Results} 
-\begin{center}
-\csvautotabular{/home/suryab/work/air_model/data/paper/mass_bal.csv}
-\end{center}
+% \begin{center}
+% \csvautotabular{/home/suryab/work/air_model/data/paper/mass_bal.csv}
+% \end{center}
 
 The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
 \ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
@@ -546,7 +595,7 @@ calculation}
 %   $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
 % \label{fig:derived} \end{figure}
   
-\begin{table} \caption{Summary of mass balance components for the EP experiment after the fountain
+\begin{table} \caption{Summary of mass balance components for the CH21 experiment after the fountain
   spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
 except $M_{F}$ were modelled.} \centering
     \begin{tabular}{|c|c|c|c|} 
@@ -602,10 +651,10 @@ resulting in a steep increase and gradual melting of ice volume as can be seen i
 The total water used for the Icestupa development includes contributions from the fountain (97.3\%), snowfall (2.5 \%),
 condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
 measurement period was 809 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
-Therefore, in the case of EP we used a water input of 18,558 $kg$, with a resultant storage efficiency of only 5.5 \%.
+Therefore, in the case of CH21 we used a water input of 18,558 $kg$, with a resultant storage efficiency of only 5.5 \%.
 
 %   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
-%   volume during the lifetime of the EP Icestupa (blue curve). Green line segments indicate the first and second
+%   volume during the lifetime of the CH21 Icestupa (blue curve). Green line segments indicate the first and second
 % validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
 % parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
 % \label{fig:results} \end{figure}
@@ -656,7 +705,7 @@ Therefore, in the case of EP we used a water input of 18,558 $kg$, with a result
 % 
 % \subsection{Model validation quality}
 % 
-% We first evaluate the model against the validation measurements at the EP site. The uncalibrated model is able to
+% We first evaluate the model against the validation measurements at the CH21 site. The uncalibrated model is able to
 % capture both the freezing and the melting process sufficiently well as the modelled ice volume lies within the
 % uncertainty of both validation measurements. Furthermore, the validation measurements fit well within the estimated
 % model uncertainty.  However, since this validation is based on only two points, it does limit the confidence in the
@@ -666,7 +715,7 @@ Therefore, in the case of EP we used a water input of 18,558 $kg$, with a result
 % as the actual surface area in contact with the atmosphere could have been amplified by the inherent roughness of the
 % ice surface. Another major cause of this discrepancy was the conical shape assumption, as in reality, the Icestupa
 % shape ranged between a cone and a cylinder (Fig.  \ref{fig:site}).   The sensitivity of the model results to these
-% errors was further amplified due to the relatively small volume of the EP Icestupa. In summary, better and frequent
+% errors was further amplified due to the relatively small volume of the CH21 Icestupa. In summary, better and frequent
 % validation measurements on a more voluminous Icestupa would have increased confidence on the model results.
 % 
 % \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
@@ -681,11 +730,11 @@ Therefore, in the case of EP we used a water input of 18,558 $kg$, with a result
 %   uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
 % 
 % \item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
-%   fountain spray available for freezing. For the EP experiment, inclusion of this parameter does not influence
+%   fountain spray available for freezing. For the CH21 experiment, inclusion of this parameter does not influence
 %   results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
 % 
 % \item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
-%   contact if nucleation occurs during flight time. For the EP experiment, this process will further increase
+%   contact if nucleation occurs during flight time. For the CH21 experiment, this process will further increase
 %   the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
 % \item Shape Effects: The suppression of heat exchange between the snow/ice surface and the air adjacent to the surface
 %   effectively slows down snow/ice ablation in spring and promotes the stagnation of the cold air within topographical
@@ -715,7 +764,7 @@ Therefore, in the case of EP we used a water input of 18,558 $kg$, with a result
 % The fountain type used can be characterised by the physical structure of the fountain, namely its height and nozzle
 % diameter. Maintaining the same spray rate and height, one can optimize the Icestupa development by identifying the
 % minimum nozzle diameter that yields the maximum storage efficiency. Since we never changed the fountain height for the
-% EP Icestupa, we only focus on optimization of fountain diameter below.
+% CH21 Icestupa, we only focus on optimization of fountain diameter below.
 % 
 % Fig. \ref{fig:dia_f} shows reducing the nozzle diameter to 3 $mm$ increases storage efficiency up to 78 \% without
 % compromising much on storage duration.  The corresponding storage quantity of the 3 $mm$ nozzle diameter was more than
@@ -760,18 +809,18 @@ Therefore, in the case of EP we used a water input of 18,558 $kg$, with a result
 % 
 % \subsection{Schwarzsee vs Leh Icestupa}
 %   
-% It could be argued that the relatively small EP Icestupa cannot be compared with the much larger Icestupas in
+% It could be argued that the relatively small CH21 Icestupa cannot be compared with the much larger Icestupas in
 % Ladakh which store millions of litres of water for several months (see Appendix \ref{section:ladakhloss}). However,
 % this is the only Icestupa dataset currently available for such a model validation.
 % 
-% Table \ref{table:MB} clearly shows that for our EP experiment most of the input water (94.5 \%) simply drained away
+% Table \ref{table:MB} clearly shows that for our CH21 experiment most of the input water (94.5 \%) simply drained away
 % ($M_{runoff}$) . This high water loss through drainage is due to the fact that the average spray rate of the fountain
 % ($(\frac{\Delta M_{F}}{\Delta t})_{mean} = 3.6\, l\,min^{-1}$) far exceeded the max Icestupa growth rate
 % ($(\frac{\Delta M_{ice}}{\Delta t})_{max} = 0.9\, l\,min^{-1}\, \textit{(w.e.)}$ ).
 % 
 % In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l. the air temperature shows values down to $-27.9\, \degree
-% C$ in winter \citep{Chevuturi_2018} whereas EP had a minimum temperature of just  $-11.6\,\degree C$ during the
-% study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the EP
+% C$ in winter \citep{Chevuturi_2018} whereas CH21 had a minimum temperature of just  $-11.6\,\degree C$ during the
+% study period. Moreover, subzero temperatures were only reached for 7 nights of fountain operation at the CH21
 % site compared to the 43 nights of fountain operation possible in Ladakh (see Appendix \ref{section:ladakhloss}). Thus,
 % the Icestupa growth rate is expected to be much higher in Ladakh. However, water spray rates in Ladakh are also much
 % higher (around 210 $l\,min^{-1}$). This suggests that the water losses in Ladakh could be caused by excessive fountain spray.
@@ -783,29 +832,29 @@ Therefore, in the case of EP we used a water input of 18,558 $kg$, with a result
 % % determines ice or snow production is whether these water droplets remain unfrozen or freeze before reaching the
 % % ice/snow surface. According to \citep{HARTL2018123}, the production potential of artificial snowmaking is proportional
 % % to the wet-bulb temperature and the threshold mean daily wet bulb temperature for potential snow making days was $- 2
-% % \, \degree C$ which corresponds well with the threshold mean daily air temperature for potential ice making days of EP
+% % \, \degree C$ which corresponds well with the threshold mean daily air temperature for potential ice making days of CH21
 % % site ($- 1 \, \degree C$).
 % 
 % \section{Conclusions} We outlined a methodology for estimating ice, liquid water, water vapour and runoff
 % quantities produced during the construction of an Icestupa using measurements of fountain spray rate, air temperature,
-% radiation, humidity, pressure, wind and cloudiness at the EP study site. The comparison with validation
+% radiation, humidity, pressure, wind and cloudiness at the CH21 study site. The comparison with validation
 % measurements at two different dates during the experiment led to satisfying results, although a more rigorous model
 % validation was not possible due to few icestupa volume measurements.
 % 
-% According to the model, the EP Icestupa achieved a storage quantity of 1005 litres of water with a storage
+% According to the model, the CH21 Icestupa achieved a storage quantity of 1005 litres of water with a storage
 % duration of 65 days. However, the corresponding storage efficiency of 6 \% was very low for a water input of 18,560
 % litres. These estimates were most sensitive to the temperature threshold that determined precipitation phase and ice
 % emissivity parameters which created an uncertainty of $0.2 m^3$ in the maximum ice volume calculated.  This is
 % to be expected as net longwave radiation and net shortwave radiation together accounted for around 65 \% of the overall
 % energy turnover.
 % 
-% Although the location, storage quantity and duration of our experimental EP Icestupa are not representative of
+% Although the location, storage quantity and duration of our experimental CH21 Icestupa are not representative of
 % the much larger Icestupas of Ladakh, the model results do support the hypothesis that there could be considerable
 % water loss during the formation of Icestupas particularly due to excessive fountain spray. Using model calculations,
 % it was shown that a decreased fountain nozzle diameter of 3 $mm$ can increase the storage efficiency drastically. This
 % is because a change in the fountain nozzle diameter causes an effective change of the ice surface area over which the
 % surf energy flux can act. This result has relevance on the future design of Icestupa fountains. However, care has to be
-% taken as our model is currently only validated by one experiment at the EP site. Further experiments at
+% taken as our model is currently only validated by one experiment at the CH21 site. Further experiments at
 % different locations with different fountains are required to better understand the influence of construction decisions
 % on the results. 
 % 
