@@ -6,8 +6,8 @@
 
 \usepackage{tabularx}
 \linenumbers
-% \DeclareUnicodeCharacter{0301}{}
-% \DeclareUnicodeCharacter{2212}{}
+\DeclareUnicodeCharacter{0301}{}
+\DeclareUnicodeCharacter{2212}{}
 \usepackage{wasysym} % provides \DH, \dh, \Thorn, \thorn
 % Leave a blank\usepackage{amsmath}
 %\DeclareMathOperator{\sign}{sign} line between paragraphs instead of using \\
@@ -16,7 +16,8 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Balasubramanian {et~al.}} %use et al only if is more than 1 author
-\def\Authors{Suryanarayanan Balasubramanian\,$^{1*}$, Martin Hoelzle\,$^{1}$, Michael Lehning\,$^{2}$, Sonam Wangchuk\,$^{3}$, Johannes Oerlemans\,$^{4}$ and Felix Keller\,$^{5,6}$}
+\def\Authors{Suryanarayanan Balasubramanian\,$^{1*}$, Martin Hoelzle\,$^{1}$, Michael Lehning\,$^{2}$, Sonam
+Wangchuk\,$^{3}$, Johannes Oerlemans\,$^{4}$, Felix Keller\,$^{5,6}$ and Jordi Bolibar\,$^{4}$}
 \def\Address{$^{1}$University of Fribourg, Fribourg, Switzerland\\
 $^{2}$WSL Institute for Snow and Avalanche Research, Davos, Switzerland\\
 $^{3}$Himalayan Institute of Alternatives Ladakh, Leh, India\\
@@ -41,81 +42,81 @@ $^{6}$ETH, Zürich, Switzerland}
 
 \extraAuth{}
 
-% \maketitle
+\maketitle
 
 
-% \begin{abstract}
-% 
-% Artificial Ice Reservoirs (AIRs) can successfully store water during winter and release the water during spring and
-% summer. This makes them a reliable fresh water resource for irrigation in dry environments. Several AIRs have been built
-% but studies of their water storage capacity and efficiency are scarce. This study models a cone-shaped AIR popularly
-% called Icestupa. Processes involved in the development and temporal evolution of an Icestupa are calculated by a
-% physically-based model using equations governing the heat transfer, vapour diffusion and transport of water that
-% undergoes phase changes.  These processes were quantified using meteorological data in conjunction with fountain spray
-% information (mass input of an Icestupa) to estimate the quantity of frozen, melted, evaporated and runoff water at a
-% location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an Icestupa was built for model
-% validation purposes. The model was further tested by performing a sensitivity and uncertainty study showing that the
-% most sensitive parameters are the ice emissivity and the temperature threshold used to determine precipitation phase.
-% Model calculations estimate that the Eispalast Icestupa stored about 6\% of the total water sprayed as ice. In addition,
-% we found that reducing nozzle diameter of the fountain from 5 $mm$ to 3 $mm$ increases the water storage up to 78\%
-% without compromising on the storage duration.
-% 
-% \tiny
-%  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
-% \end{abstract}
+\begin{abstract}
 
-% \section{Introduction}
-% 
-% Seasonal snow cover, glaciers and permafrost are expected to change their water storage capacity due to climate change
-% with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about by these
-% changes are especially important for dry mountain environments such as in Central Asia or the Andes, which directly
-% rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019, Apel_2018,
-% Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate
-% due to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}. 
-% 
-% \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg}
-% \end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3700 $m^3$ 
-% of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
-% 
-% Artificial ice reservoirs (AIRs) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
-% 10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed during the cold winter
-% months and designed to slowly release freshwater during the warm and dry spring and summer months. The main purpose of
-% AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long into the summer as possible.
-% The energy required to construct an AIR is usually derived from the gravitational head of the source water body. Some
-% are constructed horizontally by freezing water using a series of checkdams and others are built vertically by spraying
-% water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the
-% subject of this study.
-% 
-% A typical Icestupa just requires a pipeline attached to a vertically mounted metal pipe with a fountain nozzle for
-% construction. Their water source is usually a high altitude lake or glacial stream. Due to the altitude difference
-% between the pipeline input and fountain output, water ejects from the fountain nozzle as droplets that eventually lose
-% their latent heat to the atmosphere and accumulate as ice around the metal pipe. The fountain nozzle is raised through
-% addition of further pipes as and when significant ice accumulates. Typically, a dome of branches is constructed around
-% the metal pipe so that such pipe extensions can be done from within this dome. During the winter, the fountain is
-% manually activated from sunset to sunrise. Threads, tree branches and fishing nets are used to guide and accelerate the
-% ice formation.
-% 
-% Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
-% Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to
-% other water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:cone}) can be built at
-% lower altitudes and last much longer into the summer than other types of ice structures \citep{campaign}. However, to
-% date, no reliable estimates exist about the amount of sprayed water that is necessary to create them and the meltwater
-% they provide \citep{Nusser_2018}. Rough estimates of Icestupa meltwater in Ladakh suggest that the water loss during
-% the construction process is considerable (see Appendix \ref{section:ladakhloss}). A complete set of measurements of the
-% water storage and energy balance are required to understand the cause of the water losses better and increase the
-% construction efficiency.
-%  
-% In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
-% storage efficiency using existing weather and water usage information. Mass and energy balance equations were used to
-% estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty analysis were
-% performed to identify the most critical parameters and the variance caused by them. For validation, we created an
-% Icestupa at an accessible site (called Eispalast) near Schwarzsee close to the city of Fribourg, Switzerland, allowing
-% easy maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
-% temperatures, only a small Icestupa could be established during winter 2018/19 to provide us with model validation
-% data. Our model and validation experiments provide first steps towards evaluating the effectiveness of a vertical AIR
-% for irrigation and allow us to outline some preliminary guidelines for consideration when a construction of an Icestupa
-% for water storage is envisaged. 
-% 
+Artificial Ice Reservoirs (AIRs) can successfully store water during winter and release the water during spring and
+summer. This makes them a reliable fresh water resource for irrigation in dry environments. Several AIRs have been built
+but studies of their water storage capacity and efficiency are scarce. This study models a cone-shaped AIR popularly
+called Icestupa. Processes involved in the development and temporal evolution of an Icestupa are calculated by a
+physically-based model using equations governing the heat transfer, vapour diffusion and transport of water that
+undergoes phase changes.  These processes were quantified using meteorological data in conjunction with fountain spray
+information (mass input of an Icestupa) to estimate the quantity of frozen, melted, evaporated and runoff water at a
+location called 'Eispalast' in Fribourg, Switzerland. At this measurement site, an Icestupa was built for model
+validation purposes. The model was further tested by performing a sensitivity and uncertainty study showing that the
+most sensitive parameters are the ice emissivity and the temperature threshold used to determine precipitation phase.
+Model calculations estimate that the Eispalast Icestupa stored about 6\% of the total water sprayed as ice. In addition,
+we found that reducing nozzle diameter of the fountain from 5 $mm$ to 3 $mm$ increases the water storage up to 78\%
+without compromising on the storage duration.
+
+\tiny
+ \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+\end{abstract}
+
+\section{Introduction}
+
+Seasonal snow cover, glaciers and permafrost are expected to change their water storage capacity due to climate change
+with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about by these
+changes are especially important for dry mountain environments such as in Central Asia or the Andes, which directly
+rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019, Apel_2018,
+Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate
+due to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}. 
+
+\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg}
+\end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3700 $m^3$ 
+of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
+
+Artificial ice reservoirs (AIRs) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
+10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed during the cold winter
+months and designed to slowly release freshwater during the warm and dry spring and summer months. The main purpose of
+AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long into the summer as possible.
+The energy required to construct an AIR is usually derived from the gravitational head of the source water body. Some
+are constructed horizontally by freezing water using a series of checkdams and others are built vertically by spraying
+water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the
+subject of this study.
+
+A typical Icestupa just requires a pipeline attached to a vertically mounted metal pipe with a fountain nozzle for
+construction. Their water source is usually a high altitude lake or glacial stream. Due to the altitude difference
+between the pipeline input and fountain output, water ejects from the fountain nozzle as droplets that eventually lose
+their latent heat to the atmosphere and accumulate as ice around the metal pipe. The fountain nozzle is raised through
+addition of further pipes as and when significant ice accumulates. Typically, a dome of branches is constructed around
+the metal pipe so that such pipe extensions can be done from within this dome. During the winter, the fountain is
+manually activated from sunset to sunrise. Threads, tree branches and fishing nets are used to guide and accelerate the
+ice formation.
+
+Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
+Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to
+other water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:cone}) can be built at
+lower altitudes and last much longer into the summer than other types of ice structures \citep{campaign}. However, to
+date, no reliable estimates exist about the amount of sprayed water that is necessary to create them and the meltwater
+they provide \citep{Nusser_2018}. Rough estimates of Icestupa meltwater in Ladakh suggest that the water loss during
+the construction process is considerable (see Appendix \ref{section:ladakhloss}). A complete set of measurements of the
+water storage and energy balance are required to understand the cause of the water losses better and increase the
+construction efficiency.
+ 
+In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
+storage efficiency using existing weather and water usage information. Mass and energy balance equations were used to
+estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty analysis were
+performed to identify the most critical parameters and the variance caused by them. For validation, we created an
+Icestupa at an accessible site (called Eispalast) near Schwarzsee close to the city of Fribourg, Switzerland, allowing
+easy maintenance and control of the measurements. Due to the low altitude of the site with relatively high winter
+temperatures, only a small Icestupa could be established during winter 2018/19 to provide us with model validation
+data. Our model and validation experiments provide first steps towards evaluating the effectiveness of a vertical AIR
+for irrigation and allow us to outline some preliminary guidelines for consideration when a construction of an Icestupa
+for water storage is envisaged. 
+
 
 \section{Study Sites}
 To accurately estimate and validate the ice volume of AIR the model requires three kinds of datasets namely, weather, water and
@@ -153,14 +154,6 @@ and further guiding the ice formation process.
 %   $14^{th}$ Feb. (b) The corresponding cross section of the CH21 ice structure with the field estimates of $r, R,
 %   h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
 
-% \subsection{Construction} 
-% From $30^{th}$ January to $18^{th}$ March 2019 the Icestupa was constructed through the fountain spray, which was
-% manually switched on if measured air temperature was below -5 $\degree C$ after sunset and was switched off as soon as
-% the ice was exposed to daylight or temperatures were above 0 $\degree C$. The water spray of the fountain was initially
-% adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided by
-% adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
-% tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
-
 \subsection{Measurements}
 
 \subsubsection{Weather measurements} 
@@ -195,22 +188,6 @@ initialisation. The ice volume data was later used for calibration and validatio
 flights conducted for CH19 AIR, so the $r_{spray}$ was instead calculated from fountain attributes as described in
 Appendix.
 
-% \begin{center}
-%  \begin{tabular}{|c| c c c c c c |} 
-%  \hline
-%  Team & Location & Code & Fountain duration & Drone flights & $r_{spray}$ & $V_{dome}$\\ [0.5ex] 
-%  \hline\hline
-%  Icestupa Competition & Gangles (IN)& IN21 & Jan 18 - Mar 10, 2021 & 6 & 10.8$m$\\
-%  \hline
-%  Guttannen Bewegt& Guttannen (CH)& CH21 & Nov 22 - Feb 21, 2021 & 9 & 6.9 $m$\\ 
-%  \hline
-%  Guttannen Bewegt& Guttannen (CH)& CH20 & Jan 3 - Feb 27, 2020 & 3 & 7.7 $m$\\ 
-%  \hline
-%  Eispalast& Schwarzsee (CH)& CH19 & Jan 30 - Feb 16, 2019 & 0 & 1.2 $m$\\
-%  \hline
-% \end{tabular}
-% \end{center}
-
 \begin{center}
  \begin{tabular}{|c| c c c c |} 
  \hline
@@ -232,16 +209,19 @@ Appendix.
  \hline
 \end{tabular}
 \end{center}
-% 
+ 
+The model application is restricted to CH21 AIR below. Model results and figures for other AIR can be found in the
+supplementary materials.
+
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
 of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution , b) energy
 balance, c) surface temperature and d) mass balance. 
 
-%   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
-% schematic showing the algorithm used in the model at every time step. Further details about the variables can be
-% found in the associated tables and figures.} \label{fig:schema} \end{figure}
+  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
+schematic showing the algorithm used in the model at every time step. Further details about the variables can be
+found in the associated tables and figures.} \label{fig:schema} \end{figure}
 
 \subsection{Geometric evolution}
 
@@ -278,10 +258,10 @@ its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ . 
 these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:\begin{equation} V = \frac{\pi \cdot {r_{ice}}^3
     \cdot s_{cone}}{3} \label{eqn:V2} \end{equation} 
 
-%     \begin{figure} \begin{center} \includegraphics[width=10
-% cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the CH21 Icestupa. $r_{ice}$ is
-% the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_{spray}$ is the spray radius, $h_F$ is the
-% height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}
+    \begin{figure} \begin{center} \includegraphics[width=10
+cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the CH21 Icestupa. $r_{ice}$ is
+the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_{spray}$ is the spray radius, $h_F$ is the
+height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}
 
 However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
 equations \ref{eqn:V}, \ref{eqn:h0}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
@@ -575,9 +555,9 @@ through their water storage efficiency defined accordingly as:
 % \csvautotabular{/home/suryab/work/air_model/data/paper/mass_bal.csv}
 % \end{center}
 
-The model was forced with meteorological data from $30^{th}$ January to $5^{th}$ April 2019 (Fig.
+The model was forced with meteorological data from $22^{nd}$ November to $10^{th}$ May 2021 (Fig.
 \ref{fig:input}) and various parameters (see Table \ref{table:parameters}) to calculate the mass and energy balance of
-the Icestupa.
+the CH21 AIR.
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output_Manual.jpg} \end{center}
 \caption{(a) Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
@@ -587,77 +567,65 @@ the Icestupa.
   AIR surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
 calculation}
 
-% \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_7.jpg} \end{center} \caption{Some derived
-%   parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the green curve
-%   shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
-%   to ice albedo can also be observed. The orange curve shows how the solar radiation area fraction varied diurnally
-%   with variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
-%   $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
-% \label{fig:derived} \end{figure}
+\begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} \end{center} \caption{Some derived
+  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the green curve
+  shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
+  to ice albedo can also be observed. The orange curve shows how the solar radiation area fraction varied diurnally
+  with variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
+  $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
+\label{fig:derived} \end{figure}
   
-\begin{table} \caption{Summary of mass balance components for the CH21 experiment after the fountain
-  spray was stopped (on $15^{th}$ February 2019 ) and at the end of the model run (on $5^{th}$ April). All parameters
-except $M_{F}$ were modelled.} \centering
-    \begin{tabular}{|c|c|c|c|} 
-        \hline & \multicolumn{1}{c|}{Mass Component}  & \multicolumn{1}{c|}{Model ends} \\ 
-        \hline & $M_F$ &  1,000,041 $kg$\\
-      \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ &  29,533 $kg$\\ & $M_{dep}$ & 4,755 
-      $kg$ \\ 
-      \hline & $M_{water}$ & 196,011$kg$\\
-      \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 12,304 $kg$\\ & $M_{sub}$ & 4,747 
-      $kg$\\ & $M_{runoff}$  & 821,267 $kg$\\
- 
- \hline \end{tabular} \label{table:MB} \end{table}
-
 
 Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
-experiment duration, the total energy balance was almost zero. Net shortwave radiation (33 $Wm^{-2}$), sensible (10
+experiment duration, the total energy balance was almost zero. Net shortwave radiation (35 $Wm^{-2}$), sensible (41
 $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
-compensated by the surf longwave radiation (- 34 $Wm^{-2}$) and the melt energy (-12 $Wm^{-2}$). The contributions of
-other fluxes were negligible in comparison.
+compensated by the net longwave radiation (- 47 $Wm^{-2}$), the fountain water heat flux (- 13 $Wm^{-2}$) and the
+freeze/melt energy (-19 $Wm^{-2}$). The contributions of other fluxes were negligible in comparison.
 
 Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
 controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
-the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 339
-$Wm^{-2}$, $q_{SW}$ only went up to 98 $Wm^{-2}$. This is caused by the fact that only about 30 \% of the direct solar
+the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 340
+$Wm^{-2}$, $q_{SW}$ only went up to 114 $Wm^{-2}$. This is caused by the fact that less than 40 \% of the direct solar
 radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived} (a).
 Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more frequent
 snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
 
 $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
-structure. Daily values of $q_{LW}$ ranged from -89 to 21 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
-mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -14 to 26 $Wm^{-2}$.
-Deposition/condensation was favored over evaporation/sublimation during 95 \% of the model runtime.  Daily values of the
-turbulent latent heat flux $q_{L}$ ranged from -10 to 15 $Wm^{-2}$.  Since the mean of $q_{L}$ was positive, the
-Icestupa gained mass cumulatively from the atmosphere due to the condensation process.  Fountain water heat flux $q_{F}$
-had a mean of zero as it was only nonzero during 1002 time steps or around 100 hours.  Daily values of $q_{F}$ ranged
-from -1 to 6 $Wm^{-2}$. The contribution of heat flux by conduction $q_{G}$ was also minimal as it only varied between
--6 to 12 $Wm^{-2}$ with a mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was
-insignificant in comparison to the energy spent on freezing and melting ($q_{melt}$).  The resulting bulk temperature
-and the surface temperature are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{LW}$
-accounted for 33.8\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in
-absolute values. $q_{SW}$ accounted for 31.3\%, followed by $q_{melt}$ (19\%), $q_{S}$ (9.6\%), $q_{L}$ (3.6\%), $q_{G}$
-(2.4\%), $q_{F}$ (0.2\%) and $q_{T}$ (0.4\%).
+structure. Daily values of $q_{LW}$ ranged from -101 to 19 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
+mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -3 to 410 $Wm^{-2}$.  Daily values of the
+turbulent latent heat flux $q_{L}$ ranged from -90 to 157 $Wm^{-2}$.  Since the mean of $q_{L}$ was positive, the
+Icestupa gained mass cumulatively from the atmosphere due to the deposition process.  Daily values of fountain water
+heat flux  ranged from -119 to 4 $Wm^{-2}$. $q_{F}$ was also a significant contributor to the freezing process like
+$q_{LW}$. So the influence of the fountain on the energy balance and the freezing events was significant. The
+contribution of heat flux by conduction $q_{G}$ was minimal as it only varied between -1 to 3 $Wm^{-2}$ with a
+mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was insignificant in comparison to
+the energy spent on freezing and melting ($q_{freeze/melt}$). The resulting bulk temperature and the surface temperature
+are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{freeze/melt}$  accounted
+for 30\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in absolute values.
+$q_{LW}$ accounted for 22\%, followed by $q_{S}$ (20\%), $q_{SW}$ (16\%), $q_{L}$ (5\%), $q_{F}$ (6\%), $q_{T}$ (1\%)
+and $q_{G}$ (0\%).
 
 Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
-the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour
-deposition/condensation and sublimation/evaporation due to $q_L$. Growth rate ($\frac{\Delta M_{ice}}{\Delta t}$)
-shows a better correlation with surf energy flux ($r^2 = 0.15$) compared to Icestupa surface area ($r^2 =
-0.04$).  This is because the variance in growth rate is mostly due to the variance in $q_{surf}$ as illustrated in Fig.
-\ref{fig:EB}. Since $r_{ice}$ was initialised with the spray radius $r_{spray}$, the surface area maintains a maximum
-initially until the energy flux becomes positive. This trend favours the positive over the negative thickness changes
-resulting in a steep increase and gradual melting of ice volume as can be seen in Fig. \ref{fig:results}.
+the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour deposition and
+sublimation due to $q_L$. 
 
-The total water used for the Icestupa development includes contributions from the fountain (97.3\%), snowfall (2.5 \%),
-condensation (0.2 \%) as shown in Table \ref{table:MB}. The maximum ice mass during the whole
-measurement period was 809 $kg$, which occurred after the last fountain run on Feb $16^{th}$ 2019 in the morning.
-Therefore, in the case of CH21 we used a water input of 18,558 $kg$, with a resultant storage efficiency of only 5.5 \%.
+\begin{table} 
+    \caption{Summary of mass balance components for the CH21 AIR at the end of the model run on $10^{th}$ May 2021.} \centering \begin{tabular}{|c|c|c|c|} \hline & \multicolumn{1}{c|}{Mass
+    Component}  & \multicolumn{1}{c|}{Model ends} \\ \hline & $M_F$ &  1,000,041 $kg$\\
+    \parbox{2mm}{\rotatebox[origin=c]{90}{ Input }} & $M_{ppt}$ &  29,533 $kg$\\ & $M_{dep}$ & 4,755 $kg$ \\ \hline &
+    $M_{water}$ & 196,011$kg$\\ \parbox{2mm}{\rotatebox[origin=c]{90}{Output }} & $M_{ice}$ & 12,304 $kg$\\ & $M_{sub}$
+                & 4,747 $kg$\\ & $M_{runoff}$  & 821,267 $kg$\\
+ 
+ \hline \end{tabular} \label{table:MB} \end{table}
 
-%   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_8.jpg} \end{center} \caption{Modelled ice
-%   volume during the lifetime of the CH21 Icestupa (blue curve). Green line segments indicate the first and second
-% validation measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive
-% parameters, namely, temperature threshold below which precipitation falls as snow and the ice emissivity.}
-% \label{fig:results} \end{figure}
+The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
+deposition (0.5 \%) as shown in Table \ref{table:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
+$kg$, with a resultant storage efficiency of 19 \%.
+
+  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Vol_Validation_Manual.jpg} \end{center}
+  \caption{Modelled ice volume during the lifetime of the CH21 AIR (blue curve). Green points indicate the validation
+  measurements.} \label{fig:results} \end{figure}
+
 %   
 % \section{Model Sensitivity and Uncertainty analysis}
 % 
@@ -701,7 +669,7 @@ Therefore, in the case of CH21 we used a water input of 18,558 $kg$, with a resu
 % \caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
 % \ref{table:parameters}).  Outliers in the bar plot are shown as 'o'.} \label{fig:sensitivity} \end{figure}
 % 
-% \section{Discussion}
+\section{Discussion}
 % 
 % \subsection{Model validation quality}
 % 
@@ -718,30 +686,30 @@ Therefore, in the case of CH21 we used a water input of 18,558 $kg$, with a resu
 % errors was further amplified due to the relatively small volume of the CH21 Icestupa. In summary, better and frequent
 % validation measurements on a more voluminous Icestupa would have increased confidence on the model results.
 % 
-% \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
-% above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
-% Some assumptions and their potential to cause errors are discussed below.
-% 
-% \begin{itemize}
-% 
-% \item  Turbulent Sensible and Latent Heat Fluxes: The method used to calculate the turbulent heat fluxes by
-%   \cite{Garratt_1992} assumes that the turbulent heat fluxes are acting over a uniform planar surface to determine the
-%   roughness length. Since our application is on a conical surface, the distance to the ice surface is not
-%   uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
-% 
-% \item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
-%   fountain spray available for freezing. For the CH21 experiment, inclusion of this parameter does not influence
-%   results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
-% 
-% \item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
-%   contact if nucleation occurs during flight time. For the CH21 experiment, this process will further increase
-%   the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
-% \item Shape Effects: The suppression of heat exchange between the snow/ice surface and the air adjacent to the surface
-%   effectively slows down snow/ice ablation in spring and promotes the stagnation of the cold air within topographical
-%   depressions \citep{Fujita_2010}. The quantitative contribution of the atmospheric decoupling over melting snow/ice
-%   for the total mass and energy balance is ignored in the model.
-% 
-% \end{itemize}
+\subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
+above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
+Some assumptions and their potential to cause errors are discussed below.
+
+\begin{itemize}
+
+\item  Turbulent Sensible and Latent Heat Fluxes: The method used to calculate the turbulent heat fluxes by
+  \cite{Garratt_1992} assumes that the turbulent heat fluxes are acting over a uniform planar surface to determine the
+  roughness length. Since our application is on a conical surface, the distance to the ice surface is not
+  uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
+
+\item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
+  fountain spray available for freezing. For the CH21 experiment, inclusion of this parameter does not influence
+  results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
+
+\item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
+  contact if nucleation occurs during flight time. For the CH21 experiment, this process will further increase
+  the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
+\item Shape Effects: The suppression of heat exchange between the snow/ice surface and the air adjacent to the surface
+  effectively slows down snow/ice ablation in spring and promotes the stagnation of the cold air within topographical
+  depressions \citep{Fujita_2010}. The quantitative contribution of the atmospheric decoupling over melting snow/ice
+  for the total mass and energy balance is ignored in the model.
+
+\end{itemize}
 % 
 % \subsection{Icestupa construction decisions} There are several decisions one has to take when constructing Icestupas.
 % These can be broadly divided into two types of decisions, namely location and fountain decisions.  Both the
@@ -860,17 +828,17 @@ Therefore, in the case of CH21 we used a water input of 18,558 $kg$, with a resu
 % 
 % 
 % 
-% \section{Appendix}
-% 
-% \subsection{Ladakh Icestupa 2014/15} \label{section:ladakhloss} A 20 $m$ tall Icestupa \citep{iceheight} was built in
-% Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l. Assuming a conical shape with a diameter of 20 $m$, the
-% corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,920 $m^3$ w.e. The fountain sprayed water at a rate
-% of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$ January \citep{waterstart} to at least until $5^{th}$ March
-% 2015 \citep{waterend} (around 43 nights). Assuming fountain spray was active for 8 hours each night, we estimate water
-% consumption to be around 4,334 $m^3$. Thus, during the construction/freezing period of the Icestupa, roughly 56 \%
-% of the water provided was wasted. The actual water loss is bound to be much higher due to further vapour losses during
-% the melting period. This Icestupa completely melted away on $6^{th}$ July 2015 \citep{iceends}. Therefore, the storage
-% duration was 166 days or roughly 5 months. 
+\section{Appendix}
+
+\subsection{Ladakh Icestupa 2014/15} \label{section:ladakhloss} A 20 $m$ tall Icestupa \citep{iceheight} was built in
+Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l. Assuming a conical shape with a diameter of 20 $m$, the
+corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,920 $m^3$ w.e. The fountain sprayed water at a rate
+of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$ January \citep{waterstart} to at least until $5^{th}$ March
+2015 \citep{waterend} (around 43 nights). Assuming fountain spray was active for 8 hours each night, we estimate water
+consumption to be around 4,334 $m^3$. Thus, during the construction/freezing period of the Icestupa, roughly 56 \%
+of the water provided was wasted. The actual water loss is bound to be much higher due to further vapour losses during
+the melting period. This Icestupa completely melted away on $6^{th}$ July 2015 \citep{iceends}. Therefore, the storage
+duration was 166 days or roughly 5 months. 
 % 
 % 
 % \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of any
