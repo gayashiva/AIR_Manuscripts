@@ -121,27 +121,43 @@ India. Each site had an Automatic Weather Station (AWS) nearby. Also drone fligh
 AIR ice volume. For this analysis, we have chosen four of the AIR which have a relatively complete dataset associated
 with them as shown in Table \ref{table:4AIR}.
 
-\begin{table}
- \caption{Scientific AIR}
- \begin{tabular}{|c| c c c c |}
- \hline\\
- AIR & Gangles, 2021 & Guttannen, 2021& Guttannen, 2020 & Schwarzsee, 2019\\ [1.5ex] 
- % \hline
- Code & IN21 & CH21& CH20 & CH19\\ [0.5ex]
- % \hline
- Altitude [$m$ a.s.l.] & 4025&1047 & 1047& 967\\ [0.5ex] 
- % \hline
- Fountain Duration &Jan 18 - Mar 10&Nov 22 - Feb 21&Jan 3 - Feb 27&Jan 30 - Feb 16\\  [0.5ex]
- % \hline
- Drone Flights & 6&9&3&0 \\ [0.5ex]
- % \hline
- $r_{spray}$ [$m$] & 10.8&6.9&7.7&1.2 \\ [0.5ex]
- % \hline
- $V_{dome}$ [$m^{3}$]& 78.5&13.2&23.9&0 \\
- \hline
-\end{tabular}
+\begin{table}[]
+\centering
+\caption{The Scientific AIR}
 \label{table:4AIR}
+\begin{tabular}{@{}|l|l|l|l|l|@{}}
+\toprule
+\textbf{AIR}      & \textbf{Gangles, 2021} & \textbf{Guttannen, 2021} & \textbf{Guttannen, 2020} & \textbf{Schwarzsee, 2019} \\ \midrule
+Code                      & IN21 & CH21 & CH20 & CH19 \\ \midrule
+Altitude {[}$m$ a.s.l.{]} & 4025 & 1047 & 1047 & 967  \\ \midrule
+Fountain Duration & Jan 18 - Mar 10        & Nov 22 - Feb 21          & Jan 3 - Feb 27           & Jan 30 - Feb 16           \\ \midrule
+Drone Flights             & 6    & 9    & 3    & 0    \\ \midrule
+$r_{spray}$ {[}$m${]}     & 10.8 & 6.9  & 7.7  & 1.2  \\ \midrule
+$V_{dome}$ {[}$m^{3}${]}  & 78.5 & 13.2 & 23.9 & 0    \\ \bottomrule
+\end{tabular}
 \end{table}
+
+% \begin{table}
+%  \caption{Scientific AIR}
+%  \begin{tabular}{|c| c c c c |}
+%  \hline\\
+%  AIR & Gangles, 2021 & Guttannen, 2021& Guttannen, 2020 & Schwarzsee, 2019\\ [1.5ex] 
+%  % \hline
+%  Code & IN21 & CH21& CH20 & CH19\\ [0.5ex]
+%  % \hline
+%  Altitude [$m$ a.s.l.] & 4025&1047 & 1047& 967\\ [0.5ex] 
+%  % \hline
+%  Fountain Duration &Jan 18 - Mar 10&Nov 22 - Feb 21&Jan 3 - Feb 27&Jan 30 - Feb 16\\  [0.5ex]
+%  % \hline
+%  Drone Flights & 6&9&3&0 \\ [0.5ex]
+%  % \hline
+%  $r_{spray}$ [$m$] & 10.8&6.9&7.7&1.2 \\ [0.5ex]
+%  % \hline
+%  $V_{dome}$ [$m^{3}$]& 78.5&13.2&23.9&0 \\
+%  \hline
+% \end{tabular}
+% \label{table:4AIR}
+% \end{table}
 
 \subsection{Construction} 
 The construction strategy used in each site varied. CH20 and CH21 AIR was constructed by Guttannen Bewegt Association on
@@ -184,12 +200,12 @@ The ERA5 reanalysis dataset has a good correlation with lower elevation sites in
 poor correlation for the Indian (IN21) site. So the weather dataset for the IN21 site was completed using another AWS
 nearby as described in the Appendix.
   
-\subsubsection{Discharge measurements} The water flow rate or discharge was measured via an ultrasonic sensor attached
-to the fountain supply pipeline for all the sites. However, due to various malfunctions, the discharge measurements were
-incomplete for all the sites except CH19. Using the hourly webcam images of the CH sites, the discharge duration was
-determined. The available discharge measurement was later used to determine the average discharge quantity during these
-periods. For the IN21 site, discharge duration was estimated by manual observations and discharge quantity was
-arbitrarily set to be 60 $l/min$.
+\subsubsection{Discharge measurements} 
+The water flow rate or discharge was measured via an ultrasonic sensor attached to the fountain supply pipeline for all
+the sites. However, due to various malfunctions, the discharge measurements were incomplete for all the sites except
+CH19. Using the hourly webcam images of the CH sites, the discharge duration was determined. The available discharge
+measurement was later used to determine the average discharge quantity during these periods. For the IN21 site,
+discharge duration was estimated by manual observations and discharge quantity was arbitrarily set to be 60 $l/min$.
 
 
 \subsubsection{Ice volume measurements}
@@ -554,6 +570,15 @@ equation \ref{eq:mftn}.
         \frac{\Delta M_{runoff}}{\Delta t} &= \frac{\Delta M_{F} - \Delta M_{ice}}{\Delta t}
 \end{align}
 \end{subequations}
+
+To estimate the mass of any component at time step $i$, one can now sum the mass flux estimated above:
+\begin{equation} M_{comp}^i = \sum_{t=0}^{t=i} (\frac{\Delta M_{comp}}{\Delta t})_{t} + M_{comp}^0 \end{equation}
+where 
+
+\begin{equation} M_{comp}^0 = \left\{ \begin{array}{ll} -V_{dome} * \rho_{ice} & \textit{ if } M_{comp}=
+        M_{ice}\textit{ or }
+M_{F}\\ 0 & \textit{ otherwise }\\ \end{array} \right. \\
+ \end{equation}
 
 Considering AIRs as water reservoirs, we can quantify their potential through the amount of water they store (storage
 quantity) and the length of time they store it (storage duration). Another means of comparing different Icestupas is
