@@ -428,10 +428,10 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         
         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
         Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:
-        \citeauthor{OerlemansKnap_1998}  \\ Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $[1,10]\, mm$   & assum.\\
-        \hline Fountain Parameters& & & Range   & \\ \hline 
-        Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & \\
-        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & \\
+        \citeauthor{OerlemansKnap_1998}  \\ Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & assum.\\
+        % \hline Fountain Parameters& & & Range   & \\ \hline 
+        % Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & \\
+        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B:assum. ; U:meas. \\
         \hline \end{tabularx} \label{tab:parameters} \end{table} 
 
 \subsection{Surface temperature}
@@ -631,10 +631,64 @@ The total water used for the Icestupa development includes contributions from th
 deposition (0.5 \%) as shown in Table \ref{tab:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
 $kg$, with a resultant storage efficiency of 19 \%.
 
-  \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Vol_Validation_Manual.jpg} \end{center}
+\begin{figure} 
+    \begin{center} 
+    \includegraphics[width=15 cm]{Figures/uncertainty.jpg} 
+\end{center}
   \caption{Modelled ice volume during the lifetime of the CH21 AIR (blue curve). Green points indicate the validation
-  measurements.} \label{fig:results} \end{figure}
+  measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive parameters,
+  namely, temperature threshold below which precipitation falls as snow and the ice emissivity.  } 
+\label{fig:results} 
+\end{figure}
 
+\section{Model Sensitivity and Uncertainty analysis}
+
+The icestupa model can be regarded as a function $f(x_1,x_2 \dots, x_n) = (y_1,y_2 \dots, y_m)$, where $(x_1,x_2
+\dots, x_n)$ are the model parameters and $(y_1,y_2 \dots, y_m)$ are the model outputs. The influence of each
+parameter on the output variables of interest were quantified and the most important physical parameters for the
+subsequent uncertainty analysis were determined. The sensitivity of a parameter $x_j$ is determined by keeping all
+other parameters $x_i, i \neq j$ fixed at their baseline value and varying $x_j$ within values that are physically
+plausible.
+
+A sensitivity study on the parameters (listed in Table \ref{tab:parameters}) was performed with the maximum ice
+volume as the target variable. All the parameters were assumed to be independent of each other with a uniform
+distribution.  This assumption ignores the auto-correlation present among the parameters associated with the albedo
+parameterisation.  The range of uncertain parameters were set based on available literature values or varied $\pm$ 5\%
+from the base value if no such reference was available. The uncertainty of all the site parameters were caused due to
+parallax errors during manual measurement. This was quantified with a range of $\pm$ 1\% from the base value. However,
+it must be kept in mind that, even though intended to be as objective as possible, the selection of a parameter range
+has a subjective part that influences the results and conclusions obtained in this analysis.  The variation of the
+model outputs $y_k$ is evaluated to quantify the local sensitivities $s_{j,k}$ that are defined here as the 95\% range
+of the simulated outputs.
+
+To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least
+$0.1 m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
+produced by these uncertain parameters in maximum ice volume calculation. 
+
+% It shows that $\epsilon_{ice}$ and $T_{ppt}$
+% are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
+% Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
+% 
+% The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
+% parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
+% lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
+% snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $0.84 \pm
+% 0.2 m^3$. 
+% 
+% Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
+% volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
+% maximum ice volume range from $0.98 \pm 0.1 m^3$. 
+% 
+In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 662 simulations.
+
+\begin{figure} 
+    \begin{center} 
+    \includegraphics[width=10 cm]{Figures/sensitivities.jpg} 
+\end{center}
+\caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
+\ref{tab:parameters}). } 
+\label{fig:sensitivity} 
+\end{figure}
  
 \section{Discussion}
 \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
@@ -719,12 +773,16 @@ was sprinkled with a spray radius of around 1.7\,$m$. The air escape valve was i
 measurements due to air bubbles. In addition, a webcam guaranteed a continuous survey of the site during the
 construction of the Icestupa. 
 
-\begin{figure} \centering \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
+\begin{figure} 
+    \centering 
+    \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
 \caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
   $14^{th}$ Feb. (b) The corresponding cross section of the EP ice structure with the field estimates of $r, R,
-  h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} \label{fig:site} \end{figure}
+  h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} 
+  \label{fig:CH19site} 
+  \end{figure}
 
-\subsubsection{Weather data corrections}
+\subsubsection{Weather data}
 Precipitation data was derived from the Plaffeien AWS \citep{meteoswiss} located 8.8 km away from the measurement site
 at an altitude of 1042 $m$ a.s.l.  We recognised during our data analysis that, except precipitation, all the other
 meteorological variables of the EP site correlated much better with the ERA5 dataset than the nearby Plaffeien AWS
@@ -792,7 +850,6 @@ apply the modelling strategy described below.
 % initially adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided
 % by adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
 % tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
-
 
 % \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of any
 % commercial or financial relationships that could be construed as a potential conflict of interest.
