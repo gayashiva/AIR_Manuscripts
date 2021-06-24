@@ -164,19 +164,10 @@ between 2 to 5\,$m$ during the construction period. Fountain operation was guide
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
 to calculate the surface energy balance of an AIR. For the CH21 AIR, the weather data was primarily drawn from a
 meteoswiss AWS located 184 m away from the construction site.  In addition, we used ERA5 reanalysis dataset \citep{era5}
-for filling data gaps and adding data that were not measured directly as shown in Fig. \ref{fig:input}. Near-surface humidity is
-not provided directly in ERA5 dataset, but from near-surface ($2\,m$ from the surface) temperature ($T_{ERA5}$) and dew
-point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was calculated as: 
-
-\begin{equation} RH = 100 \cdot
-    \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} 
-
-where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
-\begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and
-the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to
-\cite{Buck_1981}.  Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was
-assumed this was the cause when null wind speeds were observed continuously for atleast 3 hours. All such null values
-were replaced using the ERA5 dataset. 
+for filling data gaps and adding data that were not measured directly as shown in Fig. \ref{fig:input}. Zero wind speed
+values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was assumed this was the cause when
+null wind speeds were observed continuously for atleast 3 hours. All such null values were replaced using the ERA5
+dataset. 
 
 The ERA5 reanalysis dataset has a good correlation with lower elevation sites in Switzerland \citep{Scherrer_2020}. The
 ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 8° 15' 00" E) for the CH21 site was around 3.6 km away from the
@@ -364,16 +355,12 @@ $mm$) denotes the roughness length of ice (momentum and scalar).  The vapor pres
 
 where $p_{a}$ is the measured air pressure in [$hPa$].  
 
-\subsubsection{Fountain water heat flux
-\texorpdfstring{$q_{F}$}{Lg} }
+\subsubsection{Fountain water heat flux \texorpdfstring{$q_{F}$}{Lg} }
 
 The interaction between the fountain water and the ice surface is taken into account by assuming that the ice surface
 temperature remains constant at 0 $\degree C$ during time steps when the fountain is active. This process can be divided
 into two simultaneous steps: (a) the water temperature $T_{water}$ is cooled to 0 $\degree C$ and (b) the ice surface
-temperature is warmed to 0 $\degree C$.  Process (a) transfers the necessary energy for process (b) throughout the
-fountain runtime. We further assume that this process is instantaneous, i.e. the ice temperature is immediately set to 0
-$\degree C$ within just one time step $\Delta t$ when the fountain is switched on. Thus, the heat flux caused by the
-fountain water is calculated as follows:
+temperature is warmed to 0 $\degree C$. Thus, the heat flux caused by the fountain water is calculated as follows:
 
 \begin{equation} 
   q_{F} = \left\{ \begin{array}{ll}
@@ -401,10 +388,13 @@ Since AIR's typically have conical shapes with $r_{ice} >> h_{ice}$, we assume t
 is near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the ice body's center
 of mass is between $h_{ice}$ and $r_{ice}$. So we calculate $q_{G}$ here assuming $l_{ice} = (r_{ice} + h_{ice})/2$. 
 
-\begin{table} \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
+\begin{table} 
+    \centering
+    \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
   value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
 to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
 \%).}
+\label{tab:parameters} 
     
     \begin{tabularx}{\linewidth}{ X l X l X  } 
         \hline Constant Parameters & Symbol & Value & & References \\ 
@@ -430,8 +420,10 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & assum.\\
         % \hline Fountain Parameters& & & Range   & \\ \hline 
         % Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & \\
-        % Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B:assum. ; U:meas. \\
-        \hline \end{tabularx} \label{tab:parameters} \end{table} 
+        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,2]\, \degree C$   & B + U:assum. \\
+        \hline 
+    \end{tabularx} 
+\end{table} 
 
 \subsection{Surface temperature}
 The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
@@ -566,13 +558,17 @@ the CH21 AIR.
   AIR surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
 calculation}
 
-\begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} \end{center} \caption{Some derived
-  parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In (a), the green curve
-  shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The decay of the snow albedo
-  to ice albedo can also be observed. The orange curve shows how the solar radiation area fraction varied diurnally
-  with variations in the solar elevation angle. In (b), the surface temperature (light blue curve) was forced to be 0
-  $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the dark blue curve.}
-\label{fig:derived} \end{figure}
+\begin{figure} 
+    \centering
+    \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
+\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
+    (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
+    decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
+    fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
+    curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
+    dark blue curve.} 
+\label{fig:derived} 
+\end{figure}
   
 
 Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
@@ -615,11 +611,11 @@ sublimation due to $q_L$.
 \begin{tabular}{@{}|ll|l|@{}}
 \toprule
 \textbf{}                                     & \textbf{Component} & \textbf{CH21} \\ \midrule
-\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  & $M_F$              & 1,000,041     \\
+\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  & $M_F$              & 987,918     \\
 \multicolumn{1}{|l|}{}                        & $M_{ppt}$          & 29,533        \\
 \multicolumn{1}{|l|}{}                        & $M_{dep}$          & 4,755         \\ \midrule
 \multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} & $M_{water}$        & 196,011       \\
-\multicolumn{1}{|l|}{}                        & $M_{ice}$          & 12,304        \\
+\multicolumn{1}{|l|}{}                        & $M_{ice}$          & 182        \\
 \multicolumn{1}{|l|}{}                        & $M_{sub}$          & 4,747         \\
 \multicolumn{1}{|l|}{}                        & $M_{runoff}$       & 821,267       \\ \bottomrule
 \end{tabular}
@@ -639,6 +635,16 @@ $kg$, with a resultant storage efficiency of 19 \%.
   namely, temperature threshold below which precipitation falls as snow and the ice emissivity.  } 
 \label{fig:results} 
 \end{figure}
+
+% \begin{figure} 
+%     \begin{center} 
+%     \includegraphics[width=15 cm]{Figures/Temp_Validation_Manual.jpg} 
+% \end{center}
+%   \caption{Modelled ice volume during the lifetime of the CH21 AIR (blue curve). Green points indicate the validation
+%   measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive parameters,
+%   namely, temperature threshold below which precipitation falls as snow and the ice emissivity.  } 
+% \label{fig:results} 
+% \end{figure}
 
 \section{Model Sensitivity and Uncertainty analysis}
 
@@ -793,10 +799,22 @@ Due to a power failure, all data from the EP AWS was lost from $27^{th}$ Februar
 2019 (equivalent to around 7\% of the measurement period). During heavy snowfall events, the ultrasonic wind sensor was
 blocked and recorded zero values. ERA5 was used to fill such errors and data gaps .
 
-The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km
-away from the actual site.  All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.
-With the modified ERA5 dataset, we were also able to further extend the EP dataset and allow the model to
-run beyond $18^{th}$ March 2019. Precipitation was filled as null values beyond $18^{th}$ March 2019.
+The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km away from
+the actual site. Near-surface humidity is not provided directly in ERA5 dataset, but from near-surface ($2\,m$ from the
+surface) temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was
+calculated as: 
+
+\begin{equation} RH = 100 \cdot
+    \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} 
+
+where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
+\begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and
+the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to
+\cite{Buck_1981}.    
+
+All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.  With the modified ERA5
+dataset, we were also able to further extend the EP dataset and allow the model to run beyond $18^{th}$ March 2019.
+Precipitation was filled as null values beyond $18^{th}$ March 2019.
 
 \subsubsection{Fountain spray radius of CH19 AIR} \label{section:sprayCH19} 
 This fountain spray radius is determined by modelling the projectile motion of the water droplets. Using mass
@@ -838,6 +856,22 @@ quantified. This results in the volume range for the second validation to be 0.1
 In reality, the EP ice structure was more cylindrical until a height of 0.2\,$m$ and conical afterwards until a
 height of 0.6\,$m$ with a radius of 1.18\,$m$. However, we assume a conical shape of this ice structure in order to
 apply the modelling strategy described below.
+
+\subsubsection{CH21 and CH20 Surface temperature corrections} \label{section:thermalcam} 
+We discarded some thermal camera temperature measurements due to the following reasons:
+\begin{itemize} 
+    \item Snowfall/fog: Whenever there was snow or thick fog, the thermal image was corrupted. Refer image Jan14 1900 and
+Jan3 800. We used the standard deviation of the pixel temperature to identify these events and remove them from the
+validation dataset. 
+
+\item Strong sunlight: Usually at noon, especially in end of Feb and March, we observed that ice temperature values were
+    above zero C. We found that again the thermal cam images were corrupted as seen in Mar6 1300. So we removed all
+    temperature values above 0 C.  
+
+\item Then there were some images that were completely blue and looked corrupted.  We cannot identify the cause here but
+    I filtered them out using the mean of all temperature pixels.
+
+\end{itemize} 
 
 % The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was constructed adjacent
 % to another AIR and merged with it. To initiate the ice formation process, a dome of 2\,$m$ radius was constructed and
