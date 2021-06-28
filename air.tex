@@ -129,7 +129,7 @@ discussed below.
 \begin{tabular}{@{}|l|l|l|l|l|@{}}
 \toprule
 \textbf{AIR}      & \textbf{Gangles, 2021} & \textbf{Guttannen, 2021} & \textbf{Guttannen, 2020} & \textbf{Schwarzsee, 2019} \\ \midrule
-Code                      & IN21 & CH21 & CH20 & CH19 \\ \midrule
+Shortname                      & IN21 & CH21 & CH20 & CH19 \\ \midrule
 Altitude {[}$m$ a.s.l.{]} & 4025 & 1047 & 1047 & 967  \\ \midrule
 Fountain Duration & Jan 18 - Mar 10        & Nov 22 - Feb 21          & Jan 3 - Feb 27           & Jan 30 - Feb 16           \\ \midrule
 Drone Flights             & 6    & 9    & 3    & 0    \\ \midrule
@@ -390,7 +390,7 @@ of mass is between $h_{ice}$ and $r_{ice}$. So we calculate $q_{G}$ here assumin
 
 \begin{table} 
     \centering
-    \caption{Free parameters in the model categorised as constant, uncertain and site parameters. Base
+    \caption{Free parameters in the model categorised as constant and uncertain parameters. Base
   value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
 to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
 \%).}
@@ -411,7 +411,8 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Latent Heat of Sublimation & $L_{s}$ & 2848 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
         Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
         \hline Uncertain Parameters& & & Range   & \\ 
-        \hline Precipitation Temperature threshold & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
+        \hline Temperature threshold for precipitation & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
+        Thickness threshold for precipitation & $H_{ppt}$ & 1 $mm\,w.e.$ & $\pm$ $1\,mm\,w.e.$ & B + U: assum.\\
         Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] & B: \citeauthor{CuffeyPaterson_2010}; U:
         \citeauthor{HORI2006486}\\
         Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
@@ -420,7 +421,7 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & assum.\\
         % \hline Fountain Parameters& & & Range   & \\ \hline 
         % Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & \\
-        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,2]\, \degree C$   & B + U:assum. \\
+        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B + U: assum. \\
         \hline 
     \end{tabularx} 
 \end{table} 
@@ -551,24 +552,24 @@ The model was forced with meteorological data from $22^{nd}$ November to $10^{th
 the CH21 AIR.
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output_Manual.jpg} \end{center}
-\caption{(a) Fountain discharge (b) energy flux components, (c) mass flux components (d) surface area and (e) volume of
-  the Icestupa in daily time steps.  $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation;
-  $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$ represents the interactions of the
-  fountain water with the AIR surface layer.  $q_{G}$ quantifies the heat conduction process between the
-  AIR surface layer and the ice body. } \label{fig:EB} \end{figure} \subsection{Energy and mass balance
-calculation}
+\caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
+    net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
+    sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
+    quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:EB} \end{figure}
 
-\begin{figure} 
-    \centering
-    \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
-\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
-    (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
-    decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
-    fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
-    curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
-    dark blue curve.} 
-\label{fig:derived} 
-\end{figure}
+\subsection{Energy and mass balance calculation}
+
+% \begin{figure} 
+%     \centering
+%     \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
+% \caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
+%     (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
+%     decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
+%     fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
+%     curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
+%     dark blue curve.} 
+% \label{fig:derived} 
+% \end{figure}
   
 
 Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
@@ -604,22 +605,22 @@ Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy ex
 the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour deposition and
 sublimation due to $q_L$. 
 
-\begin{table}
-\centering
-\caption{Summary of mass balance components for the CH21 AIR at the end of the model run on $10^{th}$ May 2021.}
-\label{tab:MB}
-\begin{tabular}{@{}|ll|l|@{}}
-\toprule
-\textbf{}                                     & \textbf{Component} & \textbf{CH21} \\ \midrule
-\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  & $M_F$              & 987,918     \\
-\multicolumn{1}{|l|}{}                        & $M_{ppt}$          & 29,533        \\
-\multicolumn{1}{|l|}{}                        & $M_{dep}$          & 4,755         \\ \midrule
-\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} & $M_{water}$        & 196,011       \\
-\multicolumn{1}{|l|}{}                        & $M_{ice}$          & 182        \\
-\multicolumn{1}{|l|}{}                        & $M_{sub}$          & 4,747         \\
-\multicolumn{1}{|l|}{}                        & $M_{runoff}$       & 821,267       \\ \bottomrule
-\end{tabular}
-\end{table}
+% \begin{table}
+% \centering
+% \caption{Summary of mass balance components for the CH21 AIR at the end of the model run on $10^{th}$ May 2021.}
+% \label{tab:MB}
+% \begin{tabular}{@{}|ll|l|@{}}
+% \toprule
+% \textbf{}                                     & \textbf{Component} & \textbf{CH21} \\ \midrule
+% \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  & $M_F$              & 987,918     \\
+% \multicolumn{1}{|l|}{}                        & $M_{ppt}$          & 29,533        \\
+% \multicolumn{1}{|l|}{}                        & $M_{dep}$          & 4,755         \\ \midrule
+% \multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} & $M_{water}$        & 196,011       \\
+% \multicolumn{1}{|l|}{}                        & $M_{ice}$          & 182        \\
+% \multicolumn{1}{|l|}{}                        & $M_{sub}$          & 4,747         \\
+% \multicolumn{1}{|l|}{}                        & $M_{runoff}$       & 821,267       \\ \bottomrule
+% \end{tabular}
+% \end{table}
 
 
 The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
@@ -690,7 +691,7 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
     \begin{center} 
     \includegraphics[width=10 cm]{Figures/sensitivities.jpg} 
 \end{center}
-\caption{Sensitivities of maximum ice volume to all the uncertain and site parameters used in the model (Table
+\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
 \ref{tab:parameters}). } 
 \label{fig:sensitivity} 
 \end{figure}
@@ -857,21 +858,21 @@ In reality, the EP ice structure was more cylindrical until a height of 0.2\,$m$
 height of 0.6\,$m$ with a radius of 1.18\,$m$. However, we assume a conical shape of this ice structure in order to
 apply the modelling strategy described below.
 
-\subsubsection{CH21 and CH20 Surface temperature corrections} \label{section:thermalcam} 
-We discarded some thermal camera temperature measurements due to the following reasons:
-\begin{itemize} 
-    \item Snowfall/fog: Whenever there was snow or thick fog, the thermal image was corrupted. Refer image Jan14 1900 and
-Jan3 800. We used the standard deviation of the pixel temperature to identify these events and remove them from the
-validation dataset. 
-
-\item Strong sunlight: Usually at noon, especially in end of Feb and March, we observed that ice temperature values were
-    above zero C. We found that again the thermal cam images were corrupted as seen in Mar6 1300. So we removed all
-    temperature values above 0 C.  
-
-\item Then there were some images that were completely blue and looked corrupted.  We cannot identify the cause here but
-    I filtered them out using the mean of all temperature pixels.
-
-\end{itemize} 
+% \subsubsection{CH21 and CH20 Surface temperature corrections} \label{section:thermalcam} 
+% We discarded some thermal camera temperature measurements due to the following reasons:
+% \begin{itemize} 
+%     \item Snowfall/fog: Whenever there was snow or thick fog, the thermal image was corrupted. Refer image Jan14 1900 and
+% Jan3 800. We used the standard deviation of the pixel temperature to identify these events and remove them from the
+% validation dataset. 
+% 
+% \item Strong sunlight: Usually at noon, especially in end of Feb and March, we observed that ice temperature values were
+%     above zero C. We found that again the thermal cam images were corrupted as seen in Mar6 1300. So we removed all
+%     temperature values above 0 C.  
+% 
+% \item Then there were some images that were completely blue and looked corrupted.  We cannot identify the cause here but
+%     I filtered them out using the mean of all temperature pixels.
+% 
+% \end{itemize} 
 
 % The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was constructed adjacent
 % to another AIR and merged with it. To initiate the ice formation process, a dome of 2\,$m$ radius was constructed and
