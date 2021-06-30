@@ -115,30 +115,13 @@ first steps towards evaluating the effectiveness of a vertical AIR for irrigatio
 preliminary guidelines for consideration when a construction of an Icestupa for water storage is envisaged. 
 
 \section{Study Sites}
-To accurately estimate and validate the ice volume of AIR the model requires three kinds of datasets namely, weather,
+To accurately calibrate, estimate and validate the ice volume of AIR the model requires three kinds of measurements namely, weather,
 water and ice volume. So through the winters of 2019, 2020 and 2021 several scientific AIR were constructed by teams in
-Switzerland and India. Each site had an Automatic Weather Station (AWS) nearby. Also drone flights were conducted
-periodically to record AIR ice volume. The model was applied on four of the AIR which have a relatively complete dataset
-associated with them as shown in Table \ref{tab:4AIR}. For brevity, only the model application on CH21 AIR is
-discussed below.
+Switzerland and India. Here we present the results of three scientific AIR which have a relatively complete dataset
+associated with them as shown in Table \ref{tab:3AIR}. 
 
-\begin{table}
-\centering
-\caption{The Scientific AIR}
-\label{tab:4AIR}
-\begin{tabular}{@{}|l|l|l|l|l|@{}}
-\toprule
-\textbf{AIR}      & \textbf{Gangles, 2021} & \textbf{Guttannen, 2021} & \textbf{Guttannen, 2020} & \textbf{Schwarzsee, 2019} \\ \midrule
-Shortname                      & IN21 & CH21 & CH20 & CH19 \\ \midrule
-Altitude {[}$m$ a.s.l.{]} & 4025 & 1047 & 1047 & 967  \\ \midrule
-Fountain Duration & Jan 18 - Mar 10        & Nov 22 - Feb 21          & Jan 3 - Feb 27           & Jan 30 - Feb 16           \\ \midrule
-Drone Flights             & 6    & 9    & 3    & 0    \\ \midrule
-$r_{spray}$ {[}$m${]}     & 10.8 & 6.9  & 7.7  & 1.2  \\ \midrule
-$V_{dome}$ {[}$m^{3}${]}  & 78.5 & 13.2 & 23.9 & 0    \\ \bottomrule
-\end{tabular}
-\end{table}
 
-\subsection{CH21 AIR}
+\subsection{Measurement sites}
 
 The Guttannen (CH21) site in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and
 maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during
@@ -160,41 +143,73 @@ The CH21 AIR was constructed by Guttannen Bewegt Association on a garden adjacen
 To initiate the ice formation process, tree branches were laid covering the fountain pipe.  The fountain height varied
 between 2 to 5\,$m$ during the construction period. Fountain operation was guided by temperature conditions. 
 
-\subsubsection{Weather measurements} 
-Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
-to calculate the surface energy balance of an AIR. For the CH21 AIR, the weather data was primarily drawn from a
-meteoswiss AWS located 184 m away from the construction site.  In addition, we used ERA5 reanalysis dataset \citep{era5}
-for filling data gaps and adding data that were not measured directly as shown in Fig. \ref{fig:input}. Zero wind speed
-values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was assumed this was the cause when
-null wind speeds were observed continuously for atleast 3 hours. All such null values were replaced using the ERA5
-dataset. 
+The Gangles(IN21) site in the Ladakh region lies at 4025 $m$ a.s.l..
 
-The ERA5 reanalysis dataset has a good correlation with lower elevation sites in Switzerland \citep{Scherrer_2020}. The
-ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 8° 15' 00" E) for the CH21 site was around 3.6 km away from the
-actual site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset via linear regressions.
-  
+\subsection{Weather measurements} 
+Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
+to calculate the surface energy balance of an AIR. 
+
+For the CH site, the primary weather data source was a meteoswiss AWS located 184 m away. In addition, we used ERA5
+reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly as shown in Fig.
+\ref{fig:input}. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was
+assumed this was the cause when null wind speeds were observed continuously for atleast 3 hours. All such null values
+were replaced using the ERA5 dataset. 
+
+The ERA5 reanalysis dataset has a good correlation with lower elevation sites in Switzerland
+\citep{Scherrer_2020}. The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 8° 15' 00" E) for the CH21 site was
+around 3.6 km away from the actual site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset via
+linear regressions.
+
+For the IN site, the primary weather data source was a campbell weather station located adjacent to the AIR. In
+addition, we used another campbell AWS located 12 km away for filling data gaps and adding data that were not measured
+directly as shown in Fig. \ref{fig:input}.
+
 \begin{figure} 
     \centering 
-    \includegraphics[width=\linewidth]{./Figures/Model_Input_Manual.jpg} 
+    \includegraphics[width=\linewidth]{./Figures/Model_Input.jpg} 
 \caption{Measurements at the AWS of CH21 were used as main model input data in hourly frequency. Missing data, data gaps
 and errors were filled from the ERA5 dataset (shaded regions).} 
     \label{fig:input} 
 \end{figure}
 
-\subsubsection{Discharge measurements} The water flow rate or discharge was measured via an ultrasonic sensor attached
-to the fountain supply pipeline.  However, due to various malfunctions, the discharge measurements were very sparse and
-could not be extrapolated for the complete measurement period.  Instead the discharge duration was first determined
-using the hourly webcam images of the CH21 site. The available discharge measurement was later used to determine the
-average discharge quantity (10 $l/min$) during these periods. 
+\subsection{Discharge measurements} 
+The water flow rate or discharge was measured via an ultrasonic sensor attached to the fountain supply pipeline.
+However, due to various malfunctions, the discharge measurements were very sparse and could not be extrapolated for the
+complete measurement period for both the CH and In site. Instead the discharge duration was first determined and then
+the available discharge measurement was used to determine the average discharge quantity $d_{mean}$ during these
+periods. 
 
-\subsubsection{Ice volume measurements}
-Several Drone flights were conducted in every AIR site. The DEM generated through these flights were analysed to obtain
+For the CH site, the fountain was never switched off so the discharge duration was extrapolated from just from one
+fountain on and off event each. The discharge quantity during this duration varied as shown by the sparse flowmeter
+measurements captured. Here we assume a constant discharge quantity $d_{mean}$ calculated from the mean of the available
+flowmeter measurements. 
+
+For the IN site, even though the fountain was never manually switched off, there were many pipeline freezing events that
+interrupted the discharge duration. So discharge rate was extrapolated to be the mean discharge $d_{mean}$ except during
+these pipeline freezing events.
+
+\subsection{Ice volume measurements}
+Several Drone flights were conducted in the CH and IN sites. The DEM generated through these flights were analysed to obtain
 the circumference and volume of the ice structure. The mean circumference measured during the fountain duration was set
 as the spray radius ($r_{spray}$) and the first drone flight was used to set the dome volume ($V_{dome}$) for model
 initialisation. The ice volume data was later used for calibration and validation of the model. 
  
-The model application is restricted to CH21 AIR below. Model results and figures for other AIR can be found in the
-supplementary materials.
+\begin{table}[h]
+\centering
+\caption{The Scientific AIR }
+\label{tab:3AIR}
+\begin{tabular}{@{}|l|l|l|l|@{}}
+\toprule
+\textbf{AIR}      & \textbf{Gangles, 2021} & \textbf{Guttannen, 2021} & \textbf{Guttannen, 2020} \\ \midrule
+Shortname                      & IN21 & CH21 & CH20 \\ \midrule
+Altitude {[}$m$ a.s.l.{]} & 4025 & 1047 & 1047 \\ \midrule
+Fountain Duration & Jan 18 - Mar 10        & Nov 22 - Feb 20          & Jan 3 - Mar 8\\ \midrule
+Drone Flights             & 6    & 9    & 3      \\ \midrule
+$r_{spray}$ {[}$m${]}     & 10.8 & 6.9  & 7.7   \\ \midrule
+$V_{dome}$ {[}$m^{3}${]}  & 78.5 & 13.2 & 23.9  \\ \midrule
+$d_{mean}$ {[}$l/min${]}  & 60 & 7.5 & 7.5  \\ \bottomrule
+\end{tabular}
+\end{table}
 
 \section{Model setup}
 
@@ -410,7 +425,7 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Thermal conductivity of ice & $k_{ice}$ & 2.123  $W\, m^{-1}\, K^{-1}$ &  & B:\citeauthor{Bonales_2017} \\ 
         Latent Heat of Sublimation & $L_{s}$ & 2848 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
         Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        \hline Uncertain Parameters& & & Range   & \\ 
+        \hline Surface Parameters & & & Range   & \\ 
         \hline Temperature threshold for precipitation & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
         Thickness threshold for precipitation & $H_{ppt}$ & 1 $mm\,w.e.$ & $\pm$ $1\,mm\,w.e.$ & B + U: assum.\\
         Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] & B: \citeauthor{CuffeyPaterson_2010}; U:
@@ -419,9 +434,10 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
         Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:\citeauthor{OerlemansKnap_1998}  \\ 
         Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & assum.\\
-        % \hline Fountain Parameters& & & Range   & \\ \hline 
-        % Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & \\
+        \hline Fountain Parameters& & & Range   & \\ \hline 
+        Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & B: meas.; U: assum. \\
         Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B + U: assum. \\
+        Mean discharge & $d_{mean}$ &  & $\, l/min$   & B: meas.; U: assum. \\
         \hline 
     \end{tabularx} 
 \end{table} 
@@ -551,7 +567,7 @@ The model was forced with meteorological data from $22^{nd}$ November to $10^{th
 \ref{fig:input}) and various parameters (see Table \ref{tab:parameters}) to calculate the mass and energy balance of
 the CH21 AIR.
 
-\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output_Manual.jpg} \end{center}
+\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
 \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
     net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
     sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
@@ -629,17 +645,16 @@ $kg$, with a resultant storage efficiency of 19 \%.
 
 \begin{figure} 
     \begin{center} 
-    \includegraphics[width=15 cm]{Figures/uncertainty.jpg} 
+    \includegraphics[width=\linewidth]{Figures/icev_results.jpg} 
 \end{center}
-  \caption{Modelled ice volume during the lifetime of the CH21 AIR (blue curve). Green points indicate the validation
-  measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive parameters,
-  namely, temperature threshold below which precipitation falls as snow and the ice emissivity.  } 
+  \caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
+  measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive parameters.  } 
 \label{fig:results} 
 \end{figure}
 
 % \begin{figure} 
 %     \begin{center} 
-%     \includegraphics[width=15 cm]{Figures/Temp_Validation_Manual.jpg} 
+%     \includegraphics[width=15 cm]{Figures/Temp_Validation.jpg} 
 % \end{center}
 %   \caption{Modelled ice volume during the lifetime of the CH21 AIR (blue curve). Green points indicate the validation
 %   measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive parameters,
@@ -766,97 +781,97 @@ construction/freezing period of the Icestupa, roughly 56 \% of the water provide
 bound to be much higher due to further vapour losses during the melting period. This Icestupa completely melted away on
 $6^{th}$ July 2015 \citep{iceends}. Therefore, the storage duration was 166 days or roughly 5 months. 
 
-\subsection{CH19 AIR}\label{section:CH19}
-The CH19 AIR in the Schwarzsee region lies at 967 $m$ a.s.l.. In the winter (Oct-Apr), mean daily maximum
-and minimum air temperatures vary between -4 and 14 $\degree C$. Clear skies are rare, averaging around 7 days, and
-precipitation amounts average 155 mm per month during winter \citep{eispalast}. The site was situated adjacent to a
-stream resulting in high humidity values across the study period. Within the EP site, an enclosure with a 1.8\,$m$
-radius was constructed for the experiment. An automatic weather station (AWS) was adjacent to the wooden
-boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle diameter of 5\,$mm$ and a
-height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was transferred from a spring
-water source at 1267 $m$ a.s.l. by pipeline and flowed via a flowmeter and an air escape valve to the nozzle, where it
-was sprinkled with a spray radius of around 1.7\,$m$. The air escape valve was installed to avoid errors in the flow
-measurements due to air bubbles. In addition, a webcam guaranteed a continuous survey of the site during the
-construction of the Icestupa. 
-
-\begin{figure} 
-    \centering 
-    \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
-\caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
-  $14^{th}$ Feb. (b) The corresponding cross section of the EP ice structure with the field estimates of $r, R,
-  h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} 
-  \label{fig:CH19site} 
-  \end{figure}
-
-\subsubsection{Weather data}
-Precipitation data was derived from the Plaffeien AWS \citep{meteoswiss} located 8.8 km away from the measurement site
-at an altitude of 1042 $m$ a.s.l.  We recognised during our data analysis that, except precipitation, all the other
-meteorological variables of the EP site correlated much better with the ERA5 dataset than the nearby Plaffeien AWS
-dataset. The $2\,m$ temperature parameter correlated with air temperature ($r^2 =0.9 $), surface pressure parameter
-correlated with air pressure ($r^2 = 1$) and 10m wind speed parameter (derived from horizontal and vertical components)
-correlated with wind speed ($r^2 =0.6 $) .
-
-Due to a power failure, all data from the EP AWS was lost from $27^{th}$ February 15:20 2019 to $2^{nd}$ March 15:00
-2019 (equivalent to around 7\% of the measurement period). During heavy snowfall events, the ultrasonic wind sensor was
-blocked and recorded zero values. ERA5 was used to fill such errors and data gaps .
-
-The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km away from
-the actual site. Near-surface humidity is not provided directly in ERA5 dataset, but from near-surface ($2\,m$ from the
-surface) temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was
-calculated as: 
-
-\begin{equation} RH = 100 \cdot
-    \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} 
-
-where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
-\begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and
-the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to
-\cite{Buck_1981}.    
-
-All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.  With the modified ERA5
-dataset, we were also able to further extend the EP dataset and allow the model to run beyond $18^{th}$ March 2019.
-Precipitation was filled as null values beyond $18^{th}$ March 2019.
-
-\subsubsection{Fountain spray radius of CH19 AIR} \label{section:sprayCH19} 
-This fountain spray radius is determined by modelling the projectile motion of the water droplets. Using mass
-conservation, the droplet speed $v_F$ can be determined from the spray rate $d_F$ and the diameter $dia_F$ of the nozzle
-as follows:
-
-\begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
-
-Afterwards, we assume that the water droplets move with an air friction free projectile motion from the fountain
-nozzle with a height $h_F$ to the ice/ground surface. The resulting spray radius $r_F$ was then determined from the
-projectile motion equation as follows:
-
-\begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
-\cdot g \cdot h_F})}{g} \end{equation}
-
-where $g = 9.8\, m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
-
-\subsubsection{CH19 Field Measurements for validation} \label{section:validation} 
-The volume was determined by decomposing the ice structure into a cylinder (length $2R$ and height $h$) and a
-cone (radius $r$ and height $(H_i-h)$) through the following equation: 
-\begin{equation} V = \pi \cdot R^2 \cdot h + 1/3 \cdot \pi \cdot r^2 \cdot (H_i-h) \end{equation}
-
-Manual measurements were performed at the end of the freezing period on $14^{th}$ February 16:00 2019 (only one more
-fountain run was possible after this date) to estimate $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the different
-geometry components):
-
-$$ 0.55\leq r\leq 1 m\textit{ ; }1.1\leq R\leq 1.2 m\textit{ ; }0.1\leq h\leq 0.2 m\textit{ ; }0.6\leq
-H_i\leq 0.8 m\textit{ ; }1.3\leq H_f\leq 1.4 m  $$
-
-The ranges of the variables show the variance of the Icestupa's dimensions across different compass orientations.
-Correspondingly, the volume range estimated for the first validation point was 0.857 $\pm$ 0.186 $m^{3}$ on $14^{th}$
-February 16:00 2019.
-
-The second validation point corresponds to the end of the melting process on $10^{th}$ March 18:00 2019.  Based on the
-webcam imagery and manual measurement, a thin layer of ice with an observed thickness between 0.01 to 0.06 m could be
-quantified. This results in the volume range for the second validation to be 0.13 $\pm$ 0.09 $m^{3}$ on $11^{th}$ March
-2019 
-
-In reality, the EP ice structure was more cylindrical until a height of 0.2\,$m$ and conical afterwards until a
-height of 0.6\,$m$ with a radius of 1.18\,$m$. However, we assume a conical shape of this ice structure in order to
-apply the modelling strategy described below.
+% \subsection{CH19 AIR}\label{section:CH19}
+% The CH19 AIR in the Schwarzsee region lies at 967 $m$ a.s.l.. In the winter (Oct-Apr), mean daily maximum
+% and minimum air temperatures vary between -4 and 14 $\degree C$. Clear skies are rare, averaging around 7 days, and
+% precipitation amounts average 155 mm per month during winter \citep{eispalast}. The site was situated adjacent to a
+% stream resulting in high humidity values across the study period. Within the EP site, an enclosure with a 1.8\,$m$
+% radius was constructed for the experiment. An automatic weather station (AWS) was adjacent to the wooden
+% boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle diameter of 5\,$mm$ and a
+% height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was transferred from a spring
+% water source at 1267 $m$ a.s.l. by pipeline and flowed via a flowmeter and an air escape valve to the nozzle, where it
+% was sprinkled with a spray radius of around 1.7\,$m$. The air escape valve was installed to avoid errors in the flow
+% measurements due to air bubbles. In addition, a webcam guaranteed a continuous survey of the site during the
+% construction of the Icestupa. 
+% 
+% \begin{figure} 
+%     \centering 
+%     \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
+% \caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
+%   $14^{th}$ Feb. (b) The corresponding cross section of the EP ice structure with the field estimates of $r, R,
+%   h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} 
+%   \label{fig:CH19site} 
+%   \end{figure}
+% 
+% \subsubsection{Weather data}
+% Precipitation data was derived from the Plaffeien AWS \citep{meteoswiss} located 8.8 km away from the measurement site
+% at an altitude of 1042 $m$ a.s.l.  We recognised during our data analysis that, except precipitation, all the other
+% meteorological variables of the EP site correlated much better with the ERA5 dataset than the nearby Plaffeien AWS
+% dataset. The $2\,m$ temperature parameter correlated with air temperature ($r^2 =0.9 $), surface pressure parameter
+% correlated with air pressure ($r^2 = 1$) and 10m wind speed parameter (derived from horizontal and vertical components)
+% correlated with wind speed ($r^2 =0.6 $) .
+% 
+% Due to a power failure, all data from the EP AWS was lost from $27^{th}$ February 15:20 2019 to $2^{nd}$ March 15:00
+% 2019 (equivalent to around 7\% of the measurement period). During heavy snowfall events, the ultrasonic wind sensor was
+% blocked and recorded zero values. ERA5 was used to fill such errors and data gaps .
+% 
+% The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km away from
+% the actual site. Near-surface humidity is not provided directly in ERA5 dataset, but from near-surface ($2\,m$ from the
+% surface) temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was
+% calculated as: 
+% 
+% \begin{equation} RH = 100 \cdot
+%     \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} 
+% 
+% where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
+% \begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and
+% the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to
+% \cite{Buck_1981}.    
+% 
+% All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.  With the modified ERA5
+% dataset, we were also able to further extend the EP dataset and allow the model to run beyond $18^{th}$ March 2019.
+% Precipitation was filled as null values beyond $18^{th}$ March 2019.
+% 
+% \subsubsection{Fountain spray radius of CH19 AIR} \label{section:sprayCH19} 
+% This fountain spray radius is determined by modelling the projectile motion of the water droplets. Using mass
+% conservation, the droplet speed $v_F$ can be determined from the spray rate $d_F$ and the diameter $dia_F$ of the nozzle
+% as follows:
+% 
+% \begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
+% 
+% Afterwards, we assume that the water droplets move with an air friction free projectile motion from the fountain
+% nozzle with a height $h_F$ to the ice/ground surface. The resulting spray radius $r_F$ was then determined from the
+% projectile motion equation as follows:
+% 
+% \begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
+% \cdot g \cdot h_F})}{g} \end{equation}
+% 
+% where $g = 9.8\, m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
+% 
+% \subsubsection{CH19 Field Measurements for validation} \label{section:validation} 
+% The volume was determined by decomposing the ice structure into a cylinder (length $2R$ and height $h$) and a
+% cone (radius $r$ and height $(H_i-h)$) through the following equation: 
+% \begin{equation} V = \pi \cdot R^2 \cdot h + 1/3 \cdot \pi \cdot r^2 \cdot (H_i-h) \end{equation}
+% 
+% Manual measurements were performed at the end of the freezing period on $14^{th}$ February 16:00 2019 (only one more
+% fountain run was possible after this date) to estimate $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the different
+% geometry components):
+% 
+% $$ 0.55\leq r\leq 1 m\textit{ ; }1.1\leq R\leq 1.2 m\textit{ ; }0.1\leq h\leq 0.2 m\textit{ ; }0.6\leq
+% H_i\leq 0.8 m\textit{ ; }1.3\leq H_f\leq 1.4 m  $$
+% 
+% The ranges of the variables show the variance of the Icestupa's dimensions across different compass orientations.
+% Correspondingly, the volume range estimated for the first validation point was 0.857 $\pm$ 0.186 $m^{3}$ on $14^{th}$
+% February 16:00 2019.
+% 
+% The second validation point corresponds to the end of the melting process on $10^{th}$ March 18:00 2019.  Based on the
+% webcam imagery and manual measurement, a thin layer of ice with an observed thickness between 0.01 to 0.06 m could be
+% quantified. This results in the volume range for the second validation to be 0.13 $\pm$ 0.09 $m^{3}$ on $11^{th}$ March
+% 2019 
+% 
+% In reality, the EP ice structure was more cylindrical until a height of 0.2\,$m$ and conical afterwards until a
+% height of 0.6\,$m$ with a radius of 1.18\,$m$. However, we assume a conical shape of this ice structure in order to
+% apply the modelling strategy described below.
 
 % \subsubsection{CH21 and CH20 Surface temperature corrections} \label{section:thermalcam} 
 % We discarded some thermal camera temperature measurements due to the following reasons:
