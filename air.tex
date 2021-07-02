@@ -36,10 +36,11 @@ $^{6}$ETH, Zürich, Switzerland}
 \onecolumn
 \firstpage{1}
 
+\title[Artificial Ice Reservoirs]{Environmental influences on water storage efficiency of artificial ice reservoirs (Icestupas)}
+% \title[Modelling Artificial Ice Reservoirs]{Modelling artificial ice reservoirs (Icestupas) through an energy balance approach}
 % \title[Artificial Ice Reservoirs]{Mass and energy balance calculations for artificial ice reservoirs (Icestupas)}
 % \title[Artificial Ice Reservoirs]{Water storage potential of artificial ice reservoirs (Icestupas) in different climate regimes}
 % \title[Artificial Ice Reservoirs]{Modelling water storage capacity of artificial ice reservoirs (Icestupas) in different climate regimes}
-\title[Modelling Artificial Ice Reservoirs]{Modelling artificial ice reservoirs (Icestupas) through an energy balance approach}
 % \title[Artificial Ice Reservoirs]{ A new metric to rank prospective artificial ice reservoir (Icestupa) locations
 %     through an energy balance model}
 
@@ -54,15 +55,16 @@ $^{6}$ETH, Zürich, Switzerland}
 
 \begin{abstract}
 
-Artificial Ice Reservoirs (AIRs) can successfully store water during winter and release the water during spring and
-summer. This makes them a reliable fresh water resource for irrigation in dry environments. Several AIRs have been built
-but studies of their water storage capacity are scarce. This study models a cone-shaped AIR popularly called Icestupa.
-Processes involved in the development and temporal evolution of an Icestupa are calculated by a physically-based model
-using equations governing the heat transfer, vapour diffusion and transport of water that undergoes phase changes.
-These processes were quantified using meteorological data in conjunction with fountain spray information (mass input of
-an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for three sites in Switzerland and one
-in India. At these measurement sites, AIR were built for model validation purposes. Model estimates had a normalised root mean
-square error of 5 \% and a correlation of 0.9.  
+Artificial Ice Reservoirs (AIR) can successfully store water during winter and release the water during spring and
+summer. This makes them a reliable fresh water resource for irrigation. Several AIRs have been built worldwide but
+studies of their water storage capacity or efficiency are scarce. This study models a cone-shaped AIR popularly called
+Icestupa.  Processes involved in the development and temporal evolution of an Icestupa are calculated by a
+physically-based model using equations governing the heat transfer, vapour diffusion and transport of water that
+undergoes phase changes.  These processes were quantified using meteorological data in conjunction with fountain spray
+information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for three
+sites in Switzerland and one in India. At these measurement sites, AIR were built for model calibration and validation purposes. Model
+estimates had a normalised root mean square error of 5 \% and a correlation of 0.9. Water storage efficiency of the AIR
+varied widely not just between different locations but also between different winters.
 
 \tiny
  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -123,14 +125,14 @@ India.
 
 \subsection{Measurement sites}
 
-The Guttannen site (N, E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and maximum
-air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during winter
-\citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values across the study period
-as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen Bewegt Association during the winters of
-2019-20 and 2020-21. To initiate the ice formation process, tree branches were laid covering the fountain pipe.  The
-fountain height varied between 2 to 5\,$m$ during the construction period. The water was transferred from a spring water
-source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous survey of the site
-during the construction of the AIR.
+The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean
+daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7
+days during winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values
+across the study period as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen Bewegt Association
+during the winters of 2019-20 and 2020-21. To initiate the ice formation process, tree branches were laid covering the
+fountain pipe.  The fountain height varied between 2 to 5\,$m$ during the construction period. The water was transferred
+from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous
+survey of the site during the construction of the AIR.
 
 \begin{figure} 
     \begin{center} 
@@ -143,7 +145,7 @@ during the construction of the AIR.
 % In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l., the air temperature shows values down to −27.9 $\degree C$
 % in winter \citep{Chevuturi_2018}.
 
-The Gangles site (N, E) is located around 20 km north of Leh city in the Ladakh region lies at 4025 $m$ a.s.l.. AIR were
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region lies at 4025 $m$ a.s.l.. AIR were
 constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every winter since 2018.
 
 \subsection{Weather measurements} 
@@ -156,14 +158,14 @@ reanalysis dataset \citep{era5} for filling data gaps and adding data that were 
 assumed this was the cause when null wind speeds were observed continuously for atleast 3 hours. All such null values
 were replaced using the ERA5 dataset. 
 
-The ERA5 reanalysis dataset has a good correlation with lower elevation sites in Switzerland
-\citep{Scherrer_2020}. The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 8° 15' 00" E) for the CH21 site was
-around 3.6 km away from the actual site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset via
-linear regressions.
+The ERA5 reanalysis dataset has a good correlation with lower elevation sites in Switzerland \citep{Scherrer_2020}. The
+ERA5 grid point chosen (46.64 $\degree$N, 8.25 $\degree$E) for the swiss site was around 3.6 km away from the actual
+site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset via linear regressions.
 
-For the IN site, the primary weather data source was a campbell weather station located adjacent to the AIR. In
-addition, we used another campbell AWS located 12 km away for filling data gaps and adding data that were not measured
-directly as shown in Fig. \ref{fig:input}.
+For the IN site, three different weather data sources were used to log all the weather parameters required for the
+model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was logged via a
+campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell weather station
+located 15 km away. 
 
 \begin{figure} 
     \centering 
@@ -196,7 +198,7 @@ these pipeline freezing events.
 
 \begin{table}[h]
 \centering
-\caption{The Scientific AIR }
+\caption{ Summary of the scientific AIR dataset }
 \label{tab:3AIR}
 \begin{tabular}{@{}|l|l|l|l|@{}}
 \toprule
@@ -259,7 +261,7 @@ these time steps, the volume is parameterised using Eqn. \ref{eqn:V} as:\begin{e
 
 
 However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$). Combining
-equations \ref{eqn:V}, \ref{eqn:h0}, \ref{eqn:V1} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
+equations \ref{eqn:V},  \ref{eqn:V1}, \ref{eqn:h0} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
 be determined by considering the following rules:
 
 \begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_{spray} ,\, h_0) & \textit{ if } i=0\\
@@ -305,21 +307,21 @@ The net shortwave radiation $q_{SW}$ is computed as follows:
 where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse short wave radiation, $\alpha$ is the modelled
 albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave radiation.
 
-We model the albedo using a scheme described in \cite{OerlemansKnap_1998}. The scheme records the decay of albedo with
-time after fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last snowfall
-event. After snowfall, albedo changes over a time step, $\delta t$ , as
+The albedo varies depending on the water source that formed the current AIR surface layer. So during the fountain
+duration, the albedo assumes a constant value corresponding to ice albedo. But after the fountain is switched off, the
+albedo can reset to snow albedo during snowfall events and then decay back to ice albedo. To model this process, we use
+the scheme described in \cite{OerlemansKnap_1998}. The scheme records the decay of albedo with time after fresh snow is
+deposited on the surface. $\delta t$ records the number of time steps after the last snowfall event. After snowfall,
+albedo changes over a time step, $\delta t$ , as
 
 \begin{equation} \alpha=\alpha_{ice}+(\alpha_{snow}-\alpha_{ice}) \cdot e^{(-\delta t)/\tau} \label{eqn:a}
 \end{equation}
 
-where $\alpha_{ice}$ is the bare ice albedo value (0.35), $\alpha_{snow}$ is the snow ice albedo value (0.85) and
-$\tau$ is a decay rate, which determines how fast the albedo of the ageing snow reaches this value.  The decay rate
-$\tau$ is assumed to have a base value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces
-and its maximal value is set based on observations by \cite{OerlemansKnap_1998} as shown in Table
-\ref{tab:parameters}.  Furthermore, the albedo $\alpha$ varies depending on the water source that formed the current
-Icestupa surface.  Correspondingly, the albedo is reset to the value of bare ice albedo if the fountain is spraying
-water onto the current ice surface and to the value of fresh snow albedo if a snowfall event occurred. Snowfall events
-are assumed if the air temperature is below $T_{ppt}=1 \degree C$ \citep{FujitaAgeta_2000}.
+where $\alpha_{ice}$ is the bare ice albedo value (0.35), $\alpha_{snow}$ is the snow ice albedo value (0.85) and $\tau$
+is a decay rate, which determines how fast the albedo of the ageing snow reaches this value.  The decay rate $\tau$ is
+assumed to have a base value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces and its
+maximal value is set based on observations by \cite{OerlemansKnap_1998} as shown in Table \ref{tab:parameters}. Snowfall
+events are assumed if the air temperature is below $T_{ppt}=1 \degree C$ \citep{FujitaAgeta_2000}.  
 
 The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
 considered. The direct solar radiation incident on the AIR surface is first decomposed into horizontal and vertical
@@ -332,7 +334,7 @@ modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $
 {r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
 \label{eqn:f_{cone}} \end{equation}
 
-The ERA5 diffuse shortwave radiation is assumed to impact the conical Icestupa surface uniformly. 
+The diffuse shortwave radiation is assumed to impact the conical AIR surface uniformly. 
 
 \subsubsection{Net Longwave Radiation \texorpdfstring{$q_{LW}$}{Lg}}
 
@@ -343,18 +345,35 @@ The net longwave radiation $q_{LW}$ is determined as follows:
 
 where $T_a$ represents the measured air temperature, $T_{ice}$ is the modelled surface temperature, both temperatures
 are given in [$\degree C$], $\sigma=5.67\cdot 10^{-8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant, $LW_{in}$
-denotes the incoming longwave radiation derived from the ERA5 dataset and $\epsilon_{ice}$ is the corresponding
-emissivity value for the Icestupa surface (see Table \ref{tab:parameters}).
+denotes the incoming longwave radiation and $\epsilon_{ice}$ is the corresponding emissivity value for the Icestupa
+surface (see Table \ref{tab:parameters}).
+
+The incoming longwave radiation $LW_{in}$, for which there were no direct measurements available at the indian site, is determined
+as follows:
+
+\begin{equation} LW_{in}=\sigma \cdot (\epsilon_a \cdot {(T_a+ 273.15)}^4)
+\label{eqn:LWin} \end{equation}
+
+here  $\epsilon_a$ denotes the atmospheric emissivity. We approximate atmospheric emissivity $\epsilon_a$ using the
+equation suggested by \cite{Brutsaert_1982}, considering air temperature and vapor pressure (Eqn.  \ref{eqn:atm_e}). The
+vapor pressures over air and ice was obtained using Eqn. \ref{eqn:vp}.  The expression defined in \cite{Brutsaert_1975}
+for clear skies (first term in equation \ref{eqn:atm_e}) is extended with the correction for cloudy skies after
+\cite{Brutsaert_1982} as follows:
+
+\begin{equation} \epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{c}^2) \label{eqn:atm_e}
+\end{equation}
+
+with a cloudiness index $c$, ranging from 0 for clear skies to 1 for complete overcast skies.
 
 \subsubsection{Turbulent sensible \texorpdfstring{$q_{S}$}{Lg} and latent \texorpdfstring{$q_{L}$}{Lg} heat fluxes }
 
 The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions proposed by
 \cite{Garratt_1992}:
 
-\begin{equation} q_{S}=c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
+\begin{equation} q_{S}=\mu_{cone}\cdot c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
 (T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
 
-\begin{equation} q_{L}=0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
+\begin{equation} q_{L}=\mu_{cone}\cdot 0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
 v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \end{equation}
 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
@@ -369,6 +388,18 @@ $mm$) denotes the roughness length of ice (momentum and scalar).  The vapor pres
 \end{split} \label{eqn:vp} \end{equation}
 
 where $p_{a}$ is the measured air pressure in [$hPa$].  
+
+The dimensionless parameter $\mu_{cone}$ is an "exposure/roughness parameter" that deals with the fact that AIR has a
+rough appearance and forms an obstacle to the wind regime. This formulation is inspired from \cite{Oerlemans_2021} but
+here we define it much more generally as follows:  
+
+\begin{equation}
+    \mu_{cone} = 1 + \mu^* \cdot s_{cone}
+\end{equation}
+
+where $\mu^*$ is a constant between 0 to 1 called the turbulent flux parameter. In \cite{Oerlemans_2021}, $\mu^*$ is
+assumed to be 0.5 and we use this as the default value of the parameter but later conduct a sensitivity analysis to
+understand its influence. 
 
 \subsubsection{Fountain water heat flux \texorpdfstring{$q_{F}$}{Lg} }
 
@@ -405,10 +436,9 @@ of mass is between $h_{ice}$ and $r_{ice}$. So we calculate $q_{G}$ here assumin
 
 \begin{table} 
     \centering
-    \caption{Free parameters in the model categorised as constant and uncertain parameters. Base
-  value (B) and uncertainty (U) were taken from the literature. For assumptions (assum.), the uncertainty was chosen
-to be relatively large (5 \%). For measurements (meas.), the uncertainty due to parallax errors is chosen to be (1
-\%).}
+    \caption{Free parameters in the model categorised as constant, surface and fountain parameters. Base
+        value (B) and uncertainty (U) were taken from the literature. For measurements (meas.) and assumptions (assum.),
+    the uncertainty was chosen to be relatively large (5 \%).}
 \label{tab:parameters} 
     
     \begin{tabularx}{\linewidth}{ X l X l X  } 
@@ -427,13 +457,13 @@ to be relatively large (5 \%). For measurements (meas.), the uncertainty due to 
         Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
         \hline Surface Parameters & & & Range   & \\ 
         \hline Temperature threshold for precipitation & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
-        Thickness threshold for precipitation & $H_{ppt}$ & 1 $mm\,w.e.$ & $\pm$ $1\,mm\,w.e.$ & B + U: assum.\\
         Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] & B: \citeauthor{CuffeyPaterson_2010}; U:
         \citeauthor{HORI2006486}\\
         Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
         Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:\citeauthor{OerlemansKnap_1998}  \\ 
-        Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & assum.\\
+        Turbulent flux parameter & $\mu^*$ & 0.5 & $[0,1]$ & B: \citeauthor{Oerlemans_2021}; U: assum.  \\ 
+        Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & B + U: assum.\\
         \hline Fountain Parameters& & & Range   & \\ \hline 
         Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & B: meas.; U: assum. \\
         Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B + U: assum. \\
@@ -554,18 +584,22 @@ where
 M_{F}\\ 0 & \textit{ otherwise }\\ \end{array} \right. \\
  \end{equation}
 
-Considering AIRs as water reservoirs, we can quantify their potential through the amount of water they store (storage
-quantity) and the length of time they store it (storage duration). Another means of comparing different Icestupas is
-through their water storage efficiency defined accordingly as:
+Considering AIRs as water reservoirs, we can quantify their water storage efficiency as follows:
 
-\begin{equation} \textit{Storage Efficiency} = \frac{M_{water}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
-
+\begin{equation} \textit{Storage Efficiency} = \frac{M_{water}+M_{ice}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \section{Model Results} 
 
+The model results for all the three AIR are presented in a two step manner. In the first step, we analyse the results of
+the CH21 AIR to understand the environmental influences involved in its evolution. Then in a second step, we compare it
+with the rest of the two AIR.
+
+\subsection{CH21 AIR} 
 The model was forced with meteorological data from $22^{nd}$ November to $10^{th}$ May 2021 (Fig.
 \ref{fig:input}) and various parameters (see Table \ref{tab:parameters}) to calculate the mass and energy balance of
 the CH21 AIR.
+
+\subsubsection{Energy and mass balance calculation}
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
 \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
@@ -573,21 +607,18 @@ the CH21 AIR.
     sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
     quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:EB} \end{figure}
 
-\subsection{Energy and mass balance calculation}
-
-% \begin{figure} 
-%     \centering
-%     \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
-% \caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
-%     (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
-%     decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
-%     fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
-%     curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
-%     dark blue curve.} 
-% \label{fig:derived} 
-% \end{figure}
+\begin{figure} 
+    \centering
+    \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
+\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
+    (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
+    decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
+    fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
+    curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
+    dark blue curve.} 
+\label{fig:derived} 
+\end{figure}
   
-
 Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
 experiment duration, the total energy balance was almost zero. Net shortwave radiation (35 $Wm^{-2}$), sensible (41
 $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
@@ -638,7 +669,6 @@ sublimation due to $q_L$.
 % \end{tabular}
 % \end{table}
 
-
 The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
 deposition (0.5 \%) as shown in Table \ref{tab:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
 $kg$, with a resultant storage efficiency of 19 \%.
@@ -648,7 +678,7 @@ $kg$, with a resultant storage efficiency of 19 \%.
     \includegraphics[width=\linewidth]{Figures/icev_results.jpg} 
 \end{center}
   \caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
-  measurements. The prediction interval is based on the ice volume uncertainty caused by the most sensitive parameters.  } 
+  measurements. The prediction interval is based on the ice volume uncertainty caused by all the surface parameters.  } 
 \label{fig:results} 
 \end{figure}
 
@@ -703,44 +733,37 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 \label{fig:sensitivity} 
 \end{figure}
  
-\section{Discussion}
-\subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
-above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
-Some assumptions and their potential to cause errors are discussed below.
-
-\begin{itemize}
-
-\item  Turbulent Sensible and Latent Heat Fluxes: The method used to calculate the turbulent heat fluxes by
-  \cite{Garratt_1992} assumes that the turbulent heat fluxes are acting over a uniform planar surface to determine the
-  roughness length. Since our application is on a conical surface, the distance to the ice surface is not
-  uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
-
-\item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
-  fountain spray available for freezing. For the CH21 experiment, inclusion of this parameter does not influence
-  results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
-
-\item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
-  contact if nucleation occurs during flight time. For the CH21 experiment, this process will further increase
-  the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
-\item Shape Effects: The suppression of heat exchange between the snow/ice surface and the air adjacent to the surface
-  effectively slows down snow/ice ablation in spring and promotes the stagnation of the cold air within topographical
-  depressions \citep{Fujita_2010}. The quantitative contribution of the atmospheric decoupling over melting snow/ice
-  for the total mass and energy balance is ignored in the model.
-
-\end{itemize}
+% \section{Discussion}
+% \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
+% above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
+% Some assumptions and their potential to cause errors are discussed below.
+% 
+% \begin{itemize}
+% 
+% \item  Turbulent Sensible and Latent Heat Fluxes: The method used to calculate the turbulent heat fluxes by
+%   \cite{Garratt_1992} assumes that the turbulent heat fluxes are acting over a uniform planar surface to determine the
+%   roughness length. Since our application is on a conical surface, the distance to the ice surface is not
+%   uniform and well defined. Hence, $z_{ice}$ has no real physical significance here.
+% 
+% \item Droplet flight time loss: Water losses during the flight time of fountain droplets were neglected making all the
+%   fountain spray available for freezing. For the CH21 experiment, inclusion of this parameter does not influence
+%   results since it is already accounted for in the runoff water discharge rate which was at least $3\, l\,min^{-1}$.
+% 
+% \item Nucleation of droplets: Corresponding to droplet flight time, ice/snow formation is also possible before surface
+%   contact if nucleation occurs during flight time. For the CH21 experiment, this process will further increase
+%   the freeze rate and hence the storage efficiency. This process is neglected for model simplicity.
+% \item Shape Effects: The suppression of heat exchange between the snow/ice surface and the air adjacent to the surface
+%   effectively slows down snow/ice ablation in spring and promotes the stagnation of the cold air within topographical
+%   depressions \citep{Fujita_2010}. The quantitative contribution of the atmospheric decoupling over melting snow/ice
+%   for the total mass and energy balance is ignored in the model.
+% 
+% \end{itemize}
 
 \section{Conclusions} 
 We outlined a methodology for estimating ice, liquid water, water vapour and runoff quantities produced during the
 construction of an AIR using measurements of fountain spray rate, air temperature, radiation, humidity, pressure,
 wind and cloudiness at four different study sites. The comparison with all the validation measurements at two different
 dates during the experiment led to satisfying results as shown in Table \ref{tab:results}.
-
-% According to the model, the CH19 AIR achieved a storage quantity of 1005 litres of water with a storage
-% duration of 65 days. However, the corresponding storage efficiency of 6 \% was very low for a water input of 18,560
-% litres. These estimates were most sensitive to the temperature threshold that determined precipitation phase and ice
-% emissivity parameters which created an uncertainty of $0.2 m^3$ in the maximum ice volume calculated.  This is
-% to be expected as net longwave radiation and net shortwave radiation together accounted for around 65 \% of the overall
-% energy turnover.
 
 The model results support the hypothesis that there could be considerable water loss during the formation of AIR
 particularly due to excessive fountain spray. Further experiments at different locations with different fountains are
@@ -752,11 +775,10 @@ required to better understand the influence of construction decisions on the res
 \label{tab:results}
 \begin{tabular}{@{}|l|l|l|l|l|@{}}
 \toprule
-\textbf{AIR}   & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} & \textbf{CH19} \\ \midrule
-Max Ice Volume [$m^3$] & 703             & 156             & 107             & 1             \\ \midrule
-Storage Efficiency [$\%$] & 18             & 19             & 14             & 3             \\ \midrule
-Storage Duration [$days$] & ?             & 169             & 93             & 45             \\ \bottomrule
-Validation RMSE [$m^3$] & 59             & 13             & 25             & 0.2             \\ \bottomrule
+\textbf{AIR}   & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
+Max Ice Volume [$m^3$] & 703             & 156             & 107             \\ \midrule
+Storage Efficiency [$\%$] & 18             & 19             & 14             \\ \midrule
+Validation RMSE [$m^3$] & 59             & 13             & 25               \\ \bottomrule
 \end{tabular}
 \end{table}
 
