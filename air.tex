@@ -165,7 +165,8 @@ site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset 
 For the IN site, three different weather data sources were used to log all the weather parameters required for the
 model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was logged via a
 campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell weather station
-located 15 km away. 
+located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible. Also, the diffus
+fraction of the global shortwave radiation was also assumed to be negligible.
 
 \begin{figure} 
     \centering 
@@ -457,17 +458,17 @@ of mass is between $h_{ice}$ and $r_{ice}$. So we calculate $q_{G}$ here assumin
         Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
         \hline Surface Parameters & & & Range   & \\ 
         \hline Temperature threshold for precipitation & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
-        Ice Emissivity        & $\epsilon_{ice}$ & 0.95 & [0.949,0.993] & B: \citeauthor{CuffeyPaterson_2010}; U:
-        \citeauthor{HORI2006486}\\
-        Ice Albedo         & $\alpha_{ice}$ & 0.35 & $\pm$ 5 \%  & B: \citeauthor{CuffeyPaterson_2010}; U: assum.   \\
+        Ice Emissivity        & $\epsilon_{ice}$ & 0.97 & 0.949-0.993 & B + U : \citeauthor{steiner_2015}\\
+        Ice Albedo         & $\alpha_{ice}$ & 0.15 & 0.01-0.35 & B + U : \citeauthor{steiner_2015} \\
         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
-        Albedo Decay Rate & $\tau$ & 10 days & $[1,22]\, days$ & B: \citeauthor{Schmidt_2017}; U:\citeauthor{OerlemansKnap_1998}  \\ 
-        Turbulent flux parameter & $\mu^*$ & 0.5 & $[0,1]$ & B: \citeauthor{Oerlemans_2021}; U: assum.  \\ 
+        Albedo Decay Rate & $\tau$ & 10 days & $1-22\, days$ & B: \citeauthor{Schmidt_2017}; U:\citeauthor{OerlemansKnap_1998}  \\ 
+        Surface Roughness & $z_0$ & 1 $mm$ & $1-5\, mm$ & B + U : \citeauthor{steiner_2015}\\ 
+        % Turbulent flux parameter & $\mu^*$ & 0.5 & $[0,1]$ & B: \citeauthor{Oerlemans_2021}; U: assum.  \\ 
         Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & B + U: assum.\\
         \hline Fountain Parameters& & & Range   & \\ \hline 
         Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & B: meas.; U: assum. \\
         Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B + U: assum. \\
-        Mean discharge & $d_{mean}$ &  & $\, l/min$   & B: meas.; U: assum. \\
+        Mean discharge & $d_{mean}$ & $\, l/min$ &    & B: meas.; U: assum. \\
         \hline 
     \end{tabularx} 
 \end{table} 
@@ -584,22 +585,33 @@ where
 M_{F}\\ 0 & \textit{ otherwise }\\ \end{array} \right. \\
  \end{equation}
 
-Considering AIRs as water reservoirs, we can quantify their water storage efficiency as follows:
+ Considering AIRs as water reservoirs, their storage efficiency ($SE$) at any time step $i$ can be defined as the
+ percentage of ice and meltwater produced as follows:
 
-\begin{equation} \textit{Storage Efficiency} = \frac{M_{water}+M_{ice}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
+\begin{equation} \textit{SE}^i = \frac{M_{water}^i+M_{ice}^i}{(M_F^i+M_{ppt}^i+M_{dep}^i)} \cdot 100 \end{equation}
+
 
 \section{Model Results} 
+The storage efficiency of CH21, IN21 and CH20 AIR were $20\%$, $20\%$ and $20\%$ respectively. The low SE is a product
+of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 80 \%$ ) in all the AIR. This indicates that just
+decreasing the mean fountain discharge could have significantly increased water storage efficiency. As Fig.
+\ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6 $l/min$
+respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were provided with.
 
-The model results for all the three AIR are presented in a two step manner. In the first step, we analyse the results of
-the CH21 AIR to understand the environmental influences involved in its evolution. Then in a second step, we compare it
-with the rest of the two AIR.
+\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/freeze_rate.jpg} \end{center}
+\caption{ Distribution of freezing rate for all the AIR } \label{fig:freeze_rate} \end{figure}
 
-\subsection{CH21 AIR} 
-The model was forced with meteorological data from $22^{nd}$ November to $10^{th}$ May 2021 (Fig.
-\ref{fig:input}) and various parameters (see Table \ref{tab:parameters}) to calculate the mass and energy balance of
-the CH21 AIR.
+% To understand the environmental influences associated with this growth rate, we 
+   
+% The model results for all the three AIR are presented in a two step manner. In the first step, we analyse the results of
+% the CH21 AIR to understand the environmental influences involved in its evolution. Then in a second step, we compare it
+% with the rest of the two AIR.
 
-\subsubsection{Energy and mass balance calculation}
+% \subsection{CH21 AIR} 
+% The model was forced with meteorological data from $22^{nd}$ November to $10^{th}$ May 2021 (Fig.  \ref{fig:input}) and
+% various parameters (see Table \ref{tab:parameters}) to calculate the mass and energy balance of the CH21 AIR.
+
+\subsubsection{Mass and energy balance calculation}
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
 \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
@@ -619,7 +631,8 @@ the CH21 AIR.
 \label{fig:derived} 
 \end{figure}
   
-Daily averages of some components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
+
+Daily averages of all the components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
 experiment duration, the total energy balance was almost zero. Net shortwave radiation (35 $Wm^{-2}$), sensible (41
 $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
 compensated by the net longwave radiation (- 47 $Wm^{-2}$), the fountain water heat flux (- 13 $Wm^{-2}$) and the
