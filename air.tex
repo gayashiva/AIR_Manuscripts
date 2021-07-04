@@ -145,8 +145,9 @@ survey of the site during the construction of the AIR.
 % In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l., the air temperature shows values down to −27.9 $\degree C$
 % in winter \citep{Chevuturi_2018}.
 
-The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region lies at 4025 $m$ a.s.l.. AIR were
-constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every winter since 2018.
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region
+lies at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
+winter since 2018.
 
 \subsection{Weather measurements} 
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
@@ -366,23 +367,23 @@ for clear skies (first term in equation \ref{eqn:atm_e}) is extended with the co
 
 with a cloudiness index $c$, ranging from 0 for clear skies to 1 for complete overcast skies.
 
-\subsubsection{Turbulent sensible \texorpdfstring{$q_{S}$}{Lg} and latent \texorpdfstring{$q_{L}$}{Lg} heat fluxes }
+\subsubsection{Turbulent fluxes }
 
 The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions proposed by
 \cite{Garratt_1992}:
 
 \begin{equation} q_{S}=\mu_{cone}\cdot c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
-(T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \label{eqn:qs} \end{equation}
+(T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2} \label{eqn:qs} \end{equation}
 
 \begin{equation} q_{L}=\mu_{cone}\cdot 0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{ice}}})}^2} \end{equation}
+v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2} \end{equation}
 
-where $h_{AWS}$ is the measurement height above the ground surface of the AWS (in $m$), $v_a$ is the wind speed in
-[$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J $kg^{-1} K^{-1}$), $\rho_{a}$ is the air
-density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air pressure at standard sea level (1013 $hPa$),
-$\kappa$ is the von Karman constant (0.4), $L_s$ is the heat of sublimation (2848 $kJ\, kg^{-1}$) and $z_{ice}$ (1.7
-$mm$) denotes the roughness length of ice (momentum and scalar).  The vapor pressures over air ($p_{v,a}$) and ice
-($p_{v,ice}$) was obtained using the following formulation given in \cite{WMO_2018}:
+where $h_{AWS}$ is the measurement height above the ground surface of the AWS (around $2\,m$ for all sites), $v_a$ is
+the wind speed in [$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J $kg^{-1} K^{-1}$),
+$\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air pressure at standard sea
+level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4) and $L_s$ is the heat of sublimation (2848 $kJ\,
+kg^{-1}$).  The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation
+given in \cite{WMO_2018}:
 
 \begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
 3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
@@ -391,16 +392,21 @@ $mm$) denotes the roughness length of ice (momentum and scalar).  The vapor pres
 where $p_{a}$ is the measured air pressure in [$hPa$].  
 
 The dimensionless parameter $\mu_{cone}$ is an "exposure/roughness parameter" that deals with the fact that AIR has a
-rough appearance and forms an obstacle to the wind regime. This formulation is inspired from \cite{Oerlemans_2021} but
-here we define it much more generally as follows:  
+rough appearance and forms an obstacle to the wind regime. As described in \cite{Oerlemans_2021}, this factor accounts
+for the larger turbulent fluxes due to the roughness of the surface and is a function of the AIR slope as follows:
 
 \begin{equation}
-    \mu_{cone} = 1 + \mu^* \cdot s_{cone}
+    \mu_{cone} = 1 + \frac{s_{cone}}{2}
 \end{equation}
 
-where $\mu^*$ is a constant between 0 to 1 called the turbulent flux parameter. In \cite{Oerlemans_2021}, $\mu^*$ is
-assumed to be 0.5 and we use this as the default value of the parameter but later conduct a sensitivity analysis to
-understand its influence. 
+The surface roughness, $z_{0}$, may need more attention. Literature values for surface roughness rarely exceed 1 cm, and
+for glacier ice are generally in the range $0.1-5\, mm$ \cite{BrockWillisSharp_2006}. We decided to use a commonly used
+literature value for $z_{0}$ as an initial value ($1\,mm$), as proposed by \cite{pellicciotti_2005} which is close to
+the ideal value found in \cite{reid_brock_2014} and within the range presented by \cite{BrockWillisSharp_2006}. 
+
+A possible source of error is the fact that wind and humidity measurements from the horizontal plane at the AWS are
+used, which might be different from those on a slope. However, without detailed datassetts from the AIR surface, we
+retain this assumption.
 
 \subsubsection{Fountain water heat flux \texorpdfstring{$q_{F}$}{Lg} }
 
@@ -434,44 +440,6 @@ the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined fr
 Since AIR's typically have conical shapes with $r_{ice} >> h_{ice}$, we assume that the center of mass of the ice body
 is near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the ice body's center
 of mass is between $h_{ice}$ and $r_{ice}$. So we calculate $q_{G}$ here assuming $l_{ice} = (r_{ice} + h_{ice})/2$. 
-
-\begin{table} 
-    \centering
-    \caption{Free parameters in the model categorised as constant, surface and fountain parameters. Base
-        value (B) and uncertainty (U) were taken from the literature. For measurements (meas.) and assumptions (assum.),
-    the uncertainty was chosen to be relatively large (5 \%).}
-\label{tab:parameters} 
-    
-    \begin{tabularx}{\linewidth}{ X l X l X  } 
-        \hline Constant Parameters & Symbol & Value & & References \\ 
-        \hline Van Karman constant & $\kappa$ & 0.4 &  & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        Stefan Boltzmann constant & $\sigma$ & $5.67 \cdot 10^{-8} W\, m^{-2}\, K^{-4}$&  & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        Air pressure at sea level & $p_{0,a}$ & 1013 $hPa$ &  & B: \citeauthor{MolgHardy_2004}\\
-        Density of water & $\rho_{w}$ & 1000 $kg\, m^{-3}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        Density of ice & $\rho_{ice}$ & 917 $kg\, m^{-3}$ & & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        Density of air & $\rho_{a}$ &  1.29 $kg\, m^{-3}$ &   & B: \citeauthor{MolgHardy_2004}\\ 
-        Specific heat of ice & $c_{ice}$ & 2097 $J\, kg^{-1}\,\degree C^{-1}$ &    &B: \citeauthor{CuffeyPaterson_2010}\\ 
-        Specific heat of water & $c_{w}$ & 4186 $J\, kg^{-1}\,\degree C^{-1}$ &   & B:\citeauthor{CuffeyPaterson_2010}\\ 
-        Specific heat of air & $c_{a}$ & 1010 $J\, kg^{-1}\,\degree C^{-1}$ &   &B: \citeauthor{MolgHardy_2004}\\ 
-        Thermal conductivity of ice & $k_{ice}$ & 2.123  $W\, m^{-1}\, K^{-1}$ &  & B:\citeauthor{Bonales_2017} \\ 
-        Latent Heat of Sublimation & $L_{s}$ & 2848 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        Latent Heat of Fusion & $L_{f}$ & 334 $kJ\, kg^{-1}$ &    & B: \citeauthor{CuffeyPaterson_2010}\\ 
-        \hline Surface Parameters & & & Range   & \\ 
-        \hline Temperature threshold for precipitation & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
-        Ice Emissivity        & $\epsilon_{ice}$ & 0.97 & 0.949-0.993 & B + U : \citeauthor{steiner_2015}\\
-        Ice Albedo         & $\alpha_{ice}$ & 0.15 & 0.01-0.35 & B + U : \citeauthor{steiner_2015} \\
-        Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
-        Albedo Decay Rate & $\tau$ & 10 days & $1-22\, days$ & B: \citeauthor{Schmidt_2017}; U:\citeauthor{OerlemansKnap_1998}  \\ 
-        Surface Roughness & $z_0$ & 1 $mm$ & $1-5\, mm$ & B + U : \citeauthor{steiner_2015}\\ 
-        % Turbulent flux parameter & $\mu^*$ & 0.5 & $[0,1]$ & B: \citeauthor{Oerlemans_2021}; U: assum.  \\ 
-        Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & B + U: assum.\\
-        \hline Fountain Parameters& & & Range   & \\ \hline 
-        Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & B: meas.; U: assum. \\
-        Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B + U: assum. \\
-        Mean discharge & $d_{mean}$ & $\, l/min$ &    & B: meas.; U: assum. \\
-        \hline 
-    \end{tabularx} 
-\end{table} 
 
 \subsection{Surface temperature}
 The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
@@ -591,18 +559,83 @@ M_{F}\\ 0 & \textit{ otherwise }\\ \end{array} \right. \\
 \begin{equation} \textit{SE}^i = \frac{M_{water}^i+M_{ice}^i}{(M_F^i+M_{ppt}^i+M_{dep}^i)} \cdot 100 \end{equation}
 
 
+\subsection{Sensitivity and Uncertainty analysis}
+Model parameters that were not measured but can be constrained within a range of plausible values were optimized using a
+polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}). Polynomial chaos expansion are a
+much more efficient way to obtain similar results compared to the computationally demanding Monte Carlo methods. This
+approach approximates the model with a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis
+can be performed. The parameters optimized in this way are listed in the surface parameter section of Table
+\ref{tab:parameters}. The RMSE of the model output against the ice volume measurements were determined for each
+parameter combination and the combination with the bast fit was used to calculate the mass and energy balance fluxes at
+each AIR.
+
+The initial value for ice albedo was chosen as 0.15 and the possible range limited to 0.01-0.35, corresponding to the
+measured value of ice cliffs from \cite{steiner_2015}. Emissivity value was set to 0.97 for ice and ranged from
+0.95-0.99 (\cite{steiner_2015}). Snow albedo and albedo decay rate was set to 0.85 (\cite{CuffeyPaterson_2010}) and 10
+days (\cite{Schmidt_2017}) respectively with an uncertainty assumed to be $\pm \,5 \%$. Temperature threshold for
+precipitation was set to $1 \degree C$ (\cite{FujitaAgeta_2000}) and varied $\pm$ $1\,\degree C$ (\cite{Zhou_2010}).
+Surface roughness was initially set to 1 mm (\cite{pellicciotti_2005}) and varied between 1 and 5 mm
+(\cite{BrockWillisSharp_2006}). 
+
+\begin{table}[]
+\centering
+\caption{Optimal parameters obtained with the Polynomial Chaos Expansion analysis.}
+\label{tab:parameter}
+\begin{tabular}{@{}llllll@{}}
+\toprule
+\textbf{Surface parameters} & \textbf{Range} & \textbf{Initial} & \textbf{CH21} & \textbf{IN21} & \textbf{CH20} \\\midrule
+     Ice Emissivity ($\epsilon_{ice}$) & 0.95-0.99                    & 0.97        & 0.95  &  &  \\
+     Ice Albedo ($\alpha_{ice}$)       & 0.01-0.35                      & 0.15        & 0.24  &  &  \\
+     Snow Albedo ($\alpha_{snow})$     &  $\pm$ 5 \%                    & 0.85        & 0.87  &  &  \\
+     Precipitation Temperature threshold ($T_{ppt}$) & $0-3\,\degree C$ & $1\degree C$& $1\degree C$ &  &  \\
+     Albedo Decay Rate ($\tau$)        & $\pm$ 5 \%                     & 10 days     & 10 days &  &  \\
+     Surface Roughness ($z_0$)         & $1-5\, mm$                     & $1\,mm$     & $1\,mm$ &  &  \\ 
+     Surface layer thickness ($\Delta x$)&$\pm$ 5 \%                    & $20\,mm$    & $20\,mm$ &  &  \\\midrule 
+\textbf{Fountain parameters} & &  & & &  \\\midrule
+     Water temperature ($T_{water}$)   & $0-5\,\degree C$               & $1\degree C$&$1\degree C$  &  &  \\ 
+     Spray Radius ($r_{spray}$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
+     Mean discharge ($d_{mean}$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
+
+     RMSE             &             &         &$8.5\, m^3$  &  &  \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+% \begin{table} 
+%     \centering
+%     \caption{Free parameters in the model categorised as surface and fountain parameters. Initial
+%         value (I) and uncertainty (U) .}
+% \label{tab:parameters} 
+%     
+%     \begin{tabularx}{\linewidth}{ X l X l X l } 
+%         \hline Surface Parameters & U & I & CH21 & IN21 & CH20 \\ 
+%         \hline $\epsilon_{ice}$ & 0.949-0.993 & 0.97 & & &\\
+%         $\alpha_{ice}$ & 0.01-0.35 & 0.15 & & &\\
+%         Snow Albedo        & $\alpha_{snow}$ & 0.85 & $\pm$ 5 \% & B: \citeauthor{CuffeyPaterson_2010}; U: assum.  \\
+%         Albedo Decay Rate & $\tau$ & 10 days & $1-22\, days$ & B: \citeauthor{Schmidt_2017}; U: \citeauthor{OerlemansKnap_1998}  \\ 
+%         Temperature threshold for precipitation & $T_{ppt}$ & 1 \degree C & $\pm$ $1\,\degree C$ & B + U: \citeauthor{FujitaAgeta_2000},\citeauthor{Zhou_2010}\\
+%         Surface Roughness & $z_0$ & 1 $mm$ & $1-5\, mm$ & B: \citeauthor{pellicciotti_2005}; U: \citeauthor{BrockWillisSharp_2006}  \\
+%         % Turbulent flux parameter & $\mu^*$ & 0.5 & $[0,1]$ & B: \citeauthor{Oerlemans_2021}; U: assum.  \\ 
+%         Surface layer thickness & $\Delta x$ & 20 $\,mm$ & $\pm$ 5 \%   & B + U: assum.\\
+%         \hline Fountain Parameters& & & Range   & \\ \hline 
+%         Spray Radius & $r_{spray}$ &  & $\pm$ 5 \%   & B: meas.; U: assum. \\
+%         Water temperature & $T_{water}$ & 1$\degree C$ & $[0,5]\, \degree C$   & B + U: assum. \\
+%         Mean discharge & $d_{mean}$ & $\, l/min$ &    & B: meas.; U: assum. \\
+%         \hline 
+%     \end{tabularx} 
+% \end{table} 
+
 \section{Model Results} 
 The storage efficiency of CH21, IN21 and CH20 AIR were $20\%$, $20\%$ and $20\%$ respectively. The low SE is a product
 of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 80 \%$ ) in all the AIR. This indicates that just
 decreasing the mean fountain discharge could have significantly increased water storage efficiency. As Fig.
-\ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6 $l/min$
-respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were provided with.
+\ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6
+$l/min$ respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were
+provided with.
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/freeze_rate.jpg} \end{center}
 \caption{ Distribution of freezing rate for all the AIR } \label{fig:freeze_rate} \end{figure}
 
-% To understand the environmental influences associated with this growth rate, we 
-   
 % The model results for all the three AIR are presented in a two step manner. In the first step, we analyse the results of
 % the CH21 AIR to understand the environmental influences involved in its evolution. Then in a second step, we compare it
 % with the rest of the two AIR.
