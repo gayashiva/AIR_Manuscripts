@@ -199,23 +199,6 @@ For the IN site, even though the fountain was never manually switched off, there
 interrupted the discharge duration. So discharge rate was extrapolated to be the mean discharge $d_{mean}$ except during
 these pipeline freezing events.
 
-\begin{table}[h]
-\centering
-\caption{ Summary of the scientific AIR dataset }
-\label{tab:3AIR}
-\begin{tabular}{@{}|l|l|l|l|@{}}
-\toprule
-\textbf{AIR}      & \textbf{Gangles, 2021} & \textbf{Guttannen, 2021} & \textbf{Guttannen, 2020} \\ \midrule
-Shortname                      & IN21 & CH21 & CH20 \\ \midrule
-Altitude {[}$m$ a.s.l.{]} & 4025 & 1047 & 1047 \\ \midrule
-Fountain Duration & Jan 18 - Mar 10        & Nov 22 - Feb 20          & Jan 3 - Mar 8\\ \midrule
-Drone Flights             & 6    & 9    & 3      \\ \midrule
-$r_{spray}$ {[}$m${]}     & 10.8 & 6.9  & 7.7   \\ \midrule
-$V_{dome}$ {[}$m^{3}${]}  & 78.5 & 13.2 & 23.9  \\ \midrule
-$d_{mean}$ {[}$l/min${]}  & 60 & 7.5 & 7.5  \\ \bottomrule
-\end{tabular}
-\end{table}
-
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
@@ -615,6 +598,57 @@ is sensitive to.
 \subsection{Parameter calibration}
 
 \subsection{Energy and Mass fluxes}
+
+\begin{table}[h]
+\centering
+\caption{ Summary of the scientific AIR dataset }
+\label{tab:3AIR}
+\begin{tabular}{@{}|llllll|@{}}
+\toprule
+\textbf{}              & \textbf{Name} & \textbf{Symbol}      & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
+\multicolumn{1}{|l|}{\multirow{7}{*}{\rotatebox[origin=c]{90}{Observations}}} 
+                       % & Shortname                      & IN21 & CH21 & CH20 \\ 
+                       & Altitude  && 4025 $m$ a.s.l.& 1047 $m$ a.s.l.& 1047 $m$ a.s.l.\\ 
+\multicolumn{1}{|l|}{} & Fountain Duration && 829 $hours$        & 2155 $hours$          & 1553 $hours$ \\ 
+\multicolumn{1}{|l|}{} & Drone Flights               && 6 $times$   & 9 $times$   & 3 $times$     \\
+\multicolumn{1}{|l|}{} & Spray radius                & $r_{spray}$     & 10.8 $m$& 6.9 $m$ & 7.7 $m$  \\
+\multicolumn{1}{|l|}{} & Dome volume                  & $V_{dome}$  & 78.5 $m^{3}$& 13.2 $m^{3}$& 23.9 $m^{3}$ \\
+\multicolumn{1}{|l|}{} & Mean discharge               & $d_{mean}$  & 60 $l/min$& 7.5 $l/min$& 7.5 $l/min$ \\ \midrule
+\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  
+                       & Fountain discharge & $M_F$     & 2911 $tons$  & 971 $tons$ & 700 $tons$  \\
+\multicolumn{1}{|l|}{} & Snowfall           & $M_{ppt}$ &    0 $tons$  &  56 $tons$ &  22 $tons$  \\
+\multicolumn{1}{|l|}{} & Deposition         & $M_{dep}$ &    6 $tons$  &   4 $tons$ &   2 $tons$  \\ \midrule
+\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} 
+                       & Meltwater       & $M_{water}$         &  240 $tons$   & 230 $tons$ & 149 $tons$ \\
+\multicolumn{1}{|l|}{} & Ice             & $M_{ice}$           &  219 $tons$   &   0 $tons$ &   0 $tons$ \\
+\multicolumn{1}{|l|}{} & Sublimation     & $M_{sub}$           &   48 $tons$   &   5 $tons$ &   5 $tons$ \\
+\multicolumn{1}{|l|}{} & Fountain runoff & $M_{runoff}$        & 2483 $tons$   & 796 $tons$ & 570 $tons$ \\ \midrule
+\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Results}}}  
+                       & Storage Efficiency & SE              & 15 \%  & 22 \% & 20 \%  \\
+\multicolumn{1}{|l|}{} & Root mean squared error & RMSE       &  8 $m^{3}$   &&   \\
+\multicolumn{1}{|l|}{} & Mean freezing rate      &           & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
+\end{tabular}
+\end{table}
+
+% \begin{table}
+% \centering
+% \caption{Summary of mass balance components for the CH21 AIR at the end of the model run on $10^{th}$ May 2021.}
+% \label{tab:MB}
+% \begin{tabular}{@{}|ll|lll|@{}}
+% \toprule
+% \textbf{}                                     & \textbf{Component} & \textbf{CH21} &&\\ \midrule
+% \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  
+%                                               & $M_F$              & 987,918   &&  \\
+% \multicolumn{1}{|l|}{}                        & $M_{ppt}$          & 29,533     &&   \\
+% \multicolumn{1}{|l|}{}                        & $M_{dep}$          & 4,755       &&  \\ \midrule
+% \multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} 
+%                                               & $M_{water}$        & 196,011    &&   \\
+% \multicolumn{1}{|l|}{}                        & $M_{ice}$          & 182        &&\\
+% \multicolumn{1}{|l|}{}                        & $M_{sub}$          & 4,747        && \\
+% \multicolumn{1}{|l|}{}                        & $M_{runoff}$       & 821,267       &&\\ \bottomrule
+% \end{tabular}
+% \end{table}
+
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
 \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
     net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
@@ -719,6 +753,23 @@ provided with.
 % \end{itemize}
 
 \section{Conclusions} 
+In this paper, we have developed a model to assess AIR evolution using a dataset of field measurements in India and
+Switzerland. Use of this dataset in combination with novel algorithms for calculation of the surface area and energy
+fluxes allowed a very accurate representation of the complex growth dynamics typical of AIR. The model was calibrated by
+comparison with the ice volume observations logged via drone flights. We calculated the storage efficiency for each of
+the three AIR and used calculations of the energy fluxes to explain the observed variability in freezing rates. We also
+looked at the model sensitivity to model parameters. Our main conclusions are summarised below.
+
+Observed freezing rates between the Swiss and the Indian AIR exhibited large variability.
+
+The model includes a new, accurate representation of the fountain energy flux. In this form, it was able to reproduce the
+ice volume observations well in all the three sites. 
+
+Modelled ice volumes in all the sites are slightly higher than the observations. While solar radiation is markedly lower
+due to the shape factor.
+
+The influence of the fountain was quantified. 
+
 \begin{figure} 
     \begin{center} 
     \includegraphics[width=\linewidth]{Figures/icev_results.jpg} 
@@ -727,10 +778,6 @@ provided with.
   measurements. The prediction interval is based on the ice volume uncertainty caused by all the surface parameters.  } 
 \label{fig:results} 
 \end{figure}
-We outlined a methodology for estimating ice, liquid water, water vapour and runoff quantities produced during the
-construction of an AIR using measurements of fountain spray rate, air temperature, radiation, humidity, pressure,
-wind and cloudiness at four different study sites. The comparison with all the validation measurements at two different
-dates during the experiment led to satisfying results as shown in Table \ref{tab:results}.
 
 The model results support the hypothesis that there could be considerable water loss during the formation of AIR
 particularly due to excessive fountain spray. Further experiments at different locations with different fountains are
