@@ -36,7 +36,8 @@ $^{6}$ETH, Zürich, Switzerland}
 \onecolumn
 \firstpage{1}
 
-\title[Artificial Ice Reservoirs]{Environmental influences on water storage efficiency of artificial ice reservoirs (Icestupas)}
+\title[Artificial Ice Reservoirs]{Estimating water storage efficiency of artificial ice reservoirs (Icestupas) in the Swiss Alps and Indian Himalayas}
+% \title[Artificial Ice Reservoirs]{Environmental influences on water storage efficiency of artificial ice reservoirs (Icestupas)}
 % \title[Modelling Artificial Ice Reservoirs]{Modelling artificial ice reservoirs (Icestupas) through an energy balance approach}
 % \title[Artificial Ice Reservoirs]{Mass and energy balance calculations for artificial ice reservoirs (Icestupas)}
 % \title[Artificial Ice Reservoirs]{Water storage potential of artificial ice reservoirs (Icestupas) in different climate regimes}
@@ -62,9 +63,9 @@ Icestupa.  Processes involved in the development and temporal evolution of an Ic
 physically-based model using equations governing the heat transfer, vapour diffusion and transport of water that
 undergoes phase changes.  These processes were quantified using meteorological data in conjunction with fountain spray
 information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for three
-sites in Switzerland and one in India. At these measurement sites, AIR were built for model calibration and validation purposes. Model
-estimates had a normalised root mean square error of 5 \% and a correlation of 0.9. Water storage efficiency of the AIR
-varied widely not just between different locations but also between different winters.
+sites in Switzerland and one in India. At these measurement sites, AIR were built for model calibration and validation
+purposes. Model estimates had a normalised root mean square error of 5 \% and a correlation of 0.9. Water storage
+efficiency of the AIR varied widely not just between different locations but also between different winters.
 
 \tiny
  \keyFont{ \section{Keywords:} icestupa, mass balance, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -219,7 +220,7 @@ $d_{mean}$ {[}$l/min${]}  & 60 & 7.5 & 7.5  \\ \bottomrule
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
 of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution , b) energy
-balance, c) surface temperature and d) mass balance. 
+balance, c) surface temperature d) mass balance and e)parameter sensitivity. 
 
   \begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
 schematic showing the algorithm used in the model at every time step. Further details about the variables can be
@@ -558,86 +559,79 @@ M_{F}\\ 0 & \textit{ otherwise }\\ \end{array} \right. \\
 
 \begin{equation} \textit{SE}^i = \frac{M_{water}^i+M_{ice}^i}{(M_F^i+M_{ppt}^i+M_{dep}^i)} \cdot 100 \end{equation}
 
+\subsection{Parameter sensitivity analysis}
+Model parameters that were not measured but can be constrained within a range of plausible values were calibrated using
+the ice volume measurements of each AIR. The RMSE of the model output against the ice volume measurements were
+determined for each parameter combination and the combination with the best fit was used to calculate the mass and
+energy balance fluxes at each AIR. 
 
-\subsection{Sensitivity and Uncertainty analysis}
-Model parameters that were not measured but can be constrained within a range of plausible values were optimized using a
-polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}). Polynomial chaos expansion are a
-much more efficient way to obtain similar results compared to the computationally demanding Monte Carlo methods. This
-approach approximates the model with a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis
-can be performed. The parameters optimized in this way are listed in the surface parameter section of Table
-\ref{tab:parameters}. The RMSE of the model output against the ice volume measurements were determined for each
-parameter combination and the combination with the bast fit was used to calculate the mass and energy balance fluxes at
-each AIR.
+In total, 10000 model runs were performed consisting of combinations of the parameters that were varied with a range
+derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. The initial value for ice
+albedo was chosen as 0.15 and the possible range limited to 0.01-0.35, corresponding to the measured value of ice cliffs
+from \cite{steiner_2015}. Emissivity value was set to 0.97 for ice and ranged from 0.95-0.99 (\cite{steiner_2015}). Snow
+albedo and albedo decay rate was set to 0.85 (\cite{CuffeyPaterson_2010}) and 10 days (\cite{Schmidt_2017}) respectively
+with an uncertainty assumed to be $\pm \,5 \%$. Temperature threshold for precipitation was set to $1 \degree C$
+(\cite{FujitaAgeta_2000}) and varied $\pm$ $1\,\degree C$ (\cite{Zhou_2010}).  Surface roughness was initially set to 1
+mm (\cite{pellicciotti_2005}) and varied between 1 and 5 mm (\cite{BrockWillisSharp_2006}). 
 
-The initial value for ice albedo was chosen as 0.15 and the possible range limited to 0.01-0.35, corresponding to the
-measured value of ice cliffs from \cite{steiner_2015}. Emissivity value was set to 0.97 for ice and ranged from
-0.95-0.99 (\cite{steiner_2015}). Snow albedo and albedo decay rate was set to 0.85 (\cite{CuffeyPaterson_2010}) and 10
-days (\cite{Schmidt_2017}) respectively with an uncertainty assumed to be $\pm \,5 \%$. Temperature threshold for
-precipitation was set to $1 \degree C$ (\cite{FujitaAgeta_2000}) and varied $\pm$ $1\,\degree C$ (\cite{Zhou_2010}).
-Surface roughness was initially set to 1 mm (\cite{pellicciotti_2005}) and varied between 1 and 5 mm
-(\cite{BrockWillisSharp_2006}). 
 
 \begin{table}[]
 \centering
 \caption{Optimal parameters obtained with the Polynomial Chaos Expansion analysis.}
-\label{tab:parameter}
+\label{tab:parameters}
 \begin{tabular}{@{}llllll@{}}
 \toprule
-\textbf{Surface parameters} & \textbf{Range (Step)} & \textbf{Initial} & \textbf{CH21} & \textbf{IN21} & \textbf{CH20} \\\midrule
-Ice Emissivity ($\epsilon_{ice}$) & 0.95-0.99 (0.01)                    & 0.97        & 0.95  &  &  \\
-Ice Albedo ($\alpha_{ice}$)       & 0.01-0.35 (0.05)                      & 0.15        & 0.24  &  &  \\
-Snow Albedo ($\alpha_{snow})$     &  $\pm$ 5 \% (0.05)                    & 0.85        & 0.87  &  &  \\
-Precipitation Temperature threshold ($T_{ppt}$) & $0-3\,\degree C$ (1) & $1\degree C$& $1\degree C$ &  &  \\
-Albedo Decay Rate ($\tau$)        & $\pm$ 5 \% (0.5)                     & 10 days     & 10 days &  &  \\
-Surface Roughness ($z_0$)         & $1-5\, mm$ (1)                     & $1\,mm$     & $1\,mm$ &  &  \\ 
-Surface layer thickness ($\Delta x$)&$\pm$ 5 \% (0.5)                    & $20\,mm$    & $20\,mm$ &  &  \\\midrule 
-\textbf{Fountain parameters} & &  & & &  \\\midrule
-     Water temperature ($T_{water}$)   & $0-5\,\degree C$ (1)               & $1\degree C$&$1\degree C$  &  &  \\ 
-     Spray Radius ($r_{spray}$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
-     Mean discharge ($d_{mean}$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
-
-     RMSE             &             &         &$8.5\, m^3$  &  &  \\ \bottomrule
+\textbf{Calibrated parameters} & \textbf{(Range, Step)} & \textbf{Initial} & \textbf{CH21} & \textbf{IN21} & \textbf{CH20} \\\midrule
+Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)                    & 0.97        & 0.95  &  &  \\
+Ice Albedo ($\alpha_{ice}$)                     & (0.01-0.35, 0.05)                    & 0.15        & 0.24  &  &  \\
+Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)                    & 0.85        & 0.87  &  &  \\
+Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$ & $1\degree C$& $1\degree C$ &  &  \\
+Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$                     & 10 days     & 10 days &  &  \\
+Surface Roughness ($z_0$)                       & (1-5, 1) $mm$                     & $1\,mm$     & $1\,mm$ &  &  \\ 
+Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$                    & $20\,mm$    & $20\,mm$ &  &  \\
+Water temperature ($T_{water}$)                 & (0-5, 1) $\,\degree C$              & $1\degree C$&$1\degree C$  &  &  \\\midrule  
+RMSE                                            &             &         &$8.5\, m^3$  &  &  \\ \bottomrule
+% \textbf{Fountain parameters} & &  & & &  \\\midrule
+%      Spray Radius ($r_{spray}$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
+%      Mean discharge ($d_{mean}$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
 \end{tabular}
 \end{table}
 
-\section{Model Results} 
-The storage efficiency of CH21, IN21 and CH20 AIR were $20\%$, $20\%$ and $20\%$ respectively. The low SE is a product
-of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 80 \%$ ) in all the AIR. This indicates that just
-decreasing the mean fountain discharge could have significantly increased water storage efficiency. As Fig.
-\ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6
-$l/min$ respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were
-provided with.
+Sensitivity analysis was conducted using the calibration runs, which reflect a global sensitivity of the model to the
+parameters used in the optimization, since all parameters are changed at the same time.  The 100 best runs resulting in
+the lowest RMSE were selected and the parameters from these runs plotted for each AIR, to evaluate their spread.
+Parameters with a large spread are those that the model is not sensitive to, as any of those valus lead to a high model
+performance. On the contrary, parameters with a small spread(indicated by the confidence interval) are those the model
+is sensitive to. 
 
-\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/freeze_rate.jpg} \end{center}
-\caption{ Distribution of freezing rate for all the AIR } \label{fig:freeze_rate} \end{figure}
+% To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
+% \cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
+% similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
+% a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis can be performed. All the parameters
+% of Table \ref{tab:parameters} were assumed to have a uniform distribution over their ranges to produce the confidence
+% interval of the ice volume estimation.
 
-% The model results for all the three AIR are presented in a two step manner. In the first step, we analyse the results of
-% the CH21 AIR to understand the environmental influences involved in its evolution. Then in a second step, we compare it
-% with the rest of the two AIR.
+\section{Results} 
+\subsection{Parameter calibration}
 
-% \subsection{CH21 AIR} 
-% The model was forced with meteorological data from $22^{nd}$ November to $10^{th}$ May 2021 (Fig.  \ref{fig:input}) and
-% various parameters (see Table \ref{tab:parameters}) to calculate the mass and energy balance of the CH21 AIR.
-
-\subsubsection{Mass and energy balance calculation}
-
+\subsection{Energy and Mass fluxes}
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
 \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
     net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
     sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
     quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:EB} \end{figure}
 
-\begin{figure} 
-    \centering
-    \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
-\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
-    (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
-    decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
-    fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
-    curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
-    dark blue curve.} 
-\label{fig:derived} 
-\end{figure}
+% \begin{figure} 
+%     \centering
+%     \includegraphics[width=15 cm]{Figures/albedo_temperature.jpg} 
+% \caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface and bulk temperature (b). In
+%     (a), the green curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
+%     decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
+%     fraction varied diurnally with variations in the solar elevation angle. In (b), the surface temperature (light blue
+%     curve) was forced to be 0 $\degree C$ during fountain activity. The corresponding bulk temperature is shown with the
+%     dark blue curve.} 
+% \label{fig:derived} 
+% \end{figure}
   
 
 Daily averages of all the components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
@@ -673,78 +667,11 @@ Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy ex
 the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour deposition and
 sublimation due to $q_L$. 
 
-% \begin{table}
-% \centering
-% \caption{Summary of mass balance components for the CH21 AIR at the end of the model run on $10^{th}$ May 2021.}
-% \label{tab:MB}
-% \begin{tabular}{@{}|ll|l|@{}}
-% \toprule
-% \textbf{}                                     & \textbf{Component} & \textbf{CH21} \\ \midrule
-% \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  & $M_F$              & 987,918     \\
-% \multicolumn{1}{|l|}{}                        & $M_{ppt}$          & 29,533        \\
-% \multicolumn{1}{|l|}{}                        & $M_{dep}$          & 4,755         \\ \midrule
-% \multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} & $M_{water}$        & 196,011       \\
-% \multicolumn{1}{|l|}{}                        & $M_{ice}$          & 182        \\
-% \multicolumn{1}{|l|}{}                        & $M_{sub}$          & 4,747         \\
-% \multicolumn{1}{|l|}{}                        & $M_{runoff}$       & 821,267       \\ \bottomrule
-% \end{tabular}
-% \end{table}
-
 The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
 deposition (0.5 \%) as shown in Table \ref{tab:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
 $kg$, with a resultant storage efficiency of 19 \%.
 
-\begin{figure} 
-    \begin{center} 
-    \includegraphics[width=\linewidth]{Figures/icev_results.jpg} 
-\end{center}
-  \caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
-  measurements. The prediction interval is based on the ice volume uncertainty caused by all the surface parameters.  } 
-\label{fig:results} 
-\end{figure}
-
-
-\section{Model Sensitivity and Uncertainty analysis}
-
-The icestupa model can be regarded as a function $f(x_1,x_2 \dots, x_n) = (y_1,y_2 \dots, y_m)$, where $(x_1,x_2
-\dots, x_n)$ are the model parameters and $(y_1,y_2 \dots, y_m)$ are the model outputs. The influence of each
-parameter on the output variables of interest were quantified and the most important physical parameters for the
-subsequent uncertainty analysis were determined. The sensitivity of a parameter $x_j$ is determined by keeping all
-other parameters $x_i, i \neq j$ fixed at their baseline value and varying $x_j$ within values that are physically
-plausible.
-
-A sensitivity study on the parameters (listed in Table \ref{tab:parameters}) was performed with the maximum ice
-volume as the target variable. All the parameters were assumed to be independent of each other with a uniform
-distribution.  This assumption ignores the auto-correlation present among the parameters associated with the albedo
-parameterisation.  The range of uncertain parameters were set based on available literature values or varied $\pm$ 5\%
-from the base value if no such reference was available. The uncertainty of all the site parameters were caused due to
-parallax errors during manual measurement. This was quantified with a range of $\pm$ 1\% from the base value. However,
-it must be kept in mind that, even though intended to be as objective as possible, the selection of a parameter range
-has a subjective part that influences the results and conclusions obtained in this analysis.  The variation of the
-model outputs $y_k$ is evaluated to quantify the local sensitivities $s_{j,k}$ that are defined here as the 95\% range
-of the simulated outputs.
-
-To perform the uncertainty analysis, we included only parameters that influence the maximum ice volume by at least
-$0.1 m^3$. All other parameters were fixed at their baseline value.  Fig. \ref{fig:sensitivity} shows all the variance
-produced by these uncertain parameters in maximum ice volume calculation. 
-
-% It shows that $\epsilon_{ice}$ and $T_{ppt}$
-% are the only parameters with a maximal sensitivity of more than 0.1 $m^3$ for the maximum ice volume estimate.
-% Consequently, all other parameters were excluded from the subsequent uncertainty analysis. 
-% 
-% The temperature threshold below which precipitation falls as snow ($T_{ppt}$) was found to be the most sensitive
-% parameter. It is used in the model to reset the albedo to snow albedo and determine snow precipitation events. The
-% lower $T_{ppt}$ parameter the higher the albedo (as the Icestupa surface has a lower albedo when ice-covered than when
-% snow-covered) . The variation of $T_{ppt}$ by $\pm$ $1\,\degree C$ caused maximum ice volume variation of $0.84 \pm
-% 0.2 m^3$. 
-% 
-% Ice emissivity was also found to be a sensitive parameter. The higher the ice emissivity the larger the maximum ice
-% volume as the emitted longwave radiation increases with ice emissivity. Variation of $\epsilon_{ice}$ by 5\% caused a
-% maximum ice volume range from $0.98 \pm 0.1 m^3$. 
-% 
-
-In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 662 simulations.
-
+\subsection{Sensitivity Analysis}
 \begin{figure} 
     \begin{center} 
     \includegraphics[width=10 cm]{Figures/sensitivities.jpg} 
@@ -753,8 +680,19 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 \ref{tab:parameters}). } 
 \label{fig:sensitivity} 
 \end{figure}
- 
-% \section{Discussion}
+
+\section{Discussion} 
+\subsection{Storage efficiency}
+The storage efficiency of CH21, IN21 and CH20 AIR were $20\%$, $20\%$ and $20\%$ respectively. The low SE is a product
+of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 80 \%$ ) in all the AIR. This indicates that just
+decreasing the mean fountain discharge could have significantly increased water storage efficiency. As Fig.
+\ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6
+$l/min$ respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were
+provided with.
+
+\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/freeze_rate.jpg} \end{center}
+\caption{ Distribution of freezing rate for all the AIR } \label{fig:freeze_rate} \end{figure}
+
 % \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
 % above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
 % Some assumptions and their potential to cause errors are discussed below.
@@ -781,6 +719,14 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 % \end{itemize}
 
 \section{Conclusions} 
+\begin{figure} 
+    \begin{center} 
+    \includegraphics[width=\linewidth]{Figures/icev_results.jpg} 
+\end{center}
+  \caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
+  measurements. The prediction interval is based on the ice volume uncertainty caused by all the surface parameters.  } 
+\label{fig:results} 
+\end{figure}
 We outlined a methodology for estimating ice, liquid water, water vapour and runoff quantities produced during the
 construction of an AIR using measurements of fountain spray rate, air temperature, radiation, humidity, pressure,
 wind and cloudiness at four different study sites. The comparison with all the validation measurements at two different
@@ -790,18 +736,18 @@ The model results support the hypothesis that there could be considerable water 
 particularly due to excessive fountain spray. Further experiments at different locations with different fountains are
 required to better understand the influence of construction decisions on the results. 
 
-\begin{table}
-\centering
-\caption{AIR Results}
-\label{tab:results}
-\begin{tabular}{@{}|l|l|l|l|l|@{}}
-\toprule
-\textbf{AIR}   & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
-Max Ice Volume [$m^3$] & 703             & 156             & 107             \\ \midrule
-Storage Efficiency [$\%$] & 18             & 19             & 14             \\ \midrule
-Validation RMSE [$m^3$] & 59             & 13             & 25               \\ \bottomrule
-\end{tabular}
-\end{table}
+% \begin{table}
+% \centering
+% \caption{AIR Results}
+% \label{tab:results}
+% \begin{tabular}{@{}|l|l|l|l|l|@{}}
+% \toprule
+% \textbf{AIR}   & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
+% Max Ice Volume [$m^3$] & 703             & 156             & 107             \\ \midrule
+% Storage Efficiency [$\%$] & 18             & 19             & 14             \\ \midrule
+% Validation RMSE [$m^3$] & 59             & 13             & 25               \\ \bottomrule
+% \end{tabular}
+% \end{table}
 
 
 % \section{Appendix}
