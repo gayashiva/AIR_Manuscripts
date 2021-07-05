@@ -121,10 +121,8 @@ To accurately calibrate, estimate and validate the ice volume of AIR the model r
 containing weather, fountain and ice volume measurements. So through the winters of 2019, 2020 and 2021
 several scientific AIR were constructed by teams in Switzerland and India. Here we present the results of three
 scientific AIR which have a relatively complete dataset associated with them. As shown in Table \ref{tab:3AIR}, two
-among them were construction in the same swiss location but during different winters and the other was constructed in
+among them were constructed in the same swiss location but during different winters and the other was constructed in
 India.    
-
-\subsection{Measurement sites}
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean
 daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7
@@ -150,7 +148,7 @@ The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km no
 lies at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
 winter since 2018.
 
-\subsection{Weather measurements} 
+\subsection{Meteorological data} 
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
 to calculate the surface energy balance of an AIR. 
 
@@ -178,25 +176,25 @@ and errors were filled from the ERA5 dataset (shaded regions).}
     \label{fig:input} 
 \end{figure}
 
-\subsection{Ice volume measurements}
+\subsection{Ice volume observations}
 Several Drone flights were conducted in the swiss and indian sites. The DEM generated through these flights were
 analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome volume
 ($V_{dome}$) for model initialisation. The ice volume data was later used for calibration and validation of the model. 
 
-\subsection{Fountain measurements} 
-We define the fountain used in AIR construction through two attributes namely its spray radius $r_{spray}$ and discharge
+\subsection{Fountain observations} 
+We define the fountain used in AIR construction through two attributes namely its spray radius $r_F$ and discharge
 rate. The water flow rate or discharge was measured via an ultrasonic sensor attached to the fountain supply pipeline.
 However, due to various malfunctions, the discharge measurements were very sparse and could not be extrapolated for the
 complete measurement period for both the swiss and indian sites. Instead the discharge duration was first determined and
-then the available discharge measurement was used to determine the average discharge quantity $d_{mean}$ during these
-periods as shown in the Appendix. The spray radius $r_{spray}$ was estimated from the mean AIR circumference measured in
+then the available discharge measurement was used to determine the average discharge quantity $d_F$ during these
+periods as shown in the Appendix. The spray radius $r_F$ was estimated from the mean AIR circumference measured in
 the drone flights during the fountain duration.  
 
 For the swiss site, the fountain was never switched off so the discharge duration was extrapolated from just one fountain
 on and off event each.  
 
 For the IN site, even though the fountain was never manually switched off, there were many pipeline freezing events that
-interrupted the discharge duration. So discharge rate was extrapolated to be the mean discharge $d_{mean}$ except during
+interrupted the discharge duration. So discharge rate was extrapolated to be the mean discharge $d_F$ except during
 these pipeline freezing events.
 
 \section{Model setup}
@@ -229,12 +227,12 @@ With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). 
 
 
-The influence of the AIR fountain is parameterised by the fountain water temperature $T_{w}$ and its spray radius $r_{spray}$.
-The initial radius $r_0$ of the AIR is assumed to be $r_{spray}$. The initial height $h_0$ depends on the dome volume
+The influence of the AIR fountain is parameterised by the fountain water temperature $T_{w}$ and its spray radius $r_F$.
+The initial radius $r_0$ of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume
 $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation} 
-    h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_{spray}^2 } 
+    h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_F^2 } 
 \label{eqn:h0}
   \end{equation}
 
@@ -250,7 +248,7 @@ However, the Icestupa cannot outgrow the maximum range of the water droplets ($(
 equations \ref{eqn:V},  \ref{eqn:V1}, \ref{eqn:h0} and \ref{eqn:V2}, the geometric evolution of the Icestupa at each time step $i$ can
 be determined by considering the following rules:
 
-\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_{spray} ,\, h_0) & \textit{ if } i=0\\
+\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, h_0) & \textit{ if } i=0\\
     (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
     r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0 \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
 otherwise \end{array} \right.  \label{eqn:A2} \end{equation}
@@ -259,7 +257,7 @@ where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
     \begin{figure} \begin{center} \includegraphics[width=10
 cm]{Figures/Figure_5.jpg} \end{center} \caption{Shape variables and fountain constants of the AIR. $r_{ice}$ is
-the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_{spray}$ is the spray radius, $h_F$ is the
+the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
 height and $dia_F$ is the nozzle diameter of the fountain.} \label{fig:shape} \end{figure}
 
 \subsection{Energy Balance} \label{section:EB}
@@ -506,7 +504,7 @@ only to sublimation (deposition), i.e. no evaporation (condensation) is calculat
 Since we have categorized every time step as a freezing and melting event, we can determine the meltwater and  ice
 generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mice}. Having
 calculated all the other mass components the fountain wastewater generated every time step can be calculated using
-equation \ref{eq:mftn}.
+equation \ref{eq:MB}.
 
 \begin{subequations}
 \label{equations}
@@ -522,11 +520,12 @@ equation \ref{eq:mftn}.
             \frac{\Delta M_{water}}{\Delta t} &= \frac{q_{melt} \cdot A }{L_f}\\
     \label{eq:mice} 
     \frac{\Delta M_{ice}}{\Delta t} &= \frac{q_{freeze}\cdot A }{L_f} + \frac{\Delta M_{ppt}}{\Delta t} + \frac{\Delta
-    M_{dep}}{\Delta t}- \frac{\Delta M_{sub}}{\Delta t}- \frac{\Delta M_{melt}}{\Delta t} \\
-    \label{eq:mftn} 
-        \frac{\Delta M_{runoff}}{\Delta t} &= \frac{\Delta M_{F} - \Delta M_{ice}}{\Delta t}
+    M_{dep}}{\Delta t}- \frac{\Delta M_{sub}}{\Delta t}- \frac{\Delta M_{melt}}{\Delta t}
 \end{align}
 \end{subequations}
+
+We define the first term in Eqn. \ref{eq:mice} as the effective fountain discharge rate $d_{eff}$ since it represents
+the quantity of fountain water frozen.
 
 To estimate the mass of any component at time step $i$, one can now sum the mass flux estimated above:
 \begin{equation} M_{comp}^i = \sum_{t=0}^{t=i} (\frac{\Delta M_{comp}}{\Delta t})_{t} + M_{comp}^0 \end{equation}
@@ -572,11 +571,12 @@ Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$ & $1\de
 Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$                     & 10 days     & 10 days &  &  \\
 Surface Roughness ($z_0$)                       & (1-5, 1) $mm$                     & $1\,mm$     & $1\,mm$ &  &  \\ 
 Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$                    & $20\,mm$    & $20\,mm$ &  &  \\
-Water temperature ($T_{water}$)                 & (0-5, 1) $\,\degree C$              & $1\degree C$&$1\degree C$  &  &  \\\midrule  
-RMSE                                            &             &         &$8.5\, m^3$  &  &  \\ \bottomrule
+Water temperature ($T_{water}$)                 & (0-5, 1) $\,\degree C$              & $1\degree C$&$1\degree C$  &  &
+\\\bottomrule
+% RMSE                                            &             &         &$8.5\, m^3$  &  &  \\ \bottomrule
 % \textbf{Fountain parameters} & &  & & &  \\\midrule
-%      Spray Radius ($r_{spray}$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
-%      Mean discharge ($d_{mean}$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
+%      Spray Radius ($r_F$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
+%      Mean discharge ($d_F$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
 \end{tabular}
 \end{table}
 
@@ -611,9 +611,9 @@ is sensitive to.
                        & Altitude  && 4025 $m$ a.s.l.& 1047 $m$ a.s.l.& 1047 $m$ a.s.l.\\ 
 \multicolumn{1}{|l|}{} & Fountain Duration && 829 $hours$        & 2155 $hours$          & 1553 $hours$ \\ 
 \multicolumn{1}{|l|}{} & Drone Flights               && 6 $times$   & 9 $times$   & 3 $times$     \\
-\multicolumn{1}{|l|}{} & Spray radius                & $r_{spray}$     & 10.8 $m$& 6.9 $m$ & 7.7 $m$  \\
+\multicolumn{1}{|l|}{} & Spray radius                & $r_{F}$     & 10.8 $m$& 6.9 $m$ & 7.7 $m$  \\
 \multicolumn{1}{|l|}{} & Dome volume                  & $V_{dome}$  & 78.5 $m^{3}$& 13.2 $m^{3}$& 23.9 $m^{3}$ \\
-\multicolumn{1}{|l|}{} & Mean discharge               & $d_{mean}$  & 60 $l/min$& 7.5 $l/min$& 7.5 $l/min$ \\ \midrule
+\multicolumn{1}{|l|}{} & Mean discharge               & $d_{F}$  & 60 $l/min$& 7.5 $l/min$& 7.5 $l/min$ \\ \midrule
 \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  
                        & Fountain discharge & $M_F$     & 2911 $tons$  & 971 $tons$ & 700 $tons$  \\
 \multicolumn{1}{|l|}{} & Snowfall           & $M_{ppt}$ &    0 $tons$  &  56 $tons$ &  22 $tons$  \\
@@ -624,30 +624,12 @@ is sensitive to.
 \multicolumn{1}{|l|}{} & Sublimation     & $M_{sub}$           &   48 $tons$   &   5 $tons$ &   5 $tons$ \\
 \multicolumn{1}{|l|}{} & Fountain runoff & $M_{runoff}$        & 2483 $tons$   & 796 $tons$ & 570 $tons$ \\ \midrule
 \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Results}}}  
-                       & Storage Efficiency & SE              & 15 \%  & 22 \% & 20 \%  \\
-\multicolumn{1}{|l|}{} & Root mean squared error & RMSE       &  8 $m^{3}$   &&   \\
-\multicolumn{1}{|l|}{} & Mean freezing rate      &           & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
+                       & Storage Efficiency & SE              & 15 \%        & 22 \%      & 20 \%        \\
+\multicolumn{1}{|l|}{} & Root mean squared error & RMSE       & 84 $m^{3}$   & 10 $m^{3}$ & 21 $m^{3}$   \\
+\multicolumn{1}{|l|}{} & Mean effective fountain discharge rate      & ($d_{eff}$)_{mean}          & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
 \end{tabular}
 \end{table}
 
-% \begin{table}
-% \centering
-% \caption{Summary of mass balance components for the CH21 AIR at the end of the model run on $10^{th}$ May 2021.}
-% \label{tab:MB}
-% \begin{tabular}{@{}|ll|lll|@{}}
-% \toprule
-% \textbf{}                                     & \textbf{Component} & \textbf{CH21} &&\\ \midrule
-% \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  
-%                                               & $M_F$              & 987,918   &&  \\
-% \multicolumn{1}{|l|}{}                        & $M_{ppt}$          & 29,533     &&   \\
-% \multicolumn{1}{|l|}{}                        & $M_{dep}$          & 4,755       &&  \\ \midrule
-% \multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}} 
-%                                               & $M_{water}$        & 196,011    &&   \\
-% \multicolumn{1}{|l|}{}                        & $M_{ice}$          & 182        &&\\
-% \multicolumn{1}{|l|}{}                        & $M_{sub}$          & 4,747        && \\
-% \multicolumn{1}{|l|}{}                        & $M_{runoff}$       & 821,267       &&\\ \bottomrule
-% \end{tabular}
-% \end{table}
 
 \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
 \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
@@ -723,9 +705,6 @@ decreasing the mean fountain discharge could have significantly increased water 
 \ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6
 $l/min$ respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were
 provided with.
-
-\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/freeze_rate.jpg} \end{center}
-\caption{ Distribution of freezing rate for all the AIR } \label{fig:freeze_rate} \end{figure}
 
 % \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
 % above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
