@@ -556,6 +556,28 @@ with an uncertainty assumed to be $\pm \,5 \%$. Temperature threshold for precip
 (\cite{FujitaAgeta_2000}) and varied $\pm$ $1\,\degree C$ (\cite{Zhou_2010}).  Surface roughness was initially set to 1
 mm (\cite{pellicciotti_2005}) and varied between 1 and 5 mm (\cite{BrockWillisSharp_2006}). 
 
+Sensitivity analysis was conducted using the calibration runs, which reflect a global sensitivity of the model to the
+parameters used in the optimization, since all parameters are changed at the same time.  The 100 best runs resulting in
+the lowest RMSE were selected and the parameters from these runs plotted for each AIR, to evaluate their spread.
+Parameters with a large spread are those that the model is not sensitive to, as any of those valus lead to a high model
+performance. On the contrary, parameters with a small spread(indicated by the confidence interval) are those the model
+is sensitive to. 
+
+% To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
+% \cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
+% similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
+% a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis can be performed. All the parameters
+% of Table \ref{tab:parameters} were assumed to have a uniform distribution over their ranges to produce the confidence
+% interval of the ice volume estimation.
+
+\section{Results} 
+\subsection{Parameter calibration}
+Table \ref{tab:parameters} shows the optimized parameters at all AIR. The results point to considerably higher albedo
+values for indian compared to swiss sites. This corresponds to visual observations, since swiss AIR 
+
+Ice volume calculate with the initial and optimized parameters is shown in Fig. for all AIR. In CH21, the optimized
+model parameters can reproduce ice volume observations accurately. The initial parameter sets overestimate ice volume at
+CH21 but underestimate it on IN21 most likely because of different albedo values.
 
 \begin{table}[]
 \centering
@@ -573,36 +595,50 @@ Surface Roughness ($z_0$)                       & (1-5, 1) $mm$                 
 Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$                    & $20\,mm$    & $20\,mm$ &  &  \\
 Water temperature ($T_{water}$)                 & (0-5, 1) $\,\degree C$              & $1\degree C$&$1\degree C$  &  &
 \\\bottomrule
-% RMSE                                            &             &         &$8.5\, m^3$  &  &  \\ \bottomrule
 % \textbf{Fountain parameters} & &  & & &  \\\midrule
 %      Spray Radius ($r_F$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
 %      Mean discharge ($d_F$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
 \end{tabular}
 \end{table}
 
-Sensitivity analysis was conducted using the calibration runs, which reflect a global sensitivity of the model to the
-parameters used in the optimization, since all parameters are changed at the same time.  The 100 best runs resulting in
-the lowest RMSE were selected and the parameters from these runs plotted for each AIR, to evaluate their spread.
-Parameters with a large spread are those that the model is not sensitive to, as any of those valus lead to a high model
-performance. On the contrary, parameters with a small spread(indicated by the confidence interval) are those the model
-is sensitive to. 
+\subsection{Mass and Energy fluxes of the AIR}
 
-% To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
-% \cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
-% similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
-% a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis can be performed. All the parameters
-% of Table \ref{tab:parameters} were assumed to have a uniform distribution over their ranges to produce the confidence
-% interval of the ice volume estimation.
+Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with optimal parameters at the
+Indian and Swiss AIR of winter 2021 restricted to the first 100 days of their evolution. A strong variability is evident
+between the different days in each AIR and between the Swiss and the Indian AIR.
 
-\section{Results} 
-\subsection{Parameter calibration}
+The contribution of the fountain discharge in the daily ice formation dwarfs the ice contribution from the deposition
+and sublimation processes for both the AIR. This is a striking result and the first quantification of the role played by
+the fountain in the energy balance. So the surface temperature changes resulting from the presence of fountain water
+drive the negative energy flux as can be seen via the contribution of $q_F$ in the total negative energy flux. More
+importantly, this fountain contribution varies significantly in magnitude between the two AIR, since the higher surface
+area (which is a function of the fountain spray radius) of the Indian AIR compounds this influence.
 
-\subsection{Energy and Mass fluxes}
+Incoming shortwave radiation is a major source of melting energy for both the AIR. Its variability is controlled by the
+surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in the energy balance.
+Only one third and one fourth of the global radiation flux heated the AIR surface primarily because only 40 \% and 50 \%
+of the surface area was exposed to it as represented by the $f_{cone}$ factor.  
 
-\begin{table}[h]
+Turbulent fluxes vary significantly in magnitude and distribution between the two locations. Sensible (Latent) heat
+drive the melting (freezing) of the Indian AIR compared to the Swiss AIR especially after the fountain is switched off.
+This is primarily because of the high wind speeds. Particularly, the daily melt rate of the Indian AIR is slowed down as
+the higher sensible heat is balanced by the latent heat. This occurs due to the sublimation process favoured by the high
+vapour fluxes generated between the melting AIR surface and the dry air surrounding it. 
+
+% However it varies both in magnitude and distribution between the different locations, since the indian AIR is much
+% higher in altitude and has mostly clear days (Ref.) resulting in much higher shortwave radiation with a negligible
+% diffuse component (Ref.).
+
+\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
+\caption{(a) Mass and (b) energy fluxes of the IN21 and CH21 AIR in daily time steps.  $q_{SW}$ is the
+    net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
+    sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
+    quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:MEB} \end{figure}
+
+\begin{table}
 \centering
-\caption{ Summary of the scientific AIR dataset }
-\label{tab:3AIR}
+\caption{ Summary of the observations, mass input and mass output of the AIR}
+\label{tab:Results}
 \begin{tabular}{@{}|llllll|@{}}
 \toprule
 \textbf{}              & \textbf{Name} & \textbf{Symbol}      & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
@@ -626,16 +662,16 @@ is sensitive to.
 \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Results}}}  
                        & Storage Efficiency & SE              & 15 \%        & 22 \%      & 20 \%        \\
 \multicolumn{1}{|l|}{} & Root mean squared error & RMSE       & 84 $m^{3}$   & 10 $m^{3}$ & 21 $m^{3}$   \\
-\multicolumn{1}{|l|}{} & Mean effective fountain discharge rate      & ($d_{eff}$)_{mean}          & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
+\multicolumn{1}{|l|}{} & Mean effective discharge rate      & $(d_{eff})_{mean}$          & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
 \end{tabular}
 \end{table}
 
 
-\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
-\caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
-    net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
-    sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
-    quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:EB} \end{figure}
+% \begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/Model_Output.jpg} \end{center}
+% \caption{(a) Energy and (b) mass flux components of the CH21 AIR in daily time steps.  $q_{SW}$ is the
+%     net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
+%     sensible heat fluxes. $q_{F}$ represents the interactions of the fountain water with the AIR surface layer.  $q_{G}$
+%     quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:EB} \end{figure}
 
 % \begin{figure} 
 %     \centering
@@ -650,42 +686,42 @@ is sensitive to.
 % \end{figure}
   
 
-Daily averages of all the components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
-experiment duration, the total energy balance was almost zero. Net shortwave radiation (35 $Wm^{-2}$), sensible (41
-$Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
-compensated by the net longwave radiation (- 47 $Wm^{-2}$), the fountain water heat flux (- 13 $Wm^{-2}$) and the
-freeze/melt energy (-19 $Wm^{-2}$). The contributions of other fluxes were negligible in comparison.
-
-Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
-controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
-the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 340
-$Wm^{-2}$, $q_{SW}$ only went up to 114 $Wm^{-2}$. This is caused by the fact that less than 40 \% of the direct solar
-radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived} (a).
-Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more frequent
-snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
-
-$q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
-structure. Daily values of $q_{LW}$ ranged from -101 to 19 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
-mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -3 to 410 $Wm^{-2}$.  Daily values of the
-turbulent latent heat flux $q_{L}$ ranged from -90 to 157 $Wm^{-2}$.  Since the mean of $q_{L}$ was positive, the
-Icestupa gained mass cumulatively from the atmosphere due to the deposition process.  Daily values of fountain water
-heat flux  ranged from -119 to 4 $Wm^{-2}$. $q_{F}$ was also a significant contributor to the freezing process like
-$q_{LW}$. So the influence of the fountain on the energy balance and the freezing events was significant. The
-contribution of heat flux by conduction $q_{G}$ was minimal as it only varied between -1 to 3 $Wm^{-2}$ with a
-mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was insignificant in comparison to
-the energy spent on freezing and melting ($q_{freeze/melt}$). The resulting bulk temperature and the surface temperature
-are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{freeze/melt}$  accounted
-for 30\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in absolute values.
-$q_{LW}$ accounted for 22\%, followed by $q_{S}$ (20\%), $q_{SW}$ (16\%), $q_{L}$ (5\%), $q_{F}$ (6\%), $q_{T}$ (1\%)
-and $q_{G}$ (0\%).
-
-Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
-the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour deposition and
-sublimation due to $q_L$. 
-
-The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
-deposition (0.5 \%) as shown in Table \ref{tab:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
-$kg$, with a resultant storage efficiency of 19 \%.
+% Daily averages of all the components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
+% experiment duration, the total energy balance was almost zero. Net shortwave radiation (35 $Wm^{-2}$), sensible (41
+% $Wm^{-2}$) and latent heat flux (2 $Wm^{-2}$) with a mostly positive flux towards the surface of the icestupa were
+% compensated by the net longwave radiation (- 47 $Wm^{-2}$), the fountain water heat flux (- 13 $Wm^{-2}$) and the
+% freeze/melt energy (-19 $Wm^{-2}$). The contributions of other fluxes were negligible in comparison.
+% 
+% Net shortwave radiation is the main input to, and the most varying energy flux on the ice surface. Its variability is
+% controlled by the surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in
+% the energy balance (Fig. \ref{fig:derived} (b)). Although global radiation flux reached a daily maximum value of 340
+% $Wm^{-2}$, $q_{SW}$ only went up to 114 $Wm^{-2}$. This is caused by the fact that less than 40 \% of the direct solar
+% radiation influenced the Icestupa surface as shown by the area fraction $f_{cone}$ in Fig. \ref{fig:derived} (a).
+% Snowfall is the atmospheric variable connected most closely and proportionally to albedo.  Higher and/or more frequent
+% snowfall thus decreases the energy available for melt due to the corresponding increase in $\alpha$. 
+% 
+% $q_{LW}$ was predominantly negative indicating that this energy balance component drove the freezing of the ice
+% structure. Daily values of $q_{LW}$ ranged from -101 to 19 $Wm^{-2}$.  Turbulent sensible heat flux $q_{S}$ contributed
+% mostly to the melt of the ice structure. Daily values of $q_{S}$ ranged from -3 to 410 $Wm^{-2}$.  Daily values of the
+% turbulent latent heat flux $q_{L}$ ranged from -90 to 157 $Wm^{-2}$.  Since the mean of $q_{L}$ was positive, the
+% Icestupa gained mass cumulatively from the atmosphere due to the deposition process.  Daily values of fountain water
+% heat flux  ranged from -119 to 4 $Wm^{-2}$. $q_{F}$ was also a significant contributor to the freezing process like
+% $q_{LW}$. So the influence of the fountain on the energy balance and the freezing events was significant. The
+% contribution of heat flux by conduction $q_{G}$ was minimal as it only varied between -1 to 3 $Wm^{-2}$ with a
+% mean of 0 $Wm^{-2}$. The energy contributing to surface temperature changes ($q_{T}$) was insignificant in comparison to
+% the energy spent on freezing and melting ($q_{freeze/melt}$). The resulting bulk temperature and the surface temperature
+% are shown in Fig. \ref{fig:derived} (b).  For the total considered period, $q_{freeze/melt}$  accounted
+% for 30\% of overall energy turnover. The energy turnover is calculated as the sum of energy fluxes in absolute values.
+% $q_{LW}$ accounted for 22\%, followed by $q_{S}$ (20\%), $q_{SW}$ (16\%), $q_{L}$ (5\%), $q_{F}$ (6\%), $q_{T}$ (1\%)
+% and $q_{G}$ (0\%).
+% 
+% Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
+% the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour deposition and
+% sublimation due to $q_L$. 
+% 
+% The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
+% deposition (0.5 \%) as shown in Table \ref{tab:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
+% $kg$, with a resultant storage efficiency of 19 \%.
 
 \subsection{Sensitivity Analysis}
 \begin{figure} 
