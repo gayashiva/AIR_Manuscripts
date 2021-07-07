@@ -524,7 +524,7 @@ equation \ref{eq:MB}.
 \end{align}
 \end{subequations}
 
-We define the first term in Eqn. \ref{eq:mice} as the effective fountain discharge rate $d_{eff}$ since it represents
+We define the first term in Eqn. \ref{eq:mice} as the fountain freezing rate $f_{ice}$ since it represents
 the quantity of fountain water frozen.
 
 To estimate the mass of any component at time step $i$, one can now sum the mass flux estimated above:
@@ -603,27 +603,33 @@ Water temperature ($T_{water}$)                 & (0-5, 1) $\,\degree C$        
 
 \subsection{Mass and Energy fluxes of the AIR}
 
-Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with optimal parameters at the
-Indian and Swiss AIR of winter 2021 restricted to the first 100 days of their evolution. A strong variability is evident
-between the different days in each AIR and between the Swiss and the Indian AIR.
+Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with optimal parameters for the
+first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and melting period
+respectively. A strong variability is evident between the freezing and melting periods, between the different years for
+the Swiss AIR and between the Swiss and the Indian AIR.
 
 The contribution of the fountain discharge in the daily ice formation dwarfs the ice contribution from the deposition
-and sublimation processes for both the AIR. This is a striking result and the first quantification of the role played by
+and sublimation processes for all the AIR. This is a striking result and the first quantification of the role played by
 the fountain in the energy balance. So the surface temperature changes resulting from the presence of fountain water
 drive the negative energy flux as can be seen via the contribution of $q_F$ in the total negative energy flux. More
-importantly, this fountain contribution varies significantly in magnitude between the two AIR, since the higher surface
-area (which is a function of the fountain spray radius) of the Indian AIR compounds this influence.
+importantly, this fountain contribution varies significantly in magnitude between the Swiss and the Indian AIR, since
+the higher surface area (which is a function of the fountain spray radius) of the Indian AIR compounds this influence.
+As can be seen in Table \ref{tab:Results}, the corresponding fountain freezing rate for the Indian AIR was more than 5
+times more than the Swiss AIR.  This higher fountain freezing rate resulted in ice volumes 4 times higher for the Indian
+compared to the Swiss AIR even though the fountain duration of the Indian AIR was just around half that of the Swiss
+AIR. 
 
-Incoming shortwave radiation is a major source of melting energy for both the AIR. Its variability is controlled by the
+Incoming shortwave radiation is a major source of melting energy for all the AIR. Its variability is controlled by the
 surface albedo $\alpha$ and the area fraction $f_{cone}$ which therefore represent key variables in the energy balance.
 Only one third and one fourth of the global radiation flux heated the AIR surface primarily because only 40 \% and 50 \%
 of the surface area was exposed to it as represented by the $f_{cone}$ factor.  
 
-Turbulent fluxes vary significantly in magnitude and distribution between the two locations. Sensible (Latent) heat
-drive the melting (freezing) of the Indian AIR compared to the Swiss AIR especially after the fountain is switched off.
-This is primarily because of the high wind speeds. Particularly, the daily melt rate of the Indian AIR is slowed down as
-the higher sensible heat is balanced by the latent heat. This occurs due to the sublimation process favoured by the high
-vapour fluxes generated between the melting AIR surface and the dry air surrounding it. 
+Turbulent fluxes vary significantly in magnitude and distribution between the two time periods and the two locations. In
+the freezing period, latent heat is insignificant as the vapor flux between the AIR surface and the atmosphere is
+minimal.  Sensible (Latent) heat drive the melting (freezing) of the Indian AIR compared to the Swiss AIR especially
+during the melting period. This is primarily because of the high wind speeds. Particularly, the daily melt rate of the
+Indian AIR is slowed down as the higher sensible heat is balanced by the latent heat. This occurs due to the sublimation
+process favoured by the high vapour fluxes generated between the melting AIR surface and the dry air surrounding it. 
 
 % However it varies both in magnitude and distribution between the different locations, since the indian AIR is much
 % higher in altitude and has mostly clear days (Ref.) resulting in much higher shortwave radiation with a negligible
@@ -662,7 +668,7 @@ vapour fluxes generated between the melting AIR surface and the dry air surround
 \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Results}}}  
                        & Storage Efficiency & SE              & 15 \%        & 22 \%      & 20 \%        \\
 \multicolumn{1}{|l|}{} & Root mean squared error & RMSE       & 84 $m^{3}$   & 10 $m^{3}$ & 21 $m^{3}$   \\
-\multicolumn{1}{|l|}{} & Mean effective discharge rate      & $(d_{eff})_{mean}$          & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
+\multicolumn{1}{|l|}{} & Mean fountain freezing rate      & $(f_{ice})_{mean}$          & 11 $l/min$  & 2 $l/min$ & 2 $l/min$ \\ \bottomrule
 \end{tabular}
 \end{table}
 
@@ -735,12 +741,11 @@ vapour fluxes generated between the melting AIR surface and the dry air surround
 
 \section{Discussion} 
 \subsection{Storage efficiency}
-The storage efficiency of CH21, IN21 and CH20 AIR were $20\%$, $20\%$ and $20\%$ respectively. The low SE is a product
-of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 80 \%$ ) in all the AIR. This indicates that just
-decreasing the mean fountain discharge could have significantly increased water storage efficiency. As Fig.
-\ref{fig:freeze_rate} shows CH21, IN21 and CH20 had a maximum freezing rate of just 7.5 $l/min$, 18 $l/min$ and 6
-$l/min$ respectively compared to the 7.5 $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were
-provided with.
+The storage efficiency of IN21, CH21 and CH20 AIR were $15\%$, $22\%$ and $20\%$ respectively. The low SE is a product
+of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIR. This indicates that just
+decreasing the mean fountain discharge could have significantly increased water storage efficiency. CH21, IN21 and CH20
+had a maximum fountain freezing rate of just 7 $l/min$, 18 $l/min$ and 6 $l/min$ respectively compared to the 7.5
+$l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were provided with.
 
 % \subsection{Important assumptions}\label{section:assumptions} In the sensitivity and uncertainty analysis presented
 % above, we did not account for several general assumptions and parametrisation choices that may cause model errors.
