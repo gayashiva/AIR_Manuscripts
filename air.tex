@@ -133,13 +133,13 @@ fountain pipe.  The fountain height varied between 2 to 5\,$m$ during the constr
 from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous
 survey of the site during the construction of the AIR.
 
-\begin{figure} 
-    \begin{center} 
-        \includegraphics[width=10 cm]{Figures/DJI_0161.jpg} 
-    \end{center} 
-\caption{Bird's eye view of the CH21 AIR} 
-\label{fig:CHsite} 
-\end{figure}
+% \begin{figure} 
+%     \begin{center} 
+%         \includegraphics[width=10 cm]{Figures/DJI_0161.jpg} 
+%     \end{center} 
+% \caption{Bird's eye view of the CH21 AIR} 
+% \label{fig:CHsite} 
+% \end{figure}
 
 % In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l., the air temperature shows values down to −27.9 $\degree C$
 % in winter \citep{Chevuturi_2018}.
@@ -168,6 +168,35 @@ campbell weather station located 440 m away. Shortwave radiation data was derive
 located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible. Also, the diffus
 fraction of the global shortwave radiation was also assumed to be negligible.
 
+\begin{table}
+\centering
+\caption{ Summary of the weather, fountain and AIR observations}
+\label{tab:Observations}
+\begin{tabular}{@{}|llllll|@{}}
+\toprule
+\textbf{}              & \textbf{Name} & \textbf{Symbol}      & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
+\multicolumn{1}{|l|}{\multirow{7}{*}{\rotatebox[origin=c]{90}{Weather}}} 
+                       & Mean discharge     &$d_F [l/min]        $&     $60 \pm 0$&     $7.5 \pm 0$&     $7.5 \pm 0$ \\
+\multicolumn{1}{|l|}{} & Air temperature    &$T_a [\degree C]    $&      $0 \pm 6$&     $1 \pm 5$&     $2 \pm 4$\\
+\multicolumn{1}{|l|}{} & Relative humidity  &$RH  [\%]        $&    $39 \pm 17$&     $79 \pm 17$&     $75 \pm 17$\\
+\multicolumn{1}{|l|}{} & Wind speed         &$v_a [m/s]        $&      $2 \pm 1$&     $2 \pm 2$&     $2 \pm 2$\\
+\multicolumn{1}{|l|}{} & Direct Shortwave   &$SW_{direct} [W\,m^{-2}]$&  $243 \pm 331$&  $77 \pm 152$&     $83 \pm 156$\\
+\multicolumn{1}{|l|}{} & Diffuse Shortwave  &$SW_{diffuse}[W\,m^{-2}]$&      $0 \pm 0$&      $54 \pm82$&     $51 \pm 73$\\
+\multicolumn{1}{|l|}{} & Precipitation      &$ppt [mm]       $&      $0 \pm 0$&      $129 \pm 446$&     $92 \pm 400$\\
+\multicolumn{1}{|l|}{} & Pressure           &$p_a [hbar]        $&    $622 \pm 3$&      $793 \pm 8$&     $797 \pm7$\\\bottomrule
+\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Fountain}}} 
+                       & Mean discharge     &$d_F [l/min]     $&     $60$&     $7.5$&     $7.5$ \\
+\multicolumn{1}{|l|}{} & Fountain Duration &$[hours]$& 829        & 2155          & 1553 \\ 
+\multicolumn{1}{|l|}{} & Spray radius                & $r_{F} [m]$     & 10.8& 6.9 & 7.7  \\\midrule
+\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{AIR}}} 
+                       % & Altitude  && 4025 $m$ a.s.l.& 1047 $m$ a.s.l.& 1047 $m$ a.s.l.\\ 
+                         & Dome volume                  & $V_{dome}[m^{3}]$  & 78.5 $m^{3}$& 13.2 $m^{3}$& 23.9 $m^{3}$ \\
+                       \multicolumn{1}{|l|}{} & Ice Volume measurements     &[times]& 6   & 9    & 3      \\
+\multicolumn{1}{|l|}{} & AIR starts&          & Jan 18 & Nov 22 & Jan 3 \\ 
+\multicolumn{1}{|l|}{} & AIR ends&          & Jun 11 & May 18 & Apr 10 \\ \bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure} 
     \centering 
     \includegraphics[width=\linewidth]{./Figures/Model_Input.jpg} 
@@ -176,7 +205,7 @@ and errors were filled from the ERA5 dataset (shaded regions).}
     \label{fig:input} 
 \end{figure}
 
-\subsection{Ice volume observations}
+\subsection{AIR observations}
 Several Drone flights were conducted in the swiss and indian sites. The DEM generated through these flights were
 analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome volume
 ($V_{dome}$) for model initialisation. The ice volume data was later used for calibration and validation of the model. 
@@ -669,15 +698,6 @@ process favoured by the high vapour fluxes generated between the melting AIR sur
 \begin{tabular}{@{}|llllll|@{}}
 \toprule
 \textbf{}              & \textbf{Name} & \textbf{Symbol}      & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
-\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{Observations}}} 
-                       % & Shortname                      & IN21 & CH21 & CH20 \\ 
-                       & Altitude  && 4025 $m$ a.s.l.& 1047 $m$ a.s.l.& 1047 $m$ a.s.l.\\ 
-\multicolumn{1}{|l|}{} & Fountain Duration && 829 $hours$        & 2155 $hours$          & 1553 $hours$ \\ 
-\multicolumn{1}{|l|}{} & Drone Flights               && 6 $times$   & 9 $times$   & 3 $times$     \\
-\multicolumn{1}{|l|}{} & Spray radius                & $r_{F}$     & 10.8 $m$& 6.9 $m$ & 7.7 $m$  \\
-\multicolumn{1}{|l|}{} & Dome volume                  & $V_{dome}$  & 78.5 $m^{3}$& 13.2 $m^{3}$& 23.9 $m^{3}$ \\
-\multicolumn{1}{|l|}{} & Mean discharge               & $d_{F}$  & 60 $l/min$& 7.5 $l/min$& 7.5 $l/min$ \\ 
-\multicolumn{1}{|l|}{} & Icestupa duration &          & Jan 18-Jun 11 & Nov 22-May 18 & Jan 3-Apr 10 \\ \midrule
 \multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}  
                        & Fountain discharge & $M_F$     & 2911 $tons$  & 971 $tons$ & 700 $tons$  \\
 \multicolumn{1}{|l|}{} & Snowfall           & $M_{ppt}$ &    0 $tons$  &  56 $tons$ &  22 $tons$  \\
@@ -694,6 +714,25 @@ process favoured by the high vapour fluxes generated between the melting AIR sur
 \end{tabular}
 \end{table}
 
+\begin{table}
+\centering
+\caption{ Summary of the observations, mass input and mass output of the AIR}
+\label{tab:Energy}
+\begin{tabular}{@{}|llllll|@{}}
+\toprule
+\textbf{}              & \textbf{Name} & \textbf{Symbol [Units]}      & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
+\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{Energy flux}}} 
+                       & Shortwave radiation&$q_{SW} [W\,m^{-2}] $&     $ 35 \pm 63$&     $ 41 \pm 65$&     $ 44 \pm 66$ \\
+\multicolumn{1}{|l|}{} & Longwave radiation &$q_{LW} [W\,m^{-2}] $&     $-79 \pm 29$&    $-59 \pm 32$&    $-63 \pm 31$\\
+\multicolumn{1}{|l|}{} & Sensible heat      &$q_{S} [W\,m^{-2}]  $&      $61 \pm 81$&     $40 \pm 89$&     $37 \pm 72$\\
+\multicolumn{1}{|l|}{} & Latent heat        &$q_{L} [W\,m^{-2}]  $&      $-36 \pm 49$&     $-3 \pm 37$&     $-9 \pm 35$\\
+\multicolumn{1}{|l|}{} & Fountain heat      &$q_{F} [W\,m^{-2}]  $&      $1 \pm 2$&     $0 \pm 0$&     $1 \pm 0$\\
+\multicolumn{1}{|l|}{} & Shortwave radiation&$q_{G} [W\,m^{-2}]  $&      $0 \pm 1$&     $0 \pm 1$&     $0 \pm 1$\\
+\multicolumn{1}{|l|}{} & Freezing energy    &$q_{freeze} [W\,m^{-2}] $&      $-34 \pm 69$&     $-26 \pm 45$&     $-29\pm 43$\\
+\multicolumn{1}{|l|}{} & Melting energy     &$q_{melt} [W\,m^{-2}] $&      $17 \pm 48$&     $47 \pm 103$&     $40 \pm 76$\\
+\multicolumn{1}{|l|}{} & Temperature        &$q_{T} [W\,m^{-2}] $&      $0 \pm 87$&     $0 \pm 37$&     $0 \pm 23$\\\bottomrule
+\end{tabular}
+\end{table}
 
 % Daily averages of all the components of the energy balance are shown in Fig.  \ref{fig:EB} (b). On average during the
 % experiment duration, the total energy balance was almost zero. Net shortwave radiation (35 $Wm^{-2}$), sensible (41
