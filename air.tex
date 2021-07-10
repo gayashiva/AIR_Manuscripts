@@ -141,29 +141,17 @@ survey of the site during the construction of the AIR.
 \label{fig:CHsite} 
 \end{figure}
 
-% In the city of Leh, Ladakh at an altitude of 3500 $m$ a.s.l., the air temperature shows values down to −27.9 $\degree C$
-% in winter \citep{Chevuturi_2018}.
-
 The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region
 lies at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
 winter since 2018. The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was
 constructed adjacent to another AIR and merged with it. It's fountain height varied between 5 to 9\,$m$.
-
-% \begin{figure}[ht]
-%     \centering 
-%     \includegraphics[width=\linewidth]{./Figures/Model_Input.jpg} 
-% \caption{Measurements at the Indian AWS were used as main model input data in hourly frequency. Missing data, data gaps
-% and errors were filled from another AWS nearby (shaded regions).} 
-%     \label{fig:input} 
-% \end{figure}
 
 \subsection{Meteorological data}
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
 to calculate the surface energy balance of an AIR.
 
 For the CH site, the primary weather data source was a meteoswiss AWS located 184 m away. In addition, we used ERA5
-reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly as shown in Fig.
-\ref{fig:input}. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was
+reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was
 assumed this was the cause when null wind speeds were observed continuously for atleast 3 hours. All such null values
 were replaced using the ERA5 dataset.
 
@@ -623,7 +611,7 @@ a polynomial (as a surrogate model), on which uncertainty and sensitivity analys
 % model parameters can reproduce ice volume observations accurately. The initial parameter sets overestimate ice volume at
 % CH21 but underestimate it on IN21 most likely because of different albedo values.
 
-\begin{table}[]
+\begin{table}
 	\centering
 	\caption{Optimal parameters}
 	\label{tab:parameters}
@@ -656,6 +644,18 @@ first and last 20 days for each AIR. The two time periods selected are character
 respectively. A strong variability is evident between the freezing and melting periods, between the different years for
 the Swiss AIR and between the Swiss and the Indian AIR.
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/albedo.jpg}
+	\end{center}
+	\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface temperature (b). In
+		(a), the purple curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
+		decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
+		fraction varied diurnally and seasonally with variations in the solar elevation angle. In (b), the surface
+		temperature (blue curve) was forced to be 0 $\degree C$ during fountain duration.} 
+		\label{fig:albedo} 
+		\end{figure}
+		
 The variation of the mass fluxes during the freezing period of the IN21 AIR reflect the variation in discharge quantity
 more than that of the energy flux. On day 1,12,13,14 and 20 the fountain discharge was interrupted due to pipeline
 freezing events. So during these days, the freezing energy was instead used up to further reduce the AIR surface
@@ -684,15 +684,7 @@ observe the diurnal and seasonal variations in this direct shortwave radiation d
 the solar elevation angle.  Albedo, on the other hand, only varied after the fountain duration and if there was any
 snowfall. Since we assume there was negligible precipitation in the Indian site, albedo is constant there.
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/albedo.jpg}
-	\end{center}
-	\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface temperature (b). In
-		(a), the purple curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
-		decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
-		fraction varied diurnally and seasonally with variations in the solar elevation angle. In (b), the surface
-		temperature (blue curve) was forced to be 0 $\degree C$ during fountain duration.} \label{fig:albedo} \end{figure}
+
 
 Turbulent fluxes vary significantly in magnitude and distribution between the two time periods and the two locations.
 In the freezing and the melting periods, sensible heat contributes to warming or melting the AIR surface. This is not
@@ -700,6 +692,16 @@ true for the Indian AIR though where certain days(example day 7) were colder tha
 in a negative sensible heat flux. In general, sensible heat was never able to melt ice for the Indian AIR. For the Swiss
 AIR though, there exist days (example day 20) where the AIR was melting in the day primarily due to sensible heat and
 freezing in the night.
+
+\begin{figure}
+\begin{center} 
+\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
+	\caption{Daily averages of mass and energy fluxes compared for all AIR during their freezing and melting periods.
+		$q_{freeze}$ is the total freezing energy;$q_{melt}$ is the total melting energy;$q_{SW}$ is the net shortwave
+		radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat
+		fluxes. $q_{F}$ represents energy gained by the AIR surface layer due to fountain water temperature.  $q_{G}$
+		quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:MEB}
+\end{figure}
 
 Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
 simultaneously through deposition/sublimation processes. Since the heat of vaporization is large,
@@ -721,13 +723,7 @@ Thus the fountain attributes and energy flux combine to produce ice volumes 4 ti
 the Swiss AIR even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be
 seen in Table \ref{tab:Results}.
 
-\begin{figure} \begin{center} \includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
-	\caption{Daily averages of mass and energy fluxes compared for all AIR during their freezing and melting periods.
-		$q_{freeze}$ is the total freezing energy;$q_{melt}$ is the total melting energy;$q_{SW}$ is the net shortwave
-		radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat
-		fluxes. $q_{F}$ represents energy gained by the AIR surface layer due to fountain water temperature.  $q_{G}$
-		quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:MEB}
-\end{figure}
+
 
 \begin{table}
 	\centering
@@ -766,6 +762,15 @@ seen in Table \ref{tab:Results}.
 
 \subsection{Sensitivity and uncertainty analysis}
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
+	\end{center}
+	\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
+		\ref{tab:parameters}). }
+	\label{fig:sensitivity}
+\end{figure}
+
 Fountain water temperature was found to be the most sensitive parameter causing a standard deviation of $3\%$ in the
 storage efficiency in all the AIR. Since warmer fountain water provides more melting energy to the AIR surface during the fountain
 duration, this parameter influences the storage efficiency negatively.
@@ -789,14 +794,7 @@ uniform distribution over their ranges to produce the confidence interval of the
 
 In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
 
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
-	\end{center}
-	\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
-		\ref{tab:parameters}). }
-	\label{fig:sensitivity}
-\end{figure}
+
 
 
 % \section{Discussion} 
@@ -807,7 +805,7 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 % had a maximum fountain freezing rate of just 7 $l/min$, 18 $l/min$ and 6 $l/min$ respectively compared to the 7.5
 % $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were provided with.
 
-\begin{figure}[h]
+\begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
