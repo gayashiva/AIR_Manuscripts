@@ -146,7 +146,8 @@ survey of the site during the construction of the AIR.
 
 The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region
 lies at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
-winter since 2018.
+winter since 2018. The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was
+constructed adjacent to another AIR and merged with it. It's fountain height varied between 5 to 9\,$m$.
 
 % \begin{figure}[ht]
 %     \centering 
@@ -210,8 +211,8 @@ The diffuse fraction of the global shortwave radiation was also assumed to be ne
 \subsection{AIR observations}
 Several Drone flights were conducted in the Swiss and Indian sites. The DEM generated through these flights were
 analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome
-volume ($V_{dome}$) for model initialisation. The ice volume data was later used for calibration and validation of the
-model.
+volume ($V_{dome}$) for model initialisation. The Indian AIR was built on top of another ice structure resulting in a
+much higher dome volume compared to the Swiss AIR.
 
 \subsection{Fountain observations}
 We define the fountain used in AIR construction through three attributes namely its spray radius , mean discharge
@@ -733,7 +734,7 @@ seen in Table \ref{tab:Results}.
 
 \begin{table}
 	\centering
-	\caption{ Summary of the observations, mass input and mass output of the AIR}
+	\caption{ Summary of the mass balance, energy balance and AIR charectiristics estimated by the model}
 	\label{tab:Results}
 	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
@@ -757,7 +758,7 @@ seen in Table \ref{tab:Results}.
 		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} [W\,m^{-2}] $ & $-161\pm 46$  & $-73 \pm 48$  & $-75\pm 39$   \\
 		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt} [W\,m^{-2}] $   & $88 \pm 77$   & $114\pm 134$  & $93 \pm 92$   \\
 		\multicolumn{1}{|l|}{} & Temperature             & $q_{T} [W\,m^{-2}] $      & $0 \pm 87$    & $0 \pm 37$    & $0 \pm 23$    \\\midrule
-		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Results}}}
+		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
 		                       & Storage Efficiency      & SE                        & 15 \%         & 22 \%         & 20 \%         \\
 		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE                      & 84 $m^{3}$    & 10 $m^{3}$    & 21 $m^{3}$    \\
 		\multicolumn{1}{|l|}{} & Mean freezing rate      & $(m_{freeze})_{mean}$     & 11 $l/min$    & 1.9 $l/min$   & 2.4 $l/min$   \\
@@ -814,9 +815,9 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
 	\caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
-		measurements. The prediction interval is based on the ice volume uncertainty caused by the significant parameters.  }
-	\label{fig:results}
-\end{figure}
+		measurements. The prediction interval is based on the ice volume uncertainty caused by the significant parameters.  The
+		upper and lower bounds of the y axis represents maximum ice volume and dome volume respectively.  }
+	\label{fig:results} \end{figure}
 
 \section{Conclusions}
 In this paper, we have developed a model to assess AIR evolution using a dataset of field measurements in Indian
@@ -827,13 +828,18 @@ efficiency for each of the three AIR and used calculations of the energy fluxes 
 observed variability in freezing and melting rates. We also looked at the model sensitivity to model parameters. Our
 main conclusions are summarised below.
 
-The model results the indicate that there could be considerable water loss during the formation of AIR particularly due
-to excessive fountain spray. Further experiments at different locations with different fountains are required to better
-understand the influence of the fountain discharge rate on the results.
+AIR grow higher and last longer in drier regions. Since sublimation augments freezing rates and dampens melting
+rates, regions with lower relative humidity are more conducive for AIR.
+
+Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain discharge
+rate.  The model results the indicate that the more than 80 \% of the fountain water is lost as runoff for all the AIR.
+Further experiments at different locations with different fountains are required to better understand the influence of
+the fountain discharge rate on the results.
 
 % \section{Appendix}
 
 % \subsection{AIR discharge quantity and duration} \label{section:discharge} 
+
 % \subsection{Ladakh Icestupa 2014/15} \label{section:ladakhloss} 
 % A 20 $m$ tall Icestupa \citep{iceheight} was built in Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l. Assuming
 % a conical shape with a diameter of 20 $m$, the corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,920 $m^3$
@@ -952,10 +958,6 @@ understand the influence of the fountain discharge rate on the results.
 % 
 % \end{itemize} 
 
-% The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was constructed adjacent
-% to another AIR and merged with it. To initiate the ice formation process, a dome of 2\,$m$ radius was constructed and
-% the fountain pipeline was erected at the center using a tripod. Fountain operation was interrupted only due to pipeline
-% freezing events. The fountain height varied between 5 to 9\,$m$.
 % 
 % The CH19 AIR was constructed by the Eispalast in Schwarzsee, Switzerland. It was contained inside a wooden boundary
 % adjacent to a stream. Fountain operation was guided by temperature conditions.  The water spray of the fountain was
