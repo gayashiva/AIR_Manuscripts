@@ -627,15 +627,15 @@ a polynomial (as a surrogate model), on which uncertainty and sensitivity analys
 \label{tab:parameters}
 \begin{tabular}{@{}llllll@{}}
 \toprule
-\textbf{Calibrated parameters} & \textbf{(Range, Step)} & \textbf{Initial} & \textbf{CH21} & \textbf{IN21} & \textbf{CH20} \\\midrule
-Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)                    & 0.97        & 0.95  & 0.99 &  \\
-Ice Albedo ($\alpha_{ice}$)                     & (0.01-0.35, 0.05)                    & 0.25        & 0.24  &  &  \\
-Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)                    & 0.85        & 0.87  &  &  \\
-Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$ & $1\degree C$& $1\degree C$ &  &  \\
-Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$               & 10 days     & 10 days &  &  \\
+\textbf{Calibrated parameters} & \textbf{(Range, Step)}                                & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
+Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)                    & 0.97        & 0.99  & 0.95 &  \\
+Ice Albedo ($\alpha_{ice}$)                     & (0.01-0.35, 0.05)                    & 0.25        & 0.31  & 0.31 &  \\
+Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)                    & 0.85        & NA  & 0.91 &  \\
+Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$               & $1\degree C$& NA & $1\degree C$ &  \\
+Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$               & 10 days     & NA      & 10 days  &  \\
 Surface Roughness ($z_0$)                       & (1-5, 0.5) $mm$                        & $1.7\,mm$   & $1\,mm$ & $1\,mm$ &  \\ 
-Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$                    & $20\,mm$    & $20\,mm$ & $21\,mm$ &  \\
-Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$             & $0.5\degree C$&$1\degree C$&$0\degree C$&\\\bottomrule
+Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$                    & $20\,mm$    & $21\,mm$ & $21\,mm$ &  \\
+Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$             & $0.5\degree C$&$0\degree C$&$3\degree C$&\\\bottomrule
 % \textbf{Fountain parameters} & &  & & &  \\\midrule
 %      Spray Radius ($r_F$)        &                                & meas.      &$6.9\,m$  &$10.8\,m$  &$7.7\,m$  \\ 
 %      Mean discharge ($d_F$)       &                                & meas.      &$7.5\,l/min$  &$60\,l/min$  &$7.5\,l/min$  \\\midrule 
