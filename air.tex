@@ -569,37 +569,34 @@ meltwater produced as follows:
 In the following analysis, $SE$ will be used to compare the three different AIR.
 
 \subsection{Sensitivity and uncertainty analysis}
-Model parameters that were not measured but can be constrained within a range of plausible values were calibrated using
-the ice volume measurements of each AIR. The RMSE of the model output against the ice volume measurements were
-determined for each parameter combination.
-
-Sensitivity analysis was conducted using two approaches. First, we investigate calibration runs, which reflect a global
-sensitivity of the model to the parameters used in the optimization, since all parameters are changed at the same time.
-The best 10 \% of the calibration runs (i.e. resulting in the lowest RMSE) were selected and the frequency distribution
-of the parameters from these runs plotted for each AIR, to evaluate their spread. Parameters with a large spread are those
-that the model is not sensitive to, as any of those values lead to a high model performance. On the contrary, parameters
-with a small spread are those that the model is sensitive to.
-
-In the second method, a sensitivity study on the parameters was performed with the storage efficiency as the target variable.
-All the parameters were assumed to be independent of each other with a uniform distribution. This assumption ignores the
-auto-correlation present among the parameters.  The range of uncertain parameters were set based on available literature
-values or varied $\pm$ 5\% from the base value if no such reference was available. However, it must be kept in mind
-that, even though intended to be as objective as possible, the selection of a parameter range has a subjective part that
-influences the results and conclusions obtained in this analysis.  The variation of the model outputs is evaluated to
+Since the model parameter space was large, it was constrained by identifying significant parameters. This involved
+performing a sensitivity study on the parameters with the storage efficiency as the target variable.  All the parameters
+were assumed to be independent of each other with a uniform distribution. This assumption ignores the auto-correlation
+present among the parameters. The range of uncertain parameters were set based on available literature values or varied
+$\pm$ 5\% from the base value if no such reference was available. The variation of the model outputs was evaluated to
 quantify the local sensitivities that are defined here as the 95\% range of the simulated outputs.
 
-The initial value for ice albedo was chosen as 0.25 and the possible range limited to 0.01-0.35, corresponding to the
+The initial value for ice albedo was chosen as 0.25 and the possible range limited to 0.15-0.35, corresponding to the
 measured value of ice cliffs from \cite{steiner_2015}. Emissivity value was set to 0.97 for ice and ranged from
 0.95-0.99 (\cite{steiner_2015}). Snow albedo and albedo decay rate was set to 0.85 (\cite{CuffeyPaterson_2010}) and 10
 days (\cite{Schmidt_2017}) respectively with an uncertainty assumed to be $\pm \,5 \%$. Temperature threshold for
 precipitation was set to $1 \degree C$ (\cite{FujitaAgeta_2000}) and varied $\pm$ $1\,\degree C$ (\cite{Zhou_2010}).
-Surface roughness was initially set to 1.7 mm (\cite{CuffeyPaterson_2010}) and varied between 1 and 5 mm
+Surface roughness was initially set to 1.7 mm (\cite{CuffeyPaterson_2010}) and varied between 1 and 5 $mm$
 (\cite{BrockWillisSharp_2006}).
+
+In a second step, we evaluated model runs varying only the significant parameters within their ranges. These model runs
+reflect a global sensitivity of the model to the parameters used in the optimization, since all significant parameters
+were changed at the same time.  The best 10 \% of the calibration runs (i.e. resulting in the lowest RMSE) were selected
+and the frequency distribution of the parameters from these runs plotted for each AIR, to evaluate their spread.
+Parameters with a large spread are those that the model is not sensitive to, as any of those values lead to a high model
+performance. On the contrary, parameters with a small spread are those that the model is sensitive to. The initial
+parameter choice is replaced by the optimized value for sensitive parameters whereas the initial choice is preserved for
+the non sensitive parameters.
 
 To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
 \cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
 similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
-a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis can be performed.
+a polynomial (as a surrogate model), on which uncertainty analysis can be performed.
 
 \section{Results}
 
@@ -721,18 +718,9 @@ Thus the fountain attributes and energy flux combine to produce ice volumes 4 ti
 the Swiss AIR even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be
 seen in Table \ref{tab:Results}.
 
-\subsection{Sensitivity and uncertainty analysis}
-\subsection{Parameter calibration}
-In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
-derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist} 
-shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
-	\end{center}
-  \caption{Sensitivity of the model to the parameters used in the model optimization, shown by plotting the frequency
-distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+% \subsection{Sensitivity and uncertainty analysis}
+\subsection{Sensitivity analysis}
+\subsubsection{Significant parameters}
 
 \begin{table}
 	\centering
@@ -740,26 +728,20 @@ distribution of the parameter values for the best 10 \% of the model runs. } \la
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
-		\textbf{Calibrated parameters}                  & \textbf{(Range, Step)}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
-		Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)        & 0.97             & 0.99          & 0.95          &               \\
-		Ice Albedo ($\alpha_{ice}$)                     & (0.01-0.35, 0.05)        & 0.25             & 0.31          & 0.31          &               \\
-		Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)        & 0.85             & NA            & 0.91          &               \\
-		Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$   & $1\degree C$     & NA            & $1\degree C$  &               \\
-		Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$   & 10 days          & NA            & 10 days       &               \\
-		Surface Roughness ($z_0$)                       & (1-5, 0.5) $mm$          & $1.7\,mm$        & $1.5\,mm$       & $1\,mm$       &               \\
-		Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$        & $20\,mm$         & $21\,mm$      & $21\,mm$      &               \\
-		Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & $3\degree C$  &               \\\bottomrule
+		\textbf{Uncertain Parameters}                             & \textbf{(Range, Step)}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
+		Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)        & 0.97             &           & & 0.95               \\
+		Ice Albedo ($\alpha_{ice}$)                     & (0.15-0.35, 0.05)        & 0.25             &           & &               \\
+		Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)        & 0.85             &           & &               \\
+		Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$   & $1\degree C$     &           & &               \\
+		Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$   & 10 days          &           & &              \\
+		Surface Roughness ($z_0$)                       & (1-5, 0.5) $mm$          & $1.7\,mm$        &           & $1\,mm$&                \\
+		Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$        & $20\,mm$         &           & &               \\
+		Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & &               \\\bottomrule
 	\end{tabular}
 \end{table}
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
-	\end{center}
-  \caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
-\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
 
-Fountain water temperature was found to be the most sensitive parameter causing a standard deviation of $3\%$ in the
+Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
 storage efficiency in all the AIR. Since warmer fountain water provides more melting energy to the AIR surface during the fountain
 duration, this parameter influences the storage efficiency negatively.
 
@@ -782,6 +764,25 @@ uniform distribution over their ranges to produce the confidence interval of the
 
 In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
+	\end{center}
+  \caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
+\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
+
+\subsubsection{Optimal parameters}
+In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
+derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist} 
+shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
+	\end{center}
+  \caption{Sensitivity of the model to the significant parameters used in the model optimization, shown by plotting the frequency
+distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+
 % \section{Discussion} 
 % \subsection{Storage efficiency}
 % The storage efficiency of IN21, CH21 and CH20 AIR were $15\%$, $22\%$ and $20\%$ respectively. The low SE is a product
@@ -790,6 +791,7 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 % had a maximum fountain freezing rate of just 7 $l/min$, 18 $l/min$ and 6 $l/min$ respectively compared to the 7.5
 % $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were provided with.
 
+\subsection{Uncertainty analysis}
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
