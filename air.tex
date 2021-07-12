@@ -58,16 +58,16 @@
 
 \begin{abstract}
 
-	Artificial Ice Reservoirs (AIR) can freeze water during winter and generate meltwater during spring and summer for
-	irrigation. Several AIRs have been built worldwide but studies of their water storage efficiency are scarce.  This
-	study models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly called Icestupa.
-	These processes were quantified using meteorological data in conjunction with fountain discharge information (mass
-	input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two sites in
-	Switzerland and one in India. At these measurement sites, AIR were built for model calibration and validation
-	purposes. Model estimates of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian
-	compared to the Swiss AIR. This was a result of the much higher sublimation rates (much lower humidity) and fountain
-	spray radius of the Indian AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the
-	Swiss AIR (~20 \%) due to significantly more fountain water runoff.
+  Artificial Ice Reservoirs (AIR) can freeze water during winter and generate meltwater for irrigation during spring and
+  summer. Several AIRs have been built worldwide but studies of their water storage efficiency are
+  scarce.  This study models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly
+  called Icestupa.  These processes were quantified using meteorological data in conjunction with fountain discharge
+  information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two
+  sites in Switzerland and one in India. At these measurement sites, AIR were built for model calibration and validation
+  purposes. Model estimates of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian
+  compared to the Swiss AIR. This was a result of the much higher sublimation rates (much lower humidity) and fountain
+  spray radius of the Indian AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the
+  Swiss AIR (~20 \%) due to significantly more fountain water runoff.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -137,7 +137,8 @@ survey of the site during the construction of the AIR.
     \begin{center} 
         \includegraphics[width=12 cm]{Figures/2AIR.jpg} 
     \end{center} 
-    \caption{The Indian and Swiss AIR on March 3 and January 9, 2021 respectively. ( Swiss picture credits: Daniel Buerki)} 
+    \caption{The Swiss and Indian AIR on March 3 and January 9, 2021 respectively. Picture credits: Daniel Buerki (left)
+    and Thinles Norboo (right)} 
 \label{fig:CHsite} 
 \end{figure}
 
@@ -601,35 +602,6 @@ similar results compared to the computationally demanding Monte Carlo methods. T
 a polynomial (as a surrogate model), on which uncertainty and sensitivity analysis can be performed.
 
 \section{Results}
-\subsection{Parameter calibration}
-In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
-derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist} 
-shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
-	\end{center}
-  \caption{Sensitivity of the model to the parameters used in the model optimization, shown by plotting the frequency
-distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
-
-\begin{table}
-	\centering
-	\caption{Optimal parameters}
-	\label{tab:parameters}
-	\begin{tabular}{@{}llllll@{}}
-		\toprule
-		\textbf{Calibrated parameters}                  & \textbf{(Range, Step)}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
-		Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)        & 0.97             & 0.99          & 0.95          &               \\
-		Ice Albedo ($\alpha_{ice}$)                     & (0.01-0.35, 0.05)        & 0.25             & 0.31          & 0.31          &               \\
-		Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)        & 0.85             & NA            & 0.91          &               \\
-		Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$   & $1\degree C$     & NA            & $1\degree C$  &               \\
-		Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$   & 10 days          & NA            & 10 days       &               \\
-		Surface Roughness ($z_0$)                       & (1-5, 0.5) $mm$          & $1.7\,mm$        & $1.5\,mm$       & $1\,mm$       &               \\
-		Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$        & $20\,mm$         & $21\,mm$      & $21\,mm$      &               \\
-		Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & $3\degree C$  &               \\\bottomrule
-	\end{tabular}
-\end{table}
 
 \subsection{Mass and Energy fluxes of the AIR}
 
@@ -659,6 +631,16 @@ of the different mass fluxes are insensitive to the discharge quantity since for
 than half that of the mean discharge quantity. However, the sensitivity of the melting energy increases with increasing
 water temperature. This effect will be analysed later in the sensitivity analysis.
 
+\begin{figure}
+\begin{center} 
+\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
+	\caption{Daily averages of mass and energy fluxes compared for all AIR during their freezing and melting periods.
+		$q_{freeze}$ is the total freezing energy;$q_{melt}$ is the total melting energy;$q_{SW}$ is the net shortwave
+		radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat
+		fluxes. $q_{F}$ represents energy gained by the AIR surface layer due to fountain water temperature.  $q_{G}$
+		quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:MEB}
+\end{figure}
+
 The magnitude of the mass fluxes in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely ice mass
 flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available, snowfall is
 calculated directly form the precipitation quantity and ice radius and sublimation/deposition quantities correspond to
@@ -678,24 +660,12 @@ observe the diurnal and seasonal variations in this direct shortwave radiation d
 the solar elevation angle.  Albedo, on the other hand, only varied after the fountain duration and if there was any
 snowfall. Since we assume there was negligible precipitation in the Indian site, albedo is constant there.
 
-
-
 Turbulent fluxes vary significantly in magnitude and distribution between the two time periods and the two locations.
 In the freezing and the melting periods, sensible heat contributes to warming or melting the AIR surface. This is not
 true for the Indian AIR though where certain days(example day 7) were colder than the AIR surface temperature resulting
 in a negative sensible heat flux. In general, sensible heat was never able to melt ice for the Indian AIR. For the Swiss
 AIR though, there exist days (example day 20) where the AIR was melting in the day primarily due to sensible heat and
 freezing in the night.
-
-\begin{figure}
-\begin{center} 
-\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
-	\caption{Daily averages of mass and energy fluxes compared for all AIR during their freezing and melting periods.
-		$q_{freeze}$ is the total freezing energy;$q_{melt}$ is the total melting energy;$q_{SW}$ is the net shortwave
-		radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat
-		fluxes. $q_{F}$ represents energy gained by the AIR surface layer due to fountain water temperature.  $q_{G}$
-		quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:MEB}
-\end{figure}
 
 Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
 simultaneously through deposition/sublimation processes. Since the heat of vaporization is large,
@@ -706,18 +676,6 @@ Sublimation was also significantly more in the Indian site compared to the Swiss
 fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was primarily due to the difference in
 relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate 
 for the Indian AIR was more than 2 times the melting rate.
-
-The magnitude of the freezing and melting rates is controlled by the fountain attributes, particularly the spray radius.
-Even though the Indian AIR's fountain duration was roughly half that of the Swiss its spray radius was significantly
-larger. This resulted in higher surface area to capitalise on the freezing energy. Moreover, since the freezing energy
-was larger in magnitude than the melting energy the surface area favored freezing over melting. However, in the Swiss
-AIR both these rates are almost the same indicating the surface area did not favor the melting or the freezing process.
-
-Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to
-the Swiss AIR even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be
-seen in Table \ref{tab:Results}.
-
-
 
 \begin{table}
 	\centering
@@ -753,8 +711,46 @@ seen in Table \ref{tab:Results}.
 	\end{tabular}
 \end{table}
 
+The magnitude of the freezing and melting rates is controlled by the fountain attributes, particularly the spray radius.
+Even though the Indian AIR's fountain duration was roughly half that of the Swiss its spray radius was significantly
+larger. This resulted in higher surface area to capitalise on the freezing energy. Moreover, since the freezing energy
+was larger in magnitude than the melting energy the surface area favored freezing over melting. However, in the Swiss
+AIR both these rates are almost the same indicating the surface area did not favor the melting or the freezing process.
+
+Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to
+the Swiss AIR even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be
+seen in Table \ref{tab:Results}.
 
 \subsection{Sensitivity and uncertainty analysis}
+\subsection{Parameter calibration}
+In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
+derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist} 
+shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
+	\end{center}
+  \caption{Sensitivity of the model to the parameters used in the model optimization, shown by plotting the frequency
+distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+
+\begin{table}
+	\centering
+	\caption{Optimal parameters}
+	\label{tab:parameters}
+	\begin{tabular}{@{}llllll@{}}
+		\toprule
+		\textbf{Calibrated parameters}                  & \textbf{(Range, Step)}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
+		Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)        & 0.97             & 0.99          & 0.95          &               \\
+		Ice Albedo ($\alpha_{ice}$)                     & (0.01-0.35, 0.05)        & 0.25             & 0.31          & 0.31          &               \\
+		Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)        & 0.85             & NA            & 0.91          &               \\
+		Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$   & $1\degree C$     & NA            & $1\degree C$  &               \\
+		Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$   & 10 days          & NA            & 10 days       &               \\
+		Surface Roughness ($z_0$)                       & (1-5, 0.5) $mm$          & $1.7\,mm$        & $1.5\,mm$       & $1\,mm$       &               \\
+		Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$        & $20\,mm$         & $21\,mm$      & $21\,mm$      &               \\
+		Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & $3\degree C$  &               \\\bottomrule
+	\end{tabular}
+\end{table}
 
 \begin{figure}
 	\begin{center}
