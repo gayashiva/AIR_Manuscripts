@@ -572,8 +572,15 @@ Model parameters that were not measured but can be constrained within a range of
 the ice volume measurements of each AIR. The RMSE of the model output against the ice volume measurements were
 determined for each parameter combination.
 
-A sensitivity study on the parameters was performed with the storage efficiency as the target variable. All the
-parameters were assumed to be independent of each other with a uniform distribution. This assumption ignores the
+Sensitivity analysis was conducted using two approaches. First, we investigate calibration runs, which reflect a global
+sensitivity of the model to the parameters used in the optimization, since all parameters are changed at the same time.
+The best 10 \% of the calibration runs (i.e. resulting in the lowest RMSE) were selected and the frequency distribution
+of the parameters from these runs plotted for each AIR, to evaluate their spread. Parameters with a large spread are those
+that the model is not sensitive to, as any of those values lead to a high model performance. On the contrary, parameters
+with a small spread are those that the model is sensitive to.
+
+In the second method, a sensitivity study on the parameters was performed with the storage efficiency as the target variable.
+All the parameters were assumed to be independent of each other with a uniform distribution. This assumption ignores the
 auto-correlation present among the parameters.  The range of uncertain parameters were set based on available literature
 values or varied $\pm$ 5\% from the base value if no such reference was available. However, it must be kept in mind
 that, even though intended to be as objective as possible, the selection of a parameter range has a subjective part that
@@ -588,13 +595,6 @@ precipitation was set to $1 \degree C$ (\cite{FujitaAgeta_2000}) and varied $\pm
 Surface roughness was initially set to 1.7 mm (\cite{CuffeyPaterson_2010}) and varied between 1 and 5 mm
 (\cite{BrockWillisSharp_2006}).
 
-% Sensitivity analysis was conducted using the calibration runs, which reflect a global sensitivity of the model to the
-% parameters used in the optimization, since all parameters are changed at the same time.  The 100 best runs resulting in
-% the lowest RMSE were selected and the parameters from these runs plotted for each AIR, to evaluate their spread.
-% Parameters with a large spread are those that the model is not sensitive to, as any of those valus lead to a high model
-% performance. On the contrary, parameters with a small spread(indicated by the confidence interval) are those the model
-% is sensitive to. 
-
 To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
 \cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
 similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
@@ -602,14 +602,18 @@ a polynomial (as a surrogate model), on which uncertainty and sensitivity analys
 
 \section{Results}
 \subsection{Parameter calibration}
-% In total, 10000 model runs were performed consisting of combinations of the parameters that were varied with a range
-% derived from literature values and a discrete step .  Table \ref{tab:parameters} shows the optimized parameters at all
-% AIR. The results point to considerably higher albedo values for indian compared to swiss sites. This corresponds to
-% visual observations, since swiss AIR 
-% 
-% Ice volume calculate with the initial and optimized parameters is shown in Fig. for all AIR. In CH21, the optimized
-% model parameters can reproduce ice volume observations accurately. The initial parameter sets overestimate ice volume at
-% CH21 but underestimate it on IN21 most likely because of different albedo values.
+In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
+derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist} 
+shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
+	\end{center}
+	\caption{Sensitivity of the model to the parameters used in the model optimization, shown by plotting all parameter 
+	values for the best 10 \% of the model runs. } 
+		\label{fig:param_hist} 
+		\end{figure}
 
 \begin{table}
 	\centering
@@ -630,14 +634,6 @@ a polynomial (as a surrogate model), on which uncertainty and sensitivity analys
 \end{table}
 
 \subsection{Mass and Energy fluxes of the AIR}
-
-% Fig. \ref{fig:EB} (c) represents the mass fluxes associated with these energy exchanges expressed in $m$ w.e. It shows
-% the ice and meltwater formed due to $q_{melt}$, snow accumulated due to precipitation, water vapour deposition and
-% sublimation due to $q_L$. 
-% 
-% The total water used for the Icestupa development includes contributions from the fountain (96.7\%), snowfall (2.9 \%),
-% deposition (0.5 \%) as shown in Table \ref{tab:MB}. Therefore, in the case of CH21 we used a water input of 1,034,328
-% $kg$, with a resultant storage efficiency of 19 \%.
 
 Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with initial parameters for the
 first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and melting period
@@ -710,8 +706,8 @@ overall mass flux much. This can be observed throughout the life cycle of the In
 contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period respectively.
 Sublimation was also significantly more in the Indian site compared to the Swiss site as the corresponding latent heat
 fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was primarily due to the difference in
-relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate for the Indian AIR was more than 2 times
-the melting rate.
+relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate 
+for the Indian AIR was more than 2 times the melting rate.
 
 The magnitude of the freezing and melting rates is controlled by the fountain attributes, particularly the spray radius.
 Even though the Indian AIR's fountain duration was roughly half that of the Swiss its spray radius was significantly
@@ -793,9 +789,6 @@ uniform distribution over their ranges to produce the confidence interval of the
 \ref{fig:results}.
 
 In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
-
-
-
 
 % \section{Discussion} 
 % \subsection{Storage efficiency}
