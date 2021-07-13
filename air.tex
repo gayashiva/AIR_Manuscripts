@@ -728,15 +728,15 @@ seen in Table \ref{tab:Results}.
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
-		\textbf{Uncertain Parameters}                             & \textbf{(Range, Step)}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
-		Ice Emissivity ($\epsilon_{ice}$)               & (0.95-0.99, 0.01)        & 0.97             &           & & 0.95               \\
-		Ice Albedo ($\alpha_{ice}$)                     & (0.15-0.35, 0.05)        & 0.25             &           & &               \\
-		Snow Albedo ($\alpha_{snow})$                   & (0.80-0.90, 0.05)        & 0.85             &           & &               \\
-		Precipitation Temperature threshold ($T_{ppt}$) & (0-2, 1) $\,\degree C$   & $1\degree C$     &           & &               \\
-		Albedo Decay Rate ($\tau$)                      & (9.5-10.5, 0.5) $days$   & 10 days          &           & &              \\
-		Surface Roughness ($z_0$)                       & (1-5, 0.5) $mm$          & $1.7\,mm$        &           & $1\,mm$&                \\
-		Surface layer thickness ($\Delta x$)            & (19-21, 0.5) $mm$        & $20\,mm$         &           & &               \\
-		Water temperature ($T_{water}$)                 & (0-3, 0.5) $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & &               \\\bottomrule
+		\textbf{Uncertain Parameters}                             & \textbf{Range}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
+		Ice Emissivity ($\epsilon_{ice}$)               & 0.95-0.99        & 0.97             &           & & 0.95               \\
+		Ice Albedo ($\alpha_{ice}$)                     & 0.15-0.35        & 0.25             &           & &               \\
+		Snow Albedo ($\alpha_{snow})$                   & 0.80-0.90        & 0.85             &           & &               \\
+		Precipitation Temperature threshold ($T_{ppt}$) & 0-2 $\,\degree C$   & $1\degree C$     &           & &               \\
+		Albedo Decay Rate ($\tau$)                      & 9.5-10.5 $days$   & 10 days          &           & &              \\
+    Surface Roughness ($z_0$)                       & 1-5 $mm$          & $1.7\,mm$        &           & $1\,mm$&                \\
+		Surface layer thickness ($\Delta x$)            & 19-21 $mm$        & $20\,mm$         &           & &               \\
+		Water temperature ($T_{water}$)                 & 0-3 $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & &               \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -757,10 +757,8 @@ Swiss AIR respectively.
 Ice albedo variance was significant for all the AIR but varied in magnitude between the Swiss and Indian locations.
 It caused a standard deviation of $0.3\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR respectively.
 
-The rest of the uncertain parameters caused a variation of less than $1\%$ in the storage efficiency and were ignored
-for the uncertainty analysis. All the significant parameters of Table \ref{tab:parameters} were assumed to have a
-uniform distribution over their ranges to produce the confidence interval of the ice volume estimation shown in Fig.
-\ref{fig:results}.
+The rest of the uncertain parameters were not significant since they caused a variation of less than $1\%$ in the
+storage efficiency.
 
 In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
 
@@ -797,7 +795,6 @@ distribution of the parameter values for the best 10 \% of the model runs. } \la
 % included in hydrological modeling at least over dry regions, such as the northwest Himalaya and Karakoram, especially on
 % the cold, dry Tibetan side. \cite{azam_2018}
 
-\subsection{Uncertainty analysis}
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
