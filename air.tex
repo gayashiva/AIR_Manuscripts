@@ -70,7 +70,7 @@
 	Swiss AIR (~20 \%) due to significantly more fountain water runoff.
 
 	\tiny
-	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering, glaciology } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
 \section{Introduction}
@@ -204,8 +204,9 @@ AIR (refer to Table ).  The details of these surveys are shown in Figure . The U
 course predefined by Pix4Dcapture (https://www.pix4d.com/product/pix4dcapture) and took photographs at a certain time
 interval. The position and altitude of the UAV at the exposure stations, which were obtained by the built-in integrated
 Position and Orientation System (POS, composed of global positioning system and inertial measurement units), were
-recorded in the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a three-step
-workflow, which is described below:
+recorded in the JPEG pictures.
+
+UAV images in each survey were separately processed with Pix4Dmapper in a three-step workflow, which is described below:
 
 (1) Initial processing: This process generates a sparse point cloud with the structure-from motion algorithm
 (\cite{Turner_2012}). First, it searches for and matches key points in the photos that have certain overlapping areas using a
@@ -223,14 +224,10 @@ products can be increased, and an irregular network for the next step can be cre
 can be built from dense point cloud or irregular network, and the former one usually has higher accuracy for rugged
 terrain. Every image pixel is projected on DEM and the georeferenced orthomosaic is generated (\cite{Kung_2011}).
 
-During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature points can
-be detected and matcheed in these photos, especially in survey 2 of CH20, where almost half of thhe photos are invalid
-(Table).
-
 Several UAV surveys were conducted in the Swiss and Indian sites. The DEM generated through these flights were
 analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome
-volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top of another ice structure resulting
-in a much higher dome volume compared to the Swiss AIR.
+volume ($V_{dome}$) for model initialisation. The Indian AIR was built on top of another ice structure resulting in a
+much higher dome volume compared to the Swiss AIR.
 
 \subsection{Fountain observations}
 We define the fountain used in AIR construction through three attributes namely its spray radius , mean discharge
