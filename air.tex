@@ -50,16 +50,16 @@
 
 \begin{abstract}
 
-  Artificial Ice Reservoirs (AIR) can freeze water during winter and generate meltwater for irrigation during spring and
-  summer. Several AIRs have been built worldwide but studies of their water storage efficiency are
-  scarce.  This study models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly
-  called Icestupa.  These processes were quantified using meteorological data in conjunction with fountain discharge
-  information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two
-  sites in Switzerland and one in India. At these measurement sites, AIRs were built for model calibration and validation
-  purposes. Model estimates of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian
-  compared to the Swiss AIR. This was a result of the much higher sublimation rates (much lower humidity) and fountain
-  spray radius of the Indian AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the
-  Swiss AIR (~20 \%) due to significantly more fountain water runoff.
+	Artificial Ice Reservoirs (AIR) can freeze water during winter and generate meltwater for irrigation during spring and
+	summer. Several AIRs have been built worldwide but studies of their water storage efficiency are
+	scarce.  This study models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly
+	called Icestupa.  These processes were quantified using meteorological data in conjunction with fountain discharge
+	information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two
+	sites in Switzerland and one in India. At these measurement sites, AIRs were built for model calibration and validation
+	purposes. Model estimates of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian
+	compared to the Swiss AIR. This was a result of the much higher sublimation rates (much lower humidity) and fountain
+	spray radius of the Indian AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the
+	Swiss AIR (~20 \%) due to significantly more fountain water runoff.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -125,13 +125,13 @@ fountain pipe.  The fountain height varied between 2 to 5\,$m$ during the constr
 from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous
 survey of the site during the construction of the AIR.
 
-\begin{figure} 
-    \begin{center} 
-        \includegraphics[width=12 cm]{Figures/2AIR.jpg} 
-    \end{center} 
-    \caption{The Swiss and Indian AIR on March 3 and January 9, 2021 respectively. Picture credits: Daniel Buerki (left)
-    and Thinles Norboo (right)} 
-\label{fig:CHsite} 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12 cm]{Figures/2AIR.jpg}
+	\end{center}
+	\caption{The Swiss and Indian AIR on March 3 and January 9, 2021 respectively. Picture credits: Daniel Buerki (left)
+		and Thinles Norboo (right)}
+	\label{fig:CHsite}
 \end{figure}
 
 The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
@@ -600,10 +600,10 @@ the Swiss AIR and between the Swiss and the Indian AIR.
 		(a), the purple curve shows how snow and fountain-on events reset albedo between ice albedo and snow albedo.  The
 		decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
 		fraction varied diurnally and seasonally with variations in the solar elevation angle. In (b), the surface
-		temperature (blue curve) was forced to be 0 $\degree C$ during fountain duration.} 
-		\label{fig:albedo} 
-		\end{figure}
-		
+		temperature (blue curve) was forced to be 0 $\degree C$ during fountain duration.}
+	\label{fig:albedo}
+\end{figure}
+
 The variation of the mass fluxes during the freezing period of the IN21 AIR reflect the variation in discharge quantity
 more than that of the energy flux. On day 1,12,13,14 and 20 the fountain discharge was interrupted due to pipeline
 freezing events. So during these days, the freezing energy was instead used up to further reduce the AIR surface
@@ -614,8 +614,8 @@ than half that of the mean discharge quantity. However, the sensitivity of the m
 water temperature. This effect will be analysed later in the sensitivity analysis.
 
 \begin{figure}
-\begin{center} 
-\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
 	\caption{Daily averages of mass and energy fluxes compared for all AIR during their freezing and melting periods.
 		$q_{freeze}$ is the total freezing energy;$q_{melt}$ is the total melting energy;$q_{SW}$ is the net shortwave
 		radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat
@@ -656,7 +656,7 @@ overall mass flux much. This can be observed throughout the life cycle of the In
 contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period respectively.
 Sublimation was also significantly more in the Indian site compared to the Swiss site as the corresponding latent heat
 fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was primarily due to the difference in
-relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate 
+relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate
 for the Indian AIR was more than 2 times the melting rate.
 
 \begin{table}
@@ -713,15 +713,15 @@ seen in Table \ref{tab:Results}.
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
-		\textbf{Uncertain Parameters}                             & \textbf{Range}   & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
-		Ice Emissivity ($\epsilon_{ice}$)               & 0.95-0.99        & 0.97             &           & & 0.95               \\
-		Ice Albedo ($\alpha_{ice}$)                     & 0.15-0.35        & 0.25             &           & &               \\
-		Snow Albedo ($\alpha_{snow})$                   & 0.80-0.90        & 0.85             &           & &               \\
-		Precipitation Temperature threshold ($T_{ppt}$) & 0-2 $\,\degree C$   & $1\degree C$     &           & &               \\
-		Albedo Decay Rate ($\tau$)                      & 9.5-10.5 $days$   & 10 days          &           & &              \\
-    Surface Roughness ($z_0$)                       & 1-5 $mm$          & $1.7\,mm$        &           & $1\,mm$&                \\
-		Surface layer thickness ($\Delta x$)            & 19-21 $mm$        & $20\,mm$         &           & &               \\
-		Water temperature ($T_{water}$)                 & 0-3 $\,\degree C$ & $0.5\degree C$   & $0\degree C$  & &               \\\bottomrule
+		\textbf{Uncertain Parameters}                   & \textbf{Range}    & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
+		Ice Emissivity ($\epsilon_{ice}$)               & 0.95-0.99         & 0.97             &               &               & 0.95          \\
+		Ice Albedo ($\alpha_{ice}$)                     & 0.15-0.35         & 0.25             &               &               &               \\
+		Snow Albedo ($\alpha_{snow})$                   & 0.80-0.90         & 0.85             &               &               &               \\
+		Precipitation Temperature threshold ($T_{ppt}$) & 0-2 $\,\degree C$ & $1\degree C$     &               &               &               \\
+		Albedo Decay Rate ($\tau$)                      & 9.5-10.5 $days$   & 10 days          &               &               &               \\
+		Surface Roughness ($z_0$)                       & 1-5 $mm$          & $1.7\,mm$        &               & $1\,mm$       &               \\
+		Surface layer thickness ($\Delta x$)            & 19-21 $mm$        & $20\,mm$         &               &               &               \\
+		Water temperature ($T_{water}$)                 & 0-3 $\,\degree C$ & $0.5\degree C$   & $0\degree C$  &               &               \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -751,20 +751,20 @@ In total, the sensitivity analysis required 120 simulations, and the uncertainty
 	\begin{center}
 		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
 	\end{center}
-  \caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
-\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
+	\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
+		\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
 
 \subsubsection{Optimal parameters}
 In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
-derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist} 
+derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist}
 shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
 	\end{center}
-  \caption{Sensitivity of the model to the significant parameters used in the model optimization, shown by plotting the frequency
-distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+	\caption{Sensitivity of the model to the significant parameters used in the model optimization, shown by plotting the frequency
+		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
 
 % \section{Discussion} 
 % \subsection{Storage efficiency}
