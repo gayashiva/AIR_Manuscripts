@@ -179,7 +179,7 @@ The diffuse fraction of the global shortwave radiation was also assumed to be ne
 		                       & Mean discharge              & $d_F [l/min]     $        & $60$          & $7.5$         & $7.5$         \\
 		\multicolumn{1}{|l|}{} & Fountain Duration           & $[hours]$                 & 829           & 2155          & 1553          \\
 		\multicolumn{1}{|l|}{} & Spray radius                & $r_{F} [m]$               & 10.8          & 6.9           & 7.7           \\\midrule
-		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{AIR}}}
+		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{UAV}}}
 		% & Altitude  && 4025 $m$ a.s.l.& 1047 $m$ a.s.l.& 1047 $m$ a.s.l.\\ 
 		                       & Dome volume                 & $V_{dome}[m^{3}]$         & 78.5 $m^{3}$  & 13.2 $m^{3}$  & 23.9 $m^{3}$  \\
 		\multicolumn{1}{|l|}{} & Volume measurements         & [times]                   & 6             & 9             & 3             \\
@@ -214,19 +214,19 @@ can be built from dense point cloud or irregular network, and the former one usu
 terrain. Every image pixel is projected on DEM and the georeferenced orthomosaic is generated (\cite{Kung_2011}).
 
 During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature points can
-be detected and matcheed in these photos, especially in survey 2 of CH20, where almost half of thhe photos are invalid
+be detected and matched in these photos, especially in survey 2 of CH20, where almost half of the photos are invalid
 (Table).
 
 Several UAV surveys were conducted in the Swiss and Indian sites. The DEM generated through these flights were
 analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome
-volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top of another ice structure resulting
-in a much higher dome volume compared to the Swiss AIR.
+volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top of another ice structure, it had
+a much higher dome volume compared to the other AIRs.
 
 \subsection{Fountain observations}
-We define the fountain used in AIR construction through three attributes namely its spray radius , mean discharge
+We define the fountain used in AIR construction through three attributes, namely its spray radius , mean discharge
 quantity and discharge duration as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge rate
 was unsuccessful in all the sites. Instead the discharge duration was first determined and then the available discharge
-measurement was used to determine the average discharge quantity $d_F$ during these periods as shown in Appendix. The
+measurement was used to determine the average discharge quantity $d_F$ during these periods as shown in the Appendix. The
 spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights during the fountain
 duration.
 
@@ -241,7 +241,7 @@ these pipeline freezing events.
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
 of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution , b) energy
-balance, c) surface temperature d) mass balance and e)parameter sensitivity.
+balance, c) surface temperature d) mass balance and e) parameter sensitivity.
 
 \begin{figure} \begin{center} \includegraphics[width=12 cm]{Figures/model_schematic.png} \end{center} \caption{Model
 		schematic showing the algorithm used in the model at every time step. } \label{fig:schema} \end{figure}
@@ -681,7 +681,7 @@ simultaneously through deposition/sublimation processes. Since the heat of vapor
 sublimation(deposition) process can contribute significantly to the freezing(melting) energy without affecting the
 overall mass flux much. This can be observed throughout the life cycle of the Indian AIR where sublimation either
 contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period respectively.
-Sublimation was also significantly more in the Indian site compared to the Swiss site as the corresponding latent heat
+Sublimation was also significantly greater in the Indian site compared to the Swiss site as the corresponding latent heat
 fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was primarily due to the difference in
 relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate
 for the Indian AIR was more than 2 times the melting rate.
@@ -721,14 +721,12 @@ for the Indian AIR was more than 2 times the melting rate.
 \end{table}
 
 The magnitude of the freezing and melting rates is controlled by the fountain attributes, particularly the spray radius.
-Even though the Indian AIR's fountain duration was roughly half that of the Swiss its spray radius was significantly
+Even though the Indian AIR's fountain duration was roughly half that of the Swiss, its spray radius was significantly
 larger. This resulted in higher surface area to capitalise on the freezing energy. Moreover, since the freezing energy
-was larger in magnitude than the melting energy the surface area favored freezing over melting. However, in the Swiss
-AIR both these rates are almost the same indicating the surface area did not favor the melting or the freezing process.
+was larger in magnitude than the melting energy, the surface area favored freezing over melting. However, in the Swiss
+AIR both these rates are almost the same, indicating that the surface area did not favor the melting or the freezing process.
 
-Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to
-the Swiss AIR even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be
-seen in Table \ref{tab:Results}.
+Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to the Swiss AIR, even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be seen in Table \ref{tab:Results}.
 
 % \subsection{Sensitivity and uncertainty analysis}
 \subsection{Sensitivity analysis}
@@ -817,19 +815,18 @@ shows the frequency distribution of the calibration parameters among the best 10
 	\label{fig:results} \end{figure}
 
 \section{Conclusions}
-In this paper, we have developed a model to assess AIR evolution using a dataset of field measurements in Indian
-Himalayas and the Swiss Alps. Use of this dataset in combination with novel algorithms for calculation of the surface
-area and energy fluxes allowed an accurate representation of the complex growth dynamics typical of any AIR. The model
-was calibrated by comparison with the ice volume observations logged via drone flights. We calculated the storage
-efficiency for each of the three AIR and used calculations of the energy fluxes and fountain attributes to explain the
-observed variability in freezing and melting rates. We also looked at the model sensitivity to model parameters. Our
-main conclusions are summarised below.
+In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from field measurements in the Indian
+Himalayas and the Swiss Alps. The use of this dataset, in combination with novel algorithms for calculation of the surface
+area and energy fluxes, allowed an accurate representation of the complex growth dynamics typical of any AIR. The model
+was calibrated with ice volume observations obtained via drone flights. We calculated the storage
+efficiency for each of the three AIRs and used calculations of the energy fluxes and fountain attributes to explain the
+observed variability in freezing and melting rates. 
 
-AIR grow higher and last longer in drier regions. Since sublimation augments freezing rates and dampens melting
+In order to properly understand the role of the different physical parameters involved in our model, we performed a sensitivity analysis based on the resulting SE. The results of this analysis suggest that AIRs grow higher and last longer in drier regions (e.g. Ladakh, Indian Himalayas). Since sublimation augments freezing rates and dampens melting
 rates, regions with lower relative humidity are more conducive for AIR.
 
 Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain discharge
-rate.  The model results the indicate that the more than 80 \% of the fountain water is lost as runoff for all the AIR.
+rate.  The model results indicate that more than 80\% of the fountain water is lost as runoff for all the AIRs.
 Further experiments at different locations with different fountains are required to better understand the influence of
 the fountain discharge rate on the results.
 
