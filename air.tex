@@ -38,14 +38,6 @@
 
 \title[Artificial Ice Reservoirs]{Quantifying environmental influences on artificial ice reservoir (Icestupa)
 	evolution: case studies from the Swiss Alps and Indian Himalayas}
-% \title[Artificial Ice Reservoirs]{Estimating water storage efficiency of artificial ice reservoirs (Icestupas) in the Swiss Alps and Indian Himalayas}
-% \title[Artificial Ice Reservoirs]{Environmental influences on water storage efficiency of artificial ice reservoirs (Icestupas)}
-% \title[Modelling Artificial Ice Reservoirs]{Modelling artificial ice reservoirs (Icestupas) through an energy balance approach}
-% \title[Artificial Ice Reservoirs]{Mass and energy balance calculations for artificial ice reservoirs (Icestupas)}
-% \title[Artificial Ice Reservoirs]{Water storage potential of artificial ice reservoirs (Icestupas) in different climate regimes}
-% \title[Artificial Ice Reservoirs]{Modelling water storage capacity of artificial ice reservoirs (Icestupas) in different climate regimes}
-% \title[Artificial Ice Reservoirs]{ A new metric to rank prospective artificial ice reservoir (Icestupa) locations
-%     through an energy balance model}
 
 \author[\firstAuthorLast ]{\Authors}
 \address{}
@@ -63,7 +55,7 @@
   scarce.  This study models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly
   called Icestupa.  These processes were quantified using meteorological data in conjunction with fountain discharge
   information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two
-  sites in Switzerland and one in India. At these measurement sites, AIR were built for model calibration and validation
+  sites in Switzerland and one in India. At these measurement sites, AIRs were built for model calibration and validation
   purposes. Model estimates of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian
   compared to the Swiss AIR. This was a result of the much higher sublimation rates (much lower humidity) and fountain
   spray radius of the Indian AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the
@@ -89,7 +81,7 @@ retreat and the corresponding loss of their main fresh water resources \citep{za
 Artificial ice reservoirs (AIR) have been considered to be a feasible way to adapt to these changes \citep{IPCC_2019,
 	10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed during the cold winter
 months and designed to slowly release freshwater during the warm spring and summer months. The main purpose of
-AIR is irrigation. Therefore, AIR are designed to store water in the form of ice as long into the summer as possible.
+AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long into the summer as possible.
 The energy required to construct an AIR is usually derived from the gravitational head of the source water body. Some
 are constructed horizontally by freezing water using a series of checkdams and others are built vertically by spraying
 water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the
@@ -107,7 +99,7 @@ Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread
 Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to other
 water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:cone}) can be built at lower
 altitudes and last much longer into the summer than other types of ice structures \citep{campaign}. However, to date, no
-reliable estimates exist about thequantity of meltwater they can provide \citep{Nusser_2018}.
+reliable estimates exist about the quantity of meltwater they can provide \citep{Nusser_2018}.
 
 In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
 storage efficiency using weather and fountain discharge information. Mass and energy balance equations were used to
@@ -117,10 +109,10 @@ built across the winters of 2020 and 2021 in India and Switzerland. Our model an
 steps towards evaluating the potential of this new water storage technology worldwide.
 
 \section{Study Sites}
-To accurately calibrate, estimate and validate the ice volume of AIR the model requires three kinds of datasets
-containing weather, fountain and AIR measurements. So through the winters of 2019, 2020 and 2021 several scientific AIR
-were constructed by teams in Switzerland and India. Here we present the results of three scientific AIR which have a
-relatively complete dataset associated with them. As shown in Table \ref{tab:Observations}, two among them were
+To accurately calibrate, estimate and validate the ice volume of AIRs the model requires three kinds of datasets
+containing weather, fountain and AIR measurements. Through the winters of 2019, 2020 and 2021 several scientific AIRs
+were constructed by teams in Switzerland and India. Here we present the results of three scientific AIRs which have a
+relatively complete dataset associated with them. As shown in Table \ref{tab:Observations}, two of them were
 constructed in the same swiss location called Guttannen (referred with the prefix CH) but during different winters and
 the other was constructed at Gangles, India (referred with the prefix IN).
 
@@ -142,8 +134,8 @@ survey of the site during the construction of the AIR.
 \label{fig:CHsite} 
 \end{figure}
 
-The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region
-lies at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
+lying at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
 winter since 2018. The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was
 constructed adjacent to another AIR and merged with it. It's fountain height varied between 5 to 9\,$m$.
 
@@ -224,9 +216,8 @@ A bulk energy and mass balance model is used to calculate the amounts of ice, me
 of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution , b) energy
 balance, c) surface temperature d) mass balance and e)parameter sensitivity.
 
-\begin{figure} \begin{center} \includegraphics[width=15 cm]{Figures/Figure_4.jpg} \end{center} \caption{Model
-		schematic showing the algorithm used in the model at every time step. Further details about the variables can be
-		found in the associated tables and figures.} \label{fig:schema} \end{figure}
+\begin{figure} \begin{center} \includegraphics[width=12 cm]{Figures/model_schematic.png} \end{center} \caption{Model
+		schematic showing the algorithm used in the model at every time step. } \label{fig:schema} \end{figure}
 
 \subsection{Geometric evolution}
 
@@ -333,12 +324,6 @@ considered. Using the solar elevation angle $\theta_{sun}$,  the solar beam can 
 component, impinging on the horizontal surface (semicircular base of the AIR), and a horizontal component impinging on
 the vertical cross section (a triangle). The solar elevation angle $\theta_{sun}$ used is modelled using the
 parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
-
-% The direct solar radiation incident on the AIR surface is first decomposed into horizontal and vertical
-% components using the solar elevation angle $\theta_{sun}$. For a conical shape, half of the total curved surface is
-% exposed to the vertical component of the direct shortwave radiation and the projected triangle of the curved surface is
-% exposed to the horizontal component of the direct shortwave radiation. The solar elevation angle $\theta_{sun}$ used is
-% modelled using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
 
 \begin{equation} \begin{split} f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
 			{r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
