@@ -734,19 +734,21 @@ Thus the fountain attributes and energy flux combine to produce ice volumes 4 ti
 
 \begin{table}
 	\centering
-	\caption{Optimal parameters}
+	\caption{The ranges of the 10 different parameters used in the sensitivvity study.}
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
-		\textbf{Uncertain Parameters}                   & \textbf{Range}    & \textbf{Initial} & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\\midrule
-		Ice Emissivity ($\epsilon_{ice}$)               & 0.95-0.99         & 0.97             &               &               & 0.95          \\
-		Ice Albedo ($\alpha_{ice}$)                     & 0.15-0.35         & 0.25             &               &               &               \\
-		Snow Albedo ($\alpha_{snow})$                   & 0.80-0.90         & 0.85             &               &               &               \\
-		Precipitation Temperature threshold ($T_{ppt}$) & 0-2 $\,\degree C$ & $1\degree C$     &               &               &               \\
-		Albedo Decay Rate ($\tau$)                      & 9.5-10.5 $days$   & 10 days          &               &               &               \\
-		Surface Roughness ($z_0$)                       & 1-5 $mm$          & $1.7\,mm$        &               & $1\,mm$       &               \\
-		Surface layer thickness ($\Delta x$)            & 19-21 $mm$        & $20\,mm$         &               &               &               \\
-		Water temperature ($T_{water}$)                 & 0-3 $\,\degree C$ & $0.5\degree C$   & $0\degree C$  &               &               \\\bottomrule
+		\textbf{No.} & \textbf{Name}                       & \textbf{Abbreviation} & \textbf{Min} & \textbf{Max} & \textbf{Unit} \\\midrule
+		1            & Ice Emissivity                      & $\epsilon_{ice}$      & 0.95         & 0.99         &               \\
+		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15         & 0.35         &               \\
+		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8          & 0.9          &               \\
+		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
+		5            & Albedo Decay Rate                   & $\tau$                & 8            & 12           & $days$        \\
+		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
+		7            & Surface layer thickness             & $\Delta x$            & 16           & 24           & $mm$          \\
+		8            & Fountain water temperature          & $T_{F}$               & 0            & 5            & $\degree C$   \\
+		9            & Fountain mean discharge rate        & $d_{F}$               & 1            & 60           & $l/min$       \\
+		10           & Fountain mean spray radius          & $r_{F}$               & 6            & 11           & $m$           \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -820,7 +822,7 @@ Himalayas and the Swiss Alps. The use of this dataset, in combination with novel
 area and energy fluxes, allowed an accurate representation of the complex growth dynamics typical of any AIR. The model
 was calibrated with ice volume observations obtained via drone flights. We calculated the storage
 efficiency for each of the three AIRs and used calculations of the energy fluxes and fountain attributes to explain the
-observed variability in freezing and melting rates. 
+observed variability in freezing and melting rates.
 
 In order to properly understand the role of the different physical parameters involved in our model, we performed a sensitivity analysis based on the resulting SE. The results of this analysis suggest that AIRs grow higher and last longer in drier regions (e.g. Ladakh, Indian Himalayas). Since sublimation augments freezing rates and dampens melting
 rates, regions with lower relative humidity are more conducive for AIR.
