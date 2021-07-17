@@ -581,20 +581,43 @@ meltwater produced as follows:
 In the following analysis, $SE$ will be used to compare the three different AIR.
 
 \subsection{Sensitivity and uncertainty analysis}
-Since the model parameter space was large, it was constrained by identifying significant parameters. This involved
-performing a sensitivity study on the parameters with the storage efficiency as the target variable.  All the parameters
-were assumed to be independent of each other with a uniform distribution. This assumption ignores the auto-correlation
-present among the parameters. The range of uncertain parameters were set based on available literature values or varied
-$\pm$ 5\% from the base value if no such reference was available. The variation of the model outputs was evaluated to
-quantify the local sensitivities that are defined here as the 95\% range of the simulated outputs.
 
-The initial value for ice albedo was chosen as 0.25 and the possible range limited to 0.15-0.35, corresponding to the
-measured value of ice cliffs from \cite{steiner_2015}. Emissivity value was set to 0.97 for ice and ranged from
-0.95-0.99 (\cite{steiner_2015}). Snow albedo and albedo decay rate was set to 0.85 (\cite{CuffeyPaterson_2010}) and 10
-days (\cite{Schmidt_2017}) respectively with an uncertainty assumed to be $\pm \,5 \%$. Temperature threshold for
-precipitation was set to $1 \degree C$ (\cite{FujitaAgeta_2000}) and varied $\pm$ $1\,\degree C$ (\cite{Zhou_2010}).
-Surface roughness was initially set to 1.7 mm (\cite{CuffeyPaterson_2010}) and varied between 1 and 5 $mm$
-(\cite{BrockWillisSharp_2006}).
+\begin{table}
+	\centering
+	\caption{The ranges of the 10 different parameters used in the sensitivvity study.}
+	\label{tab:parameters}
+	\begin{tabular}{@{}llllll@{}}
+		\toprule
+		\textbf{No.} & \textbf{Name}                       & \textbf{Abbreviation} & \textbf{Min}        & \textbf{Max}        & \textbf{Unit} \\\midrule
+		1            & Ice Emissivity                      & $\epsilon_{ice}$      & 0.95                & 0.99                &               \\
+		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15                & 0.35                &               \\
+		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8                 & 0.9                 &               \\
+		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0                   & 2                   & $\degree C$   \\
+		5            & Albedo Decay Rate                   & $\tau$                & 5                   & 30                  & $days$        \\
+		6            & Surface Roughness                   & $z_0$                 & $1 \times 10^{-3}$  & $5 \times 10^{-3}$  & $m$           \\
+		7            & Surface layer thickness             & $\Delta x$            & $16 \times 10^{-3}$ & $24 \times 10^{-3}$ & $m$           \\
+		8            & Fountain water temperature          & $T_{F}$               & 0                   & 5                   & $\degree C$   \\
+		9            & Fountain mean discharge rate        & $d_{F}$               & 1                   & 60                  & $l/min$       \\
+		10           & Fountain mean spray radius          & $r_{F}$               & 6                   & 11                  & $m$           \\\bottomrule
+	\end{tabular}
+\end{table}
+
+The sensitivity analysis used here followed the two step method used by \cite{ZollesMaussion_2019}.  The only difference
+is we use a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}).  Polynomial chaos
+expansion are a much more efficient way to obtain similar results compared to the computationally demanding Monte Carlo
+methods. This approach approximates the model with a polynomial (as a surrogate model), on which sensitivity and
+uncertainty analysis can be performed.
+
+First a Global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 10 free
+parameters .  The parameter sensitivity results from the GSA are used as a tool to reduce the number of free
+parameters in the model by identifying those parameters which have only a marginal influence on the model output. The
+model is considered insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of < 0.05, and these
+parameters were fixed at the median value of the range shown in in Table \ref{tab:parameters} in subsequent model
+simulations.
+
+The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
+value from \cite{steiner_2015}; temperature threshold for precipitation from \cite{Zhou_2010} and surface roughness from
+\cite{BrockWillisSharp_2006}.
 
 In a second step, we evaluated model runs varying only the significant parameters within their ranges. These model runs
 reflect a global sensitivity of the model to the parameters used in the optimization, since all significant parameters
@@ -608,7 +631,7 @@ the non sensitive parameters.
 To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
 \cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
 similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
-a polynomial (as a surrogate model), on which uncertainty analysis can be performed.
+a polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
 
 \section{Results}
 
@@ -732,25 +755,6 @@ Thus the fountain attributes and energy flux combine to produce ice volumes 4 ti
 \subsection{Sensitivity analysis}
 \subsubsection{Significant parameters}
 
-\begin{table}
-	\centering
-	\caption{The ranges of the 10 different parameters used in the sensitivvity study.}
-	\label{tab:parameters}
-	\begin{tabular}{@{}llllll@{}}
-		\toprule
-		\textbf{No.} & \textbf{Name}                       & \textbf{Abbreviation} & \textbf{Min} & \textbf{Max} & \textbf{Unit} \\\midrule
-		1            & Ice Emissivity                      & $\epsilon_{ice}$      & 0.95         & 0.99         &               \\
-		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15         & 0.35         &               \\
-		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8          & 0.9          &               \\
-		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
-		5            & Albedo Decay Rate                   & $\tau$                & 8            & 12           & $days$        \\
-		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
-		7            & Surface layer thickness             & $\Delta x$            & 16           & 24           & $mm$          \\
-		8            & Fountain water temperature          & $T_{F}$               & 0            & 5            & $\degree C$   \\
-		9            & Fountain mean discharge rate        & $d_{F}$               & 1            & 60           & $l/min$       \\
-		10           & Fountain mean spray radius          & $r_{F}$               & 6            & 11           & $m$           \\\bottomrule
-	\end{tabular}
-\end{table}
 
 
 Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
