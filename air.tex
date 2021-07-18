@@ -546,60 +546,51 @@ meltwater produced as follows:
 
 \begin{equation} \textit{SE} = \frac{M_{water}+M_{ice}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
-In the following analysis, $SE$ will be used to compare the three different AIR.
+% In the following analysis, $SE$ will be used to compare the three different AIR.
 
 \subsection{Sensitivity and uncertainty analysis}
 
 \begin{table}
 	\centering
-	\caption{The ranges of the 10 different parameters used in the sensitivvity study.}
+	\caption{The ranges of the 7 different parameters used in the sensitivity study.}
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
-		\textbf{No.} & \textbf{Name}                       & \textbf{Abbreviation} & \textbf{Min}        & \textbf{Max}        & \textbf{Unit} \\\midrule
-		1            & Ice Emissivity                      & $\epsilon_{ice}$      & 0.95                & 0.99                &               \\
-		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15                & 0.35                &               \\
-		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8                 & 0.9                 &               \\
-		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0                   & 2                   & $\degree C$   \\
-		5            & Albedo Decay Rate                   & $\tau$                & 5                   & 30                  & $days$        \\
-		6            & Surface Roughness                   & $z_0$                 & $1 \times 10^{-3}$  & $5 \times 10^{-3}$  & $m$           \\
-		7            & Surface layer thickness             & $\Delta x$            & $16 \times 10^{-3}$ & $24 \times 10^{-3}$ & $m$           \\
-		8            & Fountain water temperature          & $T_{F}$               & 0                   & 5                   & $\degree C$   \\
-		9            & Fountain mean discharge rate        & $d_{F}$               & 1                   & 60                  & $l/min$       \\
-		10           & Fountain mean spray radius          & $r_{F}$               & 6                   & 11                  & $m$           \\\bottomrule
+		\textbf{No.} & \textbf{Name}                       & \textbf{Abbreviation} & \textbf{Min} & \textbf{Max} & \textbf{Unit} \\\midrule
+		1            & Ice Emissivity                      & $\epsilon_{ice}$      & 0.95         & 0.99         &               \\
+		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15         & 0.35         &               \\
+		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8          & 0.9          &               \\
+		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
+		5            & Albedo Decay Rate                   & $\tau$                & 5            & 30           & $days$        \\
+		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
+		7            & Surface layer thickness             & $\Delta x$            & 1            & 3            & $cm$          \\\bottomrule
 	\end{tabular}
 \end{table}
 
 The sensitivity analysis used here followed the two step method used by \cite{ZollesMaussion_2019}.  The only difference
-is we use a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}).  Polynomial chaos
-expansion are a much more efficient way to obtain similar results compared to the computationally demanding Monte Carlo
-methods. This approach approximates the model with a polynomial (as a surrogate model), on which sensitivity and
+was that we used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}).  Polynomial
+chaos expansion are a much more efficient way to obtain similar results compared to the computationally demanding Monte
+Carlo methods. This approach approximates the model with a polynomial (as a surrogate model), on which sensitivity and
 uncertainty analysis can be performed.
 
-First a Global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 10 free
-parameters .  The parameter sensitivity results from the GSA are used as a tool to reduce the number of free
-parameters in the model by identifying those parameters which have only a marginal influence on the model output. The
-model is considered insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of < 0.05, and these
-parameters were fixed at the median value of the range shown in in Table \ref{tab:parameters} in subsequent model
-simulations.
+First, a Global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 7 free
+parameters. The distribution is always treated as uniform and the limits for every parameter are given in Table
+\ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR.
+
+The parameter sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model
+by identifying those parameters which have only a marginal influence on the model output. The model is considered
+insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of < 0.05, and these parameters were fixed at the
+median value of the range shown in in Table \ref{tab:parameters} in subsequent model simulations.
 
 The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
 value from \cite{steiner_2015}; temperature threshold for precipitation from \cite{Zhou_2010} and surface roughness from
 \cite{BrockWillisSharp_2006}.
 
-In a second step, we evaluated model runs varying only the significant parameters within their ranges. These model runs
-reflect a global sensitivity of the model to the parameters used in the optimization, since all significant parameters
-were changed at the same time.  The best 10 \% of the calibration runs (i.e. resulting in the lowest RMSE) were selected
-and the frequency distribution of the parameters from these runs plotted for each AIR, to evaluate their spread.
-Parameters with a large spread are those that the model is not sensitive to, as any of those values lead to a high model
-performance. On the contrary, parameters with a small spread are those that the model is sensitive to. The initial
-parameter choice is replaced by the optimized value for sensitive parameters whereas the initial choice is preserved for
-the non sensitive parameters.
-
-To perform the uncertainty analysis on the ice volume estimation, a polynomial chaos expansion approach (as in
-\cite{uncertainpy_2018}; \cite{Xiu_2005}) was used. Polynomial chaos expansion are a much more efficient way to obtain
-similar results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with
-a polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
+In a second step, we evaluated model runs varying only the sensitive parameters within their ranges. The best 10 \% of
+the calibration runs (i.e. resulting in the lowest RMSE of ice volume observations) were selected and the frequency
+distribution of the parameters from these runs plotted for each AIR, to evaluate their observed range. Parameters with a
+small spread are those that have a smaller observed range than the literature defined range in Table
+\ref{tab:parameters}. These ranges are updated accordingly for the uncertainty analysis.
 
 \section{Results}
 
