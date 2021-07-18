@@ -18,7 +18,7 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Balasubramanian {et~al.}} %use et al only if is more than 1 author
-\def\Authors{Suryanarayanan Balasubramanian\,$^{1*}$, Martin Hoelzle\,$^{1}$, Michael Lehning\,$^{2}$, Sonam
+\def\Authors{Suryanarayanan Balasubramanian\,$^{1*,3}$, Martin Hoelzle\,$^{1}$, Michael Lehning\,$^{2}$, Sonam
 	Wangchuk\,$^{3}$, Johannes Oerlemans\,$^{4}$, Felix Keller\,$^{5,6}$ and Jordi Bolibar\,$^{4}$}
 \def\Address{$^{1}$University of Fribourg, Fribourg, Switzerland\\
 	$^{2}$WSL Institute for Snow and Avalanche Research, Davos, Switzerland\\
@@ -50,8 +50,16 @@
 
 \begin{abstract}
 
-	Artificial Ice Reservoirs (AIR) can freeze water during winter and generate meltwater for irrigation during spring and summer. Several AIRs have been built worldwide but studies of their water storage efficiency are scarce.  This study models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly called Icestupa.  These processes were quantified using meteorological data in conjunction with fountain discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two sites in Switzerland and one in India. At these measurement sites, AIRs were built for model calibration and validation purposes. Model estimates of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian compared to the Swiss AIR. This was a result of the much higher sublimation rates (much lower humidity) and fountain
-	spray radius of the Indian AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the Swiss AIR (~20 \%) due to significantly more fountain water runoff.
+	Artificial Ice Reservoirs (AIR) can freeze water during winter and generate meltwater for irrigation during spring and
+	summer. Several AIRs have been built worldwide but studies of their water storage efficiency are scarce.  This study
+	models processes involved in the temporal and spatial evolution of a cone-shaped AIR popularly called Icestupa.  These
+	processes were quantified using meteorological data in conjunction with fountain discharge information (mass input of
+	an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for two sites in Switzerland and one
+	in India. At these measurement sites, AIRs were built for model calibration and validation purposes. Model estimates
+	of freezing (melting) rates were more than 5 times higher (2 times lower) for the Indian compared to the Swiss AIR.
+	This was a result of the much higher sublimation rates (much lower humidity) and fountain spray radius of the Indian
+	AIR.  However, the storage efficiency of the Indian AIR (15 \%) was actually lower than the Swiss AIR (~20 \%) due to
+	significantly more fountain water runoff.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -192,12 +200,12 @@ volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on 
 a much higher dome volume compared to the other AIRs.
 
 \subsection{Fountain observations}
-We define the fountain used in AIR construction through three attributes, namely its spray radius , mean discharge
-quantity and discharge duration as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge rate
-was unsuccessful in all the sites. Instead the discharge duration was first determined and then the available discharge
-measurement was used to determine the average discharge quantity $d_F$ during these periods as shown in the Appendix. The
-spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights during the fountain
-duration.
+We define the fountain used in AIR construction through four attributes, namely its spray radius , mean discharge
+quantity, discharge duration and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of
+the discharge rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the
+available discharge measurement was used to determine the average discharge quantity $d_F$ during these periods as shown
+in the Appendix. The spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights
+during the fountain duration.
 
 For the Swiss site, the fountain was never switched off so the discharge duration was extrapolated from just one fountain
 on and off event each.
@@ -711,41 +719,9 @@ AIR both these rates are almost the same, indicating that the surface area did n
 
 Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to the Swiss AIR, even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be seen in Table \ref{tab:Results}.
 
-% \subsection{Sensitivity and uncertainty analysis}
 \subsection{Sensitivity analysis}
-\subsubsection{Significant parameters}
 
-
-
-Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
-storage efficiency in all the AIR. Since warmer fountain water provides more melting energy to the AIR surface during the fountain
-duration, this parameter influences the storage efficiency negatively.
-
-Surface roughness variance was significant for all the AIR but varied in magnitude between the Swiss and Indian
-locations. It caused a standard deviation of $2\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR
-respectively.
-
-Ice emissivity variance was significant for all the AIR but varied in magnitude between the Swiss and Indian
-locations. The higher the ice emissivity the larger the maximum ice volume as the emitted longwave radiation increases
-with ice emissivity.  It caused a standard deviation of $0.6\%$ and $2\%$ in the storage efficiency for the Indian and
-Swiss AIR respectively.
-
-Ice albedo variance was significant for all the AIR but varied in magnitude between the Swiss and Indian locations.
-It caused a standard deviation of $0.3\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR respectively.
-
-The rest of the uncertain parameters were not significant since they caused a variation of less than $1\%$ in the
-storage efficiency.
-
-In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
-	\end{center}
-	\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
-		\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
-
-\subsubsection{Optimal parameters}
+\subsubsection{Observed parameter ranges}
 In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
 derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist}
 shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
@@ -754,8 +730,38 @@ shows the frequency distribution of the calibration parameters among the best 10
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
 	\end{center}
-	\caption{Sensitivity of the model to the significant parameters used in the model optimization, shown by plotting the frequency
+	\caption{Sensitivity of the model to the sensitive parameters used in the model optimization, shown by plotting the frequency
 		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+
+% \subsubsection{Significant parameters}
+% Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
+% storage efficiency in all the AIR. Since warmer fountain water provides more melting energy to the AIR surface during the fountain
+% duration, this parameter influences the storage efficiency negatively.
+% 
+% Surface roughness variance was significant for all the AIR but varied in magnitude between the Swiss and Indian
+% locations. It caused a standard deviation of $2\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR
+% respectively.
+% 
+% Ice emissivity variance was significant for all the AIR but varied in magnitude between the Swiss and Indian
+% locations. The higher the ice emissivity the larger the maximum ice volume as the emitted longwave radiation increases
+% with ice emissivity.  It caused a standard deviation of $0.6\%$ and $2\%$ in the storage efficiency for the Indian and
+% Swiss AIR respectively.
+% 
+% Ice albedo variance was significant for all the AIR but varied in magnitude between the Swiss and Indian locations.
+% It caused a standard deviation of $0.3\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR respectively.
+% 
+% The rest of the uncertain parameters were not significant since they caused a variation of less than $1\%$ in the
+% storage efficiency.
+% 
+% In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
+% 
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
+% 	\end{center}
+% 	\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
+% 		\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
+
 
 % \section{Discussion} 
 % \subsection{Storage efficiency}
