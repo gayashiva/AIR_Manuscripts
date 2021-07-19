@@ -585,7 +585,7 @@ uncertainty analysis can be performed.
 
 First, a Global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 7 free
 parameters. The distribution is always treated as uniform and the limits for every parameter are given in Table
-\ref{tab:parameters}. The GSA consists of a total ensemble size of 5000 simulations per AIR.
+\ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR.
 
 The parameter sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model
 by identifying those parameters which have only a marginal influence on the model output. The model is considered
@@ -596,11 +596,14 @@ The ranges for the ice albedo, snow albedo and albedo decay rate were taken from
 value from \cite{steiner_2015}; temperature threshold for precipitation from \cite{Zhou_2010} and surface roughness from
 \cite{BrockWillisSharp_2006}.
 
-In a second step, we evaluated model runs varying only the sensitive parameters within their ranges. The best 10 \% of
-the calibration runs (i.e. resulting in the lowest RMSE of ice volume observations) were selected and the frequency
+In a second step, we evaluated model runs varying only the sensitive parameters within their ranges. The best 5 \% of
+the model runs (i.e. resulting in the lowest RMSE of ice volume observations) were selected and the frequency
 distribution of the parameters from these runs plotted for each AIR, to evaluate their observed range. Parameters with a
 small spread are those that have a smaller observed range than the literature defined range in Table
 \ref{tab:parameters}. These ranges are updated accordingly for the uncertainty analysis.
+
+The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had just 2 ice volume
+observations for calibration.
 
 \section{Results}
 
@@ -609,7 +612,7 @@ small spread are those that have a smaller observed range than the literature de
 \subsubsection{Global Sensitivity Analysis}
 
 The focus of this GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
-of the parameter space. Therefore, the following dicussion is limited to two classes: parameters to which the model is
+of the parameter space. Therefore, the following discussion is limited to two classes: parameters to which the model is
 sensitive ($S_{T_{i}} > 0.05$) and non-sensitive ($S_{T_{i}} > 0.05$). The storage efficiency $SE$ for each AIR was
 simulated for the GSA. The surrogate model produced via the polynomial chaos approach was a polynomial of order 4. The
 rosenblatt transformation was also used since the parameters were not independent.
@@ -621,21 +624,24 @@ up with only 4 out of the 7 free parameters that need to be calibrated further.
 
 \subsubsection{Observed parameter ranges}
 
-Fig. \ref{fig:param_hist} shows the frequency distribution of the sensitive parameters among the best 5 \% of the model
-runs scored based on RMSE of ice volume observations.
+To restrict the ranges of the sensitive parameters and reduce model uncertainty, model simulations were carried out
+varying all the sensitive parameters within the ranges defined in Table \ref{tab:parameters}. The model performance was
+expressed by the RMSE determined between the UAV ice volume observations and the model ice volume outputs. Fig.
+\ref{fig:param_hist} shows the frequency distribution of the sensitive parameters among the best 5 \% from a total of
+5000 model runs for each AIR.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
 	\end{center}
-	\caption{Sensitivity of the model to the sensitive parameters used in the model optimization, shown by plotting the frequency
-		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by plotting the frequency
+		distribution of the parameter values for the best 5 \% of the model runs. } \label{fig:param_hist} \end{figure}
 
 \subsubsection{Calibration}
 
 \subsection{Mass and Energy fluxes of the AIR}
 
-Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with initial parameters for the
+Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with calibrated parameters for the
 first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and melting period
 respectively. A strong variability is evident between the freezing and melting periods, between the different years for
 the Swiss AIR and between the Swiss and the Indian AIR.
@@ -750,35 +756,6 @@ AIR both these rates are almost the same, indicating that the surface area did n
 Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to the Swiss AIR, even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be seen in Table \ref{tab:Results}.
 
 
-% \subsubsection{Significant parameters}
-% Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
-% storage efficiency in all the AIR. Since warmer fountain water provides more melting energy to the AIR surface during the fountain
-% duration, this parameter influences the storage efficiency negatively.
-% 
-% Surface roughness variance was significant for all the AIR but varied in magnitude between the Swiss and Indian
-% locations. It caused a standard deviation of $2\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR
-% respectively.
-% 
-% Ice emissivity variance was significant for all the AIR but varied in magnitude between the Swiss and Indian
-% locations. The higher the ice emissivity the larger the maximum ice volume as the emitted longwave radiation increases
-% with ice emissivity.  It caused a standard deviation of $0.6\%$ and $2\%$ in the storage efficiency for the Indian and
-% Swiss AIR respectively.
-% 
-% Ice albedo variance was significant for all the AIR but varied in magnitude between the Swiss and Indian locations.
-% It caused a standard deviation of $0.3\%$ and $1\%$ in the storage efficiency for the Indian and Swiss AIR respectively.
-% 
-% The rest of the uncertain parameters were not significant since they caused a variation of less than $1\%$ in the
-% storage efficiency.
-% 
-% In total, the sensitivity analysis required 120 simulations, and the uncertainty analysis a total of 32 simulations.
-% 
-% \begin{figure}
-% 	\begin{center}
-% 		\includegraphics[width=10 cm]{Figures/sensitivities.jpg}
-% 	\end{center}
-% 	\caption{Sensitivities of maximum ice volume to all the uncertain parameters used in the model (Table
-% 		\ref{tab:parameters}). } \label{fig:sensitivity} \end{figure}
-
 
 % \section{Discussion} 
 % \subsection{Storage efficiency}
@@ -793,6 +770,8 @@ Thus the fountain attributes and energy flux combine to produce ice volumes 4 ti
 % condensation/re-sublimation is dominant over glaciers more directly influenced by monsoons. Thus, sublimation should be
 % included in hydrological modeling at least over dry regions, such as the northwest Himalaya and Karakoram, especially on
 % the cold, dry Tibetan side. \cite{azam_2018}
+
+% \subsection{Changing fountain}
 
 \begin{figure}
 	\begin{center}
