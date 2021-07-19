@@ -514,7 +514,7 @@ meltwater produced as follows:
 		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
 		5            & Albedo Decay Rate                   & $\tau$                & 5            & 22           & $days$        \\
 		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
-		7            & Surface layer thickness             & $\Delta x$            & 1            & 3            & $cm$          \\\bottomrule
+		7            & Surface layer thickness             & $\Delta x$            & 1            & 10           & $cm$          \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -535,7 +535,9 @@ median value of the range shown in in Table \ref{tab:parameters} in subsequent m
 
 The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
 value from \cite{steiner_2015}; temperature threshold for precipitation from \cite{Zhou_2010} and surface roughness from
-\cite{BrockWillisSharp_2006}.
+\cite{BrockWillisSharp_2006}. Since the surface layer thickness parameeter for an AIR does not bear resemblance to any
+parameter in the glaciological literature, we attribute a wide range of values for it and try to constrain it further
+during the calibration process.
 
 In a second step, we evaluated model runs varying only the sensitive parameters within their ranges. The best 5 \% of
 the model runs (i.e. resulting in the lowest RMSE of ice volume observations) were selected and the frequency
