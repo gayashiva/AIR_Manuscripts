@@ -126,17 +126,17 @@ model. A temperature and humidity logger was placed adjacent to the AIR on a mas
 		\multicolumn{1}{|l|}{} & Incoming Longwave Radiation & $LW_{in}[W\,m^{-2}]$      & NA            & $54 \pm82$    & $51 \pm 73$   \\
 		\multicolumn{1}{|l|}{} & Hourly Precipitation        & $ppt [mm]       $         & $0 \pm 0$     & $129 \pm 446$ & $92 \pm 400$  \\
 		\multicolumn{1}{|l|}{} & Pressure                    & $p_a [hPa]        $       & $622 \pm 3$   & $793 \pm 8$   & $797 \pm7$    \\
-    \multicolumn{1}{|l|}{} & Observation Duration        & $h_{total} [hours]$       & 3456          & 4042        & 2252         \\\bottomrule
+		\multicolumn{1}{|l|}{} & Observation Duration        & $h_{total} [hours]$       & 3456          & 4042          & 2252          \\\bottomrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Fountain}}}
 		                       & Mean discharge              & $d_F [l/min]     $        & $60$          & $7.5$         & $7.5$         \\
-		\multicolumn{1}{|l|}{} & Duration                    & $h_F [hours]$                 & 829           & 2155          & 1553          \\
+		\multicolumn{1}{|l|}{} & Duration                    & $h_F [hours]$             & 829           & 2155          & 1553          \\
 		\multicolumn{1}{|l|}{} & Spray radius                & $r_{F} [m]$               & 10.8          & 6.9           & 7.7           \\
 		\multicolumn{1}{|l|}{} & Water temperature           & $T_{F} [\degree C]$       & 1             & 3             & 3             \\\midrule
 		\multicolumn{1}{|l|}{\multirow{2}{*}{\rotatebox[origin=c]{90}{UAV}}}
 		% & Altitude  && 4025 $m$ a.s.l.& 1047 $m$ a.s.l.& 1047 $m$ a.s.l.\\ 
 		                       & Dome volume                 & $V_{dome}[m^{3}]$         & 78.5 $m^{3}$  & 13.2 $m^{3}$  & 23.9 $m^{3}$  \\
 		\multicolumn{1}{|l|}{} & Volume measurements         & [times]                   & 6             & 9             & 3
-    \\\bottomrule
+		\\\bottomrule
 		% \multicolumn{1}{|l|}{} & AIR starts                  &                           & Jan 18        & Nov 22        & Jan 3         \\
 		% \multicolumn{1}{|l|}{} & AIR ends                    &                           & Jun 11        & May 18        & Apr 10        \\ \bottomrule
 	\end{tabular}
@@ -561,11 +561,11 @@ uncertainty analysis can be performed.
 
 First, a Global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 7 free
 parameters. The distribution is always treated as uniform and the limits for every parameter are given in Table
-\ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR.
+\ref{tab:parameters}. The GSA consists of a total ensemble size of 5000 simulations per AIR.
 
 The parameter sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model
 by identifying those parameters which have only a marginal influence on the model output. The model is considered
-insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of < 0.05, and these parameters were fixed at the
+insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of $< 0.05$, and these parameters were fixed at the
 median value of the range shown in in Table \ref{tab:parameters} in subsequent model simulations.
 
 The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
@@ -579,6 +579,35 @@ small spread are those that have a smaller observed range than the literature de
 \ref{tab:parameters}. These ranges are updated accordingly for the uncertainty analysis.
 
 \section{Results}
+
+\subsection{Sensitivity analysis}
+
+\subsubsection{Global Sensitivity Analysis}
+
+The focus of this GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
+of the parameter space. Therefore, the following dicussion is limited to two classes: parameters to which the model is
+sensitive ($S_{T_{i}} > 0.05$) and non-sensitive ($S_{T_{i}} > 0.05$). The storage efficiency $SE$ for each AIR was
+simulated for the GSA. The surrogate model produced via the polynomial chaos approach was a polynomial of order 4. The
+rosenblatt transformation was also used since the parameters were not independent.
+
+For all the AIR, most of the parameters related to the albedo module were insensitive namely, $\alpha_{ice}$, $\tau$ and
+$T_{ppt}$. This is to be expected since albedo is forced to be the ice albedo during fountain duration so these
+parameters are only used for roughly half the model duration and that too only if there is any precipitation. So we end
+up with only 4 out of the 7 free parameters that need to be calibrated further.
+
+\subsubsection{Observed parameter ranges}
+
+Fig. \ref{fig:param_hist} shows the frequency distribution of the sensitive parameters among the best 5 \% of the model
+runs scored based on RMSE of ice volume observations.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
+	\end{center}
+	\caption{Sensitivity of the model to the sensitive parameters used in the model optimization, shown by plotting the frequency
+		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+
+\subsubsection{Calibration}
 
 \subsection{Mass and Energy fluxes of the AIR}
 
@@ -696,19 +725,6 @@ AIR both these rates are almost the same, indicating that the surface area did n
 
 Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to the Swiss AIR, even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be seen in Table \ref{tab:Results}.
 
-\subsection{Sensitivity analysis}
-
-\subsubsection{Observed parameter ranges}
-In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
-derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist}
-shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
-	\end{center}
-	\caption{Sensitivity of the model to the sensitive parameters used in the model optimization, shown by plotting the frequency
-		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
 
 % \subsubsection{Significant parameters}
 % Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
