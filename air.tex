@@ -585,11 +585,11 @@ uncertainty analysis can be performed.
 
 First, a Global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 7 free
 parameters. The distribution is always treated as uniform and the limits for every parameter are given in Table
-\ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR.
+\ref{tab:parameters}. The GSA consists of a total ensemble size of 5000 simulations per AIR. 
 
 The parameter sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model
 by identifying those parameters which have only a marginal influence on the model output. The model is considered
-insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of < 0.05, and these parameters were fixed at the
+insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of $< 0.05$, and these parameters were fixed at the
 median value of the range shown in in Table \ref{tab:parameters} in subsequent model simulations.
 
 The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
@@ -603,6 +603,22 @@ small spread are those that have a smaller observed range than the literature de
 \ref{tab:parameters}. These ranges are updated accordingly for the uncertainty analysis.
 
 \section{Results}
+
+\subsection{Sensitivity analysis}
+
+\subsubsection{Observed parameter ranges}
+In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
+derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist}
+shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
+	\end{center}
+	\caption{Sensitivity of the model to the sensitive parameters used in the model optimization, shown by plotting the frequency
+		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
+
+\subsubsection{Calibration}
 
 \subsection{Mass and Energy fluxes of the AIR}
 
@@ -720,19 +736,6 @@ AIR both these rates are almost the same, indicating that the surface area did n
 
 Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to the Swiss AIR, even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be seen in Table \ref{tab:Results}.
 
-\subsection{Sensitivity analysis}
-
-\subsubsection{Observed parameter ranges}
-In total, 1800 model runs were performed for each AIR consisting of combinations of the parameters that were varied with a range
-derived from literature values and a discrete step as shown in Table \ref{tab:parameters}. Fig. \ref{fig:param_hist}
-shows the frequency distribution of the calibration parameters among the best 10 \% of the model runs scored based on RMSE.
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
-	\end{center}
-	\caption{Sensitivity of the model to the sensitive parameters used in the model optimization, shown by plotting the frequency
-		distribution of the parameter values for the best 10 \% of the model runs. } \label{fig:param_hist} \end{figure}
 
 % \subsubsection{Significant parameters}
 % Fountain water temperature was found to be the most significant parameter causing a standard deviation of $3\%$ in the
