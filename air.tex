@@ -85,21 +85,9 @@ storage efficiency using weather and fountain discharge information. Mass and en
 performed to identify the most critical parameters and the variance caused by them. For validation, we chose three AIR built across the winters of 2020 and 2021 in India and Switzerland. Our model and validation experiments provide first steps towards evaluating the potential of this new water storage technology worldwide.
 
 \section{Study Sites}
-To accurately calibrate, estimate and validate the ice volume of AIRs the model requires three kinds of datasets
-containing weather, fountain and AIR measurements. Through the winters of 2019, 2020 and 2021 several scientific AIRs
-were constructed by teams in Switzerland and India. Here we present the results of three scientific AIRs which have a
-relatively complete dataset associated with them. As shown in Table \ref{tab:Observations}, two of them were
-constructed in the same swiss location called Guttannen (referred with the prefix CH) but during different winters and
-the other was constructed at Gangles, India (referred with the prefix IN).
+The model requires three kinds of datasets containing weather, fountain and AIR measurements to accurately calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several scientific AIRs were constructed by teams in Switzerland and India. Here, we present the results of three scientific AIRs, which have relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were constructed in the same Swiss location called Guttannen (referred with the prefix CH) but during different winters and the other was constructed at Gangles, India (referred with the prefix IN).
 
-The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean
-daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7
-days during winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values
-across the study period as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen Bewegt Association
-during the winters of 2019-20 and 2020-21. To initiate the ice formation process, tree branches were laid covering the
-fountain pipe.  The fountain height varied between 2 to 5\,$m$ during the construction period. The water was transferred
-from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous
-survey of the site during the construction of the AIR.
+The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values across the study period as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen Bewegt Association during the winters of 2019-20 (CH20) and 2020-21 (CH21). Tree branches were laid covering the fountain pipe to initiate the ice formation process. The fountain height varied between 2 to 5\,$m$ during the construction period. The water was transferred from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous survey of the site during the construction of the AIR.
 
 \begin{figure}
 	\begin{center}
@@ -110,29 +98,17 @@ survey of the site during the construction of the AIR.
 	\label{fig:CHsite}
 \end{figure}
 
-The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
-lying at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
-winter since 2018. The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was
-constructed adjacent to another AIR and merged with it. It's fountain height varied between 5 to 9\,$m$.
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region, lying at 4025 $m$ a.s.l.. AIR were constructed by the Himalayan Institute of Alternatives, Ladakh (HIAL) every winter since 2018. The AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India (IN21). Fountain height varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
-Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
-to calculate the surface energy balance of an AIR.
+Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required to calculate the surface energy balance of an AIR.
 
-For the CH site, the primary weather data source was a meteoswiss AWS located 184 m away. In addition, we used ERA5
-reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was
-assumed this was the cause when null wind speeds were observed continuously for atleast 3 hours. All such null values
-were replaced using the ERA5 dataset.
+For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was assumed when null wind speeds were observed continuously for at least 3 hours. All such null values were replaced using the ERA5 dataset.
 
-The ERA5 reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
-chosen (46.64 $\degree$N, 8.25 $\degree$E) for the swiss site was around 3.6 km away from the actual site.  All the ERA5
-variables were therefore fitted with the meteoswiss dataset via linear regressions.
+The ERA5 reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset via linear regressions.
 
 For the IN site, three different weather data sources were used to log all the weather parameters required for the
-model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was
-logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell
-weather station located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible.
-The diffuse fraction of the global shortwave radiation was also assumed to be negligible.
+model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell weather station located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible. The diffuse fraction of the global shortwave radiation was also assumed to be negligible.
 
 \begin{table}
 	\centering
