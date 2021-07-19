@@ -85,21 +85,9 @@ storage efficiency using weather and fountain discharge information. Mass and en
 performed to identify the most critical parameters and the variance caused by them. For validation, we chose three AIR built across the winters of 2020 and 2021 in India and Switzerland. Our model and validation experiments provide first steps towards evaluating the potential of this new water storage technology worldwide.
 
 \section{Study Sites}
-To accurately calibrate, estimate and validate the ice volume of AIRs the model requires three kinds of datasets
-containing weather, fountain and AIR measurements. Through the winters of 2019, 2020 and 2021 several scientific AIRs
-were constructed by teams in Switzerland and India. Here we present the results of three scientific AIRs which have a
-relatively complete dataset associated with them. As shown in Table \ref{tab:Observations}, two of them were
-constructed in the same swiss location called Guttannen (referred with the prefix CH) but during different winters and
-the other was constructed at Gangles, India (referred with the prefix IN).
+The model requires three kinds of datasets containing weather, fountain and AIR measurements to accurately calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several scientific AIRs were constructed by teams in Switzerland and India. Here, we present the results of three scientific AIRs, which have relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were constructed in the same Swiss location called Guttannen (referred with the prefix CH) but during different winters and the other was constructed at Gangles, India (referred with the prefix IN).
 
-The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean
-daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7
-days during winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values
-across the study period as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen Bewegt Association
-during the winters of 2019-20 and 2020-21. To initiate the ice formation process, tree branches were laid covering the
-fountain pipe.  The fountain height varied between 2 to 5\,$m$ during the construction period. The water was transferred
-from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous
-survey of the site during the construction of the AIR.
+The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare, averaging around 7 days during winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high humidity values across the study period as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen Bewegt Association during the winters of 2019-20 (CH20) and 2020-21 (CH21). Tree branches were laid covering the fountain pipe to initiate the ice formation process. The fountain height varied between 2 to 5\,$m$ during the construction period. The water was transferred from a spring water source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous survey of the site during the construction of the AIR.
 
 \begin{figure}
 	\begin{center}
@@ -110,29 +98,17 @@ survey of the site during the construction of the AIR.
 	\label{fig:CHsite}
 \end{figure}
 
-The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
-lying at 4025 $m$ a.s.l.. AIR were constructed here by the Himalayan Institute of Alternatives, Ladakh (HIAL) every
-winter since 2018. The IN21 AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India. It was
-constructed adjacent to another AIR and merged with it. It's fountain height varied between 5 to 9\,$m$.
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region, lying at 4025 $m$ a.s.l.. AIR were constructed by the Himalayan Institute of Alternatives, Ladakh (HIAL) every winter since 2018. The AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India (IN21). Fountain height varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
-Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
-to calculate the surface energy balance of an AIR.
+Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required to calculate the surface energy balance of an AIR.
 
-For the CH site, the primary weather data source was a meteoswiss AWS located 184 m away. In addition, we used ERA5
-reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was
-assumed this was the cause when null wind speeds were observed continuously for atleast 3 hours. All such null values
-were replaced using the ERA5 dataset.
+For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly. Zero wind speed values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was assumed when null wind speeds were observed continuously for at least 3 hours. All such null values were replaced using the ERA5 dataset.
 
-The ERA5 reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
-chosen (46.64 $\degree$N, 8.25 $\degree$E) for the swiss site was around 3.6 km away from the actual site.  All the ERA5
-variables were therefore fitted with the meteoswiss dataset via linear regressions.
+The ERA5 reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  All the ERA5 variables were therefore fitted with the meteoswiss dataset via linear regressions.
 
 For the IN site, three different weather data sources were used to log all the weather parameters required for the
-model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was
-logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell
-weather station located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible.
-The diffuse fraction of the global shortwave radiation was also assumed to be negligible.
+model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell weather station located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible. The diffuse fraction of the global shortwave radiation was also assumed to be negligible.
 
 \begin{table}
 	\centering
@@ -166,76 +142,44 @@ The diffuse fraction of the global shortwave radiation was also assumed to be ne
 	\end{tabular}
 \end{table}
 
-\subsection{UAV surveys}
-In this study, an Anafi thermal quadcopter uncrewed aerial vehicle (UAV) was employed to conduct several surveys of the
-AIR (refer to Table ).  The details of these surveys are shown in Figure . The UAV flew automatically along the flight
-course predefined by Pix4Dcapture (https://www.pix4d.com/product/pix4dcapture) and took photographs at a certain time
-interval. The position and altitude of the UAV at the exposure stations, which were obtained by the built-in integrated
-Position and Orientation System (POS, composed of global positioning system and inertial measurement units), were
-recorded in the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a three-step
-workflow, which is described below:
+\subsection{Uncrewed Aerial Vehicle surveys}
+In this study, an Anafi thermal quadcopter uncrewed aerial vehicle (UAV) was employed to conduct several surveys of the AIR (refer to Table ).  The details of these surveys are shown in Figure . The UAV flew automatically along the flight course predefined by Pix4Dcapture (https://www.pix4d.com/product/pix4dcapture) and took photographs at a certain time interval. The position and altitude of the UAV at the exposure stations, which were obtained by the built-in integrated Position and Orientation System (POS, composed of global positioning system and inertial measurement units), were recorded in the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a three-step workflow, which is described below:
 
 (1) Initial processing: This process generates a sparse point cloud with the structure-from motion algorithm
-(\cite{Turner_2012}). First, it searches for and matches key points in the photos that have certain overlapping areas using a
-feature matching algorithm (e.g. the scale-invariant feature transform (SIFT) algorithm, which can detect key points in
-photos with different views and illumination conditions; \cite{Lowe_2004}). Second, the approximate locations and
-orientations of the camera at each exposure station are reconstructed with the internal parameters (focal length,
-coordinates of the principal point of the photograph), and external parameters (i.e. POS data). A sparse point cloud is
-created.
+(\cite{Turner_2012}). First, it searches for and matches key points in the photos that have certain overlapping areas using a feature matching algorithm (e.g. the scale-invariant feature transform (SIFT) algorithm, which can detect key points in photos with different views and illumination conditions; \cite{Lowe_2004}). Second, the approximate locations and orientations of the camera at each exposure station are reconstructed with the internal parameters (focal length, coordinates of the principal point of the photograph), and external parameters (i.e. POS data). A sparse point cloud is created.
 
-(2) Point cloud densification: In this step, the multi-view stereo technique is applied to achieve a higher point cloud
-density than in the previous step (\cite{Furukawa_2010}; \cite{Molg_2017}). Thus, the spatial resolution of the
-products can be increased, and an irregular network for the next step can be created (\cite{Kung_2011}).
+(2) Point cloud densification: In this step, the multi-view stereo technique is applied to achieve a higher point cloud density than in the previous step (\cite{Furukawa_2010}; \cite{Molg_2017}). Thus, the spatial resolution of the products can be increased, and an irregular network for the next step can be created (\cite{Kung_2011}).
 
-(3) Digital elevation model (DEM) and orthomosaic generation: DEM and orthomosaic are the two main final products. DEM
-can be built from dense point cloud or irregular network, and the former one usually has higher accuracy for rugged
-terrain. Every image pixel is projected on DEM and the georeferenced orthomosaic is generated (\cite{Kung_2011}).
+(3) Digital elevation model (DEM) and orthomosaic generation: DEM and orthomosaic are the two main final products. DEM can be built from dense point cloud or irregular network, and the former one usually has higher accuracy for rugged terrain. Every image pixel is projected on DEM and the georeferenced orthomosaic is generated (\cite{Kung_2011}).
 
-During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature points can
-be detected and matched in these photos, especially in survey 2 of CH20, where almost half of the photos are invalid
-(Table).
+During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature points can be detected and matched in these photos, especially in survey 2 of CH20, where almost half of the photos are invalid (Table).
 
 Several UAV surveys were conducted in the Swiss and Indian sites. The DEM generated through these flights were
-analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome
-volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top of another ice structure, it had
-a much higher dome volume compared to the other AIRs.
+analysed to obtain the circumference and volume of the ice structure. The first drone flight was used to set the dome volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top of another ice structure, it had a much higher dome volume compared to the other AIRs.
 
 \subsection{Fountain observations}
-We define the fountain used in AIR construction through four attributes, namely its spray radius , mean discharge
-quantity, discharge duration and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of
-the discharge rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the
-available discharge measurement was used to determine the average discharge quantity $d_F$ during these periods as shown
-in the Appendix. The spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights
-during the fountain duration.
+We define the fountain used in AIR construction through four attributes, namely its spray radius, mean discharge
+quantity, discharge duration and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the available discharge measurement was used to determine the average discharge quantity $d_F$ during these periods as shown in the Appendix. The spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights during the fountain duration.
 
-For the Swiss site, the fountain was never switched off so the discharge duration was extrapolated from just one fountain
-on and off event each.
+For the Swiss site, the fountain was never switched off so the discharge duration was extrapolated from just one fountain on and off event each.
 
-For the Indian site, even though the fountain was never manually switched off, there were many pipeline freezing events that
-interrupted the discharge duration. So discharge rate was extrapolated to be the mean discharge $d_F$ except during
-these pipeline freezing events.
+For the Indian site, even though the fountain was never manually switched off, there were many pipeline freezing events that interrupted the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during these pipeline freezing events.
 
 \section{Model setup}
 
-A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
-of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution , b) energy
-balance, c) surface temperature d) mass balance and e) parameter sensitivity.
+A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution, b) energy balance, c) surface temperature, d) mass balance and e) parameter sensitivity.
 
-\begin{figure} \begin{center} \includegraphics[width=12 cm]{Figures/model_schematic.png} \end{center} \caption{Model
-		schematic showing the algorithm used in the model at every time step. } \label{fig:schema} \end{figure}
+\begin{figure} \begin{center} \includegraphics[width=12 cm]{Figures/model_schematic.png} \end{center} \caption{Model schematic showing the algorithm used in the model at every time step. } \label{fig:schema} \end{figure}
 
 \subsection{Geometric evolution}
 
-Radius $r_{ice}^i$ and height $h_{ice}^i$ define the dimensions of the AIR assuming its geometry to be a cone. The
-surface area $A^i$ exposed to the atmosphere and volume $V^i$ are:
+Radius $r_{ice}^i$ and height $h_{ice}^i$ define the dimensions of the AIR assuming its geometry to be a cone. The surface area $A^i$ and volume $V^i$ are:
 
 \begin{equation} A = \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
 
 \begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
 
-Note that we do not specify the time step superscript $i$ of the shape variables $A$, $V$, $r_{ice}$ and $h_{ice}$ for
-brevity.  The equations used henceforth display model time step superscript $i$ only if it is different from the
-current time step.
+We do not specify the time step superscript $i$ of the shape variables $A$, $V$, $r_{ice}$ and $h_{ice}$. The equations used, display model time step superscript $i$ only if it is different from the current time step.
 
 With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 
@@ -244,9 +188,7 @@ With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$).
 
 
-The influence of the AIR fountain is parameterised by the fountain water temperature $T_{w}$ and its spray radius $r_F$.
-The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume
-$V_{dome}$ used to construct the AIR as follows:
+The influence of the AIR fountain is parameterised by the fountain water temperature $T_{w}$ and its spray radius $r_F$. The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation}
 	h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_F^2 }
@@ -296,9 +238,8 @@ a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts 
 has an upper and a lower boundary defined by the atmosphere and the ice body of the AIR, respectively. The
 parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
 small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$ should
-be large enough for these temperature variations to not reach the bottom of the surface layer.  Therefore, we introduced
-a 20 $mm$ thick surface layer for a model time step of 1 hour, over which the energy balance is calculated. A
-sensitivity analysis was later performed to understand the influence of this factor. Here, we define the surface
+be large enough for these temperature variations to not reach the bottom of the surface layer.  A
+sensitivity analysis was later performed to understand the influence of this factor and decide its value. Here, we define the surface
 temperature $T_{ice}$ to be the modelled average temperature of the Icestupa surface layer and the energy flux $q_{surf}$
 is assumed to act uniformly across the Icestupa area $A$.
 
@@ -571,7 +512,7 @@ meltwater produced as follows:
 		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15         & 0.35         &               \\
 		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8          & 0.9          &               \\
 		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
-		5            & Albedo Decay Rate                   & $\tau$                & 5            & 30           & $days$        \\
+		5            & Albedo Decay Rate                   & $\tau$                & 5            & 22           & $days$        \\
 		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
 		7            & Surface layer thickness             & $\Delta x$            & 1            & 3            & $cm$          \\\bottomrule
 	\end{tabular}
