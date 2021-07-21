@@ -326,6 +326,7 @@ $T_{ice}$ to be the modelled average temperature of the Icestupa surface layer a
 to act uniformly across the Icestupa area $A$.
 
 \subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}}
+
 The net shortwave radiation $q_{SW}$ is computed as follows:
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
 
@@ -333,19 +334,17 @@ where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse shortwave
 albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave radiation.
 
 The albedo varies depending on the water source that formed the current AIR surface layer. During the fountain
-occurrence, the albedo assumes a constant value corresponding to ice albedo. However, after the fountain is switched
-off, the albedo can reset to snow albedo during snowfall events and then decay back to ice albedo. We use the scheme
-described in \cite{OerlemansKnap_1998} to model this process. The scheme records the decay of albedo with time after
-fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last snowfall event. After
-snowfall, albedo changes over a time step, $\delta t$ , as
+occurrence, the albedo assumes a constant value corresponding to ice albedo. However, after the fountain is
+switched off, the albedo can reset to snow albedo during snowfall events and then decay back to ice albedo. We use
+the scheme described in \cite{OerlemansKnap_1998} to model this process. The scheme records the decay of albedo
+with time after fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last
+snowfall event. After snowfall, albedo changes over a time step, $\delta t$ , as
 
 \begin{equation} \alpha=\alpha_{ice}+(\alpha_{snow}-\alpha_{ice}) \cdot e^{(-\delta t)/\tau} \label{eqn:a}
 \end{equation}
 
-where $\alpha_{ice}$ is the bare ice albedo value (0.35), $\alpha_{snow}$ is the snow ice albedo value (0.85) and $\tau$
-is a decay rate, which determines how fast the albedo of the ageing snow reaches this value.  The decay rate $\tau$ is
-assumed to have an initial value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces. Snowfall
-events are assumed, if the air temperature is below $T_{ppt}=1 \degree C$ \citep{FujitaAgeta_2000}.
+where $\alpha_{ice}$ is the bare ice albedo value (0.25), $\alpha_{snow}$ is the snow ice albedo value (0.85) and $\tau$
+is a decay rate (16 $days$), which determines how fast the albedo of the ageing snow reaches this value.
 
 The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
 considered. Using the solar elevation angle $\theta_{sun}$, the solar beam can be considered to have a vertical
@@ -402,7 +401,7 @@ The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (around $2\,m$ for all sites), $v_a$ is
 the wind speed in [$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J $kg^{-1} K^{-1}$),
 $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air pressure at standard sea
-level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).
+level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the surface roughness (5 $mm$) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).
 The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in
 \cite{WMO_2018}:
 
@@ -420,10 +419,6 @@ the roughness of the surface \cite{Oerlemans_2021}, and is a function of the AIR
 	\mu_{cone} = 1 + \frac{s_{cone}}{2}
 \end{equation}
 
-The surface roughness, $z_{0}$, may need more attention. Literature values for surface roughness rarely exceed 1 cm, and
-for glacier ice are generally in the range $0.1-5\, mm$ \citet{BrockWillisSharp_2006}. We decided to use a commonly used
-literature value for $z_{0}$ as an initial value ($1.7\,mm$), as proposed by \cite{CuffeyPaterson_2010} which is close
-to the ideal value found in \cite{reid_brock_2014} and within the range presented by \cite{BrockWillisSharp_2006}.
 
 A possible source of error is the fact that wind measurements from the horizontal plane at the AWS are used, which might
 be different from those on a slope. However, without detailed datasets from the AIR surface, we retain this assumption.
@@ -513,6 +508,7 @@ melting point. The surface energy flux distribution during a melting event can b
 
 
 \subsection{Mass Balance}
+
 The mass balance equation for an AIR is represented as:
 
 \begin{equation}
@@ -581,17 +577,16 @@ meltwater produced as follows:
 
 \begin{equation} \textit{SE} = \frac{M_{water}+M_{ice}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
-% In the following analysis, $SE$ will be used to compare the three different AIR.
-
 \subsection{Sensitivity and uncertainty analysis}
 
-The uncertainty in the model ice volume estimates are caused due to uncertainty in two sources, namely model parameters
-and input. We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}).  Polynomial
-chaos expansion are a much more efficient way to obtain similar results compared to the computationally demanding Monte
-Carlo methods. This approach approximates the model with a polynomial (as a surrogate model), on which sensitivity and
-uncertainty analysis can be performed.
+We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to valuate the model
+sensitivity and uncertainty.  Polynomial chaos expansion are a much more efficient way to obtain similar results
+compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
+polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed. Throughout the
+following analysis, we fix the model time resolution to be one hour.
 
-For the model parameters, we first fix a range based on literature values and then perform a global sensitivity analysis
+The uncertainty in the model ice volume estimates are caused due to uncertainty in two sources, namely model parameters
+and input. For the model parameters, we first fix a range based on literature values and then perform a global sensitivity analysis
 (GSA) with the storage efficiency as the objective. The distribution is always treated as uniform and the limits for
 every parameter are given in Table \ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations
 per AIR. The parameter sensitivity results from the GSA are used as a tool to reduce the number of free parameters in
@@ -601,18 +596,27 @@ fixed at the median value of the range shown in Table \ref{tab:parameters} in su
 the AIR assume the same value and were very sensitive to surface layer thickness $DX$, it was calibrated first before
 performing any further calibration of the other model parameters.
 
-The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
-value from \cite{steiner_2015}; temperature threshold for precipitation from \cite{Zhou_2010} and surface roughness from
-\cite{BrockWillisSharp_2006}. Since the surface layer thickness parameeter for an AIR does not bear resemblance to any
-parameter in the glaciological literature, we attribute a wide range of values for it and try to constrain it further
-during the calibration process.
+The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice albedo minimum was taken from
+\cite{steiner_2015} and maximum from \cite{ZollesMaussion_2019}; albedo decay rate is assumed to have a minimum
+value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces and a maximum of 22 days from
+\cite{OerlemansKnap_1998} ;emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
+from \cite{Zhou_2010}.
 
-For the model input data, uncertainty associated with three kinds of observations namely, weather, fountain and UAV were
+The surface roughness, $z_{0}$, and surface layer thickness, $\Delta x$, may need more attention. Literature values
+for surface roughness rarely exceed 1 cm, and for glacier ice are generally in the range $0.1-5\, mm$
+\citet{BrockWillisSharp_2006}. We decided to use the maximum possible range for $z_{0}$. Since the surface layer
+thickness parameter for an AIR does not bear resemblance to any parameter in the glaciological literature, we
+attribute a wide range of values for it and try to constrain it further during the calibration process.
+
+For the model input data, uncertainty associated with two kinds of observations namely, weather and fountain were
 evaluated. All the radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) in the weather data were uncertain
-since they were taken from ERA5 dataset or AWS far away from the AIR site. All the measured fountain parameters are
+since they were taken from ERA5 dataset or an AWS far away from the AIR site. All the measured fountain parameters are
 uncertain since they vary significantly temporally and are not constant. The UAV measurements have also uncertainty
 associated with them. So all these measurements were assumed to have an uncertainty of $\pm 10 \%$ to evaluate the
-corresponding uncertainty produced in model ice volume estimates. The model input data were not calibrated further.
+corresponding uncertainty produced in model ice volume estimates.
+
+The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had just 2 ice volume
+observations for calibration.
 
 \begin{table}
 	\centering
@@ -631,36 +635,6 @@ corresponding uncertainty produced in model ice volume estimates. The model inpu
 	\end{tabular}
 \end{table}
 
-% The sensitivity analysis used here followed the two step method used by \cite{ZollesMaussion_2019}.  The only difference
-% was that we used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}).  Polynomial
-% chaos expansion are a much more efficient way to obtain similar results compared to the computationally demanding Monte
-% Carlo methods. This approach approximates the model with a polynomial (as a surrogate model), on which sensitivity and
-% uncertainty analysis can be performed.
-% 
-% First, a global sensitivity analysis (GSA) was performed with the storage efficiency as the objective on the 7 free
-% parameters. The distribution is always treated as uniform and the limits for every parameter are given in Table
-% \ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR.
-% 
-% The parameter sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model
-% by identifying those parameters which have only a marginal influence on the model output. The model is considered
-% insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of $< 0.05$, and these parameters were fixed at
-% the median value of the range shown in Table \ref{tab:parameters} in subsequent model simulations.
-% 
-% The ranges for the ice albedo, snow albedo and albedo decay rate were taken from \cite{ZollesMaussion_2019}; emissivity
-% value from \cite{steiner_2015}; temperature threshold for precipitation from \cite{Zhou_2010} and surface roughness from
-% \cite{BrockWillisSharp_2006}. Since the surface layer thickness parameeter for an AIR does not bear resemblance to any
-% parameter in the glaciological literature, we attribute a wide range of values for it and try to constrain it further
-% during the calibration process.
-
-% In a second step, we evaluated model runs varying only the sensitive parameters within their ranges. The best 5 \% of
-% the model runs (i.e. resulting in the lowest RMSE of ice volume observations) were selected and the frequency
-% distribution of the parameters from these runs plotted for each AIR, to evaluate their observed range. Parameters with a
-% small spread are those that have a smaller observed range than the literature defined range in Table
-% \ref{tab:parameters}. These ranges are updated accordingly for the uncertainty analysis.
-
-The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had just 2 ice volume
-observations for calibration.
-
 \section{Results}
 
 \subsection{Sensitivity analysis}
@@ -673,20 +647,19 @@ sensitive ($S_{T_{i}} > 0.05$) and non-sensitive ($S_{T_{i}} < 0.05$). The stora
 simulated for the GSA. The surrogate model produced via the polynomial chaos approach was a polynomial of order 4. The
 rosenblatt transformation was also used since the parameters were not independent.
 
-For all the AIR, most of the parameters related to the albedo module were insensitive namely, $\alpha_{snow}$, $\tau$ and
-$T_{ppt}$. This is to be expected since albedo is forced to be the ice albedo during fountain runtime, these
-parameters are only used for roughly half the model duration and only if there is any precipitation. We end
+For all the AIR, most of the parameters related to the albedo module were insensitive namely, $\alpha_{snow}$,
+$\tau$ and $T_{ppt}$. This is to be expected since albedo is forced to be the ice albedo during fountain runtime,
+these parameters are only used for roughly half the model duration and only if there is any precipitation. We end
 up with only 4 out of the 7 free parameters that need to be calibrated further.
 
 For all the AIR, the most sensitive parameter was $\Delta x$ having a total order sensitivity of more than 0.5.
 
 \subsubsection{Calibration}
 
-To restrict the ranges of the sensitive parameters and reduce model uncertainty, model simulations were carried out
-varying all the sensitive parameters within the ranges defined in Table \ref{tab:parameters}. The model performance was
-expressed by the RMSE determined between the UAV ice volume observations and the model ice volume outputs. Fig.
-\ref{fig:param_hist} shows the frequency distribution of the sensitive parameters among the best 100 runs from a total
-of 5000 model runs for each AIR.
+Model simulations were carried out varying all the sensitive parameters within the ranges defined in Table
+\ref{tab:parameters}. The model performance was expressed by the RMSE determined between the UAV ice volume
+observations and the model ice volume outputs. Fig.  \ref{fig:param_hist} shows the frequency distribution of the
+sensitive parameters among the best 100 runs from a total of 2500 model runs for each AIR.
 
 \begin{figure}
 	\begin{center}
@@ -696,9 +669,9 @@ of 5000 model runs for each AIR.
 		plotting the frequency distribution of the parameter values for the best 100 of the model runs. }
 	\label{fig:param_hist} \end{figure}
 
-In general, none of the sensitive parameters exhibit significant preference to any value in their ranges. However, IN21
-AIR does exhibit a strong preference for a surface layer thickness of $50\,mm$. Hence, the model hyperparameter was
-calibrated as such for all the AIR and the rest of the parameters were calibrated to their median values.
+In general, none of the sensitive parameters exhibit significant preference to any value in their ranges.  However,
+IN21 AIR does exhibit a strong preference for a surface layer thickness of $50\,mm$. Hence, this model parameter
+was calibrated as such for all the AIR and the rest of the parameters were calibrated to their median values.
 
 \subsection{Mass and Energy fluxes of the AIR}
 
@@ -735,11 +708,11 @@ of the different mass fluxes are insensitive to the discharge quantity.
 		quantifies the heat conduction process between the AIR surface layer and the ice body. } \label{fig:MEB}
 \end{figure}
 
-The magnitude of the mass fluxes in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely ice mass
-flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available, snowfall is
-calculated directly form the precipitation quantity and ice radius and sublimation/deposition quantities correspond to
-the latent heat flux available. The rest of the energy fluxes are shown to represent the different physical processes
-that contribute to this freezing and melting energy.
+The magnitude of the mass fluxes in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely ice
+mass flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available,
+snowfall is calculated directly form the precipitation quantity and ice radius and sublimation/deposition
+quantities correspond to the latent heat flux available. The rest of the energy fluxes are shown to represent the
+different physical processes that contribute to this freezing and melting energy.
 
 Longwave radiation is a major source of energy. During the freezing period, it is the largest
 contributor to the daily ice mass for all the AIR. It compensates the shortwave radiation to a large degree, during the melting period.
@@ -793,7 +766,7 @@ Sublimation was also significantly greater in the Indian site compared to the Sw
 		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} [W\,m^{-2}] $ & $-161\pm 46$  & $-73 \pm 48$  & $-75\pm 39$   \\
 		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt} [W\,m^{-2}] $   & $88 \pm 77$   & $114\pm 134$  & $93 \pm 92$   \\
 		\multicolumn{1}{|l|}{} & Temperature             & $q_{T} [W\,m^{-2}] $      & $0 \pm 87$    & $0 \pm 37$    & $0 \pm 23$    \\\midrule
-		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
+		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
 		                       & Storage Efficiency      & SE                        & 15 \%         & 22 \%         & 20 \%         \\
 		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE                      & 84 $m^{3}$    & 10 $m^{3}$    & 21 $m^{3}$    \\
 		\multicolumn{1}{|l|}{} & Mean freezing rate      & $(m_{freeze})_{mean}$     & 11 $l/min$    & 1.9 $l/min$   & 2.4 $l/min$   \\
@@ -840,20 +813,23 @@ The uncertainty in the ice volume estimates caused by the model parameters and i
 
 
 \section{Conclusions}
-In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from field measurements in the Indian
-Himalayas and the Swiss Alps. The use of this dataset, in combination with novel algorithms for calculation of the surface
-area and energy fluxes, allowed an accurate representation of the complex growth dynamics typical of any AIR. The model
-was calibrated with ice volume observations obtained via drone flights. We calculated the storage
-efficiency for each of the three AIRs and used calculations of the energy fluxes and fountain attributes to explain the
-observed variability in freezing and melting rates.
+In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data
+from field measurements in the Indian Himalayas and the Swiss Alps. The use of this dataset, in combination
+with novel algorithms for calculation of the surface area and energy fluxes, allowed an accurate
+representation of the complex growth dynamics typical of any AIR. The model was calibrated with ice volume
+observations obtained via drone flights. We calculated the storage efficiency for each of the three AIRs and
+used calculations of the energy fluxes and fountain attributes to explain the observed variability in freezing
+and melting rates.
 
-In order to properly understand the role of the different physical parameters involved in our model, we performed a sensitivity analysis based on the resulting SE. The results of this analysis suggest that AIRs grow higher and last longer in drier regions (e.g. Ladakh, Indian Himalayas). Since sublimation augments freezing rates and dampens melting
+In order to properly understand the role of the different physical parameters involved in our model, we performed a
+sensitivity analysis based on the resulting SE. The results of this analysis suggest that AIRs grow higher and last
+longer in drier regions (e.g. Ladakh, Indian Himalayas). Since sublimation augments freezing rates and dampens melting
 rates, regions with lower relative humidity are more conducive for AIR.
 
 Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain discharge
-rate.  The model results indicate that more than 80\% of the fountain water is lost as runoff for all the AIRs.
-Further experiments at different locations with different fountains are required to better understand the influence of
-the fountain discharge rate on the results.
+rate.  The model results indicate that more than 80\% of the fountain water is lost as runoff for all the AIRs.  Further
+experiments at different locations with different fountains are required to better understand the influence of the
+fountain discharge rate on the results.
 
 % \section{Appendix}
 
