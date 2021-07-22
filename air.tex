@@ -254,12 +254,14 @@ balance, c) surface temperature, d) mass balance and e) parameter sensitivity.
 Radius $r_{ice}^i$ and height $h_{ice}^i$ define the dimensions of the AIR assuming its geometry to be a cone. The
 surface area $A^i$ and volume $V^i$ are:
 
-\begin{equation} A = \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
+\begin{equation} A = A_{corr} \cdot \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
 
 \begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
 
-We do not specify the time step superscript $i$ of the shape variables $A$, $V$, $r_{ice}$ and $h_{ice}$. The equations
-used, display model time step superscript $i$ only if it is different from the current time step.
+where $A_{corr}$ is a correction factor with values between 1 and 2 that accounts for the increase in surface area
+due to the irregular surface of the AIR. We do not specify the time step superscript $i$ of the shape variables
+$A$, $V$, $r_{ice}$ and $h_{ice}$. The equations used, display model time step superscript $i$ only if it is
+different from the current time step.
 
 With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 
@@ -268,7 +270,7 @@ With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$).
 
 
-The influence of the AIR fountain is parameterised by the fountain water temperature $T_{w}$ and its spray radius $r_F$.
+The influence of the AIR fountain is parameterised by the fountain water temperature $T_{F}$ and its spray radius $r_F$.
 The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume $V_{dome}$
 used to construct the AIR as follows:
 
@@ -603,9 +605,10 @@ value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfa
 \cite{OerlemansKnap_1998}; emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
 from \cite{Zhou_2010}.
 
-The surface roughness, $z_{0}$, and surface layer thickness, $\Delta x$, may need more attention. Literature values
-for surface roughness rarely exceed 10 $mm$, and for glacier ice are generally in the range $0.1-5\, mm$
-\citet{BrockWillisSharp_2006}. We decided to use the maximum possible range for $z_{0}$. Since the surface layer
+The surface area correction factor, $A_{corr}$, surface roughness, $z_{0}$, and surface layer thickness, $\Delta
+	x$, may need more attention. $A_{corr}$ quantifies the deviation of the AIR shape from the conical shape assumed in
+the model. We assume the range of this deviation to be between 1 to 2. Literature values for surface roughness of
+glacier ice are generally in the range $0.1-5\, mm$ \citet{BrockWillisSharp_2006}. Since the surface layer
 thickness parameter for an AIR does not bear resemblance to any parameter in the glaciological literature, we
 attribute a wide range of values for it and try to constrain it further during the calibration process.
 
@@ -632,7 +635,8 @@ observations for calibration.
 		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
 		5            & Albedo Decay Rate                   & $\tau$                & 10           & 22           & $days$        \\
 		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
-		7            & Surface layer thickness             & $\Delta x$            & 1            & 10           & $cm$          \\\bottomrule
+		7            & Surface Area correction factor      & $A_{corr}$            & 1            & 2            &               \\
+		8            & Surface layer thickness             & $\Delta x$            & 1            & 5            & $cm$          \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -686,21 +690,24 @@ The uncertainty in the ice volume estimates caused by the model parameters and i
 
 \subsection{AIR ice volume estimates}
 
-Fig. \ref{fig:results} shows the model ice volume estimates with corresponding unncertainties caused by the
+Fig. \ref{fig:results} shows the model ice volume estimates with corresponding uncertainties caused by the
 parameters and the fountain.
 
-Two main decisions explain the observed ice volume magnitude and variation namely, the construction location chosen
-and the fountain used. The construction location chosen determines the weather and the fountain usage is
-characterized by its four attributes.
+The construction decisions responsible for the observed magnitude and variance in the ice volume estimates can be
+categorised based on the location chosen and the fountain used. The construction location chosen determines the
+weather and the fountain usage is characterized by its four attributes.
 
 \subsection{Fountain influence}
 
 The fountain determines the surface area through its spray radius and also influences the energy fluxes through its
-water temperature ($q_{F}$) and its influence on albedo ($q_{SW}$). Considering the high correlation of surface
-area on the ice volume estimates ($r^2=0.6$), we investigate the fountain influence through its impact on the AIR
-surface area henceforth.
+water temperature ($q_{F}$) and through its influence on albedo ($q_{SW}$). Considering the high correlation of
+surface area on the ice volume estimates ($r^2=0.6$), we investigate the fountain influence through its impact on
+the AIR surface area henceforth.
 
-Fig. shows the estimated and observed surface area via the model and UAV respectively.
+Fig. shows the estimated and observed surface area via the model and UAV respectively. Surface area has a low
+variance during fountain runtime since ice radius is initialised as spray radius and bounded by it.
+
+\subsection{Location influence}
 
 Consequently, the weather influence can be analysed by its impact on the surface normal thickness change on the AIR
 surface.
