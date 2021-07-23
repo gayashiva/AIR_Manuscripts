@@ -584,8 +584,9 @@ meltwater produced as follows:
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
 model sensitivity and uncertainty.  Polynomial chaos expansion are a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
-polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed. Throughout the
-following analysis, we fix the model time resolution to be one hour.
+polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  The surrogate
+model produced was a polynomial of order 4. The rosenblatt transformation was also used since the parameters were
+correlated.
 
 The uncertainty in the model ice volume estimates are caused due to uncertainty in two sources, namely model
 parameters and input. For the model parameters, we first fix a range based on literature values and then perform a
@@ -594,23 +595,19 @@ as uniform and the limits for every parameter are given in Table \ref{tab:parame
 ensemble size of 2000 simulations per AIR. The parameter sensitivity results from the GSA are used as a tool to
 reduce the number of free parameters in the model by identifying those parameters which have only a marginal
 influence on the model output. The model is considered insensitive to parameters with a total sensitivity index
-($S_{T_{i}}$) of $< 0.05$, and these parameters were fixed at the median value of the range shown in Table
-\ref{tab:parameters} in subsequent model simulations. Since all the AIR assume the same value and were very
-sensitive to surface layer thickness $\Delta x$, it was calibrated first before performing any further calibration
-of the other model parameters.
+($S_{T_{i}}$) of $\leq 0.05$, and these parameters were fixed at the median value of the range shown in Table
+\ref{tab:parameters} in subsequent model simulations.
 
 The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice albedo minimum was taken from
 \cite{steiner_2015} and maximum from \cite{ZollesMaussion_2019}; albedo decay rate is assumed to have a minimum
 value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces and a maximum of 22 days from
 \cite{OerlemansKnap_1998}; emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
-from \cite{Zhou_2010}.
-
-The surface area correction factor, $A_{corr}$, surface roughness, $z_{0}$, and surface layer thickness, $\Delta
-	x$, may need more attention. $A_{corr}$ quantifies the deviation of the AIR shape from the conical shape assumed in
-the model. We assume the range of this deviation to be between 1 to 2. Literature values for surface roughness of
-glacier ice are generally in the range $0.1-5\, mm$ \citet{BrockWillisSharp_2006}. Since the surface layer
-thickness parameter for an AIR does not bear resemblance to any parameter in the glaciological literature, we
-attribute a wide range of values for it and try to constrain it further during the calibration process.
+from \cite{Zhou_2010}. The surface area correction factor, $A_{corr}$, quantifies the deviation of the AIR shape
+from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Literature
+values for surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$
+\citet{BrockWillisSharp_2006}. Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance
+to any parameter in the glaciological literature, we attribute a wide range of values for it and try to constrain
+it further during the calibration process.
 
 For the model input data, uncertainty associated with two kinds of observations namely, weather and fountain were
 evaluated. All the radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) in the weather data were uncertain
@@ -619,12 +616,12 @@ uncertain since they vary significantly temporally and are not constant. The UAV
 associated with them. So all these measurements were assumed to have an uncertainty of $\pm 10 \%$ to evaluate the
 corresponding uncertainty produced in model ice volume estimates.
 
-The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had just 2 ice volume
+The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had too few ice volume
 observations for calibration.
 
 \begin{table}
 	\centering
-	\caption{The ranges of the 7 different parameters used in the sensitivity study.}
+	\caption{The ranges of the 8 different parameters used in the sensitivity study.}
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
@@ -636,7 +633,7 @@ observations for calibration.
 		5            & Albedo Decay Rate                   & $\tau$                & 10           & 22           & $days$        \\
 		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
 		7            & Surface Area correction factor      & $A_{corr}$            & 1            & 2            &               \\
-		8            & Surface layer thickness             & $\Delta x$            & 1            & 5            & $cm$          \\\bottomrule
+		8            & Surface layer thickness             & $\Delta x$            & 10           & 50           & $mm$          \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -644,18 +641,14 @@ observations for calibration.
 
 \subsection{Sensitivity and uncertainty analysis}
 
-The focus of this GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
+The focus of the GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
 of the parameter space. Therefore, the following discussion is limited to two classes: parameters to which the model is
-sensitive ($S_{T_{i}} > 0.05$) and non-sensitive ($S_{T_{i}} < 0.05$). The storage efficiency $SE$ for each AIR was
-simulated for the GSA. The surrogate model produced via the polynomial chaos approach was a polynomial of order 4. The
-rosenblatt transformation was also used since the parameters were correlated.
+sensitive ($S_{T_{i}} > 0.05$) and non-sensitive ($S_{T_{i}} \leq 0.05$).
 
 For all the AIR, most of the parameters related to the albedo module were insensitive namely, $\alpha_{snow}$,
 $\tau$ and $T_{ppt}$. This is to be expected since albedo is forced to be the ice albedo during fountain runtime,
 these parameters are only used for roughly half the model duration and only if there is any precipitation. We end
-up with only 4 out of the 7 free parameters that need to be calibrated further.
-
-For all the AIR, the most sensitive parameter was $\Delta x$ having a total order sensitivity of more than 0.5.
+up with only 5 out of the 8 free parameters that need to be calibrated further.
 
 Model simulations were carried out varying all the sensitive parameters within the ranges defined in Table
 \ref{tab:parameters}. The model performance was expressed by the RMSE determined between the UAV ice volume
@@ -671,9 +664,8 @@ sensitive parameters among the best 100 runs from a total of 2500 model runs for
 	\label{fig:param_hist} \end{figure}
 
 In general, none of the sensitive parameters exhibit significant preference to any value in their ranges.  However,
-IN21 AIR does exhibit a strong preference for a surface layer thickness of $50\,mm$. Hence, this model parameter
+IN21 AIR does exhibit a strong preference for a surface layer thickness of $20\,mm$. Hence, this model parameter
 was calibrated as such for all the AIR and the rest of the parameters were calibrated to their median values.
-
 
 The uncertainty in the ice volume estimates caused by the model parameters and input are shown in Fig.
 \ref{fig:results}.
@@ -690,40 +682,41 @@ The uncertainty in the ice volume estimates caused by the model parameters and i
 
 \subsection{AIR ice volume estimates}
 
-Fig. \ref{fig:results} shows the model ice volume estimates with corresponding uncertainties caused by the
-parameters and the fountain.
-
-The construction decisions responsible for the observed magnitude and variance in the ice volume estimates can be
-categorised based on the location chosen and the fountain used. The construction location chosen determines the
-weather and the fountain usage is characterized by its four attributes.
-
-\subsection{Fountain influence}
-
-The fountain determines the surface area through its spray radius and also influences the energy fluxes through its
-water temperature ($q_{F}$) and through its influence on albedo ($q_{SW}$). Considering the high correlation of
-surface area on the ice volume estimates ($r^2=0.6$), we investigate the fountain influence through its impact on
-the AIR surface area henceforth.
-
-Fig. shows the estimated and observed surface area via the model and UAV respectively. Surface area has a low
-variance during fountain runtime since ice radius is initialised as spray radius and bounded by it.
-
-\subsection{Location influence}
-
-Consequently, the weather influence can be analysed by its impact on the surface normal thickness change on the AIR
-surface.
-
-\subsection{Mass and energy fluxes}
-
-Fig. \ref{fig:MEB} shows the daily averages of the mass and energy fluxes calculated with calibrated parameters for the
-first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and melting period
-respectively. A strong variability is evident between the freezing and melting periods, between the different years for
-the Swiss AIR and between the Swiss and the Indian AIR.
+The construction decisions responsible for the observed magnitude and variance of the ice volume estimates shown in
+Fig. \ref{fig:results} can be categorised based on the the fountain used and location chosen. The construction
+location chosen determines the weather and the fountain usage determines the surface area through its spray radius.
+To isolate the influence of the fountain and location, we further divide the ice volume estimates into the daily
+surface normal thickness change (mass flux) and the energy flux respectively. Fig. \ref{fig:MEB} shows these daily
+fluxes calculated with calibrated parameters for the first and last 20 days for each AIR. The two time periods
+selected are characteristic of the freezing and melting period respectively. A strong variability is evident
+between the freezing and melting periods and between the Swiss and the Indian AIR.
 
 The magnitude of the mass fluxes in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely ice
 mass flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available,
 snowfall is calculated directly form the precipitation quantity and ice radius and sublimation/deposition
 quantities correspond to the latent heat flux available. The rest of the energy fluxes are shown to represent the
 different physical processes that contribute to this freezing and melting energy.
+
+\subsubsection{Location influence}
+
+
+To understand the location influence, we compare the Swiss and the Indian AIR during the melting period. The mass
+and energy fluxes show how the surface thickness of both the AIR was lost mostly due to sensible heat flux. The
+Indian AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g. day 140) due to foehn events
+which increased the wind speed and air temperature drastically.
+
+Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
+simultaneously through deposition/sublimation processes. Since the heat of vaporization is large, sublimation
+(deposition) process can contribute significantly to the freezing (melting) energy without affecting the overall
+mass flux much. This can be observed throughout the life cycle of the Indian AIR, where sublimation either
+contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period,
+respectively. Sublimation was significantly greater in the Indian site compared to the Swiss site as the
+corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was
+primarily due to the difference in relative humidity between the sites. This difference is one of the major reasons
+why the corresponding freezing rate for the Indian AIR was more than 2 times the melting rate.
+
+Longwave radiation compensates the shortwave radiation to a large degree during the melting period for both the
+locations.
 
 \begin{figure}
 	\begin{center}
@@ -737,11 +730,14 @@ different physical processes that contribute to this freezing and melting energy
 	\label{fig:albedo}
 \end{figure}
 
-The variation of the mass fluxes during the freezing period of the IN21 AIR reflect the variation in discharge quantity
-more than that of the energy flux. On day 1,12,13,14 and 20 the fountain discharge was interrupted due to pipeline
-freezing events. During these days, the total energy was instead used up to further reduce the AIR surface
-temperature as can be seen in Fig. \ref{fig:albedo}. For the Swiss AIR, no such discharge interruptions occurred. The mass flux variation is only due to the variation in the energy flux. During fountain runtime, the magnitude
-of the different mass fluxes are insensitive to the discharge quantity.
+Direct shortwave radiation is more than 3 times higher for the Indian location (due to its higher altitude) but
+there is no significant difference in the net shortwave radiation absorbed by both the AIR. This is because of the
+higher diffuse shortwave radiation in the Swiss location compensates for its lower direct shortwave radiation
+(Table \ref{tab:input}).  Since the Indian location has mostly clear days, its diffuse shortwave radiation was
+negligible. Moreover, the effect of the direct shortwave radiation of both the locations was dampened by the area
+fraction $f_{cone}$. As shown in Fig. \ref{fig:albedo}, less than half of the AIR surface area was exposed to
+direct shortwave radiation flux.  Albedo, on the other hand, only varied after the fountain runtime and if there
+was any snowfall. Since we assume there was negligible precipitation in the Indian site, albedo was constant there.
 
 \begin{figure}
 	\begin{center}
@@ -751,73 +747,67 @@ of the different mass fluxes are insensitive to the discharge quantity.
 \end{figure}
 
 
-Longwave radiation is a major source of energy. During the freezing period, it is the largest
-contributor to the daily ice mass for all the AIR. It compensates the shortwave radiation to a large degree, during the melting period.
-
-Shortwave radiation varies both in magnitude and distribution between the different locations, since the Indian AIR is
-much higher in altitude and has mostly clear days resulting in much higher shortwave radiation with a negligible
-diffuse component.  Shortwave radiation variability is controlled by the surface albedo $\alpha$ and the area
-fraction $f_{cone}$ which therefore represent key variables in the energy balance. As shown in Fig. \ref{fig:albedo},
-less than half of the AIR surface area was exposed to direct shortwave radiation flux. Also one can
-observe the diurnal and seasonal variations in this direct shortwave radiation due to diurnal and seasonal variation in
-the solar elevation angle.  Albedo, on the other hand, only varied after the fountain runtime and if there was any
-snowfall. Since we assume there was negligible precipitation in the Indian site, albedo is constant there.
-
-Turbulent fluxes vary significantly in magnitude and distribution between the two time periods and the two locations.
-In the freezing and the melting periods, sensible heat contributes to warming or melting the AIR surface. This is not
-true for the Indian AIR though where certain days (e.g. day 7) were colder than the AIR surface temperature resulting
-in a negative sensible heat flux. In general, sensible heat was never able to melt ice for the Indian AIR. For the Swiss
-AIR though, there exist days (e.g. day 20) where the AIR was melting in the day primarily due to sensible heat and
-freezing in the night.
-
-Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
-simultaneously through deposition/sublimation processes. Since the heat of vaporization is large,
-sublimation (deposition) process can contribute significantly to the freezing (melting) energy without affecting the
-overall mass flux much. This can be observed throughout the life cycle of the Indian AIR, where sublimation either
-contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period, respectively.
-Sublimation was also significantly greater in the Indian site compared to the Swiss site as the corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was primarily due to the difference in relative humidity between the sites. This difference is one of the major reasons why the corresponding freezing rate for the Indian AIR was more than 2 times the melting rate.
-
 \begin{table}
 	\centering
 	\caption{ Summary of the mass balance, energy balance and AIR characteristics estimated by the model}
 	\label{tab:Results}
-	\begin{tabular}{@{}|llllll|@{}}
+	\begin{tabular}{@{}|lllll|@{}}
 		\toprule
-		\textbf{}              & \textbf{Name}           & \textbf{Symbol}           & \textbf{IN21} & \textbf{CH21} & \textbf{CH20} \\ \midrule
+		\textbf{}              & \textbf{Name}           & \textbf{Symbol}           & \textbf{IN21} & \textbf{CH21} \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
-		                       & Fountain discharge      & $M_F$                     & 2911 $tons$   & 971 $tons$    & 700 $tons$    \\
-		\multicolumn{1}{|l|}{} & Snowfall                & $M_{ppt}$                 & 0 $tons$      & 56 $tons$     & 22 $tons$     \\
-		\multicolumn{1}{|l|}{} & Deposition              & $M_{dep}$                 & 6 $tons$      & 4 $tons$      & 2 $tons$      \\ \midrule
+		                       & Fountain discharge      & $M_F$                     & 2911 $tons$   & 971 $tons$    \\
+		\multicolumn{1}{|l|}{} & Snowfall                & $M_{ppt}$                 & 0 $tons$      & 56 $tons$     \\
+		\multicolumn{1}{|l|}{} & Deposition              & $M_{dep}$                 & 6 $tons$      & 4 $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater               & $M_{water}$               & 240 $tons$    & 230 $tons$    & 149 $tons$    \\
-		\multicolumn{1}{|l|}{} & Ice                     & $M_{ice}$                 & 219 $tons$    & 0 $tons$      & 0 $tons$      \\
-		\multicolumn{1}{|l|}{} & Sublimation             & $M_{sub}$                 & 48 $tons$     & 5 $tons$      & 5 $tons$      \\
-		\multicolumn{1}{|l|}{} & Fountain runoff         & $M_{runoff}$              & 2483 $tons$   & 796 $tons$    & 570 $tons$    \\ \midrule
+		                       & Meltwater               & $M_{water}$               & 240 $tons$    & 230 $tons$    \\
+		\multicolumn{1}{|l|}{} & Ice                     & $M_{ice}$                 & 219 $tons$    & 0 $tons$      \\
+		\multicolumn{1}{|l|}{} & Sublimation             & $M_{sub}$                 & 48 $tons$     & 5 $tons$      \\
+		\multicolumn{1}{|l|}{} & Fountain runoff         & $M_{runoff}$              & 2483 $tons$   & 796 $tons$    \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
-		                       & Shortwave radiation     & $q_{SW} [W\,m^{-2}] $     & $ 35 \pm 63$  & $ 41 \pm 65$  & $ 44 \pm 66$  \\
-		\multicolumn{1}{|l|}{} & Longwave radiation      & $q_{LW} [W\,m^{-2}] $     & $-79 \pm 29$  & $-59 \pm 32$  & $-63 \pm 31$  \\
-		\multicolumn{1}{|l|}{} & Sensible heat           & $q_{S} [W\,m^{-2}]  $     & $61 \pm 81$   & $40 \pm 89$   & $37 \pm 72$   \\
-		\multicolumn{1}{|l|}{} & Latent heat             & $q_{L} [W\,m^{-2}]  $     & $-36 \pm 49$  & $-3 \pm 37$   & $-9 \pm 35$   \\
-		\multicolumn{1}{|l|}{} & Fountain heat           & $q_{F} [W\,m^{-2}]  $     & $1 \pm 2$     & $0 \pm 0$     & $1 \pm 0$     \\
-		\multicolumn{1}{|l|}{} & Shortwave radiation     & $q_{G} [W\,m^{-2}]  $     & $0 \pm 1$     & $0 \pm 1$     & $0 \pm 1$     \\
-		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} [W\,m^{-2}] $ & $-161\pm 46$  & $-73 \pm 48$  & $-75\pm 39$   \\
-		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt} [W\,m^{-2}] $   & $88 \pm 77$   & $114\pm 134$  & $93 \pm 92$   \\
-		\multicolumn{1}{|l|}{} & Temperature             & $q_{T} [W\,m^{-2}] $      & $0 \pm 87$    & $0 \pm 37$    & $0 \pm 23$    \\\midrule
+		                       & Shortwave radiation     & $q_{SW} [W\,m^{-2}] $     & $ 35 \pm 63$  & $ 41 \pm 65$  \\
+		\multicolumn{1}{|l|}{} & Longwave radiation      & $q_{LW} [W\,m^{-2}] $     & $-79 \pm 29$  & $-59 \pm 32$  \\
+		\multicolumn{1}{|l|}{} & Sensible heat           & $q_{S} [W\,m^{-2}]  $     & $61 \pm 81$   & $40 \pm 89$   \\
+		\multicolumn{1}{|l|}{} & Latent heat             & $q_{L} [W\,m^{-2}]  $     & $-36 \pm 49$  & $-3 \pm 37$   \\
+		\multicolumn{1}{|l|}{} & Fountain heat           & $q_{F} [W\,m^{-2}]  $     & $1 \pm 2$     & $0 \pm 0$     \\
+		\multicolumn{1}{|l|}{} & Shortwave radiation     & $q_{G} [W\,m^{-2}]  $     & $0 \pm 1$     & $0 \pm 1$     \\
+		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} [W\,m^{-2}] $ & $-161\pm 46$  & $-73 \pm 48$  \\
+		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt} [W\,m^{-2}] $   & $88 \pm 77$   & $114\pm 134$  \\
+		\multicolumn{1}{|l|}{} & Temperature             & $q_{T} [W\,m^{-2}] $      & $0 \pm 87$    & $0 \pm 37$    \\\midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
-		                       & Storage Efficiency      & SE                        & 15 \%         & 22 \%         & 20 \%         \\
-		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE                      & 84 $m^{3}$    & 10 $m^{3}$    & 21 $m^{3}$    \\
-		\multicolumn{1}{|l|}{} & Mean freezing rate      & $(m_{freeze})_{mean}$     & 11 $l/min$    & 1.9 $l/min$   & 2.4 $l/min$   \\
-		\multicolumn{1}{|l|}{} & Mean melting rate       & $(m_{melt})_{mean}$       & 5 $l/min$     & 2.2 $l/min$   & 2.5 $l/min$   \\\bottomrule
+		                       & Storage Efficiency      & SE [\%]                   & 15 \%         & 22 \%         \\
+		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE [$m^{3}$]            & 84            & 10 $m^{3}$    \\
+		\multicolumn{1}{|l|}{} & Surface Area            & $A$ [$m^{2}$]             & $458 \pm 84$  & 1.9 $l/min$   \\
+		\multicolumn{1}{|l|}{} & Freezing rate           & $m_{freeze}$ [$l/min$]    & $48 \pm 22$   & $5 \pm 6$     \\
+		\multicolumn{1}{|l|}{} & Melting rate            & $m_{melt}$ [$l/min$]      & $6 \pm 16$    & $3 \pm 9$     \\\bottomrule
 	\end{tabular}
 \end{table}
 
-The magnitude of the freezing and melting rates is controlled by the fountain attributes, particularly the spray radius.
-Even though the Indian AIR's fountain runtime was roughly half that of the Swiss, its spray radius was significantly
-larger as shown in Table \ref{tab:Observations}. This resulted in higher surface area to capitalise on the freezing energy. Moreover, since the freezing energy was larger in magnitude than the melting energy, the surface area favored freezing over melting. However, in the Swiss AIR both these rates are almost the same, indicating that the surface area did not favor the melting or the freezing process.
+\subsubsection{Fountain influence}
 
-Thus the fountain attributes and energy flux combine to produce ice volumes 4 times higher for the Indian compared to the Swiss AIR, even though the fountain duration of the Indian AIR was just around half that of the Swiss AIR as can be seen in Table \ref{tab:Results}.
+The fountain directly influences the energy fluxes through its water temperature ($q_{F}$) and forcing the albedo
+to be a constant ($q_{SW}$). However, this influence is minimal compared to the influence of surface area on the
+mass balance. The fountain determines the surface area through its spray radius during the freezing period. The
+variance of this surface area is quite low since the ice radius is initialised and bounded by the spray radius. So
+the thickness rate is uniformly scaled to produce the corresponding ice volume during the freezing period.
 
+To isolate the fountain influence from the location influences in the freezing period, we select days when the
+fountain was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR since
+fountain discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is
+favoured over sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0
+$\degree C$ which reduces (increases) the temperature difference (vapour flux) between the AIR surface and the
+atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 
+\subsubsection{Freezing and melting rates}
+
+Given enough discharge, the location determines the freezing/melting rates. The Indian location was favourable
+because the freezing rate was more than 8 times larger in magnitude than the melting rate. This enabled the
+fountain determined surface area to favor freezing over melting. However, the Swiss location was not favourable
+since both these rates are almost the same, indicating that the surface area did not favor the melting or the
+freezing process.
+
+Thus higher spray radius of the fountain and freezing rate of the Indian location results in an AIR ice volume
+roughly 4 times higher compared to the Swiss location even though the Swiss fountain runtime was roughly twice that
+of the Indian one as shown in Table \ref{tab:Observations}.
 
 % \section{Discussion} 
 % \subsection{Storage efficiency}
