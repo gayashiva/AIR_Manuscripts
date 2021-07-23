@@ -750,34 +750,37 @@ negligible precipitation for the Indian site.
 	\centering
 	\caption{ Summary of the mass balance, energy balance and AIR characteristics estimated by the model}
 	\label{tab:Results}
-	\begin{tabular}{@{}|lllll|@{}}
+	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
-		\textbf{}              & \textbf{Name}           & \textbf{Symbol}           & \textbf{IN21} & \textbf{CH21} \\ \midrule
+		\textbf{}              & \textbf{Name}           & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
+		\textbf{Units}                                                                                                   \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
-		                       & Fountain discharge      & $M_F$                     & 2911 $tons$   & 971 $tons$    \\
-		\multicolumn{1}{|l|}{} & Snowfall                & $M_{ppt}$                 & 0 $tons$      & 56 $tons$     \\
-		\multicolumn{1}{|l|}{} & Deposition              & $M_{dep}$                 & 6 $tons$      & 4 $tons$      \\ \midrule
+		                       & Fountain discharge      & $M_F$           & 2911          & 971           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Snowfall                & $M_{ppt}$       & 0             & 52            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Deposition              & $M_{dep}$       & 10            & 4             & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater               & $M_{water}$               & 240 $tons$    & 230 $tons$    \\
-		\multicolumn{1}{|l|}{} & Ice                     & $M_{ice}$                 & 219 $tons$    & 0 $tons$      \\
-		\multicolumn{1}{|l|}{} & Sublimation             & $M_{sub}$                 & 48 $tons$     & 5 $tons$      \\
-		\multicolumn{1}{|l|}{} & Fountain runoff         & $M_{runoff}$              & 2483 $tons$   & 796 $tons$    \\ \midrule
+		                       & Meltwater               & $M_{water}$     & 414           & 229           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Ice                     & $M_{ice}$       & 139           & 0             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Sublimation             & $M_{sub}$       & 121           & 10            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Fountain runoff         & $M_{runoff}$    & 2321          & 788           & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
-		                       & Shortwave radiation     & $q_{SW} [W\,m^{-2}] $     & $ 35 \pm 63$  & $ 41 \pm 65$  \\
-		\multicolumn{1}{|l|}{} & Longwave radiation      & $q_{LW} [W\,m^{-2}] $     & $-79 \pm 29$  & $-59 \pm 32$  \\
-		\multicolumn{1}{|l|}{} & Sensible heat           & $q_{S} [W\,m^{-2}]  $     & $61 \pm 81$   & $40 \pm 89$   \\
-		\multicolumn{1}{|l|}{} & Latent heat             & $q_{L} [W\,m^{-2}]  $     & $-36 \pm 49$  & $-3 \pm 37$   \\
-		\multicolumn{1}{|l|}{} & Fountain heat           & $q_{F} [W\,m^{-2}]  $     & $1 \pm 2$     & $0 \pm 0$     \\
-		\multicolumn{1}{|l|}{} & Shortwave radiation     & $q_{G} [W\,m^{-2}]  $     & $0 \pm 1$     & $0 \pm 1$     \\
-		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} [W\,m^{-2}] $ & $-161\pm 46$  & $-73 \pm 48$  \\
-		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt} [W\,m^{-2}] $   & $88 \pm 77$   & $114\pm 134$  \\
-		\multicolumn{1}{|l|}{} & Temperature             & $q_{T} [W\,m^{-2}] $      & $0 \pm 87$    & $0 \pm 37$    \\\midrule
+		                       & Shortwave radiation     & $q_{SW} $       & $ 31 \pm 51$  & $ 30 \pm 51$
+		                       & $W\,m^{-2}$                                                                             \\
+		\multicolumn{1}{|l|}{} & Longwave radiation      & $q_{LW} $       & $-77 \pm 32$  & $-53 \pm 36$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Sensible heat           & $q_{S}  $       & $87 \pm111$   & $38 \pm 99$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Latent heat             & $q_{L}  $       & $-47 \pm 63$  & $-6 \pm 39$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Fountain heat           & $q_{F}  $       & $2 \pm 3$     & $5 \pm 5$     & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Ground heat             & $q_{G}   $      & $0 \pm 1$     & $0 \pm 2$     & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} $   & $-165\pm 46$  & $-71 \pm 48$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt}  $    & $90 \pm 84$   & $106\pm 140$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Temperature             & $q_{T}  $       & $0 \pm 110$   & $0 \pm 40$    & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Surface Area            & $A$             & $458 \pm 84$  & $134 \pm 65$  & $m^{2}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
-		                       & Storage Efficiency      & SE [\%]                   & 15 \%         & 22 \%         \\
-		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE [$m^{3}$]            & 84            & 10 $m^{3}$    \\
-		\multicolumn{1}{|l|}{} & Surface Area            & $A$ [$m^{2}$]             & $458 \pm 84$  & 1.9 $l/min$   \\
-		\multicolumn{1}{|l|}{} & Freezing rate           & $m_{freeze}$ [$l/min$]    & $48 \pm 22$   & $5 \pm 6$     \\
-		\multicolumn{1}{|l|}{} & Melting rate            & $m_{melt}$ [$l/min$]      & $6 \pm 16$    & $3 \pm 9$     \\\bottomrule
+
+		                       & Freezing rate           & $m_{freeze}$    & $48 \pm 22$   & $5 \pm 6$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Melting rate            & $m_{melt}$      & $6 \pm 16$    & $3 \pm 10$    & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Storage Efficiency      & SE              & 15            & 22            & \%          \\
+		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE            & 84            & 10 $m^{3}$    & $m^{3}$     \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -801,15 +804,14 @@ atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 The freezing rate is bounded by the mean discharge rate, $D_F$. The Indian AIR attained was limited by this
 discharge rate for \% of the the fountain runtime whereas the Swiss fountain only suffered for \% of it runtime.
 
-Given enough discharge, the location determines the freezing/melting rates. The Indian location was favourable
-because the freezing rate was more than 8 times larger in magnitude than the melting rate. This enabled the
-fountain determined surface area to favor freezing over melting. However, the Swiss location was not favourable
-since both these rates are almost the same, indicating that the surface area did not favor the melting or the
-freezing process.
+The location determines the freezing/melting energy. The Indian location was favourable because the freezing energy
+was around 2 times larger in magnitude than the melting energy. This enabled the fountain determined surface area
+to favor freezing over melting. However, the Swiss location was not favourable since the freezing energy was lower
+than the melting energy, indicating that the surface area did favored the melting over the freezing process.
 
-Thus higher spray radius of the fountain and freezing rate of the Indian location results in an AIR ice volume
-roughly 4 times higher compared to the Swiss location even though the Swiss fountain runtime was roughly twice that
-of the Indian one as shown in Table \ref{tab:Observations}.
+Thus, the roughly 4 times higher surface area of the fountain and 2 times higher freezing energy of the Indian
+location result in more than 8 times higher Indian AIR ice volume compared to the Swiss AIR even though the Swiss
+fountain runtime was roughly twice that of the Indian one as shown in Table \ref{tab:Observations}.
 
 % \section{Discussion} 
 % \subsection{Storage efficiency}
