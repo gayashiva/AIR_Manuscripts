@@ -564,6 +564,7 @@ We define the freezing rate $m_{freeze}$ and the melting rate $m_{melt}$ as foll
 
 \begin{equation}
 	m_{freeze/melt} = \frac{q_{freeze/melt} \cdot A }{L_f}
+	\label{eq:m_freeze/melt}
 \end{equation}
 
 To estimate the mass of any component at time step $i$, one can now sum the mass flux estimated above: \begin{equation}
@@ -582,7 +583,7 @@ meltwater produced as follows:
 \subsection{Sensitivity and uncertainty analysis}
 
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
-model sensitivity and uncertainty.  Polynomial chaos expansion are a much more efficient way to obtain similar
+model sensitivity and uncertainty. Polynomial chaos expansion are a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
 polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  The surrogate
 model produced was a polynomial of order 4. The rosenblatt transformation was also used since the parameters were
@@ -653,19 +654,21 @@ up with only 5 out of the 8 free parameters that need to be calibrated further.
 Model simulations were carried out varying all the sensitive parameters within the ranges defined in Table
 \ref{tab:parameters}. The model performance was expressed by the RMSE determined between the UAV ice volume
 observations and the model ice volume outputs. Fig.  \ref{fig:param_hist} shows the frequency distribution of the
-sensitive parameters among the best 100 runs from a total of 2500 model runs for each AIR.
+sensitive parameters among the best 10 \% runs from a total of 6875 model runs for each AIR.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
 	\end{center}
 	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
-		plotting the frequency distribution of the parameter values for the best 100 of the model runs. }
+		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs. }
 	\label{fig:param_hist} \end{figure}
 
-In general, none of the sensitive parameters exhibit significant preference to any value in their ranges.  However,
-IN21 AIR does exhibit a strong preference for a surface layer thickness of $20\,mm$. Hence, this model parameter
-was calibrated as such for all the AIR and the rest of the parameters were calibrated to their median values.
+In general, the sensitive parameters dont exhibit significant preference to any value in their ranges except the
+surface layer thickness and the area correction factor. IN21 AIR exhibited a strong preference for a $\Delta x$ of
+$20\,mm$. Since, this factor was a model hyperparameter common to all the AIRs, this was set as the calibrated
+value . Both the AIRs prefer an area correction factor of 1.3, so it was set as the calibrated value. The rest of
+the parameters were calibrated to their median values.
 
 The uncertainty in the ice volume estimates caused by the model parameters and input are shown in Fig.
 \ref{fig:results}.
@@ -682,14 +685,19 @@ The uncertainty in the ice volume estimates caused by the model parameters and i
 
 \subsection{AIR ice volume estimates}
 
-The construction decisions responsible for the observed magnitude and variance of the ice volume estimates shown in
-Fig. \ref{fig:results} can be categorised based on the the fountain used and location chosen. The construction
-location chosen determines the weather and the fountain usage determines the surface area through its spray radius.
-To isolate the influence of the fountain and location, we further divide the ice volume estimates into the daily
-surface normal thickness change (mass flux) and the energy flux respectively. Fig. \ref{fig:MEB} shows these daily
-fluxes calculated with calibrated parameters for the first and last 20 days for each AIR. The two time periods
-selected are characteristic of the freezing and melting period respectively. A strong variability is evident
-between the freezing and melting periods and between the Swiss and the Indian AIR.
+The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can be
+categorised based on the the fountain used and location chosen. According to Eqn. \ref{eq:m_freeze/melt}, the
+freezing/melting rate of the AIRs can be decomposed to the corresponding freezing/melting energy and the
+surface area. The construction location chosen determines the energy flux through its weather and the fountain
+determines the surface area through its spray radius.
+
+\subsubsection{Location influence}
+
+To further understand the influence of location, we analyse the daily surface normal thickness change (mass flux)
+and the energy flux respectively. Fig.  \ref{fig:MEB} shows these daily fluxes calculated with calibrated
+parameters for the first and last 20 days for each AIR. The two time periods selected are characteristic of the
+freezing and melting period respectively. A strong variability is evident between the freezing and melting periods
+and between the Swiss and the Indian AIR.
 
 The magnitude of the mass fluxes in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely ice
 mass flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available,
@@ -697,13 +705,9 @@ snowfall is calculated directly form the precipitation quantity and ice radius a
 quantities correspond to the latent heat flux available. The rest of the energy fluxes are shown to represent the
 different physical processes that contribute to this freezing and melting energy.
 
-\subsubsection{Location influence}
-
-
-To understand the location influence, we compare the Swiss and the Indian AIR during the melting period. The mass
-and energy fluxes show how the surface thickness of both the AIR was lost mostly due to sensible heat flux. The
-Indian AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g. day 140) due to foehn events
-which increased the wind speed and air temperature drastically.
+The mass and energy fluxes show how the surface thickness of both the AIR was lost mostly due to sensible heat
+flux. The Indian AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g. day 140) due to foehn
+events which increased the wind speed and air temperature drastically.
 
 Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
 simultaneously through deposition/sublimation processes. Since the heat of vaporization is large, sublimation
@@ -786,13 +790,14 @@ negligible precipitation for the Indian site.
 
 \subsubsection{Fountain influence}
 
-The fountain directly influences the energy fluxes through its water temperature ($q_{F}$) and forcing the albedo
-to be a constant ($q_{SW}$). However, this influence is minimal compared to the influence of surface area on the
-mass balance. The fountain determines the surface area through its spray radius during the freezing period. The
-variance of this surface area is quite low since the ice radius is initialised and bounded by the spray radius. So
-the thickness rate is uniformly scaled to produce the corresponding ice volume during the freezing period.
+The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo forcing
+($q_{SW}$). However, this influence is minimal compared to the influence of surface area on the ice volume
+($r^2=0.6$). The fountain determines the surface area through its spray radius during the freezing period. The
+variance of this surface area is quite low in the freezing period since the ice radius is initialised and bounded
+by the spray radius. So the thickness rate is uniformly scaled to produce the corresponding ice volume during the
+freezing period.
 
-To isolate the fountain influence from the location influences in the freezing period, we select days when the
+To understand the fountain influence on the energy fluxes in the freezing period, we select days when the
 fountain was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR since
 fountain discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is
 favoured over sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0
@@ -801,13 +806,13 @@ atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 
 \subsection{Freezing and melting rates}
 
-The freezing rate is bounded by the mean discharge rate, $D_F$. The Indian AIR attained was limited by this
-discharge rate for \% of the the fountain runtime whereas the Swiss fountain only suffered for \% of it runtime.
+The freezing rate is bounded by the mean discharge rate, $D_F$. The Indian AIR was limited by this discharge rate
+for \% of the the fountain runtime whereas the Swiss fountain only suffered for \% of it runtime.
 
 The location determines the freezing/melting energy. The Indian location was favourable because the freezing energy
 was around 2 times larger in magnitude than the melting energy. This enabled the fountain determined surface area
 to favor freezing over melting. However, the Swiss location was not favourable since the freezing energy was lower
-than the melting energy, indicating that the surface area did favored the melting over the freezing process.
+than the melting energy, indicating that the surface area did favor the melting over the freezing process.
 
 Thus, the roughly 4 times higher surface area of the fountain and 2 times higher freezing energy of the Indian
 location result in more than 8 times higher Indian AIR ice volume compared to the Swiss AIR even though the Swiss
