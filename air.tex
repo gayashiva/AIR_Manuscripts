@@ -75,7 +75,7 @@ retreat and the corresponding loss of their main fresh water resources \citep{za
 
 \begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg}
 	\end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3700 $m^3$
-		of water. Picture Credits: Lobzang Dadul} \label{fig:cone} \end{figure}
+		of water. Picture Credits: Lobzang Dadul} \label{fig:old_icestupa} \end{figure}
 
 Artificial ice reservoirs (AIR) have been considered to be a feasible way to adapt to these changes
 \citep{IPCC_2019,10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed during
@@ -130,7 +130,7 @@ addition, a webcam guaranteed a continuous survey of the site during the constru
 	\end{center}
 	\caption{The Swiss and Indian AIR on March 3 and January 9, 2021 respectively. Picture credits: Daniel Buerki (left)
 		and Thinles Norboo (right)}
-	\label{fig:CHsite}
+	\label{fig:2AIR}
 \end{figure}
 
 The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
@@ -616,17 +616,17 @@ observations for calibration.
 
 \section{Results}
 
-\subsection{Sensitivity and uncertainty analysis}
+\subsection{Sensitivity analysis}
 
 The focus of the GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
 of the parameter space. Therefore, the following discussion is limited to two classes: parameters to which the model is
-sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$).
+sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). For all the AIR, just three parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations
+were carried out varying all the sensitive parameters within the ranges defined in Table \ref{tab:parameters}.
 
-For all the AIR, just three parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations
-were carried out varying all the sensitive parameters within the ranges defined in Table \ref{tab:parameters}. The
-model performance was expressed by the RMSE determined between the UAV ice volume observations (see Table
-\ref{tab:uav}) and the model ice volume outputs. Fig.  \ref{fig:param_hist} shows the frequency distribution of the
-sensitive parameters among the best 10 \% runs from a total of 275 model runs for each AIR.
+Two objectives were chosen namely, ice volume and area, to determine the model performance with respect to these
+sensitive parameters. The frequency distribution  of RMSE determined between the UAV observations (see Table
+\ref{tab:uav}) and the model outputs among the best 10 \% runs are shown in Fig.\ref{fig:param_hist} for each
+objective on each AIR.
 
 \begin{figure}
 	\begin{center}
@@ -636,14 +636,30 @@ sensitive parameters among the best 10 \% runs from a total of 275 model runs fo
 		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs. }
 	\label{fig:param_hist} \end{figure}
 
-In general, the sensitive parameters don't exhibit significant preference to any value in their ranges except the
-surface layer thickness. IN21 AIR exhibited a strong preference for a $\Delta x$ of $20\,mm$. Since, this factor
-was a model hyperparameter common to all the AIRs, this was set as the calibrated value. Both the AIRs prefer an
-area correction factor and surface roughness in the range of 1.2-1.4 and 1-3 $mm$ respectively, so it was set as
-the calibrated range and the calibrated value was the corresponding median. The rest of the parameters were
-calibrated to their median values.
 
-The uncertainty in the ice volume estimates caused by the model parameters are shown in Fig.
+
+\subsection{Calibration}
+For model calibration, we choose values of sensitive parameters which populate more the 50 \% of the possibilities
+among the best 10 \% of the model runs. $SA_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
+objectives.
+
+We expect the UAV measured surface area of AIR to be higher than the modelled cone area due to the many
+ice features that tend to form. Particularly, we also expect the IN21 area to deviate significantly from CH21 AIR
+since it was the product of two ice cones merged into one (see Fig. \ref{fig:2AIR}). This is clearly represented in
+the disjoint frequency distribution of the area objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21
+area correction factor to 1.5 and CH21 area correction factor to 1.3.
+
+We choose the model surface layer thickness based on two principles namely, (a) the ice thickness $\Delta x$ should
+be small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$
+should be large enough for these temperature variations to not reach the bottom of the surface layer. Since the
+minimum surface temperature does not go beyond $-50 \, \degree C$ for the smallest possible thickness of $20\, mm$, we
+choose this as the model surface layer thickness.
+
+For the surface roughness, no clear preference is observed for the IN21 AIR so it is calibrated to the median
+value of $3 \, mm$. For the CH21 AIR, we calibrate it to its preferred value of $1 \, mm$.
+
+\subsection{Uncertainty analysis}
+The uncertainty in the ice volume estimates caused by the insensitive model parameters are shown in Fig.
 \ref{fig:results}.
 
 \begin{figure}
@@ -655,9 +671,6 @@ The uncertainty in the ice volume estimates caused by the model parameters are s
 		upper and lower bounds of the y axis represents maximum ice volume and dome volume respectively.  }
 	\label{fig:results} \end{figure}
 
-
-\subsection{Calibration}
-
 \subsection{AIR ice volume estimates}
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can be
@@ -667,42 +680,6 @@ area. The construction location chosen determines the freezing/melting energy fl
 fountain determines the surface area through its spray radius.
 
 \subsubsection{Location influence}
-
-To further understand the influence of location, we analyse the daily surface normal thickness change and the
-energy flux respectively. Fig.  \ref{fig:MEB} shows these daily fluxes calculated with calibrated parameters for
-the first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and
-melting period respectively. A strong variability is evident between the freezing and melting periods and between
-the Swiss and the Indian AIR.
-
-The magnitude of the thickness change in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely
-ice mass flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available,
-snowfall is calculated directly form the precipitation quantity and sublimation/deposition quantities correspond to
-the latent heat flux available. The rest of the energy fluxes are shown to represent the different physical
-processes that contribute to this freezing and melting energy.
-
-% One of the most notable difference between the freezing and melting energy fluxes between the two locations was
-% that the melting energy was negligible throughout the freezing period for the Indian site whereas the Swiss site
-% melted during some days of the freezing period(e.g. day 12).
-
-The largest contributor to the melting energy flux was the sensible heat flux for both the locations. The variance
-in this energy flux  was higher the Indian AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g.
-the Indian AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g.
-day 140) due to the well known foehn events at the Guttannen site (Reference). The Swiss AIR has twice the standard
-deviationhese foehn events were the cause of
-melting even during the freezing period (e.g. day 12). So the Indian location barely produced meltwater during the
-fountain runtime whereas the Swiss location was producing meltwater in the day even during fountain runtime.
-
-Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
-simultaneously through deposition/sublimation processes. Since the heat of vaporization is large, sublimation
-(deposition) process can contribute significantly to the freezing (melting) energy without affecting the overall
-mass flux much. This can be observed throughout the life cycle of the Indian AIR, where sublimation either
-contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period,
-respectively. Sublimation was significantly greater in the Indian site compared to the Swiss site as the
-corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was
-primarily due to the difference in relative humidity between the sites.
-
-Longwave radiation compensates the shortwave radiation to a large degree during the melting period for both the
-locations.
 
 \begin{figure}
 	\begin{center}
@@ -716,14 +693,17 @@ locations.
 	\label{fig:albedo}
 \end{figure}
 
-Direct shortwave radiation is more than 3 times higher for the Indian location (due to its higher altitude) but
-there is no significant difference in the net shortwave radiation absorbed by both the AIR. This is because of the
-higher diffuse shortwave radiation in the Swiss location compensates for its lower direct shortwave radiation
-(see Table \ref{tab:Observations}).  Since the Indian location has mostly clear days, its diffuse shortwave radiation was
-negligible. Moreover, the effect of the direct shortwave radiation of both the locations was dampened by the area
-fraction $f_{cone}$. As shown in Fig. \ref{fig:albedo}, less than half of the AIR surface area was exposed to
-direct shortwave radiation flux.  Albedo, on the other hand, only varied for the Swiss location since there was
-negligible precipitation for the Indian site.
+To further understand the influence of location, we analyse the daily surface normal thickness change and the
+energy flux respectively. Fig.  \ref{fig:MEB} shows these daily fluxes calculated with calibrated parameters for
+the first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and
+melting period respectively. A strong variability is evident between the freezing and melting periods and between
+the Swiss and the Indian AIR.
+
+The magnitude of the thickness change in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely
+ice mass flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available,
+snowfall is calculated directly from the precipitation quantity and sublimation/deposition quantities correspond to
+the latent heat flux available. The rest of the energy fluxes are shown to represent the different physical
+processes that contribute to this freezing and melting energy.
 
 \begin{figure}
 	\begin{center}
@@ -731,6 +711,33 @@ negligible precipitation for the Indian site.
 	\caption{Daily averages of mass and energy fluxes compared for all AIRs during their freezing and melting periods.
 	} \label{fig:MEB}
 \end{figure}
+
+The largest contributor to the melting energy flux was the sensible heat flux for both the locations. The Indian
+AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g.  day 140) due to the well known foehn
+events (Reference). These foehn events produced meltwater in the Swiss location even during the freezing period
+(e.g.  day 17).
+
+Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
+simultaneously through deposition/sublimation processes. Since the heat of vaporization is large, sublimation
+(deposition) process can contribute significantly to the freezing (melting) energy without affecting the overall
+mass flux much. This can be observed throughout the life cycle of the Indian AIR, where sublimation either
+contributed to more ice mass or compensated the sensible heat flux during the freezing and melting period,
+respectively. Sublimation was significantly greater in the Indian site compared to the Swiss site as the
+corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). This was
+primarily due to the difference in relative humidity between the sites.
+
+Longwave radiation compensates the shortwave radiation to a large degree during the melting period for both the
+locations.
+
+Direct shortwave radiation is more than 3 times higher for the Indian location (due to its higher altitude) but
+there is no significant difference in the net shortwave radiation absorbed by both the AIR. This is because of the
+higher diffuse shortwave radiation in the Swiss location compensates for its lower direct shortwave radiation (see
+Table \ref{tab:Observations}).  Since the Indian location has mostly clear days, its diffuse shortwave radiation
+was negligible. Moreover, the effect of the direct shortwave radiation of both the locations was dampened by the
+area fraction $f_{cone}$. As shown in Fig. \ref{fig:albedo}, less than half of the AIR surface area was exposed to
+direct shortwave radiation flux.  Albedo, on the other hand, only varied for the Swiss location since there was
+negligible precipitation for the Indian site.
+
 
 
 \begin{table}
@@ -764,10 +771,10 @@ negligible precipitation for the Indian site.
 		\multicolumn{1}{|l|}{} & Surface Area            & $A$             & $458 \pm 84$  & $134 \pm 65$  & $m^{2}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
 
-		                       & Freezing rate           & $m_{freeze}$    & $48 \pm 22$   & $5 \pm 6$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Melting rate            & $m_{melt}$      & $6 \pm 16$    & $3 \pm 10$    & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Storage Efficiency      & SE              & 15            & 22            & \%          \\
-		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE            & 84            & 10 $m^{3}$    & $m^{3}$     \\\bottomrule
+		                       & Freezing rate           & $m_{freeze}$    & $14 \pm 7$    & $2 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Melting rate            & $m_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Storage Efficiency      & SE              & 19            & 23            & \%          \\
+		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE            & 84            & 12 $m^{3}$    & $m^{3}$     \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -787,27 +794,27 @@ favoured over sensible heat by the fountain. During fountain runtime, the surfac
 $\degree C$ which reduces (increases) the temperature difference (vapour flux) between the AIR surface and the
 atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 
+\section{Discussion}
+
 \subsection{Freezing and melting rates}
 
-The freezing rate is bounded by the mean discharge rate, $d_F$. The Indian AIR was limited by this discharge rate
-for \% of the the fountain runtime whereas the Swiss fountain only suffered for \% of it runtime.
+The Indian location was favourable because the mean freezing energy was around 2 times larger in magnitude than the
+melting energy (see Table \ref{tab:Results}) . This enabled the fountain determined surface area to favor freezing over melting. However, the
+Swiss location was not favourable since the mean freezing energy was lower than the mean melting energy, indicating that the
+surface area favored melting over the freezing process.
 
-The location determines the freezing/melting energy. The Indian location was favourable because the freezing energy
-was around 2 times larger in magnitude than the melting energy. This enabled the fountain determined surface area
-to favor freezing over melting. However, the Swiss location was not favourable since the freezing energy was lower
-than the melting energy, indicating that the surface area did favor the melting over the freezing process.
-
-Thus, the roughly 4 times higher surface area of the fountain and 2 times higher freezing energy of the Indian
-location result in more than 8 times higher Indian AIR ice volume compared to the Swiss AIR even though the Swiss
+Thus, the more than 3 times higher surface area of the fountain and 2 times higher freezing energy of the Indian
+location result in more than 5 times higher Indian AIR ice volume compared to the Swiss AIR even though the Swiss
 fountain runtime was roughly twice that of the Indian one as shown in Table \ref{tab:Observations}.
 
-% \section{Discussion} 
-% \subsection{Storage efficiency}
-% The storage efficiency of IN21, CH21 and CH20 AIR were $15\%$, $22\%$ and $20\%$ respectively. The low SE is a product
-% of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIR. This indicates that just
-% decreasing the mean fountain discharge could have significantly increased water storage efficiency. CH21, IN21 and CH20
-% had a maximum fountain freezing rate of just 7 $l/min$, 18 $l/min$ and 6 $l/min$ respectively compared to the 7.5
-% $l/min$, 60 $l/min$ and 7.5 $l/min$ of mean fountain discharge they were provided with.
+\subsection{Storage efficiency}
+The storage efficiency of IN21 and CH21 AIR were $19\%$ and $23\%$ respectively. The low SE is a
+product of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIR. This indicates
+that just decreasing the mean fountain discharge could have significantly increased water storage efficiency.
+The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to
+attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
+available.
+
 
 % \subsection{Sublimation}
 % We suggest that glaciers in dry regions lose a significant amount of mass through sublimation, while
@@ -827,11 +834,11 @@ observations obtained via UAV flights. We calculated the storage efficiency, fre
 the three AIRs and explained their corresponding values through the influence of the location chosen and the
 fountain used.
 
-The results of this analysis suggest that drier locations (e.g. Ladakh, Indian Himalayas) are significantly more
-favourable since their freezing and melting rates are augmented and dampened by sublimation respectively.
+The results suggest that drier locations (e.g. Ladakh, Indian Himalayas) are significantly more favourable since
+their freezing and melting rates are augmented and dampened by sublimation respectively.
 
 Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain
-discharge rate.  The model results indicate that more than 80\% of the fountain water is lost as runoff for all the
+discharge rate.  The model results indicate that more than 75\% of the fountain water is lost as runoff for all the
 AIRs.  Further experiments with different fountains are required to better understand the influence of the fountain
 discharge rate on the results.
 
