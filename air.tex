@@ -2,7 +2,7 @@
 % \documentclass[utf8]{frontiersFPHY} % for Physics and Applied Mathematics and Statistics articles
 \usepackage{gensymb}
 \usepackage{url,hyperref,lineno,microtype,subcaption}
-\usepackage[onehalfspacing]{setspace}
+% \usepackage[onehalfspacing]{setspace}
 
 \usepackage{tabularx}
 \linenumbers
@@ -50,19 +50,19 @@
 
 \begin{abstract}
 
-	Artificial Ice Reservoirs (AIR) can freeze water during winter and provide irrigation water for mountain
-	communities facing climate change induced water stress. Several AIRs have been built worldwide but studies of
-	their water storage efficiency are scarce.  This study models a cone-shaped AIR popularly called Icestupa based
-	on a surface energy balance model.  AIR surface processes were quantified using meteorological data in
-	conjunction with fountain discharge information (mass input of an AIR) to estimate the quantity of frozen,
-	melted, evaporated and runoff water for two sites in Switzerland and one in India. At these measurement sites,
-	AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for model calibration and validation
-	purposes.  The Indian location, with a maximum ice volume 5 times larger, was more favourable compared to the
-	Swiss because much lower humidity. The Indian fountain was also better than the Swiss since it had a higher spray
-	radius.  However, the storage efficiency of the Indian AIR (19 \%) was actually lower than the Swiss AIR (23 \%)
-	due to significantly more fountain water runoff. Although the uncertainties due to model parameters and fountain
-	were significant, the model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations for
-	two AIRs built under radically different climates.
+	Artificial Ice Reservoirs (AIR) are used to provide irrigation water for mountain communities facing climate
+	change induced water stress. Several AIRs have been built worldwide but studies of their water storage efficiency
+	are scarce.  This study models a cone-shaped AIR popularly called Icestupa based on a surface energy balance
+	model.  AIR surface processes were quantified using meteorological data in conjunction with fountain discharge
+	information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff water for
+	two sites in Switzerland and one in India. At these measurement sites, AIR ice volume and area were measured
+	using Uncrewed Aerial Vehicles (UAV) for model calibration and validation purposes.  The Indian location, with a
+	maximum ice volume 5 times larger, was more favourable compared to the Swiss because much lower humidity. The
+	Indian fountain was also better than the Swiss since it had a higher spray radius.  However, the storage
+	efficiency of the Indian AIR (19 \%) was actually lower than the Swiss AIR (23 \%) due to significantly more
+	fountain water runoff. Although the uncertainties due to model parameters and fountain were significant, the
+	model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations for two AIRs built under
+	radically different climates.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -100,19 +100,20 @@ to guide and accelerate the ice formation.
 
 Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
 Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to other
-water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:cone}) can be built at lower
+water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:old_icestupa}) can be built at lower
 altitudes and last much longer into the summer than other types of ice structures \citep{campaign}. However, to date, no
 reliable estimates exist about the quantity of meltwater they can provide \citep{Nusser_2018}.
 
-In this paper, we aim to develop a physically-based model of a vertical AIR (or Icestupa) that can quantify their
-storage efficiency using weather and fountain discharge information. Mass and energy balance equations were used to
-estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty analysis were
-performed to identify the most critical parameters and the variance caused by them. For validation, we chose three AIR
-built across the winters of 2020 and 2021 in India and Switzerland. Our model and validation experiments provide first
-steps towards evaluating the potential of this new water storage technology worldwide.
+In this paper, we develop a physically-based model of a vertical AIRs (or Icestupas) that can quantify the
+influence of the location and the fountain used on their freezing and melting rates. Mass and energy balance
+equations were used to estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and
+uncertainty analysis were performed to identify the most critical parameters and the variance caused by them. For
+calibration, we chose two AIR built across the winters of 2020 and 2021 in India and Switzerland and validated the
+calibrated model on a Swiss AIR built on winter 2019. Our model results provide first steps towards evaluating the
+potential of this new water storage technology worldwide.
 
 \section{Study Sites}
-The model requires three kinds of datasets containing weather, fountain and AIR measurements to accurately calibrate,
+The model requires three kinds of datasets containing weather, fountain and UAV measurements to accurately calibrate,
 estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several scientific AIRs were
 constructed by teams in Switzerland and India. Here, we present the results of three scientific AIRs, which have
 relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were constructed in the same Swiss
@@ -121,8 +122,8 @@ Gangles, India (referred with the prefix IN).
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are rare,
-averaging around 7 days during winter \citep{eispalast}. The site was situated adjacent to a stream resulting in high
-humidity values across the study period as shown in Fig. \ref{fig:CHsite}. AIR were constructed here by the Guttannen
+averaging around 7 days during winter \citep{guttannen}. The site was situated adjacent to a stream resulting in high
+humidity values across the study period as shown in Fig. \ref{fig:2AIR}. AIR were constructed here by the Guttannen
 Bewegt Association during the winters of 2019-20 (CH20) and 2020-21 (CH21). Tree branches were laid covering the
 fountain pipe to initiate the ice formation process. The fountain height varied between 2 to 5\,$m$ during the
 construction period. The water was transferred from a spring water source and flowed via a flowmeter to the nozzle. In
@@ -287,7 +288,7 @@ where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
 \subsection{Energy Balance} \label{section:EB}
 
-The energy balance equation (e.g. \citep{Hock_2005}) for the AIR is formulated as follows:
+The energy balance equation (e.g. \cite{Hock_2005}) for the AIR is formulated as follows:
 
 \begin{equation} q_{surf} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G}\label{eqn:EB} \end{equation}
 
@@ -639,9 +640,8 @@ objective on each AIR.
 		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs. }
 	\label{fig:param_hist} \end{figure}
 
-
-
 \subsection{Calibration}
+
 For model calibration, we choose values of sensitive parameters which populate more the 50 \% of the possibilities
 among the best 10 \% of the model runs. $SA_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
 objectives.
@@ -661,7 +661,7 @@ choose this as the model surface layer thickness.
 For the surface roughness, no clear preference is observed for the IN21 AIR so it is calibrated to the median
 value of $3 \, mm$. For the CH21 AIR, we calibrate it to its preferred value of $1 \, mm$.
 
-\subsection{Uncertainty analysis}
+\subsection{Validation and Uncertainty analysis}
 The uncertainty in the ice volume estimates caused by the insensitive model parameters are shown in Fig.
 \ref{fig:results}.
 
@@ -669,13 +669,14 @@ The uncertainty in the ice volume estimates caused by the insensitive model para
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
-	\caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
-		measurements. The prediction interval is based on the ice volume uncertainty caused by the insensitive
-		parameters.  The upper and lower bounds of the y axis represents maximum ice volume and dome volume respectively.
-		The orange line represents the observed survival duration for each AIR.
-	} \label{fig:results} \end{figure}
+	\caption{Modelled ice volume during the lifetime of the AIR (blue curve). The prediction interval is based on the
+		ice volume uncertainty caused by the insensitive parameters. The upper and lower bounds of the y axis represents
+		maximum ice volume and dome volume respectively. Green points indicate the UAV ice volume observations.  The
+		orange line represents the observed survival duration for each AIR.  }
 
-\subsection{Validation}
+	\label{fig:results}
+\end{figure}
+
 
 \subsection{AIR ice volume estimates}
 
@@ -744,8 +745,6 @@ area fraction $f_{cone}$. As shown in Fig. \ref{fig:albedo}, less than half of t
 direct shortwave radiation flux.  Albedo, on the other hand, only varied for the Swiss location since there was
 negligible precipitation for the Indian site.
 
-
-
 \begin{table}
 	\centering
 	\caption{ Summary of the mass balance, energy balance and AIR characteristics estimated by the model}
@@ -801,7 +800,9 @@ $\degree C$ which reduces (increases) the temperature difference (vapour flux) b
 atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 
 \section{Discussion}
+
 \subsection{Freezing and melting rates}
+
 The Indian location was favourable because the mean freezing energy was around 2 times larger in magnitude than the
 melting energy (see Table \ref{tab:Results}) . This enabled the fountain determined surface area to favor freezing over melting. However, the
 Swiss location was not favourable since the mean freezing energy was lower than the mean melting energy, indicating that the
@@ -812,19 +813,23 @@ location result in more than 5 times higher Indian AIR ice volume compared to th
 fountain runtime was roughly twice that of the Indian one as shown in Table \ref{tab:Observations}.
 
 \subsection{Storage efficiency}
+
 The storage efficiency of IN21 and CH21 AIR were $19\%$ and $23\%$ respectively. The low SE is a product of the
 high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIR. This indicates that just
 decreasing the mean fountain discharge could have significantly increased water storage efficiency.  The maximum
 freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to attain the
 mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime available.
 
+\subsection{Sublimation}
 
+This study quantifies the immportant role sublimation plays in the mass balance dynamics of an AIR.  Similar
+dynamics are bound to occur in scale for much larger ice structures like glaciers in dry regions. This has already
+been hinted upon by various studies (e.g. \cite{azam_2018}).
 
-% \subsection{Sublimation}
 % We suggest that glaciers in dry regions lose a significant amount of mass through sublimation, while
-% condensation/re-sublimation is dominant over glaciers more directly influenced by monsoons. Thus, sublimation should be
-% included in hydrological modeling at least over dry regions, such as the northwest Himalaya and Karakoram, especially on
-% the cold, dry Tibetan side. \cite{azam_2018}
+% condensation/re-sublimation is dominant over glaciers more directly influenced by monsoons. Thus, sublimation
+% should be included in hydrological modeling at least over dry regions, such as the northwest Himalaya and
+% Karakoram, especially on the cold, dry Tibetan side. \cite{azam_2018}
 
 % \subsection{Changing fountain}
 
@@ -925,6 +930,8 @@ was high. We attach a high uncertainty of $\pm 10 \%$ for all the AIR observatio
 
 \end{table}
 
+\subsection{Mean discharge estimation} \label{sec:discharge}
+
 \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of any
 commercial or financial relationships that could be construed as a potential conflict of interest.
 
@@ -939,7 +946,7 @@ Alternatives and funded by the Swiss Polar Institute.
 \section*{Acknowledgments} This work would not have been possible without the untiring effort of the Swiss and
 Indian icestupa construction teams through the winters of 2019, 2020 and 2021. We thank Mr. Adolf Kaeser and Mr.
 Flavio Catillaz from Eispalast Schwarzsee (CH19); Daniel Beurki from the Guttannen Bewegt Association (CH20 and
-CH21); Norboo Thinles, Nishant Sharma, Sourabh Maheshwari and the whole icestupa competition team from HIAL (IN21).
+CH21); Norboo Thinles, Nishant Tiku, Sourabh Maheshwari and the whole icestupa competition team from HIAL (IN21).
 We would also like to thank Hanseuli Gubler for designing the Swiss AWS and Digmesa AG for subsidising their
 flowmeter used in the experiment.  We would particularly like to thank the editor Prof. Thomas Schuler and 2
 anonymous reviewers who gave us important inputs to improve the paper. We also thank Prof. Christian Hauck, Prof.
@@ -947,7 +954,7 @@ Nanna B. Karlsson and Dr.  Andrew Tedstone for valuable suggestions that improve
 
 \section*{Data Availability Statement} Some AIR timelapses and results can be viewed interactively in this
 \href{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}{app}.  The model code used is
-available in \href{https://github.com/Gayashiva/air_model}{github}. The UAV data can be obtained from the authors upon
+available in \href{https://github.com/Gayashiva/air_model}{GitHub}. The UAV data can be obtained from the authors upon
 request.
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} \bibliography{references}
