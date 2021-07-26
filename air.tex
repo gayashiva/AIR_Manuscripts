@@ -147,13 +147,12 @@ Air temperature, relative humidity, wind speed, pressure, longwave, shortwave di
 to calculate the surface energy balance of an AIR.
 
 For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5
-reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly. Zero wind speed
-values were recorded whenever snow accumulated on the ultrasonic wind sensor. It was assumed when null wind speeds were
-observed continuously for at least 3 hours. All such null values were replaced using the ERA5 dataset.
-
-The ERA5 reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
-chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  All the ERA5
-variables were therefore fitted with the meteoswiss dataset via linear regressions.
+reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly.  The ERA5
+reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
+chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  All the
+ERA5 variables were therefore fitted with the meteoswiss dataset via linear regressions. The zero wind speed values
+recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were replaced using the ERA5
+dataset.
 
 For the IN site, three different weather data sources were used to log all the weather parameters required for the
 model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was
@@ -288,7 +287,7 @@ where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
 \subsection{Energy Balance} \label{section:EB}
 
-The energy balance equation \citep{Hock_2005} for the AIR is formulated as follows:
+The energy balance equation (e.g. \citep{Hock_2005}) for the AIR is formulated as follows:
 
 \begin{equation} q_{surf} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G}\label{eqn:EB} \end{equation}
 
