@@ -670,9 +670,12 @@ The uncertainty in the ice volume estimates caused by the insensitive model para
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
 	\caption{Modelled ice volume during the lifetime of the AIR (blue curve). Green points indicate the validation
-		measurements. The prediction interval is based on the ice volume uncertainty caused by the significant parameters.  The
-		upper and lower bounds of the y axis represents maximum ice volume and dome volume respectively.  }
-	\label{fig:results} \end{figure}
+		measurements. The prediction interval is based on the ice volume uncertainty caused by the insensitive
+		parameters.  The upper and lower bounds of the y axis represents maximum ice volume and dome volume respectively.
+		The orange line represents the observed survival duration for each AIR.
+	} \label{fig:results} \end{figure}
+
+\subsection{Validation}
 
 \subsection{AIR ice volume estimates}
 
@@ -798,9 +801,7 @@ $\degree C$ which reduces (increases) the temperature difference (vapour flux) b
 atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 
 \section{Discussion}
-
 \subsection{Freezing and melting rates}
-
 The Indian location was favourable because the mean freezing energy was around 2 times larger in magnitude than the
 melting energy (see Table \ref{tab:Results}) . This enabled the fountain determined surface area to favor freezing over melting. However, the
 Swiss location was not favourable since the mean freezing energy was lower than the mean melting energy, indicating that the
@@ -811,12 +812,12 @@ location result in more than 5 times higher Indian AIR ice volume compared to th
 fountain runtime was roughly twice that of the Indian one as shown in Table \ref{tab:Observations}.
 
 \subsection{Storage efficiency}
-The storage efficiency of IN21 and CH21 AIR were $19\%$ and $23\%$ respectively. The low SE is a
-product of the high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIR. This indicates
-that just decreasing the mean fountain discharge could have significantly increased water storage efficiency.
-The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to
-attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
-available.
+The storage efficiency of IN21 and CH21 AIR were $19\%$ and $23\%$ respectively. The low SE is a product of the
+high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIR. This indicates that just
+decreasing the mean fountain discharge could have significantly increased water storage efficiency.  The maximum
+freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to attain the
+mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime available.
+
 
 
 % \subsection{Sublimation}
@@ -847,7 +848,7 @@ discharge rate on the results.
 
 \section{Appendix}
 
-\subsection{UAV observations} \label{sec:uav}
+\subsection{UAV data processing} \label{sec:uav}
 The UAV flew automatically along the flight course predefined by Pix4Dcapture
 (https://www.pix4d.com/product/pix4dcapture) and took photographs at a certain time interval. The position and
 altitude of the UAV at the exposure stations, which were obtained by the built-in integrated Position and
@@ -867,14 +868,13 @@ data). A sparse point cloud is created.
 cloud density than in the previous step (\cite{Furukawa_2010}; \cite{Molg_2017}). Thus, the spatial resolution of
 the products can be increased, and an irregular network for the next step can be created (\cite{Kung_2011}).
 
-(3) Digital elevation model (DEM) and orthomosaic generation: DEM and orthomosaic are the two main final products.
-DEM can be built from dense point cloud or irregular network, and the former one usually has higher accuracy for
-rugged terrain. Every image pixel is projected on DEM and the georeferenced orthomosaic is generated
-(\cite{Kung_2011}).
-
-% During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature
-% points can be detected and matched in these photos, especially in survey 2 of CH20, where almost half of the photos
-% are invalid (Table).
+(3) AIR delineation: Ice radius, area and volume are the three main final products. Perimeter was manually marked
+on the point cloud by identifying the AIR boundary. For the Indian location, we identified identical rock features
+near the ice boundary to mark as vertices of this perimenter. For the Swiss AIR, no such feature was available due
+to snowfall, so instead the perimeter was identified by identifying the ice and snow boundary through guidance of
+the constant fountain location. During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature
+points can be detected and matched in these photos, especially in the surveys of the Swiss AIR, where precipitation
+was high. We attach a high uncertainty of $\pm 10 \%$ for all the AIR observations to accomodate for this.
 
 \begin{table}
 	\centering
@@ -929,9 +929,8 @@ rugged terrain. Every image pixel is projected on DEM and the georeferenced orth
 commercial or financial relationships that could be construed as a potential conflict of interest.
 
 \section*{Author Contributions} SB wrote the initial version of the manuscript. SB developed the methodology with
-inputs from MH, ML and JO. MH and JB reviewed the model algorithm and helped improve it. SB performed the analysis
-with support from MH. SB, MH, SW and FK participated in the fieldwork. ML, JO, FK and JB reviewed the initial
-manuscript.
+inputs from MH, ML and JO. MH and ML reviewed the model algorithm and helped improve it. JB reviewed the model
+code.  SB, MH and SW participated in the fieldwork. ML, JO, FK and JB reviewed the initial manuscript.
 
 \section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
 Excellence Scholarship (SB). The associated field work in India was supported by Himalayan Institute of
