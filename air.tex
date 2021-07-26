@@ -12,7 +12,7 @@
 % Leave a blank\usepackage{amsmath}
 %\DeclareMathOperator{\sign}{sign} line between paragraphs instead of using \\
 
-\usepackage{csvsimple} % for csv tables
+% \usepackage{csvsimple} % for csv tables
 \usepackage{booktabs}
 \usepackage{multirow}
 
@@ -925,152 +925,29 @@ rugged terrain. Every image pixel is projected on DEM and the georeferenced orth
 
 \end{table}
 
+\section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of any
+commercial or financial relationships that could be construed as a potential conflict of interest.
 
-% \subsection{AIR discharge quantity and duration} \label{section:discharge} 
+\section*{Author Contributions} SB wrote the initial version of the manuscript. SB developed the methodology with
+inputs from MH, ML and JO. MH and JB reviewed the model algorithm and helped improve it. SB performed the analysis
+with support from MH. SB, MH, SW and FK participated in the fieldwork. ML, JO, FK and JB reviewed the initial
+manuscript.
 
-% \subsection{Ladakh Icestupa 2014/15} \label{section:ladakhloss} 
-% A 20 $m$ tall Icestupa \citep{iceheight} was built in Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l. Assuming
-% a conical shape with a diameter of 20 $m$, the corresponding volume of this Icestupa becomes 2093 $m^3$ or 1,920 $m^3$
-% w.e. The fountain sprayed water at a rate of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$ January
-% \citep{waterstart} to at least until $5^{th}$ March 2015 \citep{waterend} (around 43 nights). Assuming fountain spray
-% was active for 8 hours each night, we estimate water consumption to be around 4,334 $m^3$. Thus, during the
-% construction/freezing period of the Icestupa, roughly 56 \% of the water provided was wasted. The actual water loss is
-% bound to be much higher due to further vapour losses during the melting period. This Icestupa completely melted away on
-% $6^{th}$ July 2015 \citep{iceends}. Therefore, the storage duration was 166 days or roughly 5 months. 
+\section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
+Excellence Scholarship (SB). The associated field work in India was supported by Himalayan Institute of
+Alternatives and funded by the Swiss Polar Institute.
 
-% \subsection{CH19 AIR}\label{section:CH19}
-% The CH19 AIR in the Schwarzsee region lies at 967 $m$ a.s.l.. In the winter (Oct-Apr), mean daily maximum
-% and minimum air temperatures vary between -4 and 14 $\degree C$. Clear skies are rare, averaging around 7 days, and
-% precipitation amounts average 155 mm per month during winter \citep{eispalast}. The site was situated adjacent to a
-% stream resulting in high humidity values across the study period. Within the EP site, an enclosure with a 1.8\,$m$
-% radius was constructed for the experiment. An automatic weather station (AWS) was adjacent to the wooden
-% boundary as shown in Fig. \ref{fig:site}. The fountain used for spraying water had a nozzle diameter of 5\,$mm$ and a
-% height of 1.35\,$m$, and was placed in the centre of the wooden enclosure. The water was transferred from a spring
-% water source at 1267 $m$ a.s.l. by pipeline and flowed via a flowmeter and an air escape valve to the nozzle, where it
-% was sprinkled with a spray radius of around 1.7\,$m$. The air escape valve was installed to avoid errors in the flow
-% measurements due to air bubbles. In addition, a webcam guaranteed a continuous survey of the site during the
-% construction of the Icestupa. 
-% 
-% \begin{figure} 
-%     \centering 
-%     \includegraphics[width=15cm]{./Figures/Figure_2.jpg}
-% \caption{(a) The ice structure during the first validation measurement as seen on the webcam image of
-%   $14^{th}$ Feb. (b) The corresponding cross section of the EP ice structure with the field estimates of $r, R,
-%   h, H_i, H_f$ used to determine the Icestupa volume is shown on the right.} 
-%   \label{fig:CH19site} 
-%   \end{figure}
-% 
-% \subsubsection{Weather data}
-% Precipitation data was derived from the Plaffeien AWS \citep{meteoswiss} located 8.8 km away from the measurement site
-% at an altitude of 1042 $m$ a.s.l.  We recognised during our data analysis that, except precipitation, all the other
-% meteorological variables of the EP site correlated much better with the ERA5 dataset than the nearby Plaffeien AWS
-% dataset. The $2\,m$ temperature parameter correlated with air temperature ($r^2 =0.9 $), surface pressure parameter
-% correlated with air pressure ($r^2 = 1$) and 10m wind speed parameter (derived from horizontal and vertical components)
-% correlated with wind speed ($r^2 =0.6 $) .
-% 
-% Due to a power failure, all data from the EP AWS was lost from $27^{th}$ February 15:20 2019 to $2^{nd}$ March 15:00
-% 2019 (equivalent to around 7\% of the measurement period). During heavy snowfall events, the ultrasonic wind sensor was
-% blocked and recorded zero values. ERA5 was used to fill such errors and data gaps .
-% 
-% The ERA5 grid point chosen (Latitude 46° 38' 24" N, Longitude 7° 14' 24" E) for the EP site was around 9 km away from
-% the actual site. Near-surface humidity is not provided directly in ERA5 dataset, but from near-surface ($2\,m$ from the
-% surface) temperature ($T_{ERA5}$) and dew point temperature ($Tw_{ERA5}$) the relative humidity ($RH$) at $2\,m$  was
-% calculated as: 
-% 
-% \begin{equation} RH = 100 \cdot
-%     \frac{e_{sat}(Tw_{ERA5})}{e_{sat}(T_{ERA5})} \end{equation} 
-% 
-% where the saturation vapour pressure function $e_{sat}$ is expressed with the Teten's formula \citep{Tetens}:
-% \begin{equation} e_{sat}(T)= a_1 \cdot e^{(a_3 \cdot \frac{T}{(T+273.16-a_4)})} \end{equation} with T in $\degree C$ and
-% the parameters set for saturation over water ($a_1$ = 611.21 Pa, $a_3$ = 17.502 and $a_4$= 32.19 K) according to
-% \cite{Buck_1981}.    
-% 
-% All the ERA5 variables were therefore fitted with the EP dataset via linear regressions.  With the modified ERA5
-% dataset, we were also able to further extend the EP dataset and allow the model to run beyond $18^{th}$ March 2019.
-% Precipitation was filled as null values beyond $18^{th}$ March 2019.
-% 
-% \subsubsection{Fountain spray radius of CH19 AIR} \label{section:sprayCH19} 
-% This fountain spray radius is determined by modelling the projectile motion of the water droplets. Using mass
-% conservation, the droplet speed $v_F$ can be determined from the spray rate $d_F$ and the diameter $dia_F$ of the nozzle
-% as follows:
-% 
-% \begin{equation} v_F = \frac{d_F}{\pi \cdot dia_F^2/4} \end{equation}
-% 
-% Afterwards, we assume that the water droplets move with an air friction free projectile motion from the fountain
-% nozzle with a height $h_F$ to the ice/ground surface. The resulting spray radius $r_F$ was then determined from the
-% projectile motion equation as follows:
-% 
-% \begin{equation} r_F = \frac{v_F \cdot cos\theta_F (v_F \cdot sin\theta_F + \sqrt{(v_F \cdot sin\theta_F)^{2} + 2
-% \cdot g \cdot h_F})}{g} \end{equation}
-% 
-% where $g = 9.8\, m s^{-2}$ is the acceleration due to gravity and $\theta_F$ = 45 $\degree$ is the angle of launch.
-% 
-% \subsubsection{CH19 Field Measurements for validation} \label{section:validation} 
-% The volume was determined by decomposing the ice structure into a cylinder (length $2R$ and height $h$) and a
-% cone (radius $r$ and height $(H_i-h)$) through the following equation: 
-% \begin{equation} V = \pi \cdot R^2 \cdot h + 1/3 \cdot \pi \cdot r^2 \cdot (H_i-h) \end{equation}
-% 
-% Manual measurements were performed at the end of the freezing period on $14^{th}$ February 16:00 2019 (only one more
-% fountain run was possible after this date) to estimate $r, R, h, H_i, H_f$ (see Fig. \ref{fig:site} for the different
-% geometry components):
-% 
-% $$ 0.55\leq r\leq 1 m\textit{ ; }1.1\leq R\leq 1.2 m\textit{ ; }0.1\leq h\leq 0.2 m\textit{ ; }0.6\leq
-% H_i\leq 0.8 m\textit{ ; }1.3\leq H_f\leq 1.4 m  $$
-% 
-% The ranges of the variables show the variance of the Icestupa's dimensions across different compass orientations.
-% Correspondingly, the volume range estimated for the first validation point was 0.857 $\pm$ 0.186 $m^{3}$ on $14^{th}$
-% February 16:00 2019.
-% 
-% The second validation point corresponds to the end of the melting process on $10^{th}$ March 18:00 2019.  Based on the
-% webcam imagery and manual measurement, a thin layer of ice with an observed thickness between 0.01 to 0.06 m could be
-% quantified. This results in the volume range for the second validation to be 0.13 $\pm$ 0.09 $m^{3}$ on $11^{th}$ March
-% 2019 
-% 
-% In reality, the EP ice structure was more cylindrical until a height of 0.2\,$m$ and conical afterwards until a
-% height of 0.6\,$m$ with a radius of 1.18\,$m$. However, we assume a conical shape of this ice structure in order to
-% apply the modelling strategy described below.
+\section*{Acknowledgments} This work would not have been possible without the untiring effort of the Swiss and
+Indian icestupa construction teams through the winters of 2019, 2020 and 2021. We thank Mr. Adolf Kaeser and Mr.
+Flavio Catillaz from Eispalast Schwarzsee (CH19); Daniel Beurki from the Guttannen Bewegt Association (CH20 and
+CH21); Norboo Thinles, Nishant Sharma, Sourabh Maheshwari and the whole icestupa competition team from HIAL (IN21).
+We would also like to thank Hanseuli Gubler for designing the Swiss AWS and Digmesa AG for subsidising their
+flowmeter used in the experiment.  We would particularly like to thank the editor Prof. Thomas Schuler and 2
+anonymous reviewers who gave us important inputs to improve the paper. We also thank Prof. Christian Hauck, Prof.
+Nanna B. Karlsson and Dr.  Andrew Tedstone for valuable suggestions that improved the manuscript.
 
-% \subsubsection{CH21 and CH20 Surface temperature corrections} \label{section:thermalcam} 
-% We discarded some thermal camera temperature measurements due to the following reasons:
-% \begin{itemize} 
-%     \item Snowfall/fog: Whenever there was snow or thick fog, the thermal image was corrupted. Refer image Jan14 1900 and
-% Jan3 800. We used the standard deviation of the pixel temperature to identify these events and remove them from the
-% validation dataset. 
-% 
-% \item Strong sunlight: Usually at noon, especially in end of Feb and March, we observed that ice temperature values were
-%     above zero C. We found that again the thermal cam images were corrupted as seen in Mar6 1300. So we removed all
-%     temperature values above 0 C.  
-% 
-% \item Then there were some images that were completely blue and looked corrupted.  We cannot identify the cause here but
-%     I filtered them out using the mean of all temperature pixels.
-% 
-% \end{itemize} 
-
-% 
-% The CH19 AIR was constructed by the Eispalast in Schwarzsee, Switzerland. It was contained inside a wooden boundary
-% adjacent to a stream. Fountain operation was guided by temperature conditions.  The water spray of the fountain was
-% initially adjusted so that most of the water droplets land within the wooden boundary zone. The ice formation was guided
-% by adding a metal framework at the ice structure base after the first night of operation.  Several cotton threads were
-% tied between the ice structure base and fountain pole for accelerating and further guiding the ice formation process. 
-
-% \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of any
-% commercial or financial relationships that could be construed as a potential conflict of interest.
-% 
-% \section*{Author Contributions} SB wrote the initial version of the manuscript. MH, ML, SW, JO, and FK commented on
-% the initial manuscript and helped improve it. SB developed the methodology with inputs from MH. SB performed the
-% analysis with support from MH and ML. SB and MH participated in the fieldwork.
-% 
-% \section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
-% Excellence Scholarship (SB).
-% 
-% \section*{Acknowledgments} We thank Mr. Adolf Kaeser and Mr. Flavio Catillaz at Eispalast Schwarzsee for their active
-% participation in the fieldwork. We would also like to thank Digmesa AG for subsidising their flowmeter used in the
-% experiment. We would particularly like to thank the editor Prof. Thomas Schuler and 2 anonymous reviewers who gave us
-% important inputs to improve the paper. We also thank Prof. Christian Hauck, Prof. Nanna B. Karlsson and Dr. Andrew
-% Tedstone for valuable suggestions that improved the manuscript.
-% 
-% \section*{Data Availability Statement} The data and code used to produce results and figures will be published at a
-% later stage and can, until then, be obtained from the authors upon request.
+\section*{Data Availability Statement} Some AIR timelapses and results can be viewed interactively in this web app.
+The model code used is available in github. The UAV data can be obtained from the authors upon request.
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} \bibliography{references}
 
