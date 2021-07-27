@@ -570,8 +570,8 @@ polynomial (as a surrogate model), on which sensitivity and uncertainty analysis
 model produced was a polynomial of order 4. The rosenblatt transformation was also used since the parameters were
 correlated.
 
-The uncertainty in the model ice volume estimates are caused due to uncertainty in two sources, namely model
-parameters and input. For the model parameters, we first fix a range based on literature values and then perform a
+The uncertainty in the model ice volume estimates are caused due to uncertainty in two sources, namely weather
+and fountain parameters. For the weather parameters, we first fix a range based on literature values and then perform a
 global sensitivity analysis (GSA) with the storage efficiency as the objective. The distribution is always treated
 as uniform and the limits for every parameter are given in Table \ref{tab:parameters}. The GSA consists of a total
 ensemble size of 2000 simulations per AIR. The parameter sensitivity results from the GSA are used as a tool to
@@ -591,12 +591,19 @@ values for surface roughness, $z_{0}$, of glacier ice are generally in the range
 to any parameter in the glaciological literature, we attribute a wide range of values for it and try to constrain
 it further during the calibration process.
 
-For the model input data, uncertainty associated with two kinds of observations namely, weather and fountain were
-evaluated. All the radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) in the weather data were uncertain
-since they were taken from ERA5 dataset or an AWS far away from the AIR site. All the measured fountain parameters are
-uncertain since they vary significantly temporally and are not constant. The UAV measurements have also uncertainty
-associated with them. So all these measurements were assumed to have an uncertainty of $\pm 10 \%$ to evaluate the
-corresponding uncertainty produced in model ice volume estimates.
+The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
+separately. Fountain runtime has no uncertainty for the Swiss AIRs since there were no interruptions but
+significant uncertainty exists for the IN21 AIR where the interruptions due to pipeline freezing events happened
+overnight. However, we ignore this cause of uncertainty in the following analysis since there exists no way to
+constrain it. The choice of $d_F$ for both the locations was just a best guess based on few observations made by
+the flowmeter. To remedy this, we associate this parameter by a large uncertainty of $\pm \,50\, \%$. For the
+fountain water temperature, we can reliably set a lower and upper bound of $0\, \degree C$ and $3\, \degree C$ as
+it is very unlikely for the fountain water to have been beyond this range considering winter conditions in both the
+locations.
+
+Uncertainty also exists in the model input data, particularly for all the radiation measurements ($SW_{direct},
+	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS far away from the construction location.
+But these are ignored in this analysis.
 
 The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had too few ice volume
 observations for calibration.
@@ -639,7 +646,8 @@ objective on each AIR.
 	\end{center}
 	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
 		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs. }
-	\label{fig:param_hist} \end{figure}
+	\label{fig:param_hist}
+\end{figure}
 
 \subsection{Calibration}
 
@@ -662,29 +670,30 @@ choose this as the model surface layer thickness.
 For the surface roughness, no clear preference is observed for the IN21 AIR so it is calibrated to the median
 value of $3 \, mm$. For the CH21 AIR, we calibrate it to its preferred value of $1 \, mm$.
 
-\subsection{Validation and Uncertainty analysis}
+\subsection{Validation}
 
 The validation of the model is carried out using the survival duration observation. The survival duration signifies
 the time when all the ice had melted. Model performance can be judged based on the difference between the model
-expectation and observation of survival duration. For the IN21, CH21 and CH20 AIR, this was 8 days, -1 day and -16 days
-respectively where the negative (positive) sign represents underestimation (overestimation).
+expectation and observation of survival duration. For the IN21, CH21 and CH20 AIR, this was 8 days, -1 day and -16
+days respectively where the negative (positive) sign represents underestimation (overestimation).
 
-The uncertainty in the ice volume estimates caused by the insensitive model parameters are shown in Fig.
-\ref{fig:results}. Model results for IN21 exhibit more confidence since precipitation and the associated variation
-in albedo was negligible.
+\subsection{Weather and fountain uncertainty analysis}
+
+The uncertainty in the ice volume estimates caused by the insensitive model parameters and fountain parameters are shown in Fig.
+\ref{fig:results}. Weather uncertainty for IN21 is low since precipitation and the associated variation in albedo
+was negligible.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
 	\caption{Modelled ice volume during the lifetime of the AIR (blue curve). The prediction interval is based on the
-		ice volume uncertainty caused by the insensitive parameters. The upper and lower bounds of the y axis represents
-		maximum ice volume and dome volume respectively. Green points indicate the UAV ice volume observations.  The
-		orange line represents the observed survival duration for each AIR.  }
+		ice volume uncertainty caused by the weather and thee fountain parameters. The lower bounds of the y axis
+		represents AIR dome volume. Green points indicate the UAV ice volume observations.  The violet line represents the
+		observed survival duration for each AIR.  }
 
 	\label{fig:results}
 \end{figure}
-
 
 \subsection{AIR ice volume estimates}
 
@@ -838,13 +847,13 @@ observations obtained via UAV flights. We calculated the storage efficiency, fre
 the three AIRs and explained their corresponding values through the influence of the location chosen and the
 fountain used.
 
-The results suggest that drier locations (e.g. Ladakh, Indian Himalayas) are significantly more favourable since
+The results suggest that drier locations like Ladakh, Indian Himalayas are significantly more favourable since
 their freezing and melting rates are augmented and dampened by sublimation respectively.
 
 Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain
 discharge rate.  The model results indicate that more than 75\% of the fountain water is lost as runoff for all the
 AIRs.  Further experiments with different fountains are required to better understand the influence of the fountain
-discharge rate on the results.
+parameters on the results.
 
 \section{Appendix}
 
