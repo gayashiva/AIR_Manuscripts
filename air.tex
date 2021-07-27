@@ -610,7 +610,7 @@ observations for calibration.
 
 \begin{table}
 	\centering
-	\caption{The ranges of the 8 different parameters used in the sensitivity study.}
+	\caption{The ranges of the 8 weather parameters used in the sensitivity and uncertainty analysis.}
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
@@ -652,8 +652,11 @@ objective on each AIR.
 \subsection{Calibration}
 
 For model calibration, we choose values of sensitive parameters which populate more the 50 \% of the possibilities
-among the best 10 \% of the model runs. $SA_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
-objectives.
+among the best 10 \% of the model runs. $SA_{corr}$ shows different preferences whereas the other two parameters
+show similar preference for the two objectives. In total, 495 model runs were required for each of the objective.
+For the volume objective, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the Indian and from
+10 $m^3$ to 16 $m^3$ for the Swiss. For the area objective, the RMSE of the best model runs ranged from 14 $m^2$ to
+53 $m^2$ for the Indian and from 28 $m^2$ to 40 $m^2$ for the Swiss.
 
 We expect the UAV measured surface area of AIR to be higher than the modelled cone area due to the many
 ice features that tend to form. Particularly, we also expect the IN21 area to deviate significantly from CH21 AIR
@@ -858,8 +861,7 @@ parameters on the results.
 \section{Appendix}
 
 \subsection{UAV data processing} \label{sec:uav}
-The UAV flew automatically along the flight course predefined by Pix4Dcapture
-(https://www.pix4d.com/product/pix4dcapture) and took photographs at a certain time interval. The position and
+The UAV flew automatically along a predefined flight course predefined and took photographs at a certain time interval. The position and
 altitude of the UAV at the exposure stations, which were obtained by the built-in integrated Position and
 Orientation System (POS, composed of global positioning system and inertial measurement units), were recorded in
 the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a three-step workflow,
@@ -956,10 +958,10 @@ editor Prof. Thomas Schuler and 2 anonymous reviewers who gave us important inpu
 thank Prof. Christian Hauck, Prof.  Nanna B. Karlsson and Dr.  Andrew Tedstone for valuable suggestions that
 improved the manuscript.
 
-\section*{Data Availability Statement} Some AIR timelapses and results can be viewed interactively in this
+\section*{Data Availability Statement} AIR timelapses (CH20, CH21) and results can be viewed interactively in this
 \href{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}{app}.  The model code used is
-available in \href{https://github.com/Gayashiva/air_model}{GitHub}. The UAV data can be obtained from the authors upon
-request.
+available in \href{https://github.com/Gayashiva/air_model}{GitHub}. The UAV data can be obtained from the authors
+upon request.
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} \bibliography{references}
 
