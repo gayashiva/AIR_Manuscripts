@@ -386,9 +386,9 @@ The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (around $2\,m$ for all sites), $v_a$ is
 the wind speed in [$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J $kg^{-1} K^{-1}$),
 $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air pressure at standard sea
-level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the surface roughness (5 $mm$) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).
-The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in
-\cite{WMO_2018}:
+level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the surface roughness (5 $mm$) and $L_s$
+is the heat of sublimation (2848 $kJ\,kg^{-1}$).  The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$)
+was obtained using the formulation given in \cite{WMO_2018} and \cite{huang_2018} respectively  :
 
 \begin{equation}
 	\begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))} \cdot \frac{RH}{100}\\
