@@ -58,7 +58,7 @@
 	discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff
 	water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for model
 	calibration and validation purposes. The Indian location, with a maximum ice volume 5 times larger, was more
-	favourable compared to the Swiss primarily because of much higher sublimation rates.  However, the storage
+
 	efficiency of the Indian AIR (19 \%) was actually lower than the Swiss AIR (23 \%) due to significantly more
 	fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant, the
 	model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was able to estimate
@@ -144,6 +144,7 @@ region, lying at 4025 $m$ a.s.l.. AIR were constructed here as part of the Icest
 Institute of Alternatives, Ladakh (HIAL) every winter since 2018. Fountain height varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
+
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
 to calculate the surface energy balance of an AIR.
 
@@ -201,18 +202,17 @@ diffuse fraction of the global shortwave radiation was also assumed to be neglig
 
 \subsection{Fountain observations}
 
-We define the fountain used in AIR construction through four attributes, namely its spray radius, mean discharge
-quantity, discharge runtime and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of
-the discharge rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the
-available discharge measurement was used to determine the average discharge quantity $d_F$ during these periods as shown
-in the Appendix. The spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights
+We define the fountain used through four attributes, namely its spray radius, mean discharge quantity, discharge
+runtime and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge
+rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the available
+discharge measurement was used to determine the average discharge quantity $d_F$ during these periods. The spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights
 during the fountain runtime.
 
-For the Swiss site, the fountain was never switched off so the discharge duration was extrapolated from just one
-fountain on and off event each.
+The Swiss fountain was never switched off so the discharge duration was extrapolated from just one fountain on and
+off event each.
 
-For the Indian site, even though the fountain was never manually switched off, there were many pipeline freezing events
-that interrupted the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during
+Even though the Indian fountain was never manually switched off, there were many pipeline freezing events that
+interrupted the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during
 these pipeline freezing events.
 
 \subsection{Uncrewed Aerial Vehicle surveys}
@@ -390,8 +390,10 @@ level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the su
 The vapor pressures over air ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the following formulation given in
 \cite{WMO_2018}:
 
-\begin{equation} \begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))}\\ p_{v,ice}&=(1.0016 +
-		3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot T_{ice} / (T_{ice} + 272.62))})
+\begin{equation}
+	\begin{split} p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))} \cdot \frac{RH}{100}\\
+		p_{v,ice}&=(1.0016 + 3.15\cdot10^{-6}\cdot p_{a}-0.074\cdot p_{a}^{-1})\cdot(6.112 \cdot e^{(22.46 \cdot
+					T_{ice} / (T_{ice} + 272.62))})
 	\end{split} \label{eqn:vp} \end{equation}
 
 where $p_{a}$ is the measured air pressure in [$hPa$].
