@@ -240,9 +240,9 @@ surface area $A^i$ and volume $V^i$ are:
 
 \begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
 
-where $A_{corr}$ is a correction factor with values between 1 and 2 that accounts for the increase in surface area
-due to the irregular surface of the AIR. We do not specify the time step superscript $i$ of the shape variables
-$A$, $V$, $r_{ice}$ and $h_{ice}$. The equations used, display model time step superscript $i$ only if it is
+where $A_{corr}$ is a correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area
+from that of the modelled conical surface. We do not specify the time step superscript $i$ of the shape variables
+$A$, $V$, $r_{ice}$ and $h_{ice}$. Henceforth, the equations used, display model time step superscript $i$ only if it is
 different from the current time step.
 
 With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
@@ -400,7 +400,7 @@ where $p_{a}$ is the measured air pressure in [$hPa$].
 
 The dimensionless parameter $\mu_{cone}$ is an "exposure/roughness parameter" that deals with the fact that AIR has a
 rough appearance and forms an obstacle to the wind regime. This factor accounts for the larger turbulent fluxes due to
-the roughness of the surface \cite{Oerlemans_2021}, and is a function of the AIR slope as follows:
+the roughness of the surface \citep{Oerlemans_2021}, and is a function of the AIR slope as follows:
 
 \begin{equation}
 	\mu_{cone} = 1 + \frac{s_{cone}}{2}
@@ -460,10 +460,13 @@ additional condition namely $(q_{surf}-q_{L}) < 0$ is required.
 \end{equation}
 
 During a freezing event, the AIR surface is assumed to warm to $0 \degree C$. The available energy $(q_{surf}-q_{L})$ is
-further augmented due to this change in surface temperature represented by the energy flux $q_{0} = \frac{\rho_{ice}
-		\cdot \Delta x \cdot c_{ice} \cdot T_{ice}^{i-1}}{\Delta t}$. The available energy can either be sufficient or
-insufficient to freeze the fountain water available. If insufficient, the additional energy further cools down the
-surface temperature. The surface energy flux distribution during a freezing event can be represented as:
+further augmented due to this change in surface temperature represented by the energy flux:
+
+$$q_{0} = \frac{\rho_{ice} \cdot \Delta x \cdot c_{ice} \cdot T_{ice}^{i-1}}{\Delta t}$$
+
+The available energy can either be sufficient or insufficient to freeze the fountain water available. If
+insufficient, the additional energy further cools down the surface temperature. The surface energy flux
+distribution during a freezing event can be represented as:
 
 \begin{equation}
 	(q_{freeze}, q_{T}) = \left\{ \begin{array}{ll}
@@ -590,9 +593,8 @@ value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfa
 from \cite{Zhou_2010}. The surface area correction factor, $A_{corr}$, quantifies the deviation of the AIR shape
 from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Literature
 values for surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$
-\citet{BrockWillisSharp_2006}. Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance
-to any parameter in the glaciological literature, we attribute a wide range of values for it and try to constrain
-it further during the calibration process.
+\citep{BrockWillisSharp_2006}. Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance
+to any parameter in the glaciological literature, we attribute a wide range of values for it.
 
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
 separately. Fountain runtime has no uncertainty for the Swiss AIRs since there were no interruptions but
@@ -608,8 +610,8 @@ Uncertainty also exists in the model input data, particularly for all the radiat
 	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS far away from the construction location.
 But these are ignored in this analysis.
 
-The sensitivity analysis was only carried out for the CH21 and IN21 AIR since CH20 AIR had too few ice volume
-observations for calibration.
+The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIR and the CH20 AIR was used for
+validation of the model.
 
 \begin{table}
 	\centering
@@ -678,10 +680,14 @@ value of $3 \, mm$. For the CH21 AIR, we calibrate it to its preferred value of 
 
 \subsection{Validation}
 
-The validation of the model is carried out using the survival duration observation. The survival duration signifies
-the time when all the ice had melted. Model performance can be judged based on the difference between the model
-expectation and observation of survival duration. For the IN21, CH21 and CH20 AIR, this was 8 days, -1 day and -16
-days respectively where the negative (positive) sign represents underestimation (overestimation).
+CH20 AIR UAV observations were used to validate the calibrated model. Note that the calibrated model used the
+standard value of 1 for the $A_{corr}$ factor. The low RMSE of the UAV ice volume observations compared  are shown in
+Table \ref{tab:Results}. The correlation of the model with the UAV observations was high.
+
+In addition, model validation is carried out on all the 3 AIRs using their survival duration observation. The survival duration
+signifies the time when all the ice had melted. Model performance can be judged based on the difference between the
+model expectation and observation of survival duration. For the IN21, CH21 and CH20 AIR, this was 8 days, -1 day
+and -16 days respectively where the negative (positive) sign represents underestimation (overestimation).
 
 \subsection{Weather and fountain uncertainty analysis}
 
@@ -773,35 +779,41 @@ location since there was negligible precipitation for the Indian site.
 	\label{tab:Results}
 	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
-		\textbf{}              & \textbf{Name}           & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
-		\textbf{Units}                                                                                                   \\ \midrule
+		\textbf{}              & \textbf{Name}                        & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
+		\textbf{Units}                                                                                                                \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
-		                       & Fountain discharge      & $M_F$           & 2911          & 971           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Snowfall                & $M_{ppt}$       & 0             & 52            & $tons$      \\
-		\multicolumn{1}{|l|}{} & Deposition              & $M_{dep}$       & 10            & 4             & $tons$      \\ \midrule
+		                       & Fountain discharge                   & $M_F$           & 2911          & 971           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Snowfall                             & $M_{ppt}$       & 0             & 52            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Deposition                           & $M_{dep}$       & 10            & 4             & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater               & $M_{water}$     & 414           & 229           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Ice                     & $M_{ice}$       & 139           & 0             & $tons$      \\
-		\multicolumn{1}{|l|}{} & Sublimation             & $M_{sub}$       & 121           & 10            & $tons$      \\
-		\multicolumn{1}{|l|}{} & Fountain runoff         & $M_{runoff}$    & 2321          & 788           & $tons$      \\ \midrule
+		                       & Meltwater                            & $M_{water}$     & 414           & 229           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Ice                                  & $M_{ice}$       & 139           & 0             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Sublimation                          & $M_{sub}$       & 121           & 10            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Fountain runoff                      & $M_{runoff}$    & 2321          & 788           & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
-		                       & Shortwave radiation     & $q_{SW} $       & $ 31 \pm 51$  & $ 30 \pm 51$
-		                       & $W\,m^{-2}$                                                                             \\
-		\multicolumn{1}{|l|}{} & Longwave radiation      & $q_{LW} $       & $-77 \pm 32$  & $-53 \pm 36$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Sensible heat           & $q_{S}  $       & $87 \pm111$   & $38 \pm 99$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Latent heat             & $q_{L}  $       & $-47 \pm 63$  & $-6 \pm 39$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Fountain heat           & $q_{F}  $       & $2 \pm 3$     & $5 \pm 5$     & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Ground heat             & $q_{G}   $      & $0 \pm 1$     & $0 \pm 2$     & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Freezing energy         & $q_{freeze} $   & $-165\pm 46$  & $-71 \pm 48$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Melting energy          & $q_{melt}  $    & $90 \pm 84$   & $106\pm 140$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Temperature             & $q_{T}  $       & $0 \pm 110$   & $0 \pm 40$    & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Surface Area            & $A$             & $458 \pm 84$  & $134 \pm 65$  & $m^{2}$     \\\midrule
-		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Charecteristics}}}
+		                       & Shortwave radiation                  & $q_{SW} $       & $ 31 \pm 51$  & $ 30 \pm 51$
+		                       & $W\,m^{-2}$                                                                                          \\
+		\multicolumn{1}{|l|}{} & Longwave radiation                   & $q_{LW} $       & $-77 \pm 32$  & $-53 \pm 36$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Sensible heat                        & $q_{S}  $       & $87 \pm111$   & $38 \pm 99$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Latent heat                          & $q_{L}  $       & $-47 \pm 63$  & $-6 \pm 39$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Fountain heat                        & $q_{F}  $       & $2 \pm 3$     & $5 \pm 5$     & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Ground heat                          & $q_{G}   $      & $0 \pm 1$     & $0 \pm 2$     & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Freezing energy                      & $q_{freeze} $   & $-165\pm 46$  & $-71 \pm 48$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Melting energy                       & $q_{melt}  $    & $90 \pm 84$   & $106\pm 140$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Temperature                          & $q_{T}  $       & $0 \pm 110$   & $0 \pm 40$    & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Surface Area                         & $A$             & $458 \pm 84$  & $134 \pm 65$  & $m^{2}$     \\\midrule
+		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{AIR}}}
 
-		                       & Freezing rate           & $m_{freeze}$    & $14 \pm 7$    & $2 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Melting rate            & $m_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Storage Efficiency      & SE              & 19            & 23            & \%          \\
-		\multicolumn{1}{|l|}{} & Root mean squared error & RMSE            & 84            & 12 $m^{3}$    & $m^{3}$     \\\bottomrule
+		                       & Freezing rate                        & $m_{freeze}$    & $14 \pm 7$    & $2 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Melting rate                         & $m_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Storage Efficiency                   & $SE$            & 18            & 23
+		                       & \%                                                                                                   \\
+		\multicolumn{1}{|l|}{} & Maximum Ice Volume                   &                 & 793           & 148           & $m^{3}$     \\\midrule
+		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Model}}}
+		                       & Survival duration error              &                 & -8            & 1             & $days$      \\
+		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume             &                 & 86            & 12            & $m^{3}$     \\
+		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume      &                 & 0.99          & 0.93          & N.A.        \\
+		\multicolumn{1}{|l|}{} & Relative error in maximum ice volume &                 & 10            & 8             & \%          \\\bottomrule
 	\end{tabular}
 \end{table}
 
