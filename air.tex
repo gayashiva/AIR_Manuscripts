@@ -51,14 +51,14 @@
 \begin{abstract}
 
 	Mountain communities in Ladakh, India facing climate change induced water stress have been using Artificial Ice
-	Reservoirs (AIRs) to augment their irrigation water supply. However, it is still unknown whether this water storage
-	technology is viable anywhere else. This study attempts to quantify the influence of this construction location
-	by comparing the evolution of AIRs built in Ladakh and two other AIRs built in Guttannen, Switzerland through a
-	surface energy balance model. AIR surface processes were quantified using meteorological data in conjunction with
-	fountain discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and
-	runoff water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for
-	model calibration and validation purposes. The Indian location, with a maximum ice volume 5 times larger, was
-	more favourable compared to the Swiss primarily because of much higher sublimation rates.  However, the storage
+	Reservoirs (AIRs) for additional irrigation water supply. However, it remains unknown whether other locations can
+	use AIRs for water storage. This study attempts to quantify the influence of construction location by comparing
+	the evolution of AIRs built in Ladakh and two other AIRs built in Guttannen, Switzerland through a surface energy
+	balance model. AIR surface processes were quantified using meteorological data in conjunction with fountain
+	discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff
+	water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for model
+	calibration and validation purposes. The Indian location, with a maximum ice volume 5 times larger, was more
+	favourable compared to the Swiss primarily because of much higher sublimation rates.  However, the storage
 	efficiency of the Indian AIR (19 \%) was actually lower than the Swiss AIR (23 \%) due to significantly more
 	fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant, the
 	model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was able to estimate
@@ -116,7 +116,7 @@ potential of this new water storage technology worldwide.
 \section{Study Sites}
 The model requires three kinds of datasets containing weather, fountain and UAV measurements to accurately calibrate,
 estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several scientific AIRs were
-constructed by teams in Switzerland and India. Here, we present the results of three scientific AIRs, which have
+constructed by teams in Switzerland and India. Here, we present the results of three scientific AIRs, which have a
 relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were constructed in the same Swiss
 location called Guttannen (referred with the prefix CH) but during different winters and the other was constructed at
 Gangles, India (referred with the prefix IN).
@@ -139,10 +139,9 @@ addition, a webcam guaranteed a continuous survey of the site during the constru
 	\label{fig:2AIR}
 \end{figure}
 
-The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
-lying at 4025 $m$ a.s.l.. AIR were constructed by the Himalayan Institute of Alternatives, Ladakh (HIAL) every winter
-since 2018. The AIR was constructed as part of the Icestupa Competition in Gangles, Ladakh, India (IN21). Fountain
-height varied between 5 to 9\,$m$.
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh
+region, lying at 4025 $m$ a.s.l.. AIR were constructed here as part of the Icestupa Competition  by the Himalayan
+Institute of Alternatives, Ladakh (HIAL) every winter since 2018. Fountain height varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are required
@@ -151,10 +150,10 @@ to calculate the surface energy balance of an AIR.
 For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5
 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly.  The ERA5
 reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
-chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  All the
-ERA5 variables were therefore fitted with the meteoswiss dataset via linear regressions. The zero wind speed values
-recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were replaced using the ERA5
-dataset.
+chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  ERA5
+variables (except incoming shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear
+regressions. The zero wind speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic
+wind sensor were replaced using the ERA5 dataset.
 
 For the IN site, three different weather data sources were used to log all the weather parameters required for the
 model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was
@@ -199,15 +198,9 @@ diffuse fraction of the global shortwave radiation was also assumed to be neglig
 	\end{tabular}
 \end{table}
 
-\subsection{Uncrewed Aerial Vehicle surveys}
-
-Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites.The DEM generated
-through these flights were analysed to obtain the radius, area and volume of the ice structure.  The first drone
-flight was used to set the dome volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top
-of another ice structure, it had a much higher dome volume compared to the other AIRs.The details of these surveys
-and the methodology used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
 
 \subsection{Fountain observations}
+
 We define the fountain used in AIR construction through four attributes, namely its spray radius, mean discharge
 quantity, discharge runtime and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of
 the discharge rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the
@@ -221,6 +214,14 @@ fountain on and off event each.
 For the Indian site, even though the fountain was never manually switched off, there were many pipeline freezing events
 that interrupted the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during
 these pipeline freezing events.
+
+\subsection{Uncrewed Aerial Vehicle surveys}
+
+Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites.The DEM generated
+through these flights were analysed to obtain the radius, area and volume of the ice structure.  The first drone
+flight was used to set the dome volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top
+of another ice structure, it had a much higher dome volume compared to the other AIRs.The details of these surveys
+and the methodology used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
 
 \section{Model setup}
 
