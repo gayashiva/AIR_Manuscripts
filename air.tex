@@ -55,17 +55,17 @@
 	Mountain communities in Ladakh, India facing climate change induced water stress have been using Artificial Ice
 	Reservoirs (AIRs) for additional irrigation water supply. However, it remains unknown whether other locations can
 	use AIRs for water storage. This study attempts to quantify the influence of construction locations through a
-	surface energy balance model by comparing the evolution of different AIRs built in Ladakh, India and in Guttannen,
-	Switzerland. AIR surface processes were quantified using meteorological data in conjunction with fountain
-	discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff
-	water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for model
-	validation and calibration purposes. The location in Ladakh, with a maximum ice volume more than 5 times
+	surface energy balance model by comparing the evolution of different AIRs built in Ladakh, India and in
+	Guttannen, Switzerland. AIR surface processes were quantified using meteorological data in conjunction with
+	fountain discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and
+	runoff water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for
+	model validation and calibration purposes. The location in Ladakh, with a maximum ice volume more than 5 times
 	larger, was more favourable compared to the Guttannen site primarily because of much higher sublimation rates.
-	However, the water losses of the Indian AIR (81 \%) was higher than the Swiss AIR (77 \%) due to
-	significantly more fountain water runoff. Although the uncertainties due to weather and fountain parameters were
-	significant, the model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was
-	able to estimate their maximum ice volume with an accuracy of $\pm\, 10 \%$ for two construction locations with
-	radically different climates.
+	However, the water losses of the Indian AIR (81 \%) was higher than the Swiss AIR (77 \%) due to significantly
+	more fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant,
+	the model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was able to estimate
+	their ice volume with an RMSE $\pm\, 11 \%$ of their maximum ice volume for three AIRs in two construction
+	locations with radically different climates.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -243,8 +243,13 @@ A bulk energy and mass balance model is used to calculate the amounts of ice, me
 of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution, b) energy
 balance, c) surface temperature, d) mass balance and e) parameter sensitivity.
 
-\begin{figure} \begin{center} \includegraphics[width=12 cm]{Figures/model_schematic.png} \end{center} \caption{Model
-		schematic showing the algorithm used in the model at every time step. } \label{fig:schema} \end{figure}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12 cm]{Figures/model_schematic.png}
+	\end{center}
+	\caption{Model schematic showing the algorithm used in the model at every time step. }
+	\label{fig:schema}
+\end{figure}
 
 \subsection{Geometric evolution}
 
@@ -297,10 +302,16 @@ step $i$ can be determined by considering the following rules:
 
 where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
-\begin{figure} \begin{center} \includegraphics[width=10
-			cm]{Figures/shape_parameters.jpeg} \end{center} \caption{Shape variables and fountain constants of the AIR. $r_{ice}$ is
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10
+			cm]{Figures/shape_parameters.jpeg}
+	\end{center}
+	\caption{Shape variables and fountain constants of the AIR. $r_{ice}$ is
 		the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
-		height and $T_F$ is the water temperature of the fountain.} \label{fig:shape} \end{figure}
+		height and $T_F$ is the water temperature of the fountain.}
+	\label{fig:shape}
+\end{figure}
 
 \subsection{Energy Balance} \label{sec:energy}
 
@@ -327,6 +338,7 @@ to act uniformly across the Icestupa area $A$.
 \subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}}
 
 The net shortwave radiation $q_{SW}$ is computed as follows:
+
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
 
 where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse shortwave radiation, $\alpha$ is the modelled
@@ -351,9 +363,13 @@ component, impinging on the horizontal surface (semicircular base of the AIR), a
 the vertical cross section (a triangle). The solar elevation angle $\theta_{sun}$ used is modelled using the
 parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$ is determined as follows:
 
-\begin{equation} \begin{split} f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
-			{r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\ \end{split}
-	\label{eqn:f_{cone}} \end{equation}
+\begin{equation}
+	\begin{split}
+		f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
+			{r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\
+	\end{split}
+	\label{eqn:f_{cone}}
+\end{equation}
 
 The diffuse shortwave radiation is assumed to impact the conical AIR surface uniformly.
 
@@ -361,8 +377,10 @@ The diffuse shortwave radiation is assumed to impact the conical AIR surface uni
 
 The net longwave radiation $q_{LW}$ is determined as follows:
 
-\begin{equation} q_{LW}= LW_{in}-\sigma \cdot \epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4
-	\label{eqn:LW} \end{equation}
+\begin{equation}
+	q_{LW}= LW_{in}-\sigma \cdot \epsilon_{ice} \cdot {(T_{ice}+ 273.15)}^4
+	\label{eqn:LW}
+\end{equation}
 
 where $T_{ice}$ is the modelled surface temperature, both temperatures are given in [$\degree C$],
 $\sigma=5.67\cdot10^{-8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant, $LW_{in}$ denotes the incoming longwave
@@ -371,8 +389,10 @@ radiation and $\epsilon_{ice}$ is the corresponding emissivity value for the Ice
 The incoming longwave radiation $LW_{in}$for the Indian site, where no direct measurements were available, is determined
 as follows:
 
-\begin{equation} LW_{in}=\sigma \cdot (\epsilon_a \cdot {(T_a+ 273.15)}^4)
-	\label{eqn:LWin} \end{equation}
+\begin{equation}
+	LW_{in}=\sigma \cdot (\epsilon_a \cdot {(T_a+ 273.15)}^4)
+	\label{eqn:LWin}
+\end{equation}
 
 here $T_a$ represents the measured air temperature and $\epsilon_a$ denotes the atmospheric emissivity. We approximate
 atmospheric emissivity $\epsilon_a$ using the equation suggested by \cite{Brutsaert_1982}, considering air temperature
@@ -380,7 +400,8 @@ and vapor pressure (Eqn.  \ref{eqn:atm_e}). The vapor pressures over air and ice
 The expression defined in \cite{Brutsaert_1975} for clear skies (first term in equation \ref{eqn:atm_e}) is extended
 with the correction for cloudy skies after \cite{Brutsaert_1982} as follows:
 
-\begin{equation} \epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{c}^2) \label{eqn:atm_e}
+\begin{equation}
+	\epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{c}^2) \label{eqn:atm_e}
 \end{equation}
 
 with a cloudiness index $c$, ranging from 0 for clear skies to 1 for complete overcast skies. For the Indian site, we
@@ -391,11 +412,16 @@ assume cloudiness to be negligible.
 The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions proposed by
 \cite{Garratt_1992}:
 
-\begin{equation} q_{S}=\mu_{cone}\cdot c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
-		(T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2} \label{eqn:qs} \end{equation}
+\begin{equation}
+	q_{S}=\mu_{cone}\cdot c_{a} \cdot \rho_{a} \cdot p_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot v_a \cdot
+		(T_a-T_{ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2}
+	\label{eqn:qs}
+\end{equation}
 
-\begin{equation} q_{L}=\mu_{cone}\cdot 0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-	v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2} \end{equation}
+\begin{equation}
+	q_{L}=\mu_{cone}\cdot 0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
+	v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2}
+\end{equation}
 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (around $2\,m$ for all sites), $v_a$ is
 the wind speed in [$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J $kg^{-1} K^{-1}$),
@@ -432,6 +458,7 @@ The fountain water temperature $T_F$ is assumed to cool to 0 $\degree C$. Thus, 
 	q_{F} = \frac{ \Delta M_F \cdot c_{water} \cdot T_F}{\Delta t \cdot A}
 	\label{eqn:qF}
 \end{equation}
+
 with $c_{water}$ as the specific heat of water.
 
 \subsubsection{Bulk Icestupa heat flux \texorpdfstring{$q_{G}$}{Lg}} \label{sec:Bulkflux}
@@ -451,7 +478,6 @@ the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined fr
 Since AIRs typically have conical shapes with $r_{ice} > h_{ice}$, we assume that the center of mass of the ice body is
 near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the ice body's center of
 mass is between $h_{ice}$ and $r_{ice}$. We calculate $q_{G}$ assuming $l_{ice} = (r_{ice} + h_{ice})/2$.
-
 
 \subsection{Surface temperature}
 
@@ -579,7 +605,7 @@ To estimate the mass of any component at time step $i$, one can now sum the mass
 
 Considering AIRs as water reservoirs, their net water loss ($NWL$) can be defined as:
 
-\begin{equation} \textit{SE} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
+\begin{equation} \textit{NWL} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \subsection{Sensitivity and uncertainty analysis}
 
@@ -674,7 +700,10 @@ among the best 10 \% of the model runs. $A_{corr}$ shows different preferences w
 show similar preference for the two objectives. In total, 495 model runs were required for each of the objective.
 For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the IN21 and from
 10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
-53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21.
+53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this calibration process has an
+inherent temporal bias due to the choice of when and how many UAV flights were possible in each location. Among
+thee 5 flights of IN21 AIR used for calibration, most of them were flown around early March when the AIR volume was
+near its maximum whereas the CH21 flights were more evenly spaced out in comparison (see Table \ref{tab:uav}).
 
 We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the additional
 surface area caused by its various ice features. Particularly, we expect the IN21 surface area to deviate
@@ -690,6 +719,7 @@ possible thickness of $20\, mm$ (satisfies (a)), we have taken this model surfac
 
 For the surface roughness, no clear preference is observed for the IN21 AIR, so we calibrated it to the median
 value of $3 \, mm$. For the CH21 AIR, it is assigned its preferred value of $1 \, mm$.
+
 
 \subsection{Weather and fountain uncertainty analysis}
 
@@ -731,6 +761,7 @@ out date was also not defined since the AIR never melted completely during the m
 There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
 observation with the modelled volume was just $9 m^3$.
 
+
 \subsection{AIR ice volume estimates}
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can be
@@ -747,11 +778,11 @@ the first and last 20 days for each AIR. The two time periods selected are chara
 melting period, respectively. A strong variability is evident between the freezing and melting periods and between
 the CH21 and the IN21 AIR.
 
-The magnitudes of the thickness change in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Particularly,
-ice mass flux corresponds to freezing energy, melt mass flux corresponds to melting energy available.
-Snow deposition is calculated directly from the precipitation quantity and the sublimation/deposition quantities corresponding to
-the latent heat flux available. The rest of the energy fluxes are shown to represent the different physical
-processes that contribute to this freezing and melting energy.
+The magnitudes of the thickness change in Fig. \ref{fig:MEB} are explained by their energy flux counterparts.
+Particularly, ice mass flux corresponds to freezing energy, melt mass flux corresponds to melting energy available.
+Snow deposition is calculated directly from the precipitation quantity and the sublimation/deposition quantities
+corresponding to the latent heat flux available. The rest of the energy fluxes are shown to represent the different
+physical processes that contribute to this freezing and melting energy.
 
 \begin{figure}
 	\begin{center}
@@ -850,19 +881,12 @@ reducing (increasing) the sensible heat (latent heat) flux.
 
 \section{Discussion}
 
-\subsection{Model Performance}
-
-We compare the model performance between the AIRs by using the relative error produced in maximum AIR ice volume
-due to the RMSE with the UAV ice volume observations. This judgement depends on the number of UAV observations
-which was much higher for the IN21 and CH21 AIR compared to the CH20 AIR. Hence, there could be some temporal bias
-involved in the RMSE result of the CH20 AIR. Regardless, we find that the relative error of the model in estimating
-the maximum ice volume was 10 \%, 8\% and 11 \% for the IN21, CH21 and CH20 AIR respectively.
-
 \subsection{Water losses of AIRs}
 
 The net water loss of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The $NWL$ is caused mostly due to the
-fountain water losses in both the AIRs . However, sublimation losses are significant in the Indian location (4\%) but
-they result in more ice mass through their energy flux.
+fountain water losses in both the AIRs . Even though sublimation is considered a mass loss, its corresponding
+energy fluxes result in higher freezing rates and lower melting rates. So overall, higher sublimation events
+result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR.
 
 The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to
 attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
