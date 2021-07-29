@@ -159,7 +159,7 @@ For the IN site, three different weather data sources were used to log all the w
 model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was
 logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell
 weather station located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible. The
-diffuse fraction of the global shortwave radiation was also assumed to be negligible.
+diffuse fraction of the global shortwave radiation was also assumed to be negligible (Reference).
 
 \begin{table}
 	\centering
@@ -574,14 +574,14 @@ model sensitivity and uncertainty. Polynomial chaos expansion are a much more ef
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
 polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  The surrogate
 model produced was a polynomial of order 4. The rosenblatt transformation was also used since the parameters were
-correlated.
+correlated (Reference).
 
-The uncertainty in the model ice volume estimates are caused due to uncertainty in two sources, namely weather
-and fountain parameters. For the weather parameters, we first fix a range based on literature values and then perform a
-global sensitivity analysis (GSA) with the storage efficiency as the objective. The distribution is always treated
+The uncertainty in the model of estimating ice volumes are caused due to two sources the weather conditions
+and the fountain parameters. For the weather parameters, we first fix a range based on literature values and then perform a
+global sensitivity analysis (GSA) with the storage efficiency ($SE$) as the objective. The distribution is always treated
 as uniform and the limits for every parameter are given in Table \ref{tab:parameters}. The GSA consists of a total
 ensemble size of 2000 simulations per AIR. The parameter sensitivity results from the GSA are used as a tool to
-reduce the number of free parameters in the model by identifying those parameters which have only a marginal
+reduce the number of free parameters in the model by identifying those parameters, which have only a marginal
 influence on the model output. The model is considered insensitive to parameters with a total sensitivity index
 ($S_{T_{i}}$) of $\leq 0.2$, and these parameters were fixed at the median value of the range shown in Table
 \ref{tab:parameters} in subsequent model simulations.
@@ -591,26 +591,24 @@ The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice a
 value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces and a maximum of 22 days from
 \cite{OerlemansKnap_1998}; emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
 from \cite{Zhou_2010}. The surface area correction factor, $A_{corr}$, quantifies the deviation of the AIR shape
-from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Literature
-values for surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$
+from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Values for surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$
 \citep{BrockWillisSharp_2006}. Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance
 to any parameter in the glaciological literature, we attribute a wide range of values for it.
 
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
-separately. Fountain runtime has no uncertainty for the Swiss AIRs since there were no interruptions but
-significant uncertainty exists for the IN21 AIR where the interruptions due to pipeline freezing events happened
-overnight. However, we ignore this cause of uncertainty in the following analysis since there exists no way to
-constrain it. The choice of $d_F$ for both the locations was just a best guess based on few observations made by
-the flowmeter. To remedy this, we associate this parameter by a large uncertainty of $\pm \,50\, \%$. For the
-fountain water temperature, we can reliably set a lower and upper bound of $0\, \degree C$ and $3\, \degree C$ as
-it is very unlikely for the fountain water to have been beyond this range considering winter conditions in both the
-locations.
+separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions were caused during water distribution. However,
+significant uncertainty exists for the AIR (IN21), where the interruptions due to pipeline freezing events happened
+overnight. The choice of $d_F$ for both sites was just a best guess, based on few observations made by
+the flowmeter. We associate this parameter by a large uncertainty of $\pm \,50\, \%$ to remedy. For the
+fountain water temperature, we reliably set a lower and upper bound of $0\, \degree C$ and $3\, \degree C$.
+It is very unlikely for the fountain water to have been beyond this range considering winter conditions at all the
+sites.
 
 Uncertainty also exists in the model input data, particularly for all the radiation measurements ($SW_{direct},
-	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS far away from the construction location.
-But these are ignored in this analysis.
+	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS away from the construction sites.
+But these were ignored in this analysis.
 
-The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIR and the CH20 AIR was used for
+The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIRs and the CH20 AIR was used for
 validation of the model.
 
 \begin{table}
@@ -637,7 +635,7 @@ validation of the model.
 
 The focus of the GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
 of the parameter space. Therefore, the following discussion is limited to two classes: parameters to which the model is
-sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). For all the AIR, just three parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations
+sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). For all the AIRs, just three parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations
 were carried out varying all the sensitive parameters within the ranges defined in Table \ref{tab:parameters}.
 
 Two objectives were chosen namely, ice volume and area, to determine the model performance with respect to these
@@ -656,42 +654,43 @@ objective on each AIR.
 
 \subsection{Calibration}
 
-For model calibration, we choose values of sensitive parameters which populate more the 50 \% of the possibilities
+For model calibration, we choose values of sensitive parameters populating more the 50 \% of the possibilities
 among the best 10 \% of the model runs. $SA_{corr}$ shows different preferences whereas the other two parameters
 show similar preference for the two objectives. In total, 495 model runs were required for each of the objective.
-For the volume objective, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the Indian and from
-10 $m^3$ to 16 $m^3$ for the Swiss. For the area objective, the RMSE of the best model runs ranged from 14 $m^2$ to
-53 $m^2$ for the Indian and from 28 $m^2$ to 40 $m^2$ for the Swiss.
+For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the IN21 and from
+10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
+53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21.
 
-We expect the UAV measured surface area of AIR to be higher than the modelled cone area due to the many
-ice features that tend to form. Particularly, we also expect the IN21 area to deviate significantly from CH21 AIR
-since it was the product of two ice cones merged into one (see Fig. \ref{fig:2AIR}). This is clearly represented in
+We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the different surface conditions of the
+ice features in reality. Particularly, we expect the IN21 surface conditions to deviate significantly from CH21 AIR
+because the product of the two ice cones merged into one cone during the establishment (see Fig. \ref{fig:2AIR}). This is clearly represented in
 the disjoint frequency distribution of the area objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21
 area correction factor to 1.5 and CH21 area correction factor to 1.3.
 
-We choose the model surface layer thickness based on two principles namely, (a) the ice thickness $\Delta x$ should
+The model surface layer thickness was selected, based on two principles (a) the ice thickness $\Delta x$ should
 be small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$
 should be large enough for these temperature variations to not reach the bottom of the surface layer. Since the
-minimum surface temperature does not go beyond $-50 \, \degree C$ for the smallest possible thickness of $20\, mm$, we
-choose this as the model surface layer thickness.
+minimum surface temperature does not go beyond $-30 \, \degree C$ for the smallest possible thickness of $20\, mm$, we
+have taken this model surface layer thickness.
 
-For the surface roughness, no clear preference is observed for the IN21 AIR so it is calibrated to the median
-value of $3 \, mm$. For the CH21 AIR, we calibrate it to its preferred value of $1 \, mm$.
+For the surface roughness, no clear preference is observed for the IN21 AIR, where we calibrated it to the median
+value of $3 \, mm$. For the CH21 AIR, The calibration of the CH21 AIR is selected to a preffered value of $1 \, mm$.
 
 \subsection{Validation}
 
-CH20 AIR UAV observations were used to validate the calibrated model. Note that the calibrated model used the
-standard value of 1 for the $A_{corr}$ factor. The low RMSE of the UAV ice volume observations compared  are shown in
-Table \ref{tab:Results}. The correlation of the model with the UAV observations was high.
+The UAV observations of the CH20 AIR were used to validate the above mentioned model. The calibrated model used the
+standard value of 1 for the $A_{corr}$ factor. The RMSE of the UAV ice volume observation was just $9 m^3$. 
 
-In addition, model validation is carried out on all the 3 AIRs using their survival duration observation. The survival duration
-signifies the time when all the ice had melted. Model performance can be judged based on the difference between the
-model expectation and observation of survival duration. For the IN21, CH21 and CH20 AIR, this was 8 days, -1 day
-and -16 days respectively where the negative (positive) sign represents underestimation (overestimation).
+In addition, model validation is carried out on all the three AIRs using their melt-out date. The melt-out date
+signifies the time when all the ice has completely disappeared. Model performance can be judged based on the difference between the
+model expectation and observation of melt out date. The complete disappearance for the CH21 and CH20 AIRs was -1 day
+and -16 days, respectively. The negative (positive) sign represents underestimation (overestimation) of the melt out date.
+For the IN21 AIR, model expectation of melt out date is not defined since the AIR never melted completely during the model duration.
+
 
 \subsection{Weather and fountain uncertainty analysis}
 
-The uncertainty in the ice volume estimates caused by the insensitive model parameters and fountain parameters are shown in Fig.
+The uncertainty in the ice volume estimates caused by the insensitive model and fountain parameters are shown in Fig.
 \ref{fig:results}. Weather uncertainty for IN21 is low since precipitation and the associated variation in albedo
 was negligible.
 
@@ -699,10 +698,10 @@ was negligible.
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
-	\caption{Modelled ice volume during the lifetime of the AIR (blue curve). The prediction interval is based on the
-		ice volume uncertainty caused by the weather and thee fountain parameters. The lower bounds of the y axis
+	\caption{Modelled ice volume during the lifetime of the AIRs (blue curve). The prediction interval is based on the
+		ice volume uncertainty caused by the weather and the fountain parameters. The lower bounds of the y-axis
 		represents AIR dome volume. Green points indicate the UAV ice volume observations.  The violet line represents the
-		observed survival duration for each AIR.  }
+		observed melt-out date for each AIR.  }
 
 	\label{fig:results}
 \end{figure}
@@ -710,34 +709,22 @@ was negligible.
 \subsection{AIR ice volume estimates}
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can be
-categorised based on the the fountain used and location chosen. According to Eqn. \ref{eq:m_freeze/melt}, the
+categorised based on the fountain used and the site location selected. According to Eqn. \ref{eq:m_freeze/melt}, the
 freezing/melting rate of the AIRs can be decomposed to the corresponding freezing/melting energy and the surface
 area. The construction location chosen determines the freezing/melting energy flux through its weather and the
 fountain determines the surface area through its spray radius.
 
 \subsubsection{Location influence}
 
-% \begin{figure}
-% 	\begin{center}
-% 		\includegraphics[width=\linewidth]{Figures/albedo.jpg}
-% 	\end{center}
-% 	\caption{Some derived parameters of the model, namely, albedo and $f_{cone}$ (a), Surface temperature (b). In
-% 		(a), the purple curve shows how snow and fountain spray reset albedo between ice albedo and snow albedo.  The
-% 		decay of the snow albedo to ice albedo can also be observed. The orange curve shows how the solar radiation area
-% 		fraction varied diurnally and seasonally with variations in the solar elevation angle. In (b), the surface
-% 		temperature (blue curve) was forced to be 0 $\degree C$ during fountain runtime.}
-% 	\label{fig:albedo}
-% \end{figure}
-
-To further understand the influence of location, we analyse the daily surface normal thickness change and the
-energy flux respectively. Fig.  \ref{fig:MEB} shows these daily fluxes calculated with calibrated parameters for
+The influence of location can be further comprehended, if we analyse the daily surface normal thickness change and the
+energy flux, respectively. Fig.  \ref{fig:MEB} shows the daily fluxes calculated with the calibrated parameters for
 the first and last 20 days for each AIR. The two time periods selected are characteristic of the freezing and
-melting period respectively. A strong variability is evident between the freezing and melting periods and between
-the Swiss and the Indian AIR.
+melting period, respectively. A strong variability is evident between the freezing and melting periods and between
+the CH21 and the IN21 AIR.
 
-The magnitude of the thickness change in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Namely
-ice mass flux corresponds to freezing energy available, melt mass flux corresponds to melting energy available,
-snowfall is calculated directly from the precipitation quantity and sublimation/deposition quantities correspond to
+The magnitudes of the thickness change in Fig. \ref{fig:MEB} are explained by their energy flux counterparts. Particularly,
+ice mass flux corresponds to freezing energy, melt mass flux corresponds to melting energy available.
+Snow deposition is calculated directly from the precipitation quantity and the sublimation/deposition quantities corresponding to
 the latent heat flux available. The rest of the energy fluxes are shown to represent the different physical
 processes that contribute to this freezing and melting energy.
 
@@ -748,19 +735,21 @@ processes that contribute to this freezing and melting energy.
 	} \label{fig:MEB}
 \end{figure}
 
-The largest contributor to the melting energy flux was the sensible heat flux for both the locations. The Indian
-AIR melted gradually but the Swiss AIR melted rapidly on certain days (e.g.  day 140) due to the well known foehn
-events (Reference). These foehn events produced meltwater in the Swiss location even during the freezing period
+The largest contributor to the melting energy flux was the sensible heat flux for both the locations. The IN21
+AIR melted gradually but the CH21 AIR melted rapidly on certain days (e.g.  day 140) due to the well-known foehn
+events (Reference). These foehn events produced meltwater at the Swiss location sites even during the freezing periods
 (e.g.  day 17).
 
-Latent heat plays a fascinating role in this whole energy balance. It contributes to both mass and energy flux
-simultaneously through deposition/sublimation processes. Sublimation was significantly greater in the Indian site
-compared to the Swiss site as the corresponding latent heat fluxes were an order of magnitude larger (see Table
-\ref{tab:Observations}). This was primarily due to the difference in relative humidity between the sites. This was
-expected since glaciers near the Indian location have been hypothesized to lose a significant amount of mass
-through sublimation by \cite{azam_2018}. Throughout the life cycle of the Indian AIR, mass was lost through
+Latent heat plays a very important role in the energy balance. It contributes to both mass and energy flux
+simultaneously through deposition/sublimation processes. IN21 AIR lost 4 \% of its mass input to sublimation
+compared to the 1 \% for the CH21 AIR as the corresponding latent heat fluxes were an order of magnitude larger
+(see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to the deposition process was negligible 
+compared to the mass loss due to the sublimation process. For the CH21 AIR, half of the mass lost to sublimation was regained by deposition. 
+These process differences were primarily caused by the 2 fold difference in relative humidity between the sites. This was
+expected since glaciers near the IN21 location have been hypothesized to lose a significant amount of mass
+through sublimation by \cite{azam_2018}. Throughout the life cycle of the IN21 AIR, mass was lost through
 sublimation but the corresponding energy flux was used to freeze much more ice since the heat of vaporization is
-much larger than the heat of fusion.
+around 9 times higher than the heat of fusion.
 
 Longwave radiation compensates the shortwave radiation to a large degree during the melting period for both the
 locations.
@@ -810,7 +799,7 @@ location since there was negligible precipitation for the Indian site.
 		                       & \%                                                                                                   \\
 		\multicolumn{1}{|l|}{} & Maximum Ice Volume                   &                 & 793           & 148           & $m^{3}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Model}}}
-		                       & Survival duration error              &                 & -8            & 1             & $days$      \\
+		                       & Meltout date error                   &                 & N.A.            & 1             & $days$      \\
 		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume             &                 & 86            & 12            & $m^{3}$     \\
 		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume      &                 & 0.99          & 0.93          & N.A.        \\
 		\multicolumn{1}{|l|}{} & Relative error in maximum ice volume &                 & 10            & 8             & \%          \\\bottomrule
@@ -820,7 +809,7 @@ location since there was negligible precipitation for the Indian site.
 \subsubsection{Fountain influence}
 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo forcing
-($q_{SW}$). However, this influence is minimal compared to the influence of surface area on the ice volume
+($q_{SW}$). However, this influence is minimal compared to the influence of surface area which has a high correlation with the ice volume
 ($r^2=0.6$). The fountain determines the surface area through its spray radius during the freezing period. The
 variance of this surface area is quite low in the freezing period since the ice radius is initialised and bounded
 by the spray radius. So the thickness rate is uniformly scaled to produce the corresponding ice volume during the
@@ -864,7 +853,7 @@ observations obtained via UAV flights. We calculated the storage efficiency, fre
 the three AIRs and explained their corresponding values through the influence of the location chosen and the
 fountain used.
 
-The results suggest that drier locations like Ladakh, Indian Himalayas are significantly more favourable since
+The results suggest that drier locations like Ladakh are significantly more favourable since
 their freezing and melting rates are augmented and dampened by sublimation respectively.
 
 Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain
@@ -896,10 +885,9 @@ the products can be increased, and an irregular network for the next step can be
 (3) AIR delineation: Ice radius, area and volume are the three main final products. Perimeter was manually marked
 on the point cloud by identifying the AIR boundary. For the Indian location, we identified identical rock features
 near the ice boundary to mark as vertices of this perimenter. For the Swiss AIR, no such feature was available due
-to snowfall, so instead the perimeter was identified by identifying the ice and snow boundary through guidance of
-the constant fountain location. During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature
+to snowfall, so instead the perimeter was marked by identifying the ice and snow boundary. During this process, we found photos with too much snow coverage that cannot be matched, that is, few feature
 points can be detected and matched in these photos, especially in the surveys of the Swiss AIR, where precipitation
-was high. We attach a high uncertainty of $\pm 10 \%$ for all the AIR observations to accomodate for this.
+was high. We attach a high uncertainty of $\pm 10 \%$ for all the AIR observations to accommodate for this.
 
 \begin{table}
 	\centering
@@ -955,8 +943,8 @@ was high. We attach a high uncertainty of $\pm 10 \%$ for all the AIR observatio
 commercial or financial relationships that could be construed as a potential conflict of interest.
 
 \section*{Author Contributions} SB wrote the initial version of the manuscript. SB developed the methodology with
-inputs from MH, ML and JO. MH and ML reviewed the model algorithm and helped improve it. JB reviewed the model
-code.  SB, MH and SW participated in the fieldwork. ML, JO, FK and JB reviewed the initial manuscript.
+inputs from MH, SW and JO. MH and ML reviewed the model algorithm and helped improve it. JB reviewed the model
+code. SB, MH, FK and SW participated in the fieldwork. ML, JO, FK and JB reviewed the initial manuscript.
 
 \section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
 Excellence Scholarship (SB). The associated field work in India was supported by Himalayan Institute of
