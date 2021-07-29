@@ -38,6 +38,9 @@
 \title[Artificial Ice Reservoirs]{Influence of location on artificial ice reservoir (Icestupa)
 	evolution }
 
+% \title[Artificial Ice Reservoirs]{Favourable locations for artificial ice reservoir (Icestupa)
+% 	construction }
+
 \author[\firstAuthorLast ]{\Authors}
 \address{}
 \correspondance{}
@@ -51,18 +54,18 @@
 
 	Mountain communities in Ladakh, India facing climate change induced water stress have been using Artificial Ice
 	Reservoirs (AIRs) for additional irrigation water supply. However, it remains unknown whether other locations can
-	use AIRs for water storage. This study attempts to quantify the influence of construction locations through a surface energy
-	balance model by comparing
-	the evolution of different AIRs built in Ladakh and in Guttannen, Switzerland. AIR surface processes were quantified using meteorological data in conjunction with fountain
+	use AIRs for water storage. This study attempts to quantify the influence of construction locations through a
+	surface energy balance model by comparing the evolution of different AIRs built in Ladakh, India and in Guttannen,
+	Switzerland. AIR surface processes were quantified using meteorological data in conjunction with fountain
 	discharge information (mass input of an AIR) to estimate the quantity of frozen, melted, evaporated and runoff
 	water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for model
-	validation and calibration purposes. The location in Ladakh, with a maximum ice volume of more than 5 times larger, was more
-	favourable compared to the Guttannen site primarily because of much higher sublimation rates. However, the storage
-	efficiency of the Indian AIR (19 \%) was actually lower than the Swiss AIR (23 \%) due to significantly more
-	fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant, the
-	model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was able to estimate
-	their survival duration with an accuracy of $\pm\, 16\, days $ for two construction locations with radically
-	different climates.
+	validation and calibration purposes. The location in Ladakh, with a maximum ice volume more than 5 times
+	larger, was more favourable compared to the Guttannen site primarily because of much higher sublimation rates.
+	However, the water losses of the Indian AIR (81 \%) was higher than the Swiss AIR (77 \%) due to
+	significantly more fountain water runoff. Although the uncertainties due to weather and fountain parameters were
+	significant, the model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was
+	able to estimate their maximum ice volume with an accuracy of $\pm\, 10 \%$ for two construction locations with
+	radically different climates.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -70,25 +73,30 @@
 
 \section{Introduction}
 
-Seasonal snow cover, glaciers and permafrost are expected to change their water storage capacity due to climate change
-with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about by these changes
-are especially important for dry mountain environments such as in Central Asia or the Andes, which directly rely on the
-seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019, Apel_2018, Buytaert_2017,
-	Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced to relocate due to glacial
-retreat and the corresponding loss of their main fresh water resources \citep{zanskar}.
+Seasonal snow cover, glaciers and permafrost are expected to change their water storage capacity due to climate
+change with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about by
+these changes are especially important for dry mountain environments such as in Central Asia or the Andes, which
+directly rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019,
+	Apel_2018, Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}. Some villages in Ladakh, India have already been forced
+to relocate due to glacial retreat and the corresponding loss of their main fresh water resources \citep{zanskar}.
 
-\begin{figure} \begin{center} \includegraphics[width=10 cm]{Figures/Figure_1.jpg}
-	\end{center} \caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3700 $m^3$
-		of water. Picture Credits: Lobzang Dadul} \label{fig:old_icestupa} \end{figure}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10 cm]{Figures/Figure_1.jpg}
+	\end{center}
+	\caption{Icestupa in Ladakh, India on March 2017 was 24 $m$ tall and contained around 3700 $m^3$
+		of water. Picture Credits: Lobzang Dadul}
+	\label{fig:old_icestupa}
+\end{figure}
 
 Artificial ice reservoirs (AIR) have been considered to be a feasible way to adapt to these changes
-\citep{IPCC_2019,10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed during
-the cold winter months and designed to slowly release freshwater during the warm spring and summer months. The main
-purpose of AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long into the summer as
-possible.  The energy required to construct an AIR is usually derived from the gravitational head of the source water
-body. Some are constructed horizontally by freezing water using a series of checkdams and others are built vertically by
-spraying water through fountain systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and
-are the subject of this study.
+\citep{IPCC_2019,10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice structure typically constructed
+during the cold winter months and designed to slowly release freshwater during the warm spring and summer months.
+The main purpose of AIRs is irrigation. Therefore, AIRs are designed to store water in the form of ice as long into
+the summer as possible. The energy required to construct an AIR is usually derived from the gravitational head of
+the source water body. Some are constructed horizontally by freezing water using a series of checkdams and others
+are built vertically by spraying water through fountain systems \citep{Nusser_2018}. The latter are colloquially
+referred to as Icestupas and are the subject of this study.
 
 A typical AIR just requires a fountain nozzle mounted on a supply pipeline. The water source is usually a high altitude
 lake or glacial stream. Due to the altitude difference between the pipeline input and fountain output, water ejects from
@@ -100,19 +108,25 @@ to guide and accelerate the ice formation.
 
 Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of Ladakh,
 Northern India since they require very little infrastructure, skills and energy to be constructed in comparison to other
-water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:old_icestupa}) can be built at lower
-altitudes and last much longer into the summer than other types of ice structures \citep{campaign}. However, to date, no
-reliable estimates exist about the quantity of meltwater they can provide \citep{Nusser_2018}.
+water storage technologies. Compared to other AIR geometries, Icestupas (Fig. \ref{fig:old_icestupa}) can be built
+at lower altitudes and last much longer into the summer than other types of ice structures \citep{campaign}.
 
-In this paper, we develop a physically-based model of a vertical AIRs (or Icestupas) that can quantify the
-influence of the location and the fountain used on their storage efficiency, freezing and melting rates. Mass and energy balance
-equations were used to estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and
-uncertainty analysis were performed to identify the most sensitive parameters and the variance caused by them. For
-calibration, we chose two AIR built across the winter of 2021 in India and Switzerland and validated the
-model on a Swiss AIR built on winter 2019. Our model results provide first steps towards evaluating the
-potential of this new water storage technology worldwide.
+However, to date, no reliable estimates exist about the quantity of meltwater they can provide \citep{Nusser_2018}
+. Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water losses during their lifetimes
+(Appendix \ref{sec:ladakhloss}). Particularly, during their freezing period, AIRs can lose excessive fountain water
+directly as runoff and during the melting period, sublimation losses could be significant.  However, the relative
+contribution of these processes in the total water loss, remains unknown.
+
+In this paper, we develop a physically-based model of a vertical AIRs (or Icestupas) that can quantify these water
+losses and thereby estimate their storage efficiency, freezing and melting rates. Mass and energy balance equations
+were used to estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty
+analysis were performed to identify the most sensitive parameters and the variance caused by them. For calibration,
+we chose two AIR built across the winter of 2021 in India and Switzerland and validated the model on a Swiss AIR
+built on winter 2019. Our model results provide first steps towards evaluating the potential of this new water
+storage technology worldwide.
 
 \section{Study Sites}
+
 The model requires three kinds of datasets containing weather, fountain and UAV measurements to accurately calibrate,
 estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several scientific AIRs were
 constructed by teams in Switzerland and India. Here, we present the results of three scientific AIRs, which have a
@@ -287,7 +301,7 @@ where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 		the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
 		height and $T_F$ is the water temperature of the fountain.} \label{fig:shape} \end{figure}
 
-\subsection{Energy Balance} \label{section:EB}
+\subsection{Energy Balance} \label{sec:energy}
 
 The energy balance equation (e.g. \cite{Hock_2005}) for the AIR is formulated as follows:
 
@@ -576,33 +590,36 @@ polynomial (as a surrogate model), on which sensitivity and uncertainty analysis
 model produced was a polynomial of order 4. The rosenblatt transformation was also used since the parameters were
 correlated (Reference).
 
-The uncertainty in the model of estimating ice volumes are caused due to two sources the weather conditions
-and the fountain parameters. For the weather parameters, we first fix a range based on literature values and then perform a
-global sensitivity analysis (GSA) with the storage efficiency ($SE$) as the objective. The distribution is always treated
-as uniform and the limits for every parameter are given in Table \ref{tab:parameters}. The GSA consists of a total
-ensemble size of 2000 simulations per AIR. The parameter sensitivity results from the GSA are used as a tool to
-reduce the number of free parameters in the model by identifying those parameters, which have only a marginal
-influence on the model output. The model is considered insensitive to parameters with a total sensitivity index
-($S_{T_{i}}$) of $\leq 0.2$, and these parameters were fixed at the median value of the range shown in Table
-\ref{tab:parameters} in subsequent model simulations.
+The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
+conditions and the fountain parameters. For the weather parameters, we first fix a range based on literature values
+and then perform a global sensitivity analysis (GSA) with the storage efficiency ($SE$) as the objective. The
+distribution is always treated as uniform and the limits for every parameter are given in Table
+\ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR. The parameter
+sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model by
+identifying those parameters, which have only a marginal influence on the model output.
+
+% The model is considered
+% insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of $\leq 0.2$, and these parameters were
+% fixed at the median value of the range shown in Table \ref{tab:parameters} in subsequent model simulations.
 
 The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice albedo minimum was taken from
 \cite{steiner_2015} and maximum from \cite{ZollesMaussion_2019}; albedo decay rate is assumed to have a minimum
 value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces and a maximum of 22 days from
 \cite{OerlemansKnap_1998}; emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
 from \cite{Zhou_2010}. The surface area correction factor, $A_{corr}$, quantifies the deviation of the AIR shape
-from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Values for surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$
-\citep{BrockWillisSharp_2006}. Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance
-to any parameter in the glaciological literature, we attribute a wide range of values for it.
+from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Values for
+surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$ \citep{BrockWillisSharp_2006}.
+Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance to any parameter in the
+glaciological literature, we attribute a wide range of values for it.
 
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
-separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions were caused during water distribution. However,
-significant uncertainty exists for the AIR (IN21), where the interruptions due to pipeline freezing events happened
-overnight. The choice of $d_F$ for both sites was just a best guess, based on few observations made by
-the flowmeter. We associate this parameter by a large uncertainty of $\pm \,50\, \%$ to remedy. For the
-fountain water temperature, we reliably set a lower and upper bound of $0\, \degree C$ and $3\, \degree C$.
-It is very unlikely for the fountain water to have been beyond this range considering winter conditions at all the
-sites.
+separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions were caused during
+water distribution. However, significant uncertainty exists for the AIR (IN21), where the interruptions due to
+pipeline freezing events happened overnight but this was ignored in this analysis. The choice of $d_F$ for both
+sites was just a best guess, based on few observations made by the flowmeter. So we associate this parameter by a
+large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we set a lower and upper bound of $0\,
+	\degree C$ and $3\, \degree C$.  It is very unlikely for the fountain water to have been beyond this range
+considering winter conditions at all the sites.
 
 Uncertainty also exists in the model input data, particularly for all the radiation measurements ($SW_{direct},
 	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS away from the construction sites.
@@ -633,10 +650,12 @@ validation of the model.
 
 \subsection{Sensitivity analysis}
 
-The focus of the GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the dimension
-of the parameter space. Therefore, the following discussion is limited to two classes: parameters to which the model is
-sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). For all the AIRs, just three parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations
-were carried out varying all the sensitive parameters within the ranges defined in Table \ref{tab:parameters}.
+The focus of the GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the
+dimension of the parameter space. Therefore, the following discussion is limited to two classes: parameters to
+which the model is sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). The threshold of 0.2 was
+chosen since most of the parameters were bounded by it. For all the AIRs, just three parameters were sensitive
+namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations were carried out varying all the sensitive parameters
+within the ranges defined in Table \ref{tab:parameters}.
 
 Two objectives were chosen namely, ice volume and area, to determine the model performance with respect to these
 sensitive parameters. The frequency distribution  of RMSE determined between the UAV observations (see Table
@@ -655,47 +674,40 @@ objective on each AIR.
 \subsection{Calibration}
 
 For model calibration, we choose values of sensitive parameters populating more the 50 \% of the possibilities
-among the best 10 \% of the model runs. $SA_{corr}$ shows different preferences whereas the other two parameters
+among the best 10 \% of the model runs. $A_{corr}$ shows different preferences whereas the other two parameters
 show similar preference for the two objectives. In total, 495 model runs were required for each of the objective.
 For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the IN21 and from
 10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21.
 
-We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the different surface conditions of the
-ice features in reality. Particularly, we expect the IN21 surface conditions to deviate significantly from CH21 AIR
-because is surface area represents the area of two ice cones merged into one (see Fig. \ref{fig:2AIR}). This is clearly represented in
-the disjoint frequency distribution of the area objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21
-area correction factor to 1.5 and CH21 area correction factor to 1.3.
+We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the additional
+surface area caused by its various ice features. Particularly, we expect the IN21 surface area to deviate
+significantly from CH21 AIR because its surface area represents the area of two ice cones merged into one (see Fig.
+\ref{fig:2AIR}). This is clearly represented in the disjoint frequency distribution of the area objective of the
+CH21 and IN21 AIR. Hence, we calibrate the IN21 area correction factor to 1.5. Since no strong preference is
+observed for the CH21 area correction factor, we calibrate it to the median of the values it assumed in the two
+objectives, namely, 1.2.
 
-The model surface layer thickness was selected, based on two principles (a) the ice thickness $\Delta x$ should
-be small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$
-should be large enough for these temperature variations to not reach the bottom of the surface layer. Since the
-minimum surface temperature does not go beyond $-30 \, \degree C$ for the smallest possible thickness of $20\, mm$, we
-have taken this model surface layer thickness.
+The model surface layer thickness was selected, based on the two conditions described in Section \ref{sec:energy}.
+Since the minimum surface temperature does not go beyond $-30 \, \degree C$ (satisfies (b)) for the smallest
+possible thickness of $20\, mm$ (satisfies (a)), we have taken this model surface layer thickness.
 
-For the surface roughness, no clear preference is observed for the IN21 AIR, where we calibrated it to the median
-value of $3 \, mm$. For the CH21 AIR, The calibration of the CH21 AIR is selected to a preffered value of $1 \, mm$.
-
-\subsection{Validation}
-
-The UAV observations of the CH20 AIR were used to validate the above mentioned model. The calibrated model used the
-standard value of 1 for the $A_{corr}$ factor. The RMSE of the UAV ice volume observation was just $9 m^3$.
-
-In addition, model validation is carried out on the AIRs using their melt-out date. The melt-out date signifies the
-time when all the ice has completely disappeared and only the dome volume remains. The melt-out date for the CH21
-and CH20 AIRs was 10th May 2021 and 6th April 2020, respectively. Model performance can be judged
-based on the difference between the model expectation and observation of melt out date.  So model performance for
-the CH21 and CH20 AIRs was -1 day and -16 days, respectively. The negative (positive) sign represents
-underestimation (overestimation) of the melt out date. For the IN21 AIR, the determination of the melt-out date was
-not possible both through observation and through modelling.  In reality, the IN21 AIR was found to have
-disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt out date was also not defined
-since the AIR never melted completely during the model duration.
+For the surface roughness, no clear preference is observed for the IN21 AIR, so we calibrated it to the median
+value of $3 \, mm$. For the CH21 AIR, it is assigned its preferred value of $1 \, mm$.
 
 \subsection{Weather and fountain uncertainty analysis}
 
-The uncertainty in the ice volume estimates caused by the insensitive model and fountain parameters are shown in Fig.
-\ref{fig:results}. Weather uncertainty for IN21 is low since precipitation and the associated variation in albedo
-was negligible.
+The uncertainty in the ice volume estimates caused by the insensitive model and fountain parameters are shown in
+Fig. \ref{fig:results}. The ranges highlighted represent the 90 \% prediction interval of the ice volume estimates.
+
+Weather uncertainty for IN21 is low compared to the other AIRs since precipitation and the associated variation in
+albedo was negligible. This is expected since 4 out of the 5 insensitive parameters are part of the albedo module.
+However, ice emissivity caused the most variance in the ice volume estimate among all the insensitive parameters
+($S_{T_{i}} = 0.7$).
+
+Fountain uncertainty for all the AIRs was high showcasing the importance of quantifying the fountain parameters for
+a confident ice volume estimation. Among the 3 fountain parameters, ice volume variation was caused predominantly
+by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
 
 \begin{figure}
 	\begin{center}
@@ -708,6 +720,20 @@ was negligible.
 
 	\label{fig:results}
 \end{figure}
+
+\subsection{Validation}
+
+The calibrated model is validated using two datasets, namely, CH20 AIR dataset and the melt-out observations for
+each AIR. The melt-out date signifies the time when all the ice has completely disappeared and only the dome volume
+remains. Model performance can be judged based on the difference between the model expectation and observation of
+melt out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days, respectively. The negative
+(positive) sign represents underestimation (overestimation) of the melt out date. For the IN21 AIR, the
+determination of the melt-out date was not possible both through observation and through modelling.  In reality,
+the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt
+out date was also not defined since the AIR never melted completely during the model duration.
+
+There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
+observation with the modelled volume was just $9 m^3$.
 
 \subsection{AIR ice volume estimates}
 
@@ -744,15 +770,16 @@ events (Reference). These foehn events produced meltwater at the Swiss location 
 (e.g.  day 17).
 
 Latent heat plays a very important role in the energy balance. It contributes to both mass and energy flux
-simultaneously through deposition/sublimation processes. IN21 AIR lost 4 \% of its mass input to sublimation
-compared to the 1 \% for the CH21 AIR as the corresponding latent heat fluxes were an order of magnitude larger
-(see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to the deposition process was negligible
-compared to the mass loss due to the sublimation process. For the CH21 AIR, half of the mass lost to sublimation was regained by deposition.
-These process differences were primarily caused by the two fold difference in relative humidity between the sites. This was
-expected since glaciers near the IN21 location have been hypothesized to lose a significant amount of mass
-through sublimation by \cite{azam_2018}. Throughout the life cycle of the IN21 AIR, mass was lost through
-sublimation but the corresponding energy flux was used to freeze much more ice since the heat of vaporization is
-around nine times higher than the heat of fusion.
+simultaneously through deposition/sublimation processes. On first glance, the mass flux shown in Table
+\ref{tab:Observations} suggests that sublimation was also a source of water loss but the corresponding energy flux
+of this process generated much more ice mass since the heat of vaporization is around nine times higher than the
+heat of fusion. The magnitude of the sublimation process was significantly different for both the AIRs. IN21 AIR
+lost 4 \% of its mass input to sublimation compared to the 1 \% for the CH21 AIR as the corresponding latent heat
+fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to the
+deposition process was negligible compared to the mass loss due to the sublimation process. For the CH21 AIR, half
+of the mass lost to sublimation was regained by deposition.  These process differences were primarily caused by the
+two fold difference in relative humidity between the sites. This was expected since glaciers near the IN21 location
+have been hypothesized to lose a significant amount of mass through sublimation by \cite{azam_2018}.
 
 Longwave radiation compensates the shortwave radiation to a large degree during the melting period for both the
 locations.
@@ -812,18 +839,18 @@ location because there was no precipitation for the IN21 site.
 \subsubsection{Fountain influence}
 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo forcing
-($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a high correlation with the ice volume
-($r^2=0.6$). The fountain determines the surface area through its spray radius during the freezing period. The
-variance of this surface area is quite low in the freezing period since the ice radius is initialised and bounded
-by the spray radius. The thickness rate is uniformly scaled to produce the corresponding ice volume during the
-freezing period.
+($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a high
+correlation with the ice volume ($r^2=0.6$). The fountain determines the surface area through its spray radius
+during the freezing period. The variance of this surface area is quite low in the freezing period since the ice
+radius is initialised and bounded by the spray radius. The thickness rate is uniformly scaled to produce the
+corresponding ice volume during the freezing period.
 
-To understand the fountain influence on the energy fluxes in the freezing period, we select days when the
-fountain was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR when
-fountain discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is
-favoured over sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0
-$\degree C$ reducing (increasing) the temperature difference (vapour flux) between the AIR surface and the
-atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
+To understand the fountain influence on the energy fluxes in the freezing period, we select days when the fountain
+was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR when fountain
+discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is favoured over
+sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0 $\degree C$
+reducing (increasing) the temperature difference (vapour flux) between the AIR surface and the atmosphere, thereby
+reducing (increasing) the sensible heat (latent heat) flux.
 
 \section{Discussion}
 
@@ -867,6 +894,17 @@ AIRs.  Further experiments with different fountains are required to better under
 parameters on the results.
 
 \section{Appendix}
+
+\subsection{Ladakh Icestupa 2014/15} \label{sec:ladakhloss}
+
+A 20 $m$ tall Icestupa \citep{iceheight} was built in Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l.
+Assuming a conical shape with a diameter of 20 $m$, the corresponding volume of this Icestupa becomes 2093 $m^3$ or
+1,920 $m^3$ w.e. The fountain sprayed water at a rate of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$
+January \citep{waterstart} to at least until $5^{th}$ March 2015 \citep{waterend} (around 43 nights). Assuming
+fountain spray was active for 8 hours each night, we estimate water consumption to be around 4,334 $m^3$. Thus,
+during the construction/freezing period of the Icestupa, roughly 56 \% of the water provided was wasted. The actual
+water loss is bound to be much higher due to further vapour losses during the melting period. This Icestupa
+completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
 \subsection{UAV data processing} \label{sec:uav}
 The UAV flew automatically along a predefined flight course predefined and took photographs at a certain time interval. The position and
