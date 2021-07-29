@@ -117,13 +117,12 @@ However, to date, no reliable estimates exist about the quantity of meltwater th
 directly as runoff and during the melting period, sublimation losses could be significant.  However, the relative
 contribution of these processes in the total water loss, remains unknown.
 
-In this paper, we develop a physically-based model of a vertical AIRs (or Icestupas) that can quantify these water
-losses and thereby estimate their storage efficiency, freezing and melting rates. Mass and energy balance equations
-were used to estimate the quantity of water frozen, melted, evaporated and runoff. Sensitivity and uncertainty
-analysis were performed to identify the most sensitive parameters and the variance caused by them. For calibration,
-we chose two AIR built across the winter of 2021 in India and Switzerland and validated the model on a Swiss AIR
-built on winter 2019. Our model results provide first steps towards evaluating the potential of this new water
-storage technology worldwide.
+In this paper, we develop a physically-based model of a vertical AIRs (or Icestupas) that can estimate their water
+losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of water
+frozen, melted, evaporated and runoff. Sensitivity and uncertainty analysis were performed to identify the most
+sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the winter of
+2021 in India and Switzerland and validated the model on a Swiss AIR built on winter 2019. Our model results
+provide first steps towards evaluating the potential of this new water storage technology worldwide.
 
 \section{Study Sites}
 
@@ -576,10 +575,9 @@ To estimate the mass of any component at time step $i$, one can now sum the mass
              M_{F}                                                 \\ 0 & \textit{ otherwise }\\\end{array} \right. \\
 \end{equation}
 
-Considering AIRs as water reservoirs, their storage efficiency ($SE$) can be defined as the percentage of ice and
-meltwater produced as follows:
+Considering AIRs as water reservoirs, their net water loss ($NWL$) can be defined as:
 
-\begin{equation} \textit{SE} = \frac{M_{water}+M_{ice}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
+\begin{equation} \textit{SE} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \subsection{Sensitivity and uncertainty analysis}
 
@@ -592,15 +590,11 @@ correlated (Reference).
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
 conditions and the fountain parameters. For the weather parameters, we first fix a range based on literature values
-and then perform a global sensitivity analysis (GSA) with the storage efficiency ($SE$) as the objective. The
+and then perform a global sensitivity analysis (GSA) with the net water loss ($NWL$) as the objective. The
 distribution is always treated as uniform and the limits for every parameter are given in Table
 \ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR. The parameter
 sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model by
 identifying those parameters, which have only a marginal influence on the model output.
-
-% The model is considered
-% insensitive to parameters with a total sensitivity index ($S_{T_{i}}$) of $\leq 0.2$, and these parameters were
-% fixed at the median value of the range shown in Table \ref{tab:parameters} in subsequent model simulations.
 
 The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice albedo minimum was taken from
 \cite{steiner_2015} and maximum from \cite{ZollesMaussion_2019}; albedo decay rate is assumed to have a minimum
@@ -798,41 +792,41 @@ location because there was no precipitation for the IN21 site.
 	\label{tab:Results}
 	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
-		\textbf{}              & \textbf{Name}                        & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
-		\textbf{Units}                                                                                                                \\ \midrule
+		\textbf{}              & \textbf{Name}                   & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
+		\textbf{Units}                                                                                                           \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
-		                       & Fountain discharge                   & $M_F$           & 2888          & 971           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Snowfall                             & $M_{ppt}$       & 0             & 52            & $tons$      \\
-		\multicolumn{1}{|l|}{} & Deposition                           & $M_{dep}$       & 12            & 4             & $tons$      \\ \midrule
+		                       & Fountain discharge              & $M_F$           & 2888          & 971           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Snowfall                        & $M_{ppt}$       & 0             & 52            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & 12            & 4             & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater                            & $M_{water}$     & 515           & 229           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Ice                                  & $M_{ice}$       & 60            & 0             & $tons$      \\
-		\multicolumn{1}{|l|}{} & Sublimation                          & $M_{sub}$       & 135           & 10            & $tons$      \\
-		\multicolumn{1}{|l|}{} & Fountain runoff                      & $M_{runoff}$    & 2321          & 788           & $tons$      \\ \midrule
+		                       & Meltwater                       & $M_{water}$     & 515           & 229           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & 60            & 0             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 135           & 10            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2321          & 788           & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{10}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
-		                       & Shortwave radiation                  & $q_{SW} $       & $ 26 \pm 44$  & $ 30 \pm 51$
-		                       & $W\,m^{-2}$                                                                                          \\
-		\multicolumn{1}{|l|}{} & Longwave radiation                   & $q_{LW} $       & $-77 \pm 33$  & $-53 \pm 36$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Sensible heat                        & $q_{S}  $       & $100 \pm 135$ & $38 \pm 99$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Latent heat                          & $q_{L}  $       & $-52 \pm 72$  & $-6 \pm 39$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Fountain heat                        & $q_{F}  $       & $2 \pm 3$     & $5 \pm 5$     & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Ground heat                          & $q_{G}   $      & $0 \pm 2$     & $0 \pm 2$     & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Freezing energy                      & $q_{freeze} $   & $-167 \pm 47$ & $-71 \pm 48$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Melting energy                       & $q_{melt}  $    & $102 \pm 107$ & $106\pm 140$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Temperature                          & $q_{T}  $       & $0 \pm 129$   & $0 \pm 40$    & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Surface Area                         & $A$             & $463 \pm 112$ & $134 \pm 65$  & $m^{2}$     \\\midrule
+		                       & Shortwave radiation             & $q_{SW} $       & $ 26 \pm 44$  & $ 30 \pm 51$
+		                       & $W\,m^{-2}$                                                                                     \\
+		\multicolumn{1}{|l|}{} & Longwave radiation              & $q_{LW} $       & $-77 \pm 33$  & $-53 \pm 36$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Sensible heat                   & $q_{S}  $       & $100 \pm 135$ & $38 \pm 99$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Latent heat                     & $q_{L}  $       & $-52 \pm 72$  & $-6 \pm 39$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Fountain heat                   & $q_{F}  $       & $2 \pm 3$     & $5 \pm 5$     & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Ground heat                     & $q_{G}   $      & $0 \pm 2$     & $0 \pm 2$     & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Freezing energy                 & $q_{freeze} $   & $-167 \pm 47$ & $-71 \pm 48$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Melting energy                  & $q_{melt}  $    & $102 \pm 107$ & $106\pm 140$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Temperature                     & $q_{T}  $       & $0 \pm 129$   & $0 \pm 40$    & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Surface Area                    & $A$             & $463 \pm 112$ & $134 \pm 65$  & $m^{2}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{AIR}}}
 
-		                       & Freezing rate                        & $m_{freeze}$    & $14 \pm 7$    & $2 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Melting rate                         & $m_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Storage Efficiency                   & $SE$            & 18            & 23
-		                       & \%                                                                                                   \\
-		\multicolumn{1}{|l|}{} & Maximum Ice Volume                   &                 & 793           & 148           & $m^{3}$     \\\midrule
-		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Model}}}
-		                       & Meltout date error                   &                 & N.A.          & 1             & $days$      \\
-		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume             &                 & 86            & 12            & $m^{3}$     \\
-		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume      &                 & 0.99          & 0.93          & N.A.        \\
-		\multicolumn{1}{|l|}{} & Relative error in maximum ice volume &                 & 10            & 8             & \%          \\\bottomrule
+		                       & Freezing rate                   & $m_{freeze}$    & $14 \pm 7$    & $2 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Melting rate                    & $m_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 75
+		                       & \%                                                                                              \\
+		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 793           & 148           & $m^{3}$     \\\midrule
+		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
+		                       & Meltout date error              &                 & N.A.          & 1             & $days$      \\
+		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 12            & $m^{3}$     \\
+		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume &                 & 0.99          & 0.93          &
+		N.A.                                                                                                                     \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -854,6 +848,24 @@ reducing (increasing) the sensible heat (latent heat) flux.
 
 \section{Discussion}
 
+\subsection{Model Performance}
+
+We compare the model performance between the AIRs by using the relative error produced in maximum AIR ice volume
+due to the RMSE with the UAV ice volume observations. This judgement depends on the number of UAV observations
+which was much higher for the IN21 and CH21 AIR compared to the CH20 AIR. Hence, there could be some temporal bias
+involved in the RMSE result of the CH20 AIR. Regardless, we find that the relative error of the model in estimating
+the maximum ice volume was 10 \%, 8\% and 11 \% for the IN21, CH21 and CH20 AIR respectively.
+
+\subsection{Water losses of AIRs}
+
+The net water loss of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The $NWL$ is caused mostly due to the
+fountain water losses in both the AIRs . However, sublimation losses are significant in the Indian location (4\%) but
+they result in more ice mass through their energy flux.
+
+The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to
+attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
+available. Thus, water losses could have been significantly reduced by just decreasing the mean fountain discharge.
+
 \subsection{Freezing and melting rates}
 
 The Indian location was favourable because the mean freezing energy was around two times larger in magnitude than the
@@ -865,32 +877,32 @@ Thus, the more than three times higher mean surface area of the fountain and two
 location result in more than five times higher maximum ice volume of the Indian AIR compared to the Swiss, even though the Swiss
 fountain runtime was roughly twice that of the Indian one as shown in Table \ref{tab:Observations}.
 
-\subsection{Storage efficiency}
+\subsection{Favourable AIR locations and fountains}
 
-The storage efficiency of IN21 and CH21 AIR were $19\%$ and $23\%$, respectively. The low SE is a product of the
-high  fountain water losses ( $\frac{M_{runoff}}{M_{input}}> 75 \%$ ) in all the AIRs. This indicates that just
-decreasing the mean fountain discharge could have significantly increased water storage efficiency.  The maximum
-freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to attain the
-mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime available.
-
-\subsection{Preferred AIR locations and fountains}
+According to the model, sublimation is an important process that can be used to rank different locations for AIR
+construction. This is because latent heat compensates for sensible heat, the biggest contributor to melting energy,
+if sublimation is high. Hence, AIR construction locations with similar temperature fluctuations but lower relative
+humidity are much more preferable regardless of the corresponding shortwave radiation fluxes.
 
 \section{Conclusions}
 
-In this paper, we have developed a bulk energy- and mass balance model to simulate AIR evolution using data from
+In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from
 field measurements in India, Ladakh and the Swiss Alps. The use of this dataset, in combination with novel
 algorithms for calculation of the surface area and freezing energy fluxes, allowed an accurate representation of
 the complex growth dynamics typical of any AIR. The model was calibrated with ice volume and surface area
-observations obtained via UAV flights. We calculated the storage efficiency, freezing and melting rates for each of
+observations obtained via UAV flights. We calculated the water losses, freezing and melting rates for each of
 the three AIRs and explained their corresponding values through the influence of the location chosen and the
 fountain used.
 
-The results suggest that drier locations like Ladakh are significantly more favourable since
-their freezing and melting rates are augmented and dampened by sublimation respectively.
+The model was successful in reproducing the observed ice volume evolution with a correlation greater than 0.9 and
+an RMSE less than $\pm \, 10 \, \%$ of the maximum ice volume for all the AIRs.
 
-Storage efficiency of all the AIR are poor but can be optimized significantly through control of the fountain
-discharge rate.  The model results indicate that more than 75\% of the fountain water is lost as runoff for all the
-AIRs.  Further experiments with different fountains are required to better understand the influence of the fountain
+The results suggest that drier locations like Ladakh are significantly more favourable since their freezing and
+melting rates are augmented and dampened by sublimation respectively.
+
+Water losses of all the AIR are high but can be optimized significantly through control of the fountain discharge
+rate.  The model results indicate that more than 75\% of the fountain water is lost as runoff for all the AIRs.
+Further experiments with different fountains are required to better understand the influence of the fountain
 parameters on the results.
 
 \section{Appendix}
