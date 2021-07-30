@@ -18,14 +18,12 @@
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Balasubramanian {et~al.}} %use et al only if is more than 1 author
-\def\Authors{Suryanarayanan Balasubramanian\,$^{1*,3}$, Martin Hoelzle\,$^{1}$, Michael Lehning\,$^{2}$, Jordi Bolibar\,$^{4}$, Sonam Wangchuk\,$^{3}$, Johannes Oerlemans\,$^{4}$, and Felix Keller\,$^{5,6}$}
-\def\Address{$^{1}$University of Fribourg, Fribourg, Switzerland\\
-	$^{2}$WSL Institute for Snow and Avalanche Research, Davos, Switzerland\\
-	$^{3}$Himalayan Institute of Alternatives Ladakh, Leh, India\\
-	$^{4}$Institute for Marine and Atmospheric Research, Utrecht University, Utrecht, The Netherlands\\
-	$^{5}$Academia Engiadina, Samedan, Switzerland\\
-	$^{6}$ETH, Zürich, Switzerland}
-\def\corrAuthor{Suryanarayanan Balasubramanian}
+\def\Authors{Suryanarayanan Balasubramanian\,$^{1*,3}$, Martin Hoelzle\,$^{1}$, Michael Lehning\,$^{2}$, Jordi
+	Bolibar\,$^{4}$, Sonam Wangchuk\,$^{3}$, Johannes Oerlemans\,$^{4}$, and Felix Keller\,$^{5,6}$}
+\def\Address{$^{1}$University of Fribourg, Fribourg, Switzerland\\ $^{2}$WSL Institute for Snow and Avalanche
+	Research, Davos, Switzerland\\ $^{3}$Himalayan Institute of Alternatives Ladakh, Leh, India\\ $^{4}$Institute
+	for Marine and Atmospheric Research, Utrecht University, Utrecht, The Netherlands\\ $^{5}$Academia Engiadina,
+	Samedan, Switzerland\\ $^{6}$ETH, Zürich, Switzerland} \def\corrAuthor{Suryanarayanan Balasubramanian}
 
 \def\corrEmail{suryanarayanan.balasubramanian@unifr.ch}
 
@@ -60,9 +58,8 @@
 	larger, was more favourable compared to the Guttannen site primarily because of much higher sublimation rates.
 	However, the water losses of the Indian AIR (81 \%) was higher than the Swiss AIR (77 \%) due to significantly
 	more fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant,
-	the model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was able to estimate
-	their ice volume with an RMSE $10 \, \pm \, 1 \, \%$ of their maximum ice volume for three AIRs in two construction
-	locations with radically different climates.
+	the model achieved an RMSE  of $10 \, \pm \, 1 \, \%$ of the AIR maximum ice volume with the UAV ice volume
+	observations for three AIRs in two construction locations with radically different climates.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -226,7 +223,7 @@ these pipeline freezing events.
 
 \subsection{Uncrewed Aerial Vehicle surveys}
 
-Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites.The DEM generated
+Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites. The DEM generated
 through these flights were analysed to obtain the radius, area and volume of the ice structure.  The first drone
 flight was used to set the dome volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on top
 of another ice structure, it had a much higher dome volume compared to the other AIRs. The number of UAV flights
@@ -237,7 +234,7 @@ Appendix \ref{sec:uav} .
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff water
-of the AIR every hour. This model consists of four modules which estimates the AIR, a) geometric evolution, b) energy
+of the AIR every hour. This model consists of four modules which estimates the AIR a) geometric evolution, b) energy
 balance, c) surface temperature, d) mass balance and e) parameter sensitivity.
 
 \begin{figure}
@@ -278,7 +275,7 @@ used to construct the AIR as follows:
 	\label{eqn:h0}
 \end{equation}
 
-where $\Delta x$ is the surface layer thickness (defined in Section \ref{section:EB})
+where $\Delta x$ is the surface layer thickness (defined in Section \ref{sec:energy})
 
 During subsequent time steps, the dimensions of the AIR evolve assuming a uniform ice formation and decay across its
 surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ .  During these time steps, the volume is
@@ -342,7 +339,7 @@ where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse shortwave
 albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave radiation.
 
 The albedo varies depending on the water source that formed the current AIR surface layer. During the fountain
-occurrence, the albedo assumes a constant value corresponding to ice albedo. However, after the fountain is
+runtime, the albedo assumes a constant value corresponding to ice albedo. However, after the fountain is
 switched off, the albedo can reset to snow albedo during snowfall events and then decay back to ice albedo. We use
 the scheme described in \cite{OerlemansKnap_1998} to model this process. The scheme records the decay of albedo
 with time after fresh snow is deposited on the surface. $\delta t$ records the number of time steps after the last
@@ -485,8 +482,8 @@ So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/
 $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with process (a), (b) and (c) respectively.
 
 We categorize the model time steps as freezing or melting events to distribute the surface energy flux into these three
-components. Freezing/Melting events can only occur, if fountain water is available and the surface energy flux is
-negative/positive. However, these two conditions are not sufficient as the latent heat energy can only contribute to
+components. Freezing events can only occur, if fountain water is available and the surface energy flux is
+negative. However, these two conditions are not sufficient as the latent heat energy can only contribute to
 temperature fluctuations. Therefore, preventing latent heat energy from turning a melting event into a freezing event an
 additional condition namely $(q_{surf}-q_{L}) < 0$ is required.
 
@@ -610,8 +607,7 @@ We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \c
 model sensitivity and uncertainty. Polynomial chaos expansion are a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
 polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  The surrogate
-model produced was a polynomial of order 4. The rosenblatt transformation was also used since the parameters were
-correlated (Reference).
+model produced was a polynomial of order 4.
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
 conditions and the fountain parameters. For the weather parameters, we first fix a range based on literature values
@@ -693,8 +689,7 @@ objective on each AIR.
 \subsection{Calibration}
 
 For model calibration, we choose values of sensitive parameters populating more the 50 \% of the possibilities
-among the best 10 \% of the model runs. $A_{corr}$ shows different preferences whereas the other two parameters
-show similar preference for the two objectives. In total, 495 model runs were required for each of the objective.
+among the best 10 \% of the model runs. In total, 495 model runs were required for each of the objective.
 For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the IN21 and from
 10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this calibration process has an
@@ -702,17 +697,18 @@ inherent temporal bias due to the choice of when and how many UAV flights were p
 thee 5 flights of IN21 AIR used for calibration, most of them were flown around early March when the AIR volume was
 near its maximum whereas the CH21 flights were more evenly spaced out in comparison (see Table \ref{tab:uav}).
 
-We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the additional
-surface area caused by its various ice features. Particularly, we expect the IN21 surface area to deviate
-significantly from CH21 AIR because its surface area represents the area of two ice cones merged into one (see Fig.
-\ref{fig:2AIR}). This is clearly represented in the disjoint frequency distribution of the area objective of the
-CH21 and IN21 AIR. Hence, we calibrate the IN21 area correction factor to 1.5. Since no strong preference is
-observed for the CH21 area correction factor, we calibrate it to the median of the values it assumed in the two
-objectives, namely, 1.2.
+$A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
+objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the
+additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area to
+deviate significantly from CH21 AIR because its surface area represents the area of two ice cones merged into one
+(see Fig.  \ref{fig:2AIR}). This is clearly represented in the disjoint frequency distribution of the area
+objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21 area correction factor to 1.5. Since no strong
+preference is observed for the CH21 area correction factor, we calibrate it to the median of the values it assumed
+in the area objective, namely, 1.2.
 
 The model surface layer thickness was selected, based on the two conditions described in Section \ref{sec:energy}.
 Since the minimum surface temperature does not go beyond $-30 \, \degree C$ (satisfies (b)) for the smallest
-possible thickness of $20\, mm$ (satisfies (a)), we have taken this model surface layer thickness.
+possible thickness of $20\, mm$ (satisfies (a)), we have taken this as the model surface layer thickness.
 
 For the surface roughness, no clear preference is observed for the IN21 AIR, so we calibrated it to the median
 value of $3 \, mm$. For the CH21 AIR, it is assigned its preferred value of $1 \, mm$.
@@ -750,10 +746,10 @@ The calibrated model is validated using two datasets, namely, CH20 AIR dataset a
 each AIR. The melt-out date signifies the time when all the ice has completely disappeared and only the dome volume
 remains. Model performance can be judged based on the difference between the model expectation and observation of
 melt out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days, respectively. The negative
-(positive) sign represents underestimation (overestimation) of the melt out date. For the IN21 AIR, the
-determination of the melt-out date was not possible both through observation and through modelling.  In reality,
-the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt
-out date was also not defined since the AIR never melted completely during the model duration.
+sign represents underestimation of the melt out date. For the IN21 AIR, the determination of the melt-out date was
+not possible both through observation and through modelling.  In reality, the IN21 AIR was found to have
+disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt out date was also not defined
+since the AIR never melted completely during the model duration.
 
 There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
 observation with the modelled volume was just $9 m^3$.
@@ -866,7 +862,7 @@ The fountain has some influence on the energy fluxes through its water temperatu
 ($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a high
 correlation with the ice volume ($r^2=0.6$). The fountain determines the surface area through its spray radius
 during the freezing period. The variance of this surface area is quite low in the freezing period since the ice
-radius is initialised and bounded by the spray radius. The thickness rate is uniformly scaled to produce the
+radius is initialised and bounded by the spray radius. So the thickness rate is uniformly scaled to produce the
 corresponding ice volume during the freezing period.
 
 To understand the fountain influence on the energy fluxes in the freezing period, we select days when the fountain
@@ -939,8 +935,8 @@ correlated more with the fountain parameters, the Indian AIR achieved a much hig
 location and a better fountain.
 
 The freezing and melting energy was favourable in Indian over the Swiss location primarily due to the sublimation
-process. The higher sublimation at the Indian location not just increased the water loss but, more importantly,
-increased the freezing energy and decreased the melting energy.
+process. Contrary to expectation, the higher sublimation at the Indian location did not increase the water loss but
+instead favoured ice formation by increasing the freezing energy and decreasing the melting energy.
 
 The Indian fountain was more favourable than the Swiss due to its higher spray radius. This spray radius increased
 the available surface area for both freeze and melt events but since the freezing energy was much higher than the
@@ -950,7 +946,7 @@ not capitalize on the surface area since its freezing energy was lower than the 
 The model was successful in reproducing the observed ice volume evolution with a correlation greater than 0.9 and
 an RMSE less than $10 \, \pm \, 1 \, \%$ of the maximum ice volume for all the AIRs. The results suggest that drier
 and colder locations in relatively cloud free regions like Ladakh are significantly more favourable. Water losses
-of all the AIR are high ($>75\%$) mostly due to fountain water runoff for all the AIRs.  urther experiments are
+of all the AIR are high ($>75\%$) mostly due to fountain water runoff for all the AIRs. Further experiments are
 required to optimize the fountain to achieve much lower AIR water losses.
 
 \section{Appendix}
