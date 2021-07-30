@@ -38,9 +38,6 @@
 \title[Artificial Ice Reservoirs]{Influence of location on artificial ice reservoir (Icestupa)
 	evolution }
 
-% \title[Artificial Ice Reservoirs]{Favourable locations for artificial ice reservoir (Icestupa)
-% 	construction }
-
 \author[\firstAuthorLast ]{\Authors}
 \address{}
 \correspondance{}
@@ -64,7 +61,7 @@
 	However, the water losses of the Indian AIR (81 \%) was higher than the Swiss AIR (77 \%) due to significantly
 	more fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant,
 	the model achieved a high correlation ($r^2 > 0.9$) with the UAV ice volume observations and was able to estimate
-	their ice volume with an RMSE $\pm\, 11 \%$ of their maximum ice volume for three AIRs in two construction
+	their ice volume with an RMSE $10 \, \pm \, 1 \, \%$ of their maximum ice volume for three AIRs in two construction
 	locations with radically different climates.
 
 	\tiny
@@ -888,7 +885,7 @@ fountain water losses in both the AIRs . Even though sublimation is considered a
 energy fluxes result in higher freezing rates and lower melting rates. So overall, higher sublimation events
 result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR.
 
-The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The Swiss AIR was able to
+The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The CH21 AIR was able to
 attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
 available. Thus, water losses could have been significantly reduced by just decreasing the mean fountain discharge.
 
@@ -931,18 +928,31 @@ algorithms for calculation of the surface area and freezing energy fluxes, allow
 the complex growth dynamics typical of any AIR. The model was calibrated with ice volume and surface area
 observations obtained via UAV flights. We calculated the water losses, freezing and melting rates for each of
 the three AIRs and explained their corresponding values through the influence of the location chosen and the
-fountain used.
+fountain used. Our main conclusions are summarized below.
+
+Observed ice volumes of several UAV flights over the Indian and Swiss locations exhibited large variability. This
+is probably due to a combination of several factors and their interaction. Mean freezing rates were significantly
+higher but mean melting rate was similar between the Indian and the Swiss location. This is because the mean
+freezing energy and the surface area of the Indian location were significantly higher than that of the Swiss. Since
+the mean freezing and melting energy was correlated more with the weather parameters and the surface area was
+correlated more with the fountain parameters, the Indian AIR achieved a much higher ice volume due to a favourable
+location and a better fountain.
+
+The freezing and melting energy was favourable in Indian over the Swiss location primarily due to the sublimation
+process. The higher sublimation at the Indian location not just increased the water loss but, more importantly,
+increased the freezing energy and decreased the melting energy.
+
+The Indian fountain was more favourable than the Swiss due to its higher spray radius. This spray radius increased
+the available surface area for both freeze and melt events but since the freezing energy was much higher than the
+melting energy, the Indian location used this surface area to increase its freezing rate. The Swiss location could
+not capitalize on the surface area since its freezing energy was lower than the melting energy.
 
 The model was successful in reproducing the observed ice volume evolution with a correlation greater than 0.9 and
-an RMSE less than $\pm \, 10 \, \%$ of the maximum ice volume for all the AIRs.
-
-The results suggest that drier and colder locations in relatively cloud free regions like Ladakh are significantly
-more favourable.
-
-Water losses of all the AIR are high but can be optimized significantly through control of the fountain discharge
-rate.  The model results indicate that more than 75\% of the fountain water is lost as runoff for all the AIRs.
-Further experiments with different fountains are required to better understand the influence of the fountain
-parameters on the results.
+an RMSE less than $10 \, \pm \, 1 \, \%$ of the maximum ice volume for all the AIRs. The results suggest that drier and
+colder locations in relatively cloud free regions like Ladakh are significantly more favourable. Water losses of
+all the AIR are high but can be optimized significantly through optimization of the fountain.  The model
+results indicate that more than 75\% of the fountain water is lost as runoff for all the AIRs.  Further experiments
+are required to optimize the fountain to achieve much lower AIR water losses.
 
 \section{Appendix}
 
