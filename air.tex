@@ -33,8 +33,7 @@
 \onecolumn
 \firstpage{1}
 
-\title[Artificial Ice Reservoirs]{Influence of location on artificial ice reservoir (Icestupa)
-	evolution }
+\title[Artificial Ice Reservoirs]{Influence of meteorological conditions on artificial ice reservoir (Icestupa) evolution}
 
 \author[\firstAuthorLast ]{\Authors}
 \address{}
@@ -694,7 +693,7 @@ For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ 
 10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this calibration process has an
 inherent temporal bias due to the choice of when and how many UAV flights were possible in each location. Among
-thee 5 flights of IN21 AIR used for calibration, most of them were flown around early March when the AIR volume was
+the 5 flights of IN21 AIR used for calibration, most of them were flown around early March when the AIR volume was
 near its maximum whereas the CH21 flights were more evenly spaced out in comparison (see Table \ref{tab:uav}).
 
 $A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
@@ -706,7 +705,7 @@ objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21 area correction
 preference is observed for the CH21 area correction factor, we calibrate it to the median of the values it assumed
 in the area objective, namely, 1.2.
 
-The model surface layer thickness was selected, based on the two conditions described in Section \ref{sec:energy}.
+The model surface layer thickness was selected based on the two conditions described in Section \ref{sec:energy}.
 Since the minimum surface temperature does not go beyond $-30 \, \degree C$ (satisfies (b)) for the smallest
 possible thickness of $20\, mm$ (satisfies (a)), we have taken this as the model surface layer thickness.
 
@@ -718,6 +717,7 @@ value of $3 \, mm$. For the CH21 AIR, it is assigned its preferred value of $1 \
 
 The uncertainty in the ice volume estimates caused by the insensitive model and fountain parameters are shown in
 Fig. \ref{fig:results}. The ranges highlighted represent the 90 \% prediction interval of the ice volume estimates.
+Weather uncertainty determination required 254 simulations whereas fountain uncertainty determination required 200 simulations.
 
 Weather uncertainty for IN21 is low compared to the other AIRs since precipitation and the associated variation in
 albedo was negligible. This is expected since 4 out of the 5 insensitive parameters are part of the albedo module.
@@ -732,10 +732,10 @@ by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/icev_results.jpg}
 	\end{center}
-	\caption{Modelled ice volume during the lifetime of the AIRs (blue curve). The prediction interval is based on the
-		ice volume uncertainty caused by the weather and the fountain parameters. The lower bounds of the y-axis
-		represents AIR dome volume. Green points indicate the UAV ice volume observations.  The violet line represents the
-		observed melt-out date for each AIR.  }
+	\caption{Modelled ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and orange) 
+	represent the 90\% prediction interval of the AIR ice volume caused by the variation in weather and the fountain parameters. 
+	The lower bounds of the y-axis represents AIR dome volume. Green points indicate the UAV ice volume observations.  
+	The violet line represents the observed melt-out date for each AIR.  }
 
 	\label{fig:results}
 \end{figure}
@@ -745,10 +745,10 @@ by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
 The calibrated model is validated using two datasets, namely, CH20 AIR dataset and the melt-out observations for
 each AIR. The melt-out date signifies the time when all the ice has completely disappeared and only the dome volume
 remains. Model performance can be judged based on the difference between the model expectation and observation of
-melt out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days, respectively. The negative
-sign represents underestimation of the melt out date. For the IN21 AIR, the determination of the melt-out date was
+melt-out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days, respectively. The negative
+sign represents underestimation of the melt-out date. For the IN21 AIR, the determination of the melt-out date was
 not possible both through observation and through modelling.  In reality, the IN21 AIR was found to have
-disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt out date was also not defined
+disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt-out date was also not defined
 since the AIR never melted completely during the model duration.
 
 There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
@@ -876,10 +876,10 @@ reducing (increasing) the sensible heat (latent heat) flux.
 
 \subsection{Water losses of AIRs}
 
-The net water loss of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The $NWL$ is caused mostly due to the
-fountain water losses in both the AIRs . Even though sublimation is considered a mass loss, its corresponding
+The net water losses of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The high $NWL$ is caused mostly due to the
+fountain water runoff in both the AIRs . Even though sublimation is considered a mass loss, its corresponding
 energy fluxes result in higher freezing rates and lower melting rates. So overall, higher sublimation events
-result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR.
+result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR (see Fig. \ref{fig:MEB}).
 
 The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The CH21 AIR was able to
 attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
@@ -901,53 +901,54 @@ fountain runtime was roughly twice that of the Indian one as shown in Table \ref
 Some factors play a significant role in making the Indian location more favourable than the Swiss location, namely,
 cloudiness, mean winter temperature and mean relative humidity. The lower cloudiness of the Indian location
 significantly decreases the net shortwave radiation compensating for the increase in direct shortwave radiation due
-to higher altitude and lower latitude. The lower mean winter temperature results in higher contribution of the
-longwave radiation in the freezing energy flux and lower humidity results in latent heat increasing and decreasing
-the freezing and melting energy respectively as shown in Fig. \ref{fig:MEB}. Hence, given AIRs with similar
+to higher altitude and lower latitude. The lower mean winter temperature results in a higher contribution of
+longwave radiation in the freezing energy flux, and lower humidity results in increasing latent heat, which decreases
+the freezing and melting energy respectively as shown in Fig. \ref{fig:MEB}. Hence, for AIRs with similar
 fountain parameters, we expect locations with lower cloudiness, lower mean winter temperature and lower relative
-humidity to be more favourable.
+humidity to be more favourable. These results highlight the relevance of AIRs as a water storage technology in drier
+climates facing water stress.
 
 As seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain spray radius
 parameter. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was at
 the expense of a faster melt-out date. This is because the fountain determined spray radius increases both the
-freezing and the melting rate. Moreover, the fountain parameters are not independent since fountain height (ignored
+freezing and the melting rate. Moreover, the fountain parameters are not independent, since fountain height (ignored
 in this analysis), discharge rate and spray radius are related through the projectile motion followed by the water
 droplets. So a proper optimization of the fountain is much more complex and requires a closer look at the
 correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This will be
-looked into in a follow up study.
+investigated in a follow up study, with this study focusing on the weather aspects of the model.
 
 \section{Conclusions}
 
 In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from
-field measurements in India, Ladakh and the Swiss Alps. The use of this dataset, in combination with novel
-algorithms for calculation of the surface area and freezing energy fluxes, allowed an accurate representation of
-the complex growth dynamics typical of any AIR. The model was calibrated with ice volume and surface area
+field measurements in Ladakh, India and the Swiss Alps. The use of this dataset, in combination with novel
+algorithms for the calculation of the surface area and freezing energy fluxes, allowed an accurate representation of
+the complex growth dynamics typical of an AIR. The model was calibrated and validated with ice volume and surface area
 observations obtained via UAV flights. We calculated the water losses, freezing and melting rates for each of
 the three AIRs and explained their corresponding values through the influence of the location chosen and the
 fountain used. Our main conclusions are summarized below.
 
 Observed ice volumes of several UAV flights over the Indian and Swiss locations exhibited large variability. This
-is probably due to a combination of several factors and their interaction. Mean freezing rates were significantly
-higher but mean melting rate was similar between the Indian and the Swiss location. This is because the mean
-freezing energy and the surface area of the Indian location were significantly higher than that of the Swiss. Since
-the mean freezing and melting energy was correlated more with the weather parameters and the surface area was
-correlated more with the fountain parameters, the Indian AIR achieved a much higher ice volume due to a favourable
+is likely due to a combination of several factors and their interaction. Mean freezing rates were significantly
+higher but mean melting rates were similar between the Indian and the Swiss locations. This can be explained with the mean
+freezing energy and the surface area of the Indian location being significantly higher than that of the Swiss. Since
+the mean freezing and melting energy was more correlated with the weather parameters and the surface area was
+more correlated with the fountain parameters, the Indian AIR achieved a much higher ice volume due to a more suitable
 location and a better fountain.
 
-The freezing and melting energy was favourable in Indian over the Swiss location primarily due to the sublimation
-process. Contrary to expectation, the higher sublimation at the Indian location did not increase the water loss but
+Regarding the weather aspects of the model, the freezing and melting energy was favourable in the Indian location over the Swiss one, primarily due to sublimation. Contrary to expectation, the higher sublimation rates at the Indian location did not increase water loss, but
 instead favoured ice formation by increasing the freezing energy and decreasing the melting energy.
 
-The Indian fountain was more favourable than the Swiss due to its higher spray radius. This spray radius increased
-the available surface area for both freeze and melt events but since the freezing energy was much higher than the
-melting energy, the Indian location used this surface area to increase its freezing rate. The Swiss location could
-not capitalize on the surface area since its freezing energy was lower than the melting energy.
+The Indian fountain was more favourable than the Swiss due to its higher spray radius. The higher spray radius increased
+the available surface area to apply the freezing and melting energy on. The Indian location used this surface area to 
+increase its freezing rate whereas the Swiss location could not capitalize on its surface area since its freezing energy 
+was lower than the melting energy.
 
-The model was successful in reproducing the observed ice volume evolution with a correlation greater than 0.9 and
+The model presented in this study was successful in reproducing the observed ice volume evolution with a correlation greater than 0.9 and
 an RMSE less than $10 \, \pm \, 1 \, \%$ of the maximum ice volume for all the AIRs. The results suggest that drier
 and colder locations in relatively cloud free regions like Ladakh are significantly more favourable. Water losses
 of all the AIR are high ($>75\%$) mostly due to fountain water runoff for all the AIRs. Further experiments are
-required to optimize the fountain to achieve much lower AIR water losses.
+required to optimize the fountain to achieve much lower AIR water losses. These modelling results pave the way 
+to an improved understanding and design of AIRs in dry areas impacted by climate change induced water stress. 
 
 \section{Appendix}
 
@@ -1043,8 +1044,8 @@ for this.
 commercial or financial relationships that could be construed as a potential conflict of interest.
 
 \section*{Author Contributions} SB wrote the initial version of the manuscript. SB developed the methodology with
-inputs from MH, SW and JO. MH and ML reviewed the model algorithm and helped improve it. JB reviewed the model
-code. SB, MH, FK and SW participated in the fieldwork. ML, JO, FK and JB reviewed the initial manuscript.
+inputs from MH, SW and JO. MH and ML reviewed the model algorithm and helped improve it. JB helped with model validation and uncertainty assessment.
+SB, MH, FK and SW participated in the fieldwork. ML, JO, FK and JB reviewed the initial manuscript.
 
 \section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
 Excellence Scholarship (SB). The associated field work in India was supported by Himalayan Institute of
@@ -1055,8 +1056,8 @@ Indian icestupa construction teams through the winters of 2019, 2020 and 2021. W
 Flavio Catillaz from Eispalast Schwarzsee (CH19); Daniel Beurki from the Guttannen Bewegt Association (CH20 and
 CH21); Norboo Thinles, Nishant Tiku, Sourabh Maheshwari and the whole icestupa competition team from HIAL (IN21).
 We would also like to thank Hanseuli Gubler for designing the Swiss AWS; Dr. Tom Matthews for designing the Indian AWS
-and Digmesa AG for subsidising their flowmeter used in the experiment.  We would particularly like to thank the
-editor Prof. Thomas Schuler and 2 anonymous reviewers who gave us important inputs to improve the paper. We also
+and Digmesa AG for subsidising their flowmeter used in the experiment.  We would particularly like to thank 
+Prof. Thomas Schuler and 2 anonymous reviewers who gave us important inputs to improve the paper. We also
 thank Prof. Christian Hauck, Prof.  Nanna B. Karlsson and Dr.  Andrew Tedstone for valuable suggestions that
 improved the manuscript.
 
