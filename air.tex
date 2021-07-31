@@ -479,11 +479,11 @@ ice.
 So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/melt} + q_{T} \end{equation} where
 $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with process (a), (b) and (c) respectively.
 
-We categorize the model time steps as freezing or melting events to distribute the surface energy flux into these three
-components. Freezing events can only occur, if fountain water is available and the surface energy flux is
+We categorize the model time steps as freezing or melting events to distribute the surface energy flux into these
+three components. Freezing events can only occur, if fountain water is available and the surface energy flux is
 negative. However, these two conditions are not sufficient as the latent heat energy can only contribute to
-temperature fluctuations. Therefore, preventing latent heat energy from turning a melting event into a freezing event an
-additional condition namely $(q_{surf}-q_{L}) < 0$ is required.
+temperature fluctuations. Therefore, for preventing latent heat energy from turning a melting event into a freezing
+event an additional condition namely, $(q_{surf}-q_{L}) < 0$, is required.
 
 \begin{equation}
 	q_{freeze/melt} = \left\{ \begin{array}{ll}
@@ -627,7 +627,7 @@ glaciological literature, we attribute a wide range of values for it.
 
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
 separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions were caused during
-water distribution. However, significant uncertainty exists for the AIR (IN21), where the interruptions due to
+water distribution. However, significant uncertainty exists for the IN21 AIR , where the interruptions due to
 pipeline freezing events happened overnight but this was ignored in this analysis. The choice of $d_F$ for both
 sites was just a best guess, based on few observations made by the flowmeter. So we associate this parameter by a
 large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we set a lower and upper bound of $0\,
@@ -824,10 +824,10 @@ location because there was no precipitation for the IN21 site.
 		\multicolumn{1}{|l|}{} & Snowfall                        & $M_{ppt}$       & 0             & 55            & $tons$      \\
 		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & 12            & 4             & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater                       & $M_{water}$     & 515           & 227           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & 60            & 0             & $tons$      \\
-		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 135           & 8             & $tons$      \\
-		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2321          & 795           & $tons$      \\ \midrule
+		                       & Meltwater                       & $M_{water}$     & 435           & 227           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & 148           & 0             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 128           & 8             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2287          & 795           & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{10}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
 		                       & Shortwave radiation             & $q_{SW} $       & $ 26 \pm 43$  & $ 37 \pm 56$
 		                       & $W\,m^{-2}$                                                                                     \\
@@ -844,7 +844,7 @@ location because there was no precipitation for the IN21 site.
 
 		                       & Freezing rate                   & $m_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & $m_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 75
+		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
 		                       & \%                                                                                              \\
 		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 793           & 138           & $m^{3}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
@@ -875,14 +875,17 @@ reducing (increasing) the sensible heat (latent heat) flux.
 
 \subsection{Water losses of AIRs}
 
-The net water losses of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The high $NWL$ is caused mostly due to the
-fountain water runoff in both the AIRs . Even though sublimation is considered a mass loss, its corresponding
-energy fluxes result in higher freezing rates and lower melting rates. So overall, higher sublimation events
-result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR (see Fig. \ref{fig:MEB}).
+The net water losses of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The high $NWL$ is caused mostly due
+to the fountain water runoff in both the AIRs . Even though sublimation is considered a mass loss, its
+corresponding energy fluxes result in higher freezing rates and lower melting rates. So overall, higher sublimation
+events result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR (see Fig.
+\ref{fig:MEB}).
 
-The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The CH21 AIR was able to
-attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime
-available. Thus, water losses could have been significantly reduced by just decreasing the mean fountain discharge.
+Since vapour losses are negligible compared to fountain runoff losses, the AIR wastes water only during the
+freezing period. The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The CH21
+AIR was able to attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of
+fountain runtime available. Thus, water losses could have been significantly reduced by just decreasing the mean
+fountain discharge.
 
 \subsection{Freezing and melting rates}
 
@@ -919,30 +922,30 @@ investigated in a follow up study, with this study focusing on the weather aspec
 \section{Conclusions}
 
 In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from
-field measurements in Ladakh, India and the Swiss Alps. The use of this dataset, in combination with novel
-algorithms for the calculation of the surface area and freezing energy fluxes, allowed an accurate representation of
-the complex growth dynamics typical of an AIR. The model was calibrated and validated with ice volume and surface area
-observations obtained via UAV flights. We calculated the water losses, freezing and melting rates for each of
-the three AIRs and explained their corresponding values through the influence of the location chosen and the
-fountain used. Our main conclusions are summarized below.
+field measurements in Gangles, India and Guttannen, Switzerland. The use of this dataset, in combination with novel
+algorithms for the calculation of the surface area and freezing energy fluxes, allowed an accurate representation
+of the complex growth dynamics typical of an AIR. The model was calibrated and validated with ice volume and
+surface area observations obtained via UAV flights. We calculated the water losses, freezing and melting rates for
+each of the three AIRs and explained their corresponding values through the influence of the location chosen and
+the fountain used. Our main conclusions are summarized below.
 
 Observed ice volumes of several UAV flights over the Indian and Swiss AIRs exhibited large variability due to
 construction location chosen and the fountain used. The location and fountain influence was quantified using the
-freezing/melting energy fluxes and the surface area respectively. The Indian location and the fountain had a higher
-mean freezing energy flux and surface area respectively. The compounding effect of a higher freezing energy on a
-larger surface area led to much higher freezing rates. But the corresponding melting rates were similar between the
-Indian and the Swiss locations since their mean melting energy flux was similar. The primary cause for the
-difference in magnitude between the freezing and melting energy fluxes for the Indian AIR was the sublimation
-process.  Contrary to expectation, the higher sublimation rates at the Indian location did not increase water loss,
-but instead favoured ice formation by increasing the freezing energy and decreasing the melting energy.
+freezing/melting energy fluxes and the surface area respectively. The compounding effect of a higher freezing
+energy on a larger surface area led to much higher freezing rates for IN21 AIR. But the corresponding melting rates
+were similar between the Indian and the Swiss locations since their mean melting energy flux was similar. The
+primary cause for the difference in magnitude between the freezing and melting energy fluxes for the Indian site
+was the sublimation process.  Contrary to expectation, the higher sublimation rates at the Indian location did not
+increase water loss, but instead favoured ice formation by increasing the freezing energy and decreasing the
+melting energy.
 
 The model presented in this study was successful in reproducing the observed ice volume evolution with a
 correlation greater than 0.9 and an RMSE less than $10 \, \pm \, 1 \, \%$ of the maximum ice volume for all the
 AIRs. The results suggest that drier and colder locations in relatively cloud free regions like Ladakh are
 significantly more favourable. Water losses of all the AIR are high ($>75\%$) mostly due to fountain water runoff
-for all the AIRs. Further experiments are required to optimize the fountain to achieve much lower AIR water losses.
-These results pave the way for an improved understanding and design of AIRs in dry areas impacted by climate change
-induced water stress.
+for all the AIRs. However, significant improvement in water storage efficiency is possible through optimization of
+of fountain discharge rate. Thus, the AIR technology is ideally suited to serve as a water management strategy
+especially in dry mountain regions impacted by climate change induced water stress.
 
 \section{Appendix}
 
@@ -953,12 +956,11 @@ Assuming a conical shape with a diameter of 20 $m$, the corresponding volume of 
 1,920 $m^3$ w.e. The fountain sprayed water at a rate of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$
 January \citep{waterstart} to at least until $5^{th}$ March 2015 \citep{waterend} (around 43 nights). Assuming
 fountain spray was active for 8 hours each night, we estimate water consumption to be around 4,334 $m^3$. Thus,
-during the construction/freezing period of the Icestupa, roughly 56 \% of the water provided was wasted. The actual
-water loss is bound to be much higher due to further vapour losses during the melting period. This Icestupa
+during the freezing period of the Icestupa, roughly 56 \% of the water provided was wasted.  This Icestupa
 completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
 \subsection{UAV data processing} \label{sec:uav}
-The UAV flew automatically along a predefined flight course predefined and took photographs at a certain time interval. The position and
+The UAV flew automatically along a predefined flight course and took photographs at a certain time interval. The position and
 altitude of the UAV at the exposure stations, which were obtained by the built-in integrated Position and
 Orientation System (POS, composed of global positioning system and inertial measurement units), were recorded in
 the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a three-step workflow,
