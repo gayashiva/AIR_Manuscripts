@@ -49,16 +49,15 @@
 	Mountain communities in Ladakh, India facing climate change induced water stress have been using Artificial Ice
 	Reservoirs (AIRs) for additional irrigation water supply. However, it remains unknown whether other locations can
 	use AIRs for water storage. This study attempts to quantify the influence of construction locations through a
-	surface energy balance model by comparing the evolution of different AIRs built in Ladakh, India and in
-	Guttannen, Switzerland. AIR surface processes were quantified using meteorological data in conjunction with
-	fountain discharge rate (mass input of an AIR) to estimate the quantity of frozen, melted, sublimated jand
-	runoff water. At these sites, AIR ice volume and area were measured using Uncrewed Aerial Vehicles (UAV) for
-	model validation and calibration purposes. The location in Ladakh, with a maximum ice volume more than 6 times
-	larger, was more favourable compared to the Guttannen site primarily because of much higher sublimation rates.
-	However, the water losses of the Indian AIR (78 \%) was higher than the Swiss AIR (77 \%) due to significantly
-	more fountain water runoff. Although the uncertainties due to weather and fountain parameters were significant,
-	the model achieved an RMSE  of $10 \, \pm \, 1 \, \%$ of the AIR maximum ice volume with the UAV ice volume
-	observations for three AIRs in two construction locations with radically different climates.
+  surface energy balance model by comparing the evolution of AIRs built in Ladakh, India and Guttannen, Switzerland. AIR
+  surface processes were quantified using meteorological data in conjunction with fountain discharge rate (mass input of
+  an AIR) to estimate the quantity of frozen, melted, sublimated jand runoff water. At these sites, AIR ice volume and
+  area were measured using Uncrewed Aerial Vehicles (UAV) for model validation and calibration purposes. The location in
+  Ladakh, with a maximum ice volume more than 6 times larger, was more favourable compared to the Guttannen site
+  primarily because of much higher sublimation rates.  However, the water losses of the Indian AIR (78 \%) was higher
+  than the Swiss AIR (77 \%) due to significantly more fountain water runoff. Although the uncertainties due to weather
+  and fountain parameters were significant, the model achieved an RMSE within $11 \%$ of the maximum ice volume with the
+  UAV ice volume observations for three AIRs in two construction locations with radically different climates.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -144,9 +143,15 @@ addition, a webcam guaranteed a continuous survey of the site during the constru
 	\label{fig:2AIR}
 \end{figure}
 
-The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh
-region, lying at 4025 $m$ a.s.l.. Fountain height varied between 5 to 9\,$m$. AIR were constructed here as part of
-the Icestupa Competition  by the Himalayan Institute of Alternatives, Ladakh (HIAL).
+The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh region,
+lying at 4025 $m$ a.s.l.. Because of the rain shadow effect of the Himalayan Range, mean annual precipitation in Leh
+totals less than 100 mm, and there is high interannual variability. Whereas the average summer rainfall between July and
+September reaches 37.5 mm, the average winter precipitation between January and March amounts to 27.3 mm and falls
+almost entirely as snow . The mean annual temperature is $5.6 \, \degree C$, and the thermal range is characterized by
+high seasonal variation. During January, the coldest month, the mean temperature drops to $-7.2 \, \degree C$. During
+August—the warmest month—the mean temperature rises to $17.5 \, \degree C$ \citep{Nusser_2012}. AIR were constructed
+here as part of the Icestupa Competition  by the Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height
+of the AIR varied between 5 to 9\,$m$. 
 
 \subsection{Meteorological data}
 
@@ -155,17 +160,18 @@ to calculate the surface energy balance of an AIR.
 
 For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5
 reanalysis dataset \citep{era5} for filling data gaps and adding data that were not measured directly.  The ERA5
-reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
-chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  ERA5
-variables (except incoming shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear
-regressions. The zero wind speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic
-wind sensor were replaced using the ERA5 dataset.
+reanalysis dataset has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen
+(46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site.  ERA5 variables
+(except incoming shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear regressions. The
+zero wind speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were
+replaced using the ERA5 dataset.
 
 For the IN site, three different weather data sources were used to log all the weather parameters required for the
 model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure data was
 logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from another campbell
-weather station located 15 km away. Unfortunately, precipitation was not logged and was assumed to be negligible. The
-diffuse fraction of the global shortwave radiation was also assumed to be negligible (Reference).
+weather station located 15 km away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is
+less than 30 mm \citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. So the
+diffuse fraction of the global shortwave radiation was also negligible .
 
 \begin{table}
 	\centering
