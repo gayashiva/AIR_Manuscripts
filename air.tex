@@ -641,8 +641,8 @@ large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we set
 considering winter conditions at all the sites.
 
 Uncertainty also exists in the model input data, particularly for all the radiation measurements ($SW_{direct},
-	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS away from the construction sites.
-But these were ignored in this analysis.
+SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS away from the construction sites.  But we are
+not accounting for uncertainties related to meteorological forcing data in this analysis.
 
 The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIRs and the CH20 AIR was used for
 validation of the model.
@@ -678,8 +678,8 @@ within the ranges defined in Table \ref{tab:parameters}.
 
 Two objectives were chosen namely, ice volume and area, to determine the model performance with respect to these
 sensitive parameters. The frequency distribution  of RMSE determined between the UAV observations (see Table
-\ref{tab:uav}) and the model outputs among the best 10 \% runs are shown in Fig.\ref{fig:param_hist} for each
-objective on each AIR.
+\ref{tab:uav}) and the model outputs among the best 10 \% runs are shown in Fig.\ref{fig:param_hist} for each objective
+on each AIR.
 
 \begin{figure}
 	\begin{center}
@@ -716,7 +716,6 @@ possible thickness of $20\, mm$ (satisfies (a)), we have taken this as the model
 
 For the surface roughness, no clear preference is observed for the IN21 AIR, so we calibrated it to the median
 value of $3 \, mm$. For the CH21 AIR, it is assigned its preferred value of $1 \, mm$.
-
 
 \subsection{Weather and fountain uncertainty analysis}
 
@@ -758,7 +757,6 @@ since the AIR never melted completely during the model duration.
 
 There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
 observation with the modelled volume was just $9 m^3$.
-
 
 \subsection{AIR ice volume estimates}
 
@@ -811,7 +809,6 @@ deposition process was negligible compared to the mass loss due to the sublimati
 of the mass lost to sublimation was regained by deposition.  These process differences were primarily caused by the
 two fold difference in relative humidity between the sites. This was expected since glaciers near the IN21 location
 have been hypothesized to lose a significant amount of mass through sublimation by \cite{azam_2018}.
-
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and lower latitude. However,
 there is no significant difference in the net shortwave radiation absorbed by both the AIRs. The
@@ -867,95 +864,96 @@ location because there was no precipitation for the IN21 site.
 
 \subsubsection{Fountain influence}
 
-The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo forcing
-($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a high
-correlation with the ice volume ($r^2=0.6$). The fountain determines the surface area through its spray radius
-during the freezing period. The variance of this surface area is quite low in the freezing period since the ice
-radius is initialised and bounded by the spray radius. So the thickness rate is uniformly scaled to produce the
-corresponding ice volume during the freezing period.
+The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo
+forcing ($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a
+high correlation with the ice volume ($r^2=0.6$). The fountain determines the surface area through its spray
+radius during the freezing period. The variance of this surface area is quite low in the freezing period since
+the ice radius is initialised and bounded by the spray radius. So the thickness rate is uniformly scaled to
+produce the corresponding ice volume during the freezing period.
 
-To understand the fountain influence on the energy fluxes in the freezing period, we select days when the fountain
-was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR when fountain
-discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is favoured over
-sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0 $\degree C$
-reducing (increasing) the temperature difference (vapour flux) between the AIR surface and the atmosphere, thereby
-reducing (increasing) the sensible heat (latent heat) flux.
+To understand the fountain influence on the energy fluxes in the freezing period, we select days when the
+fountain was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR when
+fountain discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is
+favoured over sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0
+$\degree C$ reducing (increasing) the temperature difference (vapour flux) between the AIR surface and the
+atmosphere, thereby reducing (increasing) the sensible heat (latent heat) flux.
 
 \section{Discussion}
 
 \subsection{Water losses of AIRs}
 
-The net water losses of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The high $NWL$ is caused mostly due
-to the fountain water runoff in both the AIRs . Even though sublimation is considered a mass loss, its
-corresponding energy fluxes result in higher freezing rates and lower melting rates. So overall, higher sublimation
-events result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR (see Fig.
-\ref{fig:MEB}).
+The net water losses of IN21 and CH21 AIR were $78\%$ and $75\%$, respectively. The high $NWL$ is caused mostly
+due to the fountain water runoff in both the AIRs . Even though sublimation is considered a mass loss, its
+corresponding energy fluxes result in higher freezing rates and lower melting rates. So overall, higher
+sublimation events result in higher ice volume as can be seen through the mass and energy flux of the IN21 AIR
+(see Fig.  \ref{fig:MEB}).
 
 Since vapour losses are negligible compared to fountain runoff losses, the AIR wastes water only during the
-freezing period. The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The CH21
-AIR was able to attain the mean fountain discharge provided but this was only for 6 hours from the 2155 hours of
-fountain runtime available. Thus, water losses could have been significantly reduced by just decreasing the mean
-fountain discharge.
+freezing period. The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The
+CH21 AIR was able to attain the mean fountain discharge provided but this was only for 6 hours from the 2155
+hours of fountain runtime available. Thus, water losses could have been significantly reduced by just decreasing
+the mean fountain discharge.
 
 \subsection{Freezing and melting rates}
 
-The Indian location was favourable because the mean freezing energy was around two times larger in magnitude than the
-melting energy (see Table \ref{tab:Results}). This enabled the fountain determined surface area to favor freezing over melting. However, the
-Swiss location was not favourable since the mean freezing energy was lower than the mean melting energy, indicating that the
-surface area favored melting over the freezing process.
+The Indian location was favourable because the mean freezing energy was around two times larger in magnitude
+than the melting energy (see Table \ref{tab:Results}). This enabled the fountain determined surface area to
+favor freezing over melting. However, the Swiss location was not favourable since the mean freezing energy was
+lower than the mean melting energy, indicating that the surface area favored melting over the freezing process.
 
-Thus, the more than three times higher mean surface area of the fountain and two times higher mean freezing energy of the Indian
-location result in more than five times higher maximum ice volume of the Indian AIR compared to the Swiss, even though the Swiss
-fountain runtime was roughly twice that of the Indian one as shown in Table \ref{tab:Observations}.
+Thus, the more than three times higher mean surface area of the fountain and two times higher mean freezing
+energy of the Indian location result in more than five times higher maximum ice volume of the Indian AIR
+compared to the Swiss, even though the Swiss fountain runtime was roughly twice that of the Indian one as shown
+in Table \ref{tab:Observations}.
 
 \subsection{Favourable AIR locations and fountains}
 
-Some factors play a significant role in making the Indian location more favourable than the Swiss location, namely,
-cloudiness, mean winter temperature and mean relative humidity. The lower cloudiness of the Indian location
-significantly reduces the net shortwave and longwave radiation so much so that these fluxes were much lower
-than the Swiss location that was situated at a much lower altitude. The lower mean winter temperature results in a
-higher contribution of longwave radiation in the freezing energy flux, and lower humidity results in increasing
-latent heat, which increases (decreases) the freezing (melting) energy as shown in Fig. \ref{fig:MEB}.  Hence, for
-AIRs with similar fountain parameters, we expect locations with lower cloudiness, lower mean winter temperature and
-lower relative humidity to be more favourable. These results highlight the relevance of AIRs as a water storage
-technology in drier climates facing water stress.
+Some factors play a significant role in making the Indian location more favourable than the Swiss location,
+namely, cloudiness, mean winter temperature and mean relative humidity. The lower cloudiness of the Indian
+location significantly reduces the net shortwave and longwave radiation so much so that these fluxes were much
+lower than the Swiss location that was situated at a much lower altitude. The lower mean winter temperature
+results in a higher contribution of longwave radiation in the freezing energy flux, and lower humidity results
+in increasing latent heat, which increases (decreases) the freezing (melting) energy as shown in Fig.
+\ref{fig:MEB}.  Hence, for AIRs with similar fountain parameters, we expect locations with lower cloudiness,
+lower mean winter temperature and lower relative humidity to be more favourable. These results highlight the
+relevance of AIRs as a water storage technology in drier climates facing water stress.
 
 As seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain spray radius
-parameter. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was at
-the expense of a faster melt-out date. This is because the fountain determined spray radius increases both the
-freezing and the melting rate. Moreover, the fountain parameters are not independent, since fountain height
-(ignored in this analysis), discharge rate and spray radius are related through the projectile motion followed by
-the water droplets. So a proper optimization of the fountain is much more complex and requires a closer look at the
-correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This will be
-investigated in a follow up study, with this study focusing on the weather aspects of the model.
+parameter. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was
+at the expense of a faster melt-out date. This is because the fountain determined spray radius increases both
+the freezing and the melting rate. Moreover, the fountain parameters are not independent, since fountain height
+(ignored in this analysis), discharge rate and spray radius are related through the projectile motion followed
+by the water droplets. So a proper optimization of the fountain is much more complex and requires a closer look
+at the correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This
+will be investigated in a follow up study, with this study focusing on the weather aspects of the model.
 
 \section{Conclusions}
 
 In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from
-field measurements in Gangles, India and Guttannen, Switzerland. The use of this dataset, in combination with novel
-algorithms for the calculation of the surface area and freezing energy fluxes, allowed an accurate representation
-of the complex growth dynamics typical of an AIR. The model was calibrated and validated with ice volume and
-surface area observations obtained via UAV flights. We calculated the water losses, freezing and melting rates for
-each of the three AIRs and explained their corresponding values through the influence of the location chosen and
-the fountain used. Our main conclusions are summarized below.
+field measurements in Gangles, India and Guttannen, Switzerland. The use of this dataset, in combination with
+novel algorithms for the calculation of the surface area and freezing energy fluxes, allowed an accurate
+representation of the complex growth dynamics typical of an AIR. The model was calibrated and validated with ice
+volume and surface area observations obtained via UAV flights. We calculated the water losses, freezing and
+melting rates for each of the three AIRs and explained their corresponding values through the influence of the
+location chosen and the fountain used. Our main conclusions are summarized below.
 
 Observed ice volumes of several UAV flights over the Indian and Swiss AIRs exhibited large variability due to
 construction location chosen and the fountain used. The location and fountain influence was quantified using the
 freezing/melting energy fluxes and the surface area respectively. The compounding effect of a higher freezing
-energy on a larger surface area led to much higher freezing rates for IN21 AIR. But the corresponding melting rates
-were similar between the Indian and the Swiss locations since their mean melting energy flux was similar. The
-primary cause for the difference in magnitude between the freezing and melting energy fluxes for the Indian site
-was the sublimation process.  Contrary to expectation, the higher sublimation rates at the Indian location did not
-increase water loss, but instead favoured ice formation by increasing the freezing energy and decreasing the
-melting energy.
+energy on a larger surface area led to much higher freezing rates for IN21 AIR. But the corresponding melting
+rates were similar between the Indian and the Swiss locations since their mean melting energy flux was similar.
+The primary cause for the difference in magnitude between the freezing and melting energy fluxes for the Indian
+site was the sublimation process.  Contrary to expectation, the higher sublimation rates at the Indian location
+did not increase water loss, but instead favoured ice formation by increasing the freezing energy and decreasing
+the melting energy.
 
 The model presented in this study was successful in reproducing the observed ice volume evolution with a
-correlation greater than 0.9 and an RMSE less than $10 \, \pm \, 1 \, \%$ of the maximum ice volume for all the
-AIRs. The results suggest that drier and colder locations in relatively cloud free regions like Ladakh are
-significantly more favourable. Water losses of all the AIR are high ($>75\%$) mostly due to fountain water runoff
-for all the AIRs. However, significant improvement in water storage efficiency is possible through optimization of
-fountain discharge rate. Thus, the AIR technology is ideally suited to serve as a water management strategy
-especially in dry mountain regions impacted by climate change induced water stress.
+correlation greater than 0.9 and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs. The
+results suggest that drier and colder locations in relatively cloud free regions like Ladakh are significantly
+more favourable. Water losses of all the AIR are high ($>75\%$) mostly due to fountain water runoff for all the
+AIRs. However, significant improvement in water storage efficiency is possible through optimization of fountain
+discharge rate. Thus, the AIR technology is ideally suited to serve as a water management strategy especially in
+dry mountain regions impacted by climate change induced water stress.
 
 \section{Appendix}
 
@@ -1048,12 +1046,13 @@ observations to accommodate for this.
 \end{table}
 
 
-\section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of any
-commercial or financial relationships that could be construed as a potential conflict of interest.
+\section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of
+any commercial or financial relationships that could be construed as a potential conflict of interest.
 
-\section*{Author Contributions} SB wrote the initial version of the manuscript. SB developed the methodology with
-inputs from MH, SW and JO. MH and ML reviewed the model algorithm and helped improve it. JB helped with model validation and uncertainty assessment.
-SB, MH, FK and SW participated in the fieldwork. ML, JO, FK and JB reviewed the initial manuscript.
+\section*{Author Contributions} SB, MH, SW and FK designed the study.  SB developed the methodology with inputs
+from MH.  MH, ML and JO reviewed the model algorithm and helped improve it. SB processed the UAV data. JB helped
+with model validation and uncertainty assessment. SB, MH, FK and SW participated in the fieldwork.  SB led the
+writing of the paper and all co-authors contributed to it.
 
 \section*{Funding} This work was supported and funded by the University of Fribourg and by the Swiss Government
 Excellence Scholarship (SB). The associated field work in India was supported by Himalayan Institute of
@@ -1062,17 +1061,17 @@ Alternatives and funded by the Swiss Polar Institute.
 \section*{Acknowledgments} This work would not have been possible without the untiring efforts of the Swiss and
 Indian icestupa construction teams through the winters of 2019, 2020 and 2021. We thank Mr. Adolf Kaeser and Mr.
 Flavio Catillaz from Eispalast Schwarzsee (CH19); Daniel Beurki from the Guttannen Bewegt Association (CH20 and
-CH21); Norboo Thinles, Nishant Tiku, Sourabh Maheshwari and the whole icestupa competition team from HIAL (IN21).
-We would also like to thank Hanseuli Gubler for designing the Swiss AWS; Dr. Tom Matthews for designing the Indian AWS
-and Digmesa AG for subsidising their flowmeter used in the experiment.  We would particularly like to thank
-Prof. Thomas Schuler and 2 anonymous reviewers who gave us important inputs to improve the paper. We also
-thank Prof. Christian Hauck, Prof.  Nanna B. Karlsson and Dr.  Andrew Tedstone for valuable suggestions that
-improved the manuscript.
+CH21); Norboo Thinles, Nishant Tiku, Sourabh Maheshwari and the icestupa project team from HIAL (IN21).  We
+would also like to thank Hanseuli Gubler for designing the Swiss AWS; Dr. Tom Matthews for designing the Indian
+AWS; Michelle Stirnimann for support with the Swiss UAV flights and Digmesa AG for subsidising their flowmeter
+used in the experiment.  We would particularly like to thank Prof. Thomas Schuler and 2 anonymous reviewers who
+gave us important inputs to improve the paper. We also thank Prof. Christian Hauck, Prof.  Nanna B. Karlsson and
+Dr.  Andrew Tedstone for valuable suggestions that improved the manuscript.
 
-\section*{Data Availability Statement} AIR timelapses (CH20, CH21) and results can be viewed interactively in this
-\href{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}{app}.  The model code used is
-available in \href{https://github.com/Gayashiva/air_model}{GitHub}. The UAV data can be obtained from the authors
-upon request.
+\section*{Data Availability Statement} AIR timelapses (CH20, CH21) and results can be viewed interactively in
+this \href{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}{app}.  The model code
+used is available in \href{https://github.com/Gayashiva/air_model}{GitHub}. The UAV data can be obtained from
+the authors upon request.
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} \bibliography{references}
 
