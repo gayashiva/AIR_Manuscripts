@@ -624,21 +624,6 @@ Considering AIRs as water reservoirs, their net water loss ($NWL$) can be define
 
 \begin{equation} \textit{NWL} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
-Since this model uses a surface energy balance model commonly applied on glaciers, we define the AIR thickness
-balance (TB) analogous to glacier mass balance using its surface normal thickness change with units of $m
-	\,w.\,e.$. The thickness balance (TB) for any AIR defined as:
-
-\begin{equation} TB =m_{ice}=\Delta M_{ice}/A \end{equation}
-
-Note that the surface normal thickness is not conserved during the lifetime of the AIR since the surface area
-varies unlike that of a glacier but it is conserved for each time step, so Eqn. \ref{eq:MB} can be rewritten as
-follows:
-
-\begin{equation}
-	m_{F} + m_{ppt} + m_{dep} = m_{ice} +m_{water} + 	m_{sub} + m_{runoff}  \\
-	\label{eq:TB}
-\end{equation}
-
 \subsection{Sensitivity and uncertainty analysis}
 
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
@@ -800,26 +785,36 @@ be categorised based on the fountain used and the site location selected. Accord
 freezing/melting energy and the surface area. The construction location chosen determines the freezing/melting
 energy flux through its weather and the fountain determines the surface area through its spray radius.
 
+Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
+and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR net surface normal
+thickness change as a measure to quantify the location influence. The net thickness change ($T_{ice}$) for any
+AIR defined as:
+
+\begin{equation} T_{ice}=\Delta M_{ice}/A \end{equation}
+
+Note that $T_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
+conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
+divide the survival duration of the AIR into accumulation and ablation periods. The accumulation (ablation)
+period ends (starts) at the last fountain discharge event.
+
 \subsubsection{Location influence}
 
 The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
-together with the freezing/melting energy flux. The daily surface normal thickness change is equivalent to the
-mass balance terminology used in glaciological literature and is referred as such in the following
-analysis. Fig.  \ref{fig:MEB} shows the daily mass and energy balance components calculated with the calibrated
-parameters for the first and last 20 days for each AIR. The two time periods selected are characteristic of the
-freezing and melting period, respectively. A strong variability is evident between the freezing and melting
-periods and between the CH21 and the IN21 AIR.
+together with the freezing/melting energy flux. Fig.  \ref{fig:MEB} shows the daily thickness and energy balance
+components calculated with the calibrated parameters for the first and last 20 days for each AIR. The two time
+periods selected are characteristic of the accumulation and ablation period, respectively. A strong variability is
+evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
 
-The magnitudes of the thickness balance components (TBC) in Fig. \ref{fig:MEB} are explained by their corresponding
-energy balance component (EBC).  Particularly, ice TBC corresponds to freezing EBC, melt TBC corresponds to melting
-EBC available and the net TBC represents the surface EBC available.  Snow deposition is calculated directly from
-the precipitation quantity and the sublimation/deposition quantities corresponding to the latent heat EBC
-available.  The rest of the EBC components are shown to represent the different physical processes that
-contribute to this freezing and melting EBC components.
+The magnitudes of the thickness components in Fig. \ref{fig:MEB} are explained by their corresponding
+energy balance component (EBC).  Particularly, ice thickness corresponds to freezing EBC, melt thickness
+corresponds to melting EBC available and the net thickness represents the surface EBC available.  Snow
+deposition is calculated directly from the precipitation quantity and the sublimation/deposition quantities
+corresponding to the latent heat EBC available.  The rest of the EBC components are shown to represent the
+different physical processes that contribute to this freezing and melting EBC components.
 
-The mean TB of the Indian location was positive ($1\, mm \,w.e.$) whereas in the Swiss location it was negative
-($-3\, mm \,w.e.$). This was because the mean freezing EBC was higher than the melting EBC for the Indian site
-whereas this was not the case for the Swiss site as can be seen from Table \ref{tab:Observations}.
+The net thickness change of the Indian location was positive ($1\, mm \,w.e.$) whereas in the Swiss location it
+was negative ($-3\, mm \,w.e.$). This was because the mean freezing EBC was higher than the melting EBC for the
+Indian site whereas this was not the case for the Swiss site as can be seen from Table \ref{tab:Observations}.
 
 \begin{figure}
 	\begin{center}
@@ -835,28 +830,28 @@ is because the  magnitude of incoming longwave radiation was lower for the India
 
 The largest contributor to the melting EBC was the sensible heat flux for all the locations. The IN21 AIR melted
 gradually but the CH21 AIR melted rapidly on certain days (e.g.  day 140) due to the well-known foehn events
-(Reference). These foehn events produced meltwater at the Swiss location sites even during the freezing periods
+(Reference). These foehn events produced meltwater at the Swiss location sites even during the accumulation periods
 (e.g.  day 17).
 
-Latent heat plays a very important role in the energy balance. It contributes to both TBC and EBC simultaneously
-through deposition/sublimation processes. On first glance, the mass flux shown in Table \ref{tab:Observations}
-suggests that sublimation was also a source of water loss but the corresponding energy flux of this process
-generated much more ice mass since the heat of vaporization is around nine times higher than the heat of fusion.
-The magnitude of the sublimation process was significantly different for both the AIRs. IN21 AIR lost 4 \% of
-its mass input to sublimation compared to the 1 \% for the CH21 AIR as the corresponding latent heat fluxes were
-an order of magnitude larger (see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to the
-deposition process was negligible compared to the mass loss due to the sublimation process. For the CH21 AIR,
-half of the mass lost to sublimation was regained by deposition.  These process differences were primarily
-caused by the two fold difference in relative humidity between the sites. This was expected since glaciers near
-the IN21 location have been hypothesized to lose a significant amount of mass through sublimation by
-\cite{azam_2018}.
+Latent heat plays a very important role in the energy balance. It contributes to both thickness changes and EBC
+simultaneously through deposition/sublimation processes. On first glance, the mass flux shown in Table
+\ref{tab:Observations} suggests that sublimation was also a source of water loss but the corresponding energy
+flux of this process generated much more ice mass since the heat of vaporization is around nine times higher
+than the heat of fusion.  The magnitude of the sublimation process was significantly different for both the
+AIRs. IN21 AIR lost 4 \% of its mass input to sublimation compared to the 1 \% for the CH21 AIR as the
+corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). For the
+IN21 AIR, mass gain due to the deposition process was negligible compared to the mass loss due to the
+sublimation process. For the CH21 AIR, half of the mass lost to sublimation was regained by deposition.  These
+process differences were primarily caused by the two fold difference in relative humidity between the sites.
+This was expected since glaciers near the IN21 location have been hypothesized to lose a significant amount of
+mass through sublimation by \cite{azam_2018}.
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and
 lower latitude. However, there is no significant difference in the net shortwave radiation absorbed by both the
 AIRs. The higher diffuse shortwave radiation at the Swiss location is compensating for its lower direct
 shortwave radiation (see Table \ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse
 shortwave radiation was strongly reduced. Moreover, less than half of the AIR surface area was exposed to direct
-shortwave radiation flux for both the locations due to the area fraction $f_{cone}$.   Albedo, on the other
+shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Albedo, on the other
 hand, only varied for the Swiss location because there was no precipitation for the IN21 site.
 
 \begin{table}
@@ -893,7 +888,7 @@ hand, only varied for the Swiss location because there was no precipitation for 
 
 		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Thickness Balance               & $TB$            & $1 \pm 25$    & $-3 \pm 21$   &
+		\multicolumn{1}{|l|}{} & Net thickness change            & $m_{ice}$       & $1 \pm 25$    & $-3 \pm 21$   &
 		$mm \, w.\,e.$                                                                                                           \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
 		                       & \%                                                                                              \\
