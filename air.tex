@@ -33,8 +33,6 @@
 \onecolumn
 \firstpage{1}
 
-% \title[Artificial Ice Reservoirs]{Mass Balance of artificial ice reservoirs (Icestupas) in the Swiss Alps and
-% 	Indian Himalayas}
 \title[Artificial Ice Reservoirs]{Influence of meteorological conditions on artificial ice reservoir (Icestupa) evolution}
 
 \author[\firstAuthorLast ]{\Authors}
@@ -110,8 +108,8 @@ ice structures \citep{campaign}.
 
 However, to date, no reliable estimates exist about the quantity of meltwater they can provide
 \citep{Nusser_2018} . Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
-losses during their lifetimes (Appendix \ref{sec:ladakhloss}). Particularly, during their freezing period, AIRs
-can lose excessive fountain water directly as runoff and during the melting period, sublimation losses could be
+losses during their lifetimes (Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation period, AIRs
+can lose excessive fountain water directly as runoff and during the ablation period, sublimation losses could be
 significant.  However, the relative contribution of these processes in the total water loss remains unknown.
 
 In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their water
@@ -780,19 +778,19 @@ observation with the modelled volume was just $9 m^3$.
 \subsection{AIR ice volume estimates}
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can
-be categorised based on the fountain used and the site location selected. According to Eqn.
+be categorised based on the fountain used and the location selected. According to Eqn.
 \ref{eq:m_freeze/melt}, the freezing/melting rate of the AIRs can be decomposed to the corresponding
 freezing/melting energy and the surface area. The construction location chosen determines the freezing/melting
 energy flux through its weather and the fountain determines the surface area through its spray radius.
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR net surface normal
-thickness change as a measure to quantify the location influence. The net thickness change ($T_{ice}$) for any
+thickness change as a measure to quantify the location influence. The net thickness change ($TC_{ice}$) for any
 AIR defined as:
 
-\begin{equation} T_{ice}=\Delta M_{ice}/A \end{equation}
+\begin{equation} TC_{ice}=\Delta M_{ice}/A \end{equation}
 
-Note that $T_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
+Note that $TC_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
 conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
 divide the survival duration of the AIR into accumulation and ablation periods. The accumulation (ablation)
 period ends (starts) at the last fountain discharge event.
@@ -820,7 +818,7 @@ Indian site whereas this was not the case for the Swiss site as can be seen from
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
 	\caption{Daily averages of mass and energy balance components compared for the Indian and Swiss AIRs during
-		the first 20 days of the freezing and the last 20 days of the melting period respectively.  } \label{fig:MEB} \end{figure}
+		the first 20 days of the accumulation and the last 20 days of the ablation period respectively.  } \label{fig:MEB} \end{figure}
 
 The largest contributor to the freezing EBC was the longwave radiation flux for all the locations.  It also
 compensates the shortwave radiation to a large degree during the melting period. The variability of longwave
@@ -906,11 +904,11 @@ hand, only varied for the Swiss location because there was no precipitation for 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo
 forcing ($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a
 high correlation with the ice volume ($r^2=0.6$). The fountain determines the surface area through its spray
-radius during the freezing period. The variance of this surface area is quite low in the freezing period since
+radius during the accumulation period. The variance of this surface area is quite low in the accumulation period since
 the ice radius is initialised and bounded by the spray radius. So the thickness rate is uniformly scaled to
-produce the corresponding ice volume during the freezing period.
+produce the corresponding ice volume during the accumulation period.
 
-To understand the fountain influence on the energy fluxes in the freezing period, we select days when the
+To understand the fountain influence on the energy fluxes in the accumulation period, we select days when the
 fountain was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR when
 fountain discharge was interrupted due to pipeline freezing events. Here, one can observe how latent heat is
 favoured over sensible heat by the fountain. During fountain runtime, the surface temperature is maintained at 0
@@ -928,7 +926,7 @@ sublimation events result in higher ice volume as can be seen through the mass a
 (see Fig.  \ref{fig:MEB}).
 
 Since vapour losses are negligible compared to fountain runoff losses, the AIR wastes water only during the
-freezing period. The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The
+accumulation period. The maximum freezing rate of the IN21 AIR was less than half the mean fountain discharge. The
 CH21 AIR was able to attain the mean fountain discharge provided but this was only for 6 hours from the 2155
 hours of fountain runtime available. Thus, water losses could have been significantly reduced by just decreasing
 the mean fountain discharge.
@@ -940,10 +938,16 @@ than the melting energy (see Table \ref{tab:Results}). This enabled the fountain
 favor freezing over melting. However, the Swiss location was not favourable since the mean freezing energy was
 lower than the mean melting energy, indicating that the surface area favored melting over the freezing process.
 
-Thus, the more than three times higher mean surface area of the fountain and two times higher mean freezing
-energy of the Indian location result in more than five times higher maximum ice volume of the Indian AIR
-compared to the Swiss, even though the Swiss fountain runtime was roughly twice that of the Indian one as shown
-in Table \ref{tab:Observations}.
+The difference in mean melting rate between IN21 and CH21 AIR was much smaller compared to the difference in
+their corresponding  mean freezing rates (see Table \ref{tab:Observations}). This was because the mean thickness
+change during the ablation period of the Indian location was much smaller than that of the Swiss location.
+This difference compensated for the much higher surface area during the ablation period of the Indian location
+compared to the Swiss.
+
+Thus, the more than three times higher mean surface area of the fountain and two times higher mean thickness
+change during the accumulation period of the Indian location result in more than five times higher maximum ice
+volume of the Indian AIR compared to the Swiss, even though the Swiss accumulation period was roughly twice as
+long as that of the Indian one as shown in Table \ref{tab:Observations}.
 
 \subsection{Favourable AIR locations and fountains}
 
@@ -1003,7 +1007,7 @@ Assuming a conical shape with a diameter of 20 $m$, the corresponding volume of 
 1,920 $m^3$ w.e. The fountain sprayed water at a rate of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$
 January \citep{waterstart} to at least until $5^{th}$ March 2015 \citep{waterend} (around 43 nights). Assuming
 fountain spray was active for 8 hours each night, we estimate water consumption to be around 4,334 $m^3$. Thus,
-during the freezing period of the Icestupa, roughly 56 \% of the water provided was wasted.  This Icestupa
+during the accumulation period of the Icestupa, roughly 56 \% of the water provided was wasted.  This Icestupa
 completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
 \subsection{UAV data processing} \label{sec:uav}
