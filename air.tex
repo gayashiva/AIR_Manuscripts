@@ -779,15 +779,15 @@ observation with the modelled volume was just $9 m^3$.
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR net surface normal
-thickness change as a measure to quantify the location influence. The net thickness change ($TC_{ice}$) for any
+thickness rate as a measure to quantify the location influence. The net thickness rate ($TR_{ice}$) for any
 AIR defined as:
 
-\begin{equation} TC_{ice}=\frac{\Delta M_{ice}}{\rho_{water}* A} \end{equation}
+\begin{equation} TR_{ice}=\frac{\Delta M_{ice}}{\rho_{water}* A} \end{equation}
 
-Note that $TC_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
+Note that $TR_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
 conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
 divide the survival duration of the AIR into accumulation and ablation periods. The accumulation (ablation)
-period ends (starts) at the last fountain discharge event. The thickness changes during the accumulation and
+period ends (starts) at the last fountain discharge event. The thickness rate during the accumulation and
 ablation period is referred to as thickness growth and decay rate respectively.
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can
@@ -798,7 +798,7 @@ freezing/melting energy flux and the fountain determines the surface area throug
 
 \subsubsection{Location influence}
 
-The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
+The influence of location can be further comprehended, if we analyse the daily surface normal thickness rate
 together with the corresponding energy fluxes. Fig.  \ref{fig:MEB} shows the daily thickness and energy balance
 components calculated with the calibrated parameters for the first and last 20 days for each AIR. The two time
 periods selected are characteristic of the accumulation and ablation period, respectively. A strong variability is
@@ -836,7 +836,7 @@ gradually but the CH21 AIR melted rapidly on certain days (e.g.  day 140) due to
 periods (e.g.  day 17). Both the sensible and the latent heat significantly increase in magnitude in the
 ablation period due to a higher temperature gradient between the AIR surface and the atmosphere.
 
-Latent heat plays a very important role in the energy balance. It contributes to both thickness changes and EBC
+Latent heat plays a very important role in the energy balance. It contributes to both thickness rates and EBC
 simultaneously through deposition/sublimation processes. On first glance, the mass flux shown in Table
 \ref{tab:Observations} suggests that sublimation was also a source of water loss but the corresponding energy
 flux of this process generated much more ice mass since the heat of vaporization is around nine times higher
@@ -856,8 +856,8 @@ shortwave radiation (see Table \ref{tab:Observations}). Since the IN21 site has 
 shortwave radiation was strongly reduced. Moreover, less than half of the AIR surface area was exposed to direct
 shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the
 $f_{cone}$ factor due to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave
-radiation in the ablation period compared to the accumulation period. Albedo, on the other hand, only varied for
-the Swiss location because there was no precipitation for the IN21 site.
+radiation in the ablation period compared to the accumulation period. Albedo, on the other hand, only varied
+temporally for the Swiss location because there was no precipitation for the IN21 site.
 
 \begin{table}
 	\centering
@@ -893,6 +893,8 @@ the Swiss location because there was no precipitation for the IN21 site.
 
 		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Thickness rate                  & $TR_{ice}$      & $1 \pm 25$    & $-3 \pm 21$   &
+		$mm \, w.\,e.$                                                                                                           \\
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$      \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
 		                       & \%                                                                                              \\
@@ -907,12 +909,12 @@ the Swiss location because there was no precipitation for the IN21 site.
 
 \subsubsection{Fountain influence}
 
-The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$) and the albedo
-forcing ($q_{SW}$). However, this influence is minimal compared to the influence of surface area, which has a
-high correlation with the ice volume ($r^2=0.6$). The fountain determines the surface area through its spray
-radius during the accumulation period. The variance of this surface area is quite low in the accumulation period
-since the ice radius is initialised and bounded by the spray radius. So the thickness growth rate is uniformly
-scaled to produce the corresponding ice volume.
+The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$), temperature
+forcing($q_{T}$) and albedo forcing ($q_{SW}$). However, this influence is minimal compared to the influence
+of surface area, which has a high correlation with the ice volume ($r^2=0.6$). The fountain determines the
+surface area through its spray radius during the accumulation period. The variance of this surface area is quite
+low in the accumulation period since the ice radius is initialised and bounded by the spray radius. So the
+thickness growth rate is uniformly scaled to produce the corresponding ice volume.
 
 To understand the fountain influence on the energy fluxes in the accumulation period, we select days when the
 fountain was switched off and compare it to the rest. Such days (e.g. day 13) are present in IN21 AIR when
@@ -939,21 +941,18 @@ the mean fountain discharge.
 
 \subsection{Freezing and melting rates}
 
-The Indian location was favourable because the mean freezing energy was around two times larger in magnitude
-than the melting energy (see Table \ref{tab:Results}). This enabled the fountain determined surface area to
-favor freezing over melting. However, the Swiss location was not favourable since the mean freezing energy was
-lower than the mean melting energy, indicating that the surface area favored melting over the freezing process.
+The Indian location was favourable because its mean thickness rate was positive. Particularly, the mean
+thickness growth rate was much higher than the decay rate. This enabled the fountain determined surface area to
+favor AIR growth over decay. However, the Swiss location was not favourable since its mean thickness rate was
+negative, indicating that the surface area favored AIR decay over growth (see Table \ref{tab:Results}).
 
-The difference in mean melting rate between IN21 and CH21 AIR was much smaller compared to the difference in
-their corresponding  mean freezing rates (see Table \ref{tab:Observations}). This was because the mean thickness
-change during the ablation period of the Indian location was much smaller than that of the Swiss location.
-This difference compensated for the much higher surface area during the ablation period of the Indian location
-compared to the Swiss.
+The difference in melting rate between IN21 and CH21 AIR was much smaller compared to the difference in their
+corresponding  freezing rates (see Table \ref{tab:Observations}). This was because the smaller mean thickness
+decay rate compensated for the higher surface area of the Indian location compared to the Swiss.
 
-Thus, the more than three times higher mean surface area of the fountain and two times higher mean thickness
-change during the accumulation period of the Indian location result in more than five times higher maximum ice
-volume of the Indian AIR compared to the Swiss, even though the Swiss accumulation period was roughly twice as
-long as that of the Indian one as shown in Table \ref{tab:Observations}.
+Thus, the more than three times higher mean surface area of the fountain and four times higher mean thickness
+growth rate during the 2 times shorter accumulation period of the Indian location result in more than five times
+higher maximum ice volume of the Indian AIR compared to the Swiss (see Table \ref{tab:Observations}).
 
 \subsection{Favourable AIR locations and fountains}
 
@@ -988,7 +987,7 @@ location chosen and the fountain used. Our main conclusions are summarized below
 
 Observed ice volumes of several UAV flights over the Indian and Swiss AIRs exhibited large variability due to
 construction location chosen and the fountain used. The location and fountain influence was quantified using the
-thickness growth/decay rates and the surface area respectively. The compounding effect of a faster thickness
+surface normal thickness rate and the surface area respectively. The compounding effect of a faster thickness
 growth rate on a larger surface area led to much higher freezing rates for the IN21 AIR. In contrast, a slower
 thickness decay rate on a larger surface area resulted in a IN21 melting rate that was comparable to the melting
 rate of CH21 AIR. The primary cause for the difference in magnitude between the the growth and decay of the AIR
