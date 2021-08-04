@@ -631,7 +631,7 @@ polynomial (as a surrogate model), on which sensitivity and uncertainty analysis
 model produced was a polynomial of order 4.
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
-conditions and the fountain parameters. For the weather parameters, we first fix a range based on literature values
+and the fountain parameters. For the weather parameters, we first fix a range based on literature values
 and then perform a global sensitivity analysis (GSA) with the net water loss ($NWL$) as the objective. The
 distribution is always treated as uniform and the limits for every parameter are given in Table
 \ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR. The parameter
@@ -736,7 +736,7 @@ value of $3 \, mm$. For the CH21 AIR, it is assigned its preferred value of $1 \
 
 \subsection{Weather and fountain uncertainty analysis}
 
-The uncertainty in the ice volume estimates caused by the insensitive model and fountain parameters are shown in
+The uncertainty in the ice volume estimates caused by the insensitive weather and fountain parameters are shown in
 Fig. \ref{fig:results}. The ranges highlighted represent the 90 \% prediction interval of the ice volume estimates.
 Weather uncertainty determination required 254 simulations whereas fountain uncertainty determination required 200 simulations.
 
@@ -914,7 +914,7 @@ temporally for the Swiss location because there was no precipitation for the IN2
 \subsubsection{Fountain influence}
 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$), temperature
-forcing($q_{T}$) and albedo forcing ($q_{SW}$). However, this influence is minimal compared to the influence
+forcing and albedo forcing ($q_{SW}$). However, this influence is minimal compared to the influence
 of surface area, which has a high correlation with the ice volume ($r^2=0.6$). The fountain determines the
 surface area through its spray radius during the accumulation period. The variance of this surface area is quite
 low in the accumulation period since the ice radius is initialised and bounded by the spray radius. So the
