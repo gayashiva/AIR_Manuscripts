@@ -830,11 +830,12 @@ radiation for the Indian and the Swiss sites was low but the magnitude was much 
 is because the  magnitude of incoming longwave radiation was lower for the Indian site due to its low cloudiness
 (see Table \ref{tab:Observations}).
 
-The largest contributor to the melting EBC was the sensible heat flux for all the locations. The IN21 AIR melted
-gradually but the CH21 AIR melted rapidly on certain days (e.g.  day 140) due to the well-known foehn events
-(Reference). These foehn events produced meltwater at the Swiss location sites even during the accumulation
-periods (e.g.  day 17). Both the sensible and the latent heat significantly increase in magnitude in the
-ablation period due to a higher temperature gradient between the AIR surface and the atmosphere.
+The largest contributor to the melting EBC was the sensible heat flux for all the locations. The Indian location
+had much higher sensible heat due to higher wind speeds and higher temperature gradient between the AIR surface
+and the atmosphere. Both the sensible and the latent heat significantly increase in magnitude in the ablation
+period due to a higher temperature gradient between the AIR surface and the atmosphere. The latent heat
+compensates for the sensible heat throughout the AIR survival duration for the Indian location. However, this is
+not the case for the Swiss location
 
 Latent heat plays a very important role in the energy balance. It contributes to both thickness rates and EBC
 simultaneously through deposition/sublimation processes. On first glance, the mass flux shown in Table
@@ -844,10 +845,13 @@ than the heat of fusion. The magnitude of the sublimation process was significan
 AIRs. IN21 AIR lost 4 \% of its mass input to sublimation compared to the 1 \% for the CH21 AIR as the
 corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). For the
 IN21 AIR, mass gain due to the deposition process was negligible compared to the mass loss due to the
-sublimation process. For the CH21 AIR, half of the mass lost to sublimation was regained by deposition.  These
-process differences were primarily caused by the two fold difference in relative humidity between the sites.
-This was expected since glaciers near the IN21 location have been hypothesized to lose a significant amount of
-mass through sublimation by \cite{azam_2018}.
+sublimation process. For the CH21 AIR, half of the mass lost to sublimation was regained by deposition. For the
+Indian location, the latent heat EBC mostly increases (reduces) the freezing (melting) EBC thereby compensating
+for the high sensible heat. But in the case of the Swiss location, the latent heat increases both the freezing
+and melting energy during the accumulation and ablation period respectively. These process differences were
+primarily caused by the two fold difference in relative humidity between the sites.  This was expected since
+glaciers near the IN21 location have been hypothesized to lose a significant amount of mass through sublimation
+by \cite{azam_2018}.
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and
 lower latitude. However, there is no significant difference in the net shortwave radiation absorbed by both the
@@ -989,18 +993,18 @@ Observed ice volumes of several UAV flights over the Indian and Swiss AIRs exhib
 construction location chosen and the fountain used. The location and fountain influence was quantified using the
 surface normal thickness rate and the surface area respectively. The compounding effect of a faster thickness
 growth rate on a larger surface area led to much higher freezing rates for the IN21 AIR. In contrast, a slower
-thickness decay rate on a larger surface area resulted in a IN21 melting rate that was comparable to the melting
-rate of CH21 AIR. The primary cause for the difference in magnitude between the the growth and decay of the AIR
-thickness for the Indian site was the sublimation process.  Contrary to expectation, the higher sublimation
-rates at the Indian location accelerated the thickness growth rate and dampened the thickness decay rate.
+thickness decay rate on a larger surface area resulted in a IN21 melting rate that was comparable to the CH21 melting
+rate. The primary cause for the large difference between the growth and decay of the AIR thickness for the
+Indian site was the sublimation process.  Contrary to expectation, the higher sublimation rates at the Indian
+location accelerated the thickness growth rate and dampened the thickness decay rate.
 
 The model presented in this study was successful in reproducing the observed ice volume evolution with a
 correlation greater than 0.9 and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs. The
 results suggest that drier and colder locations in relatively cloud free regions like Ladakh are significantly
-more favourable. Water losses are high ($>75\%$) mostly due to fountain water runoff for all the
-AIRs. However, significant improvement in water storage efficiency is possible through optimization of fountain
-discharge rate. Thus, the AIR technology is ideally suited to serve as a water management strategy especially in
-dry mountain regions impacted by climate change induced water stress.
+more favourable. Water losses are high ($>75\%$) mostly due to fountain water runoff for all the AIRs. However,
+significant improvement in water storage efficiency is possible through optimization of fountain discharge rate.
+Thus, the AIR technology is ideally suited to serve as a water management strategy especially in dry mountain
+regions impacted by climate change induced water stress.
 
 \section{Appendix}
 
@@ -1015,11 +1019,11 @@ during the accumulation period of the Icestupa, roughly 56 \% of the water provi
 completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
 \subsection{UAV data processing} \label{sec:uav}
-The UAV flew automatically along a predefined flight course and took photographs at a certain time interval. The position and
-altitude of the UAV at the exposure stations, which were obtained by the built-in integrated Position and
-Orientation System (POS, composed of global positioning system and inertial measurement units), were recorded in
-the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a three-step workflow,
-which is described below:
+The UAV flew automatically along a predefined flight course and took photographs at a certain time interval. The
+position and altitude of the UAV at the exposure stations, which were obtained by the built-in integrated
+Position and Orientation System (POS, composed of global positioning system and inertial measurement units),
+were recorded in the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a
+three-step workflow, which is described below:
 
 (1) Initial processing: This process generates a sparse point cloud with the structure-from motion algorithm
 (\cite{Turner_2012}). First, it searches for and matches key points in the photos that have certain overlapping
