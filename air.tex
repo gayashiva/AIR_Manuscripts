@@ -171,12 +171,12 @@ ERA5 variables (except incoming shortwave and longwave radiation) were fitted wi
 linear regressions. The zero wind speed values recorded by the Meteoswiss AWS whenever snow accumulated on the
 ultrasonic wind sensor were replaced using the ERA5 dataset.
 
-For the IN site, three different weather data sources were used to log all the weather parameters required for
-the model. A temperature and humidity logger was placed adjacent to the AIR on a mast. Wind speed and pressure
-data was logged via a campbell weather station located 440 m away. Shortwave radiation data was derived from
-another campbell weather station located 15 km away. Unfortunately, precipitation was not logged. Since winter
-precipitation in Ladakh is less than 30 mm \citep{Nusser_2012}, we can safely assume negligible precipitation
-and mostly clear skies. So the diffuse fraction of the global shortwave radiation was also negligible .
+For the IN site, two different weather data sources were used to log all the weather parameters required for the
+model. Temperature, humidity, wind speed and pressure data was logged via a campbell weather station located 440
+m away from the construction site. Shortwave radiation data was derived from another campbell weather station
+located 15 km away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is less
+than 30 mm \citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. As a
+consequence, the diffuse fraction of the global shortwave radiation was also assumed to be negligible .
 
 \begin{table}
 	\centering
@@ -235,12 +235,12 @@ these pipeline freezing events.
 \subsection{Uncrewed Aerial Vehicle surveys}
 
 Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites. The DEM generated
-through these flights were analysed to obtain the radius, area and volume of the ice structure.  The first drone
-flight was used to set the dome volume ($V_{dome}$) for model initialisation. Since the Indian AIR was built on
-top of another ice structure ( see Fig. \ref{fig:2AIR} ), it had a much higher dome volume compared to the other
-AIRs.  The number of UAV flights available for the calibration and validation process for the IN21, CH21 and
-CH20 AIR were 6, 8 and 2 respectively.  The details of these flights and the methodology used to produce the
-corresponding outputs are explained in Appendix \ref{sec:uav} .
+through these flights were analysed to obtain the radius, area and volume of the ice structure. The number of
+flights available  for the IN21, CH21 and CH20 AIR were 6, 8 and 2 respectively. The first drone flight was
+used to set the dome volume ($V_{dome}$) for model initialisation. The rest were used for model calibration and
+validation. Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}),
+it had a much higher dome volume compared to the other AIRs.  The details of these flights and the methodology
+used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
 
 \section{Model setup}
 
@@ -278,8 +278,7 @@ With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$).
 
 
-The influence of the AIR fountain is parameterised by the fountain water temperature $T_{F}$ and its spray
-radius $r_F$.  The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the
+The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the
 dome volume $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation}
@@ -289,9 +288,9 @@ dome volume $V_{dome}$ used to construct the AIR as follows:
 
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{sec:energy})
 
-During subsequent time steps, the dimensions of the AIR evolve assuming a uniform ice formation and decay across
-its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ .  During these time steps, the
-volume is parameterised using Eqn. \ref{eqn:V} as:
+During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness growth and decay
+across its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ .  During these time steps,
+the volume is parameterised using Eqn. \ref{eqn:V} as:
 
 \begin{equation} V = \frac{\pi \cdot {r_{ice}}^3
 		\cdot s_{cone}}{3} \label{eqn:V2} \end{equation}
@@ -347,7 +346,7 @@ The net shortwave radiation $q_{SW}$ is computed as follows:
 
 \begin{equation} q_{SW} = (1- \alpha)\cdot (SW_{direct} \cdot f_{cone} + SW_{diffuse}) \label{eqn:SW} \end{equation}
 
-where $SW_{direct}$ and $SW_{diffuse}$ are the ERA5 direct and diffuse shortwave radiation, $\alpha$ is the
+where $SW_{direct}$ and $SW_{diffuse}$ are the direct and diffuse shortwave radiation, $\alpha$ is the
 modelled albedo and $f_{cone}$ is the area fraction of the ice structure exposed to the direct shortwave
 radiation.
 
@@ -394,7 +393,7 @@ where $T_{ice}$ is the modelled surface temperature, both temperatures are given
 $\sigma=5.67\cdot10^{-8}\,Jm^{-2}s^{-1}K^{-4}$ is the Stefan-Boltzmann constant, $LW_{in}$ denotes the incoming
 longwave radiation and $\epsilon_{ice}$ is the corresponding emissivity value for the Icestupa surface (0.97).
 
-The incoming longwave radiation $LW_{in}$for the Indian site, where no direct measurements were available, is
+The incoming longwave radiation $LW_{in}$ for the Indian site, where no direct measurements were available, is
 determined as follows:
 
 \begin{equation}
@@ -436,7 +435,7 @@ where $h_{AWS}$ is the measurement height above the ground surface of the AWS (a
 $v_a$ is the wind speed in [$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J
 $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air
 pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the surface
-roughness (5 $mm$) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).  The vapor pressures over air
+roughness (3 $mm$) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).  The vapor pressures over air
 ($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the formulation given in \cite{WMO_2018} and
 \cite{huang_2018} respectively  :
 
@@ -783,7 +782,7 @@ and spatial variation similar to how it is done for a glacier. Particularly, we 
 thickness change as a measure to quantify the location influence. The net thickness change ($TC_{ice}$) for any
 AIR defined as:
 
-\begin{equation} TC_{ice}=\Delta M_{ice}/A \end{equation}
+\begin{equation} TC_{ice}=\frac{\Delta M_{ice}}{\rho_{water}* A} \end{equation}
 
 Note that $TC_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
 conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
@@ -812,15 +811,18 @@ deposition is calculated directly from the precipitation quantity and the sublim
 corresponding to the latent heat EBC available.  The rest of the EBC components are shown to represent the
 different physical processes that contribute to this freezing and melting EBC components.
 
-The net thickness change of the Indian location was positive ($1\, mm \,w.e.$) whereas in the Swiss location it
-was negative ($-3\, mm \,w.e.$). This was because the mean freezing EBC was higher than the melting EBC for the
-Indian site whereas this was not the case for the Swiss site as can be seen from Table \ref{tab:Observations}.
+The daily mean thickness rate of the Indian location was positive ($1\, mm \,w.e.$) with a daily mean growth
+rate of $24\, mm \,w.e.$ and a mean decay rate of $12\, mm \,w.e.$. In the Swiss location, the daily mean
+thickness rate was negative ($-3\, mm \,w.e.$) with a daily mean growth rate of $6\, mm \,w.e.$ and a mean decay
+rate of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay rate corresponds to the
+difference between the mean freezing EBC and the melting EBC.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/mass_energy_bal.jpg} \end{center}
-	\caption{Daily averages of mass and energy balance components compared for the Indian and Swiss AIRs during
-		the first 20 days of the accumulation and the last 20 days of the ablation period respectively.  } \label{fig:MEB} \end{figure}
+	\caption{Daily averages of thickness and energy balance components for the Indian and Swiss AIRs during the
+		first 20 days of the accumulation and the last 20 days of the ablation period respectively.  } \label{fig:MEB}
+\end{figure}
 
 The largest contributor to the freezing EBC was the longwave radiation flux for all the locations.  It also
 compensates the shortwave radiation to a large degree during the melting period. The variability of longwave
@@ -830,14 +832,15 @@ is because the  magnitude of incoming longwave radiation was lower for the India
 
 The largest contributor to the melting EBC was the sensible heat flux for all the locations. The IN21 AIR melted
 gradually but the CH21 AIR melted rapidly on certain days (e.g.  day 140) due to the well-known foehn events
-(Reference). These foehn events produced meltwater at the Swiss location sites even during the accumulation periods
-(e.g.  day 17).
+(Reference). These foehn events produced meltwater at the Swiss location sites even during the accumulation
+periods (e.g.  day 17). Both the sensible and the latent heat significantly increase in magnitude in the
+ablation period due to a higher temperature gradient between the AIR surface and the atmosphere.
 
 Latent heat plays a very important role in the energy balance. It contributes to both thickness changes and EBC
 simultaneously through deposition/sublimation processes. On first glance, the mass flux shown in Table
 \ref{tab:Observations} suggests that sublimation was also a source of water loss but the corresponding energy
 flux of this process generated much more ice mass since the heat of vaporization is around nine times higher
-than the heat of fusion.  The magnitude of the sublimation process was significantly different for both the
+than the heat of fusion. The magnitude of the sublimation process was significantly different for both the
 AIRs. IN21 AIR lost 4 \% of its mass input to sublimation compared to the 1 \% for the CH21 AIR as the
 corresponding latent heat fluxes were an order of magnitude larger (see Table \ref{tab:Observations}). For the
 IN21 AIR, mass gain due to the deposition process was negligible compared to the mass loss due to the
@@ -851,8 +854,10 @@ lower latitude. However, there is no significant difference in the net shortwave
 AIRs. The higher diffuse shortwave radiation at the Swiss location is compensating for its lower direct
 shortwave radiation (see Table \ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse
 shortwave radiation was strongly reduced. Moreover, less than half of the AIR surface area was exposed to direct
-shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Albedo, on the other
-hand, only varied for the Swiss location because there was no precipitation for the IN21 site.
+shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the
+$f_{cone}$ factor due to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave
+radiation in the ablation period compared to the accumulation period. Albedo, on the other hand, only varied for
+the Swiss location because there was no precipitation for the IN21 site.
 
 \begin{table}
 	\centering
@@ -888,8 +893,7 @@ hand, only varied for the Swiss location because there was no precipitation for 
 
 		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Net thickness change            & $m_{ice}$       & $1 \pm 25$    & $-3 \pm 21$   &
-		$mm \, w.\,e.$                                                                                                           \\
+		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$      \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
 		                       & \%                                                                                              \\
 		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 793           & 138           & $m^{3}$     \\\midrule
@@ -958,7 +962,7 @@ namely, cloudiness, mean winter temperature and mean relative humidity. The lowe
 location significantly reduces the net shortwave and longwave radiation so much so that these fluxes were
 lower than the Swiss location. The lower mean winter temperature results in a higher contribution of longwave
 radiation in the freezing energy flux, and lower humidity results in increasing latent heat, which increases
-(decreases) the freezing (melting) energy as shown in Fig.  \ref{fig:MEB}.  Hence, for AIRs with similar
+(decreases) the freezing (melting) energy as shown in Fig. \ref{fig:MEB}. Hence, for AIRs with similar
 fountain parameters, we expect locations with lower cloudiness, lower mean winter temperature and lower relative
 humidity to be more favourable. These results highlight the relevance of AIRs as a water storage technology
 particularly for drier climates facing water stress.
