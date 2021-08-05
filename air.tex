@@ -275,9 +275,10 @@ The model assumes the AIR shape to be a cone and assigns it the following shape 
 where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}$ is the surface area; $A_{corr}$ is a
 correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
 the modelled conical surface; $V_{cone}$ is the volume and $T_{cone}$ is the AIR surface normal thickness
-change as shown in \ref{fig:shape}.
+change as shown in \ref{fig:shape}. $M_{ice}$ is the mass of the AIR and $\Delta M_{ice} = M_{ice}^{i-1} -
+	M_{ice}^{i-2}$.
 
-With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
+AIR volume can also be expressed as:
 
 \begin{equation} V_{cone} =\frac{M_{ice}} {\rho_{ice}} \label{eq:V1} \end{equation}
 
@@ -295,9 +296,9 @@ dome volume $V_{dome}$ used to construct the AIR as follows:
 
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{sec:energy})
 
-During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness growth and decay
-across its surface area with an invariant slope $s_{cone} = \frac{h_{cone}}{r_{cone}}$ .  During these time steps,
-the volume is parameterised using Eqn. \ref{eq:V} as:
+During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness change ($T_{cone}$)
+across its surface area with an invariant slope $s_{cone} = \frac{h_{cone}}{r_{cone}}$ .  During these time
+steps, the volume is parameterised using Eqn. \ref{eq:V} as:
 
 \begin{equation} V_{cone} = \frac{\pi \cdot {r_{cone}}^3
 		\cdot s_{cone}}{3} \label{eq:V2} \end{equation}
@@ -311,7 +312,6 @@ Icestupa at each time step $i$ can be determined by considering the following ru
              r_{cone}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0                                                     \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
              otherwise\end{array} \right.  \label{eq:A2} \end{equation}
 
-where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
 \begin{figure}
 	\begin{center}
@@ -784,10 +784,7 @@ observation with the modelled volume was just $9 m^3$.
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR net surface normal
-thickness rate as a measure to quantify the location influence. The net thickness rate ($T_{cone}$) for any
-AIR defined as:
-
-\begin{equation} T_{cone}=\frac{\Delta M_{ice}}{\rho_{water}* A_{cone}} \end{equation}
+thickness change as a measure to quantify the location influence.
 
 Note that $T_{cone}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
 conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
