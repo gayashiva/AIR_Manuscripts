@@ -258,51 +258,58 @@ b) energy balance, c) surface temperature, d) mass balance and e) parameter sens
 
 \subsection{Geometric evolution}
 
-Radius $r_{cone}^i$ and height $h_{cone}^i$ define the dimensions of the AIR assuming its geometry to be a cone.
-The surface area $A_{cone}^i$ and volume $V_{cone}^i$ are:
+The model assumes the AIR shape to be a cone and assigns it the following shape attributes:
 
-\begin{equation} A_{cone} = A_{corr} \cdot \pi \cdot r_{cone} \cdot \sqrt{{r_{cone}}^2 + {h_{cone}}^ 2} \label{eqn:A} \end{equation}
+\begin{subequations}
+	\label{equations}
+	\begin{align}
+		\label{eq:A}
+		A_{cone} & = A_{corr} \cdot \pi \cdot r_{cone} \cdot \sqrt{{r_{cone}}^2 + {h_{cone}}^ 2} \\
+		\label{eq:V}
+		V_{cone} & = \pi/3 \cdot {r_{cone}}^2 \cdot h_{cone}                                     \\
+		\label{eq:thickness}
+		T_{cone} & =\frac{\Delta M_{ice}}{\rho_{water}* A_{cone}}
+	\end{align}
+\end{subequations}
 
-\begin{equation} V_{cone} = \pi/3 \cdot {r_{cone}}^2 \cdot h_{cone} \label{eqn:V} \end{equation}
-
-where $A_{corr}$ is a correction factor with values between 1 and 2 that accounts for the deviation in AIR
-surface area from that of the modelled conical surface. We do not specify the time step superscript $i$ of the
-shape variables $A_{cone}$, $V_{cone}$, $r_{cone}$ and $h_{cone}$. Henceforth, the equations used, display model time step
-superscript $i$ only if it is different from the current time step.
-
+where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}$ is the surface area; $A_{corr}$ is a
+correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
+the modelled conical surface; $V_{cone}$ is the volume and $T_{cone}$ is the AIR net surface normal thickness
+rate as shown in \ref{fig:shape}.
 
 With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 
-\begin{equation} V_{cone} =\frac{M_{ice}} {\rho_{ice}} \label{eqn:V1} \end{equation}
+\begin{equation} V_{cone} =\frac{M_{ice}} {\rho_{ice}} \label{eq:V1} \end{equation}
 
-where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$).
-
+where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). Note that we do not specify the time step
+superscript $i$ of the variable  $V_{cone}$ and $M_{ice}$. Henceforth, the equations used, display model time
+step superscript $i$ only if it is different from the current time step.
 
 The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the
 dome volume $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation}
 	h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_F^2 }
-	\label{eqn:h0}
+	\label{eq:h0}
 \end{equation}
 
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{sec:energy})
 
 During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness growth and decay
 across its surface area with an invariant slope $s_{cone} = \frac{h_{cone}}{r_{cone}}$ .  During these time steps,
-the volume is parameterised using Eqn. \ref{eqn:V} as:
+the volume is parameterised using Eqn. \ref{eq:V} as:
 
 \begin{equation} V_{cone} = \frac{\pi \cdot {r_{cone}}^3
-		\cdot s_{cone}}{3} \label{eqn:V2} \end{equation}
+		\cdot s_{cone}}{3} \label{eq:V2} \end{equation}
 
 However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{cone})_{max} = r_{F}$).
-Combining Eqns. \ref{eqn:V},  \ref{eqn:V1}, \ref{eqn:h0} and \ref{eqn:V2}, the geometric evolution of the
+Combining Eqns. \ref{eq:V},  \ref{eq:V1}, \ref{eq:h0} and \ref{eq:V2}, the geometric evolution of the
 Icestupa at each time step $i$ can be determined by considering the following rules:
 
 \begin{equation} (r_{cone},\, h_{cone}) = \left\{ \begin{array}{ll} (r_F ,\, h_0)                                                                          & \textit{ if } i=0 \\
              (r_{cone}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{cone}^{i-1})}^2}) & \textit{ if }
              r_{cone}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0                                                     \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
-             otherwise\end{array} \right.  \label{eqn:A2} \end{equation}
+             otherwise\end{array} \right.  \label{eq:A2} \end{equation}
 
 where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 
@@ -338,7 +345,7 @@ step $\Delta t$ and (b) $\Delta x$ should be large enough for these temperature 
 bottom of the surface layer. A sensitivity analysis was later performed to understand the influence of this
 factor and decide its value. Here, we define the surface temperature $T_{ice}$ to be the modelled average
 temperature of the Icestupa surface layer and the energy flux $q_{surf}$ is assumed to act uniformly across the
-Icestupa area $A$.
+Icestupa area $A_{cone}$.
 
 \subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}}
 
@@ -466,7 +473,7 @@ The fountain water temperature $T_F$ is assumed to cool to 0 $\degree C$. Thus, 
 process is:
 
 \begin{equation}
-	q_{F} = \frac{ \Delta M_F \cdot c_{water} \cdot T_F}{\Delta t \cdot A}
+	q_{F} = \frac{ \Delta M_F \cdot c_{water} \cdot T_F}{\Delta t \cdot A_{cone}}
 	\label{eqn:qF}
 \end{equation}
 
@@ -526,12 +533,12 @@ distribution during a freezing event can be represented as:
 
 \begin{equation}
 	(q_{freeze}, q_{T}) = \left\{ \begin{array}{ll}
-		(q_{surf}-q_{L}+q_{0}, q_{L}-q_{0}) & \textit{ if } \Delta M_{F} \geq -\frac{(q_{surf}-q_{L}+q_{0}) \cdot A \cdot \Delta
-		t}{L_f}                                                                                                                  \\
+		(q_{surf}-q_{L}+q_{0}, q_{L}-q_{0}) & \textit{ if } \Delta M_{F} \geq -\frac{(q_{surf}-q_{L}+q_{0}) \cdot A_{cone} \cdot \Delta
+		t}{L_f}                                                                                                                         \\
 		(\frac{\Delta M_{F} \cdot L_f
-		}{A \cdot \Delta t}
+		}{A_{cone} \cdot \Delta t}
 		, q_{surf}+\frac{\Delta M_{F} \cdot L_f
-		}{A \cdot \Delta t})                & \textit{ if } \Delta M_{F} < -\frac{(q_{surf}-q_{L}+q_0) A \cdot \Delta
+		}{A_{cone} \cdot \Delta t})         & \textit{ if } \Delta M_{F} < -\frac{(q_{surf}-q_{L}+q_0) A_{cone} \cdot \Delta
 		t}{L_f}
 	\end{array} \right.
 \end{equation}
@@ -590,15 +597,15 @@ all the other mass components the fountain wastewater generated every time step 
 	\begin{align}
 		\label{eq:ppt}
 		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot {r_{cone}}^2 \cdot
-			\rho_{w}\cdot ppt & \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\\end{array} \right.                                      \\
+			\rho_{w}\cdot ppt & \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\\end{array} \right.                                             \\
 		\label{eq:vap}
 		(\frac{\Delta M_{dep}}{\Delta t}, \frac{\Delta M_{sub}}{\Delta t}) & = \left\{ \begin{array}{ll} \frac{q_{L}
-			\cdot A}{L_s}\cdot (1,0)  & \textit{ if } q_{L} \geq 0 \\ \frac{q_{L}
-			\cdot A}{L_s}\cdot (0,-1) & \textit{ if } q_{L} < 0    \\\end{array} \right.                                      \\
+			\cdot A_{cone}}{L_s}\cdot (1,0)  & \textit{ if } q_{L} \geq 0 \\ \frac{q_{L}
+			\cdot A_{cone}}{L_s}\cdot (0,-1) & \textit{ if } q_{L} < 0    \\\end{array} \right.                                             \\
 		\label{eq:mwat}
-		\frac{\Delta M_{water}}{\Delta t}                                  & = \frac{q_{melt} \cdot A }{L_f}                                                   \\
+		\frac{\Delta M_{water}}{\Delta t}                                  & = \frac{q_{melt} \cdot A_{cone} }{L_f}                                                   \\
 		\label{eq:mcone}
-		\frac{\Delta M_{ice}}{\Delta t}                                    & = \frac{q_{freeze}\cdot A }{L_f} + \frac{\Delta M_{ppt}}{\Delta t} + \frac{\Delta
+		\frac{\Delta M_{ice}}{\Delta t}                                    & = \frac{q_{freeze}\cdot A_{cone} }{L_f} + \frac{\Delta M_{ppt}}{\Delta t} + \frac{\Delta
 			M_{dep}}{\Delta t}- \frac{\Delta M_{sub}}{\Delta t}- \frac{\Delta M_{melt}}{\Delta t}
 	\end{align}
 \end{subequations}
@@ -606,7 +613,7 @@ all the other mass components the fountain wastewater generated every time step 
 We define the freezing rate $M_{freeze}$ and the melting rate $M_{melt}$ as follows:
 
 \begin{equation}
-	M_{freeze/melt} = \frac{q_{freeze/melt} \cdot A }{L_f}
+	M_{freeze/melt} = \frac{q_{freeze/melt} \cdot A_{cone} }{L_f}
 	\label{eq:m_freeze/melt}
 \end{equation}
 
@@ -782,7 +789,7 @@ and spatial variation similar to how it is done for a glacier. Particularly, we 
 thickness rate as a measure to quantify the location influence. The net thickness rate ($T_{cone}$) for any
 AIR defined as:
 
-\begin{equation} T_{cone}=\frac{\Delta M_{ice}}{\rho_{water}* A} \end{equation}
+\begin{equation} T_{cone}=\frac{\Delta M_{ice}}{\rho_{water}* A_{cone}} \end{equation}
 
 Note that $T_{cone}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
 conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
@@ -892,7 +899,7 @@ temporally for the Swiss location because there was no precipitation for the IN2
 		\multicolumn{1}{|l|}{} & Freezing energy                 & $q_{freeze} $   & $-167 \pm 47$ & $-68 \pm 46$  & $W\,m^{-2}$ \\
 		\multicolumn{1}{|l|}{} & Melting energy                  & $q_{melt}  $    & $105 \pm 118$ & $98\pm 109$   & $W\,m^{-2}$ \\
 		\multicolumn{1}{|l|}{} & Temperature                     & $q_{T}  $       & $0 \pm 136$   & $0 \pm 32$    & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Surface Area                    & $A$             & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$     \\\midrule
+		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{5}{*}{\rotatebox[origin=c]{90}{AIR}}}
 
 		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
