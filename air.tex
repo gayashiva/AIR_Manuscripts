@@ -258,22 +258,22 @@ b) energy balance, c) surface temperature, d) mass balance and e) parameter sens
 
 \subsection{Geometric evolution}
 
-Radius $r_{ice}^i$ and height $h_{ice}^i$ define the dimensions of the AIR assuming its geometry to be a cone.
-The surface area $A^i$ and volume $V^i$ are:
+Radius $r_{cone}^i$ and height $h_{cone}^i$ define the dimensions of the AIR assuming its geometry to be a cone.
+The surface area $A_{cone}^i$ and volume $V_{cone}^i$ are:
 
-\begin{equation} A = A_{corr} \cdot \pi \cdot r_{ice} \cdot \sqrt{{r_{ice}}^2 + {h_{ice}}^ 2} \label{eqn:A} \end{equation}
+\begin{equation} A_{cone} = A_{corr} \cdot \pi \cdot r_{cone} \cdot \sqrt{{r_{cone}}^2 + {h_{cone}}^ 2} \label{eqn:A} \end{equation}
 
-\begin{equation} V = \pi/3 \cdot {r_{ice}}^2 \cdot h_{ice} \label{eqn:V} \end{equation}
+\begin{equation} V_{cone} = \pi/3 \cdot {r_{cone}}^2 \cdot h_{cone} \label{eqn:V} \end{equation}
 
 where $A_{corr}$ is a correction factor with values between 1 and 2 that accounts for the deviation in AIR
 surface area from that of the modelled conical surface. We do not specify the time step superscript $i$ of the
-shape variables $A$, $V$, $r_{ice}$ and $h_{ice}$. Henceforth, the equations used, display model time step
+shape variables $A_{cone}$, $V_{cone}$, $r_{cone}$ and $h_{cone}$. Henceforth, the equations used, display model time step
 superscript $i$ only if it is different from the current time step.
 
 
 With the mass of the AIR $M_{ice}$, its current volume can also be expressed as:
 
-\begin{equation} V =\frac{M_{ice}} {\rho_{ice}} \label{eqn:V1} \end{equation}
+\begin{equation} V_{cone} =\frac{M_{ice}} {\rho_{ice}} \label{eqn:V1} \end{equation}
 
 where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$).
 
@@ -289,19 +289,19 @@ dome volume $V_{dome}$ used to construct the AIR as follows:
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{sec:energy})
 
 During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness growth and decay
-across its surface area with an invariant slope $s_{cone} = \frac{h_{ice}}{r_{ice}}$ .  During these time steps,
+across its surface area with an invariant slope $s_{cone} = \frac{h_{cone}}{r_{cone}}$ .  During these time steps,
 the volume is parameterised using Eqn. \ref{eqn:V} as:
 
-\begin{equation} V = \frac{\pi \cdot {r_{ice}}^3
+\begin{equation} V_{cone} = \frac{\pi \cdot {r_{cone}}^3
 		\cdot s_{cone}}{3} \label{eqn:V2} \end{equation}
 
-However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{ice})_{max} = r_{F}$).
+However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{cone})_{max} = r_{F}$).
 Combining Eqns. \ref{eqn:V},  \ref{eqn:V1}, \ref{eqn:h0} and \ref{eqn:V2}, the geometric evolution of the
 Icestupa at each time step $i$ can be determined by considering the following rules:
 
-\begin{equation} (r_{ice},\, h_{ice}) = \left\{ \begin{array}{ll} (r_F ,\, h_0)                                                                        & \textit{ if } i=0 \\
-             (r_{ice}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{ice}^{i-1})}^2}) & \textit{ if }
-             r_{ice}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0                                                    \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
+\begin{equation} (r_{cone},\, h_{cone}) = \left\{ \begin{array}{ll} (r_F ,\, h_0)                                                                          & \textit{ if } i=0 \\
+             (r_{cone}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{cone}^{i-1})}^2}) & \textit{ if }
+             r_{cone}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0                                                     \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
              otherwise\end{array} \right.  \label{eqn:A2} \end{equation}
 
 where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
@@ -311,8 +311,8 @@ where $\Delta M_{ice} = M_{ice}^{i-1} - M_{ice}^{i-2}$
 		\includegraphics[width=10
 			cm]{Figures/shape_parameters.jpeg}
 	\end{center}
-	\caption{Shape variables and fountain constants of the AIR. $r_{ice}$ is
-		the radius, $h_{ice}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
+	\caption{Shape variables and fountain constants of the AIR. $r_{cone}$ is
+		the radius, $h_{cone}$ is the height and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius, $h_F$ is the
 		height and $T_F$ is the water temperature of the fountain.}
 	\label{fig:shape}
 \end{figure}
@@ -372,8 +372,8 @@ using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$
 
 \begin{equation}
 	\begin{split}
-		f_{cone}& =\frac{(0.5 \cdot r_{ice} \cdot h_{ice}) \cdot cos \theta_{sun} +(\pi \cdot
-			{r_{ice}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{ice} \cdot ({r_{ice}}^2+{h_{ice}}^2)^{1/2}}\\
+		f_{cone}& =\frac{(0.5 \cdot r_{cone} \cdot h_{cone}) \cdot cos \theta_{sun} +(\pi \cdot
+			{r_{cone}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{cone} \cdot ({r_{cone}}^2+{h_{cone}}^2)^{1/2}}\\
 	\end{split}
 	\label{eqn:f_{cone}}
 \end{equation}
@@ -478,19 +478,19 @@ The bulk Icestupa heat flux $q_{G}$ corresponds to the ground heat flux in norma
 temperature gradient between the surface layer ($T_{ice}$) and the ice body ($T_{bulk}$). It is expressed by
 using the heat conduction equation as follows:
 
-\begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice}^{i-1})/l_{ice} \label{eqn:qG}    \end{equation}
+\begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice}^{i-1})/l_{cone} \label{eqn:qG}    \end{equation}
 
 where $k_{ice}$ is the thermal conductivity of ice (2.123 $W\, m^{-1}\,K^{-1}$) , $T_{bulk}$ is the mean
-temperature of the ice body within the Icestupa and $l_{ice}$ is the average distance of any point in the
+temperature of the ice body within the Icestupa and $l_{cone}$ is the average distance of any point in the
 surface to any other point in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined from
 Eqn. \ref{eqn:qG} as follows:
 
 \begin{equation} T_{bulk}^{i+1} = T_{bulk} - (q_{G} \cdot A \cdot \Delta t)/(M_{ice} \cdot c_{ice}) \end{equation}
 
-Since AIRs typically have conical shapes with $r_{ice} > h_{ice}$, we assume that the center of mass of the ice
-body is near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the ice
-body's center of mass is between $h_{ice}$ and $r_{ice}$. We calculate $q_{G}$ assuming $l_{ice} = (r_{ice} +
-	h_{ice})/2$.
+Since AIRs typically have conical shapes with $r_{cone} > h_{cone}$, we assume that the center of mass of the cone
+body is near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the cone
+body's center of mass is between $h_{cone}$ and $r_{cone}$. We calculate $q_{G}$ assuming $l_{cone} = (r_{cone} +
+	h_{cone})/2$.
 
 \subsection{Surface temperature}
 
@@ -581,7 +581,7 @@ air temperature reaches 0 $\degree C$ is challenging, we assume that negative (p
 only to sublimation (deposition), i.e. no evaporation (condensation) is calculated.
 
 Since we have categorized every time step as a freezing and melting event, we can determine the meltwater and  ice
-generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mice}. Having calculated
+generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mcone}. Having calculated
 all the other mass components the fountain wastewater generated every time step can be calculated using Eqn.
 \ref{eq:MB}.
 
@@ -589,7 +589,7 @@ all the other mass components the fountain wastewater generated every time step 
 	\label{equations}
 	\begin{align}
 		\label{eq:ppt}
-		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot {r_{ice}}^2 \cdot
+		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot {r_{cone}}^2 \cdot
 			\rho_{w}\cdot ppt & \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\\end{array} \right.                                      \\
 		\label{eq:vap}
 		(\frac{\Delta M_{dep}}{\Delta t}, \frac{\Delta M_{sub}}{\Delta t}) & = \left\{ \begin{array}{ll} \frac{q_{L}
@@ -597,7 +597,7 @@ all the other mass components the fountain wastewater generated every time step 
 			\cdot A}{L_s}\cdot (0,-1) & \textit{ if } q_{L} < 0    \\\end{array} \right.                                      \\
 		\label{eq:mwat}
 		\frac{\Delta M_{water}}{\Delta t}                                  & = \frac{q_{melt} \cdot A }{L_f}                                                   \\
-		\label{eq:mice}
+		\label{eq:mcone}
 		\frac{\Delta M_{ice}}{\Delta t}                                    & = \frac{q_{freeze}\cdot A }{L_f} + \frac{\Delta M_{ppt}}{\Delta t} + \frac{\Delta
 			M_{dep}}{\Delta t}- \frac{\Delta M_{sub}}{\Delta t}- \frac{\Delta M_{melt}}{\Delta t}
 	\end{align}
@@ -651,7 +651,7 @@ glaciological literature, we attribute a wide range of values for it.
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
 separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions were caused during
 water distribution. However, significant uncertainty exists for the IN21 AIR , where the interruptions due to
-pipeline freezing events happened overnight but this was ignored in this analysis. The choice of $d_F$ for both
+pipeline freezing events happened overnight but this was ignored in this analysis. The chocone of $d_F$ for both
 sites was just a best guess, based on few observations made by the flowmeter. So we associate this parameter by a
 large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we set a lower and upper bound of $0\,
 	\degree C$ and $3\, \degree C$.  It is very unlikely for the fountain water to have been beyond this range
@@ -714,12 +714,12 @@ among the best 10 \% of the model runs. In total, 495 model runs were required f
 For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the IN21 and from
 10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this calibration process has an
-inherent temporal bias due to the choice of when and how many UAV flights were possible in each location. Among
+inherent temporal bias due to the chocone of when and how many UAV flights were possible in each location. Among
 the 5 flights of IN21 AIR used for calibration, most of them were flown around early March when the AIR volume was
 near its maximum whereas the CH21 flights were more evenly spaced out in comparison (see Table \ref{tab:uav}).
 
 $A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
-objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled cone area due to the
+objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled ice area due to the
 additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area to
 deviate significantly from CH21 AIR because its surface area represents the area of two ice cones merged into one
 (see Fig.  \ref{fig:2AIR}). This is clearly represented in the disjoint frequency distribution of the area
@@ -779,12 +779,12 @@ observation with the modelled volume was just $9 m^3$.
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR net surface normal
-thickness rate as a measure to quantify the location influence. The net thickness rate ($TR_{ice}$) for any
+thickness rate as a measure to quantify the location influence. The net thickness rate ($T_{cone}$) for any
 AIR defined as:
 
-\begin{equation} TR_{ice}=\frac{\Delta M_{ice}}{\rho_{water}* A} \end{equation}
+\begin{equation} T_{cone}=\frac{\Delta M_{ice}}{\rho_{water}* A} \end{equation}
 
-Note that $TR_{ice}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
+Note that $T_{cone}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
 conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
 divide the survival duration of the AIR into accumulation and ablation periods. The accumulation (ablation)
 period ends (starts) at the last fountain discharge event. The thickness rate during the accumulation and
@@ -877,7 +877,7 @@ temporally for the Swiss location because there was no precipitation for the IN2
 		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & 12            & 4             & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
 		                       & Meltwater                       & $M_{water}$     & 435           & 227           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & 148           & 0             & $tons$      \\
+		\multicolumn{1}{|l|}{} & ice                             & $M_{ice}$       & 148           & 0             & $tons$      \\
 		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 128           & 8             & $tons$      \\
 		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2287          & 795           & $tons$      \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{10}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
@@ -897,12 +897,12 @@ temporally for the Swiss location because there was no precipitation for the IN2
 
 		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Thickness rate                  & $TR_{ice}$      & $1 \pm 25$    & $-3 \pm 21$   &
+		\multicolumn{1}{|l|}{} & Thickness rate                  & $T_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
 		$mm \, w.\,e.$                                                                                                           \\
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$      \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
 		                       & \%                                                                                              \\
-		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 793           & 138           & $m^{3}$     \\\midrule
+		\multicolumn{1}{|l|}{} & Maximum ice Volume              &                 & 793           & 138           & $m^{3}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
 		                       & Meltout date error              &                 & N.A.          & 1             & $days$      \\
 		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 12            & $m^{3}$     \\
@@ -1009,15 +1009,15 @@ regions impacted by climate change induced water stress.
 
 \section{Appendix}
 
-\subsection{Ladakh Icestupa 2014/15} \label{sec:ladakhloss}
+\subsection{Ladakh icestupa 2014/15} \label{sec:ladakhloss}
 
-A 20 $m$ tall Icestupa \citep{iceheight} was built in Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l.
-Assuming a conical shape with a diameter of 20 $m$, the corresponding volume of this Icestupa becomes 2093 $m^3$ or
+A 20 $m$ tall icestupa \citep{iceheight} was built in Phyang village, Ladakh at an altitude of 3500 $m$ a.s.l.
+Assuming a conical shape with a diameter of 20 $m$, the corresponding volume of this icestupa becomes 2093 $m^3$ or
 1,920 $m^3$ w.e. The fountain sprayed water at a rate of $210\, l\,min^{-1}$ \citep{waterinput} from $21^{st}$
 January \citep{waterstart} to at least until $5^{th}$ March 2015 \citep{waterend} (around 43 nights). Assuming
 fountain spray was active for 8 hours each night, we estimate water consumption to be around 4,334 $m^3$. Thus,
-during the accumulation period of the Icestupa, roughly 56 \% of the water provided was wasted.  This Icestupa
-completely melted away on $6^{th}$ July 2015 \citep{iceends}.
+during the accumulation period of the icestupa, roughly 56 \% of the water provided was wasted.  This icestupa
+completely melted away on $6^{th}$ July 2015 \citep{coneends}.
 
 \subsection{UAV data processing} \label{sec:uav}
 The UAV flew automatically along a predefined flight course and took photographs at a certain time interval. The
@@ -1038,9 +1038,9 @@ data). A sparse point cloud is created.
 cloud density than in the previous step (\cite{Furukawa_2010}; \cite{Molg_2017}). Thus, the spatial resolution of
 the products can be increased, and an irregular network for the next step can be created (\cite{Kung_2011}).
 
-(3) AIR delineation: Ice radius, area and volume are the three main final products. Perimeter was manually marked
+(3) AIR delineation: ice radius, area and volume are the three main final products. Perimeter was manually marked
 on the point cloud by identifying the AIR boundary. For the Indian location, we identified identical rock features
-near the ice boundary to mark as vertices of this perimeter. For the Swiss AIR, no such feature was available due
+near the ice boundary to mark as vertcones of this perimeter. For the Swiss AIR, no such feature was available due
 to snowfall, so instead the perimeter was marked by identifying the ice and snow boundary.
 
 There is temporal and spatial uncertainty associated with this process. Weather conditions influence the quality
