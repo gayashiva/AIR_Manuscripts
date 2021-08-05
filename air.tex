@@ -49,7 +49,7 @@
 	Mountain communities in Ladakh, India facing climate change induced water stress have been using Artificial
 	Ice Reservoirs (AIRs) for additional irrigation water supply. However, there is a large variability associated
 	with this kind of water supply due to the local weather influences of the construction location chosen. This
-	study compares the evolution of different AIRs built in Ladakh, India and Guttannen, Switzerland to quantify
+	study compares the evolution of different AIRs built in Ladakh, India and Guttannen, Switzerland based on
 	the influence of different surface processes responsible for their spatial and temporal ice volume variance
 	using a surface energy balance model. Model input consisted of meteorological data in conjunction with
 	fountain discharge rate (mass input of an AIR). Model calibration and validation were performed through ice
@@ -109,16 +109,17 @@ ice structures \citep{campaign}.
 
 However, to date, no reliable estimates exist about the quantity of meltwater they can provide
 \citep{Nusser_2018} . Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
-losses during their lifetimes (Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation period, AIRs
-can lose excessive fountain water directly as runoff and during the ablation period, sublimation losses could be
-significant.  However, the relative contribution of these processes in the total water loss remains unknown.
+losses during their lifetimes (Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation period,
+AIRs can lose excessive fountain water directly as runoff and during the ablation period, sublimation losses
+could be significant.  However, the relative contribution of these processes in the total water loss remains
+unknown.
 
 In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their water
-losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of water
-frozen, melted, sublimated and runoff. Sensitivity and uncertainty analysis were performed to identify the most
-sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the winter of
-2021 in India and Switzerland and validated the model on a Swiss AIR built on winter 2019. Our model results
-provide first steps towards evaluating the potential of this new water storage technology worldwide.
+losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of
+water frozen, melted, sublimated and runoff. Sensitivity and uncertainty analysis were performed to identify the
+most sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the
+winter of 2021 in India and Switzerland and validated the model on a Swiss AIR built on winter 2019. Our model
+results provide first steps towards evaluating the potential of this new water storage technology worldwide.
 
 \section{Study Sites}
 
@@ -246,7 +247,7 @@ used to produce the corresponding outputs are explained in Appendix \ref{sec:uav
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff
-water of the AIR every hour. In each time step, the model uses the AIR surface area, energy balance and mass
+water of the AIR every hour. In each hourly time step, the model uses the AIR surface area, energy balance and mass
 balance calculations to estimate its ice volume, surface temperature and runoff water as shown in Fig.
 \ref{fig:schema} .
 
@@ -277,7 +278,7 @@ The model assumes the AIR shape to be a cone and assigns it the following shape 
 where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}$ is the surface area; $A_{corr}$ is a
 correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
 the modelled conical surface; $V_{cone}$ is the volume and $t_{cone}$ is the AIR surface normal thickness
-change as shown in \ref{fig:shape}. $M_{ice}$ is the mass of the AIR and $\Delta M_{ice} = M_{ice}^{i-1} -
+change as shown in Fig. \ref{fig:shape}. $M_{ice}$ is the mass of the AIR and $\Delta M_{ice} = M_{ice}^{i-1} -
 	M_{ice}^{i-2}$.
 
 AIR volume can also be expressed as:
@@ -288,8 +289,8 @@ where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). Note that we do no
 superscript $i$ of the variable  $V_{cone}$ and $M_{ice}$. Henceforth, the equations used, display model time
 step superscript $i$ only if it is different from the current time step.
 
-The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the
-dome volume $V_{dome}$ used to construct the AIR as follows:
+The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume
+$V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation}
 	h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_F^2 }
@@ -787,7 +788,7 @@ observation with the modelled volume was just $9 m^3$.
 \subsection{AIR ice volume estimates}
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
-and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR net surface normal
+and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR surface normal
 thickness change as a measure to quantify the location influence.
 
 Note that $t_{cone}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
