@@ -242,21 +242,23 @@ validation. Since the Indian AIR was built on top of another ice structure (see 
 it had a much higher dome volume compared to the other AIRs.  The details of these flights and the methodology
 used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
 
+
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff
-water of the AIR every hour. This model consists of four modules which estimates the AIR a) geometric evolution,
-b) energy balance, c) surface temperature, d) mass balance and e) parameter sensitivity.
+water of the AIR every hour. In each time step, the model uses the AIR surface area, energy balance and mass
+balance calculations to estimate its ice volume, surface temperature and runoff water as shown in Fig.
+\ref{fig:schema} .
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=12 cm]{Figures/model_schematic.png}
+		\includegraphics[width=10 cm]{Figures/model_schematic.png}
 	\end{center}
 	\caption{Model schematic showing the algorithm used in the model at every time step. }
 	\label{fig:schema}
 \end{figure}
 
-\subsection{Geometric evolution}
+\subsection{Surface area calculation}
 
 The model assumes the AIR shape to be a cone and assigns it the following shape attributes:
 
@@ -313,16 +315,18 @@ Icestupa at each time step $i$ can be determined by considering the following ru
              otherwise\end{array} \right.  \label{eq:A2} \end{equation}
 
 
+
+\subsection{Energy balance calculation} \label{sec:energy}
+
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=10
-			cm]{Figures/shape_parameters.jpeg}
+		\includegraphics[width=10 cm]{Figures/shape_parameters.jpeg}
 	\end{center}
 	\caption{Shape variables and fountain constants of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the
 		height, $t_{cone}$ is the thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray
-		radius of the fountain.} \label{fig:shape} \end{figure}
-
-\subsection{Energy Balance} \label{sec:energy}
+		radius of the fountain.}
+	\label{fig:shape}
+\end{figure}
 
 The energy balance equation (e.g. \cite{Hock_2005}) for the AIR is formulated as follows:
 
@@ -497,7 +501,7 @@ body is near the base of the fountain. Thus, the distance of every point in the 
 body's center of mass is between $h_{cone}$ and $r_{cone}$. We calculate $q_{G}$ assuming $l_{cone} = (r_{cone} +
 	h_{cone})/2$.
 
-\subsection{Surface temperature}
+\subsubsection{Surface temperature}
 
 The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
 c) freeze ice.
@@ -557,7 +561,7 @@ temperature at melting point. The surface energy flux distribution during a melt
 \end{equation}
 
 
-\subsection{Mass Balance}
+\subsection{Mass balance calculation}
 
 The mass balance equation for an AIR is represented as:
 
