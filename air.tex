@@ -96,11 +96,11 @@ latter are colloquially referred to as Icestupas and are the subject of this stu
 
 A typical AIR just requires a fountain nozzle mounted on a supply pipeline. The water source is usually a high
 altitude lake or glacial stream. Due to the altitude difference between the pipeline input and fountain output,
-water ejects from the fountain nozzle as droplets that eventually lose their latent heat to the atmosphere and
-accumulate as ice. The fountain nozzle is raised through addition of metal pipes as and when significant ice
-accumulates.  Typically, a dome of branches is constructed around the metal pipes so that such pipe extensions
-can be done from within this dome. During the winter, the fountain is manually activated from sunset to sunrise.
-Threads, tree branches and fishing nets are used to guide and accelerate the ice formation.
+water ejects from the fountain nozzle as droplets that eventually lose their energy and accumulate as ice. The
+fountain nozzle is raised through addition of metal pipes as and when significant ice accumulates.  Typically, a
+dome of branches is constructed around the metal pipes so that such pipe extensions can be done from within this
+dome. During the winter, the fountain is manually activated from sunset to sunrise.  Threads, tree branches and
+fishing nets are used to guide and accelerate the ice formation.
 
 Since their invention in 2013 \citep{campaign}, Icestupas have gained widespread publicity in the region of
 Ladakh, Northern India since they require very little infrastructure, skills and energy to be constructed in
@@ -125,11 +125,11 @@ results provide first steps towards evaluating the potential of this new water s
 \section{Study Sites}
 
 The model requires three kinds of datasets containing weather, fountain and UAV measurements to accurately
-calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several
-scientific AIRs were constructed by teams in Switzerland and India. Here, we present the results of three
-scientific AIRs, which have a relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them
-were constructed in the same Swiss location called Guttannen (referred with the prefix CH) but during different
-winters and the other was constructed at Gangles, India (referred with the prefix IN).
+calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several AIRs
+were constructed by teams in Switzerland and India. Here, we present the results of three AIRs, which have a
+relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were constructed in the same
+Swiss location called Guttannen (referred with the prefix CH) but during different winters and the other was
+constructed at Gangles, India (referred with the prefix IN).
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are
@@ -307,8 +307,8 @@ steps, the volume is parameterised using Eqn. \ref{eq:V} as:
 \begin{equation} V_{cone} = \frac{\pi \cdot {r_{cone}}^3
 		\cdot s_{cone}}{3} \label{eq:V2} \end{equation}
 
-However, the Icestupa cannot outgrow the maximum range of the water droplets ($(r_{cone})_{max} = r_{F}$).
-Combining Eqns. \ref{eq:V},  \ref{eq:V1}, \ref{eq:h0} and \ref{eq:V2}, the geometric evolution of the
+We define the Icestupa boundary through its spray radius, i.e. we assume ice formation is negligible when $r_{cone} >
+r_{F}$. Combining Eqns. \ref{eq:V},  \ref{eq:V1}, \ref{eq:h0} and \ref{eq:V2}, the geometric evolution of the
 Icestupa at each time step $i$ can be determined by considering the following rules:
 
 \begin{equation} (r_{cone},\, h_{cone}) = \left\{ \begin{array}{ll} (r_F ,\, h_0)                                                                          & \textit{ if } i=0 \\
@@ -781,7 +781,7 @@ melt-out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -
 sign represents underestimation of the melt-out date. For the IN21 AIR, the determination of the melt-out date was
 not possible both through observation and through modelling.  In reality, the IN21 AIR was found to have
 disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt-out date was also not defined
-since the AIR never melted completely during the model duration.
+since the AIR never melted completely during the model simulation.
 
 There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
 observation with the modelled volume was just $9 m^3$.
