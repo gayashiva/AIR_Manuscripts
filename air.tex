@@ -203,7 +203,7 @@ consequence, the diffuse fraction of the global shortwave radiation was also ass
 		457$                   & $95 \pm 404$                & $mm$                                                                        \\
 		\multicolumn{1}{|l|}{} & Pressure                    & $p_a         $  & $623 \pm 3$   & $794 \pm 9$  &
 		$798 \pm7$             & $hPa$                                                                                                     \\
-		\multicolumn{1}{|l|}{} & Observation Duration        & $h_{total} $    & 3673          & 4003
+		\multicolumn{1}{|l|}{} & Simulation Duration        & $h_{total} $    & 3673          & 4003
 		                       & 1844                        & $hours$                                                                     \\\bottomrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Fountain}}}
 		                       & Mean discharge              & $d_F     $      & $60$          & $7.5$        &
@@ -704,11 +704,6 @@ chosen since most of the parameters were bounded by it. For all the AIRs, just t
 namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations were carried out varying all the sensitive parameters
 within the ranges defined in Table \ref{tab:parameters}.
 
-Two objectives were chosen namely, ice volume and area, to determine the model performance with respect to these
-sensitive parameters. The frequency distribution  of RMSE determined between the UAV observations (see Table
-\ref{tab:uav}) and the model outputs among the best 10 \% runs are shown in Fig.\ref{fig:param_hist} for each objective
-on each AIR.
-
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/param_hist.jpg}
@@ -720,14 +715,20 @@ on each AIR.
 
 \subsection{Calibration}
 
-For model calibration, we choose values of sensitive parameters populating more the 50 \% of the possibilities
-among the best 10 \% of the model runs. In total, 495 model runs were required for each of the objective.
-For the volume prediction, the RMSE of the best model runs ranged from 26 $m^3$ to 58 $m^3$ for the IN21 and from
-10 $m^3$ to 16 $m^3$ for the CH21. For the area prediction, the RMSE of the best model runs ranged from 14 $m^2$ to
-53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this calibration process has an
-inherent temporal bias due to the choice of when and how many UAV flights were possible in each location. Among
-the 5 flights of IN21 AIR used for calibration, most of them were flown around early March when the AIR volume was
-near its maximum whereas the CH21 flights were more evenly spaced out in comparison (see Table \ref{tab:uav}).
+The sensitive model parameters were calibrated based on two objectives, namely, the RMSE between the UAV
+observations (see Table \ref{tab:uav}) and the model estimations of the ice volume and area. For calibration, the three sensitive
+parameters namely, surface roughness, area correction factor and surface layer thickness were varied across
+their ranges (defined in Table \ref{tab:parameters}) in steps of $1 \, mm$, 0.1 and $5 \, mm$ respectively. In
+total, 495 model calibration runs were required for each of the objective. The frequency distribution of RMSE
+among the best 10 \% calibration runs for each objective are shown in Fig.  \ref{fig:param_hist}. We choose values of
+sensitive parameters populating more the 50 \% of the possibilities among the best 10 \% of the calibration
+runs. For the volume objective, the RMSE of the best calibration runs ranged from 26 $m^3$ to 58 $m^3$ for the
+IN21 and from 10 $m^3$ to 16 $m^3$ for the CH21. For the area objective, the RMSE of the best calibration runs
+ranged from 14 $m^2$ to 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this
+calibration process has an inherent temporal and spatial bias due to the choice of when and how many UAV flights
+were possible in each location. Among the 5 flights of IN21 AIR used for calibration, most of them were flown
+around early March when the AIR volume was near its maximum whereas the 7 flights of the CH21 location were more
+evenly spaced out in comparison (see Table \ref{tab:uav}).
 
 $A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
 objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled ice area due to the
@@ -1129,9 +1130,9 @@ gave us important inputs to improve the paper. We also thank Prof. Christian Hau
 Dr.  Andrew Tedstone for valuable suggestions that improved the manuscript.
 
 \section*{Data Availability Statement} AIR timelapses (CH20, CH21) and results can be viewed interactively in
-this \href{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}{app}.  The model code
-used is available in \href{https://github.com/Gayashiva/air_model}{GitHub}. The UAV data can be obtained from
-the authors upon request.
+the web app (\url{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}).  The latest version of
+the model code is available in GitHub (\url{https://github.com/Gayashiva/air_model}, last access: 10 August 2020). The
+UAV data can be obtained from the authors upon request.
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} \bibliography{references}
 
