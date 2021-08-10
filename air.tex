@@ -832,31 +832,6 @@ Since the accumulation period has mostly freezing events for both the Swiss and 
 energy turnover of different energy fluxes between these two periods to quantify the influence of different
 surface processes using Table \ref{tab:turnover}. 
 
-\begin{table}
-	\centering
-	\caption{ Energy turnover of the different surface processes during the accumulation, ablation and simulation
-  periods for each site}
-	\label{tab:turnover}
-	\begin{tabular}{@{}|lllll|@{}}
-		\toprule
-		\textbf{}   & \textbf{Energy}& \textbf{Accumulation} &\textbf{Ablation} & \textbf{Simulation}                                                                                 \\ \midrule
-		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
-                             &$q_{SW} $& 6 \%  & 11 \%  & 10 \%   \\
-    \multicolumn{1}{|l|}{} &$q_{LW} $ & 48 \% & 24 \%  & 31 \%    \\
-    \multicolumn{1}{|l|}{} &$q_{S}  $  & 22 \% & 45 \%  & 38 \%    \\  
-    \multicolumn{1}{|l|}{} &$q_{L}  $   & 21 \% & 20 \%  & 20 \%    \\
-    \multicolumn{1}{|l|}{} &$q_{F}  $  & 2 \% & 0 \%  & 1 \%    \\
-    \multicolumn{1}{|l|}{} &$q_{G}   $  & 1\% &0 \%  & 0 \%    \\\midrule
-		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{CH21}}}
-                             &$q_{SW} $&22 \%  & 26 \%  & 24 \%   \\
-    \multicolumn{1}{|l|}{} &$q_{LW} $ & 44 \% & 31 \%  & 38 \%    \\
-    \multicolumn{1}{|l|}{} &$q_{S}  $  & 19 \% & 34 \%  & 27 \%    \\  
-    \multicolumn{1}{|l|}{} &$q_{L}  $   & 8 \% & 9 \%  & 8 \%    \\
-    \multicolumn{1}{|l|}{} &$q_{F}  $  &6 \% & 0 \%  & 3 \%    \\
-    \multicolumn{1}{|l|}{} &$q_{G}   $  & 0 \% & 1 \%  & 0 \%    \\\bottomrule
-	\end{tabular}
-\end{table}
-
 The longwave radiation flux has the highest energy turnover during the accumulation period for both the
 locations. It increases and decreases the freezing and melting EBC during the accumulation and ablation period
 respectively. However, its magnitude is much lower in the ablation period compared to the accumulation period
@@ -864,6 +839,67 @@ since the air temperature increases significantly in the ablation period. The ma
 flux was much higher for the Indian site as its incoming longwave radiation was strongly reduced due to its low
 cloudiness (see Table \ref{tab:Observations}).
 
+\begin{table}
+	\centering
+  \caption{ Energy turnover of the energy balance components (EBC) during the accumulation and ablation periods
+    with their daily mean ($\mu$) and standard deviation ($\sigma$) periods for each site}
+	\label{tab:turnover}
+	\begin{tabular}{@{}|lllll|@{}}
+		\toprule
+		\textbf{}   & \textbf{EBC}& \textbf{Accumulation} &\textbf{Ablation} & \textbf{$\mu \pm \sigma
+    $}                                                                                 \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
+                             &$q_{SW}$& 6 \%  & 11 \%  &  $ 26 \pm 43 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{LW} $ & 48 \% & 24 \%  &$ -80\pm 34 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{S}  $  & 22 \% & 45 \%  &$ 96 \pm140 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{L}  $   & 21 \% & 20 \%  &$ -52 \pm 74 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{F}  $  & 2 \% & 0 \%  &$ 2 \pm 3 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{G}   $  & 1\% &0 \%  &$ 0 \pm 2 \, W\,m^{-2}$  \\\midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{CH21}}}
+                             &$q_{SW} $&22 \%  & 26 \%  &$ 37 \pm 56 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{LW} $ & 44 \% & 31 \%  &$ -57 \pm 33 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{S}  $  & 19 \% & 34 \%  &$ 36 \pm 74 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{L}  $   & 8 \% & 9 \%  & $ -2 \pm 31 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{F}  $  &6 \% & 0 \%  & $ 5 \pm 4 \, W\,m^{-2}$  \\
+    \multicolumn{1}{|l|}{} &$q_{G}   $  & 0 \% & 1 \%  &$ 0 \pm 1 \, W\,m^{-2}$  \\\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{ Summary of the mass balance, energy balance and AIR characteristics estimated by the model}
+	\label{tab:Results}
+	\begin{tabular}{@{}|llllll|@{}}
+		\toprule
+		\textbf{}              & \textbf{Name}                   & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
+		\textbf{Units}                                                                                                           \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
+		                       & Fountain discharge              & $M_F$           & 2888          & 971           & $tons$      \\
+		\multicolumn{1}{|l|}{} & Snowfall                        & $M_{ppt}$       & 0             & 55            & $tons$      \\
+		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & 12            & 4             & $tons$      \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
+		                       & Meltwater                       & $M_{water}$     & 435           & 227           & $tons$      \\
+		\multicolumn{1}{|l|}{} & ice                             & $M_{ice}$       & 148           & 0             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 128           & 8             & $tons$      \\
+		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2287          & 795           & $tons$      \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{7}{*}{\rotatebox[origin=c]{90}{AIR}}}
+
+		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
+		\multicolumn{1}{|l|}{} & Thickness rate                  & $t_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
+		$mm \, w.\,e.$                                                                                                           \\
+		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$      \\
+		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
+		                       & \%                                                                                              \\
+		\multicolumn{1}{|l|}{} & Maximum ice Volume              &                 & 793           & 138           & $m^{3}$     \\
+		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$     \\\midrule
+		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
+		                       & Meltout date error              &                 & N.A.          & 1             & $days$      \\
+		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 12            & $m^{3}$     \\
+		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume &                 & 0.99          & 0.93          &
+		N.A.                                                                                                                     \\\bottomrule
+	\end{tabular}
+\end{table}
 
 \begin{figure}
 	\begin{center}
@@ -871,6 +907,7 @@ cloudiness (see Table \ref{tab:Observations}).
 	\caption{Daily averages of thickness and energy balance components for the Indian and Swiss AIRs during the
 		first 20 days of the accumulation and the last 20 days of the ablation period respectively.  } \label{fig:MEB}
 \end{figure}
+
 
 Sensible heat flux had the highest energy turnover during the ablation period for both the locations. It increased both the melting and
 freezing EBC during the accumulation period. The Indian location had much higher sensible heat due to higher wind
@@ -909,53 +946,6 @@ increasing solar elevation angle and decreasing AIR slope leads to higher shortw
 period compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss
 location because there was no precipitation for the IN21 site.
 
-\begin{table}
-	\centering
-	\caption{ Summary of the mass balance, energy balance and AIR characteristics estimated by the model}
-	\label{tab:Results}
-	\begin{tabular}{@{}|llllll|@{}}
-		\toprule
-		\textbf{}              & \textbf{Name}                   & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
-		\textbf{Units}                                                                                                           \\ \midrule
-		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
-		                       & Fountain discharge              & $M_F$           & 2888          & 971           & $tons$      \\
-		\multicolumn{1}{|l|}{} & Snowfall                        & $M_{ppt}$       & 0             & 55            & $tons$      \\
-		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & 12            & 4             & $tons$      \\ \midrule
-		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater                       & $M_{water}$     & 435           & 227           & $tons$      \\
-		\multicolumn{1}{|l|}{} & ice                             & $M_{ice}$       & 148           & 0             & $tons$      \\
-		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 128           & 8             & $tons$      \\
-		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2287          & 795           & $tons$      \\ \midrule
-		\multicolumn{1}{|l|}{\multirow{10}{*}{\rotatebox[origin=c]{90}{Energy flux}}}
-		                       & Shortwave radiation             & $q_{SW} $       & $ 26 \pm 43$  & $ 37 \pm 56$
-		                       & $W\,m^{-2}$                                                                                     \\
-		\multicolumn{1}{|l|}{} & Longwave radiation              & $q_{LW} $       & $-80 \pm 34$  & $-57 \pm 33$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Sensible heat                   & $q_{S}  $       & $96 \pm 140$  & $36 \pm 74$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Latent heat                     & $q_{L}  $       & $-52 \pm 74$  & $-2 \pm 31$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Fountain heat                   & $q_{F}  $       & $2 \pm 3$     & $5 \pm 4$     & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Ground heat                     & $q_{G}   $      & $0 \pm 2$     & $0 \pm 1$     & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Surface                         & $q_{surf}$      & $-8 \pm 201$  & $18 \pm 114$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Freezing energy                 & $q_{freeze} $   & $-167 \pm 47$ & $-66 \pm 47$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Melting energy                  & $q_{melt}  $    & $30 \pm 79$ & $60\pm 98$   & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Temperature                     & $q_{T}  $       & $0 \pm 136$   & $0 \pm 32$    & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$     \\\midrule
-		\multicolumn{1}{|l|}{\multirow{5}{*}{\rotatebox[origin=c]{90}{AIR}}}
-
-		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$     \\
-		\multicolumn{1}{|l|}{} & Thickness rate                  & $t_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
-		$mm \, w.\,e.$                                                                                                           \\
-		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$      \\
-		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
-		                       & \%                                                                                              \\
-		\multicolumn{1}{|l|}{} & Maximum ice Volume              &                 & 793           & 138           & $m^{3}$     \\\midrule
-		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
-		                       & Meltout date error              &                 & N.A.          & 1             & $days$      \\
-		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 12            & $m^{3}$     \\
-		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume &                 & 0.99          & 0.93          &
-		N.A.                                                                                                                     \\\bottomrule
-	\end{tabular}
-\end{table}
 
 \subsubsection{Fountain influence}
 
