@@ -1,5 +1,4 @@
-\documentclass[utf8]{frontiersSCNS} % for Scsence, Engineering and Humanities and Social Sciences articles
-% \documentclass[utf8]{frontiersFPHY} % for Physics and Applied Mathematics and Statistics articles
+\documentclass[utf8]{frontiersSCNS} 
 \usepackage{gensymb}
 \usepackage{url,hyperref,lineno,microtype,subcaption}
 \usepackage[onehalfspacing]{setspace}
@@ -824,7 +823,47 @@ The daily mean thickness rate of the Indian location was positive ($1\, mm \,w.e
 rate of $24\, mm \,w.e.$ and a mean decay rate of $12\, mm \,w.e.$. In the Swiss location, the daily mean
 thickness rate was negative ($-3\, mm \,w.e.$) with a daily mean growth rate of $6\, mm \,w.e.$ and a mean decay
 rate of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay rate corresponds to the
-difference between the mean freezing EBC and the melting EBC.
+difference between the freezing EBC and the melting EBC. For the Indian site, $q_{freeze}$ accounted for 63 \%,
+$q_{melt}$ accounted for 32 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy turnover is calculated
+as the sum of energy fluxes in absolute values. For the Swiss site, $q_{melt}$ accounted for 62 \%, $q_{freeze}$
+accounted for 36 \% and $q_{T}$ just 2 \% of overall energy turnover. The freezing events occurred for 19\% and
+34\% of the simulation duration (see Table \ref{tab:Observations}) for the Indian and Swiss site respectively.
+Since the accumulation period has mostly freezing events for both the Swiss and the Indian site, we compare the
+energy turnover of different energy fluxes between these two periods to quantify the influence of different
+surface processes using Table \ref{tab:turnover}. 
+
+\begin{table}
+	\centering
+	\caption{ Energy turnover of the different surface processes during the accumulation, ablation and simulation
+  periods for each site}
+	\label{tab:turnover}
+	\begin{tabular}{@{}|lllll|@{}}
+		\toprule
+		\textbf{}   & \textbf{Energy}& \textbf{Accumulation} &\textbf{Ablation} & \textbf{Simulation}                                                                                 \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
+                             &$q_{SW} $& 6 \%  & 11 \%  & 10 \%   \\
+    \multicolumn{1}{|l|}{} &$q_{LW} $ & 48 \% & 24 \%  & 31 \%    \\
+    \multicolumn{1}{|l|}{} &$q_{S}  $  & 22 \% & 45 \%  & 38 \%    \\  
+    \multicolumn{1}{|l|}{} &$q_{L}  $   & 21 \% & 20 \%  & 20 \%    \\
+    \multicolumn{1}{|l|}{} &$q_{F}  $  & 2 \% & 0 \%  & 1 \%    \\
+    \multicolumn{1}{|l|}{} &$q_{G}   $  & 1\% &0 \%  & 0 \%    \\\midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{CH21}}}
+                             &$q_{SW} $&22 \%  & 26 \%  & 24 \%   \\
+    \multicolumn{1}{|l|}{} &$q_{LW} $ & 44 \% & 31 \%  & 38 \%    \\
+    \multicolumn{1}{|l|}{} &$q_{S}  $  & 19 \% & 34 \%  & 27 \%    \\  
+    \multicolumn{1}{|l|}{} &$q_{L}  $   & 8 \% & 9 \%  & 8 \%    \\
+    \multicolumn{1}{|l|}{} &$q_{F}  $  &6 \% & 0 \%  & 3 \%    \\
+    \multicolumn{1}{|l|}{} &$q_{G}   $  & 0 \% & 1 \%  & 0 \%    \\\bottomrule
+	\end{tabular}
+\end{table}
+
+The longwave radiation flux has the highest energy turnover during the accumulation period for both the
+locations. It increases and decreases the freezing and melting EBC during the accumulation and ablation period
+respectively. However, its magnitude is much lower in the ablation period compared to the accumulation period
+since the air temperature increases significantly in the ablation period. The magnitude of longwave radiation
+flux was much higher for the Indian site as its incoming longwave radiation was strongly reduced due to its low
+cloudiness (see Table \ref{tab:Observations}).
+
 
 \begin{figure}
 	\begin{center}
@@ -833,44 +872,42 @@ difference between the mean freezing EBC and the melting EBC.
 		first 20 days of the accumulation and the last 20 days of the ablation period respectively.  } \label{fig:MEB}
 \end{figure}
 
-The largest contributor to the freezing EBC was the longwave radiation flux for all the locations.  It also
-compensates the shortwave radiation to a large degree during the melting period. The variability of longwave
-radiation for the Indian and the Swiss sites was low but the magnitude was much higher for the Indian site. This
-is because the  magnitude of incoming longwave radiation was lower for the Indian site due to its low cloudiness
-(see Table \ref{tab:Observations}).
+Sensible heat flux had the highest energy turnover during the ablation period for both the locations. It increased both the melting and
+freezing EBC during the accumulation period. The Indian location had much higher sensible heat due to higher wind
+speeds and higher temperature gradient between the AIR surface and the atmosphere. Both the sensible and the
+latent heat significantly increase in magnitude in the ablation period due to a higher temperature gradient
+between the AIR surface and the atmosphere but the sensible heat contributes much more to the energy turnover
+during ablation period than the latent heat flux.
 
-The largest contributor to the melting EBC was the sensible heat flux for all the locations. The Indian location
-had much higher sensible heat due to higher wind speeds and higher temperature gradient between the AIR surface
-and the atmosphere. Both the sensible and the latent heat significantly increase in magnitude in the ablation
-period due to a higher temperature gradient between the AIR surface and the atmosphere. The latent heat
-compensates for the sensible heat throughout the AIR survival duration for the Indian location. However, this is
-not the case for the Swiss location
-
-Latent heat plays a very important role in the energy balance. It contributes to both thickness rates and EBC
-simultaneously through deposition/sublimation processes. On first glance, the mass flux shown in Table
-\ref{tab:Observations} suggests that sublimation was also a source of water loss but the corresponding energy
-flux of this process generated much more ice mass since the heat of vaporization is around nine times higher
-than the heat of fusion. The magnitude of the sublimation process was significantly different for both the AIRs.
-IN21 AIR lost 4 \% of its mass input but gained 30 \% of its freezing energy from the sublimation process
-compared to the 1 \% mass loss and 3 \% freezing energy gain for the CH21 AIR (see Table
-\ref{tab:Observations}). For the IN21 AIR, mass gain due to the deposition process was negligible compared to
-the mass loss due to the sublimation process. For the CH21 AIR, half of the mass lost to sublimation was
-regained by deposition. For the Indian location, the latent heat EBC mostly increases (reduces) the freezing
-(melting) EBC thereby compensating for the high sensible heat. But in the case of the Swiss location, the latent
-heat increases both the freezing and melting energy during the accumulation and ablation period respectively.
-These process differences were primarily caused by the two fold difference in relative humidity between the
-sites.  This was expected since glaciers near the IN21 location have been hypothesized to lose a significant
-amount of mass through sublimation by \cite{azam_2018}.
+Latent heat flux does not vary much in energy turnover between the accumulation and ablation periods. For the
+Indian site, latent heat flux increased and decreased the freezing and melting energy during the accumulation
+and ablation period respectively. But for the swiss location, latent heat increased both the freezing and the
+melting energy.  It contributes to both thickness rates and EBC simultaneously through deposition/sublimation
+processes. On first glance, the mass flux shown in Table \ref{tab:Observations} suggests that sublimation was
+also a source of water loss but the corresponding energy flux of this process generated much more ice mass since
+the heat of vaporization is around nine times higher than the heat of fusion. The magnitude of the sublimation
+process was significantly different for both the AIRs.  IN21 AIR lost 4 \% of its mass input but gained 30 \% of
+its freezing energy from the sublimation process compared to the 1 \% mass loss and 3 \% freezing energy gain
+for the CH21 AIR (see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to the deposition process
+was negligible compared to the mass loss due to the sublimation process. For the CH21 AIR, half of the mass lost
+to sublimation was regained by deposition. For the Indian location, the latent heat EBC mostly increases
+(reduces) the freezing (melting) EBC thereby compensating for the high sensible heat.  But in the case of the
+Swiss location, the latent heat increases both the freezing and melting energy during the accumulation and
+ablation period respectively.  These process differences were primarily caused by the two fold difference in
+relative humidity between the sites.  This was expected since glaciers near the IN21 location have been
+hypothesized to lose a significant amount of mass through sublimation by \cite{azam_2018}.
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and
-lower latitude. However, there is no significant difference in the net shortwave radiation absorbed by both the
-AIRs. The higher diffuse shortwave radiation at the Swiss location is compensating for its lower direct
-shortwave radiation (see Table \ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse
-shortwave radiation was strongly reduced. Moreover, less than half of the AIR surface area was exposed to direct
-shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the
-$f_{cone}$ factor due to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave
-radiation in the ablation period compared to the accumulation period. Albedo, on the other hand, only varied
-temporally for the Swiss location because there was no precipitation for the IN21 site.
+lower latitude. However, the total energy turnover of shortwave radiation is 2 times lesser for the Indian site
+compared to the Swiss (see Table \ref{tab:turnover}). Moreover, there is no significant difference in the net
+shortwave radiation absorbed by both the AIRs (see Table \ref{tab:Results}). This is because the higher diffuse
+shortwave radiation at the Swiss location is compensating for its lower direct shortwave radiation (see Table
+\ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse shortwave radiation was strongly
+reduced. Moreover, less than half of the AIR surface area was exposed to direct shortwave radiation flux for
+both the locations due to the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due to
+increasing solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation
+period compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss
+location because there was no precipitation for the IN21 site.
 
 \begin{table}
 	\centering
@@ -898,8 +935,8 @@ temporally for the Swiss location because there was no precipitation for the IN2
 		\multicolumn{1}{|l|}{} & Fountain heat                   & $q_{F}  $       & $2 \pm 3$     & $5 \pm 4$     & $W\,m^{-2}$ \\
 		\multicolumn{1}{|l|}{} & Ground heat                     & $q_{G}   $      & $0 \pm 2$     & $0 \pm 1$     & $W\,m^{-2}$ \\
 		\multicolumn{1}{|l|}{} & Surface                         & $q_{surf}$      & $-8 \pm 201$  & $18 \pm 114$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Freezing energy                 & $q_{freeze} $   & $-167 \pm 47$ & $-68 \pm 46$  & $W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & Melting energy                  & $q_{melt}  $    & $105 \pm 118$ & $98\pm 109$   & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Freezing energy                 & $q_{freeze} $   & $-167 \pm 47$ & $-66 \pm 47$  & $W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & Melting energy                  & $q_{melt}  $    & $30 \pm 79$ & $60\pm 98$   & $W\,m^{-2}$ \\
 		\multicolumn{1}{|l|}{} & Temperature                     & $q_{T}  $       & $0 \pm 136$   & $0 \pm 32$    & $W\,m^{-2}$ \\
 		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$     \\\midrule
 		\multicolumn{1}{|l|}{\multirow{5}{*}{\rotatebox[origin=c]{90}{AIR}}}
