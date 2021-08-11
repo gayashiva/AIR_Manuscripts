@@ -908,28 +908,28 @@ cloudiness (see Table \ref{tab:Observations}).
 		first 20 days of the accumulation and the last 20 days of the ablation period respectively.  } \label{fig:MEB}
 \end{figure}
 
-
-Sensible heat flux had the highest energy turnover during the ablation period for both the locations. It increased both the melting and
-freezing EBC during the accumulation period. The Indian location had much higher sensible heat due to higher wind
-speeds and higher temperature gradient between the AIR surface and the atmosphere. Both the sensible and the
-latent heat significantly increase in magnitude in the ablation period due to a higher temperature gradient
-between the AIR surface and the atmosphere but the sensible heat contributes much more to the energy turnover
-during ablation period than the latent heat flux.
-
-Latent heat flux does not vary much in energy turnover between the accumulation and ablation periods. For the
-Indian site, latent heat flux increased and decreased the freezing and melting energy during the accumulation
-and ablation period respectively. But for the swiss location, latent heat increased both the freezing and the
-melting energy.  It contributes to both thickness rates and EBC simultaneously through deposition/sublimation
-processes. On first glance, the mass flux shown in Table \ref{tab:Observations} suggests that sublimation was
-also a source of water loss but the corresponding energy flux of this process generated much more ice mass since
-the heat of vaporization is around nine times higher than the heat of fusion. The magnitude of the sublimation
-process was significantly different for both the AIRs.  IN21 AIR lost 4 \% of its mass input but gained 30 \% of
-its freezing energy from the sublimation process compared to the 1 \% mass loss and 3 \% freezing energy gain
-for the CH21 AIR (see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to the deposition process
-was negligible compared to the mass loss due to the sublimation process. For the CH21 AIR, half of the mass lost
-to sublimation was regained by deposition. These process differences were primarily caused by the two fold
-difference in relative humidity between the sites.  This was expected since glaciers near the IN21 location have
-been hypothesized to lose a significant amount of mass through sublimation by \cite{azam_2018}.
+Turbulent fluxes play a very important role in the energy balance. Sensible heat flux had the highest energy
+turnover during the ablation period for both the locations. It increased both the melting and freezing EBC
+during the accumulation period. The Indian location had much higher sensible heat due to higher wind speeds and
+higher temperature gradient between the AIR surface and the atmosphere. Both the sensible and the latent heat
+significantly increase in magnitude in the ablation period due to a higher temperature gradient between the AIR
+surface and the atmosphere but the sensible heat contributes much more to the energy turnover during ablation
+period than the latent heat flux. Latent heat flux does not vary much in energy turnover between the
+accumulation and ablation periods. For the Indian site, latent heat flux increased and decreased the freezing
+and melting energy during the accumulation and ablation period respectively since sublimation process was
+favored throughout the simulation duration. But for the swiss location, latent heat increased both the freezing
+and the melting energy since sublimation and deposition process was favored during accumulation and ablation
+period respectively. On first glance, the mass flux shown in Table \ref{tab:Observations} suggests that
+sublimation was a source of water loss but the corresponding energy flux of this process generated much more ice
+mass since the heat of vaporization is around nine times higher than the heat of fusion. The magnitude of the
+sublimation/deposition process was significantly different for both the AIRs.  IN21 AIR lost 4 \% of its mass
+input but gained 30 \% of its freezing energy from the sublimation process compared to the 1 \% mass loss and 3
+\% freezing energy gain for the CH21 AIR (see Table \ref{tab:Observations}). For the IN21 AIR, mass gain due to
+the deposition process was negligible compared to the mass loss due to the sublimation process. For the CH21
+AIR, half of the mass lost to sublimation was regained by deposition. These process differences were primarily
+caused by the two fold difference in relative humidity between the sites. This was expected since glaciers near
+the IN21 location have been hypothesized to lose a significant amount of mass through sublimation by
+\cite{azam_2018}.
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and
 lower latitude. However, the total energy turnover of shortwave radiation is 2 times lesser for the Indian site
@@ -978,10 +978,18 @@ the mean fountain discharge.
 
 \subsection{Freezing and melting rates}
 
-The melting rates of the IN21 and CH21 AIR were similar because the smaller mean thickness decay rate
-compensated for the higher surface area of the Indian location compared to the Swiss. The freezing rates of the
-IN21 AIR was much higher than the CH21 AIR because of the much faster thickness growth rate and the larger
-surface area of the Indian location compared to the Swiss.
+The freezing rates are much higher compared to the melting rates for the Indian location but these rates have a
+negligible difference for the Swiss location. The smaller mean thickness decay rate compensated for the higher
+surface area of the Indian location compared to the Swiss. The freezing rates of the IN21 AIR was much higher
+than the CH21 AIR because of the much faster thickness growth rate and the larger surface area of the Indian
+location compared to the Swiss. This difference in growth and decay rate is primarily due to the different
+energy contributions of the sublimation and the deposition process. Even though the energy turnover of latent
+heat was similar during the accumulation and ablation periods for both the locations, the surface process
+contributing to this turnover was different during the accumulation and the ablation periods for the Swiss
+location. Particularly, sublimation and deposition were preferred during accumulation and ablation period
+respectively. But for the Indian location, sublimation was preferred throughout its simulation duration. So the
+latent heat increased both the freezing and the melting rates for the swiss location but increased and decreased
+the freezing and melting rates for the Indian location.
 
 Thus, the more than three times higher mean surface area of the fountain and four times higher mean thickness
 growth rate during the 2 times shorter accumulation period of the Indian location result in a six times
@@ -1029,8 +1037,10 @@ than 0.9 and an RMSE less than $11 \, \%$ of the maximum ice volume for all the 
 
 \item Maximum ice volume of the Indian AIR was more than 6 times higher than the Swiss AIRs. The weather of the
 Indian location favored a faster thickness growth rate and the spray radius of the Indian fountain produced a
-higher surface area compared to the Swiss counterparts. The compounding effect of a faster thickness growth
-rate on a larger surface area led to much higher freezing rates for the IN21 AIR.
+higher surface area compared to the Swiss counterparts. Thus, the more than three times higher mean surface
+area of the fountain and four times higher mean thickness growth rate during the 2 times shorter accumulation
+period of the Indian location result in a six times higher maximum ice volume of the Indian AIR compared to
+the Swiss.
 
 \item The Indian AIR had a longer ablation period than the Swiss AIRs. A slower thickness decay rate on a larger
 surface area resulted in a IN21 melting rate that was comparable to the CH21 melting rate. Since the
@@ -1040,7 +1050,7 @@ Swiss AIRs.
 \item The freezing rates were 7 times higher than the melting rates for the Indian AIR whereas there was
 negligible difference between the two rates for the Swiss AIR. The energy flux corresponding to the sublimation
 process augmented the growth and dampened the decay of the AIR thickness for the Indian site whereas
-sublimation was not a preferred surface process in the Swiss location due to its high humidity.
+sublimation was not preferred over deposition in the Swiss location due to its high humidity.
 
 \item Water losses are high ($>75\%$) mostly due to fountain water runoff for all the AIRs. However, significant
 improvement in water storage efficiency is possible through optimization of fountain discharge rate.
