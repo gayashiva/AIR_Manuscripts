@@ -830,7 +830,45 @@ accounted for 36 \% and $q_{T}$ just 2 \% of overall energy turnover. The freezi
 34\% of the simulation duration (see Table \ref{tab:Observations}) for the Indian and Swiss site respectively.
 The accumulation period is characterisitc of these freezing events and ablation period is charecteristic of the
 melting events. We compare the energy turnover of different energy fluxes between these two periods to quantify
-the influence of different surface processes using Table \ref{tab:turnover}.
+the influence of different surface processes.
+
+\begin{table}
+	\centering
+	\caption{ Energy turnover of the energy balance components (EBC) during the accumulation and ablation periods
+		with their daily mean ($\mu$) and standard deviation ($\sigma$) for each site. The positive/negative sign
+		is indicative of the sign of the energy flux mean during the respective period.}
+	\label{tab:turnover}
+	\begin{tabular}{@{}|lllll|@{}}
+		\toprule
+		\textbf{}              & \textbf{EBC} & \textbf{Accumulation} & \textbf{Ablation} & \textbf{$\mu \pm \sigma
+		$}                                                                                                             \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
+		                       & $q_{SW}$     & 6 \%                  & 11 \%             & $ 26 \pm 43 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{LW} $    & -48 \%                & -24 \%            & $ -80\pm 34 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{S}  $    & 22 \%                 & 45 \%             & $ 96 \pm140 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{L}  $    & -21 \%                & -20 \%            & $ -52 \pm 74 \, W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & $q_{F}  $    & 2 \%                  & 0 \%              & $ 2 \pm 3 \, W\,m^{-2}$    \\
+		\multicolumn{1}{|l|}{} & $q_{G}   $   & 1\%                   & 0 \%              & $ 0 \pm 2 \, W\,m^{-2}$    \\\midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{CH21}}}
+		                       & $q_{SW} $    & 22 \%                 & 26 \%             & $ 37 \pm 56 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{LW} $    & -44 \%                & -31 \%            & $ -57 \pm 33 \, W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & $q_{S}  $    & 19 \%                 & 34 \%             & $ 36 \pm 74 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{L}  $    & -8 \%                 & 9 \%              & $ -2 \pm 31 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{F}  $    & 6 \%                  & 0 \%              & $ 5 \pm 4 \, W\,m^{-2}$    \\
+		\multicolumn{1}{|l|}{} & $q_{G}   $   & 0 \%                  & 1 \%              & $ 0 \pm 1 \, W\,m^{-2}$    \\\bottomrule
+	\end{tabular}
+\end{table}
+
+To understand the overall impact of the radiation fluxes (longwave and shortwave) and the turbulent fluxes
+(sensible and latent) on the freezing and melting energies, we sum their respective energy turnover taking into
+account the sign of their mean energy during the accumulation/ablation period (see Table \ref{tab:turnover}). A negative sign indicates that
+the corresponding energy flux increased/decreased the freezing/melting energy. Note that all the energy fluxes
+maintain the same sign for both the accumulation and ablation periods for the Indian location but the latent
+heat changes sign for the Swiss location. The radiation fluxes contribute 42 \% and -13 \% to the freezing and
+melting energies for the Indian location and 22 \% and -6 \%  to the Swiss location respectively.  Similarly,
+the turbulent fluxes at the Indian location contribute -1 \% and 25 \% and at the Swiss location contribute -11
+\% and 43\%  respectively. So the AIR thickness growth rate was driven by the net radiation fluxes and the AIR
+thickness decay rate was driven by the net turbulent fluxes.
 
 \begin{figure}
 	\begin{center}
@@ -859,31 +897,6 @@ period compared to the accumulation period. Albedo, on the other hand, only vari
 location because there was no precipitation for the IN21 site.
 
 
-\begin{table}
-	\centering
-	\caption{ Energy turnover of the energy balance components (EBC) during the accumulation and ablation periods
-		with their daily mean ($\mu$) and standard deviation ($\sigma$) for each site.}
-	\label{tab:turnover}
-	\begin{tabular}{@{}|lllll|@{}}
-		\toprule
-		\textbf{}              & \textbf{EBC} & \textbf{Accumulation} & \textbf{Ablation} & \textbf{$\mu \pm \sigma
-		$}                                                                                                             \\ \midrule
-		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
-		                       & $q_{SW}$     & 6 \%                  & 11 \%             & $ 26 \pm 43 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{LW} $    & -48 \%                & -24 \%            & $ -80\pm 34 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{S}  $    & 22 \%                 & 45 \%             & $ 96 \pm140 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{L}  $    & -21 \%                & -20 \%            & $ -52 \pm 74 \, W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & $q_{F}  $    & 2 \%                  & 0 \%              & $ 2 \pm 3 \, W\,m^{-2}$    \\
-		\multicolumn{1}{|l|}{} & $q_{G}   $   & 1\%                   & 0 \%              & $ 0 \pm 2 \, W\,m^{-2}$    \\\midrule
-		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{CH21}}}
-		                       & $q_{SW} $    & 22 \%                 & 26 \%             & $ 37 \pm 56 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{LW} $    & -44 \%                & -31 \%            & $ -57 \pm 33 \, W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & $q_{S}  $    & 19 \%                 & 34 \%             & $ 36 \pm 74 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{L}  $    & -8 \%                 & 9 \%              & $ -2 \pm 31 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{F}  $    & 6 \%                  & 0 \%              & $ 5 \pm 4 \, W\,m^{-2}$    \\
-		\multicolumn{1}{|l|}{} & $q_{G}   $   & 0 \%                  & 1 \%              & $ 0 \pm 1 \, W\,m^{-2}$    \\\bottomrule
-	\end{tabular}
-\end{table}
 
 \begin{table}
 	\centering
@@ -944,13 +957,6 @@ to sublimation was regained by deposition. These process differences were primar
 difference in relative humidity between the sites.  This was expected since glaciers near the IN21 location have
 been hypothesized to lose a significant amount of mass through sublimation by \cite{azam_2018}.
 
-To understand the overall impact of the radiation fluxes (longwave and shortwave) and the turbulent fluxes
-(sensible and latent) on the freezing and melting energies, we sum their respective energy turnover. The
-radiation fluxes contribute 42 \% and -13 \% to the freezing and melting energies for the Indian location and 22
-\% and -6 \%  to the Swiss location respectively.  Similarly, the turbulent fluxes at the Indian location
-contribute -1 \% and 25 \% and at the Swiss location contribute -11 \% and 43\%  respectively. So the AIR
-thickness growth rate was driven by the net radiation fluxes and the AIR thickness decay rate was driven by the net
-turbulent fluxes.
 
 \subsubsection{Fountain influence}
 
