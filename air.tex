@@ -47,19 +47,18 @@
 
 	Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
 	irrigation water supply. However, there is a large variability associated with this water supply due to the
-	local weather influences of the construction location chosen. This study compares the evolution of different
-	AIRs built in Ladakh, India and Guttannen, Switzerland based on the influence of different surface processes
-	responsible for their spatial and temporal ice volume variance using a surface energy balance model.  Model
-	input consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).
-  Model calibration and validation were performed through ice volume and area measurements taken from several
-  Uncrewed Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume
-  with the UAV ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume
-  around 6 times larger, was more favourable compared to the Guttannen site.  However, the corresponding water
-  losses for all the AIRs were $>75 \%$ of the total fountain discharge due to high fountain water runoff. Drier
-  and colder locations in relatively cloud free regions are expected to produce AIRs with a faster freezing rate
-  and slower melting rate respectively. This is a promising result for dry mountain regions, where AIR
-  technology could provide a relatively cheap and sustainable strategy to alleviate climate change induced water
-  stress.
+  local weather influences of the construction location chosen. This study compares the evolution of AIRs built
+  in Ladakh, India and Guttannen, Switzerland based on the influence of different surface processes responsible
+  for their spatial and temporal ice volume variance using a surface energy balance model.  Model input
+  consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).  Model
+  calibration and validation were performed through ice volume and area measurements taken from several Uncrewed
+  Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume with the
+  UAV ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume around 6
+  times larger, was more favourable compared to the Guttannen site.  However, the corresponding water losses for
+  all the AIRs were $>75 \%$ of the total fountain discharge due to high fountain water runoff. Drier and colder
+  locations in relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower
+  melting rate respectively. This is a promising result for dry mountain regions, where AIR technology could
+  provide a relatively cheap and sustainable strategy to alleviate climate change induced water stress.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -706,7 +705,8 @@ within the ranges defined in Table \ref{tab:parameters}.
 		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
 	\end{center}
 	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
-		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs. }
+		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
+  objective. }
 	\label{fig:param_hist}
 \end{figure}
 
@@ -801,8 +801,6 @@ be categorised based on the fountain used and the location selected. According t
 the freezing/melting rate of the AIRs can be decomposed to the corresponding freezing/melting energy and the
 surface area. The construction location chosen determines the thickness growth/decay rate through the
 freezing/melting energy flux and the fountain determines the surface area through its spray radius.
-
-\subsubsection{Location influence}
 
 The influence of location can be further comprehended, if we analyse the daily surface normal thickness rate
 together with the corresponding energy fluxes. Fig.  \ref{fig:MEB} shows the daily thickness and energy balance
@@ -927,7 +925,7 @@ location because there was no precipitation for the IN21 site.
 		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$ \\\midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
 		                       & Meltout date error              &                 & N.A.          & 1             & $days$  \\
-		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 12            & $m^{3}$ \\
+		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 14            & $m^{3}$ \\
 		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume &                 & 0.99          & 0.93          &
 		N.A.                                                                                                                 \\\bottomrule
 	\end{tabular}
@@ -965,8 +963,6 @@ location due to lesser mean winter temperature and lesser cloudiness. The Indian
 thickness decay rate because its latent fluxes were acting against the sensible heat fluxes using the
 sublimation process during the ablation period unlike in the Swiss location, where deposition process was
 favoured during the ablation period due to higher relative humidity.
-
-\subsubsection{Fountain influence}
 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$), temperature
 forcing and albedo forcing ($q_{SW}$). However, this influence is minimal compared to the influence of surface
@@ -1031,7 +1027,7 @@ location chosen and the fountain used. Our main conclusions are summarized below
 
 \begin{itemize}
 	\item The model was successful in reproducing the observed UAV ice volume evolution with a correlation greater
-	      than 0.9 and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs.
+	      than $0.93$ and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs.
 
   \item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
     Swiss AIRs. The lower radiation fluxes of the Indian location favored a faster thickness growth rate and the
@@ -1066,7 +1062,7 @@ Assuming a conical shape with a diameter of 20 $m$, the corresponding volume of 
 January \citep{waterstart} to at least until $5^{th}$ March 2015 \citep{waterend} (around 43 nights). Assuming
 fountain spray was active for 8 hours each night, we estimate water consumption to be around 4,334 $m^3$. Thus,
 during the accumulation period of the icestupa, roughly 56 \% of the water provided was wasted.  This icestupa
-completely melted away on $6^{th}$ July 2015 \citep{coneends}.
+completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
 \subsection{UAV data processing} \label{sec:uav}
 
