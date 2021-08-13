@@ -156,7 +156,7 @@ precipitation in Leh totals less than 100 mm, and there is high interannual vari
 summer rainfall between July and September reaches 37.5 mm, the average winter precipitation between January and
 March amounts to 27.3 mm and falls almost entirely as snow . The mean annual temperature is $5.6 \, \degree C$,
 and the thermal range is characterized by high seasonal variation. During January, the coldest month, the mean
-temperature drops to $-7.2 \, \degree C$. During August—the warmest month—the mean temperature rises to $17.5 \,
+temperature drops to $-7.2 \, \degree C$. During August, the warmest month, the mean temperature rises to $17.5 \,
 \degree C$ \citep{Nusser_2012}. AIR were constructed here as part of the Icestupa Competition  by the Himalayan
 Institute of Alternatives, Ladakh (HIAL). The fountain height of the AIR varied between 5 to 9\,$m$.
 
@@ -182,7 +182,8 @@ consequence, the diffuse fraction of the global shortwave radiation was also ass
 
 \begin{table}
 	\centering
-	\caption{ Summary of the weather and fountain observations}
+	\caption{Summary of the weather and fountain observations. The weather measurements are shown using their
+    mean ($\mu$) and standard deviation ($\sigma$) during the simulation duration as $\mu \pm \sigma$. }
 	\label{tab:Observations}
 	\begin{tabular}{@{}|lllllll|@{}}
 		\toprule
@@ -222,10 +223,10 @@ consequence, the diffuse fraction of the global shortwave radiation was also ass
 
 We define the fountain used through four attributes, namely its spray radius, mean discharge quantity, discharge
 runtime and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge
-rate was unsuccessful in all the sites. Instead the discharge duration was first determined and then the
-available discharge measurement was used to determine the average discharge quantity $d_F$ during these periods.
-The spray radius $r_F$ was estimated from the mean AIR circumference measured in the drone flights during the
-fountain runtime.
+rate was unsuccessful in all the sites due to data logger malfunctions of the associated flowmeter. Instead the
+discharge duration was first determined and then the available discharge measurement was used to determine the
+average discharge quantity $d_F$ during these periods.  The spray radius $r_F$ was estimated from the mean AIR
+circumference measured in the drone flights during the fountain runtime.
 
 The Swiss fountain was never switched off so the discharge duration was extrapolated from just one fountain on
 and off event each.
@@ -243,7 +244,6 @@ used to set the dome volume ($V_{dome}$) for model initialisation. The rest were
 validation. Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}),
 it had a much higher dome volume compared to the other AIRs.  The details of these flights and the methodology
 used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
-
 
 \section{Model setup}
 
@@ -268,18 +268,18 @@ The model assumes the AIR shape to be a cone and assigns it the following shape 
 	\label{equations}
 	\begin{align}
 		\label{eq:A}
-		A_{cone} & = A_{corr} \cdot \pi \cdot r_{cone} \cdot \sqrt{{r_{cone}}^2 + {h_{cone}}^ 2} \\
+		A_{cone}^i & = A_{corr}^i \cdot \pi \cdot r_{cone}^i \cdot \sqrt{{r_{cone}^i}^2 + {h_{cone}^i}^ 2} \\
 		\label{eq:V}
-		V_{cone} & = \pi/3 \cdot {r_{cone}}^2 \cdot h_{cone}                                     \\
+		V_{cone}^i & = \pi/3 \cdot {r_{cone}^i}^2 \cdot h_{cone}^i                                     \\
 		\label{eq:thickness}
-		t_{cone} & =\frac{\Delta M_{ice}}{\rho_{water}* A_{cone}}
+		t_{cone}^i & =\frac{\Delta M_{ice}^i}{\rho_{water}* A_{cone}^i}
 	\end{align}
 \end{subequations}
 
-where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}$ is the surface area; $A_{corr}$ is a
+where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is the surface area; $A_{corr}$ is a
 correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
-the modelled conical surface; $V_{cone}$ is the volume and $t_{cone}$ is the AIR surface normal thickness
-change as shown in Fig. \ref{fig:shape}. $M_{ice}$ is the mass of the AIR and $\Delta M_{ice} = M_{ice}^{i-1} -
+the modelled conical surface; $V_{cone}^i$ is the volume and $t_{cone}$ is the AIR surface normal thickness
+change as shown in Fig. \ref{fig:shape}. $M_{ice}^i$ is the mass of the AIR and $\Delta M_{ice}^i = M_{ice}^{i-1} -
 	M_{ice}^{i-2}$.
 
 AIR volume can also be expressed as:
@@ -324,11 +324,9 @@ Icestupa at each time step $i$ can be determined by considering the following ru
 	\begin{center}
 		\includegraphics[width=10 cm]{Figures/Figure_4.jpeg}
 	\end{center}
-	\caption{Shape variables and fountain constants of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the
-		height, $t_{cone}$ is the thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray
-		radius of the fountain.}
-	\label{fig:shape}
-\end{figure}
+  \caption{Shape variables of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the height, $t_{cone}$ is the
+thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius of the fountain.}
+\label{fig:shape} \end{figure}
 
 The energy balance equation (e.g. \cite{Hock_2005}) for the AIR is formulated as follows:
 
