@@ -145,7 +145,7 @@ construction of the AIR.
 	\begin{center}
 		\includegraphics[width=12 cm]{Figures/Figure_2.jpg}
 	\end{center}
-	\caption{The Swiss and Indian AIR on March 3 and January 9, 2021 respectively. Picture credits: Daniel Buerki (left)
+	\caption{The Swiss and Indian AIR on January 9 and March 3, 2021 respectively. Picture credits: Daniel Buerki (left)
 		and Thinles Norboo (right)}
 	\label{fig:2AIR}
 \end{figure}
@@ -157,7 +157,7 @@ summer rainfall between July and September reaches 37.5 mm, the average winter p
 March amounts to 27.3 mm and falls almost entirely as snow . The mean annual temperature is $5.6 \, \degree C$,
 and the thermal range is characterized by high seasonal variation. During January, the coldest month, the mean
 temperature drops to $-7.2 \, \degree C$. During August—the warmest month—the mean temperature rises to $17.5 \,
-	\degree C$ \citep{Nusser_2012}. AIR were constructed here as part of the Icestupa Competition  by the Himalayan
+\degree C$ \citep{Nusser_2012}. AIR were constructed here as part of the Icestupa Competition  by the Himalayan
 Institute of Alternatives, Ladakh (HIAL). The fountain height of the AIR varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
@@ -638,8 +638,7 @@ Considering AIRs as water reservoirs, their net water loss ($NWL$) can be define
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
 model sensitivity and uncertainty. Polynomial chaos expansion are a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
-polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  The surrogate
-model produced was a polynomial of order 4.
+polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
 and the fountain parameters. For the weather parameters, we first fix a range based on literature values
@@ -731,13 +730,13 @@ around early March when the AIR volume was near its maximum whereas the 7 flight
 evenly spaced out in comparison (see Table \ref{tab:uav}).
 
 $A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
-objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled ice area due to the
-additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area to
-deviate significantly from CH21 AIR because its surface area represents the area of two ice cones merged into one
-(see Fig.  \ref{fig:2AIR}). This is clearly represented in the disjoint frequency distribution of the area
-objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21 area correction factor to 1.5. Since no strong
-preference is observed for the CH21 area correction factor, we calibrate it to the median of the values it assumed
-in the area objective, namely, 1.2.
+objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled ice area due to
+the additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area
+correction factor to deviate significantly from that of CH21 AIR because the IN21 surface area represents the
+area of two ice cones merged into one (see Fig.  \ref{fig:2AIR}). This is clearly represented in the disjoint
+frequency distribution of the area objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21 area
+correction factor to 1.5. Since no strong preference is observed for the CH21 area correction factor, we
+calibrate it to the median of the values it assumed in the area objective, namely, 1.2.
 
 The model surface layer thickness was selected based on the two conditions described in Section \ref{sec:energy}.
 Since the minimum surface temperature does not go beyond $-30 \, \degree C$ (satisfies (b)) for the smallest
@@ -784,7 +783,7 @@ not possible both through observation and through modelling.  In reality, the IN
 disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt-out date was also not defined
 since the AIR never melted completely during the model simulation.
 
-There was just one UAV observation of the CH20 AIR Volume (see Table \ref{tab:uav}).  The RMSE of that UAV ice
+There was just one UAV observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that UAV ice
 observation with the modelled volume was just $9 m^3$.
 
 \subsection{AIR ice volume estimates}
@@ -812,13 +811,6 @@ together with the corresponding energy fluxes. Fig.  \ref{fig:MEB} shows the dai
 components calculated with the calibrated parameters for the first and last 20 days for each AIR. The two time
 periods selected are characteristic of the accumulation and ablation period, respectively. A strong variability is
 evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
-
-The magnitudes of the thickness components in Fig. \ref{fig:MEB} are explained by their corresponding
-energy balance component (EBC).  Particularly, ice thickness corresponds to freezing EBC, melt thickness
-corresponds to melting EBC available and the net thickness represents the surface EBC available.  Snow
-deposition is calculated directly from the precipitation quantity and the sublimation/deposition quantities
-corresponding to the latent heat EBC available.  The rest of the EBC components are shown to represent the
-different physical processes that contribute to this freezing and melting EBC components.
 
 The daily mean thickness rate of the Indian location was positive ($1\, mm \,w.e.$) with a daily mean growth
 rate of $24\, mm \,w.e.$ and a mean decay rate of $12\, mm \,w.e.$. In the Swiss location, the daily mean
@@ -869,7 +861,16 @@ heat changes sign for the Swiss location. The radiation fluxes contribute 42 \% 
 melting energies for the Indian location and 22 \% and -6 \%  to the Swiss location respectively.  Similarly,
 the turbulent fluxes at the Indian location contribute -1 \% and 25 \% and at the Swiss location contribute -11
 \% and 43\%  respectively. So the AIR thickness growth rate was driven by the net radiation fluxes and the AIR
-thickness decay rate was driven by the net turbulent fluxes.
+thickness decay rate was driven by the net turbulent fluxes. 
+
+Now we examine which surface process contributed the most to the net radiation fluxes and the net turbulent
+fluxes respectively. To do so, we analyse the magnitudes of the thickness components and their corresponding
+energy balance component (EBC) together using Fig.  \ref{fig:MEB}.  Particularly, ice thickness corresponds to
+freezing EBC, melt thickness corresponds to melting EBC available and the net thickness represents the surface
+EBC available.  Snow deposition is calculated directly from the precipitation quantity and the
+sublimation/deposition quantities corresponding to the latent heat EBC available.  The rest of the EBC
+components are shown to represent the different physical processes that contribute to this freezing and melting
+EBC components.
 
 \begin{figure}
 	\begin{center}
@@ -881,22 +882,21 @@ thickness decay rate was driven by the net turbulent fluxes.
 The longwave radiation flux has the highest energy turnover during the accumulation period for both the
 locations. It increases and decreases the freezing and melting EBC during the accumulation and ablation period
 respectively. However, its magnitude is much lower in the ablation period compared to the accumulation period
-since the rising air temperature increases the incoming shortwave radiation in the ablation period. The
-magnitude of longwave radiation flux was much higher for the Indian site as its incoming longwave radiation was
-strongly reduced due to its low cloudiness (see Table \ref{tab:Observations}).
+since the rising air temperature increases the incoming longwave radiation in the ablation period. The magnitude
+of longwave radiation flux was much higher for the Indian site as its incoming longwave radiation was strongly
+reduced due to its low cloudiness (see Table \ref{tab:Observations}).
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and
-lower latitude. However, the total energy turnover of shortwave radiation is 2 times lesser for the Indian site
-compared to the Swiss (see Table \ref{tab:turnover}). Moreover, there is no significant difference in the net
-shortwave radiation absorbed by both the AIRs (see Table \ref{tab:turnover}). This is because the higher diffuse
-shortwave radiation at the Swiss location is compensating for its lower direct shortwave radiation (see Table
-\ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse shortwave radiation was strongly
-reduced. Moreover, less than half of the AIR surface area was exposed to direct shortwave radiation flux for
-both the locations due to the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due to
-increasing solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation
+lower latitude. However, the total energy turnover of shortwave radiation is two times lesser for the Indian
+site compared to the Swiss (see Table \ref{tab:turnover}). Moreover, there is no significant difference in the
+net shortwave radiation absorbed by both the AIRs (see Table \ref{tab:turnover}). This is because the higher
+diffuse shortwave radiation at the Swiss location is compensating for its lower direct shortwave radiation (see
+Table \ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse shortwave radiation was
+strongly reduced. Moreover, less than half of the AIR surface area was exposed to direct shortwave radiation
+flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due
+to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation
 period compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss
 location because there was no precipitation for the IN21 site.
-
 
 
 \begin{table}
@@ -958,15 +958,30 @@ to sublimation was regained by deposition. These process differences were primar
 difference in relative humidity between the sites.  This was expected since glaciers near the IN21 location have
 been hypothesized to lose a significant amount of mass through sublimation by \cite{azam_2018}.
 
+Hence, for both the locations, incoming longwave radiation was responsible for how well the net radiation fluxes
+were able to augment the thickness growth rate. Similarly, the sublimation process was responsible for how well
+the net turbulent fluxes were able to dampen the the thickness decay rate. Particularly, the Indian location had
+a much higher thickness growth rate because its incoming longwave radiation during the accumulation period was
+much lesser than that of the Swiss location due to lesser mean winter temperature and lesser cloudiness. The
+Indian location had a similar mean thickness decay rate because its latent fluxes were acting against the
+sensible heat fluxes using the sublimation process during the ablation period unlike in the Swiss location,
+where deposition process was favoured during the ablation period due to higher relative humidity.
 
 \subsubsection{Fountain influence}
 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$), temperature
-forcing and albedo forcing ($q_{SW}$). However, this influence is minimal compared to the influence
-of surface area, which has a high correlation with the ice volume ($r^2=0.6$). The fountain determines the
-surface area through its spray radius during the accumulation period. The variance of this surface area is quite
-low in the accumulation period since the ice radius is initialised and bounded by the spray radius. So the
-thickness growth rate is uniformly scaled to produce the corresponding ice volume.
+forcing and albedo forcing ($q_{SW}$). However, this influence is minimal compared to the influence of surface
+area, which has a high correlation with the ice volume ($r^2=0.6$). As seen from the uncertainty analysis, ice
+volume estimates were most sensitive to the fountain spray radius parameter. The variance of this surface area
+is quite low in the accumulation period since the ice radius is initialised and bounded by the spray radius. So
+the thickness growth rate is uniformly scaled to produce the corresponding ice volume. The higher spray radius
+of the Indian fountain resulted in a higher maximum ice volume but this was at the expense of a faster melt-out
+date. This is because the fountain determined spray radius increases both the freezing and the melting rate.
+Moreover, the fountain parameters are not independent, since fountain height (ignored in this analysis),
+discharge rate and spray radius are related through the projectile motion followed by the water droplets. So a
+proper optimization of the fountain is much more complex and requires a closer look at the correlation of the
+fountain parameters amongst themselves and with the freezing/melting energy flux. This will be investigated in a
+follow up study, with this study focusing on the weather aspects of the model.
 
 \section{Discussion}
 
@@ -987,7 +1002,7 @@ surface area of the Indian location compared to the Swiss. The freezing rates of
 than the CH21 AIR because of the much faster thickness growth rate and the larger surface area of the Indian
 location compared to the Swiss.
 
-\subsection{Favourable AIR locations and fountains}
+\subsection{Favourable AIR locations}
 
 The Indian location was favourable because its mean thickness rate was positive. Particularly, the mean
 thickness growth rate was much higher than the decay rate. This enabled the fountain determined surface area to
@@ -995,25 +1010,15 @@ favor AIR growth over decay. However, the Swiss location was not favourable sinc
 negative, indicating that the surface area favored AIR decay over growth (see Table \ref{tab:Results}).
 
 Some factors play a significant role in making the Indian location more favourable than the Swiss location,
-namely, cloudiness, temperature and relative humidity. The lower cloudiness of the Indian location significantly
-reduces the net radiation flux. It reduces the diffuse fraction of global shortwave radiation and the incoming
-longwave radiation. The lower mean winter temperature results in a lower incoming longwave radiation. Together,
-lower winter temperature and cloudiness increases the magnitude of the the net radiation flux which drives the
-thickness growth rate. The lower humidity favours the sublimation over the deposition process. So lower
-humidity decreases the magnitude of net turbulent fluxes which are the drivers of the thickness decay rate.
-Hence, for AIRs with similar fountain parameters, we expect locations with lower cloudiness, lower mean winter
-temperature to augment freezing rates and locations with lower humidity to dampen melting rates. These results
-highlight the relevance of AIRs as a water storage technology particularly for drier climates facing water
-stress.
+namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter temperature of the
+Indian location significantly reduce the net radiation fluxduring the accumulation period. This enables a faster
+AIR thickness growth rate.  The lower humidity favours the sublimation over the deposition process. So lower
+humidity decreases the magnitude of net turbulent fluxesduring the ablation period. This results in a slower
+thickness decay rate.  Hence, for AIRs with similar fountain parameters, we expect locations with lower
+cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity to dampen
+melting rates. These results highlight the relevance of AIRs as a water storage technology particularly for
+drier climates facing water stress.
 
-As seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain spray radius
-parameter. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was
-at the expense of a faster melt-out date. This is because the fountain determined spray radius increases both
-the freezing and the melting rate. Moreover, the fountain parameters are not independent, since fountain height
-(ignored in this analysis), discharge rate and spray radius are related through the projectile motion followed
-by the water droplets. So a proper optimization of the fountain is much more complex and requires a closer look
-at the correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This
-will be investigated in a follow up study, with this study focusing on the weather aspects of the model.
 
 \section{Conclusions}
 
