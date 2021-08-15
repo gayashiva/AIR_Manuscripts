@@ -47,18 +47,18 @@
 
 	Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
 	irrigation water supply. However, there is a large variability associated with this water supply due to the
-  local weather influences of the construction location chosen. This study compares the evolution of AIRs built
-  in Ladakh, India and Guttannen, Switzerland based on the influence of different surface processes responsible
-  for their spatial and temporal ice volume variance using a surface energy balance model.  Model input
-  consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).  Model
-  calibration and validation were performed through ice volume and area measurements taken from several Uncrewed
-  Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume with the
-  UAV ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume around 6
-  times larger, was more favourable compared to the Guttannen site.  However, the corresponding water losses for
-  all the AIRs were $>75 \%$ of the total fountain discharge due to high fountain water runoff. Drier and colder
-  locations in relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower
-  melting rate respectively. This is a promising result for dry mountain regions, where AIR technology could
-  provide a relatively cheap and sustainable strategy to alleviate climate change induced water stress.
+	local weather influences of the construction location chosen. This study compares the evolution of AIRs built
+	in Ladakh, India and Guttannen, Switzerland based on the influence of different surface processes responsible
+	for their spatial and temporal ice volume variance using a surface energy balance model.  Model input
+	consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).  Model
+	calibration and validation were performed through ice volume and area measurements taken from several Uncrewed
+	Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume with the
+	UAV ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume around 6
+	times larger, was more favourable compared to the Guttannen site.  However, the corresponding water losses for
+	all the AIRs were $>75 \%$ of the total fountain discharge due to high fountain water runoff. Drier and colder
+	locations in relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower
+	melting rate respectively. This is a promising result for dry mountain regions, where AIR technology could
+	provide a relatively cheap and sustainable strategy to alleviate climate change induced water stress.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -109,7 +109,7 @@ fishing nets are used to guide and accelerate the ice formation.
 
 However, to date, no reliable estimates exist about the quantity of meltwater they can provide
 \citep{Nusser_2018} . Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
-losses during their lifetimes (Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation period,
+losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation period,
 AIRs can lose excessive fountain water directly as runoff and during the ablation period, sublimation losses
 could be significant.  However, the relative contribution of these processes in the total water loss remains
 unknown.
@@ -156,7 +156,7 @@ summer rainfall between July and September reaches 37.5 mm, the average winter p
 March amounts to 27.3 mm and falls almost entirely as snow . The mean annual temperature is $5.6 \, \degree C$,
 and the thermal range is characterized by high seasonal variation. During January, the coldest month, the mean
 temperature drops to $-7.2 \, \degree C$. During August, the warmest month, the mean temperature rises to $17.5 \,
-\degree C$ \citep{Nusser_2012}. AIR were constructed here as part of the Icestupa Competition  by the Himalayan
+	\degree C$ \citep{Nusser_2012}. AIR were constructed here as part of the Icestupa Competition  by the Himalayan
 Institute of Alternatives, Ladakh (HIAL). The fountain height of the AIR varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
@@ -182,7 +182,7 @@ consequence, the diffuse fraction of the global shortwave radiation was also ass
 \begin{table}
 	\centering
 	\caption{Summary of the weather and fountain observations. The weather measurements are shown using their
-    mean ($\mu$) and standard deviation ($\sigma$) during the simulation duration as $\mu \pm \sigma$. }
+		mean ($\mu$) and standard deviation ($\sigma$) during the simulation duration as $\mu \pm \sigma$. }
 	\label{tab:Observations}
 	\begin{tabular}{@{}|lllllll|@{}}
 		\toprule
@@ -238,11 +238,60 @@ these pipeline freezing events.
 
 Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites. The DEM generated
 through these flights were analysed to obtain the radius, area and volume of the ice structure. The number of
-flights available  for the IN21, CH21 and CH20 AIR were 6, 8 and 2 respectively. The first drone flight was
+flights available  for the IN21, CH21 and CH20 AIR were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was
 used to set the dome volume ($V_{dome}$) for model initialisation. The rest were used for model calibration and
 validation. Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}),
 it had a much higher dome volume compared to the other AIRs.  The details of these flights and the methodology
 used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
+
+\begin{table}
+	\centering
+	\caption{ Summary of the UAV observations}
+	\label{tab:uav}
+	\begin{tabular}{@{}|llllll|@{}}
+		\toprule
+		\textbf{}              & \textbf{No.} & \textbf{Date} & \textbf{Volume} & \textbf{Radius} & \textbf{Area} \\ \midrule
+		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
+		                       & 1            & Jan 18, 2021  & 103 $m^{3}$     & 9.1 $m$
+		                       & 411 $m^{2}$                                                                      \\
+		\multicolumn{1}{|l|}{} & 2            & Feb 27, 2021  & 580 $m^{3}$     & 10.2 $m$
+		                       & 668 $m^{2}$                                                                      \\
+		\multicolumn{1}{|l|}{} & 3            & Mar 3, 2021   & 626 $m^{3}$     & 10.3 $m$
+		                       & 694 $m^{2}$                                                                      \\
+		\multicolumn{1}{|l|}{} & 4            & Mar 15, 2021  & 692 $m^{3}$     & 10 $m$
+		                       & 681 $m^{2}$                                                                      \\
+		\multicolumn{1}{|l|}{} & 5            & Mar 26, 2021  & 582 $m^{3}$     & 10.2 $m$
+		                       & 671 $m^{2}$                                                                      \\
+		\multicolumn{1}{|l|}{} & 6            & Apr 3, 2021   & 620 $m^{3}$     & 10.1 $m$
+		                       & 658 $m^{2}$
+		\\\midrule
+		\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{CH21}}}
+		                       & 1            & Nov 22, 2020  & 13 $m^{3}$      & 5.4 $m$
+		                       & 136$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 2            & Dec 2, 2020   & 26 $m^{3}$      & 5.7 $m$
+		                       & 118$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 3            & Dec 30, 2020  & 43 $m^{3}$      & 7.5 $m$
+		                       & 189$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 4            & Jan 9, 2021   & 82 $m^{3}$      & 6.5 $m$
+		                       & 150$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 5            & Mar 6, 2021   & 108 $m^{3}$     & 7.5 $m$
+		                       & 183$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 6            & Apr 2, 2021   & 83 $m^{3}$      & 6.5 $m$
+		                       & 150$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 7            & Apr 16, 2021  & 64 $m^{3}$      & 6.2 $m$
+		                       & 134$m^{2}$                                                                       \\
+		\multicolumn{1}{|l|}{} & 8            & Apr 24, 2021  & 37 $m^{3}$      & 4.7 $m$
+		                       & 80 $m^{2}$                                                                       \\
+		\midrule
+		\multicolumn{1}{|l|}{\multirow{2}{*}{\rotatebox[origin=c]{90}{CH20}}}
+		                       & 1            & Jan 3, 2020   & 24 $m^{3}$      & 6.7 $m$
+		                       & 170 $m^{2}$                                                                      \\
+		\multicolumn{1}{|l|}{} & 2            & Jan 24, 2020  & 59 $m^{3}$      & 7.7 $m$
+		                       & 228 $m^{2}$                                                                      \\
+		\midrule
+	\end{tabular}
+
+\end{table}
 
 \section{Model setup}
 
@@ -269,7 +318,7 @@ The model assumes the AIR shape to be a cone and assigns it the following shape 
 		\label{eq:A}
 		A_{cone}^i & = A_{corr}^i \cdot \pi \cdot r_{cone}^i \cdot \sqrt{{r_{cone}^i}^2 + {h_{cone}^i}^ 2} \\
 		\label{eq:V}
-		V_{cone}^i & = \pi/3 \cdot {r_{cone}^i}^2 \cdot h_{cone}^i                                     \\
+		V_{cone}^i & = \pi/3 \cdot {r_{cone}^i}^2 \cdot h_{cone}^i                                         \\
 		\label{eq:thickness}
 		t_{cone}^i & =\frac{\Delta M_{ice}^i}{\rho_{water}* A_{cone}^i}
 	\end{align}
@@ -323,9 +372,9 @@ Icestupa at each time step $i$ can be determined by considering the following ru
 	\begin{center}
 		\includegraphics[width=10 cm]{Figures/Figure_4.jpeg}
 	\end{center}
-  \caption{Shape variables of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the height, $t_{cone}$ is the
-thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius of the fountain.}
-\label{fig:shape} \end{figure}
+	\caption{Shape variables of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the height, $t_{cone}$ is the
+		thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius of the fountain.}
+	\label{fig:shape} \end{figure}
 
 The energy balance equation (e.g. \cite{Hock_2005}) for the AIR is formulated as follows:
 
@@ -635,13 +684,13 @@ Considering AIRs as water reservoirs, their net water loss ($NWL$) can be define
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
 model sensitivity and uncertainty. Polynomial chaos expansion are a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
-polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.  
+polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
 and the fountain parameters. For the weather parameters, we first fix a range based on literature values
 and then perform a global sensitivity analysis (GSA) with the net water loss ($NWL$) as the objective. The
 distribution is always treated as uniform and the limits for every parameter are given in Table
-\ref{tab:parameters}. The GSA consists of a total ensemble size of 2000 simulations per AIR. The parameter
+\ref{tab:parameters}. The GSA consists of a total ensemble size of 992 simulations per AIR. The parameter
 sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model by
 identifying those parameters, which have only a marginal influence on the model output.
 
@@ -697,8 +746,7 @@ The focus of the GSA is not on the absolute sensitivity towards single parameter
 dimension of the parameter space. Therefore, the following discussion is limited to two classes: parameters to
 which the model is sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). The threshold of 0.2 was
 chosen since most of the parameters were bounded by it. For all the AIRs, just three parameters were sensitive
-namely, $z_{0}$, $A_{corr}$ and $\Delta x$. Model simulations were carried out varying all the sensitive parameters
-within the ranges defined in Table \ref{tab:parameters}.
+namely, $z_{0}$, $A_{corr}$ and $\Delta x$.
 
 \begin{figure}
 	\begin{center}
@@ -706,7 +754,7 @@ within the ranges defined in Table \ref{tab:parameters}.
 	\end{center}
 	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
 		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
-  objective. }
+		objective. }
 	\label{fig:param_hist}
 \end{figure}
 
@@ -788,13 +836,12 @@ observation with the modelled volume was just $9 m^3$.
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR surface normal
-thickness change as a measure to quantify the location influence.
-
-Note that $t_{cone}$ is similar to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not
-conserved during the lifetime of the AIR since the surface area varies unlike that of a glacier.  Similarly, we
-divide the survival duration of the AIR into accumulation and ablation periods. The accumulation (ablation)
-period ends (starts) at the last fountain discharge event. The thickness rate during the accumulation and
-ablation period is referred to as thickness growth and decay rate respectively.
+thickness change ($t_{cone}$) as a measure to quantify the location influence. Note that $t_{cone}$ is similar
+to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not conserved during the lifetime of the
+AIR since the surface area varies unlike that of a glacier.  Similarly, we divide the simulation duration of the
+AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
+fountain discharge event. The thickness rate during the accumulation and ablation period is referred to as
+thickness growth and decay rate respectively.
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can
 be categorised based on the fountain used and the location selected. According to Eqn.  \ref{eq:m_freeze/melt},
@@ -850,23 +897,22 @@ the influence of different surface processes.
 
 To understand the overall impact of the radiation fluxes (longwave and shortwave) and the turbulent fluxes
 (sensible and latent) on the freezing and melting energies, we sum their respective energy turnover taking into
-account the sign of their mean energy during the accumulation/ablation period (see Table \ref{tab:turnover}). A negative sign indicates that
-the corresponding energy flux increased/decreased the freezing/melting energy. Note that all the energy fluxes
-maintain the same sign for both the accumulation and ablation periods for the Indian location but the latent
-heat changes sign for the Swiss location. The radiation fluxes contribute -42 \% and -13 \% to the freezing and
-melting energies for the Indian location and -22 \% and -6 \%  to the Swiss location respectively.  Similarly,
-the turbulent fluxes at the Indian location contribute -1 \% and 25 \% and at the Swiss location contribute -11
-\% and 43\%  respectively. So the AIR thickness growth rate was driven by the net radiation fluxes and the AIR
-thickness decay rate was driven by the net turbulent fluxes. 
+account the sign of their mean energy during the accumulation/ablation period (see Table \ref{tab:turnover}). A
+negative sign indicates that the corresponding energy flux increased/decreased the freezing/melting energy
+respectively. Note that all the energy fluxes maintain the same sign for both the accumulation and ablation
+periods for the Indian location but the latent heat changes sign for the Swiss location. The radiation fluxes
+contribute -42 \% and -13 \% to the freezing and melting energies for the Indian location and -22 \% and -6 \%
+to the Swiss location respectively.  Similarly, the turbulent fluxes at the Indian location contribute -1 \% and
+25 \% and at the Swiss location contribute -11 \% and 43\%  respectively. So the AIR thickness growth rate was
+driven by the net radiation fluxes and the AIR thickness decay rate was driven by the net turbulent fluxes.
 
 Now we examine which surface process contributed the most to the net radiation fluxes and the net turbulent
 fluxes respectively. To do so, we analyse the magnitudes of the thickness components and their corresponding
 energy balance component (EBC) together using Fig.  \ref{fig:MEB}.  Particularly, ice thickness corresponds to
 freezing EBC, melt thickness corresponds to melting EBC available and the net thickness represents the surface
 EBC available.  Snow deposition is calculated directly from the precipitation quantity and the
-sublimation/deposition quantities corresponding to the latent heat EBC available.  The rest of the EBC
-components are shown to represent the different physical processes that contribute to this freezing and melting
-EBC components.
+sublimation/deposition quantities corresponding to the latent heat EBC available.  The rest of the EBC are shown
+to represent the different physical processes that contribute to this freezing and melting EBC .
 
 \begin{figure}
 	\begin{center}
@@ -884,16 +930,15 @@ reduced due to its low cloudiness (see Table \ref{tab:Observations}).
 
 Direct shortwave radiation is more than three times higher for the IN21 location due to its higher altitude and
 lower latitude. However, the total energy turnover of shortwave radiation is two times lesser for the Indian
-site compared to the Swiss (see Table \ref{tab:turnover}). Moreover, there is no significant difference in the
-net shortwave radiation absorbed by both the AIRs (see Table \ref{tab:turnover}). This is because the higher
-diffuse shortwave radiation at the Swiss location is compensating for its lower direct shortwave radiation (see
-Table \ref{tab:Observations}). Since the IN21 site has mostly clear days, its diffuse shortwave radiation was
-strongly reduced. Moreover, less than half of the AIR surface area was exposed to direct shortwave radiation
-flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due
-to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation
-period compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss
-location because there was no precipitation for the IN21 site.
-
+site compared to the Swiss. Moreover, there is no significant difference in magnitude of the net shortwave
+radiation absorbed by both the AIRs (see Table \ref{tab:turnover}). This is because the higher diffuse shortwave
+radiation at the Swiss location is compensating for its lower direct shortwave radiation . Since the IN21 site
+has mostly clear days, its diffuse shortwave radiation was strongly reduced (see Table \ref{tab:Observations}).
+Moreover, less than half of the AIR surface area was exposed to direct shortwave radiation flux for both the
+locations due to the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due to increasing
+solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation period
+compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss location
+because there was no precipitation for the IN21 site.
 
 \begin{table}
 	\centering
@@ -954,7 +999,7 @@ been hypothesized to lose a significant amount of mass through sublimation by \c
 
 Hence, for both the locations, incoming longwave radiation and diffuse shortwave radiation were responsible for
 how well the net radiation fluxes were able to augment the thickness growth rate. Similarly, the sublimation
-process was responsible for how well the net turbulent fluxes were able to dampen the the thickness decay rate.
+process was responsible for how well the net turbulent fluxes were able to dampen the thickness decay rate.
 Particularly, the Indian location had a much higher thickness growth rate because its incoming longwave
 radiation and diffuse shortwave radiation during the accumulation period was much lesser than that of the Swiss
 location due to lesser mean winter temperature and lesser cloudiness. The Indian location had a similar mean
@@ -984,7 +1029,8 @@ The net water losses of IN21 and CH21 AIR were $78\%$ and $77\%$, respectively. 
 due to the fountain water runoff in both the AIRs . Since vapour losses are negligible compared to fountain
 runoff losses, the AIR wastes water mostly during the accumulation period. The maximum freezing rate of the IN21
 AIR was less than half the mean fountain discharge. The CH21 AIR was able to attain the mean fountain discharge
-provided but this was only for 6 hours from the 2155 hours of fountain runtime available. 
+provided but this was only for 6 hours from the 2155 hours of fountain runtime available. Thus, water losses
+could have been significantly reduced by just decreasing the mean fountain discharge.
 
 \subsection{Freezing and melting rates}
 
@@ -1001,14 +1047,14 @@ thickness growth rate was much higher than the decay rate. This enabled the foun
 favor AIR growth over decay. However, the Swiss location was not favourable since its mean thickness rate was
 negative, indicating that the surface area favored AIR decay over growth (see Table \ref{tab:Results}).
 
-Some factors play a significant role in making the Indian location more favourable than the Swiss location,
-namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter temperature of the
-Indian location significantly reduce the net radiation flux during the accumulation period. This enables a faster
-AIR thickness growth rate.  The lower humidity favours the sublimation over the deposition process. So lower
-humidity decreases the magnitude of net turbulent fluxes during the ablation period. This results in a slower
-thickness decay rate.  Hence, for AIRs with similar fountain parameters, we expect locations with lower
-cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity to dampen
-melting rates. 
+Some weather attributes play a significant role in making the Indian AIR larger and survive longer than the
+Swiss AIR, namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter
+temperature of the Indian location significantly reduce the net radiation flux during the accumulation period.
+This enables a faster AIR thickness growth rate.  The lower humidity favours the sublimation over the deposition
+process. So lower humidity decreases the magnitude of net turbulent fluxes during the ablation period. This
+results in a slower thickness decay rate.  Hence, for AIRs with similar fountain parameters, we expect locations
+with lower cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity
+to dampen melting rates.
 
 
 \section{Conclusions}
@@ -1025,17 +1071,17 @@ location chosen and the fountain used. Our main conclusions are summarized below
 	\item The model was successful in reproducing the observed UAV ice volume evolution with a correlation greater
 	      than $0.93$ and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs.
 
-  \item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
-    Swiss AIRs. The lower radiation fluxes of the Indian location favored a faster thickness growth rate and the
-    spray radius of the Indian fountain produced a higher surface area compared to the Swiss counterparts. Thus,
-    the more than three times higher mean surface area and four times higher mean thickness growth rate during
-    the two times shorter accumulation period of the Indian location result in a six times higher maximum ice
-    volume of the Indian AIR compared to the Swiss.
+	\item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
+	      Swiss AIRs. The lower radiation fluxes of the Indian location favored a faster thickness growth rate and the
+	      spray radius of the Indian fountain produced a higher surface area compared to the Swiss counterparts. Thus,
+	      the more than three times higher mean surface area and four times higher mean thickness growth rate during
+	      the two times shorter accumulation period of the Indian location result in a six times higher maximum ice
+	      volume of the Indian AIR compared to the Swiss.
 
-  \item The ablation period of the Indian AIR was longer than the Swiss AIRs. The lower turbulent fluxes resulted in
-    a slower thickness decay rate on a larger surface area. This made the difference between the IN21 and CH21
-    melting rates negligible. Since the accumulation period produced much higher ice volumes, the Indian AIR was
-    able to last much longer than the Swiss AIRs.
+	\item The ablation period of the Indian AIR was longer than the Swiss AIRs. The lower turbulent fluxes resulted in
+	      a slower thickness decay rate on a larger surface area. This made the difference between the IN21 and CH21
+	      melting rates negligible. Since the accumulation period produced much higher ice volumes, the Indian AIR was
+	      able to last much longer than the Swiss AIRs.
 
 	\item Water losses are high ($>75\%$) mostly due to fountain water runoff for all the AIRs. Vapour losses were
 	      insignificant in comparison. However, significant improvement in water storage efficiency is possible
@@ -1067,9 +1113,9 @@ completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 		\includegraphics[width=10 cm]{Figures/gangles_DEM.jpg}
 	\end{center}
 	\caption{Digital elevation map of Indian AIR constructed from the UAV flight on March 3, 2021. The green
-    area represents the area bounded by the marked perimeter.
-		}
-    \label{fig:DEM}
+		area represents the area bounded by the marked perimeter.
+	}
+	\label{fig:DEM}
 \end{figure}
 
 The UAV flew automatically along a predefined flight course and took photographs at a certain time interval. The
@@ -1091,7 +1137,7 @@ cloud density than in the previous step (\cite{Furukawa_2010}; \cite{Molg_2017})
 the products can be increased, and an irregular network for the next step can be created (\cite{Kung_2011}).
 
 (3) AIR delineation: Ice radius, area and volume are the three main final products. Perimeter was manually marked
-on the point cloud by identifying the AIR boundary. For the Indian location, we identified identical rock features
+on the point cloud by identifying the AIR boundary (see Fig. \ref{fig:DEM}). For the Indian location, we identified identical rock features
 near the ice boundary to mark as vertices of this perimeter. For the Swiss AIR, no such feature was available due
 to snowfall, so instead the perimeter was marked by identifying the ice and snow boundary.
 
@@ -1099,55 +1145,6 @@ There is temporal and spatial uncertainty associated with this process. Weather 
 of each UAV flight variably. Moreover, since ice/snow surfaces do not have many identifiable features, few
 feature points can be detected and matched in the vicinity of the AIR. Thus, we attach a high uncertainty of
 $\pm 10 \%$ for all the AIR observations to accommodate for this.
-
-\begin{table}
-	\centering
-	\caption{ Summary of the UAV observations}
-	\label{tab:uav}
-	\begin{tabular}{@{}|llllll|@{}}
-		\toprule
-		\textbf{}              & \textbf{No.} & \textbf{Date} & \textbf{Volume} & \textbf{Radius} & \textbf{Area} \\ \midrule
-		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
-		                       & 1            & Jan 18, 2021  & 103 $m^{3}$     & 9.1 $m$
-		                       & 411 $m^{2}$                                                                      \\
-		\multicolumn{1}{|l|}{} & 2            & Feb 27, 2021  & 580 $m^{3}$     & 10.2 $m$
-		                       & 668 $m^{2}$                                                                      \\
-		\multicolumn{1}{|l|}{} & 3            & Mar 3, 2021   & 626 $m^{3}$     & 10.3 $m$
-		                       & 694 $m^{2}$                                                                      \\
-		\multicolumn{1}{|l|}{} & 4            & Mar 15, 2021  & 692 $m^{3}$     & 10 $m$
-		                       & 681 $m^{2}$                                                                      \\
-		\multicolumn{1}{|l|}{} & 5            & Mar 26, 2021  & 582 $m^{3}$     & 10.2 $m$
-		                       & 671 $m^{2}$                                                                      \\
-		\multicolumn{1}{|l|}{} & 6            & Apr 3, 2021   & 620 $m^{3}$     & 10.1 $m$
-		                       & 658 $m^{2}$
-		\\\midrule
-		\multicolumn{1}{|l|}{\multirow{8}{*}{\rotatebox[origin=c]{90}{CH21}}}
-		                       & 1            & Nov 22, 2020  & 13 $m^{3}$      & 5.4 $m$
-		                       & 136$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 2            & Dec 2, 2020   & 26 $m^{3}$      & 5.7 $m$
-		                       & 118$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 3            & Dec 30, 2020  & 43 $m^{3}$      & 7.5 $m$
-		                       & 189$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 4            & Jan 9, 2021   & 82 $m^{3}$      & 6.5 $m$
-		                       & 150$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 5            & Mar 6, 2021   & 108 $m^{3}$     & 7.5 $m$
-		                       & 183$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 6            & Apr 2, 2021   & 83 $m^{3}$      & 6.5 $m$
-		                       & 150$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 7            & Apr 16, 2021  & 64 $m^{3}$      & 6.2 $m$
-		                       & 134$m^{2}$                                                                       \\
-		\multicolumn{1}{|l|}{} & 8            & Apr 24, 2021  & 37 $m^{3}$      & 4.7 $m$
-		                       & 80 $m^{2}$                                                                       \\
-		\midrule
-		\multicolumn{1}{|l|}{\multirow{2}{*}{\rotatebox[origin=c]{90}{CH20}}}
-		                       & 1            & Jan 3, 2020   & 24 $m^{3}$      & 6.7 $m$
-		                       & 170 $m^{2}$                                                                      \\
-		\multicolumn{1}{|l|}{} & 2            & Jan 24, 2020  & 59 $m^{3}$      & 7.7 $m$
-		                       & 228 $m^{2}$                                                                      \\
-		\midrule
-	\end{tabular}
-
-\end{table}
 
 
 \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of
