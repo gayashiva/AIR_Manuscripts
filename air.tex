@@ -360,9 +360,9 @@ We define the Icestupa boundary through its spray radius, i.e. we assume ice for
 Icestupa at each time step $i$ can be determined by considering the following rules:
 
 \begin{equation} (r_{cone},\, h_{cone}) = \left\{ \begin{array}{ll} (r_F ,\, h_0)                                                                          & \textit{ if } i=0 \\
-             (r_{cone}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{cone}^{i-1})}^2}) & \textit{ if }
-             r_{cone}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0                                                     \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
-             otherwise\end{array} \right.  \label{eq:A2} \end{equation}
+		(r_{cone}^{i-1},\, \frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot {(r_{cone}^{i-1})}^2}) & \textit{ if }
+		r_{cone}^{i-1} \geq r_{F} \textit{ and } \Delta M_{ice} > 0                                                     \\ (\frac{3 \cdot M_{ice}}{\pi \cdot \rho_{ice} \cdot s_{cone}})^{1/3} \cdot (1,\,  s_{cone}) &
+		otherwise\end{array} \right.  \label{eq:A2} \end{equation}
 
 
 
@@ -374,27 +374,30 @@ Icestupa at each time step $i$ can be determined by considering the following ru
 	\end{center}
 	\caption{Shape variables of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the height, $t_{cone}$ is the
 		thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius of the fountain.}
-	\label{fig:shape} \end{figure}
+	\label{fig:shape}
+\end{figure}
 
-We approximate the energy balance at the surface of an AIR by a one-dimensional description of energy fluxes into and out of a (thin) layer with thickness $\Delta x$:
+We approximate the energy balance at the surface of an AIR by a one-dimensional description of energy fluxes
+into and out of a (thin) layer with thickness $\Delta x$:
 
-\begin{equation} - \rho c_{p} \frac{dT}{dt} \Delta x = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} - q_{G}\label{eqn:EB} \end{equation}
+\begin{equation}
+	\rho_{ice} \cdot c_{ice} \cdot \frac{\Delta T}{\Delta t} \cdot \Delta x = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G}
+	\label{eqn:EB}
+\end{equation}
 
-where ... [$W\,m^{-2}$] and upward fluxes are positive; the first term is the energy change of the surface layer, which can be translated into a phase change energy should phase changes occur; $q_{SW}$ is the net shortwave radiation; $q_{LW}$
-is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$
-represents the heat exchange of the fountain water droplets with the AIR ice surface. $q_{G}$ represents ground
-heat flux between the AIR surface and its interior. 
+Upward fluxes are positive and downward fluxes are negative. The first term is the energy change of the surface
+layer, which can be translated into a phase change energy should phase changes occur; $q_{SW}$ is the net
+shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
+sensible heat fluxes. $q_{F}$ represents the heat exchange of the fountain water droplets with the AIR ice
+surface. $q_{G}$ represents ground heat flux between the AIR surface and its interior.
 
-Equation \ref{eqn:EB} is usually referred to as the energy budget for “the surface”, but practically it must
-apply to a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the AIR surface
-layer, which has an upper and a lower boundary defined by the atmosphere and the ice body of the AIR,
-respectively. The parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice
-thickness $\Delta x$ should be small enough to represent the surface temperature variations every model time
-step $\Delta t$ and (b) $\Delta x$ should be large enough for these temperature variations to not reach the
-bottom of the surface layer. A sensitivity analysis was later performed to understand the influence of this
-factor and decide its value. Here, we define the surface temperature $T_{ice}$ to be the modelled average
-temperature of the Icestupa surface layer and the energy flux $q_{surf}$ is assumed to act uniformly across the
-Icestupa area $A_{cone}$.
+The energy flux acts upon the AIR surface layer, which has an upper and a lower boundary defined by the
+atmosphere and the ice body of the AIR, respectively. The parameter selection for $\Delta x$ is based on the
+following two arguments: (a) the ice thickness $\Delta x$ should be small enough to represent the surface
+temperature variations every model time step $\Delta t$ and (b) $\Delta x$ should be large enough for these
+temperature variations to not reach the bottom of the surface layer. A sensitivity analysis was later performed
+to understand the influence of this factor and decide its value. Here, we define the surface temperature
+$T_{ice}$ to be the modelled average temperature of the Icestupa surface layer.
 
 \subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}}
 
@@ -547,30 +550,43 @@ body is near the base of the fountain. Thus, the distance of every point in the 
 body's center of mass is between $h_{cone}$ and $r_{cone}$. We calculate $q_{G}$ assuming $l_{cone} = (r_{cone} +
 	h_{cone})/2$.
 
-\subsubsection{Surface temperature}
+\subsubsection{Phase changes}
 
-The available energy $q_{surf}$ can act on the surface of the AIR to a) change its temperature, b) melt ice or
-c) freeze ice.
+In this section, the numerical procedures to model phase changes at the surface layer are explained. Let
+$T_{temp}$ be the calculated surface temperature. Even if the numerical heat transfer solution produces
+temperatures which are $T_{temp}>0\, \degree C$, say from intense shortwave radiation, the ice temperature must
+remain at $T_{temp} = 0\, \degree C$. The ‘‘excess’’ energy is used to drive the melting process. Moreover, the
+energy input is used to melt the surface ice layer, and not to raise the surface temperature to some unphysical
+value. Similarly, for freezing to occur, two conditions are required. Firstly, fountain water is present
+($\Delta M_{F} > 0 $) and secondly the calculated temperature of the ice, $T_{temp}$, is below $0\, \degree C$.
+Thus, depending on this surface temperature $T_{temp}$, the AIR can undergo further phase changes. So Eqn.
+\ref{eqn:EB} can be rewritten as:
 
-So Eqn. \ref{eqn:EB} can be rewritten as: \begin{equation} q_{surf} = q_{freeze/melt} + q_{T} \end{equation}
-where $q_{T}$, $q_{freeze}$ and $q_{melt}$ represent energy associated with process (a), (b) and (c)
-respectively.
+\begin{equation}
+	\rho_{ice} \cdot c_{ice} \cdot \frac{T_{temp}-T_{ice}}{\Delta t} \cdot \Delta x= q_{freeze/melt} + q_{T}
+\end{equation}
 
-We categorize the model time steps as freezing or melting events to distribute the surface energy flux into
-these three components. Freezing events can only occur, if fountain water is available and the surface energy
-flux is negative. However, these two conditions are not sufficient as the latent heat energy can only contribute
-to temperature fluctuations. Therefore, for preventing latent heat energy from turning a melting event into a
-freezing event an additional condition namely, $(q_{surf}-q_{L}) < 0$, is required.
+where $q_{melt}$, $q_{freeze}$ and $q_{T}$ represent energy associated with melting, freezing and surface
+temperature change processes respectively.
+
+We categorize every model time step as freezing or melting events.  We define the total energy available to be
+redistributed for melting, freezing and surface temperature change processes as $q_{total}=\rho_{ice} \cdot
+	c_{ice} \cdot \frac{T_{temp}-T_{ice}}{\Delta t} \cdot \Delta x$.
+
+Freezing events can only occur, if fountain water is available and $T_{temp}$ is below $0\,\degree C$. flux is
+However, these two conditions are not sufficient as the latent heat energy can only contribute to temperature
+fluctuations. Therefore, for preventing latent heat energy from turning a melting event into a freezing event an
+additional condition namely, $(q_{total}-q_{L}) < 0$, is required.
 
 \begin{equation}
 	q_{freeze/melt} = \left\{ \begin{array}{ll}
-		q_{freeze} & \textit{ if } \Delta M_{F} > 0 \textit{ and } q_{surf} < 0 \textit{ and }(q_{surf}-q_{L}) < 0 \\
+		q_{freeze} & \textit{ if } \Delta M_{F} > 0 \textit{ and } T_{temp} < 0 \textit{ and }(q_{total}-q_{L}) < 0 \\
 		q_{melt}   & \textit{ otherwise}
 	\end{array} \right.
 \end{equation}
 
 During a freezing event, the AIR surface is assumed to warm to $0 \degree C$. The available energy
-$(q_{surf}-q_{L})$ is further augmented due to this change in surface temperature represented by the energy
+$(q_{total}-q_{L})$ is further augmented due to this change in surface temperature represented by the energy
 flux:
 
 $$q_{0} = \frac{\rho_{ice} \cdot \Delta x \cdot c_{ice} \cdot T_{ice}^{i-1}}{\Delta t}$$
@@ -581,28 +597,23 @@ distribution during a freezing event can be represented as:
 
 \begin{equation}
 	(q_{freeze}, q_{T}) = \left\{ \begin{array}{ll}
-		(q_{surf}-q_{L}+q_{0}, q_{L}-q_{0}) & \textit{ if } \Delta M_{F} \geq -\frac{(q_{surf}-q_{L}+q_{0}) \cdot A_{cone} \cdot \Delta
-		t}{L_f}                                                                                                                         \\
+		(q_{total}-q_{L}+q_{0}, q_{L}-q_{0}) & \textit{ if } \Delta M_{F} \geq -\frac{(q_{total}-q_{L}+q_{0}) \cdot A_{cone} \cdot \Delta
+		t}{L_f}                                                                                                                           \\
 		(\frac{\Delta M_{F} \cdot L_f
 		}{A_{cone} \cdot \Delta t}
-		, q_{surf}+\frac{\Delta M_{F} \cdot L_f
-		}{A_{cone} \cdot \Delta t})         & \textit{ if } \Delta M_{F} < -\frac{(q_{surf}-q_{L}+q_0) A_{cone} \cdot \Delta
+		, q_{total}+\frac{\Delta M_{F} \cdot L_f
+		}{A_{cone} \cdot \Delta t})          & \textit{ if } \Delta M_{F} < -\frac{(q_{total}-q_{L}+q_0) A_{cone} \cdot \Delta
 		t}{L_f}
 	\end{array} \right.
 \end{equation}
-
-During a melting event, the surface energy flux ($q_{surf}$) is first used to change the surface temperature to
-$T_{temp}$ calculated as:
-
-\begin{equation} T_{temp} =\frac{q_{surf} \cdot \Delta t}{\rho_{ice} \cdot c_{ice} \cdot \Delta x} + T_{ice} \end{equation}
 
 If $T_{temp} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ to maintain surface
 temperature at melting point. The surface energy flux distribution during a melting event can be represented as:
 
 \begin{equation}
 	(q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
-		(0, q_{surf})                                                                                                                                                 & \textit{ if } T_{temp} < 0 \\
-		(\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}, q_{surf}-\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}  ) & \textit{ if } T_{temp} > 0
+		(0, q_{total})                                                                                                                                                 & \textit{ if } T_{temp} < 0 \\
+		(\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}, q_{total}-\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}  ) & \textit{ if } T_{temp} > 0
 	\end{array} \right.
 \end{equation}
 
@@ -669,13 +680,13 @@ To estimate the mass of any component at time step $i$, one can now sum the mass
 	M_{comp}^i = \sum_{t=0}^{t=i} (\frac{\Delta M_{comp}}{\Delta t})_{t} + M_{comp}^0 \end{equation} where
 
 \begin{equation} M_{comp}^0 = \left\{ \begin{array}{ll} -V_{dome} * \rho_{ice} & \textit{ if } M_{comp}=
-             M_{ice}\textit{ or }
-             M_{F}                                                 \\ 0 & \textit{ otherwise }\\\end{array} \right. \\
+		M_{ice}\textit{ or }
+		M_{F}                                                 \\ 0 & \textit{ otherwise }\\\end{array} \right. \\
 \end{equation}
 
-Considering AIRs as water reservoirs, their net water loss ($NWL$) can be defined as:
+Considering AIRs as water reservoirs, their net water loss can be defined as:
 
-\begin{equation} \textit{NWL} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
+\begin{equation} \textit{Net water losses} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \subsection{Sensitivity and uncertainty analysis}
 
@@ -686,10 +697,10 @@ polynomial (as a surrogate model), on which sensitivity and uncertainty analysis
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
 and the fountain parameters. For the weather parameters, we first fix a range based on literature values
-and then perform a global sensitivity analysis (GSA) with the net water loss ($NWL$) as the objective. The
+and then perform a global sensitivity analysis with the net water loss ($net water losses$) as the objective. The
 distribution is always treated as uniform and the limits for every parameter are given in Table
-\ref{tab:parameters}. The GSA consists of a total ensemble size of 992 simulations per AIR. The parameter
-sensitivity results from the GSA are used as a tool to reduce the number of free parameters in the model by
+\ref{tab:parameters}. The sensitivity analysis consists of a total ensemble size of 992 simulations per AIR. The parameter
+sensitivity results from the sensitivity analysis are used as a tool to reduce the number of free parameters in the model by
 identifying those parameters, which have only a marginal influence on the model output.
 
 The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice albedo minimum was taken from
@@ -740,7 +751,7 @@ validation of the model.
 
 \subsection{Sensitivity analysis}
 
-The focus of the GSA is not on the absolute sensitivity towards single parameters, but rather to reduce the
+The focus of the sensitivity analysis is not on the absolute sensitivity towards single parameters, but rather to reduce the
 dimension of the parameter space. Therefore, the following discussion is limited to two classes: parameters to
 which the model is sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). The threshold of 0.2 was
 chosen since most of the parameters were bounded by it. For all the AIRs, just three parameters were sensitive
@@ -875,7 +886,7 @@ the influence of different surface processes.
 	\begin{tabular}{@{}|lllll|@{}}
 		\toprule
 		\textbf{}              & \textbf{EBC} & \textbf{Accumulation} & \textbf{Ablation} & \textbf{$\mu \pm \sigma
-		$}                                                                                                             \\ \midrule
+			$}                                                                                                             \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
 		                       & $q_{SW}$     & 6 \%                  & 11 \%             & $ 26 \pm 43 \, W\,m^{-2}$  \\
 		\multicolumn{1}{|l|}{} & $q_{LW} $    & -48 \%                & -24 \%            & $ -80\pm 34 \, W\,m^{-2}$  \\
@@ -962,7 +973,7 @@ because there was no precipitation for the IN21 site.
 		\multicolumn{1}{|l|}{} & Thickness rate                  & $t_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
 		$mm \, w.\,e.$                                                                                                       \\
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$  \\
-		\multicolumn{1}{|l|}{} & Net Water Loss                  & $NWL$           & 78            & 77
+		\multicolumn{1}{|l|}{} & Net Water Loss                  &                 & 78            & 77
 		                       & \%                                                                                          \\
 		\multicolumn{1}{|l|}{} & Maximum ice Volume              &                 & 793           & 138           & $m^{3}$ \\
 		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$ \\\midrule
@@ -1023,7 +1034,7 @@ be investigated in a follow up study, with this study focusing on the weather as
 
 \subsection{Water losses of AIRs}
 
-The net water losses of IN21 and CH21 AIR were $78\,\%$ and $77\,\%$, respectively. The high $NWL$ is caused mostly
+The net water losses of IN21 and CH21 AIR were $78\,\%$ and $77\,\%$, respectively. The high water losses is caused mostly
 due to the fountain water runoff in both the AIRs . Since vapour losses are negligible compared to fountain
 runoff losses, the AIR wastes water mostly during the accumulation period. The maximum freezing rate of the IN21
 AIR was less than half the mean fountain discharge. The CH21 AIR was able to attain the mean fountain discharge
