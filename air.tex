@@ -49,7 +49,7 @@
 	irrigation water supply. However, there is a large variability associated with this water supply due to the
 	local weather influences of the construction location chosen. This study compares the evolution of AIRs built
 	in Ladakh, India and Guttannen, Switzerland based on the influence of different surface processes responsible
-	for their spatial and temporal ice volume variance using a surface energy balance model.  Model input
+	for their spatial and temporal ice volume changes using a surface energy balance model.  Model input
 	consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).  Model
 	calibration and validation were performed through ice volume and area measurements taken from several Uncrewed
 	Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume with the
@@ -236,10 +236,10 @@ these pipeline freezing events.
 
 \subsection{Uncrewed Aerial Vehicle surveys}
 
-Several uncrewed aerial vehicle (UAV) surveys were conducted in the Swiss and Indian sites. The DEM generated
+Several uncrewed aerial vehicle (UAV) surveys were conducted on the Swiss and Indian sites. The DEMs generated
 through these flights were analysed to obtain the radius, area and volume of the ice structure. The number of
 flights available  for the IN21, CH21 and CH20 AIR were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was
-used to set the dome volume ($V_{dome}$) for model initialisation. The rest were used for model calibration and
+used to set the dome volume ($V_{dome}$) for model initialisation. The remaining flights were used for model calibration and
 validation. Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}),
 it had a much higher dome volume compared to the other AIRs.  The details of these flights and the methodology
 used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
@@ -296,7 +296,7 @@ used to produce the corresponding outputs are explained in Appendix \ref{sec:uav
 \section{Model setup}
 
 A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff
-water of the AIR every hour. In each hourly time step, the model uses the AIR surface area, energy balance and mass
+water of the AIR. In each hourly time step, the model uses the AIR surface area, energy balance and mass
 balance calculations to estimate its ice volume, surface temperature and runoff water as shown in Fig.
 \ref{fig:schema} .
 
@@ -376,15 +376,14 @@ Icestupa at each time step $i$ can be determined by considering the following ru
 		thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius of the fountain.}
 	\label{fig:shape} \end{figure}
 
-The energy balance equation (e.g. \cite{Hock_2005}) for the AIR is formulated as follows:
+We approximate the energy balance at the surface of an AIR by a one-dimensional description of energy fluxes into and out of a (thin) layer with thickness $\Delta x$:
 
-\begin{equation} q_{surf} = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} + q_{G}\label{eqn:EB} \end{equation}
+\begin{equation} - \rho c_{p} \frac{dT}{dt} \Delta x = q_{SW} + q_{LW} + q_{L} + q_{S} + q_{F} - q_{G}\label{eqn:EB} \end{equation}
 
-where $q_{surf}$ is the surface energy flux in [$W\,m^{-2}$]; $q_{SW}$ is the net shortwave radiation; $q_{LW}$
+where ... [$W\,m^{-2}$] and upward fluxes are positive; the first term is the energy change of the surface layer, which can be translated into a phase change energy should phase changes occur; $q_{SW}$ is the net shortwave radiation; $q_{LW}$
 is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and sensible heat fluxes. $q_{F}$
 represents the heat exchange of the fountain water droplets with the AIR ice surface. $q_{G}$ represents ground
-heat flux between the AIR surface and its interior. Energy transferred in the direction of the ice surface is
-always denoted as positive and away as negative.
+heat flux between the AIR surface and its interior. 
 
 Equation \ref{eqn:EB} is usually referred to as the energy budget for “the surface”, but practically it must
 apply to a surface layer of ice with a finite thickness $\Delta x$. The energy flux acts upon the AIR surface
@@ -417,9 +416,8 @@ the last snowfall event. After snowfall, albedo changes over a time step, $\delt
 \begin{equation} \alpha=\alpha_{ice}+(\alpha_{snow}-\alpha_{ice}) \cdot e^{(-\delta t)/\tau} \label{eqn:a}
 \end{equation}
 
-where $\alpha_{ice}$ is the bare ice albedo value (0.25), $\alpha_{snow}$ is the snow ice albedo value (0.85)
-and $\tau$ is a decay rate (16 $days$), which determines how fast the albedo of the ageing snow reaches this
-value.
+where $\alpha_{ice}$ is the bare ice albedo value (0.25), $\alpha_{snow}$ is the fresh snow albedo value (0.85)
+and $\tau$ is a decay rate (16 $days$), which determines how fast the albedo of the ageing snow recedes back to ice albedo.
 
 The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
 considered. Using the solar elevation angle $\theta_{sun}$, the solar beam can be considered to have a vertical
@@ -682,7 +680,7 @@ Considering AIRs as water reservoirs, their net water loss ($NWL$) can be define
 \subsection{Sensitivity and uncertainty analysis}
 
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
-model sensitivity and uncertainty. Polynomial chaos expansion are a much more efficient way to obtain similar
+model sensitivity and uncertainty. Polynomial chaos expansion is a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
 polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
 
@@ -785,7 +783,7 @@ correction factor to 1.5. Since no strong preference is observed for the CH21 ar
 calibrate it to the median of the values it assumed in the area objective, namely, 1.2.
 
 The model surface layer thickness was selected based on the two conditions described in Section \ref{sec:energy}.
-Since the minimum surface temperature does not go beyond $-30 \, \degree C$ (satisfies (b)) for the smallest
+Since the minimum surface temperature does not go below $-30 \, \degree C$ (satisfies (b)) for the smallest
 possible thickness of $20\, mm$ (satisfies (a)), we have taken this as the model surface layer thickness.
 
 For the surface roughness, no clear preference is observed for the IN21 AIR, so we calibrated it to the median
@@ -1001,8 +999,8 @@ Hence, for both the locations, incoming longwave radiation and diffuse shortwave
 how well the net radiation fluxes were able to augment the thickness growth rate. Similarly, the sublimation
 process was responsible for how well the net turbulent fluxes were able to dampen the thickness decay rate.
 Particularly, the Indian location had a much higher thickness growth rate because its incoming longwave
-radiation and diffuse shortwave radiation during the accumulation period was much lesser than that of the Swiss
-location due to lesser mean winter temperature and lesser cloudiness. The Indian location had a similar mean
+radiation and diffuse shortwave radiation during the accumulation period was much less than that of the Swiss
+location due to lower mean winter temperature and less cloudiness. The Indian location had a similar mean
 thickness decay rate because its latent fluxes were acting against the sensible heat fluxes using the
 sublimation process during the ablation period unlike in the Swiss location, where deposition process was
 favoured during the ablation period due to higher relative humidity.
