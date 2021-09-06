@@ -320,13 +320,13 @@ The model assumes the AIR shape to be a cone and assigns it the following shape 
 		\label{eq:V}
 		V_{cone}^i & = \pi/3 \cdot {r_{cone}^i}^2 \cdot h_{cone}^i                                         \\
 		\label{eq:thickness}
-		t_{cone}^i & =\frac{\Delta M_{ice}^i}{\rho_{water}* A_{cone}^i}
+		j_{cone}^i & =\frac{\Delta M_{ice}^i}{\rho_{water}* A_{cone}^i}
 	\end{align}
 \end{subequations}
 
 where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is the surface area; $A_{corr}$ is a
 correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
-the modelled conical surface; $V_{cone}^i$ is the volume and $t_{cone}$ is the AIR surface normal thickness
+the modelled conical surface; $V_{cone}^i$ is the volume and $j_{cone}$ is the AIR surface normal thickness
 change as shown in Fig. \ref{fig:shape}. $M_{ice}^i$ is the mass of the AIR and $\Delta M_{ice}^i = M_{ice}^{i-1} -
 	M_{ice}^{i-2}$.
 
@@ -348,7 +348,7 @@ $V_{dome}$ used to construct the AIR as follows:
 
 where $\Delta x$ is the surface layer thickness (defined in Section \ref{sec:energy})
 
-During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness change ($t_{cone}$)
+During subsequent time steps, the dimensions of the AIR evolve assuming a uniform thickness change ($j_{cone}$)
 across its surface area with an invariant slope $s_{cone} = \frac{h_{cone}}{r_{cone}}$ .  During these time
 steps, the volume is parameterised using Eqn. \ref{eq:V} as:
 
@@ -372,7 +372,7 @@ Icestupa at each time step $i$ can be determined by considering the following ru
 	\begin{center}
 		\includegraphics[width=10 cm]{Figures/Figure_4.jpeg}
 	\end{center}
-	\caption{Shape variables of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the height, $t_{cone}$ is the
+	\caption{Shape variables of the AIR. $r_{cone}$ is the radius, $h_{cone}$ is the height, $j_{cone}$ is the
 		thickness change and $s_{cone}$ is the slope of the ice cone. $r_F$ is the spray radius of the fountain.}
 	\label{fig:shape}
 \end{figure}
@@ -845,7 +845,7 @@ observation with the modelled volume was just $9 m^3$.
 
 Since this model uses a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we use the AIR surface normal
-thickness change ($t_{cone}$) as a measure to quantify the location influence. Note that $t_{cone}$ is similar
+thickness change ($j_{cone}$) as a measure to quantify the location influence. Note that $j_{cone}$ is similar
 to the "mass balance" of a glacier with units $m \, w.\, e.$ but it is not conserved during the lifetime of the
 AIR since the surface area varies unlike that of a glacier.  Similarly, we divide the simulation duration of the
 AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
@@ -970,7 +970,7 @@ because there was no precipitation for the IN21 site.
 
 		                       & Freezing rate                   & $M_{freeze}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$ \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & $M_{melt}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$ \\
-		\multicolumn{1}{|l|}{} & Thickness rate                  & $t_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
+		\multicolumn{1}{|l|}{} & Thickness rate                  & $j_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
 		$mm \, w.\,e.$                                                                                                       \\
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$  \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  &                 & 78            & 77
@@ -1018,17 +1018,17 @@ favoured during the ablation period due to higher relative humidity.
 
 The fountain has some influence on the energy fluxes through its water temperature ($q_{F}$), temperature
 forcing and albedo forcing ($q_{SW}$). However, this influence is insignificant compared to its influence on the
-surface area, which has a high correlation with the ice volume ($r^2=0.6$). As seen from the uncertainty
-analysis, ice volume estimates were most sensitive to the fountain spray radius parameter. The variance of this
-surface area is quite low in the accumulation period since the ice radius is initialised and bounded by the
-spray radius. So the thickness growth rate is uniformly scaled to produce the corresponding ice volume. The
-higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was at the expense
-of a faster melt-out date. This is because the fountain determined spray radius increases both the freezing and
-the melting rate.  Moreover, the fountain parameters are not independent, since fountain height (ignored in this
-analysis), discharge rate and spray radius are related through the projectile motion followed by the water
-droplets. So a proper optimization of the fountain is much more complex and requires a closer look at the
-correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This will
-be investigated in a follow up study, with this study focusing on the weather aspects of the model.
+surface area. As seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain
+spray radius parameter. The variance of this surface area is quite low in the accumulation period since the ice
+radius is initialised and bounded by the spray radius. So the thickness growth rate is uniformly scaled to
+produce the corresponding ice volume. The higher spray radius of the Indian fountain resulted in a higher
+maximum ice volume but this was at the expense of a faster melt-out date. This is because the fountain
+determined spray radius increases both the freezing and the melting rate.  Moreover, the fountain parameters are
+not independent, since fountain height (ignored in this analysis), discharge rate and spray radius are related
+through the projectile motion followed by the water droplets. So a proper optimization of the fountain is much
+more complex and requires a closer look at the correlation of the fountain parameters amongst themselves and
+with the freezing/melting energy flux. This will be investigated in a follow up study, with this study focusing
+on the weather aspects of the model.
 
 \section{Discussion}
 
