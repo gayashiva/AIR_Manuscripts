@@ -573,7 +573,7 @@ We categorize every model time step as freezing or melting events.  We define th
 redistributed for melting, freezing and surface temperature change processes as $q_{total}=\rho_{ice} \cdot
 	c_{ice} \cdot \frac{T_{temp}-T_{ice}}{\Delta t} \cdot \Delta x$.
 
-Freezing events can only occur, if fountain water is available and $T_{temp}$ is below $0\,\degree C$. flux is
+Freezing events can only occur, if fountain water is available and $T_{temp}$ is below $0\,\degree C$.
 However, these two conditions are not sufficient as the latent heat energy can only contribute to temperature
 fluctuations. Therefore, for preventing latent heat energy from turning a melting event into a freezing event an
 additional condition namely, $(q_{total}-q_{L}) < 0$, is required.
@@ -608,7 +608,7 @@ distribution during a freezing event can be represented as:
 \end{equation}
 
 If $T_{temp} > 0 \degree C$, then energy is reallocated from $q_{T}$ to $q_{melt}$ to maintain surface
-temperature at melting point. The surface energy flux distribution during a melting event can be represented as:
+temperature at melting point. The total energy flux distribution during a melting event can be represented as:
 
 \begin{equation}
 	(q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
