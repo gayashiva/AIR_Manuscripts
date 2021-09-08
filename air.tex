@@ -775,7 +775,7 @@ parameters namely, surface roughness, area correction factor and surface layer t
 their ranges (defined in Table \ref{tab:parameters}) in steps of $1 \, mm$, 0.1 and $5 \, mm$ respectively. In
 total, 495 model calibration runs were required for each of the objective. The frequency distribution of RMSE
 among the best 10 \% calibration runs for each objective are shown in Fig.  \ref{fig:param_hist}. We choose values of
-sensitive parameters populating more the 50 \% of the possibilities among the best 10 \% of the calibration
+sensitive parameters populating more than 50 \% of the possibilities among the best 10 \% of the calibration
 runs. For the volume objective, the RMSE of the best calibration runs ranged from 26 $m^3$ to 58 $m^3$ for the
 IN21 and from 10 $m^3$ to 16 $m^3$ for the CH21. For the area objective, the RMSE of the best calibration runs
 ranged from 14 $m^2$ to 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this
@@ -787,7 +787,7 @@ evenly spaced out in comparison (see Table \ref{tab:uav}).
 $A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
 objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled ice area due to
 the additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area
-correction factor to deviate significantly from that of CH21 AIR because the IN21 surface area represents the
+correction factor to be higher than that of CH21 AIR because the IN21 surface area represents the
 area of two ice cones merged into one (see Fig.  \ref{fig:2AIR}). This hypothesis is validated by the disjoint
 frequency distribution of the area objective of the CH21 and IN21 AIR. Hence, we calibrate the IN21 area
 correction factor to 1.5. Since no strong preference is observed for the CH21 area correction factor, we
@@ -830,16 +830,15 @@ by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
 \subsection{Validation}
 
 The calibrated model is validated using two datasets, namely, CH20 AIR dataset and the melt-out observations for
-each AIR. The melt-out date signifies the time when all the ice has completely disappeared and only the dome volume
-remains. Model performance can be judged based on the difference between the model expectation and observation of
-melt-out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days, respectively. The negative
-sign represents underestimation of the melt-out date. For the IN21 AIR, the determination of the melt-out date was
-not possible both through observation and through modelling.  In reality, the IN21 AIR was found to have
-disintegrated into several ice blocks on 20th June, 2021.  Model expectation of melt-out date was also not defined
-since the AIR never melted completely during the model simulation.
-
-There was just one UAV observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that UAV ice
-observation with the modelled volume was just $9 m^3$.
+each AIR. The melt-out date signifies the time when all the ice has completely disappeared and only the dome
+volume remains. Model performance can be judged based on the difference between the model expectation and
+observation of melt-out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days,
+respectively. The negative sign represents underestimation of the melt-out date. For the IN21 AIR, the
+determination of the melt-out date was not possible both through observation and through modelling.  In reality,
+the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of
+melt-out date was also not defined since the AIR never melted completely during the model simulation. There was
+just one UAV observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that UAV ice observation
+with the modelled volume was just $9 m^3$.
 
 \subsection{AIR ice volume estimates}
 
@@ -918,7 +917,7 @@ driven by the net radiation fluxes and the AIR thickness decay rate was driven b
 Now we examine which surface process contributed the most to the net radiation fluxes and the net turbulent
 fluxes respectively. To do so, we analyse the magnitudes of the thickness components and their corresponding
 energy balance component (EBC) together using Fig.  \ref{fig:MEB}.  Particularly, ice thickness corresponds to
-freezing EBC, melt thickness corresponds to melting EBC available and the net thickness represents the surface
+freezing EBC, melt thickness corresponds to melting EBC available and the net thickness represents the total
 EBC available.  Snow deposition is calculated directly from the precipitation quantity and the
 sublimation/deposition quantities corresponding to the latent heat EBC available.  The rest of the EBC are shown
 to represent the different physical processes that contribute to this freezing and melting EBC .
