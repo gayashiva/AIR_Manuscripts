@@ -313,7 +313,7 @@ balance calculations to estimate its ice volume, surface temperature and runoff 
 The model assumes the AIR shape to be a cone and assigns it the following shape attributes:
 
 \begin{subequations}
-	\label{equations}
+	% \label{equations}
 	\begin{align}
 		\label{eq:A}
 		A_{cone}^i & = A_{corr}^i \cdot \pi \cdot r_{cone}^i \cdot \sqrt{{r_{cone}^i}^2 + {h_{cone}^i}^ 2} \\
@@ -652,7 +652,6 @@ all the other mass components the fountain wastewater generated every time step 
 \ref{eq:MB}.
 
 \begin{subequations}
-	\label{equations}
 	\begin{align}
 		\label{eq:ppt}
 		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot {r_{cone}}^2 \cdot
@@ -963,7 +962,7 @@ because there was no precipitation for the IN21 site.
 		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & 12            & 4             & $tons$  \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
 		                       & Meltwater                       & $M_{water}$     & 435           & 227           & $tons$  \\
-		\multicolumn{1}{|l|}{} & ice                             & $M_{ice}$       & 148           & 0             & $tons$  \\
+		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & 148           & 0             & $tons$  \\
 		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & 128           & 8             & $tons$  \\
 		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & 2287          & 795           & $tons$  \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{7}{*}{\rotatebox[origin=c]{90}{AIR}}}
