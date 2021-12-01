@@ -50,9 +50,9 @@
 	local weather influences of the construction location chosen. This study compared the ice volume evolution of
 	three AIRs built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model
 	input consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).
-	Model calibration and validation were performed through ice volume and area measurements taken from several
-	Uncrewed Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume
-	with the UAV ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume
+	Model calibration and validation were performed through ice volume and surface area measurements taken from several
+	drone surveys.  The model achieved an RMSE within $11 \%$ of the maximum ice volume
+	with the ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume
 	around 6 times larger, was more favourable compared to the Guttannen site.  However, the corresponding water
 	losses for all the AIRs were $>75 \%$ of the total fountain discharge due to high fountain water runoff. Drier
 	and colder locations in relatively cloud free regions are expected to produce AIRs with a faster freezing rate
@@ -234,9 +234,9 @@ Even though the Indian fountain was never manually switched off, there were many
 interrupted the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during
 these pipeline freezing events.
 
-\subsection{Uncrewed Aerial Vehicle surveys}
+\subsection{Drone surveys}
 
-Several uncrewed aerial vehicle (UAV) surveys were conducted on the Swiss and Indian sites. The DEMs generated
+Several drone surveys were conducted on the Swiss and Indian sites. The DEMs generated
 through these flights were analysed to obtain the radius, area and volume of the ice structure. The number of
 flights available  for the IN21, CH21 and CH20 AIR were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was
 used to set the dome volume ($V_{dome}$) for model initialisation. The remaining flights were used for model calibration and
@@ -246,7 +246,7 @@ used to produce the corresponding outputs are explained in Appendix \ref{sec:uav
 
 \begin{table}
 	\centering
-	\caption{ Summary of the UAV observations}
+	\caption{ Summary of the drone surveys}
 	\label{tab:uav}
 	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
@@ -317,33 +317,32 @@ The model assumes the AIR shape to be a cone and assigns it the following shape 
 	% \label{equations}
 	\begin{align}
 		\label{eq:A}
-		A_{cone}^i & = A_{corr}^i \cdot \pi \cdot r_{cone}^i \cdot \sqrt{{r_{cone}^i}^2 + {h_{cone}^i}^ 2} \\
+		A_{cone}^i & = A_{corr}^i \cdot \pi \cdot r_{cone}^i \cdot \sqrt{{(r_{cone}^i)}^2 + {(h_{cone}^i})^ 2} \\
 		\label{eq:V}
-		V_{cone}^i & = \pi/3 \cdot {r_{cone}^i}^2 \cdot h_{cone}^i                                         \\
+		V_{cone}^i & = \pi/3 \cdot {(r_{cone}^i)}^2 \cdot h_{cone}^i                                         \\
 		\label{eq:thickness}
 		j_{cone}^i & =\frac{\Delta M_{ice}^i}{\rho_{water}* A_{cone}^i}
 	\end{align}
 \end{subequations}
 
-where $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is the surface area; $A_{corr}$ is a
+where $i$ denotes the model time step, $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is the surface area; $A_{corr}$ is a
 correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
 the modelled conical surface; $V_{cone}^i$ is the volume and $j_{cone}$ is the AIR surface normal thickness
 change as shown in Fig. \ref{fig:shape}. $M_{ice}^i$ is the mass of the AIR and $\Delta M_{ice}^i = M_{ice}^{i-1} -
-	M_{ice}^{i-2}$.
+  M_{ice}^{i-2}$. Henceforth, the equations used, display model time step superscript $i$ only if it is
+  different from the current time step.
 
 AIR volume can also be expressed as:
 
 \begin{equation} V_{cone} =\frac{M_{ice}} {\rho_{ice}} \label{eq:V1} \end{equation}
 
-where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). Note that we do not specify the time step
-superscript $i$ of the variable  $V_{cone}$ and $M_{ice}$. Henceforth, the equations used, display model time
-step superscript $i$ only if it is different from the current time step.
+where $\rho_{ice}$ is the density of ice (917 $kg\, m^{-3}$). 
 
 The initial radius of the AIR is assumed to be $r_F$. The initial height $h_0$ depends on the dome volume
 $V_{dome}$ used to construct the AIR as follows:
 
 \begin{equation}
-	h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi r_F^2 }
+	h_{0} =  \Delta x + \frac{3 \cdot V_{dome}}{\pi \cdot (r_F)^2 }
 	\label{eq:h0}
 \end{equation}
 
@@ -353,7 +352,7 @@ During subsequent time steps, the dimensions of the AIR evolve assuming a unifor
 across its surface area with an invariant slope $s_{cone} = \frac{h_{cone}}{r_{cone}}$ .  During these time
 steps, the volume is parameterised using Eqn. \ref{eq:V} as:
 
-\begin{equation} V_{cone} = \frac{\pi \cdot {r_{cone}}^3
+\begin{equation} V_{cone} = \frac{\pi \cdot {(r_{cone})}^3
 		\cdot s_{cone}}{3} \label{eq:V2} \end{equation}
 
 We define the Icestupa boundary through its spray radius, i.e. we assume ice formation is negligible when $r_{cone} >
@@ -432,7 +431,7 @@ using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$
 \begin{equation}
 	\begin{split}
 		f_{cone}& =\frac{(0.5 \cdot r_{cone} \cdot h_{cone}) \cdot cos \theta_{sun} +(\pi \cdot
-			{r_{cone}}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{cone} \cdot ({r_{cone}}^2+{h_{cone}}^2)^{1/2}}\\
+			{(r_{cone})}^2/2) \cdot sin \theta_{sun} }{\pi \cdot r_{cone} \cdot ({(r_{cone})}^2+{(h_{cone})}^2)^{1/2}}\\
 	\end{split}
 	\label{eqn:f_{cone}}
 \end{equation}
@@ -655,7 +654,8 @@ all the other mass components the fountain wastewater generated every time step 
 \begin{subequations}
 	\begin{align}
 		\label{eq:ppt}
-		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot {r_{cone}}^2 \cdot
+		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot
+        {(r_{cone})}^2 \cdot
 			\rho_{w}\cdot ppt & \textit{ if } T_{a} < T_{ppt} \\ 0 & \textit{ if } T_{a} \geq T_{ppt} \\\end{array} \right.                                             \\
 		\label{eq:vap}
 		(\frac{\Delta M_{dep}}{\Delta t}, \frac{\Delta M_{sub}}{\Delta t}) & = \left\{ \begin{array}{ll} \frac{q_{L}
@@ -769,8 +769,8 @@ parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$.
 
 \subsection{Calibration}
 
-The sensitive model parameters were calibrated based on two objectives, namely, the RMSE between the UAV
-observations (see Table \ref{tab:uav}) and the model estimations of the ice volume and area. For calibration, the three sensitive
+The sensitive model parameters were calibrated based on two objectives, namely, the RMSE between the drone
+surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume and area. For calibration, the three sensitive
 parameters namely, surface roughness, area correction factor and surface layer thickness were varied across
 their ranges (defined in Table \ref{tab:parameters}) in steps of $1 \, mm$, 0.1 and $5 \, mm$ respectively. In
 total, 495 model calibration runs were required for each of the objective. The frequency distribution of RMSE
@@ -779,13 +779,13 @@ sensitive parameters populating more than 50 \% of the possibilities among the b
 runs. For the volume objective, the RMSE of the best calibration runs ranged from 26 $m^3$ to 58 $m^3$ for the
 IN21 and from 10 $m^3$ to 16 $m^3$ for the CH21. For the area objective, the RMSE of the best calibration runs
 ranged from 14 $m^2$ to 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this
-calibration process has an inherent temporal and spatial bias due to the choice of when and how many UAV flights
-were possible in each location. Among the 5 flights of IN21 AIR used for calibration, most of them were flown
+calibration process has an inherent temporal and spatial bias due to the choice of when and how many drone
+surveys were possible in each location. Among the 5 flights of IN21 AIR used for calibration, most of them were flown
 around early March when the AIR volume was near its maximum whereas the 7 flights of the CH21 location were more
 evenly spaced out in comparison (see Table \ref{tab:uav}).
 
 $A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
-objectives. We expect the UAV measured surface area of the AIRs to be higher than the modelled ice area due to
+objectives. We expect the measured surface area of the AIRs to be higher than the modelled ice area due to
 the additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area
 correction factor to be higher than that of CH21 AIR because the IN21 surface area represented the
 area of two ice cones merged into one (see Fig.  \ref{fig:2AIR}). This hypothesis was validated by the disjoint
@@ -823,7 +823,7 @@ by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
 	\caption{Simulated ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and
 		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variation in weather and
 		the fountain parameters.  The lower bounds of the y-axis represents AIR dome volume. Violet points indicate
-		the UAV ice volume observations.  The grey dashed line represents the observed melt-out date for each AIR.  }
+		the drone ice volume observations.  The grey dashed line represents the observed melt-out date for each AIR.  }
 
 	\label{fig:results}
 \end{figure}
@@ -838,7 +838,7 @@ respectively. The negative sign represents underestimation of the melt-out date.
 determination of the melt-out date was not possible both through observation and through modelling.  In reality,
 the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of
 melt-out date was also not defined since the AIR never melted completely during the model simulation. There was
-just one UAV observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that UAV ice observation
+just one observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation
 with the modelled volume was just $9\, m^3$.
 
 \subsection{AIR ice volume estimates}
@@ -979,8 +979,8 @@ because there was no precipitation for the IN21 site.
 		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$ \\\midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
 		                       & Meltout date error              &                 & N.A.          & 1             & $days$  \\
-		\multicolumn{1}{|l|}{} & RMSE with UAV ice volume        &                 & 86            & 14            & $m^{3}$ \\
-		\multicolumn{1}{|l|}{} & Correlation with UAV ice volume &                 & 0.99          & 0.93          &
+		\multicolumn{1}{|l|}{} & RMSE with ice volume        &                 & 86            & 14            & $m^{3}$ \\
+		\multicolumn{1}{|l|}{} & Correlation with ice volume &                 & 0.99          & 0.93          &
 		N.A.                                                                                                                 \\\bottomrule
 	\end{tabular}
 \end{table}
@@ -1072,12 +1072,12 @@ In this paper, we have developed a bulk energy and mass balance model to simulat
 field measurements in Gangles, India and Guttannen, Switzerland. The use of this dataset, in combination with
 novel algorithms for the calculation of the surface area and freezing energy fluxes, allowed an accurate
 representation of the complex growth dynamics typical of an AIR. The model was calibrated and validated with ice
-volume and surface area observations obtained via UAV flights. We calculated the water losses, freezing and
+volume and surface area observations obtained via drone surveys. We calculated the water losses, freezing and
 melting rates for each of the three AIRs and explained their corresponding values through the influence of the
 location chosen and the fountain used. Our main conclusions are summarized below:
 
 \begin{itemize}
-	\item The model was successful in reproducing the observed UAV ice volume evolution with a correlation greater
+	\item The model was successful in reproducing the observed ice volume evolution with a correlation greater
 	      than $0.93$ and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs.
 
 	\item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
@@ -1115,22 +1115,22 @@ fountain spray was active for 8 hours each night, we estimate water consumption 
 during the accumulation period of the icestupa, roughly 56 \% of the water provided was wasted.  This icestupa
 completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
-\subsection{UAV data processing} \label{sec:uav}
+\subsection{Drone data processing} \label{sec:uav}
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=10 cm]{Figures/gangles_DEM.jpg}
 	\end{center}
-	\caption{Digital elevation map of Indian AIR constructed from the UAV flight on March 3, 2021. The green
+	\caption{Digital elevation map of Indian AIR constructed from the drone survey on March 3, 2021. The green
 		area represents the area bounded by the marked perimeter.
 	}
 	\label{fig:DEM}
 \end{figure}
 
-The UAV flew automatically along a predefined flight course and took photographs at a certain time interval. The
-position and altitude of the UAV at the exposure stations, which were obtained by the built-in integrated
+The drone flew automatically along a predefined flight course and took photographs at a certain time interval. The
+position and altitude of the drone at the exposure stations, which were obtained by the built-in integrated
 Position and Orientation System (POS, composed of global positioning system and inertial measurement units),
-were recorded in the JPEG pictures. UAV images in each survey were separately processed with Pix4Dmapper in a
+were recorded in the JPEG pictures. Drone images in each survey were separately processed with Pix4Dmapper in a
 three-step workflow, which is described below:
 
 (1) Initial processing: This process generates a sparse point cloud with the structure-from motion algorithm
@@ -1151,7 +1151,7 @@ near the ice boundary to mark as vertices of this perimeter. For the Swiss AIR, 
 to snowfall, so instead the perimeter was marked by identifying the ice and snow boundary.
 
 There is temporal and spatial uncertainty associated with this process. Weather conditions influence the quality
-of each UAV flight variably. Moreover, since ice/snow surfaces do not have many identifiable features, few
+of each drone survey variably. Moreover, since ice/snow surfaces do not have many identifiable features, few
 feature points can be detected and matched in the vicinity of the AIR. Thus, we attach a high uncertainty of
 $\pm 10 \%$ for all the AIR observations to accommodate for this.
 
@@ -1160,7 +1160,7 @@ $\pm 10 \%$ for all the AIR observations to accommodate for this.
 any commercial or financial relationships that could be construed as a potential conflict of interest.
 
 \section*{Author Contributions} SB, MH, SW and FK designed the study.  SB developed the methodology with inputs
-from MH.  MH, ML and JO reviewed the model algorithm and helped improve it. SB processed the UAV data. JB helped
+from MH.  MH, ML and JO reviewed the model algorithm and helped improve it. SB processed the drone data. JB helped
 with model validation and uncertainty assessment. SB, MH, FK and SW participated in the fieldwork.  SB led the
 writing of the paper and all co-authors contributed to it.
 
@@ -1173,7 +1173,7 @@ Indian icestupa construction teams through the winters of 2019, 2020 and 2021. W
 Flavio Catillaz from Eispalast Schwarzsee (CH19); Daniel Beurki from the Guttannen Bewegt Association (CH20 and
 CH21); Norboo Thinles, Nishant Tiku, Sourabh Maheshwari and the icestupa project team from HIAL (IN21).  We
 would also like to thank Hanseuli Gubler for designing the Swiss AWS; Dr. Tom Matthews for designing the Indian
-AWS; Michelle Stirnimann for conducting the CH20 UAV flights and Digmesa AG for subsidising their flowmeter
+AWS; Michelle Stirnimann for conducting the CH20 drone surveys and Digmesa AG for subsidising their flowmeter
 used in the experiment.  We would particularly like to thank Prof. Thomas Schuler and 2 anonymous reviewers who
 gave us important inputs to improve the paper. We also thank Prof. Christian Hauck, Prof.  Nanna B. Karlsson and
 Dr.  Andrew Tedstone for valuable suggestions that improved the manuscript.
@@ -1181,7 +1181,7 @@ Dr.  Andrew Tedstone for valuable suggestions that improved the manuscript.
 \section*{Data Availability Statement} AIR timelapses (CH20, CH21) and results can be viewed interactively in
 the web app (\url{https://share.streamlit.io/gayashiva/air_model/src/visualization/webApp.py}).  The latest version of
 the model code is available in GitHub (\url{https://github.com/Gayashiva/air_model}, last access: 10 August 2020). The
-UAV data can be obtained from the authors upon request.
+drone data can be obtained from the authors upon request.
 
 \bibliographystyle{frontiersinSCNS_ENG_HUMS} \bibliography{references}
 
