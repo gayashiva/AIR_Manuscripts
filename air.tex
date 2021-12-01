@@ -48,7 +48,7 @@
 	Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
 	irrigation water supply. However, there is a large variability associated with this water supply due to the
 	local weather influences of the construction location chosen. This study compared the ice volume evolution of
-	AIRs built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model
+	three AIRs built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model
 	input consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).
 	Model calibration and validation were performed through ice volume and area measurements taken from several
 	Uncrewed Aerial Vehicle (UAV) flights.  The model achieved an RMSE within $11 \%$ of the maximum ice volume
@@ -118,17 +118,17 @@ In this paper, we develop a physically-based model of vertical AIRs (or Icestupa
 losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of
 water frozen, melted, sublimated and runoff. Sensitivity and uncertainty analysis were performed to identify the
 most sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the
-winter of 2021 in India and Switzerland and validated the model on a Swiss AIR built on winter 2020. Our model
+winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built on winter 2019/20. Our model
 results provide first steps towards evaluating the potential of this new water storage technology worldwide.
 
-\section{Study Sites}
+\section{Study Sites and data}
 
-The model requires three kinds of datasets containing weather, fountain and UAV measurements to accurately
-calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2019, 2020 and 2021 several AIRs
+The model requires three kinds of datasets containing weather, fountain and AIR volume measurements to accurately
+calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2018/19, 2019/20 and 2020/21 several AIRs
 were constructed by teams in Switzerland and India. Here, we present the results of three AIRs, which have a
 relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were constructed in the same
-Swiss location called Guttannen (referred with the prefix CH) but during different winters and the other was
-constructed at Gangles, India (referred with the prefix IN).
+Swiss location called Guttannen (referred to with the prefix CH) but during different winters and the other was
+constructed at Gangles, India (referred to with the prefix IN).
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are
@@ -304,7 +304,7 @@ balance calculations to estimate its ice volume, surface temperature and runoff 
 	\begin{center}
 		\includegraphics[width=10 cm]{Figures/Figure_3.jpg}
 	\end{center}
-	\caption{Model schematic showing the algorithm used in the model at every time step. }
+	\caption{Model schematic showing the workflow used in the model at every time step. }
 	\label{fig:schema}
 \end{figure}
 
@@ -313,6 +313,7 @@ balance calculations to estimate its ice volume, surface temperature and runoff 
 The model assumes the AIR shape to be a cone and assigns it the following shape attributes:
 
 \begin{subequations}
+
 	% \label{equations}
 	\begin{align}
 		\label{eq:A}
@@ -628,11 +629,11 @@ The mass balance equation for an AIR is represented as:
 	\label{eq:MB}
 \end{equation}
 
-where $M_{F}$ is the discharge of the fountain; $M_{ppt}$ is the cumulative precipitation;  $M_{dep}$ is the cumulative
+where $M_{F}$ is the cumulative mass of the fountain discharge; $M_{ppt}$ is the cumulative precipitation;  $M_{dep}$ is the cumulative
 accumulation through water vapour deposition; $M_{ice}$ is the cumulative mass of ice; $M_{water}$ is the cumulative
 mass of melt water; $M_{sub}$ represents the cumulative water vapor loss by sublimation and $M_{runoff}$ represents the
-fountain discharge runoff that did not interact with the AIR. The LHS of equation \ref{eq:MB} represents the rate of
-mass input and the RHS represents the rate of mass output for an AIR.
+fountain discharge runoff that did not interact with the AIR. The left hand side of equation \ref{eq:MB} represents the rate of
+mass input and the right hand side represents the rate of mass output for an AIR.
 
 Precipitation input is calculated as shown in equation \ref{eq:ppt} where $\rho_{w}$ is the density of water (1000
 $kg\,m^{-3}$), $ppt$ is the measured precipitation rate in [$m\,s^{-1}$] and $T_{ppt}$ is the temperature threshold
@@ -646,7 +647,7 @@ can also occur. As the differentiation between evaporation and sublimation (and 
 air temperature reaches 0 $\degree C$ is challenging, we assume that negative (positive) latent heat fluxes correspond
 only to sublimation (deposition), i.e. no evaporation (condensation) is calculated.
 
-Since we have categorized every time step as a freezing and melting event, we can determine the meltwater and  ice
+Since we have categorized every time step as a freezing or melting event, we can determine the ice and meltwater
 generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mcone}. Having calculated
 all the other mass components the fountain wastewater generated every time step can be calculated using Eqn.
 \ref{eq:MB}.
@@ -664,7 +665,7 @@ all the other mass components the fountain wastewater generated every time step 
 		\frac{\Delta M_{water}}{\Delta t}                                  & = \frac{q_{melt} \cdot A_{cone} }{L_f}                                                   \\
 		\label{eq:mcone}
 		\frac{\Delta M_{ice}}{\Delta t}                                    & = \frac{q_{freeze}\cdot A_{cone} }{L_f} + \frac{\Delta M_{ppt}}{\Delta t} + \frac{\Delta
-			M_{dep}}{\Delta t}- \frac{\Delta M_{sub}}{\Delta t}- \frac{\Delta M_{melt}}{\Delta t}
+			M_{dep}}{\Delta t}- \frac{\Delta M_{sub}}{\Delta t}- \frac{\Delta M_{water}}{\Delta t}
 	\end{align}
 \end{subequations}
 
@@ -838,7 +839,7 @@ determination of the melt-out date was not possible both through observation and
 the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of
 melt-out date was also not defined since the AIR never melted completely during the model simulation. There was
 just one UAV observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that UAV ice observation
-with the modelled volume was just $9 m^3$.
+with the modelled volume was just $9\, m^3$.
 
 \subsection{AIR ice volume estimates}
 
@@ -867,7 +868,7 @@ The daily mean thickness rate of the Indian location was positive ($1\, mm \,w.e
 rate of $24\, mm \,w.e.$ and a mean decay rate of $12\, mm \,w.e.$. In the Swiss location, the daily mean
 thickness rate was negative ($-3\, mm \,w.e.$) with a daily mean growth rate of $6\, mm \,w.e.$ and a mean decay
 rate of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay rate corresponds to the
-difference between the freezing EBC and the melting EBC. For the Indian site, $q_{freeze}$ accounted for 63 \%,
+difference between the freezing and the melting energy balance components. For the Indian site, $q_{freeze}$ accounted for 63 \%,
 $q_{melt}$ accounted for 32 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy turnover is calculated
 as the sum of energy fluxes in absolute values. For the Swiss site, $q_{melt}$ accounted for 62 \%, $q_{freeze}$
 accounted for 36 \% and $q_{T}$ just 2 \% of overall energy turnover. The freezing events occurred for 19\% and
@@ -930,7 +931,7 @@ to represent the different physical processes that contribute to this freezing a
 \end{figure}
 
 The longwave radiation flux had the highest energy turnover during the accumulation period for both the
-locations. It increased and decreased the freezing and melting EBC during the accumulation and ablation period
+locations. It increased and decreased the freezing and melting energy balance components during the accumulation and ablation period
 respectively. However, its magnitude was much lower in the ablation period compared to the accumulation period
 since the rising air temperature increased the incoming longwave radiation in the ablation period. The magnitude
 of longwave radiation flux was much higher for the Indian site as its incoming longwave radiation was strongly
@@ -987,12 +988,12 @@ because there was no precipitation for the IN21 site.
 
 Turbulent fluxes play a very important role in the energy balance. Sensible heat flux had the highest energy
 turnover during the ablation period for both the locations. It decreased and increased the freezing and melting
-EBC. The Indian location had much higher sensible heat due to higher wind speeds and higher temperature gradient
+energy balance components. The Indian location had much higher sensible heat due to higher wind speeds and higher temperature gradient
 between the AIR surface and the atmosphere. The sensible heat contributes much more to the energy turnover
 during ablation period than the latent heat flux due to rising air temperature. Latent heat flux does not vary
 much in energy turnover between the accumulation and ablation periods. For the Indian site, latent heat flux
 increased and decreased the freezing and melting energy since sublimation process was favored throughout the
-simulation duration. But for the swiss location, latent heat increased both the freezing and the melting energy
+simulation duration. But for the Swiss location, latent heat increased both the freezing and the melting energy
 since sublimation and deposition process was favored during accumulation and ablation period respectively.
 
 The mass contribution of the sublimation/deposition process shown in Table \ref{tab:Results} was insignificant
