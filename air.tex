@@ -15,6 +15,7 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{siunitx} %for SI units
+\usepackage{tabularx}
 
 \def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Balasubramanian {et~al.}} %use et al only if is more than 1 author
@@ -46,20 +47,19 @@
 
 \begin{abstract}
 
-	Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
-	irrigation water supply. However, there is a large variability associated with this water supply due to the
-	local weather influences of the construction location chosen. This study compared the ice volume evolution of
-	three AIRs built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model
-	input consisted of meteorological data in conjunction with fountain discharge rate (mass input of an AIR).
-	Model calibration and validation were performed through ice volume and surface area measurements taken from several
-	drone surveys.  The model achieved an RMSE within $11 \%$ of the maximum ice volume
-	with the ice volume observations for all the three AIRs. The location in Ladakh, with a maximum ice volume
-	around 6 times larger, was more favourable compared to the Guttannen site.  However, the corresponding water
-	losses for all the AIRs were more than three quarters of the total fountain discharge due to high fountain water runoff. Drier
-	and colder locations in relatively cloud free regions are expected to produce AIRs with a faster freezing rate
-	and slower melting rate respectively. This is a promising result for dry mountain regions, where AIR
-	technology could provide a relatively cheap and sustainable strategy to mitigate climate change induced water
-	stress.
+  Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
+  irrigation water supply. However, there is a large variability associated with this water supply due to the
+  local weather influences at the location chosen. This study compared the ice volume evolution of three AIRs
+  built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model input consisted
+  of meteorological data in conjunction with fountain discharge rate (mass input of an AIR). Model calibration
+  and validation were completed using ice volume and surface area measurements taken from several drone surveys.
+  The model achieved an RMSE within $11 \%$ of the maximum ice volume with the ice volume observations for all
+  the three AIRs. The location in Ladakh, with a maximum ice volume around 6 times larger, was more favourable
+  compared to the Guttannen site.  However, the corresponding water losses for all the AIRs were more than three
+  quarters of the total fountain discharge due to high fountain water runoff. Drier and colder locations in
+  relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower melting
+  rate. This is a promising result for dry mountain regions, where AIR technology could provide a relatively
+  economic and sustainable strategy to mitigate climate change induced water stress.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -67,16 +67,16 @@
 
 \section{Introduction}
 
-Seasonal snow cover, glaciers and permafrost are expected to change their water storage capacity due to climate
+Seasonal snow cover and glaciers are expected to change their water storage capacity due to climate
 change with major consequences for downriver water supply \citep{Immerzeel_2020}. The challenges brought about
 by these changes are especially important for dry mountain environments such as in Central Asia or the Andes,
 which directly rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019,
 	Apel_2018, Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}.
 
-Ladakh, sandwiched between Himalayan ranges and the Karakoram, is one of such regions experiencing climate
+Ladakh, sandwiched between the Himalayan ranges and the Karakoram, is one of such regions experiencing climate
 change induced water stress. Glaciers in the Ladakh region are vital in sustaining agricultural activities which
 form the basis for regional food security and socioeconomic development \citep{Labbal_2000, Schmidt_2012}.
-During a low precipitation year, glaciers and snowmelt are the only sources of water supply to the region
+During a low precipitation year, glaciermelt and snowmelt are the only sources of water supply to the region
 \citep{Thayyen_2010}. Some villages in Ladakh, India have already been forced to relocate due to glacial retreat
 and the corresponding loss of their main fresh water resources \citep{zanskar}.
 
@@ -117,17 +117,17 @@ remains unknown.
 
 In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their water
 losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of
-water frozen, melted, sublimated and runoff. Sensitivity and uncertainty analysis were performed to identify the
+ice, meltwater, sublimation and runoff. Sensitivity and uncertainty analysis were performed to identify the
 most sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the
-winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built on winter 2019/20. Our model
-results provide first steps towards evaluating the potential of this new water storage technology worldwide.
+winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built during winter 2019/20. Our model
+results provide a first step towards evaluating the potential of this new water storage technology worldwide.
 
 \section{Study Sites and data}
 
 The model requires three kinds of datasets containing weather, fountain and AIR volume measurements to
 accurately calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2018/19, 2019/20 and
 2020/21 such datasets were acquired for four AIRs each in Switzerland and India. Here, we present the results of
-three AIRs, which have a relatively complete dataset. As shown in Table \ref{tab:Observations}, two of them were
+three AIRs, which have a complete dataset. As shown in Table \ref{tab:Observations}, two of them were
 constructed in the same Swiss location called Guttannen (referred to with the prefix CH) but during different
 winters and the other was constructed at Gangles, India (referred to with the prefix IN).
 
@@ -253,7 +253,7 @@ explained in Appendix \ref{sec:uav} .
 	\label{tab:uav}
 	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
-		\textbf{}              & \textbf{No.} & \textbf{Date} & \textbf{Volume} & \textbf{Radius} & \textbf{Area} \\ \midrule
+		\textbf{}              & \textbf{No.} & \textbf{Date} & \textbf{Volume} & \textbf{Radius} & \textbf{Surface Area} \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
 		                       & 1            & Jan 18, 2021  & 103 $m^{3}$     & 9.1 $m$
 		                       & 411 $m^{2}$                                                                      \\
@@ -311,9 +311,9 @@ balance calculations to estimate its ice volume, surface temperature and runoff 
 	\label{fig:schema}
 \end{figure}
 
-\subsection{Surface area calculation}
+\subsection{Surface area calculation} \label{sec:shape}
 
-The model assumes the AIR shape to be a cone and assigns it the following shape attributes:
+The model assumes the AIR shape to be a cone and assigns the following shape attributes:
 
 \begin{subequations}
 
@@ -700,7 +700,7 @@ value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfa
 \cite{OerlemansKnap_1998}; emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
 from \cite{Zhou_2010}. The surface area correction factor, $A_{corr}$, quantifies the deviation of the AIR shape
 from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Values for
-surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$ \citep{BrockWillisSharp_2006}.
+surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$ \cite{BrockWillisSharp_2006}.
 Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance to any parameter in the
 glaciological literature, we attribute a wide range of values for it.
 
@@ -720,21 +720,56 @@ not accounting for uncertainties related to meteorological forcing data in this 
 The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIRs and the CH20 AIR was used for
 validation of the model.
 
+
 \begin{table}
-	\centering
-	\caption{The ranges of the 8 weather parameters used in the sensitivity and uncertainty analysis.}
+	\caption{Free parameters in the model categorised as constant and uncertain parameters. The ranges of the 8 weather parameters used in the sensitivity and uncertainty analysis.}
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
-		\textbf{No.} & \textbf{Name}                       & \textbf{Abbreviation} & \textbf{Min} & \textbf{Max} & \textbf{Unit} \\\midrule
-		1            & Ice Emissivity                      & $\epsilon_{ice}$      & 0.95         & 0.99         &               \\
-		2            & Ice Albedo                          & $\alpha_{ice}$        & 0.15         & 0.35         &               \\
-		3            & Snow Albedo                         & $\alpha_{snow}$       & 0.8          & 0.9          &               \\
-		4            & Precipitation Temperature threshold & $T_{ppt}$             & 0            & 2            & $\degree C$   \\
-		5            & Albedo Decay Rate                   & $\tau$                & 10           & 22           & $days$        \\
-		6            & Surface Roughness                   & $z_0$                 & 1            & 5            & $mm$          \\
-		7            & Surface Area correction factor      & $A_{corr}$            & 1            & 2            &               \\
-		8            & Surface layer thickness             & $\Delta x$            & 10           & 50           & $mm$          \\\bottomrule
+		\textbf{Constant Parameters}                       & \textbf{Symbol} & \textbf{Value} &
+    \textbf{Unit} & \textbf{References} \\\midrule
+    Van Karman constant & $\kappa$      & 0.4        & & \citeauthor{CuffeyPaterson_2010}              \\
+    Stefan Boltzmann constant & $\sigma$ & $\num{5.67 e-8} $& $W\, m^{-2}\, K^{-4}$ & \citeauthor{CuffeyPaterson_2010}\\
+    Air pressure at sea level & $p_{0,a}$ & 1013 & $hPa$  & \citeauthor{MolgHardy_2004}\\
+    Density of water & $\rho_{w}$ & 1000 & $kg\, m^{-3}$    & \citeauthor{CuffeyPaterson_2010}\\
+    Density of ice & $\rho_{ice}$ & 917 & $kg\, m^{-3}$ & \citeauthor{CuffeyPaterson_2010}\\
+    Density of air & $\rho_{a}$ &  1.29 & $kg\, m^{-3}$   & \citeauthor{MolgHardy_2004}\\
+    Specific heat of water & $c_{w}$ & 4186 & $J\, kg^{-1}\,\degree C^{-1}$  & \citeauthor{CuffeyPaterson_2010}\\
+    Specific heat of ice & $c_{ice}$ & 2097 & $J\, kg^{-1}\,\degree C^{-1}$ & \citeauthor{CuffeyPaterson_2010}\\
+    Specific heat of air & $c_{a}$ & 1010 & $J\, kg^{-1}\,\degree C^{-1}$ & \citeauthor{MolgHardy_2004}\\
+    Thermal conductivity of ice & $k_{ice}$ & 2.123  & $W\, m^{-1}\, K^{-1}$ & \citeauthor{Bonales_2017} \\
+    Latent Heat of Sublimation & $L_{s}$ & \num{2.848e6}  & $J\, kg^{-1}$ &   \citeauthor{CuffeyPaterson_2010}\\
+    Latent Heat of Fusion & $L_{f}$ & \num{3.34e5} & $J\, kg^{-1}$ & \citeauthor{CuffeyPaterson_2010}\\
+    Gravitational acceleration & $g$ & 9.81 & $m\, s^{-2}$ &\citeauthor{CuffeyPaterson_2010}\\\midrule
+    & & &  & \\
+		\textbf{Uncertain Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+    Ice Emissivity                      & $\epsilon_{ice}$      & $[0.95,0.99]$         & & \citeauthor{HORI2006486}             \\
+    Ice Albedo                          & $\alpha_{ice}$        & $[0.15,0.35]$         &  &
+    \citeauthor{steiner_2015}; \citeauthor{ZollesMaussion_2019}           \\
+    Snow Albedo                         & $\alpha_{snow}$       & $[0.8,0.9]$        &  & \citeauthor{ZollesMaussion_2019}              \\
+    Precipitation Temperature threshold & $T_{ppt}$             & $[0,2]$            & $\degree C$& \citeauthor{Zhou_2010}  \\
+    Albedo Decay Rate                   & $\tau$                & $[10,22]$           & $days$ &
+    \citeauthor{Schmidt_2017};      \\
+    & &    &  & \citeauthor{OerlemansKnap_1998}      \\
+    Surface Roughness                   & $z_0$                 & $[1,5]$            & $mm$  & \citeauthor{BrockWillisSharp_2006}       \\
+    Surface Area correction factor      & $A_{corr}$            & $[1,2]$            &       & assumed       \\
+    Surface layer thickness             & $\Delta x$            & $[10,50]$           & $mm$ & assumed
+    \\\bottomrule
+		% \textbf{Misc Parameters}    & \textbf{Symbol} & \textbf{Value} & \textbf{Unit} & \textbf{Section} \\\midrule
+  %   Model timestep & $\Delta t$ & 3600 & $s$ & \\
+  %   Weather station height & $h_{AWS}$ & 2 & $m$ & \\
+  %   Ice body and surface distance & $l_{cone}$ &  &  & \ref{sec:Bulkflux}\\
+    % Mass of fountain discharge & $M_{F}$ &  & $kg$ & \\
+    % Mass of precipitation & $M_{ppt}$ &  & $kg$ & \\
+    % Mass of deposition & $M_{dep}$ &  & $kg$ & \\
+    % Mass of ice & $M_{ice}$ &  & $kg$ & \\
+    % Mass of meltwater & $M_{water}$ &  & $kg$ & \\
+    % Mass of sublimation & $M_{sub}$ &  & $kg$ & \\
+    % Mass of fountain runoff& $M_{runoff}$ &  & $kg$ & \\
+    % Radius of AIR & $r_{cone}$ &  &  & \ref{sec:shape}\\
+    % Height of AIR & $h_{cone}$ &  &  & \ref{sec:shape}\\
+    % Slope of AIR  & $s_{cone}$ &  &  & \ref{sec:shape}\\
+    % Thickness change rate of AIR  & ${\Delta j_{cone}}/{\Delta t}$ &  &  & \ref{sec:shape}\\
 	\end{tabular}
 \end{table}
 
