@@ -56,7 +56,7 @@
   The model achieved an RMSE within $11 \%$ of the maximum ice volume with the ice volume observations for all
   the three AIRs. The location in Ladakh, with a maximum ice volume around 6 times larger, was more favourable
   compared to the Guttannen site.  However, the corresponding water losses for all the AIRs were more than three
-  quarters of the total fountain discharge due to high fountain water runoff. Drier and colder locations in
+  quarters of the total fountain discharge due to high fountain wastewater. Drier and colder locations in
   relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower melting
   rate. This is a promising result for dry mountain regions, where AIR technology could provide a relatively
   economic and sustainable strategy to mitigate climate change induced water stress.
@@ -111,13 +111,13 @@ tree branches and fishing nets are used to guide and accelerate the ice formatio
 However, to date, no reliable estimates exist about the quantity of meltwater they can provide
 \citep{Nusser_2018} . Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
 losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation
-period, AIRs can lose excessive fountain water directly as runoff and during the ablation period, sublimation
+period, AIRs can lose excessive fountain water directly as wastewater and during the ablation period, sublimation
 losses could be significant.  However, the relative contribution of these processes in the total water loss
 remains unknown.
 
 In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their water
 losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of
-ice, meltwater, sublimation and runoff. Sensitivity and uncertainty analysis were performed to identify the
+ice, meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the
 most sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the
 winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built during winter 2019/20. Our model
 results provide a first step towards evaluating the potential of this new water storage technology worldwide.
@@ -298,9 +298,9 @@ explained in Appendix \ref{sec:uav} .
 
 \section{Model setup}
 
-A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and runoff
-water of the AIR. In each hourly time step, the model uses the AIR surface area, energy balance and mass
-balance calculations to estimate its ice volume, surface temperature and runoff water as shown in Fig.
+A bulk energy and mass balance model is used to calculate the amounts of ice, meltwater, water vapour and
+wastewater of the AIR. In each hourly time step, the model uses the AIR surface area, energy balance and mass
+balance calculations to estimate its ice volume, surface temperature and wastewater as shown in Fig.
 \ref{fig:schema} .
 
 \begin{figure}
@@ -628,14 +628,14 @@ The mass balance equation for an AIR is represented as:
 
 \begin{equation}
 	\frac{\Delta M_{F} + \Delta M_{ppt} + \Delta M_{dep}}{\Delta t} = \frac{\Delta M_{ice} +\Delta M_{water} +
-		\Delta M_{sub} + \Delta M_{runoff}}{\Delta t}  \\
+		\Delta M_{sub} + \Delta M_{waste}}{\Delta t}  \\
 	\label{eq:MB}
 \end{equation}
 
 where $M_{F}$ is the cumulative mass of the fountain discharge; $M_{ppt}$ is the cumulative precipitation;  $M_{dep}$ is the cumulative
 accumulation through water vapour deposition; $M_{ice}$ is the cumulative mass of ice; $M_{water}$ is the cumulative
-mass of melt water; $M_{sub}$ represents the cumulative water vapor loss by sublimation and $M_{runoff}$ represents the
-fountain discharge runoff that did not interact with the AIR. The left hand side of equation \ref{eq:MB} represents the rate of
+mass of melt water; $M_{sub}$ represents the cumulative water vapor loss by sublimation and $M_{waste}$ represents the
+fountain wastewater that did not interact with the AIR. The left hand side of equation \ref{eq:MB} represents the rate of
 mass input and the right hand side represents the rate of mass output for an AIR.
 
 Precipitation input is calculated as shown in equation \ref{eq:ppt} where $\rho_{w}$ is the density of water (1000
@@ -677,7 +677,7 @@ all the other mass components the fountain wastewater generated every time step 
 
 Considering AIRs as water reservoirs, their net water loss can be defined as:
 
-\begin{equation} \textit{Net water losses} = \frac{M_{runoff}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
+\begin{equation} \textit{Net water losses} = \frac{M_{waste}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \subsection{Sensitivity and uncertainty analysis}
 
@@ -983,7 +983,7 @@ because there was no precipitation for the IN21 site.
 		                       & Meltwater                       & $M_{water}$     & \num{4.4e5} & \num{2.3e5}   & $kg$  \\
 		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & \num{1.5e5} & 0             & $kg$  \\
 		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & \num{1.3e5} & \num{8.0e3}     & $kg$  \\
-		\multicolumn{1}{|l|}{} & Fountain runoff                 & $M_{runoff}$    & \num{2.3e6} & \num{8.0e5}     & $kg$  \\ \midrule
+		\multicolumn{1}{|l|}{} & Fountain wastewater             & $M_{waste}$    & \num{2.3e6} & \num{8.0e5}     & $kg$  \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{7}{*}{\rotatebox[origin=c]{90}{AIR}}}
 
 		                       & Freezing rate                   & ${\Delta M_{freeze}}/{\Delta t}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$ \\
@@ -1053,8 +1053,8 @@ on the weather aspects of the model.
 \subsection{Water losses of AIRs}
 
 The net water losses of IN21 and CH21 AIR were $78\,\%$ and $77\,\%$ of the total mass input, respectively. The
-high water losses was caused by the fountain water runoff in both the AIRs. Since vapour losses were
-negligible compared to fountain runoff losses, the AIR wastes water mostly during the accumulation period. The
+high water losses was caused by the fountain wastewater in both the AIRs. Since vapour losses were
+negligible compared to fountain wastewater, the AIR wastes water mostly during the accumulation period. The
 maximum freezing rate of the IN21 AIR was less than half the mean water supply rate, meaning that the growth was
 not limited by the supply rate but by the freezin efficiency. The CH21 AIR was able to attain the mean fountain
 discharge provided but this was only for 6 hours from the 2155 hours of fountain runtime available. Thus, water
@@ -1111,7 +1111,7 @@ summarized below:
 	      melting rates negligible. Since the accumulation period produced much higher ice volumes, the Indian AIR was
 	      able to last much longer than the Swiss AIRs.
 
-	\item Water losses were high ($>75\,\%$) mostly due to fountain water runoff for all the AIRs. Vapour losses were
+	\item Water losses were high ($>75\,\%$) mostly due to fountain wastewater for all the AIRs. Vapour losses were
 	      insignificant ($<4\,\%$) in comparison. However, significant improvement in water storage efficiency is possible
 	      through optimization of fountain discharge rate.
 
