@@ -209,9 +209,9 @@ consequence, the diffuse fraction of the global shortwave radiation was also ass
 		\multicolumn{1}{|l|}{} & Simulation Start Date         &     & Jan 18 2021   & Nov 22 2020
 		                       & Jan 3 2020                       &                                                                      \\\bottomrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Fountain}}}
-		                       & Mean discharge              & $d_F     $      & $60$          & $7.5$        &
+		                       & Discharge rate             & $d_F     $      & $60$          & $7.5$        &
 		$7.5$                  & $l/min$                                                                                                   \\
-		\multicolumn{1}{|l|}{} & Runtime                     & $h_F $          & 829           & 2155
+		\multicolumn{1}{|l|}{} & Runtime                     & $t_F $          & 829           & 2155
 		                       & 1553                        & $hours$                                                                     \\
 		\multicolumn{1}{|l|}{} & Spray radius                & $r_{F}$         & 10.8          & 6.9
 		                       & 7.7                         & $m$                                                                         \\
@@ -441,7 +441,7 @@ using the parametrisation proposed by \cite{Woolf_1968}. Accordingly, $f_{cone}$
 
 The diffuse shortwave radiation is assumed to impact the conical AIR surface uniformly.
 
-\subsubsection{Net Longwave Radiation \texorpdfstring{$q_{LW}$}{Lg}}
+\subsubsection{Net Longwave Radiation \texorpdfstring{$q_{LW}$}{Lg}} \label{sec:LW}
 
 The net longwave radiation $q_{LW}$ is determined as follows:
 
@@ -476,7 +476,7 @@ follows:
 with a cloudiness index $c$, ranging from 0 for clear skies to 1 for complete overcast skies. For the Indian
 site, we assume cloudiness to be negligible.
 
-\subsubsection{Turbulent fluxes}
+\subsubsection{Turbulent fluxes} \label{sec:Qs}
 
 The turbulent sensible $q_{S}$ and latent heat $q_{L}$ fluxes are computed with the following expressions
 proposed by \cite{Garratt_1992}:
@@ -694,16 +694,6 @@ distribution is always treated as uniform and the limits for every parameter are
 sensitivity results from the sensitivity analysis are used as a tool to reduce the number of free parameters in the model by
 removing those parameters, which have only a marginal influence on the model output.
 
-The ranges for the snow albedo were taken from \cite{ZollesMaussion_2019}; ice albedo minimum was taken from
-\cite{steiner_2015} and maximum from \cite{ZollesMaussion_2019}; albedo decay rate is assumed to have a minimum
-value of 10 days similar to values obtained by \cite{Schmidt_2017} for wet surfaces and a maximum of 22 days from
-\cite{OerlemansKnap_1998}; emissivity range from \cite{steiner_2015} and temperature threshold for precipitation
-from \cite{Zhou_2010}. The surface area correction factor, $A_{corr}$, quantifies the deviation of the AIR shape
-from the conical shape assumed in the model. We assume the range of this deviation to be between 1 to 2. Values for
-surface roughness, $z_{0}$, of glacier ice are generally in the range $0.1-5\, mm$ \cite{BrockWillisSharp_2006}.
-Since the surface layer thickness, $\Delta x$, for an AIR does not bear resemblance to any parameter in the
-glaciological literature, we attribute a wide range of values for it.
-
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
 separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions occured during the
 study period. However, significant uncertainty exists for the IN21 AIR , where the interruptions due to
@@ -728,7 +718,7 @@ validation of the model.
 		\toprule
 		\textbf{Constant Parameters}                       & \textbf{Symbol} & \textbf{Value} &
     \textbf{Unit} & \textbf{References} \\\midrule
-    Van Karman constant & $\kappa$      & 0.4        & & \citeauthor{CuffeyPaterson_2010}              \\
+    Van Karman constant & $\kappa$      & 0.4        &dimensionless & \citeauthor{CuffeyPaterson_2010}              \\
     Stefan Boltzmann constant & $\sigma$ & $\num{5.67 e-8} $& $W\, m^{-2}\, K^{-4}$ & \citeauthor{CuffeyPaterson_2010}\\
     Air pressure at sea level & $p_{0,a}$ & 1013 & $hPa$  & \citeauthor{MolgHardy_2004}\\
     Density of water & $\rho_{w}$ & 1000 & $kg\, m^{-3}$    & \citeauthor{CuffeyPaterson_2010}\\
@@ -741,35 +731,37 @@ validation of the model.
     Latent Heat of Sublimation & $L_{s}$ & \num{2.848e6}  & $J\, kg^{-1}$ &   \citeauthor{CuffeyPaterson_2010}\\
     Latent Heat of Fusion & $L_{f}$ & \num{3.34e5} & $J\, kg^{-1}$ & \citeauthor{CuffeyPaterson_2010}\\
     Gravitational acceleration & $g$ & 9.81 & $m\, s^{-2}$ &\citeauthor{CuffeyPaterson_2010}\\\midrule
-    & & &  & \\
-		\textbf{Uncertain Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
-    Ice Emissivity                      & $\epsilon_{ice}$      & $[0.95,0.99]$         & & \citeauthor{HORI2006486}             \\
-    Ice Albedo                          & $\alpha_{ice}$        & $[0.15,0.35]$         &  &
+    % Fountain spray radius & $r_{F}$             &             & $m$& measured \\
+    % Model timestep & $\Delta t$ & 3600 & $s$ & assumed \\
+    % Weather station height & $h_{AWS}$ & 2 & $m$ & assumed \\\midrule
+		\textbf{Derived Parameters} & \textbf{Symbol} & \textbf{} & \textbf{Unit} & \textbf{Section} \\\midrule
+    Atmospheric emissivity & $\epsilon_{a}$ & & dimensionless    & \ref{sec:LW}\\
+    Cloudiness & $c$ &  & dimensionless  & \ref{sec:LW}\\
+    Vapour pressure over air & $p_{v,a}$ &  & $hPa$  & \ref{sec:Qs}\\
+    Vapour pressure over ice & $p_{v,ice}$ &  & $hPa$ & \ref{sec:Qs}\\
+    Radius of AIR & $r_{cone}$ &  & $m$ & \ref{sec:shape}\\
+    Height of AIR & $h_{cone}$ &  & $m$ & \ref{sec:shape}\\
+    Slope of AIR  & $s_{cone}$ &  & dimensionless & \ref{sec:shape}\\
+    Thickness change of AIR  & $j_{cone}$ &  & $m$  & \ref{sec:shape}\\
+    Ice body and surface distance & $l_{cone}$ &  & $m$  & \ref{sec:Bulkflux}\\
+\midrule
+		\textbf{Calibrated Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+    Surface Roughness                   & $z_0$                 & $[1,5]$            & $mm$  & \citeauthor{BrockWillisSharp_2006}       \\
+    Surface Area correction factor      & $A_{corr}$            & $[1,2]$            & dimensionless       & assumed       \\
+    Surface layer thickness             & $\Delta x$            & $[10,50]$           & $mm$ & assumed
+    \\\midrule
+		\textbf{Uncertain Weather Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+    Ice Emissivity                      & $\epsilon_{ice}$      & $[0.95,0.99]$         & dimensionless & \citeauthor{HORI2006486}             \\
+    Ice Albedo                          & $\alpha_{ice}$        & $[0.15,0.35]$         & dimensionless  &
     \citeauthor{steiner_2015}; \citeauthor{ZollesMaussion_2019}           \\
-    Snow Albedo                         & $\alpha_{snow}$       & $[0.8,0.9]$        &  & \citeauthor{ZollesMaussion_2019}              \\
+    Snow Albedo                         & $\alpha_{snow}$       & $[0.8,0.9]$        & dimensionless  & \citeauthor{ZollesMaussion_2019}              \\
     Precipitation Temperature threshold & $T_{ppt}$             & $[0,2]$            & $\degree C$& \citeauthor{Zhou_2010}  \\
     Albedo Decay Rate                   & $\tau$                & $[10,22]$           & $days$ &
     \citeauthor{Schmidt_2017};      \\
-    & &    &  & \citeauthor{OerlemansKnap_1998}      \\
-    Surface Roughness                   & $z_0$                 & $[1,5]$            & $mm$  & \citeauthor{BrockWillisSharp_2006}       \\
-    Surface Area correction factor      & $A_{corr}$            & $[1,2]$            &       & assumed       \\
-    Surface layer thickness             & $\Delta x$            & $[10,50]$           & $mm$ & assumed
-    \\\bottomrule
-		% \textbf{Misc Parameters}    & \textbf{Symbol} & \textbf{Value} & \textbf{Unit} & \textbf{Section} \\\midrule
-  %   Model timestep & $\Delta t$ & 3600 & $s$ & \\
-  %   Weather station height & $h_{AWS}$ & 2 & $m$ & \\
-  %   Ice body and surface distance & $l_{cone}$ &  &  & \ref{sec:Bulkflux}\\
-    % Mass of fountain discharge & $M_{F}$ &  & $kg$ & \\
-    % Mass of precipitation & $M_{ppt}$ &  & $kg$ & \\
-    % Mass of deposition & $M_{dep}$ &  & $kg$ & \\
-    % Mass of ice & $M_{ice}$ &  & $kg$ & \\
-    % Mass of meltwater & $M_{water}$ &  & $kg$ & \\
-    % Mass of sublimation & $M_{sub}$ &  & $kg$ & \\
-    % Mass of fountain runoff& $M_{runoff}$ &  & $kg$ & \\
-    % Radius of AIR & $r_{cone}$ &  &  & \ref{sec:shape}\\
-    % Height of AIR & $h_{cone}$ &  &  & \ref{sec:shape}\\
-    % Slope of AIR  & $s_{cone}$ &  &  & \ref{sec:shape}\\
-    % Thickness change rate of AIR  & ${\Delta j_{cone}}/{\Delta t}$ &  &  & \ref{sec:shape}\\
+    & &    &  & \citeauthor{OerlemansKnap_1998}      \\\midrule
+		\textbf{Uncertain Fountain Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+    Discharge rate & $d_{F}$             & $\pm 50 \%$            & $l/min$& assumed  \\
+    Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -996,7 +988,7 @@ because there was no precipitation for the IN21 site.
 
 		                       & Freezing rate                   & ${\Delta M_{freeze}}/{\Delta t}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$ \\
 		\multicolumn{1}{|l|}{} & Melting rate                    & ${\Delta M_{melt}}/{\Delta t}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$ \\
-		\multicolumn{1}{|l|}{} & Thickness rate                  & $j_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
+		\multicolumn{1}{|l|}{} & Thickness change                & $j_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
 		$mm \, w.\,e.$                                                                                                       \\
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$  \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  &                 & 78            & 77
