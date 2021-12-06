@@ -388,7 +388,7 @@ into and out of a (thin) layer with thickness $\Delta x$:
 	\label{eqn:EB}
 \end{equation}
 
-Upward fluxes are positive and downward fluxes are negative. The first term is the energy change of the surface
+Upward fluxes are positive and downward fluxes (into the ice surface) are negative. The first term is the energy change of the surface
 layer, which can be translated into a phase change energy should phase changes occur; $q_{SW}$ is the net
 shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
 sensible heat fluxes. $q_{F}$ represents the heat exchange of the fountain water droplets with the AIR ice
@@ -523,7 +523,7 @@ retain this assumption.
 
 \subsubsection{Fountain discharge heat flux \texorpdfstring{$q_{F}$}{Lg} }
 
-The fountain water temperature $T_F$ is assumed to cool to 0 $\degree C$. Thus, the heat flux caused by this
+The fountain water, at temperature $T_F$, is assumed to cool to 0 $\degree C$. Thus, the heat flux caused by this
 process is:
 
 \begin{equation}
@@ -657,6 +657,8 @@ all the other mass components the fountain wastewater generated every time step 
 
 \begin{subequations}
 	\begin{align}
+		\frac{\Delta M_{F}}{\Delta t} & = \left\{ \begin{array}{ll} 0.06 \cdot d_F/\Delta t
+			 & \textit{ if fountain is on} \\ 0 & \textit{ otherwise } \\\end{array} \right.                                             \\
 		\label{eq:ppt}
 		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot
         {(r_{cone})}^2 \cdot
@@ -681,31 +683,41 @@ Considering AIRs as water reservoirs, their net water loss can be defined as:
 
 \subsection{Sensitivity and uncertainty analysis}
 
+In this section, we go through the theory behind the methods for uncertainty quantification and sensitivity
+analysis used.
+
 We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
 model sensitivity and uncertainty. Polynomial chaos expansion is a much more efficient way to obtain similar
 results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
 polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
 
-The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather
-and the fountain parameters. For the weather parameters, we first fix a range based on literature values
-and then perform a global sensitivity analysis with the net water loss as the objective. The
-distribution is always treated as uniform and the limits for every parameter are given in Table
-\ref{tab:parameters}. The sensitivity analysis consists of a total ensemble size of 992 simulations per AIR. The parameter
-sensitivity results from the sensitivity analysis are used as a tool to reduce the number of free parameters in the model by
-removing those parameters, which have only a marginal influence on the model output.
+The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather and
+the fountain parameters. For the weather parameters, we first fix a range based on literature values and then
+perform a global sensitivity analysis with the net water loss as the objective. The distribution is always
+treated as uniform and the limits for every parameter are given in Table \ref{tab:parameters}. The sensitivity
+analysis consists of a total ensemble size of 992 simulations per AIR. The parameter sensitivity results from
+the sensitivity analysis are used as a tool to reduce the number of free parameters in the model by removing
+those parameters, which have only a marginal influence on the model output.
 
 The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
 separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions occured during the
 study period. However, significant uncertainty exists for the IN21 AIR , where the interruptions due to
 pipeline freezing events happened overnight but this was ignored in this analysis. The choice of $d_F$ for both
-sites was just a best guess, based on few observations made by the flowmeter. So we associate this parameter by a
-large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we set a lower and upper bound of $0\,
-	\degree C$ and $3\, \degree C$.  It is very unlikely for the fountain water to have been beyond this range
-considering winter conditions at all the sites.
+sites was just a best guess, based on few observations made by the flowmeter. So we associate this parameter by
+a large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we assumed an upper bound of $3\,
+\degree C$ since it is unlikely for it to have been beyond this range considering winter conditions at all the
+sites.
 
 Uncertainty also exists in the model input data, particularly for all the radiation measurements ($SW_{direct},
 	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS away from the construction sites.  But we are
 not accounting for uncertainties related to meteorological forcing data in this analysis.
+
+After identifying the sensitive parameters, they were calibrated based on two objectives, namely, the RMSE
+between the drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume and area. For
+calibration, these sensitive parameters were varied across their ranges (defined in Table \ref{tab:parameters}).
+. The frequency distribution of RMSE among the best 10 \% calibration runs for each objective . We choose values
+of sensitive parameters populating more than 50 \% of the possibilities among the best 10 \% of the calibration
+runs.
 
 The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIRs and the CH20 AIR was used for
 validation of the model.
@@ -867,7 +879,7 @@ thickness change ($j_{cone}$) as a measure to quantify the location influence. N
 to the "specific mass balance" of a glacier with units $m \, w.\, e.$ but it was not conserved during the lifetime of the
 AIR since the surface area varies unlike that of a glacier.  Similarly, we divided the simulation duration of the
 AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
-fountain discharge event. The thickness rate during the accumulation and ablation period was referred to as
+fountain discharge event. The thickness change during the accumulation and ablation period was referred to as
 thickness growth and decay rate respectively.
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can
@@ -876,15 +888,15 @@ the freezing/melting rate of the AIRs can be decomposed to the corresponding fre
 surface area. The construction location chosen determines the thickness growth/decay rate through the
 freezing/melting energy flux and the fountain determines the surface area through its spray radius.
 
-The influence of location can be further comprehended, if we analyse the daily surface normal thickness rate
+The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
 together with the corresponding energy fluxes. Fig.  \ref{fig:MEB} shows the daily thickness and energy balance
 components calculated with the calibrated parameters for the first and last 20 days for each AIR. The two time
 periods selected were characteristic of the accumulation and ablation period, respectively. A strong variability
 was evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
 
-The daily mean thickness rate of the Indian location was positive ($1\, mm \,w.e.$) with a daily mean growth
+The daily mean thickness change of the Indian location was positive ($1\, mm \,w.e.$) with a daily mean growth
 rate of $24\, mm \,w.e.$ and a mean decay rate of $12\, mm \,w.e.$. In the Swiss location, the daily mean
-thickness rate was negative ($-3\, mm \,w.e.$) with a daily mean growth rate of $6\, mm \,w.e.$ and a mean decay
+thickness change was negative ($-3\, mm \,w.e.$) with a daily mean growth rate of $6\, mm \,w.e.$ and a mean decay
 rate of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay rate corresponds to the
 difference between the freezing and the melting energy balance components. For the Indian site, $q_{freeze}$ accounted for 63 \%,
 $q_{melt}$ accounted for 32 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy turnover is calculated
@@ -1070,9 +1082,9 @@ location compared to the Swiss.
 
 \subsection{Favourable AIR locations}
 
-The Indian location was favourable because its mean thickness rate was positive. Particularly, the mean
+The Indian location was favourable because its mean thickness change was positive. Particularly, the mean
 thickness growth rate was much higher than the decay rate. This enabled the fountain determined surface area to
-favor AIR growth over decay. However, the Swiss location was not favourable since its mean thickness rate was
+favor AIR growth over decay. However, the Swiss location was not favourable since its mean thickness change was
 negative, indicating that the surface area favored AIR decay over growth (see Table \ref{tab:Results}).
 
 Some weather conditions play a significant role in making the Indian AIR larger and survive longer than the
