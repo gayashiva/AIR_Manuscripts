@@ -470,10 +470,10 @@ in equation \ref{eqn:atm_e}) is extended with the correction for cloudy skies af
 follows:
 
 \begin{equation}
-	\epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{c}^2) \label{eqn:atm_e}
+	\epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{cld}^2) \label{eqn:atm_e}
 \end{equation}
 
-with a cloudiness index $c$, ranging from 0 for clear skies to 1 for complete overcast skies. For the Indian
+with a cloudiness index $cld$, ranging from 0 for clear skies to 1 for complete overcast skies. For the Indian
 site, we assume cloudiness to be negligible.
 
 \subsubsection{Turbulent fluxes} \label{sec:Qs}
@@ -682,14 +682,80 @@ Considering AIRs as water reservoirs, their net water loss can be defined as:
 \begin{equation} \textit{Net water losses} = \frac{M_{waste}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \subsection{Sensitivity and uncertainty analysis}
+In this section, we summarise the theory behind the methods for uncertainty quantification and sensitivity
+analysis used. For detailed explanation of this methodology, see \cite{uncertainpy_2018}.
 
-In this section, we go through the theory behind the methods for uncertainty quantification and sensitivity
-analysis used.
+\subsubsection{Problem definition}
+Consider our model $U$ that depends on time $t$, has $d$ uncertain parameters $Q = [Q_1, Q_2, \dots, Q_d]$, and
+gives output $Y$:
 
-We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
-model sensitivity and uncertainty. Polynomial chaos expansion is a much more efficient way to obtain similar
-results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
-polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
+\begin{equation}
+Y = U(t,Q)
+\end{equation}
+
+The output $Y$ can have any value within the output space $\sum_{Y}$ and has an unknown probability density function
+$\rho_Y$. The goal of our uncertainty quantification is to describe the unknown $\rho_Y$ through statistical metrics.
+
+We assume our model includes parameters that can be each described by a uniform probability density function
+$\rho_{Q_i}$ and that the uncertain parameters are statistically independent. The joint multivariate probability
+density function for the independent uncertain parameters is then:
+
+\begin{equation}
+\rho_Q = \prod_{i=1}^{d} \rho_{Q_i}
+\end{equation}
+
+% \subsubsection{Uncertainty Quantification}
+
+A useful metric is the $(100 \cdot x)$-th percentile $P_x$ of $Y$, which defines a value below  which $100 \cdot
+x$ percent of the model outputs are located. We can combine two percentiles to create a prediction interval
+$I_x$, which is a range of values within which a $100 \cdot x$ percentage of the outputs $Y$ occur: 
+
+\begin{equation}
+I_x = [P_{(x/2)}, P_{(1-x/2)}]
+\end{equation}
+
+The $90\,\%$ prediction interval gives us the interval within which $90\,\%$ of the $Y$ outcomes occur, which
+also means that $5\,\%$ of the outcomes are above and $5\,\%$ are below this interval.
+
+\subsubsection{Sensitivity analysis}
+
+We use a variance-based sensitivity analysis and compute the commonly considered Sobol sensitivity indices
+(Sobol, 1990). The Sobol sensitivity indices quantify how much of the variance in the model output each
+uncertain parameter is responsible for. There are several types of Sobol indices. The first order Sobol
+sensitivity index $S_i$ measures the direct effect each parameter has on the variance of the model. Higher order
+Sobol indices give the sensitivity due to interactions between a parameter $Q_i$ and various other parameters.
+The total Sobol sensitivity $S_{T_{i}}$ includes the sensitivity of both the first-order effects, as well as the
+sensitivity due to interactions between a given parameter $Q_i$ and all combinations of the other
+parameters(Homma and Saltelli). The sum of the total Sobol sensitivity indices is equal to or greater than one,
+and is only equal to one if there are no interactions between the parameters (Glen and Isaacs). Our goal is to
+use sensitivity analysis to fix parameters with low sensitivity, so it total-order Sobol indices are an
+appropriate metric.
+
+\subsubsection{Polynomial Chaos Expansions}
+
+A recent mathematical framework for efficient uncertainty quantification and sensitivity analysis is that of
+polynomial chaos expansions (\cite{Xiu_2005}). This method calculates the same statistical metrics as the Monte
+Carlo method but typically much faster.
+
+The general idea behind polynomial chaos expansions is to approximate the model $U$ with a polynomial expansion
+$\hat{U}$ : 
+
+\begin{equation} U \approx \hat{U}(t, Q) = \sum_{n=0}^{N_p-1} c_n(t) \phi_n(Q) \end{equation}
+
+where $\phi_n$ are polynomials, and $c_n$ are expansion coefficients. The number of expansion factors $N_p$ is
+given by
+
+\begin{equation}
+  N_p = \binom{d+p}{p}
+\end{equation}
+
+where $p$ is the polynomial order. The polynomials $\phi_n(Q)$ are chosen so they are orthogonal with respect to the
+probability density function $\phi_Q$.
+
+% We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
+% model sensitivity and uncertainty. Polynomial chaos expansion is a much more efficient way to obtain similar
+% results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
+% polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
 
 The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather and
 the fountain parameters. For the weather parameters, we first fix a range based on literature values and then
@@ -748,7 +814,7 @@ validation of the model.
     % Weather station height & $h_{AWS}$ & 2 & $m$ & assumed \\\midrule
 		\textbf{Derived Parameters} & \textbf{Symbol} & \textbf{} & \textbf{Unit} & \textbf{Section} \\\midrule
     Atmospheric emissivity & $\epsilon_{a}$ & & dimensionless    & \ref{sec:LW}\\
-    Cloudiness & $c$ &  & dimensionless  & \ref{sec:LW}\\
+    Cloudiness & $cld$ &  & dimensionless  & assumed\\
     Vapour pressure over air & $p_{v,a}$ &  & $hPa$  & \ref{sec:Qs}\\
     Vapour pressure over ice & $p_{v,ice}$ &  & $hPa$ & \ref{sec:Qs}\\
     Radius of AIR & $r_{cone}$ &  & $m$ & \ref{sec:shape}\\
