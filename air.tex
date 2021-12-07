@@ -681,114 +681,42 @@ Considering AIRs as water reservoirs, their net water loss can be defined as:
 \begin{equation} \textit{Net water losses} = \frac{M_{waste}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
 \subsection{Sensitivity and uncertainty analysis}
-In this section, we summarise the theory behind the methods for uncertainty quantification and sensitivity
-analysis used. For detailed explanation of this methodology, see \cite{uncertainpy_2018}.
-
-\subsubsection{Problem definition}
-Consider our model $U$ that depends on time $t$, has $d$ uncertain parameters $Q = [Q_1, Q_2, \dots, Q_d]$, and
-gives output $Y$:
-
-\begin{equation}
-Y = U(t,Q)
-\end{equation}
-
-The output $Y$ can have any value within the output space $\sum_{Y}$ and has an unknown probability density function
-$\rho_Y$. The goal of our uncertainty quantification is to describe the unknown $\rho_Y$ through statistical metrics.
-
-We assume our model includes parameters that can be each described by a uniform probability density function
-$\rho_{Q_i}$ and that the uncertain parameters are statistically independent. The joint multivariate probability
-density function for the independent uncertain parameters is then:
-
-\begin{equation}
-\rho_Q = \prod_{i=1}^{d} \rho_{Q_i}
-\end{equation}
-
 % \subsubsection{Uncertainty Quantification}
 
-A useful metric is the $(100 \cdot x)$-th percentile $P_x$ of $Y$, which defines a value below  which $100 \cdot
-x$ percent of the model outputs are located. We can combine two percentiles to create a prediction interval
-$I_x$, which is a range of values within which a $100 \cdot x$ percentage of the outputs $Y$ occur: 
+The uncertainty in the model of estimating ice volumes are caused due to three sources, namely, model forcing
+data, model hyperparameters and model parameters. Model forcing data can further be divided into weather and
+fountain forcing data. Significant uncertainty exists in the weather forcing data, particularly for all the
+radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS
+far away from the construction sites. But we are not accounting for uncertainties related to meteorological
+forcing data in this analysis. Uncertainty in the fountain forcing data arises due to only some fountain
+parameters listed in \ref{tab:parameters}. Fountain runtime $t_F$ has no uncertainty for the Swiss AIRs because
+no interruptions occured during the study period. However, significant uncertainty exists for the IN21 AIR ,
+where the interruptions due to pipeline freezing events happened overnight but this was ignored in this
+analysis. Fountain spray radius $r_F$ was measured using the drone survey and therefore also doesn't contribute
+to model uncertainty. The choice of $d_F$ for both sites was just a best guess, based on few observations made
+by the flowmeter. So we associate this parameter by a large uncertainty of $\pm \,50\, \%$. For the fountain
+water temperature $T_F$, we assumed an upper bound of $3\, \degree C$ since it is unlikely for it to have been
+beyond this range considering winter conditions at all the sites. The model structure introduces uncertainty
+through the spatial and temporal hyperparameters $\Delta x$ and $\Delta t$. We fix the temporal resolution of
+the model at hourly timesteps and only investigate the uncertainty caused by $\Delta x$ here. Since the surface
+layer thickness for an AIR does not resemble to any parameter in the glaciological literature, we atrribute a
+wide range of values for it. The model parameters are henceforth called as weather parameters to distinguish
+them from the fountain forcing parameters. These were fixed within a range based on literature values (see Table
+\ref{tab:parameters}). 
 
-\begin{equation}
-I_x = [P_{(x/2)}, P_{(1-x/2)}]
-\end{equation}
+Now we are left with three sets of uncertain parameters namely, model hyperparameters $Q^M = Q_{\Delta x}$,
+fountain forcing parameters $Q^F = [Q_{d_F}, Q_{T_F}]$ and weather parameters $Q^W = [Q_{\epsilon_{ice}},
+Q_{z_0}, Q_{\alpha_{ice}}, Q_{\alpha_{snow}}, Q_{T_{ppt}}, Q_{\tau}]$. Together, these 9 parameters cause a
+large uncertainty in the ice volume estimates. In order to reduce this uncertainty, we perform a global
+sensitivity analysis with the net water loss as our objective and categorise the uncertain parameters as
+sensitive and insensitive based on their total-order sensitivity.   
 
-The $90\,\%$ prediction interval gives us the interval within which $90\,\%$ of the $Y$ outcomes occur, which
-also means that $5\,\%$ of the outcomes are above and $5\,\%$ are below this interval.
-
-\subsubsection{Sensitivity analysis}
-
-We use a variance-based sensitivity analysis and compute the commonly considered Sobol sensitivity indices
-(Sobol, 1990). The Sobol sensitivity indices quantify how much of the variance in the model output each
-uncertain parameter is responsible for. There are several types of Sobol indices. The first order Sobol
-sensitivity index $S_i$ measures the direct effect each parameter has on the variance of the model. Higher order
-Sobol indices give the sensitivity due to interactions between a parameter $Q_i$ and various other parameters.
-The total Sobol sensitivity $S_{T_{i}}$ includes the sensitivity of both the first-order effects, as well as the
-sensitivity due to interactions between a given parameter $Q_i$ and all combinations of the other
-parameters(Homma and Saltelli). The sum of the total Sobol sensitivity indices is equal to or greater than one,
-and is only equal to one if there are no interactions between the parameters (Glen and Isaacs). Our goal is to
-use sensitivity analysis to fix parameters with low sensitivity, so it total-order Sobol indices are an
-appropriate metric.
-
-\subsubsection{Polynomial Chaos Expansions}
-
-A recent mathematical framework for efficient uncertainty quantification and sensitivity analysis is that of
-polynomial chaos expansions (\cite{Xiu_2005}). This method calculates the same statistical metrics as the Monte
-Carlo method but typically much faster.
-
-The general idea behind polynomial chaos expansions is to approximate the model $U$ with a polynomial expansion
-$\hat{U}$ : 
-
-\begin{equation} U \approx \hat{U}(t, Q) = \sum_{n=0}^{N_p-1} c_n(t) \phi_n(Q) \end{equation}
-
-where $\phi_n$ are polynomials, and $c_n$ are expansion coefficients. The number of expansion factors $N_p$ is
-given by
-
-\begin{equation}
-  N_p = \binom{d+p}{p}
-\end{equation}
-
-where $p$ is the polynomial order. The polynomials $\phi_n(Q)$ are chosen so they are orthogonal with respect to the
-probability density function $\phi_Q$.
-
-% We used a polynomial chaos expansion approach (as in \cite{uncertainpy_2018}; \cite{Xiu_2005}) to evaluate the
-% model sensitivity and uncertainty. Polynomial chaos expansion is a much more efficient way to obtain similar
-% results compared to the computationally demanding Monte Carlo methods. This approach approximates the model with a
-% polynomial (as a surrogate model), on which sensitivity and uncertainty analysis can be performed.
-
-The uncertainty in the model of estimating ice volumes are caused due to two sources, namely, the weather and
-the fountain parameters. For the weather parameters, we first fix a range based on literature values and then
-perform a global sensitivity analysis with the net water loss as the objective. The distribution is always
-treated as uniform and the limits for every parameter are given in Table \ref{tab:parameters}. The sensitivity
-analysis consists of a total ensemble size of 992 simulations per AIR. The parameter sensitivity results from
-the sensitivity analysis are used as a tool to reduce the number of free parameters in the model by removing
-those parameters, which have only a marginal influence on the model output.
-
-The uncertainty associated with fountain parameters listed in Table \ref{tab:Observations} was quantified
-separately. Fountain runtime has no uncertainty for the Swiss AIRs because no interruptions occured during the
-study period. However, significant uncertainty exists for the IN21 AIR , where the interruptions due to
-pipeline freezing events happened overnight but this was ignored in this analysis. The choice of $d_F$ for both
-sites was just a best guess, based on few observations made by the flowmeter. So we associate this parameter by
-a large uncertainty of $\pm \,50\, \%$. For the fountain water temperature, we assumed an upper bound of $3\,
-\degree C$ since it is unlikely for it to have been beyond this range considering winter conditions at all the
-sites.
-
-Uncertainty also exists in the model input data, particularly for all the radiation measurements ($SW_{direct},
-	SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS away from the construction sites.  But we are
-not accounting for uncertainties related to meteorological forcing data in this analysis.
-
-After identifying the sensitive parameters, they were calibrated based on two objectives, namely, the RMSE
-between the drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume and area. For
-calibration, these sensitive parameters were varied across their ranges (defined in Table \ref{tab:parameters}).
-. The frequency distribution of RMSE among the best 10 \% calibration runs for each objective . We choose values
-of sensitive parameters populating more than 50 \% of the possibilities among the best 10 \% of the calibration
-runs.
 
 The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIRs and the CH20 AIR was used for
 validation of the model.
 
 
-\begin{table}
+\begin{table}[h!]
 	\caption{Free parameters in the model categorised as constant and uncertain parameters. The ranges of the 8 weather parameters used in the sensitivity and uncertainty analysis.}
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
@@ -808,8 +736,6 @@ validation of the model.
     Latent Heat of Sublimation & $L_{s}$ & \num{2.848e6}  & $J\, kg^{-1}$ &   \citeauthor{CuffeyPaterson_2010}\\
     Latent Heat of Fusion & $L_{f}$ & \num{3.34e5} & $J\, kg^{-1}$ & \citeauthor{CuffeyPaterson_2010}\\
     Gravitational acceleration & $g$ & 9.81 & $m\, s^{-2}$ &\citeauthor{CuffeyPaterson_2010}\\\midrule
-    % Fountain spray radius & $r_{F}$             &             & $m$& measured \\
-    % Model timestep & $\Delta t$ & 3600 & $s$ & assumed \\
     % Weather station height & $h_{AWS}$ & 2 & $m$ & assumed \\\midrule
 		\textbf{Derived Parameters} & \textbf{Symbol} & \textbf{} & \textbf{Unit} & \textbf{Section} \\\midrule
     Atmospheric emissivity & $\epsilon_{a}$ & & dimensionless    & \ref{sec:LW}\\
@@ -822,23 +748,27 @@ validation of the model.
     Thickness change of AIR  & $j_{cone}$ &  & $m$  & \ref{sec:shape}\\
     Ice body and surface distance & $l_{cone}$ &  & $m$  & \ref{sec:Bulkflux}\\
 \midrule
-		\textbf{Calibrated Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
-    Surface Roughness                   & $z_0$                 & $[1,5]$            & $mm$  & \citeauthor{BrockWillisSharp_2006}       \\
-    Surface Area correction factor      & $A_{corr}$            & $[1,2]$            & dimensionless       & assumed       \\
-    Surface layer thickness             & $\Delta x$            & $[10,50]$           & $mm$ & assumed
+		\textbf{Model Hyperparameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+    % Surface Area correction factor      & $A_{corr}$            & $[1,2]$            & dimensionless       & assumed       \\
+    Timestep                            & $\Delta t$            & $3600$           & $s$ & assumed \\
+    Surface layer thickness             & $\Delta x$            & $[\num{1e-3},\num{1e-1}]$           & $m$ & assumed
     \\\midrule
-		\textbf{Uncertain Weather Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+		\textbf{Weather Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
     Ice Emissivity                      & $\epsilon_{ice}$      & $[0.95,0.99]$         & dimensionless & \citeauthor{HORI2006486}             \\
+    Surface Roughness                   & $z_0$                 & $[\num{1e-3},\num{5e-3}]$            & $m$  & \citeauthor{BrockWillisSharp_2006}       \\
     Ice Albedo                          & $\alpha_{ice}$        & $[0.15,0.35]$         & dimensionless  &
-    \citeauthor{steiner_2015}; \citeauthor{ZollesMaussion_2019}           \\
+    \citeauthor{steiner_2015};            \\
+    & &    &  & \citeauthor{ZollesMaussion_2019}      \\
     Snow Albedo                         & $\alpha_{snow}$       & $[0.8,0.9]$        & dimensionless  & \citeauthor{ZollesMaussion_2019}              \\
     Precipitation Temperature threshold & $T_{ppt}$             & $[0,2]$            & $\degree C$& \citeauthor{Zhou_2010}  \\
     Albedo Decay Rate                   & $\tau$                & $[10,22]$           & $days$ &
     \citeauthor{Schmidt_2017};      \\
     & &    &  & \citeauthor{OerlemansKnap_1998}      \\\midrule
-		\textbf{Uncertain Fountain Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+		\textbf{Fountain Forcing Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
     Discharge rate & $d_{F}$             & $\pm 50 \%$            & $l/min$& assumed  \\
-    Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\\bottomrule
+    Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\
+    Spray radius & $r_{F}$             &             & $m$& measured \\
+    Runtime & $t_{F}$             &             &  $s$ & measured \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -852,15 +782,15 @@ parameters to which the model was sensitive ($S_{T_{i}} > 0.2$) and non-sensitiv
 threshold of 0.2 was chosen since most of the parameters were bounded by it. For all the AIRs, just three
 parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$.
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
-	\end{center}
-	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
-		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
-		objective. }
-	\label{fig:param_hist}
-\end{figure}
+% \begin{figure}
+% 	\begin{center}
+% 		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
+% 	\end{center}
+% 	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
+% 		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
+% 		objective. }
+% 	\label{fig:param_hist}
+% \end{figure}
 
 \subsection{Calibration}
 
@@ -1251,6 +1181,82 @@ of each drone survey variably. Moreover, since ice/snow surfaces do not have man
 feature points can be detected and matched in the vicinity of the AIR. Thus, we attach a high uncertainty of
 $\pm 10 \%$ for all the AIR observations to accommodate for this.
 
+\subsection{Sensitivity and uncertainty analysis} \label{sec:uncertainpy}
+% \subsubsection{Uncertainty Quantification}
+In this section, we summarise the theory behind the methods for uncertainty quantification and sensitivity
+analysis used. For detailed explanation of this methodology, see \cite{uncertainpy_2018}.
+
+\subsubsection{Problem definition}
+Consider our model $U$ that depends on timestep $i$, has $d$ uncertain parameters $Q = [Q_1, Q_2, \dots, Q_d]$, and
+gives output $V_{ice}$:
+
+\begin{equation}
+V_{ice} = U(i,Q)
+\end{equation}
+
+The output $V_{ice}$ can have any value within the output space and has an unknown probability density function
+$\rho_{V_{ice}}$. The goal of our uncertainty quantification is to describe the unknown $\rho_{V_{ice}}$ through
+statistical metrics.
+
+We assume that all these parameters are statistically independent from each other and have a uniform probability
+density function $\rho_{Q_j}$. The joint multivariate probability density function for the uncertain parameters
+is then:
+
+\begin{equation}
+\rho_{Q} = \prod_{j = 1}^{d} \rho_{Q_j}
+\end{equation}
+
+As mentioned, the goal of an uncertainty quantification is to describe the unknown distribution of the model
+output through statistical metrics. A useful metric is the $(100 \cdot x)$-th percentile $P_x$ of $V_{ice}$,
+which defines a value below  which $100 \cdot x$ percent of the model outputs are located. We can combine two
+percentiles to create a prediction interval $I_x$, which is a range of values within which a $100 \cdot x$
+percentage of the outputs $V_{ice}$ occur: 
+
+\begin{equation}
+I_x = [P_{(x/2)}, P_{(1-x/2)}]
+\end{equation}
+
+The $90\,\%$ prediction interval, $I_{0.9}$, gives us the interval within which $90\,\%$ of the ice volume
+outcomes occur, which also means that $5\,\%$ of the outcomes are above and $5\,\%$ are below this interval.
+
+\subsubsection{Sensitivity analysis}
+
+We use a variance-based sensitivity analysis and compute the commonly considered Sobol sensitivity indices
+(Sobol, 1990). The Sobol sensitivity indices quantify how much of the variance in the model output each
+uncertain parameter is responsible for. There are several types of Sobol indices. The first order Sobol
+sensitivity index $S_j$ measures the direct effect each parameter has on the variance of the model. Higher order
+Sobol indices give the sensitivity due to interactions between a parameter $Q_j$ and various other parameters.
+The total Sobol sensitivity $S_{T_{j}}$ includes the sensitivity of both the first-order effects, as well as the
+sensitivity due to interactions between a given parameter $Q_j$ and all combinations of the other
+parameters(Homma and Saltelli). The sum of the total Sobol sensitivity indices is equal to or greater than one,
+and is only equal to one if there are no interactions between the parameters (Glen and Isaacs). Our goal is to
+use sensitivity analysis to fix parameters with low sensitivity, so it total-order Sobol indices are an
+appropriate metric.
+
+\subsubsection{Polynomial Chaos Expansions}
+
+A recent mathematical framework for efficient uncertainty quantification and sensitivity analysis is that of
+polynomial chaos expansions (\cite{Xiu_2005}). This method calculates the same statistical metrics as the Monte
+Carlo method but typically much faster.
+
+The general idea behind polynomial chaos expansions is to approximate the model $U$ with a polynomial expansion
+$\hat{U}$ : 
+
+\begin{equation} U \approx \hat{U}(i, Q) = \sum_{n=0}^{N_p-1} c_n(i) \phi_n(Q) \end{equation}
+
+where $\phi_n$ are polynomials, and $c_n$ are expansion coefficients. The number of expansion factors $N_p$ is
+given by
+
+\begin{equation}
+  N_p = \binom{d+p}{p}
+\end{equation}
+
+where $p$ is the polynomial order. The polynomials $\phi_n(Q)$ are chosen so they are orthogonal with respect to the
+probability density function $\phi_Q$.
+
+The first and total-order indices can also be calculated directly from the polynomial chaos expansion
+(Sudret..). On the other hand, the $90\, \%$ prediction interval ($I_{0.9}$) must be estimated by using
+$\hat{U}$ as a surrogate model.
 
 \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of
 any commercial or financial relationships that could be construed as a potential conflict of interest.
