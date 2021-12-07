@@ -320,7 +320,7 @@ The model assumes the AIR shape to be a cone and assigns the following shape att
 	% \label{equations}
 	\begin{align}
 		\label{eq:A}
-		A_{cone}^i & = A_{corr}^i \cdot \pi \cdot r_{cone}^i \cdot \sqrt{{(r_{cone}^i)}^2 + {(h_{cone}^i})^ 2} \\
+		A_{cone}^i & = \pi \cdot r_{cone}^i \cdot \sqrt{{(r_{cone}^i)}^2 + {(h_{cone}^i})^ 2} \\
 		\label{eq:V}
 		V_{cone}^i & = \pi/3 \cdot {(r_{cone}^i)}^2 \cdot h_{cone}^i                                         \\
 		\label{eq:thickness}
@@ -328,12 +328,11 @@ The model assumes the AIR shape to be a cone and assigns the following shape att
 	\end{align}
 \end{subequations}
 
-where $i$ denotes the model time step, $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is the surface area; $A_{corr}$ is a
-correction factor with values between 1 and 2 that accounts for the deviation in AIR surface area from that of
-the modelled conical surface; $V_{cone}^i$ is the volume and $j_{cone}$ is the AIR surface normal thickness
-change as shown in Fig. \ref{fig:shape}. $M_{ice}^i$ is the mass of the AIR and $\Delta M_{ice}^i = M_{ice}^{i-1} -
-  M_{ice}^{i-2}$. Henceforth, the equations used, display model time step superscript $i$ only if it is
-  different from the current time step.
+where $i$ denotes the model time step, $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is
+the surface area; $V_{cone}^i$ is the volume and $j_{cone}$ is the AIR surface normal thickness change as shown
+in Fig. \ref{fig:shape}. $M_{ice}^i$ is the mass of the AIR and $\Delta M_{ice}^i = M_{ice}^{i-1} -
+M_{ice}^{i-2}$. Henceforth, the equations used, display model time step superscript $i$ only if it is different
+from the current time step.
 
 AIR volume can also be expressed as:
 
