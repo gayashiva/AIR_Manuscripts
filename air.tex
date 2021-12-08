@@ -708,11 +708,11 @@ Now we are left with three sets of uncertain parameters namely, model hyperparam
 fountain forcing parameters $Q^F = [Q_{d_F}, Q_{T_F}]$ and weather parameters $Q^W = [Q_{\epsilon_{ice}},
 Q_{z_0}, Q_{\alpha_{ice}}, Q_{\alpha_{snow}}, Q_{T_{ppt}}, Q_{\tau}]$. Together, these 9 parameters cause a
 large uncertainty in the ice volume estimates. In order to reduce this uncertainty, we perform a global
-sensitivity analysis with the net water loss as our objective and categorise the uncertain parameters as
-sensitive and insensitive based on their total-order sensitivity $S_{T_{j}}$ (defined in \ref{sec:uncertainpy}.
-The focus of this sensitivity analysis was not on the absolute sensitivity towards single parameters, but rather
-to reduce the dimension of the parameter space. Therefore, the following discussion was limited to two classes:
-parameters to which the model was sensitive ($S_{T_{j}} > 0.5$) and non-sensitive ($S_{T_{j}} \leq 0.5$).
+sensitivity analysis with the net water loss as our objective. The focus of this sensitivity analysis was not on
+the absolute sensitivity towards single parameters, but rather to reduce the dimension of the parameter space.
+Therefore, the following discussion was limited to two classes: parameters to which the model was sensitive
+($S_{T_{j}} > 0.5$) and non-sensitive ($S_{T_{j}} \leq 0.5$). The methodology to determine $S_{T_{j}}$ is
+described in Appendix \ref{sec:uncertainpy}.
 
 Later, the sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
 drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. Then, the model uncertainty
@@ -784,9 +784,11 @@ was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$.
 	\begin{center}
 		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
 	\end{center}
-	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
-		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
-		objective. }
+  \caption{(a) Total-order sensitivities of all the uncertain parameters of the model with net water loss as the
+  objective. (b) The calibration of the sensitive parameter, $\Delta x$ with the RMSE between the drone and
+model estimates of the ice volume. The dots denote the optimum values. Blue and Red colors signify the
+corresponding estimates for the Swiss and the Indian AIR. }
+
 	\label{fig:param_hist}
 \end{figure}
 
@@ -795,10 +797,10 @@ was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$.
 
 The total-order sensitivities of all the 9 parameters with respect to the net water loss objective are shown in
 Fig. \ref{fig:param_hist} (a) . In total, global sensitivity analysis required 1432 model runs to determine these
-sensitivities for each site. The only sensitive parameter ($S_{T_{j}} > 0.5$) was the surface layer thickness.
-The RMSE between the drone surveys and the model ice volume estimates for different surface layer thickness are
-shown in \ref{fig:param_hist} (b). The optimum value of $\Delta x$ for was found to be 45 $mm$ and 65 $mm$  for
-CH21 and IN21 AIRs respectively.
+sensitivities for each site. The only sensitive parameter ($S_{T_{j}} > 0.5$) for both the AIRs was the surface
+layer thickness. The RMSE between the drone surveys and the model ice volume estimates for different surface
+layer thickness are shown in Fig. \ref{fig:param_hist} (b). The optimum value of $\Delta x$ was found to be 45
+$mm$ and 65 $mm$ with an RMSE of 9 $m^3$ and 30 $m^3$ for CH21 and IN21 AIRs respectively.
 
 % The model surface layer thickness was selected based on the two conditions described in Section \ref{sec:energy}.
 % Since the minimum surface temperature does not go below $-30 \, \degree C$ (satisfies (b)) for the smallest
@@ -828,20 +830,20 @@ by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
 	\caption{Simulated ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and
 		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variations in weather and
     the fountain parameters, respectively. Violet points indicate the drone ice volume observations.  The grey
-  dashed line represents the observed melt-out date for each AIR.  }
+  dashed line represents the observed expiry date for each AIR.  }
 	\label{fig:results}
 \end{figure}
 
 \subsection{Validation}
 
-The calibrated model was validated using two datasets, namely, CH20 AIR dataset and the melt-out observations for
-each AIR. The melt-out date signifies the time when all the ice has completely disappeared and only the dome
+The calibrated model was validated using two datasets, namely, CH20 AIR dataset and the expiry observations for
+each AIR. The expiry date signifies the time when all the ice has completely disappeared and only the dome
 volume remains. Model performance can be judged based on the difference between the model expectation and
-observation of melt-out date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days,
-respectively. The negative sign represents underestimation of the melt-out date. For the IN21 AIR, the
-determination of the melt-out date was not possible both through observation and through modelling.  In reality,
+observation of expiry date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days,
+respectively. The negative sign represents underestimation of the expiry date. For the IN21 AIR, the
+determination of the expiry date was not possible both through observation and through modelling.  In reality,
 the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of
-melt-out date was also not defined since the AIR never melted completely during the model simulation. There was
+expiry date was also not defined since the AIR never melted completely during the model simulation. There was
 just one observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation
 with the modelled volume was just $9\, m^3$.
 
@@ -854,12 +856,12 @@ to the "specific mass balance" of a glacier with units $m \, w.\, e.$ but it was
 AIR since the surface area varies unlike that of a glacier.  Similarly, we divided the simulation duration of the
 AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
 fountain discharge event. The thickness change during the accumulation and ablation period was referred to as
-thickness growth and decay rate respectively.
+thickness growth and decay respectively.
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can
 be categorised based on the fountain used and the location selected. According to Eqn.  \ref{eq:m_freeze/melt},
 the freezing/melting rate of the AIRs can be decomposed to the corresponding freezing/melting energy and the
-surface area. The construction location chosen determines the thickness growth/decay rate through the
+surface area. The construction location chosen determines the thickness growth/decay through the
 freezing/melting energy flux and the fountain determines the surface area through its spray radius.
 
 The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
@@ -869,23 +871,25 @@ periods selected were characteristic of the accumulation and ablation period, re
 was evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
 
 The daily mean thickness change of the Indian location was positive ($1\, mm \,w.e.$) with a daily mean growth
-rate of $24\, mm \,w.e.$ and a mean decay rate of $12\, mm \,w.e.$. In the Swiss location, the daily mean
-thickness change was negative ($-3\, mm \,w.e.$) with a daily mean growth rate of $6\, mm \,w.e.$ and a mean decay
-rate of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay rate corresponds to the
-difference between the freezing and the melting energy balance components. For the Indian site, $q_{freeze}$ accounted for 63 \%,
-$q_{melt}$ accounted for 32 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy turnover is calculated
-as the sum of energy fluxes in absolute values. For the Swiss site, $q_{melt}$ accounted for 62 \%, $q_{freeze}$
-accounted for 36 \% and $q_{T}$ just 2 \% of overall energy turnover. The freezing events occurred for 19\% and
-34\% of the simulation duration (see Table \ref{tab:Observations}) for the Indian and Swiss site respectively.
-The accumulation period is characteristic of these freezing events and ablation period is charecteristic of the
-melting events. We compare the energy turnover of different energy fluxes between these two periods to quantify
-the influence of different surface processes.
+of $24\, mm \,w.e.$ and a mean decay of $12\, mm \,w.e.$. In the Swiss location, the daily mean
+thickness change was negative ($-3\, mm \,w.e.$) with a daily mean growth of $6\, mm \,w.e.$ and a mean decay
+of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay corresponds to the
+difference between the freezing and the melting energy balance components. For the Indian site, $q_{freeze}$
+accounted for 63 \%, $q_{melt}$ accounted for 32 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy
+turnover is calculated as the sum of energy fluxes in absolute values. For the Swiss site, $q_{melt}$ accounted
+for 62 \%, $q_{freeze}$ accounted for 36 \% and $q_{T}$ just 2 \% of overall energy turnover. The freezing
+events occurred for 19\% and 34\% of the simulation duration (see Table \ref{tab:Observations}) for the Indian
+and Swiss site respectively. The accumulation period is characteristic of these freezing events and ablation
+period is charecteristic of the melting events. We compare the energy turnover of different energy fluxes
+between these two periods to quantify the influence of different surface processes.
 
 \begin{table}
 	\centering
-	\caption{ Energy turnover of the energy balance components (EBC) during the accumulation and ablation periods
-		with their daily mean ($\mu$) and standard deviation ($\sigma$) for each site. The positive/negative sign
-		is indicative of the sign of the mean energy flux during the respective period.}
+  \caption{ Contribution of the energy balance components (EBC) to the total energy turnover (the sum of energy
+    fluxes in absolute values) during the accumulation and ablation periods with their daily mean ($\mu$) and
+  standard deviation ($\sigma$) for each site. The positive/negative sign is indicative of the upward/downward
+direction of the mean energy flux during the respective period.}
+
 	\label{tab:turnover}
 	\begin{tabular}{@{}|lllll|@{}}
 		\toprule
@@ -916,16 +920,16 @@ respectively. Note that all the energy fluxes maintain the same sign for both th
 periods for the Indian location but the latent heat changes sign for the Swiss location. The radiation fluxes
 contributed -42 \% and -13 \% to the freezing and melting energies for the Indian location and -22 \% and -6 \%
 to the Swiss location respectively.  Similarly, the turbulent fluxes at the Indian location contribute -1 \% and
-25 \% and at the Swiss location contribute -11 \% and 43\%  respectively. So the AIR thickness growth rate was
-driven by the net radiation fluxes and the AIR thickness decay rate was driven by the net turbulent fluxes.
+25 \% and at the Swiss location contribute -11 \% and 43\%  respectively. So the AIR thickness growth was
+driven by the net radiation fluxes and the AIR thickness decay was driven by the net turbulent fluxes.
 
-Now we examine which surface process contributed the most to the net radiation fluxes and the net turbulent
-fluxes respectively. To do so, we analyse the magnitudes of the thickness components and their corresponding
-energy balance component (EBC) together using Fig.  \ref{fig:MEB}.  Particularly, ice thickness corresponds to
-freezing EBC, melt thickness corresponds to melting EBC available and the net thickness represents the total EBC
-available.  Snow deposition is calculated directly from the precipitation quantity and the
-sublimation/deposition quantities corresponding to the latent heat EBC available.  The rest of the EBC are shown
-to represent the different physical processes that contribute to this freezing and melting EBC .
+% Now we examine which surface process contributed the most to the net radiation fluxes and the net turbulent
+% fluxes respectively. To do so, we analyse the magnitudes of the thickness components and their corresponding
+% energy balance component (EBC) together using Fig.  \ref{fig:MEB}.  Particularly, ice thickness corresponds to
+% freezing EBC, melt thickness corresponds to melting EBC available and the net thickness represents the total EBC
+% available.  Snow deposition is calculated directly from the precipitation quantity and the
+% sublimation/deposition quantities corresponding to the latent heat EBC available.  The rest of the EBC are shown
+% to represent the different physical processes that contribute to this freezing and melting EBC .
 
 \begin{figure}
 	\begin{center}
@@ -979,7 +983,7 @@ because there was no precipitation for the IN21 site.
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$  \\
 		\multicolumn{1}{|l|}{} & Net Water Loss                  &                 & 78            & 77
 		                       & \%                                                                                          \\
-		\multicolumn{1}{|l|}{} & Maximum ice Volume              &                 & 793           & 138           & $m^{3}$ \\
+		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 793           & 138           & $m^{3}$ \\
 		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$ \\\midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
 		                       & Meltout date error              &                 & N.A.          & 1             & $days$  \\
@@ -1010,37 +1014,41 @@ to sublimation was regained by deposition. These process differences were primar
 difference in relative humidity between the sites. This was expected since glaciers near the IN21 location have
 been hypothesized to lose a significant amount of mass through sublimation as suggested by \cite{azam_2018}.
 
-Hence, for both the locations, incoming longwave radiation and diffuse shortwave radiation were responsible for
-how well the net radiation fluxes were able to augment the thickness growth rate. Similarly, the sublimation
-process was responsible for how well the net turbulent fluxes were able to dampen the thickness decay rate.
-Particularly, the Indian location had a much higher thickness growth rate because its incoming longwave
-radiation and diffuse shortwave radiation during the accumulation period was much lower than that of the Swiss
-location due to lower mean winter temperature and less cloudiness. The Indian location had a similar mean
-thickness decay rate because its latent fluxes were acting against the sensible heat fluxes using the
-sublimation process during the ablation period unlike in the Swiss location, where deposition process was
-favoured during the ablation period due to higher relative humidity.
+Hence, for both locations, incoming longwave radiation and diffuse shortwave radiation have a control on the
+thickness growth . Similarly, sublimation has a reducing effect on the thickness change. Particularly, the
+Indian location had a much higher thickness growth because its incoming longwave radiation and diffuse shortwave
+radiation during the accumulation period was much lower than that of the Swiss location due to lower mean winter
+temperature and less cloudiness. The Indian location had a similar mean thickness decay because its latent
+fluxes were acting against the sensible heat fluxes using the sublimation process during the ablation period
+unlike in the Swiss location, where deposition process was favoured during the ablation period due to higher
+relative humidity.
 
-The fountain had some influence on the energy fluxes through its water temperature, temperature
-forcing and albedo forcing . However, this influence was insignificant compared to its influence on the
-surface area. As seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain
-spray radius parameter. The variance of this surface area was quite low in the accumulation period since the ice
-radius was initialised and bounded by the spray radius. So the thickness growth rate was uniformly scaled to
-produce the corresponding ice volume. The higher spray radius of the Indian fountain resulted in a higher
-maximum ice volume but this was at the expense of a faster melt-out date. This was because the fountain
-determined spray radius increased both the freezing and the melting rate.  Moreover, the fountain parameters were
-not independent, since fountain height (ignored in this analysis), discharge rate and spray radius were related
-through the trajectories of the water droplets. So a proper optimization of the fountain is much
-more complex and requires a closer look at the correlation of the fountain parameters amongst themselves and
-with the freezing/melting energy flux. This will be investigated in a follow up study, with this study focusing
-on the weather aspects of the model.
+The fountain had some influence on the energy fluxes through its water temperature, temperature forcing and
+albedo forcing . However, this influence was insignificant compared to its influence on the surface area. As
+seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain spray radius
+parameter. The variance of this surface area was quite low in the accumulation period since the ice radius was
+initialised and bounded by the spray radius. So the thickness growth was uniformly scaled to produce the
+corresponding ice volume. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume
+but this was accompanied by an earlier expiry date. This was because a larger surface area increased both the
+freezing and the melting rate.  Moreover, the fountain parameters were not independent, since fountain height
+(ignored in this analysis), discharge rate and spray radius were related through the trajectories of the water
+droplets. So a proper optimization of the fountain is much more complex and requires a closer look at the
+correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This will
+be investigated in a follow up study, with this study focusing on the weather aspects of the model.
 
 \section{Discussion}
 
+
+\subsection{Model Validation}
 Note that this calibration
 process has an inherent temporal and spatial bias due to the choice of when and how many drone surveys were
 possible in each location. Among the 5 surveys of IN21 AIR used for calibration, most of them were conducted
 around early March when the AIR volume was near its maximum whereas the 7 surveys of the CH21 location were more
 evenly spaced out in comparison (see Table \ref{tab:uav}).
+\subsection{Model limitations}
+\subsubsection{Conical shape assumption}
+Spray Radius determination
+Area error
 
 \subsection{Water losses of AIRs}
 
@@ -1055,29 +1063,27 @@ losses could have been significantly reduced by just decreasing the mean fountai
 \subsection{Freezing and melting rates}
 
 The freezing rates were much higher than the melting rates for the Indian location but these rates have a
-negligible difference for the Swiss location. The smaller mean thickness decay rate compensated for the higher
+negligible difference for the Swiss location. The smaller mean thickness decay compensated for the higher
 surface area of the Indian location compared to the Swiss. The freezing rates of the IN21 AIR was much higher
-than the CH21 AIR because of the much faster thickness growth rate and the larger surface area of the Indian
+than the CH21 AIR because of the much faster thickness growth and the larger surface area of the Indian
 location compared to the Swiss.
 
 \subsection{Favourable AIR locations}
 
 The Indian location was favourable because its mean thickness change was positive. Particularly, the mean
-thickness growth rate was much higher than the decay rate. This enabled the fountain determined surface area to
+thickness growth was much higher than the decay. This enabled the fountain determined surface area to
 favor AIR growth over decay. However, the Swiss location was not favourable since its mean thickness change was
 negative, indicating that the surface area favored AIR decay over growth (see Table \ref{tab:Results}).
 
 Some weather conditions play a significant role in making the Indian AIR larger and survive longer than the
 Swiss AIR, namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter
 temperature of the Indian location significantly reduce the net radiation flux during the accumulation period.
-This enables a faster AIR thickness growth rate.  The lower humidity favours the sublimation over the deposition
+This enables a faster AIR thickness growth .  The lower humidity favours the sublimation over the deposition
 process. So lower humidity decreases the magnitude of net turbulent fluxes during the ablation period. This
-results in a slower thickness decay rate.  Hence, for AIRs with similar fountain parameters, we expect locations
+results in a slower thickness decay .  Hence, for AIRs with similar fountain parameters, we expect locations
 with lower cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity
 to dampen melting rates.
 
-\subsection{Spray Radius determination}
-\subsection{Area error}
 
 \section{Conclusions}
 
@@ -1215,10 +1221,9 @@ sensitivity index $S_j$ measures the direct effect each parameter has on the var
 Sobol indices give the sensitivity due to interactions between a parameter $Q_j$ and various other parameters.
 The total Sobol sensitivity $S_{T_{j}}$ includes the sensitivity of both the first-order effects, as well as the
 sensitivity due to interactions between a given parameter $Q_j$ and all combinations of the other
-parameters(Homma and Saltelli). The sum of the total Sobol sensitivity indices is equal to or greater than one,
-and is only equal to one if there are no interactions between the parameters (Glen and Isaacs). Our goal is to
-use sensitivity analysis to fix parameters with low sensitivity, so it total-order Sobol indices are an
-appropriate metric.
+parameters. The sum of the total Sobol sensitivity indices is equal to or greater than one,
+and is only equal to one if there are no interactions between the parameters. Our goal is to use sensitivity
+analysis to fix parameters with low sensitivity, so it total-order Sobol indices are an appropriate metric.
 
 \subsubsection{Polynomial Chaos Expansions}
 
@@ -1241,9 +1246,9 @@ given by
 where $p$ is the polynomial order. The polynomials $\phi_n(Q)$ are chosen so they are orthogonal with respect to the
 probability density function $\phi_Q$.
 
-The first and total-order indices can also be calculated directly from the polynomial chaos expansion
-(Sudret..). On the other hand, the $90\, \%$ prediction interval ($I_{0.9}$) must be estimated by using
-$\hat{U}$ as a surrogate model.
+The first and total-order indices can also be calculated directly from the polynomial chaos expansion. On the
+other hand, the $90\, \%$ prediction interval ($I_{0.9}$) must be estimated by using $\hat{U}$ as a surrogate
+model.
 
 \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of
 any commercial or financial relationships that could be construed as a potential conflict of interest.
