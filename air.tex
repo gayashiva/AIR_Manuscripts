@@ -230,11 +230,10 @@ discharge duration was first determined and then the available discharge measure
 average discharge quantity $d_F$ during these periods.  The spray radius $r_F$ was estimated from the mean AIR
 circumference measured in the drone surveys during the fountain runtime.
 
-The Swiss fountain discharge duration was extrapolated from just one fountain on and off event each.
-
-Even though the Indian fountain was never manually switched off, there were many pipeline freezing events that
-interrupted the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during
-these pipeline freezing events.
+The Swiss fountain discharge duration was extrapolated from just one fountain on and off event each. Even though
+the Indian fountain was never manually switched off, there were many pipeline freezing events that interrupted
+the discharge duration. Discharge rate was extrapolated to be the mean discharge $d_F$ except during these
+pipeline freezing events.
 
 \subsection{Drone surveys}
 
@@ -597,7 +596,7 @@ the additional freezing energy further cools down the surface temperature. Accor
 distribution during a freezing event can be represented as:
 
 % The available energy can either be sufficient or insufficient to freeze the fountain water available. If
-% insufficient, the additional energy further cools down the surface temperature. Acoordingly, the surface energy flux
+% insufficient, the additional energy further cools down the surface temperature. Accordingly, the surface energy flux
 % distribution during a freezing event can be represented as:
 
 \begin{equation}
@@ -836,25 +835,23 @@ by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
 
 \subsection{Validation}
 
-The calibrated model was validated using two datasets, namely, CH20 AIR dataset and the expiry observations for
-each AIR. The expiry date signifies the time when all the ice has completely disappeared and only the dome
-volume remains. Model performance can be judged based on the difference between the model expectation and
-observation of expiry date.  So model performance for the CH21 and CH20 AIRs was -1 day and -16 days,
-respectively. The negative sign represents underestimation of the expiry date. For the IN21 AIR, the
-determination of the expiry date was not possible both through observation and through modelling.  In reality,
-the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  Model expectation of
-expiry date was also not defined since the AIR never melted completely during the model simulation. There was
-just one observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation
-with the modelled volume was just $9\, m^3$.
+The calibrated model was validated using two datasets, namely, drone surveys of CH20 AIR and the expiry
+observations for each AIR. The expiry date signifies the time when all the ice has completely disappeared and
+only the dome volume remains. Model performance can be judged based on the  ice volume left on the expiry date.
+So model performance for the CH21 and CH20 AIRs was 13 $m^3$ and 36 $m^3$ which is 8 \% and 34 \% of the max
+ice volume respectively. For the IN21 AIR, the determination of the expiry date was not possible.
+In reality, the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021.  There was
+just one observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation with the
+modelled volume was $19\, m^3$ which is 18 \% of the max ice volume of CH20 AIR.
 
 \subsection{AIR ice volume estimates}
 
 Since this model used a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we used the AIR surface normal
 thickness change ($j_{cone}$) as a measure to quantify the location influence. Note that $j_{cone}$ is similar
-to the "specific mass balance" of a glacier with units $m \, w.\, e.$ but it was not conserved during the lifetime of the
-AIR since the surface area varies unlike that of a glacier.  Similarly, we divided the simulation duration of the
-AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
+to the "specific mass balance" of a glacier with units $m \, w.\, e.$ but it was not conserved during the
+lifetime of the AIR since the surface area varies significantly. Similarly, we divided the simulation duration
+of the AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
 fountain discharge event. The thickness change during the accumulation and ablation period was referred to as
 thickness growth and decay respectively.
 
@@ -865,23 +862,23 @@ surface area. The construction location chosen determines the thickness growth/d
 freezing/melting energy flux and the fountain determines the surface area through its spray radius.
 
 The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
-together with the corresponding energy fluxes. Fig.  \ref{fig:MEB} shows the daily thickness and energy balance
+together with the corresponding energy fluxes. Fig. \ref{fig:MEB} shows the daily thickness and energy balance
 components calculated with the calibrated parameters for the first and last 20 days for each AIR. The two time
 periods selected were characteristic of the accumulation and ablation period, respectively. A strong variability
 was evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
 
-The daily mean thickness change of the Indian location was positive ($1\, mm \,w.e.$) with a daily mean growth
-of $24\, mm \,w.e.$ and a mean decay of $12\, mm \,w.e.$. In the Swiss location, the daily mean
-thickness change was negative ($-3\, mm \,w.e.$) with a daily mean growth of $6\, mm \,w.e.$ and a mean decay
-of $13\, mm \,w.e.$. The difference in magnitude between the growth and the decay corresponds to the
+The daily mean thickness change of the Indian location was positive ($3\, mm \,w.e.$) with a daily mean growth
+of $31\, mm \,w.e.$ and a mean decay of $11\, mm \,w.e.$. In the Swiss location, the daily mean
+thickness change was negative ($-4\, mm \,w.e.$) with a daily mean thickness growth of $8\, mm \,w.e.$ and a
+mean decay of $18\, mm \,w.e.$. The difference in magnitude between the growth and the decay corresponds to the
 difference between the freezing and the melting energy balance components. For the Indian site, $q_{freeze}$
-accounted for 63 \%, $q_{melt}$ accounted for 32 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy
-turnover is calculated as the sum of energy fluxes in absolute values. For the Swiss site, $q_{melt}$ accounted
-for 62 \%, $q_{freeze}$ accounted for 36 \% and $q_{T}$ just 2 \% of overall energy turnover. The freezing
-events occurred for 19\% and 34\% of the simulation duration (see Table \ref{tab:Observations}) for the Indian
-and Swiss site respectively. The accumulation period is characteristic of these freezing events and ablation
-period is charecteristic of the melting events. We compare the energy turnover of different energy fluxes
-between these two periods to quantify the influence of different surface processes.
+accounted for 73 \%, $q_{melt}$ accounted for 23 \% and $q_{T}$ just 4 \% of overall energy turnover. The energy
+turnover is calculated as the sum of energy fluxes in absolute values. For the Swiss site, $q_{freeze}$
+accounted for 37 \%, $q_{melt}$ accounted for 61 \%  and $q_{T}$ just 2 \% of overall energy turnover. The
+freezing events occurred for 19\% and 34\% of the simulation duration (see Table \ref{tab:Observations}) for the
+Indian and Swiss site respectively. The accumulation period is characteristic of these freezing events and
+ablation period is charecteristic of the melting events. We compare the energy turnover of different energy
+fluxes between these two periods to quantify the influence of different surface processes.
 
 \begin{table}
 	\centering
@@ -896,19 +893,19 @@ direction of the mean energy flux during the respective period.}
 		\textbf{}              & \textbf{EBC} & \textbf{Accumulation} & \textbf{Ablation} & \textbf{$\mu \pm \sigma
 			$}                                                                                                             \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{IN21}}}
-		                       & $q_{SW}$     & 6 \%                  & 11 \%             & $ 26 \pm 43 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{LW} $    & -48 \%                & -24 \%            & $ -80\pm 34 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{S}  $    & 22 \%                 & 45 \%             & $ 96 \pm140 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{L}  $    & -21 \%                & -20 \%            & $ -52 \pm 74 \, W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & $q_{F}  $    & 2 \%                  & 0 \%              & $ 2 \pm 3 \, W\,m^{-2}$    \\
-		\multicolumn{1}{|l|}{} & $q_{G}   $   & 1\%                   & 0 \%              & $ 0 \pm 2 \, W\,m^{-2}$    \\\midrule
+		                       & $q_{SW}$     & 16 \%                  & 25 \%             & $ 26 \pm 43 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{LW} $    & -43 \%                & -25 \%            & $ -80\pm 34 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{S}  $    & 13 \%                 & 30 \%             & $ 96 \pm140 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{L}  $    & -24 \%                & -20 \%            & $ -52 \pm 74 \, W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & $q_{F}  $    & 4 \%                  & 0 \%              & $ 2 \pm 3 \, W\,m^{-2}$    \\
+		\multicolumn{1}{|l|}{} & $q_{G}   $   & 0\%                   & 0 \%              & $ 0 \pm 2 \, W\,m^{-2}$    \\\midrule
 		\multicolumn{1}{|l|}{\multirow{6}{*}{\rotatebox[origin=c]{90}{CH21}}}
-		                       & $q_{SW} $    & 22 \%                 & 26 \%             & $ 37 \pm 56 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{LW} $    & -44 \%                & -31 \%            & $ -57 \pm 33 \, W\,m^{-2}$ \\
-		\multicolumn{1}{|l|}{} & $q_{S}  $    & 19 \%                 & 34 \%             & $ 36 \pm 74 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{L}  $    & -8 \%                 & 9 \%              & $ -2 \pm 31 \, W\,m^{-2}$  \\
-		\multicolumn{1}{|l|}{} & $q_{F}  $    & 6 \%                  & 0 \%              & $ 5 \pm 4 \, W\,m^{-2}$    \\
-		\multicolumn{1}{|l|}{} & $q_{G}   $   & 0 \%                  & 1 \%              & $ 0 \pm 1 \, W\,m^{-2}$    \\\bottomrule
+		                       & $q_{SW} $    & 21 \%                 & 23 \%             & $ 37 \pm 56 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{LW} $    & -41 \%                & -29 \%            & $ -57 \pm 33 \, W\,m^{-2}$ \\
+		\multicolumn{1}{|l|}{} & $q_{S}  $    & 23 \%                 & 39 \%             & $ 36 \pm 74 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{L}  $    & -11 \%                 &10 \%              & $ -2 \pm 31 \, W\,m^{-2}$  \\
+		\multicolumn{1}{|l|}{} & $q_{F}  $    & 3 \%                  & 0 \%              & $ 5 \pm 4 \, W\,m^{-2}$    \\
+		\multicolumn{1}{|l|}{} & $q_{G}   $   & 0 \%                  & 0 \%              & $ 0 \pm 1 \, W\,m^{-2}$    \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -918,9 +915,9 @@ account the sign of their mean energy during the accumulation/ablation period (s
 negative sign indicates that the corresponding energy flux increased/decreased the freezing/melting energy
 respectively. Note that all the energy fluxes maintain the same sign for both the accumulation and ablation
 periods for the Indian location but the latent heat changes sign for the Swiss location. The radiation fluxes
-contributed -42 \% and -13 \% to the freezing and melting energies for the Indian location and -22 \% and -6 \%
-to the Swiss location respectively.  Similarly, the turbulent fluxes at the Indian location contribute -1 \% and
-25 \% and at the Swiss location contribute -11 \% and 43\%  respectively. So the AIR thickness growth was
+contributed -27 \% and 0 \% to the freezing and melting energies for the Indian location and -20 \% and -6 \%
+to the Swiss location respectively.  Similarly, the turbulent fluxes at the Indian location contribute -11 \% and
+10 \% and at the Swiss location contribute 12 \% and 49\%  respectively. So the AIR thickness growth was
 driven by the net radiation fluxes and the AIR thickness decay was driven by the net turbulent fluxes.
 
 % Now we examine which surface process contributed the most to the net radiation fluxes and the net turbulent
@@ -939,23 +936,22 @@ driven by the net radiation fluxes and the AIR thickness decay was driven by the
 \end{figure}
 
 The longwave radiation flux had the highest energy turnover during the accumulation period for both the
-locations. It increased and decreased the freezing and melting energy balance components during the accumulation and ablation period
-respectively. However, its magnitude was much lower in the ablation period compared to the accumulation period
-since the rising air temperature increased the incoming longwave radiation in the ablation period. The magnitude
-of longwave radiation flux was much higher for the Indian site as its incoming longwave radiation was strongly
-reduced due to its low cloudiness (see Table \ref{tab:Observations}).
+locations. It increased and decreased the freezing and melting energy balance components during the accumulation
+and ablation period respectively. However, its magnitude was much lower in the ablation period compared to the
+accumulation period since the rising air temperature increased the incoming longwave radiation in the ablation
+period. The magnitude of longwave radiation flux was much higher for the Indian site as its incoming longwave
+radiation was strongly reduced due to its low cloudiness (see Table \ref{tab:Observations}).
 
 Direct shortwave radiation was more than three times higher for the IN21 location due to its higher altitude and
-lower latitude. However, the total energy turnover of shortwave radiation was two times lower for the Indian
-site compared to the Swiss. Moreover, there was no significant difference in magnitude of the net shortwave
-radiation absorbed by both the AIRs (see Table \ref{tab:turnover}). This was because the higher diffuse shortwave
-radiation at the Swiss location was compensating for its lower direct shortwave radiation . Since the IN21 site
-has mostly clear days, its diffuse shortwave radiation was very low (see Table \ref{tab:Observations}).
-Moreover, less than half of the AIR surface area was exposed to direct shortwave radiation flux for both the
-locations due to the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due to increasing
-solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation period
-compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss location
-because there was no precipitation for the IN21 site.
+lower latitude. However, the both the energy turnover and the magnitude of the shortwave radiation was lower for
+the Indian site compared to the Swiss (see Table \ref{tab:turnover}). This was because the higher diffuse
+shortwave radiation at the Swiss location was compensating for its lower direct shortwave radiation . Since the
+IN21 site has mostly clear days, its diffuse shortwave radiation was very low (see Table
+\ref{tab:Observations}). Moreover, less than 20 \% of the AIR surface area on average was exposed to direct
+shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the
+$f_{cone}$ factor due to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave
+radiation in the ablation period compared to the accumulation period. Albedo, on the other hand, only varied
+temporally for the Swiss location because there was no precipitation for the IN21 site.
 
 \begin{table}
 	\centering
@@ -966,78 +962,78 @@ because there was no precipitation for the IN21 site.
 		\textbf{}              & \textbf{Name}                   & \textbf{Symbol} & \textbf{IN21} & \textbf{CH21} &
 		\textbf{Units}                                                                                                       \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Input}}}
-		                       & Fountain discharge              & $M_F$           & \num{2.9e6}   & \num{1.0e6}     & $kg$  \\
-		\multicolumn{1}{|l|}{} & Snowfall                        & $M_{ppt}$       & 0             & \num{5.5e4}   & $kg$  \\
-		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & \num{1.2e4}   & \num{4e3}     & $kg$  \\ \midrule
+		                       & Fountain discharge              & $M_F$           & \num{2.9e6}   & \num{9.7e5}     & $kg$  \\
+		\multicolumn{1}{|l|}{} & Snowfall                        & $M_{ppt}$       & 0             & \num{5.6e4}   & $kg$  \\
+		\multicolumn{1}{|l|}{} & Deposition                      & $M_{dep}$       & \num{6.3e3}   & \num{4.1e3}     & $kg$  \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Output}}}
-		                       & Meltwater                       & $M_{water}$     & \num{4.4e5} & \num{2.3e5}   & $kg$  \\
-		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & \num{1.5e5} & 0             & $kg$  \\
-		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & \num{1.3e5} & \num{8.0e3}     & $kg$  \\
-		\multicolumn{1}{|l|}{} & Fountain wastewater             & $M_{waste}$    & \num{2.3e6} & \num{8.0e5}     & $kg$  \\ \midrule
+		                       & Meltwater                       & $M_{water}$     & \num{2.4e5} & \num{2.3e5}   & $kg$  \\
+		\multicolumn{1}{|l|}{} & Ice                             & $M_{ice}$       & \num{2.2e5} & \num{2.9e2}    & $kg$  \\
+		\multicolumn{1}{|l|}{} & Sublimation                     & $M_{sub}$       & \num{4.8e4} & \num{5.2e3}     & $kg$  \\
+		\multicolumn{1}{|l|}{} & Fountain wastewater             & $M_{waste}$    & \num{2.5e6} & \num{8.0e5}     & $kg$  \\ \midrule
 		\multicolumn{1}{|l|}{\multirow{7}{*}{\rotatebox[origin=c]{90}{AIR}}}
 
-		                       & Freezing rate                   & ${\Delta M_{freeze}}/{\Delta t}$    & $14 \pm 7$    & $1 \pm 2$     & $l/min$ \\
-		\multicolumn{1}{|l|}{} & Melting rate                    & ${\Delta M_{melt}}/{\Delta t}$      & $2 \pm 6$     & $1 \pm 2$     & $l/min$ \\
-		\multicolumn{1}{|l|}{} & Thickness change                & $j_{cone}$      & $1 \pm 25$    & $-3 \pm 21$   &
+		                       & Freezing rate                   & ${\Delta M_{freeze}}/{\Delta t}$    & $11 \pm 7$    & $1 \pm 2$     & $l/min$ \\
+		\multicolumn{1}{|l|}{} & Melting rate                    & ${\Delta M_{melt}}/{\Delta t}$      & $1 \pm 4$     & $1 \pm 2$     & $l/min$ \\
+		\multicolumn{1}{|l|}{} & Thickness change                & $j_{cone}$      & $3 \pm 25$    & $-4 \pm 27$   &
 		$mm \, w.\,e.$                                                                                                       \\
 		\multicolumn{1}{|l|}{} & Accumulation, Ablation period   &                 & $52, 102$     & $91,79$       & $days$  \\
-		\multicolumn{1}{|l|}{} & Net Water Loss                  &                 & 78            & 77
+		\multicolumn{1}{|l|}{} & Net Water Loss                  &                 & 81            & 77
 		                       & \%                                                                                          \\
-		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 793           & 138           & $m^{3}$ \\
-		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $488 \pm 94$  & $147 \pm 43$  & $m^{2}$ \\\midrule
+		\multicolumn{1}{|l|}{} & Maximum Ice Volume              &                 & 685           & 154           & $m^{3}$ \\
+		\multicolumn{1}{|l|}{} & Surface Area                    & $A_{cone}$      & $350 \pm 38$  & $127 \pm 34$  & $m^{2}$ \\\midrule
 		\multicolumn{1}{|l|}{\multirow{3}{*}{\rotatebox[origin=c]{90}{Model}}}
-		                       & Meltout date error              &                 & N.A.          & 1             & $days$  \\
-		\multicolumn{1}{|l|}{} & RMSE with ice volume        &                 & 86            & 14            & $m^{3}$ \\
-		\multicolumn{1}{|l|}{} & Correlation with ice volume &                 & 0.99          & 0.93          &
+		                       & Surface layer thickness & $\Delta x$ & 65          & 45            &                $mm$  \\
+		\multicolumn{1}{|l|}{} & RMSE with ice volume        &                 & 30            & 9            & $m^{3}$ \\
+		\multicolumn{1}{|l|}{} & Correlation with ice volume &                 & 0.98          & 0.96          &
 		N.A.                                                                                                                 \\\bottomrule
 	\end{tabular}
 \end{table}
 
-
 Turbulent fluxes play a very important role in the energy balance. Sensible heat flux had the highest energy
 turnover during the ablation period for both the locations. It decreased and increased the freezing and melting
-energy balance components. The Indian location had much higher sensible heat due to higher wind speeds and higher temperature gradient
-between the AIR surface and the atmosphere. The sensible heat contributes much more to the energy turnover
-during ablation period than the latent heat flux due to rising air temperature. Latent heat flux does not vary
-much in energy turnover between the accumulation and ablation periods. For the Indian site, latent heat flux
-increased and decreased the freezing and melting energy since sublimation process was favored throughout the
-simulation duration. But for the Swiss location, latent heat increased both the freezing and the melting energy
-since sublimation and deposition process was favored during accumulation and ablation period respectively.
+energy balance components. The Indian location had much higher sensible heat due to higher wind speeds and
+higher temperature gradient between the AIR surface and the atmosphere. The sensible heat contributes much more
+to the energy turnover during ablation period than the latent heat flux due to rising air temperature. Latent
+heat flux does not vary much in energy turnover between the accumulation and ablation periods. For the Indian
+site, latent heat flux increased and decreased the freezing and melting energy since sublimation process was
+favored throughout the simulation duration. But for the Swiss location, latent heat increased both the freezing
+and the melting energy since sublimation and deposition process was favored during accumulation and ablation
+period respectively.
 
 The mass contribution of the sublimation/deposition process shown in Table \ref{tab:Results} was insignificant
 compared to the energy flux contribution of this process since the heat of vaporization is around nine times
 higher than the heat of fusion. The magnitude of the sublimation/deposition process was significantly different
-for both the AIRs.  IN21 AIR lost 4 \% of its mass input to the sublimation process compared to the 1 \% mass
+for both the AIRs.  IN21 AIR lost 2 \% of its mass input to the sublimation process compared to the 1 \% mass
 loss for the CH21 AIR (see Table \ref{tab:Results}). For the IN21 AIR, mass gain due to the deposition process
-was negligible compared to the mass loss due to the sublimation process. For the CH21 AIR, half of the mass lost
-to sublimation was regained by deposition. These process differences were primarily caused by the two fold
-difference in relative humidity between the sites. This was expected since glaciers near the IN21 location have
-been hypothesized to lose a significant amount of mass through sublimation as suggested by \cite{azam_2018}.
+was an order of magnitude smaller than the mass loss due to the sublimation process. For the CH21 AIR, there was
+no significant difference between the mass lost to sublimation and mass gained by deposition. This was expected
+since glaciers near the IN21 location have been hypothesized to lose a significant amount of mass through
+sublimation as suggested by \cite{azam_2018}.
 
 Hence, for both locations, incoming longwave radiation and diffuse shortwave radiation have a control on the
 thickness growth . Similarly, sublimation has a reducing effect on the thickness change. Particularly, the
 Indian location had a much higher thickness growth because its incoming longwave radiation and diffuse shortwave
 radiation during the accumulation period was much lower than that of the Swiss location due to lower mean winter
-temperature and less cloudiness. The Indian location had a similar mean thickness decay because its latent
-fluxes were acting against the sensible heat fluxes using the sublimation process during the ablation period
-unlike in the Swiss location, where deposition process was favoured during the ablation period due to higher
-relative humidity.
-
-The fountain had some influence on the energy fluxes through its water temperature, temperature forcing and
-albedo forcing . However, this influence was insignificant compared to its influence on the surface area. As
-seen from the uncertainty analysis, ice volume estimates were most sensitive to the fountain spray radius
-parameter. The variance of this surface area was quite low in the accumulation period since the ice radius was
-initialised and bounded by the spray radius. So the thickness growth was uniformly scaled to produce the
-corresponding ice volume. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume
-but this was accompanied by an earlier expiry date. This was because a larger surface area increased both the
-freezing and the melting rate.  Moreover, the fountain parameters were not independent, since fountain height
-(ignored in this analysis), discharge rate and spray radius were related through the trajectories of the water
-droplets. So a proper optimization of the fountain is much more complex and requires a closer look at the
-correlation of the fountain parameters amongst themselves and with the freezing/melting energy flux. This will
-be investigated in a follow up study, with this study focusing on the weather aspects of the model.
+temperature and less cloudiness. The Indian location had a similar mean thickness decay compared to the Swiss
+location because its latent fluxes were acting against the sensible heat fluxes using the sublimation process
+during the ablation period unlike in the Swiss location, where deposition process was favoured during the
+ablation period due to higher relative humidity and temperature.
 
 \section{Discussion}
 
+
+\subsection{Spray radius}
+The fountain had some influence on the energy fluxes through its water temperature, temperature forcing and
+albedo forcing . However, this influence was insignificant compared to its influence on the surface area.  The
+variance of this surface area was quite low in the accumulation period since the ice radius was initialised and
+bounded by the spray radius. So the thickness growth was uniformly scaled to produce the corresponding ice
+volume. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was
+accompanied by an earlier expiry date. This was because a larger surface area increased both the freezing and
+the melting rate.  Moreover, the fountain parameters were not independent, since fountain height (ignored in
+this analysis), discharge rate and spray radius were related through the trajectories of the water droplets. So
+a proper optimization of the fountain is much more complex and requires a closer look at the correlation of the
+fountain parameters amongst themselves and with the freezing/melting energy flux. This will be investigated in a
+follow up study, with this study focusing on the weather aspects of the model.
 
 \subsection{Model Validation}
 Note that this calibration
