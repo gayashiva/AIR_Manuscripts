@@ -689,9 +689,9 @@ fountain forcing data. Significant uncertainty exists in the weather forcing dat
 radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS
 far away from the construction sites. But we are not accounting for uncertainties related to meteorological
 forcing data in this analysis. Uncertainty in the fountain forcing data arises due to only some fountain
-parameters listed in \ref{tab:parameters}. Fountain runtime $t_F$ has no uncertainty for the Swiss AIRs because
-no interruptions occured during the study period. However, significant uncertainty exists for the IN21 AIR ,
-where the interruptions due to pipeline freezing events happened overnight but this was ignored in this
+parameters listed in Table \ref{tab:parameters}. Fountain runtime $t_F$ has no uncertainty for the Swiss AIRs
+because no interruptions occured during the study period. However, significant uncertainty exists for the IN21
+AIR , where the interruptions due to pipeline freezing events happened overnight but this was ignored in this
 analysis. Fountain spray radius $r_F$ was measured using the drone survey and therefore also doesn't contribute
 to model uncertainty. The choice of $d_F$ for both sites was just a best guess, based on few observations made
 by the flowmeter. So we associate this parameter by a large uncertainty of $\pm \,50\, \%$. For the fountain
@@ -700,7 +700,7 @@ beyond this range considering winter conditions at all the sites. The model stru
 through the spatial and temporal hyperparameters $\Delta x$ and $\Delta t$. We fix the temporal resolution of
 the model at hourly timesteps and only investigate the uncertainty caused by $\Delta x$ here. Since the surface
 layer thickness for an AIR does not resemble to any parameter in the glaciological literature, we atrribute a
-wide range of values for it. The model parameters are henceforth called as weather parameters to distinguish
+wide range of values for it (from 1 cm to 10 cm). The model parameters are henceforth called as weather parameters to distinguish
 them from the fountain forcing parameters. These were fixed within a range based on literature values (see Table
 \ref{tab:parameters}). 
 
@@ -709,12 +709,18 @@ fountain forcing parameters $Q^F = [Q_{d_F}, Q_{T_F}]$ and weather parameters $Q
 Q_{z_0}, Q_{\alpha_{ice}}, Q_{\alpha_{snow}}, Q_{T_{ppt}}, Q_{\tau}]$. Together, these 9 parameters cause a
 large uncertainty in the ice volume estimates. In order to reduce this uncertainty, we perform a global
 sensitivity analysis with the net water loss as our objective and categorise the uncertain parameters as
-sensitive and insensitive based on their total-order sensitivity.   
+sensitive and insensitive based on their total-order sensitivity $S_{T_{j}}$ (defined in \ref{sec:uncertainpy}.
+The focus of this sensitivity analysis was not on the absolute sensitivity towards single parameters, but rather
+to reduce the dimension of the parameter space. Therefore, the following discussion was limited to two classes:
+parameters to which the model was sensitive ($S_{T_{j}} > 0.5$) and non-sensitive ($S_{T_{j}} \leq 0.5$).
+
+Later, the sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
+drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. Then, the model uncertainty
+was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$.
 
 
-The sensitivity analysis and calibration was carried out for the CH21 and IN21 AIRs and the CH20 AIR was used for
-validation of the model.
-
+% The sensitivity analysis and calibration was carried out with the drone surveys of CH21 and IN21 AIRs and the
+% CH20 AIR drone surveys were used for validation of the model.
 
 \begin{table}[h!]
 	\caption{Free parameters in the model categorised as constant and uncertain parameters. The ranges of the 8 weather parameters used in the sensitivity and uncertainty analysis.}
@@ -774,72 +780,46 @@ validation of the model.
 
 \section{Results}
 
-\subsection{Sensitivity analysis}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
+	\end{center}
+	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
+		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
+		objective. }
+	\label{fig:param_hist}
+\end{figure}
 
-The focus of the sensitivity analysis was not on the absolute sensitivity towards single parameters, but rather
-to reduce the dimension of the parameter space. Therefore, the following discussion was limited to two classes:
-parameters to which the model was sensitive ($S_{T_{i}} > 0.2$) and non-sensitive ($S_{T_{i}} \leq 0.2$). The
-threshold of 0.2 was chosen since most of the parameters were bounded by it. For all the AIRs, just three
-parameters were sensitive namely, $z_{0}$, $A_{corr}$ and $\Delta x$.
 
-% \begin{figure}
-% 	\begin{center}
-% 		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
-% 	\end{center}
-% 	\caption{Observed ranges of the sensitive parameters used in the model optimization, shown by
-% 		plotting the frequency distribution of the parameter values for the best 10 \% of the model runs for each
-% 		objective. }
-% 	\label{fig:param_hist}
-% \end{figure}
+\subsection{Calibration of sensitive parameters}
 
-\subsection{Calibration}
+The total-order sensitivities of all the 9 parameters with respect to the net water loss objective are shown in
+Fig. \ref{fig:param_hist} (a) . In total, global sensitivity analysis required 1432 model runs to determine these
+sensitivities for each site. The only sensitive parameter ($S_{T_{j}} > 0.5$) was the surface layer thickness.
+The RMSE between the drone surveys and the model ice volume estimates for different surface layer thickness are
+shown in \ref{fig:param_hist} (b). The optimum value of $\Delta x$ for was found to be 45 $mm$ and 65 $mm$  for
+CH21 and IN21 AIRs respectively.
 
-The sensitive model parameters were calibrated based on two objectives, namely, the RMSE between the drone
-surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume and area. For calibration, the three sensitive
-parameters namely, surface roughness, area correction factor and surface layer thickness were varied across
-their ranges (defined in Table \ref{tab:parameters}) in steps of $1 \, mm$, 0.1 and $5 \, mm$ respectively. In
-total, 495 model calibration runs were required for each of the objective. The frequency distribution of RMSE
-among the best 10 \% calibration runs for each objective are shown in Fig.  \ref{fig:param_hist}. We choose values of
-sensitive parameters populating more than 50 \% of the possibilities among the best 10 \% of the calibration
-runs. For the volume objective, the RMSE of the best calibration runs ranged from 26 $m^3$ to 58 $m^3$ for the
-IN21 and from 10 $m^3$ to 16 $m^3$ for the CH21. For the area objective, the RMSE of the best calibration runs
-ranged from 14 $m^2$ to 53 $m^2$ for the IN21 and from 28 $m^2$ to 40 $m^2$ for the CH21. Note that this
-calibration process has an inherent temporal and spatial bias due to the choice of when and how many drone
-surveys were possible in each location. Among the 5 surveys of IN21 AIR used for calibration, most of them were
-conducted around early March when the AIR volume was near its maximum whereas the 7 surveys of the CH21 location
-were more evenly spaced out in comparison (see Table \ref{tab:uav}).
+% The model surface layer thickness was selected based on the two conditions described in Section \ref{sec:energy}.
+% Since the minimum surface temperature does not go below $-30 \, \degree C$ (satisfies (b)) for the smallest
+% possible thickness of $20\, mm$ (satisfies (a)), we have taken this as the model surface layer thickness.
 
-$A_{corr}$ shows different preferences whereas the other two parameters show similar preference for the two
-objectives. We expect the measured surface area of the AIRs to be higher than the modelled ice area due to
-the additional surface area caused by its various ice features. Particularly, we expect the IN21 surface area
-correction factor to be higher than that of CH21 AIR because the IN21 surface area represented the
-area of two ice cones merged into one (see Fig.  \ref{fig:2AIR}). This hypothesis is supported by the disjoint
-frequency distribution of the area objective of the CH21 and IN21 AIR. Hence, we calibrated the IN21 area
-correction factor to 1.5. Since no strong preference was observed for the CH21 area correction factor, we
-calibrated it to the median of the values it assumed in the area objective, namely, 1.2.
 
-The model surface layer thickness was selected based on the two conditions described in Section \ref{sec:energy}.
-Since the minimum surface temperature does not go below $-30 \, \degree C$ (satisfies (b)) for the smallest
-possible thickness of $20\, mm$ (satisfies (a)), we have taken this as the model surface layer thickness.
-
-For the surface roughness, no clear preference was observed for the IN21 AIR, so we calibrated it to the median
-value of $3 \, mm$. For the CH21 AIR, it was assigned its preferred value of $1 \, mm$.
-
-\subsection{Weather and fountain uncertainty analysis}
+\subsection{Weather and fountain forcing uncertainty quantification}
 
 The uncertainty in the ice volume estimates caused by the insensitive weather and fountain parameters are shown
-in Fig. \ref{fig:results}. The ranges highlighted represent the 90 \% prediction interval of the ice volume
-estimates. Weather uncertainty determination required 254 simulations whereas fountain uncertainty determination
-required 200 simulations.
+in Fig. \ref{fig:results}. The ranges highlighted represent the $90\,\%$ prediction interval (defined in Appendix
+\ref{sec:uncertainpy}) of the ice volume estimates. Weather uncertainty determination required 422 simulations
+whereas fountain uncertainty determination required 32 simulations.
 
-Weather uncertainty for IN21 was low compared to the other AIRs since precipitation and the associated variation in
-albedo was negligible. This was expected since 4 out of the 5 insensitive parameters were part of the albedo module.
-The remaining parameter, ice emissivity, caused the most variance in the ice volume estimate among all the
-insensitive parameters ($S_{T_{i}} = 0.7$).
+Weather uncertainty for IN21 was low compared to the other AIRs since precipitation and the associated variation
+in albedo was negligible. This was expected since 4 out of the 5 insensitive weather parameters were part of the
+albedo module. The remaining parameter, ice emissivity, caused the most variance in the ice volume estimate
+among all the insensitive parameters ($S_{T_{\epsilon_{ice}}} = 0.7$).
 
-Fountain uncertainty for all the AIRs was high illustrating the importance of quantifying the fountain parameters for
-a confident ice volume estimation. Among the 3 fountain parameters, ice volume variation was caused predominantly
-by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
+Fountain forcing uncertainty for all the AIRs was high illustrating the importance of quantifying the fountain parameters for
+a confident ice volume estimation. Among the 2 fountain parameters, ice volume variation was caused predominantly
+by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
 
 \begin{figure}
 	\begin{center}
@@ -849,7 +829,6 @@ by the uncertainty in the spray radius ($S_{T_{i}} = 0.8$).
 		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variations in weather and
     the fountain parameters, respectively. Violet points indicate the drone ice volume observations.  The grey
   dashed line represents the observed melt-out date for each AIR.  }
-
 	\label{fig:results}
 \end{figure}
 
@@ -1057,6 +1036,12 @@ on the weather aspects of the model.
 
 \section{Discussion}
 
+Note that this calibration
+process has an inherent temporal and spatial bias due to the choice of when and how many drone surveys were
+possible in each location. Among the 5 surveys of IN21 AIR used for calibration, most of them were conducted
+around early March when the AIR volume was near its maximum whereas the 7 surveys of the CH21 location were more
+evenly spaced out in comparison (see Table \ref{tab:uav}).
+
 \subsection{Water losses of AIRs}
 
 The net water losses of IN21 and CH21 AIR were $78\,\%$ and $77\,\%$ of the total mass input, respectively. The
@@ -1091,6 +1076,8 @@ results in a slower thickness decay rate.  Hence, for AIRs with similar fountain
 with lower cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity
 to dampen melting rates.
 
+\subsection{Spray Radius determination}
+\subsection{Area error}
 
 \section{Conclusions}
 
