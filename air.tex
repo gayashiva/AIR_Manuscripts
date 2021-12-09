@@ -1002,40 +1002,48 @@ location because its latent fluxes were acting against the sensible heat fluxes 
 during the ablation period unlike in the Swiss location, where deposition process was favoured during the
 ablation period due to higher relative humidity and temperature.
 
-\section{Discussion}
-
-
-\subsection{Spray radius}
 The fountain had some influence on the energy fluxes through its water temperature, temperature forcing and
 albedo forcing. However, this influence was insignificant compared to its influence on the surface area.  The
 variance of this surface area was quite low in the accumulation period since the ice radius was initialised and
 bounded by the spray radius. So the thickness growth was uniformly scaled to produce the corresponding ice
 volume. The higher spray radius of the Indian fountain resulted in a higher maximum ice volume but this was
 accompanied by an earlier expiry date. This was because a larger surface area increased both the freezing and
-the melting rate.  Moreover, the fountain parameters were not independent, since fountain height (ignored in
-this analysis), discharge rate and spray radius were related through the trajectories of the water droplets. Therefore,
-a proper optimization of the fountain is much more complex and requires a closer look at the correlation of the
-fountain parameters amongst themselves and with the freezing/melting energy flux. This will be investigated in a
-follow up study, with this study focusing on the weather aspects of the model.
+the melting rate.
 
-\subsection{Model Validation}
-Note that this calibration
-process has an inherent temporal and spatial bias due to the choice of when and how many drone surveys were
-possible in each location. Among the 5 surveys of IN21 AIR used for calibration, most of them were conducted
-around early March when the AIR volume was near its maximum whereas the 7 surveys of the CH21 location were more
-evenly spaced out in comparison (see Table \ref{tab:uav}).
+\section{Discussion}
 
 \subsection{Model limitations}
+\subsubsection{Fountain spray radius}
+The model requires the fountain spray radius to be provided for producing AIR ice volume estimates. This is a
+significant limitation since the model is very sensitive to the spray radius parameter since the surface area is
+directly proportional to it during the accumulation period. Moreover, the spray radius of the AIR is not only
+determined by the fountain characteristics but also due to refreezing and melting events across the AIR
+perimeter. Therefore, the same fountain may produce drastically different spray radius under different weather
+conditions.
+
 \subsubsection{Shape assumption}
  The RMSE between the drone and the model estimates of the surface area for the IN21, CH21 and CH20 AIRs were 69
  \%, 25 \% and 65 \% of the maximum area of the respective AIRs. There are two crude assumptions that lead to
  such a large error namely, assuming a conical shape and assuming a constant radius during the accumulation
- period. 
+ period.
 
  Both these assumptions are a consequence of favoring the model simplicity over accuracy. One could, for
- example, model the AIR shape assuming its cross section is a gaussian curve instead of a triangle. The second
- assumption could be improved if refreezing and melting events across the perimeter of the AIR are accounted
- for. But both these methodologies will involve inclusion of more model parameters.
+ example, model the AIR shape assuming its cross section is a gaussian curve instead of a triangle.  But
+ such methodologies will involve inclusion of more model parameters.
+
+\subsection{Model sensitivity, calibration and validation}
+
+The surface layer parameter is the only parameter compensating for the poor shape assumption of the model.
+Therefore, we find it to be an outlier in our global sensitivity analysis. This is particularly true for the
+IN21 AIR where in reality two AIRs merged leading to a drastically different shape evolution compared to our
+model.   
+
+The calibration process used has an inherent temporal and spatial bias due to the choice of when and how many
+drone surveys were possible in each location. Among the 5 surveys of IN21 AIR used for calibration, most of them
+were conducted around early March when the AIR volume was near its maximum whereas the 7 surveys of the CH21
+location were more evenly spaced out in comparison (see Table \ref{tab:uav}). Moreover, the fountain spray
+radius is also biased as a consequence leading to further model error. This could be one of the reasons we
+observe a poor validation with the CH20 AIR since the spray radius is derived from just one drone survey.
 
 \subsection{Water losses of AIRs}
 
@@ -1046,6 +1054,14 @@ maximum freezing rate of the IN21 AIR was less than half the mean water supply r
 not limited by the supply rate but by the freezing efficiency. The CH21 AIR freezing rate was able to reach the mean fountain
 discharge provided, albeit for only 6 hours out of the 2155 hours of fountain runtime available. Thus, water
 losses could have been significantly reduced by just decreasing the mean fountain discharge.
+
+
+\subsection{Fountain optimization}
+Moreover, the fountain parameters were not independent, since fountain height (ignored in this analysis),
+discharge rate and spray radius were related through the trajectories of the water droplets. Therefore, a proper
+optimization of the fountain is much more complex and requires a closer look at the correlation of the fountain
+parameters amongst themselves and with the freezing/melting energy flux. This will be investigated in a follow
+up study, with this study focusing on the weather aspects of the model.
 
 \subsection{Freezing and melting rates}
 
@@ -1083,7 +1099,7 @@ summarized below:
 
 \begin{itemize}
 	\item The model was successful in reproducing the observed ice volume evolution with a correlation greater
-	      than $0.93$ and an RMSE less than $11 \, \%$ of the maximum ice volume for all the AIRs.
+	      than $0.96$ and an RMSE less than $18 \, \%$ of the maximum ice volume for all the AIRs.
 
 	\item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
 	      Swiss AIRs. The lower radiation fluxes of the Indian location favored a faster thickness growth rate and the
@@ -1222,7 +1238,7 @@ Carlo method but typically much faster.
 The general idea behind polynomial chaos expansions is to approximate the model $U$ with a polynomial expansion
 $\hat{U}$ : 
 
-\begin{equation} U \approx \hat{U}(i, Q) = \sum_{n=0}^{N_p-1} c_n(i) \phi_n(Q) \end{equation}
+\begin{equation} U \approx \hat{U}(j, Q) = \sum_{n=0}^{N_p-1} c_n(j) \phi_n(Q) \end{equation}
 
 where $\phi_n$ are polynomials, and $c_n$ are expansion coefficients. The number of expansion factors $N_p$ is
 given by
