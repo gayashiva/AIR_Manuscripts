@@ -393,10 +393,7 @@ sensible heat fluxes. $q_{F}$ represents the heat exchange of the fountain water
 surface. $q_{G}$ represents ground heat flux between the AIR surface and its interior.
 
 The energy flux acts upon the AIR surface layer, which has an upper and a lower boundary defined by the
-atmosphere and the ice body of the AIR, respectively. The parameter selection for $\Delta x$ is based on the
-following two arguments: (a) the ice thickness $\Delta x$ should be small enough to represent the surface
-temperature variations every model time step $\Delta t$ and (b) $\Delta x$ should be large enough for these
-temperature variations to not reach the bottom of the surface layer. A sensitivity analysis was later performed
+atmosphere and the ice body of the AIR, respectively.  A sensitivity analysis was later performed
 to understand the influence of this factor and decide its value. Here, we define the surface temperature
 $T_{ice}$ to be the modelled average temperature of the Icestupa surface layer.
 
@@ -674,7 +671,7 @@ Considering AIRs as water reservoirs, their net water loss can be defined as:
 
 \begin{equation} \textit{Net water losses} = \frac{M_{waste}+M_{sub}}{(M_F+M_{ppt}+M_{dep})} \cdot 100 \end{equation}
 
-\subsubsection{Uncertainty Quantification}
+\subsection{Uncertainty Quantification}
 
 The uncertainty in the model of estimating ice volumes are caused due to three sources, namely, model forcing
 data, model hyperparameters and model parameters. Model forcing data can further be divided into weather and
@@ -1013,37 +1010,53 @@ the melting rate.
 \section{Discussion}
 
 \subsection{Model limitations}
-\subsubsection{Fountain spray radius}
-The model requires the fountain spray radius to be provided for producing AIR ice volume estimates. This is a
-significant limitation since the model is very sensitive to the spray radius parameter since the surface area is
-directly proportional to it during the accumulation period. Moreover, the spray radius of the AIR is not only
-determined by the fountain characteristics but also due to refreezing and melting events across the AIR
-perimeter. Therefore, the same fountain may produce drastically different spray radius under different weather
-conditions.
+\subsubsection{Fountain quantification}
+
+Contrary to our model assumptions, the 4 parameters used to define the fountain were actually not independent.
+The fountain height (ignored in this analysis), discharge rate and spray radius were related through the
+trajectories of the water droplets. 
+
+Moreover, the model requires the fountain spray radius to be provided for defining the fountain. This is a
+significant limitation since the model is very sensitive to the spray radius parameter. Moreover, $r_F$ is not
+only determined by the fountain characteristics but also due to refreezing and melting events across the AIR
+perimeter. Therefore, the same fountain may produce different spray radius under different weather conditions.
+
+Therefore, a proper quantification of the fountain is much more complex and requires a closer look at the
+correlation of the fountain parameters amongst themselves and with the weather parameters. This will
+be investigated in a follow up study, with this study focusing on the weather aspects of the model.
+
 
 \subsubsection{Shape assumption}
  The RMSE between the drone and the model estimates of the surface area for the IN21, CH21 and CH20 AIRs were 69
- \%, 25 \% and 65 \% of the maximum area of the respective AIRs. There are two crude assumptions that lead to
- such a large error namely, assuming a conical shape and assuming a constant radius during the accumulation
- period.
+ \%, 25 \% and 65 \% of the maximum area of the respective AIRs (see Table \ref{tab:uav}). There are two crude
+ assumptions that lead to such a large error namely, assuming a conical shape and assuming a constant radius
+ during the accumulation period.
 
  Both these assumptions are a consequence of favoring the model simplicity over accuracy. One could, for
  example, model the AIR shape assuming its cross section is a gaussian curve instead of a triangle.  But
  such methodologies will involve inclusion of more model parameters.
 
-\subsection{Model sensitivity, calibration and validation}
+\subsection{Model sensitivity}
 
-The surface layer parameter is the only parameter compensating for the poor shape assumption of the model.
-Therefore, we find it to be an outlier in our global sensitivity analysis. This is particularly true for the
-IN21 AIR where in reality two AIRs merged leading to a drastically different shape evolution compared to our
-model.   
+The model was found to be very sensitive to the surface layer thickness parameter. Theoretically, the parameter
+selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
+small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$
+should be large enough for these temperature variations to not reach the bottom of the surface layer. But
+practically, this parameter is also the only one compensating for the model structure limitations. This is
+particularly true for the IN21 AIR where in reality two AIRs merged leading to a drastically different shape
+evolution compared to our model. Therefore, $\Delta x$ was found to be an outlier in our global sensitivity
+analysis. 
+
+\subsection{Model calibration and validation}
 
 The calibration process used has an inherent temporal and spatial bias due to the choice of when and how many
 drone surveys were possible in each location. Among the 5 surveys of IN21 AIR used for calibration, most of them
 were conducted around early March when the AIR volume was near its maximum whereas the 7 surveys of the CH21
 location were more evenly spaced out in comparison (see Table \ref{tab:uav}). Moreover, the fountain spray
-radius is also biased as a consequence leading to further model error. This could be one of the reasons we
-observe a poor validation with the CH20 AIR since the spray radius is derived from just one drone survey.
+radius is also biased as a consequence leading to further model error. Depending on the number of drone surveys
+in the accumulation vs the ablation period, $r_F$ could be over or underestimated. This could be one of the
+reasons we observe a poor validation with the CH20 AIR since the spray radius is derived from just one drone
+survey in the accumulation period.
 
 \subsection{Water losses of AIRs}
 
@@ -1055,13 +1068,7 @@ not limited by the supply rate but by the freezing efficiency. The CH21 AIR free
 discharge provided, albeit for only 6 hours out of the 2155 hours of fountain runtime available. Thus, water
 losses could have been significantly reduced by just decreasing the mean fountain discharge.
 
-
 \subsection{Fountain optimization}
-Moreover, the fountain parameters were not independent, since fountain height (ignored in this analysis),
-discharge rate and spray radius were related through the trajectories of the water droplets. Therefore, a proper
-optimization of the fountain is much more complex and requires a closer look at the correlation of the fountain
-parameters amongst themselves and with the freezing/melting energy flux. This will be investigated in a follow
-up study, with this study focusing on the weather aspects of the model.
 
 \subsection{Freezing and melting rates}
 
@@ -1117,10 +1124,10 @@ summarized below:
 	      insignificant ($<4\,\%$) in comparison. However, significant improvement in water storage efficiency is possible
 	      through optimization of fountain discharge rate.
 
-	\item The Indian construction site produced long lasting AIRs with higher maximum ice volumes since it was
-	      colder, drier and less cloudy compared to the Swiss construction site. Thus, the AIR technology is ideally
-	      suited to serve as a water management strategy, especially in dry mountain regions impacted by climate change
-	      induced water stress.
+  \item The Indian construction site produced long lasting AIRs with higher maximum ice volumes since it was
+    colder, drier and less cloudy compared to the Swiss construction site. Thus, the AIR technology is ideally
+    suited to serve as a water management strategy, especially in dry and cold mountain regions such as the
+    Andes impacted by climate change induced water stress.
 
 \end{itemize}
 
@@ -1238,7 +1245,7 @@ Carlo method but typically much faster.
 The general idea behind polynomial chaos expansions is to approximate the model $U$ with a polynomial expansion
 $\hat{U}$ : 
 
-\begin{equation} U \approx \hat{U}(j, Q) = \sum_{n=0}^{N_p-1} c_n(j) \phi_n(Q) \end{equation}
+\begin{equation} U \approx \hat{U}(i, Q) = \sum_{n=0}^{N_p-1} c_n(i) \phi_n(Q) \end{equation}
 
 where $\phi_n$ are polynomials, and $c_n$ are expansion coefficients. The number of expansion factors $N_p$ is
 given by
