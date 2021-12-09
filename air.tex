@@ -1013,28 +1013,31 @@ the melting rate.
 \subsubsection{Fountain quantification}
 
 Contrary to our model assumptions, the 4 parameters used to define the fountain were actually not independent.
-The fountain height (ignored in this analysis), discharge rate and spray radius were related through the
-trajectories of the water droplets. 
+The fountain height (ignored in this analysis), discharge rate, water temperature and spray radius were related
+through the trajectories of the water droplets. Particularly the temporal variation of both the spray radius and
+the water temperature were completely ignored in the model. During the CH21 experiment, snow formation was
+observed indicating that the fountain water droplets have the potential to freeze before deposition on the AIR
+surface. Moreover, $r_F$ also has significant temporal variance as can be observed in Table \ref{tab:uav}.
 
-Moreover, the model requires the fountain spray radius to be provided for defining the fountain. This is a
-significant limitation since the model is very sensitive to the spray radius parameter. Moreover, $r_F$ is not
-only determined by the fountain characteristics but also due to refreezing and melting events across the AIR
+The model requires the fountain spray radius to be provided for defining the fountain. This is a significant
+limitation since the model is very sensitive to the spray radius parameter. Moreover, $r_F$ is not only
+determined by the fountain characteristics but also due to refreezing and melting events across the AIR
 perimeter. Therefore, the same fountain may produce different spray radius under different weather conditions.
 
 Therefore, a proper quantification of the fountain is much more complex and requires a closer look at the
-correlation of the fountain parameters amongst themselves and with the weather parameters. This will
-be investigated in a follow up study, with this study focusing on the weather aspects of the model.
+correlation of the fountain parameters amongst themselves and with the weather parameters. This will be
+investigated in a follow up study, with this study focusing on the weather aspects of the model.
 
 
 \subsubsection{Shape assumption}
- The RMSE between the drone and the model estimates of the surface area for the IN21, CH21 and CH20 AIRs were 69
- \%, 25 \% and 65 \% of the maximum area of the respective AIRs (see Table \ref{tab:uav}). There are two crude
- assumptions that lead to such a large error namely, assuming a conical shape and assuming a constant radius
- during the accumulation period.
+The RMSE between the drone and the model estimates of the surface area for the IN21, CH21 and CH20 AIRs were 69
+\%, 25 \% and 65 \% of the maximum area of the respective AIRs (see Table \ref{tab:uav}). There are two crude
+assumptions that lead to such a large error namely, assuming a conical shape and assuming a constant radius
+during the accumulation period.
 
- Both these assumptions are a consequence of favoring the model simplicity over accuracy. One could, for
- example, model the AIR shape assuming its cross section is a gaussian curve instead of a triangle.  But
- such methodologies will involve inclusion of more model parameters.
+Both these assumptions are a consequence of favoring the model simplicity over accuracy. One could, for example,
+model the AIR shape assuming its cross section is a gaussian curve instead of a triangle.  But such
+methodologies will involve inclusion of even more model parameters.
 
 \subsection{Model sensitivity}
 
@@ -1060,7 +1063,7 @@ survey in the accumulation period.
 
 \subsection{Water losses of AIRs}
 
-The net water losses of IN21 and CH21 AIR were $78\,\%$ and $77\,\%$ of the total mass input, respectively. The
+The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
 high water losses were caused by the fountain wastewater in both the AIRs. Since vapour losses were
 negligible compared to fountain wastewater, the AIR wastes water mostly during the accumulation period. The
 maximum freezing rate of the IN21 AIR was less than half the mean water supply rate, meaning that the growth was
@@ -1068,7 +1071,7 @@ not limited by the supply rate but by the freezing efficiency. The CH21 AIR free
 discharge provided, albeit for only 6 hours out of the 2155 hours of fountain runtime available. Thus, water
 losses could have been significantly reduced by just decreasing the mean fountain discharge.
 
-\subsection{Fountain optimization}
+% \subsection{Fountain optimization}
 
 \subsection{Freezing and melting rates}
 
@@ -1080,10 +1083,11 @@ location compared to the Swiss.
 
 \subsection{Favourable AIR locations}
 
-The Indian location was found to be favourable to the formation of AIRs since its mean thickness change was positive. Particularly, the mean
-thickness growth was much higher than the decay. This enabled the fountain determined surface area to
-favor AIR growth over decay. However, the Swiss location was not favourable since its mean thickness change was
-negative, indicating that the surface area favored AIR decay over growth (see Table \ref{tab:Results}).
+The Indian location was found to be favourable to the formation of AIRs since its mean thickness change was
+positive. Particularly, the mean thickness growth was much higher than the decay. This enabled the fountain
+determined surface area to favor AIR growth over decay. However, the Swiss location was not favourable since its
+mean thickness change was negative, indicating that the surface area favored AIR decay over growth (see Table
+\ref{tab:Results}).
 
 Weather conditions play a significant role in making the Indian AIR larger and survive longer than the
 Swiss AIR, namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter
@@ -1092,7 +1096,6 @@ process, thus decreasing the magnitude of net turbulent fluxes during the ablati
 results in a slower thickness decay .  Hence, for AIRs with similar fountain parameters, we expect locations
 with lower cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity
 to dampen melting rates.
-
 
 \section{Conclusions}
 
@@ -1126,8 +1129,8 @@ summarized below:
 
   \item The Indian construction site produced long lasting AIRs with higher maximum ice volumes since it was
     colder, drier and less cloudy compared to the Swiss construction site. Thus, the AIR technology is ideally
-    suited to serve as a water management strategy, especially in dry and cold mountain regions such as the
-    Andes impacted by climate change induced water stress.
+    suited to serve as a water management strategy, especially in dry and cold mountain regions impacted by
+    climate change induced water stress.
 
 \end{itemize}
 
