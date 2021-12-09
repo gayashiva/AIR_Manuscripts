@@ -1017,15 +1017,16 @@ limitation since the model is very sensitive to the spray radius parameter. More
 determined by the fountain characteristics but also due to refreezing and melting events across the AIR
 perimeter. Therefore, the same fountain may produce different spray radius under different weather conditions.
 
-Contrary to our model assumptions, the 4 parameters used to define the fountain were actually not independent.
-The fountain height (ignored in this analysis), discharge rate, water temperature and spray radius were related
-through the trajectories of the water droplets. Particularly the temporal variation of both the spray radius and
-the water temperature were completely ignored in the model. During the IN21 experiment, snow formation was
-observed indicating that the fountain water droplets have the potential to freeze before deposition on the AIR
-surface. Modelling such processes would require modelling all the processes interacting with individual droplets
-during their flight time. Therefore, a proper quantification of the fountain is much more complex and requires a
-closer look at the correlation of the fountain parameters amongst themselves and with the weather parameters.
-This will be investigated in a follow up study, with this study focusing on the weather aspects of the model.
+Contrary to our model assumptions, the parameters used to define the fountain were actually not independent.
+The fountain height, fountain aperture diameter (both ignored in this analysis), discharge rate, water
+temperature and spray radius were related through the trajectories of the water droplets. Particularly the
+temporal variation of both the spray radius and the water temperature were completely ignored in the model.
+During the IN21 experiment, snow formation was observed indicating that the fountain water droplets have the
+potential to freeze before deposition on the AIR surface. Modelling such processes would require modelling all
+the processes interacting with individual droplets during their flight time. Therefore, a proper quantification
+of the fountain is much more complex and requires a closer look at the correlation of the fountain parameters
+amongst themselves and with the weather parameters. This will be investigated in a follow up study, with this
+study focusing on the weather aspects of the model.
 
 \subsubsection{Shape assumption}
 
@@ -1060,18 +1061,6 @@ in the accumulation vs the ablation period, $r_F$ could be over or underestimate
 reasons we observe a poor validation with the CH20 AIR since the spray radius is derived from just one drone
 survey in the accumulation period.
 
-\subsection{Water losses of AIRs}
-
-The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
-high water losses were caused by the fountain wastewater in both the AIRs. Since vapour losses were
-negligible compared to fountain wastewater, the AIR wastes water mostly during the accumulation period. The
-maximum freezing rate of the IN21 AIR was less than half the mean water supply rate, meaning that the growth was
-not limited by the supply rate but by the freezing efficiency. The CH21 AIR freezing rate was able to reach the mean fountain
-discharge provided, albeit for only 6 hours out of the 2155 hours of fountain runtime available. Thus, water
-losses could have been significantly reduced by just decreasing the mean fountain discharge.
-
-% \subsection{Fountain optimization}
-
 \subsection{Freezing and melting rates}
 
 The freezing rates were much higher than the melting rates for the Indian location but these rates have a
@@ -1082,11 +1071,11 @@ location compared to the Swiss.
 
 \subsection{Favourable AIR locations}
 
-The Indian location was found to be favourable to the formation of AIRs since its mean thickness change was
-positive. Particularly, the mean thickness growth was much higher than the decay. This enabled the fountain
-determined surface area to favor AIR growth over decay. However, the Swiss location was not favourable since its
-mean thickness change was negative, indicating that the surface area favored AIR decay over growth (see Table
-\ref{tab:Results}).
+% The Indian location was found to be favourable to the formation of AIRs since its mean thickness change was
+% positive. Particularly, the mean thickness growth was much higher than the decay. This enabled the fountain
+% determined surface area to favor AIR growth over decay. However, the Swiss location was not favourable since its
+% mean thickness change was negative, indicating that the surface area favored AIR decay over growth (see Table
+% \ref{tab:Results}).
 
 Weather conditions play a significant role in making the Indian AIR larger and survive longer than the
 Swiss AIR, namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter
@@ -1095,6 +1084,27 @@ process, thus decreasing the magnitude of net turbulent fluxes during the ablati
 results in a slower thickness decay .  Hence, for AIRs with similar fountain parameters, we expect locations
 with lower cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity
 to dampen melting rates.
+
+\subsection{Water losses of AIRs}
+
+The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
+high water losses were caused by the fountain wastewater in both the AIRs. Therefore, the AIR wastes water
+mostly during the accumulation period. The maximum freezing rate of the IN21 AIR was less than half the mean
+water supply rate, meaning that the growth was not limited by the water supply rate but by the freezing
+efficiency. The CH21 AIR freezing rate was able to reach the mean fountain discharge provided, albeit for only 6
+hours out of the 2155 hours of fountain runtime available. 
+
+% Thus, water losses could have been significantly reduced by just decreasing the mean fountain discharge.
+
+\subsection{Fountain optimization}
+
+Water losses could have been reduced in two ways: (a) reducing the fountain runtime $t_F$ and (b) decreasing the
+mean fountain discharge $d_F$. For the CH21 AIR, strategy (a) could have saved \% of wastewater  as no freezing
+was possible for \% of the accumulation period. For the IN21 site, strategy (b) would have yielded the least
+water loss as freezing rate was never more than half the mean discharge rate. However, strategy (b) will also
+lead to a reduction in $r_F$ if it is not accompanied by a suitable change in the fountain height and aperture
+diameter. So it can only be applied using the model if the corresponding fountain parameters are better
+parameterised.
 
 \section{Conclusions}
 
