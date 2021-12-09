@@ -102,8 +102,8 @@ study.
 
 A typical AIR (see Fig. \ref{fig:old_icestupa}) just requires a fountain nozzle mounted on a supply pipeline.
 The water source is usually a high altitude lake or glacial stream. Due to the altitude difference between the
-pipeline input and fountain output, water ejects from the fountain nozzle as droplets that eventually lose their
-energy and accumulate as ice. The fountain is manually activated during winter nights. The fountain nozzle is
+pipeline input and fountain output, water ejects from the fountain nozzle as droplets that freeze under the
+influence of the atmosphere and accumulate as ice. The fountain is manually activated during winter nights. The fountain nozzle is
 raised through addition of metal pipes as and when significant ice accumulates.  Typically, a dome of branches
 is constructed around the metal pipes so that such pipe extensions can be done from within this dome.  Threads,
 tree branches and fishing nets are used to guide and accelerate the ice formation.
@@ -119,8 +119,9 @@ In this paper, we develop a physically-based model of vertical AIRs (or Icestupa
 losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of
 ice, meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the
 most sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the
-winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built during winter 2019/20. Our model
-results provide a first step towards evaluating the potential of this new water storage technology worldwide.
+winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built during winter 2019/20.
+Our model results provide a first step towards evaluating the potential of this decade old water storage
+technology worldwide.
 
 \section{Study Sites and data}
 
@@ -133,13 +134,14 @@ winters and the other was constructed at Gangles, India (referred to with the pr
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are
-rare, averaging around 7 days during winter \citep{guttannen}. The site was situated adjacent to a stream
-resulting in high humidity values across the study period as shown in Fig. \ref{fig:2AIR}. AIR were constructed
-here by the Guttannen Bewegt Association during the winters of 2019-20 (CH20) and 2020-21 (CH21). Tree branches
-were laid covering the fountain pipe to initiate the ice formation process. The fountain height varied between 2
-to 5\,$m$ during the construction period. The water was transferred from a spring water source and flowed via a
-flowmeter to the nozzle. In addition, a webcam guaranteed a continuous survey of the site during the
-construction of the AIR.
+rare, averaging around 7 days during winter. Daily winter precipitation can sometimes be as high as 100 $mm$.
+These values are based on 30 years of hourly weather model simulations \citep{guttannen}. The site was situated
+adjacent to a stream resulting in high humidity values across the study period as shown in Fig. \ref{fig:2AIR}.
+AIR were constructed here by the Guttannen Bewegt Association during the winters of 2019-20 (CH20) and 2020-21
+(CH21). Tree branches were laid covering the fountain pipe to initiate the ice formation process. The fountain
+height varied between 2 to 5\,$m$ during the construction period. The water was transferred from a spring water
+source and flowed via a flowmeter to the nozzle. In addition, a webcam guaranteed a continuous survey of the
+site during the construction of the AIR.
 
 \begin{figure}
 	\begin{center}
@@ -237,14 +239,14 @@ pipeline freezing events.
 
 \subsection{Drone surveys}
 
-Several photogrammetric surveys using drones were conducted on the Swiss and Indian sites. The digital elevation
-maps (DEMs) generated from the obtained imagery were analysed to document the radius, surface area and volume of
-the ice structure. The number of surveys available for the IN21, CH21 and CH20 AIR were 6, 8 and 2 respectively
-(see Table \ref{tab:uav}). The first drone flight was used to set the dome volume ($V_{dome}$) for model
-initialisation. The remaining surveys were used for model calibration and validation. Since the Indian AIR was
-built on top of another ice structure (see Fig. \ref{fig:2AIR}), it had a much higher dome volume compared to
-the other AIRs.  The details of these surveys and the methodology used to produce the corresponding outputs are
-explained in Appendix \ref{sec:uav} .
+Several photogrammetric surveys using drones were conducted on the Swiss and Indian sites. The details of these
+surveys and the methodology used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
+The digital elevation maps (DEMs) generated from the obtained imagery were analysed to document the radius,
+surface area and volume of the ice structure. The number of surveys available for the IN21, CH21 and CH20 AIR
+were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was used to set the dome volume
+($V_{dome}$) for model initialisation. The remaining surveys were used for model calibration and validation.
+Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}), it had a much higher
+dome volume compared to the other AIRs.  
 
 \begin{table}
 	\centering
@@ -526,7 +528,7 @@ process is:
 	\label{eqn:qF}
 \end{equation}
 
-with $c_{water}$ as the specific heat of water.
+with $c_{water}$ as the specific heat of water(4186 J $kg^{-1} K^{-1}$).
 
 \subsubsection{Bulk Icestupa heat flux \texorpdfstring{$q_{G}$}{Lg}} \label{sec:Bulkflux}
 
@@ -837,8 +839,7 @@ m^3$ which is 18 \% of the max ice volume of CH20 AIR.
 Since this model used a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we used the AIR surface normal
 thickness change ($j_{cone}$) as a measure to quantify the location influence. Note that $j_{cone}$ is similar
-to the "specific mass balance" of a glacier with units $m \, w.\, e.$ but it was not conserved during the
-lifetime of the AIR since the surface area varies significantly. Similarly, we divided the simulation duration
+to the "specific mass balance" of a glacier with units $m \, w.\, e.$. Similarly, we divided the simulation duration
 of the AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
 fountain discharge event. The thickness change during the accumulation and ablation period was referred to as
 thickness growth and decay respectively.
@@ -935,7 +936,8 @@ temporally for the Swiss location because there was no precipitation for the IN2
 
 \begin{table}
 	\centering
-	\caption{ Summary of the mass balance and AIR characteristics estimated by the model}
+	\caption{ Summary of the mass balance and AIR characteristics estimated at the end of the respective
+  simulation duration}
 	\label{tab:Results}
 	\begin{tabular}{@{}|llllll|@{}}
 		\toprule
@@ -1105,6 +1107,13 @@ the least water loss as freezing rate was more than half the mean discharge rate
 strategy (b) will also lead to a reduction in $r_F$ if it is not accompanied by a suitable change in the
 fountain height and aperture diameter. So it can only be applied using the model if the corresponding fountain
 parameters are better parameterised.
+
+Practically though, both the strategies are difficult to apply. It is unrealistic to expect someone constantly
+switching the fountain on and off under subzero conditions in accordance with strategy (a). Yes, strategy (b) is
+comparatively easier but the minimum discharge rate is further constrained by the critical discharge rate below
+which the pipeline will freeze. However, both the strategies can simultaneously be applied if the construction
+process is completely automated via a system that regulates the discharge in accordance with the model freezing
+estimates. Such a system can also drain the complete pipeline to prevent any pipeline freezing events.
 
 \section{Conclusions}
 
