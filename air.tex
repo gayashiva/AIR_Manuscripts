@@ -692,7 +692,7 @@ water temperature $T_F$, we assumed an upper bound of $3\, \degree C$ since it i
 beyond this range considering winter conditions at all the sites. The model structure introduces uncertainty
 through the spatial and temporal hyperparameters $\Delta x$ and $\Delta t$. We fix the temporal resolution of
 the model at hourly timesteps and only investigate the uncertainty caused by $\Delta x$ here. Since the surface
-layer thickness for an AIR does not resemble to any parameter in the glaciological literature, we atrribute a
+layer thickness for an AIR does not resemble to any parameter in the glaciological literature, we attribute a
 wide range of values for it (from 1 cm to 10 cm). The model parameters are henceforth called as weather parameters to distinguish
 them from the fountain forcing parameters. These were fixed within a range based on literature values (see Table
 \ref{tab:parameters}). 
@@ -708,15 +708,16 @@ Therefore, the following discussion was limited to two classes: parameters to wh
 described in Appendix \ref{sec:uncertainpy}.
 
 Later, the sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
-drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. Then, the model uncertainty
-was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$.
-
-
-% The sensitivity analysis and calibration was carried out with the drone surveys of CH21 and IN21 AIRs and the
-% CH20 AIR drone surveys were used for validation of the model.
+drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. For this calibration
+procedure, all the insensitive parameters were set to the median value of their respective ranges defined in
+Table \ref{tab:parameters}. Then, the model uncertainty was quantified separately for the remaining parameters
+in $Q^M, Q^F$ and $Q^W$. The sensitivity analysis and calibration was carried out with the drone surveys of CH21
+and IN21 AIRs and the CH20 AIR drone surveys were used for validation of the model.
 
 \begin{table}[h!]
-	\caption{Free parameters in the model categorised as constant and uncertain parameters. The ranges of the 8 weather parameters used in the sensitivity and uncertainty analysis.}
+  \caption{Free parameters in the model categorised as constant, derived, model hyperparameters, weather and
+  fountain forcing parameters with their respective values/ranges.}
+
 	\label{tab:parameters}
 	\begin{tabular}{@{}llllll@{}}
 		\toprule
@@ -767,7 +768,7 @@ was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$.
     Discharge rate & $d_{F}$             & $\pm 50 \%$            & $l/min$& assumed  \\
     Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\
     Spray radius & $r_{F}$             &             & $m$& measured \\
-    Runtime & $t_{F}$             &             &  $s$ & measured \\\bottomrule
+    Runtime & $t_{F}$             &             &  $hours$ & measured \\\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -779,8 +780,8 @@ was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$.
 	\end{center}
   \caption{(a) Total-order sensitivities of all the uncertain parameters of the model with net water loss as the
   objective. (b) The calibration of the sensitive parameter, $\Delta x$ with the RMSE between the drone and
-model estimates of the ice volume. The dots denote the optimum values. Blue and Red colors signify the
-corresponding estimates for the Swiss and the Indian AIR. }
+model estimates of the ice volume. The dots denote the optimum values. The estimates from the Swiss and Indian
+AIRs are denoted with blue and red colors respectively. }
 
 	\label{fig:param_hist}
 \end{figure}
