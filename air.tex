@@ -696,22 +696,25 @@ wide range of values for it (from 1 cm to 10 cm). The model parameters are hence
 them from the fountain forcing parameters. These were fixed within a range based on literature values (see Table
 \ref{tab:parameters}). 
 
-Now we are left with three sets of uncertain parameters namely, model hyperparameters $Q^M = Q_{\Delta x}$,
-fountain forcing parameters $Q^F = [Q_{d_F}, Q_{T_F}]$ and weather parameters $Q^W = [Q_{\epsilon_{ice}},
-Q_{z_0}, Q_{\alpha_{ice}}, Q_{\alpha_{snow}}, Q_{T_{ppt}}, Q_{\tau}]$. Together, these 9 parameters cause a
-large uncertainty in the ice volume estimates. In order to reduce this uncertainty, we perform a global
-sensitivity analysis with the net water loss as our objective. The focus of this sensitivity analysis was not on
-the absolute sensitivity towards single parameters, but rather to reduce the dimension of the parameter space.
-Therefore, the following discussion was limited to two classes: parameters to which the model was sensitive
-($S_{T_{j}} > 0.5$) and non-sensitive ($S_{T_{j}} \leq 0.5$). The methodology to determine $S_{T_{j}}$ is
-described in Appendix \ref{sec:uncertainpy}.
+Now we are left with three sets of uncertain parameters namely, model hyperparameters $Q^M = \Delta x$, fountain
+forcing parameters $Q^F = [d_F, T_F]$ and weather parameters $Q^W = [\epsilon_{ice}, z_0, \alpha_{ice},
+\alpha_{snow}, T_{ppt}, \tau]$. Together, these 9 parameters cause a large uncertainty in the ice volume
+estimates. In order to reduce this uncertainty, we perform a global sensitivity analysis with the net water loss
+as our objective. The focus of this sensitivity analysis was not on the absolute sensitivity towards single
+parameters, but rather to reduce the dimension of the parameter space. Therefore, the following discussion was
+limited to two classes: parameters to which the model was sensitive ($S_{T_{j}} > 0.5$) and non-sensitive
+($S_{T_{j}} \leq 0.5$). The methodology to determine $S_{T_{j}}$ is described in Appendix \ref{sec:uncertainpy}.
 
 Later, the sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
 drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. For this calibration
 procedure, all the insensitive parameters were set to the median value of their respective ranges defined in
 Table \ref{tab:parameters}. Then, the model uncertainty was quantified separately for the remaining parameters
-in $Q^M, Q^F$ and $Q^W$. The sensitivity analysis and calibration was carried out with the drone surveys of CH21
-and IN21 AIRs and the CH20 AIR drone surveys were used for validation of the model.
+in $Q^M, Q^F$ and $Q^W$. The sensitivity analysis and calibration were carried out with the drone surveys of CH21
+and IN21 AIRs. 
+
+For validation, the calibrated model was tested with two datasets namely, the expiry date of all AIRs and the
+drone surveys of CH20 AIR. The expiry date signifies the time when all the ice completely disappeared and only
+the dome volume remains.
 
 \begin{table}[h!]
   \caption{Free parameters in the model categorised as constant, derived, model hyperparameters, weather and
@@ -825,14 +828,12 @@ by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
 
 \subsection{Validation}
 
-The calibrated model was validated using two datasets, namely, drone surveys of CH20 AIR and the expiry
-observations for each AIR. The expiry date signifies the time when all the ice has completely disappeared and
-only the dome volume remains. Model performance can be judged based on the  ice volume left on the expiry date.
-In the case of CH21 AIR no ice volume was left whereas for CH20 AIR ice volume of 12 $m^3$ was left on the
-expiry date. For the IN21 AIR, the determination of the expiry date was not possible. In reality, the IN21 AIR
-was found to have disintegrated into several ice blocks on 20th June, 2021.  There was just one observation of
-the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation with the modelled volume was $19\,
-m^3$ which is 18 \% of the max ice volume of CH20 AIR.
+Model performance can be judged based on the ice volume left on the expiry date of all AIRs and the drone
+surveys of the CH20 AIR. In the case of CH21 AIR no ice volume was left whereas for CH20 AIR ice volume of 12
+$m^3$ was left on the expiry date. For the IN21 AIR, the determination of the expiry date was not possible. In
+reality, the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021. There was just
+one observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation with the modelled
+volume was $19\, m^3$ which is 18 \% of the max ice volume of CH20 AIR.
 
 \subsection{AIR ice volume estimates}
 
@@ -852,7 +853,7 @@ freezing/melting energy flux and the fountain determines the surface area throug
 
 The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
 together with the corresponding energy fluxes. Fig. \ref{fig:MEB} shows the daily thickness and energy balance
-components calculated with the calibrated parameters for the first and last 20 days for each AIR. The two time
+components calculated with the calibrated surface layer thickness for the first and last 20 days for each AIR. The two time
 periods selected were characteristic of the accumulation and ablation period, respectively. A strong variability
 was evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
 
@@ -926,7 +927,7 @@ radiation was strongly reduced due to its low cloudiness (see Table \ref{tab:Obs
 Direct shortwave radiation was more than three times higher for the IN21 location due to its higher altitude and
 lower latitude. However, the both the energy turnover and the magnitude of the shortwave radiation was lower for
 the Indian site compared to the Swiss (see Table \ref{tab:turnover}). This was because the higher diffuse
-shortwave radiation at the Swiss location was compensating for its lower direct shortwave radiation . Since the
+shortwave radiation at the Swiss location was compensating for its lower direct shortwave radiation. Since the
 IN21 site has mostly clear days, its diffuse shortwave radiation was very low (see Table
 \ref{tab:Observations}). Moreover, less than 20 \% of the AIR surface area on average was exposed to direct
 shortwave radiation flux for both the locations due to the area fraction $f_{cone}$. Temporal variation in the
@@ -1019,16 +1020,16 @@ limitation since the model is very sensitive to the spray radius parameter. More
 determined by the fountain characteristics but also due to refreezing and melting events across the AIR
 perimeter. Therefore, the same fountain may produce different spray radius under different weather conditions.
 
-Contrary to our model assumptions, the parameters used to define the fountain were actually not independent.
-The fountain height, fountain aperture diameter (both ignored in this analysis), discharge rate, water
-temperature and spray radius were related through the trajectories of the water droplets. Particularly the
-temporal variation of both the spray radius and the water temperature were completely ignored in the model.
-During the IN21 experiment, snow formation was observed indicating that the fountain water droplets have the
-potential to freeze before deposition on the AIR surface. Modelling such processes would require modelling all
-the processes interacting with individual droplets during their flight time. Therefore, a proper quantification
-of the fountain is much more complex and requires a closer look at the correlation of the fountain parameters
-amongst themselves and with the weather parameters. This will be investigated in a follow up study, with this
-study focusing on the weather aspects of the model.
+Contrary to our model assumptions, the parameters used to define the fountain were actually not independent. The
+fountain height, fountain aperture diameter (both ignored in this analysis), discharge rate, water temperature
+and spray radius were related through the trajectories of the water droplets. Particularly the temporal
+variation of both the spray radius and the water temperature were completely ignored in the model. During the
+IN21 experiment, snow formation was observed indicating that the fountain water droplets have the potential to
+freeze before deposition on the AIR surface. Modelling such processes would require modelling the conduction,
+convection and nucleation processes that all droplets undergo during their flight time. Therefore, a proper
+quantification of the fountain is much more complex and requires a closer look at the correlation of the
+fountain parameters amongst themselves and with the weather parameters. This will be investigated in a follow up
+study, with this study focusing on the weather aspects of the model.
 
 \subsubsection{Shape assumption}
 
@@ -1047,7 +1048,7 @@ The model was found to be very sensitive to the surface layer thickness paramete
 selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
 small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$
 should be large enough for these temperature variations to not reach the bottom of the surface layer. But
-practically, this parameter is also the only one compensating for the model structure limitations. This is
+practically, this parameter is also the only one compensating for the model shape assumption. This is
 particularly true for the IN21 AIR where in reality two AIRs merged leading to a drastically different shape
 evolution compared to our model. Therefore, $\Delta x$ was found to be an outlier in our global sensitivity
 analysis. 
@@ -1063,21 +1064,7 @@ in the accumulation vs the ablation period, $r_F$ could be over or underestimate
 reasons we observe a poor validation with the CH20 AIR since the spray radius is derived from just one drone
 survey in the accumulation period.
 
-\subsection{Freezing and melting rates}
-
-The freezing rates were much higher than the melting rates for the Indian location but these rates have a
-negligible difference for the Swiss location. The smaller mean thickness decay compensated for the higher
-surface area of the Indian location compared to the Swiss. The freezing rates of the IN21 AIR were much higher
-than the CH21 AIR because of the much faster thickness growth and the larger surface area of the Indian
-location compared to the Swiss.
-
 \subsection{Favourable AIR locations}
-
-% The Indian location was found to be favourable to the formation of AIRs since its mean thickness change was
-% positive. Particularly, the mean thickness growth was much higher than the decay. This enabled the fountain
-% determined surface area to favor AIR growth over decay. However, the Swiss location was not favourable since its
-% mean thickness change was negative, indicating that the surface area favored AIR decay over growth (see Table
-% \ref{tab:Results}).
 
 Weather conditions play a significant role in making the Indian AIR larger and survive longer than the
 Swiss AIR, namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter
@@ -1091,12 +1078,10 @@ to dampen melting rates.
 
 The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
 high water losses were caused by the fountain wastewater in both the AIRs. Therefore, the AIR wastes water
-mostly during the accumulation period. The freezing rate of the IN21 AIR was less than $20 l/min$ for more than
+mostly during the accumulation period. The freezing rate of the IN21 AIR was less than $20\, l/min$ for more than
 90 \% of the accumulation period, meaning that the growth was not limited by the water supply rate but by the
 freezing efficiency. The CH21 AIR freezing rate was able to reach the mean fountain discharge rate provided,
 albeit for only 2 hours out of the 2155 hours of fountain runtime available. 
-
-% Thus, water losses could have been significantly reduced by just decreasing the mean fountain discharge.
 
 \subsection{Fountain optimization}
 
@@ -1134,9 +1119,9 @@ summarized below:
 	\item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
 	      Swiss AIRs. The lower radiation fluxes of the Indian location favored a faster thickness growth rate and the
 	      spray radius of the Indian fountain produced a higher surface area compared to the Swiss counterparts. Thus,
-	      the more than three times higher mean surface area and four times higher mean thickness growth rate during
-	      the two times shorter accumulation period of the Indian location result in a six times higher maximum ice
-	      volume of the Indian AIR compared to the Swiss.
+        the more than three times higher mean surface area and four times higher mean thickness growth rate
+        during the two times shorter accumulation period of the Indian location result in a four times higher
+        maximum ice volume of the Indian AIR compared to the Swiss.
 
 	\item The ablation period of the Indian AIR was longer than the Swiss AIRs. However, the lower turbulent fluxes resulted in
 	      a slower thickness decay rate on a larger surface area. This rendered the differences between the IN21 and CH21
