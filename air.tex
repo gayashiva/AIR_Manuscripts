@@ -49,7 +49,7 @@
 
   Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
   irrigation water supply. However, there is a large variability associated with this water supply due to the
-  local weather influences at the location chosen. This study compared the ice volume evolution of three AIRs
+  local weather influences at the chosen location. This study compared the ice volume evolution of three AIRs
   built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model input consisted
   of meteorological data in conjunction with fountain discharge rate (mass input of an AIR). Model calibration
   and validation were completed using ice volume and surface area measurements taken from several drone surveys.
@@ -59,7 +59,7 @@
   quarters of the total fountain discharge due to high fountain wastewater. Drier and colder locations in
   relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower melting
   rate. This is a promising result for dry mountain regions, where AIR technology could provide a relatively
-  economic and sustainable strategy to mitigate climate change induced water stress.
+  affordable and sustainable strategy to mitigate climate change induced water stress.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -73,9 +73,9 @@ by these changes are especially important for dry mountain environments such as 
 which directly rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019,
 	Apel_2018, Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}.
 
-Ladakh, sandwiched between the Himalayan ranges and the Karakoram, is one of such regions experiencing climate
-change induced water stress. Glaciers in the Ladakh region are vital in sustaining agricultural activities which
-form the basis for regional food security and socioeconomic development \citep{Labbal_2000, Schmidt_2012}.
+Ladakh, sandwiched between the Himalayan ranges and the Karakoram, is one such region experiencing climate
+change induced water stress. Glaciers in the Ladakh region are vital for sustaining agricultural activities which
+form the basis for regional food security and socio-economic development \citep{Labbal_2000, Schmidt_2012}.
 During a low precipitation year, glaciermelt and snowmelt are the only sources of water supply to the region
 \citep{Thayyen_2010}. Some villages in Ladakh, India have already been forced to relocate due to glacial retreat
 and the corresponding loss of their main fresh water resources \citep{zanskar}.
@@ -96,41 +96,41 @@ structure typically constructed during the cold winter months and designed to sl
 the warm spring and summer months.  The main purpose of AIRs is irrigation. Therefore, AIRs are designed to
 store water in the form of ice as long into the summer as possible. The energy required to construct an AIR is
 usually derived from the gravitational head of the source water body. Some are constructed horizontally by
-freezing water using a series of checkdams and others are built vertically by spraying water through fountain
+freezing water using a series of checkdams while others are built vertically by spraying water through fountain
 systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the subject of this
 study.
 
-A typical AIR (see Fig. \ref{fig:old_icestupa}) just requires a fountain nozzle mounted on a supply pipeline.
+A typical AIR (see Fig. \ref{fig:old_icestupa}) simply requires a fountain nozzle mounted on a supply pipeline.
 The water source is usually a high altitude lake or glacial stream. Due to the altitude difference between the
-pipeline input and fountain output, water ejects from the fountain nozzle as droplets that freeze under the
-influence of the atmosphere and accumulate as ice. The fountain is manually activated during winter nights. The fountain nozzle is
-raised through addition of metal pipes as and when significant ice accumulates.  Typically, a dome of branches
-is constructed around the metal pipes so that such pipe extensions can be done from within this dome.  Threads,
-tree branches and fishing nets are used to guide and accelerate the ice formation.
+pipeline input and fountain output, water ejects from the fountain nozzle as droplets which freeze under subzero
+winter conditions. The fountain is manually activated during winter nights. The fountain nozzle is raised
+through the addition of metal pipes when significant ice accumulates below.  Typically, a dome of branches is
+constructed around the metal pipes so that pipe extensions can be done from within this dome. Threads, tree
+branches and fishing nets are used to guide and accelerate the ice formation.
 
 However, to date, no reliable estimates exist about the quantity of meltwater they can provide
 \citep{Nusser_2018} . Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
-losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). Particularly, during their accumulation
-period, AIRs can lose excessive fountain water directly as wastewater and during the ablation period, sublimation
-losses could be significant.  However, the relative contribution of these processes in the total water loss
-remains unknown.
+losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). During their accumulation period, AIRs can
+lose excessive fountain water directly as wastewater and during the ablation period, sublimation losses could
+also be significant.  However, the relative contribution of these processes in the total water loss remains
+unknown.
 
-In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their water
-losses, freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of
-ice, meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the
-most sensitive parameters and the variance caused by them. For calibration, we chose two AIR built across the
-winter of 2020/21 in India and Switzerland and validated the model on a Swiss AIR built during winter 2019/20.
-Our model results provide a first step towards evaluating the potential of this decade old water storage
-technology worldwide.
+In this paper, we develop a physically-based model of vertical AIRs (or icestupas) that can estimate their
+freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of ice,
+meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the most
+sensitive parameters and the variance they caused. For calibration, we chose two AIR built across the winter
+of 2020/21 in India and Switzerland, and validated the model on a Swiss AIR built during winter 2019/20. Our
+model results provide a first step towards evaluating the potential of this decade old water storage technology
+worldwide.
 
 \section{Study Sites and data}
 
 The model requires three kinds of datasets containing weather, fountain and AIR volume measurements to
 accurately calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2018/19, 2019/20 and
-2020/21 such datasets were acquired for four AIRs each in Switzerland and India. Here, we present the results of
+2020/21, such datasets were acquired for four AIRs in both Switzerland and India. Here, we present the results of
 three AIRs, which have a complete dataset. As shown in Table \ref{tab:Observations}, two of them were
 constructed in the same Swiss location called Guttannen (referred to with the prefix CH) but during different
-winters and the other was constructed at Gangles, India (referred to with the prefix IN).
+winters, and the other was constructed at Gangles, India (referred to with the prefix IN).
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are
@@ -159,7 +159,7 @@ characterized by high seasonal variation. During January, the coldest month, the
 \citep{Nusser_2012}. Because of the rain shadow effect of the Himalayan Range, mean annual precipitation in Leh
 totals less than 100 mm, and there is high interannual variability. Whereas the average summer rainfall between
 July and September reaches 37.5 mm, the average winter precipitation between January and March amounts to 27.3
-mm and falls almost entirely as snow .  AIR were constructed here as part of the Icestupa Competition  by the
+mm and falls almost entirely as snow.  AIRs were constructed here as part of the Icestupa Competition  by the
 Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height of the AIR varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
@@ -167,7 +167,7 @@ Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height of the A
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are
 required to calculate the surface energy balance of an AIR (see Table \ref{tab:Observations}).
 
-For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away . In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and
+For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and
 adding the shortwave and longwave radiation data that were not measured directly.  The ERA5 reanalysis dataset
 has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
 chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5
@@ -180,7 +180,7 @@ model. Temperature, humidity, wind speed and pressure data was logged via a camp
 m away from the construction site. Shortwave radiation data was derived from another campbell weather station
 located 15 km away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is less
 than 30 mm \citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. As a
-consequence, the diffuse fraction of the global shortwave radiation was also assumed to be negligible .
+consequence, the diffuse fraction of the global shortwave radiation was also assumed to be negligible.
 
 \begin{table}
 	\centering
@@ -225,9 +225,9 @@ consequence, the diffuse fraction of the global shortwave radiation was also ass
 
 \subsection{Fountain observations}
 
-We define the fountain used through four attributes, namely its spray radius, mean discharge quantity, discharge
+We define the fountain used through four attributes; namely its spray radius, mean discharge quantity, discharge
 runtime and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge
-rate was unsuccessful in all the sites due to data logger malfunctions of the associated flowmeter. Instead the
+rate was unsuccessful in all sites due to data logger malfunctions of the associated flowmeter. Instead the
 discharge duration was first determined and then the available discharge measurement was used to determine the
 average discharge quantity $d_F$ during these periods.  The spray radius $r_F$ was estimated from the mean AIR
 circumference measured in the drone surveys during the fountain runtime.
@@ -242,7 +242,7 @@ pipeline freezing events.
 Several photogrammetric surveys using drones were conducted on the Swiss and Indian sites. The details of these
 surveys and the methodology used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
 The digital elevation maps (DEMs) generated from the obtained imagery were analysed to document the radius,
-surface area and volume of the ice structure. The number of surveys available for the IN21, CH21 and CH20 AIR
+surface area and volume of the ice structure. The number of surveys available for the IN21, CH21 and CH20 AIRs
 were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was used to set the dome volume
 ($V_{dome}$) for model initialisation. The remaining surveys were used for model calibration and validation.
 Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}), it had a much higher
@@ -397,7 +397,7 @@ surface. $q_{G}$ represents ground heat flux between the AIR surface and its int
 The energy flux acts upon the AIR surface layer, which has an upper and a lower boundary defined by the
 atmosphere and the ice body of the AIR, respectively.  A sensitivity analysis was later performed
 to understand the influence of this factor and decide its value. Here, we define the surface temperature
-$T_{ice}$ to be the modelled average temperature of the Icestupa surface layer.
+$T_{ice}$ to be the modelled average temperature of the icestupa surface layer.
 
 \subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}}
 
@@ -537,7 +537,7 @@ using the heat conduction equation as follows:
 \begin{equation} q_{G} = k_{ice} \cdot (T_{bulk}-T_{ice}^{i-1})/l_{cone} \label{eqn:qG}    \end{equation}
 
 where $k_{ice}$ is the thermal conductivity of ice (2.123 $W\, m^{-1}\,K^{-1}$) , $T_{bulk}$ is the mean
-temperature of the ice body within the Icestupa and $l_{cone}$ is the average distance of any point in the
+temperature of the ice body within the icestupa and $l_{cone}$ is the average distance of any point in the
 surface to any other point in the ice body. $T_{bulk}$ is initialised as 0 $\degree C$ and later determined from
 Eqn. \ref{eqn:qG} as follows:
 
@@ -568,10 +568,10 @@ where $q_{melt}$, $q_{freeze}$ and $q_{T}$ represent energy associated with melt
 temperature change processes respectively and the total energy available to be redistributed for these processes
 is defined as $q_{total}=\rho_{ice} \cdot c_{ice} \cdot \frac{T_{temp}-T_{ice}}{\Delta t} \cdot \Delta x$.
 
-We categorize every model time step as freezing or melting events. Freezing events can only occur, if fountain
+We categorize every model time step as freezing or melting events. Freezing events can only occur if fountain
 water is available and $T_{temp}$ is below $0\,\degree C$. However, these two conditions are not sufficient as
 the latent heat energy can only contribute to temperature fluctuations. Therefore, for preventing latent heat
-energy from turning a melting event into a freezing event an additional condition namely, $(q_{total}-q_{L}) <
+energy from turning a melting event into a freezing event, an additional condition, namely $(q_{total}-q_{L}) <
 0$, is required.
 
 \begin{equation}
@@ -642,7 +642,7 @@ only to sublimation (deposition), i.e. no evaporation (condensation) is calculat
 
 Since we have categorized every time step as a freezing or melting event, we can determine the ice and meltwater
 generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mcone}. Having calculated
-all the other mass components the fountain wastewater generated every time step can be calculated using Eqn.
+all of the other mass components, the fountain wastewater generated every time step can be calculated using Eqn.
 \ref{eq:MB}.
 
 \begin{subequations}
@@ -673,7 +673,7 @@ Considering AIRs as water reservoirs, their net water loss can be defined as:
 
 \subsection{Uncertainty Quantification}
 
-The uncertainty in the model of estimating ice volumes are caused due to three sources, namely, model forcing
+The uncertainty in the model of estimating ice volumes is caused by three sources, namely, model forcing
 data, model hyperparameters and model parameters. Model forcing data can further be divided into weather and
 fountain forcing data. Significant uncertainty exists in the weather forcing data, particularly for all the
 radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS
@@ -714,7 +714,7 @@ in $Q^M, Q^F$ and $Q^W$. The sensitivity analysis and calibration were carried o
 and IN21 AIRs. 
 
 For validation, the calibrated model was tested with two datasets namely, the expiry date of all AIRs and the
-drone surveys of CH20 AIR. The expiry date signifies the time when all the ice completely disappeared and only
+drone surveys of CH20 AIR. The expiry date signifies the time when all of the ice completely disappeared and only
 the dome volume remains.
 
 \begin{table}[h!]
@@ -812,7 +812,7 @@ in albedo was negligible. This was expected since 4 out of the 5 insensitive wea
 albedo module. The remaining parameter, ice emissivity, caused the most variance in the ice volume estimate
 among all the insensitive parameters ($S_{T_{\epsilon_{ice}}} = 0.7$).
 
-Fountain forcing uncertainty for all the AIRs was high illustrating the importance of quantifying the fountain parameters for
+Fountain forcing uncertainty for all the AIRs was high, illustrating the importance of quantifying the fountain parameters for
 a confident ice volume estimation. Among the 2 fountain parameters, ice volume variation was caused predominantly
 by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
 
@@ -852,11 +852,11 @@ the freezing/melting rate of the AIRs can be decomposed to the corresponding fre
 surface area. The construction location chosen determines the thickness growth/decay through the
 freezing/melting energy flux and the fountain determines the surface area through its spray radius.
 
-The influence of location can be further comprehended, if we analyse the daily surface normal thickness change
+The influence of location can be further comprehended if we analyse the daily surface normal thickness change
 together with the corresponding energy fluxes. Fig. \ref{fig:MEB} shows the daily thickness and energy balance
 components calculated with the calibrated surface layer thickness for the first and last 20 days for each AIR. The two time
 periods selected were characteristic of the accumulation and ablation period, respectively. A strong variability
-was evident between the accumulation and ablation periods and between the CH21 and the IN21 AIR.
+was evident between the accumulation and ablation periods and between the CH21 and the IN21 AIRs.
 
 The daily mean thickness change of the Indian location was positive ($3\, mm \,w.e.$) with a daily mean growth
 of $31\, mm \,w.e.$ and a mean decay of $11\, mm \,w.e.$. In the Swiss location, the daily mean
@@ -867,7 +867,7 @@ accounted for 73 \%, $q_{melt}$ accounted for 23 \% and $q_{T}$ just 4 \% of ove
 turnover is calculated as the sum of energy fluxes in absolute values. For the Swiss site, $q_{freeze}$
 accounted for 37 \%, $q_{melt}$ accounted for 61 \%  and $q_{T}$ just 2 \% of overall energy turnover. The
 freezing events occurred for 19\% and 34\% of the simulation duration (see Table \ref{tab:Observations}) for the
-Indian and Swiss site respectively. The accumulation period is characteristic of these freezing events and
+Indian and Swiss site respectively. The accumulation period is characteristic of these freezing events and the
 ablation period is characteristic of the melting events. We compare the energy turnover of different energy
 fluxes between these two periods to quantify the influence of different surface processes.
 
@@ -901,11 +901,11 @@ direction of the mean energy flux during the respective period.}
 \end{table}
 
 To understand the overall impact of the radiation fluxes (longwave and shortwave) and the turbulent fluxes
-(sensible and latent) on the freezing and melting energies, we sum their respective energy turnover taking into
+(sensible and latent) on the freezing and melting energies, we sum their respective energy turnover by taking into
 account the sign of their mean energy during the accumulation/ablation period (see Table \ref{tab:turnover}). A
 negative sign indicates that the corresponding energy flux increased/decreased the freezing/melting energy
 respectively. Note that all the energy fluxes maintain the same sign for both the accumulation and ablation
-periods for the Indian location but the latent heat changes sign for the Swiss location. The radiation fluxes
+periods for the Indian location, but the latent heat changes sign for the Swiss location. The radiation fluxes
 contributed -27 \% and 0 \% to the freezing and melting energies for the Indian location and -20 \% and -6 \%
 to the Swiss location respectively.  Similarly, the turbulent fluxes at the Indian location contribute -11 \% and
 10 \% and at the Swiss location contribute 12 \% and 49\%  respectively. Therefore, the AIR thickness growth was
@@ -923,7 +923,7 @@ locations. It increased and decreased the freezing and melting energy balance co
 and ablation period respectively. However, its magnitude was much lower in the ablation period compared to the
 accumulation period since the rising air temperature increased the incoming longwave radiation in the ablation
 period. The mean longwave radiation flux (see Table \ref{tab:turnover}) was lower for the Indian site as its incoming longwave
-radiation was strongly reduced due to its low cloudiness (see Table \ref{tab:Observations}).
+radiation was strongly reduced due to cloud free skies. (see Table \ref{tab:Observations}).
 
 Direct shortwave radiation was more than three times higher for the IN21 location due to its higher altitude, 
 lower latitude and lower cloudiness. However, both the energy turnover and the magnitude of the shortwave radiation was lower for
@@ -987,7 +987,7 @@ periods, respectively.
 The mass contribution of the sublimation/deposition process shown in Table \ref{tab:Results} was significantly
 smaller than the energy flux contribution of this process, since the heat of vaporization is around nine times
 higher than the heat of fusion. The magnitude of the sublimation/deposition process was significantly different
-for both the AIRs:  IN21 AIR lost 2 \% of its mass input to sublimation compared to the 1 \% mass loss of the
+for both of the AIRs:  IN21 AIR lost 2 \% of its mass input to sublimation compared to the 1 \% mass loss of the
 CH21 AIR (see Table \ref{tab:Results}). For the IN21 AIR, mass gain due to deposition was an order of magnitude
 smaller than the mass loss due to sublimation. For the CH21 AIR, there were no significant differences between
 the mass lost to sublimation and the mass gained by deposition. This was expected, since glaciers near the IN21
@@ -1037,7 +1037,7 @@ methodologies will involve inclusion of even more model parameters.
 
 The model was found to be very sensitive to the surface layer thickness parameter. Theoretically, the parameter
 selection for $\Delta x$ is based on the following two arguments: (a) the ice thickness $\Delta x$ should be
-small enough to represent the surface temperature variations every model time step $\Delta t$ and (b) $\Delta x$
+small enough to represent the surface temperature variations at every model time step $\Delta t$ and (b) $\Delta x$
 should be large enough for these temperature variations to not reach the bottom of the surface layer. But
 practically, this parameter is also the only one compensating for the model shape assumption. This is
 particularly true for the IN21 AIR where in reality two AIRs merged leading to a drastically different shape
@@ -1058,8 +1058,8 @@ survey in the accumulation period.
 \subsection{Favourable AIR locations}
 
 Weather conditions play a significant role in making the Indian AIR larger and survive longer than the Swiss
-AIR, namely, cloudiness, temperature and relative humidity. The lower cloudiness and mean winter temperature of
-the Indian location significantly reduce the net radiation flux during the accumulation period, enabling a
+AIR, namely cloudiness, temperature and relative humidity. The lower cloudiness and mean winter temperature of
+the Indian location significantly reduced the net radiation flux during the accumulation period, enabling a
 faster AIR thickness growth.  The lower winter temperature and humidity favour the sublimation over the
 deposition process, thus decreasing the magnitude of net turbulent fluxes during the ablation period. This
 results in a slower thickness decay .  Hence, for AIRs with similar fountain parameters, we expect locations
@@ -1098,7 +1098,7 @@ source.
 
 In this paper, we have developed a bulk energy and mass balance model to simulate AIR evolution using data from
 field measurements in Gangles, India and Guttannen, Switzerland. The use of these datasets, in combination with
-the novel model allowed for an accurate representation of the complex evolution typical of an AIR. The model was
+the novel model, allowed for an accurate representation of the complex evolution that is typical of an AIR. The model was
 calibrated and validated with ice volume and surface area observations obtained via drone surveys. We calculated
 the water losses, freezing and melting rates for each of the three AIRs and explained their corresponding
 magnitudes in terms of the influence of the location chosen and the fountain used. Our main conclusions are
