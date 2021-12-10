@@ -467,7 +467,7 @@ in equation \ref{eqn:atm_e}) is extended with the correction for cloudy skies af
 follows:
 
 \begin{equation}
-	\epsilon_a=1.24 \cdot (\frac{p_{v,a}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{cld}^2) \label{eqn:atm_e}
+	\epsilon_a=1.24 \cdot (\frac{p_{v,w}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{cld}^2) \label{eqn:atm_e}
 \end{equation}
 
 with a cloudiness index $cld$, ranging from 0 for clear skies to 1 for complete overcast skies. For the Indian
@@ -486,25 +486,23 @@ proposed by \cite{Garratt_1992}:
 
 \begin{equation}
 	q_{L}=\mu_{cone}\cdot 0.623 \cdot L_s \cdot \rho_{a}/p_{0,a} \cdot \frac{\kappa^2 \cdot
-	v_a(p_{v,a}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2}
+	v_a(p_{v,w}-p_{v,ice})}{{(\ln{\frac{h_{AWS}}{z_{0}}})}^2}
 \end{equation}
 
 where $h_{AWS}$ is the measurement height above the ground surface of the AWS (around $2\,m$ for all sites),
 $v_a$ is the wind speed in [$m\,s^{-1}$], $c_a$ is the specific heat of air at constant pressure (1010 J
 $kg^{-1} K^{-1}$), $\rho_{a}$ is the air density at standard sea level (1.29 $kg m^{-3}$), $p_{0,a}$ is the air
-pressure at standard sea level (1013 $hPa$), $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the surface
-roughness (3 $mm$) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).  The vapor pressures over air
-($p_{v,a}$) and ice ($p_{v,ice}$) was obtained using the formulation given in \cite{WMO_2018} and
-\cite{huang_2018} respectively  :
+pressure at standard sea level (1013 $hPa$), $p_{a}$ is the measured air pressure, $\kappa$ is the von Karman constant (0.4), $z_{0}$ is the surface
+roughness (3 $mm$) and $L_s$ is the heat of sublimation (2848 $kJ\,kg^{-1}$).  The vapor pressures of air with
+respect to water ($p_{v,w}$) and with respect to ice ($p_{v,ice}$) was obtained using the formulation given in
+\cite{huang_2018} :
 
 \begin{equation}
 	\begin{split}
-		p_{v,a}&=6.107 \cdot 10^{(7.5 \cdot T_a / (T_a + 237.3))} \cdot \frac{RH}{100}\\
-		p_{v,ice}&=e^{(43.494 - \frac{6545.8}{T_{ice} + 278})}/(T_{ice} + 868)^2
+		p_{v,w}&=\frac{(34.494 - \frac{4924.99}{T_{a} + 237.1})}{(T_a + 105)^{1.57} \cdot 100} \cdot \frac{RH}{100} \\
+		p_{v,ice}&=\frac{(43.494 - \frac{6545.89}{T_{ice} + 278})}{(T_{ice} + 868)^{2} \cdot 100} \\
 	\end{split} \label{eqn:vp}
 \end{equation}
-
-where $p_{a}$ is the measured air pressure in [$hPa$].
 
 The dimensionless parameter $\mu_{cone}$ is an exposure parameter that deals with the fact that AIR has a rough
 appearance and forms an obstacle to the wind regime. This factor accounts for the larger turbulent fluxes due to
@@ -742,7 +740,7 @@ the dome volume remains.
 		\textbf{Derived Parameters} & \textbf{Symbol} & \textbf{} & \textbf{Unit} & \textbf{Section} \\\midrule
     Atmospheric emissivity & $\epsilon_{a}$ & & dimensionless    & \ref{sec:LW}\\
     Cloudiness & $cld$ &  & dimensionless  & assumed\\
-    Vapour pressure over air & $p_{v,a}$ &  & $hPa$  & \ref{sec:Qs}\\
+    Vapour pressure over water & $p_{v,w}$ &  & $hPa$  & \ref{sec:Qs}\\
     Vapour pressure over ice & $p_{v,ice}$ &  & $hPa$ & \ref{sec:Qs}\\
     Radius of AIR & $r_{cone}$ &  & $m$ & \ref{sec:shape}\\
     Height of AIR & $h_{cone}$ &  & $m$ & \ref{sec:shape}\\
