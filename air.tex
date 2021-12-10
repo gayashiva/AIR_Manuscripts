@@ -169,12 +169,13 @@ required to calculate the surface energy balance of an AIR (see Table \ref{tab:O
 
 For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (WIGOS-ID 0-756-0-GTT).
 In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding the shortwave and
-longwave radiation data that were not measured directly.  The ERA5 reanalysis dataset has a good correlation
-with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen (46.64 $\degree$N, 8.25 $\degree$E)
-for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming shortwave and
-longwave radiation) were fitted with the meteoswiss dataset via linear regressions. The zero wind speed values
-recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were replaced using the
-ERA5 dataset.
+longwave radiation data that were not measured directly. The CH temperature dataset had a correlation greater
+than 0.8 with the ERA5 temperature for both the winters. The ERA5 reanalysis dataset is known to have a high
+correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen (46.64 $\degree$N, 8.25
+$\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming
+shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear regressions. The zero wind
+speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were
+replaced using the ERA5 dataset.
 
 For the IN site, two different weather data sources were used to log all the weather parameters required for the
 model. Temperature, humidity, wind speed and pressure data was logged with a weather station located 440 m away
