@@ -677,31 +677,34 @@ The uncertainty in the model of estimating ice volumes are caused due to three s
 data, model hyperparameters and model parameters. Model forcing data can further be divided into weather and
 fountain forcing data. Significant uncertainty exists in the weather forcing data, particularly for all the
 radiation measurements ($SW_{direct}, SW_{diffuse}, LW_{in}$) since they were taken from ERA5 dataset or an AWS
-far away from the construction sites. But we are not accounting for uncertainties related to meteorological
-forcing data in this analysis. Uncertainty in the fountain forcing data arises due to only some fountain
-parameters listed in Table \ref{tab:parameters}. Fountain runtime $t_F$ has no uncertainty for the Swiss AIRs
-because no interruptions occured during the study period. However, significant uncertainty exists for the IN21
-AIR , where the interruptions due to pipeline freezing events happened overnight but this was ignored in this
-analysis. Fountain spray radius $r_F$ was measured using the drone survey and therefore also doesn't contribute
-to model uncertainty. The choice of $d_F$ for both sites was just a best guess, based on few observations made
-by the flowmeter. So we associate this parameter by a large uncertainty of $\pm \,50\, \%$. For the fountain
-water temperature $T_F$, we assumed an upper bound of $3\, \degree C$ since it is unlikely for it to have been
-beyond this range considering winter conditions at all the sites. The model structure introduces uncertainty
-through the spatial and temporal hyperparameters $\Delta x$ and $\Delta t$. We fix the temporal resolution of
-the model at hourly timesteps and only investigate the uncertainty caused by $\Delta x$ here. Since the surface
-layer thickness for an AIR does not resemble to any parameter in the glaciological literature, we attribute a
-wide range of values for it (from 1 cm to 10 cm). The model parameters are henceforth called as weather parameters to distinguish
-them from the fountain forcing parameters. These were fixed within a range based on literature values (see Table
+far away from the construction sites. Since no other weather datasets exist for comparison, especially near the
+IN21 AIR, we are not accounting for uncertainties related to meteorological forcing data in this analysis.
+Uncertainty in the fountain forcing data arises due to only some fountain parameters listed in Table
+\ref{tab:parameters}. Fountain runtime $t_F$ has no uncertainty for the Swiss AIRs because no interruptions
+occured during the study period. However, significant uncertainty exists for the IN21 AIR , where the
+interruptions due to pipeline freezing events happened overnight but this was ignored in this analysis. Fountain
+spray radius $r_F$ was measured using the drone survey and therefore also doesn't contribute to model
+uncertainty. The choice of $d_F$ for both sites was just a best guess, based on few observations made by the
+flowmeter. So we associate this parameter by a large uncertainty of $\pm \,50\, \%$. For the fountain water
+temperature $T_F$, we assumed an upper bound of $3\, \degree C$ since it is unlikely for it to have been beyond
+this range considering winter conditions at all the sites. The model structure introduces uncertainty through
+the spatial and temporal hyperparameters $\Delta x$ and $\Delta t$. By definition, $\Delta x$ is directly
+proportional to $\Delta t$. Therefore, we fix the temporal resolution of the model at hourly timesteps and only
+investigate the uncertainty caused by $\Delta x$ here. Since the surface layer thickness for an AIR does not
+resemble to any parameter in the glaciological literature, we attribute a wide range of values for it (from 1 cm
+to 10 cm). The model parameters are henceforth called as weather parameters to distinguish them from the
+fountain forcing parameters. These were fixed within a range based on literature values (see Table
 \ref{tab:parameters}). 
 
-Now we are left with three sets of uncertain parameters namely, model hyperparameters $Q^M = \Delta x$, fountain
-forcing parameters $Q^F = [d_F, T_F]$ and weather parameters $Q^W = [\epsilon_{ice}, z_0, \alpha_{ice},
-\alpha_{snow}, T_{ppt}, \tau]$. Together, these 9 parameters cause a large uncertainty in the ice volume
-estimates. In order to reduce this uncertainty, we perform a global sensitivity analysis with the net water loss
-as our objective. The focus of this sensitivity analysis was not on the absolute sensitivity towards single
-parameters, but rather to reduce the dimension of the parameter space. Therefore, the following discussion was
-limited to two classes: parameters to which the model was sensitive ($S_{T_{j}} > 0.5$) and non-sensitive
-($S_{T_{j}} \leq 0.5$). The methodology to determine $S_{T_{j}}$ is described in Appendix \ref{sec:uncertainpy}.
+The three types of uncertain parameters namely, model hyperparameters ($\Delta x$), fountain forcing parameters
+($[d_F, T_F]$) and weather parameters ($[\epsilon_{ice}, z_0, \alpha_{ice}, \alpha_{snow}, T_{ppt}, \tau]$) are
+denoted as $Q^M, Q^F$ and $Q^W$ henceforth. Together, these 9 parameters cause a large uncertainty in the ice
+volume estimates. In order to reduce this uncertainty, we perform a global sensitivity analysis with the net
+water loss as our objective. The focus of this sensitivity analysis was not on the absolute sensitivity towards
+single parameters, but rather to reduce the dimension of the parameter space. Therefore, the following
+discussion was limited to two classes: parameters to which the model was sensitive ($S_{T_{j}} > 0.5$) and
+non-sensitive ($S_{T_{j}} \leq 0.5$). The methodology to determine $S_{T_{j}}$ is described in Appendix
+\ref{sec:uncertainpy}.
 
 Later, the sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
 drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. For this calibration
