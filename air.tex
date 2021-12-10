@@ -167,20 +167,25 @@ Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height of the A
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are
 required to calculate the surface energy balance of an AIR (see Table \ref{tab:Observations}).
 
-For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away. In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and
-adding the shortwave and longwave radiation data that were not measured directly.  The ERA5 reanalysis dataset
-has a good correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
-chosen (46.64 $\degree$N, 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5
-variables (except incoming shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear
-regressions. The zero wind speed values recorded by the Meteoswiss AWS whenever snow accumulated on the
-ultrasonic wind sensor were replaced using the ERA5 dataset.
+For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (WIGOS-ID 0-756-0-GTT).
+In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding the shortwave and
+longwave radiation data that were not measured directly.  The ERA5 reanalysis dataset has a good correlation
+with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen (46.64 $\degree$N, 8.25 $\degree$E)
+for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming shortwave and
+longwave radiation) were fitted with the meteoswiss dataset via linear regressions. The zero wind speed values
+recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were replaced using the
+ERA5 dataset.
 
 For the IN site, two different weather data sources were used to log all the weather parameters required for the
-model. Temperature, humidity, wind speed and pressure data was logged via a campbell weather station located 440
-m away from the construction site. Shortwave radiation data was derived from another campbell weather station
-located 15 km away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is less
-than 30 mm \citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. As a
-consequence, the diffuse fraction of the global shortwave radiation was also assumed to be negligible.
+model. Temperature, humidity, wind speed and pressure data was logged with a weather station located 440 m away
+from the construction site. Shortwave radiation data was derived from another weather station located 15 km
+away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is less than 30 mm
+\citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. As a consequence, the
+diffuse fraction of the global shortwave radiation was also assumed to be negligible.
+
+Temperature and humidity were measured with a rotronic sensor with an accuracy of $\pm\,0.3\, \degree C$ and
+$\pm\,1 \%$ respectively. A young sensor measured the wind speed with an accuracy of $\pm\,0.3\, ms^{-1}$ and a
+setra sensor measured the pressure with an accuracy of $\pm\,0.01\, hPa$. 
 
 \begin{table}
 	\centering
@@ -697,7 +702,7 @@ fountain forcing parameters. These were fixed within a range based on literature
 \ref{tab:parameters}). 
 
 The three types of uncertain parameters namely, model hyperparameters ($\Delta x$), fountain forcing parameters
-($[d_F, T_F]$) and weather parameters ($[\epsilon_{ice}, z_0, \alpha_{ice}, \alpha_{snow}, T_{ppt}, \tau]$) are
+($d_F, T_F$) and weather parameters ($\epsilon_{ice}, z_0, \alpha_{ice}, \alpha_{snow}, T_{ppt}, \tau$) are
 denoted as $Q^M, Q^F$ and $Q^W$ henceforth. Together, these 9 parameters cause a large uncertainty in the ice
 volume estimates. In order to reduce this uncertainty, we perform a global sensitivity analysis with the net
 water loss as our objective. The focus of this sensitivity analysis was not on the absolute sensitivity towards
