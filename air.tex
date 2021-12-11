@@ -712,12 +712,22 @@ discussion was limited to two classes: parameters to which the model was sensiti
 non-sensitive ($S_{T_{j}} \leq 0.5$). The methodology to determine $S_{T_{j}}$ is described in Appendix
 \ref{sec:uncertainpy}.
 
-Later, the sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
+The sensitive model parameters were calibrated based on the root mean squared error (RMSE) between the
 drone surveys (see Table \ref{tab:uav}) and the model estimations of the ice volume. For this calibration
 procedure, all the insensitive parameters were set to the median value of their respective ranges defined in
-Table \ref{tab:parameters}. Then, the model uncertainty was quantified separately for the remaining parameters
-in $Q^M, Q^F$ and $Q^W$. The sensitivity analysis and calibration were carried out with the drone surveys of CH21
+Table \ref{tab:parameters}.  The sensitivity analysis and calibration were carried out with the drone surveys of CH21
 and IN21 AIRs. 
+
+The model uncertainty was quantified separately for the remaining parameters in $Q^M, Q^F$ and $Q^W$ using the
+corresponding $90\, \%$ prediction interval $I^M, I^F$ and $I^W$. The $90\, \%$ prediction interval, $I^k$, gives us the
+interval within which $90\,\%$ of the ice volume outcomes occur when all the parameters in $Q^k$ are varied
+assuming each has an independent uniform probability density function. $5\,\%$ of the outcomes are above and
+$5\,\%$ are below this interval. The methodology to obtain this is described in Appendix \ref{sec:uncertainpy}.
+
+% In the
+% following analysis, only we use the 90 \% prediction interval (defined in Appendix \ref{sec:uncertainpy})
+% obtained at the end of the accumulation period or when the ice volume was at its maximum to compare these 3
+% types of uncertainties. 
 
 For validation, the calibrated model was tested with two datasets namely, the expiry date of all AIRs and the
 drone surveys of CH20 AIR. The expiry date signifies the time when all of the ice completely disappeared and only
@@ -808,21 +818,24 @@ $mm$ and 65 $mm$ with an RMSE of 9 $m^3$ and 30 $m^3$ for CH21 and IN21 AIRs res
 
 \subsection{Weather and fountain forcing uncertainty quantification}
 
-The uncertainty in the ice volume estimates caused by the insensitive weather and fountain parameters are shown
-in Fig. \ref{fig:results}. The ranges highlighted represent the $90\,\%$ prediction interval (defined in Appendix
-\ref{sec:uncertainpy}) of the ice volume estimates. Weather uncertainty determination required 422 simulations
-whereas fountain uncertainty determination required 32 simulations.
+The uncertainty in the ice volume estimates caused by the weather and fountain forcing parameters are shown in
+Fig. \ref{fig:results}. The ranges highlighted represent the corresponding $90\,\%$ prediction interval of the
+ice volume estimates. Weather uncertainty determination required 422 simulations whereas fountain forcing
+uncertainty determination required 32 simulations for each AIR. The prediction interval of both the weather and
+fountain forcing parameters increase during the accumulation period. However, during the ablation period the
+prediction interval of the weather parameters diverge faster than the fountain forcing parameters. 
 
-Weather uncertainty for IN21 was low compared to the other AIRs since precipitation and the associated variation
-in albedo was negligible. This was expected since 4 out of the 5 insensitive weather parameters were part of the
-albedo module. The remaining parameter, ice emissivity, caused the most variance in the ice volume estimate
-among all the insensitive parameters ($S_{T_{z_0}} = 0.3$).
+Weather uncertainty for the Indian site was low compared to the Swiss since precipitation and the associated
+variation in albedo was negligible. At the end of the accumulation period, the Indian weather prediction
+interval had a magnitude of  $m^3$ which was  \% of the maximum simulated volume whereas the magnitude of the Swiss
+weather prediction interval was much higher at around \% of the maximum simulated volume. This was expected since 4
+out of the 6 uncertain Indian weather parameters were part of the albedo module. Among all the weather
+parameters, surface roughness caused the most variance in both the Indian and the Swiss ice volume estimate .
 
-Weather uncertainty for CH21 was high
-
-Fountain forcing uncertainty for all the AIRs was high, illustrating the importance of quantifying the fountain parameters for
-a confident ice volume estimation. Among the 2 fountain parameters, ice volume variation was caused predominantly
-by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
+Fountain forcing uncertainty for the Indian site was higher than its weather uncertainty. This was predominantly
+due to the uncertainty in the fountain's water temperature . However, for the Swiss site, the prediction
+interval of the fountain forcing parameters was similar to that of the weather parameters during the
+accumulation period. 
 
 \begin{figure}
 	\begin{center}
@@ -837,12 +850,14 @@ by the uncertainty in the fountain's water temperature ($S_{T_{T_F}} = 0.8$).
 
 \subsection{Validation}
 
-Model performance can be judged based on the ice volume left on the expiry date of all AIRs and the drone
-surveys of the CH20 AIR. In the case of CH21 AIR no ice volume was left whereas for CH20 AIR ice volume of 12
-$m^3$ was left on the expiry date. For the IN21 AIR, the determination of the expiry date was not possible. In
-reality, the IN21 AIR was found to have disintegrated into several ice blocks on 20th June, 2021. There was just
-one observation of the CH20 AIR volume (see Table \ref{tab:uav}). The RMSE of that observation with the modelled
-volume was $19\, m^3$ which is 18 \% of the max ice volume of CH20 AIR.
+Model performance can be judged based on the ice volume left on the expiry date of all AIRs. In the case of CH21
+AIR no ice volume was left whereas for CH20 AIR ice volume of 12 $m^3$ was left on the expiry date. For the IN21
+AIR, the determination of the expiry date was not possible. In reality, the IN21 AIR was found to have
+disintegrated into several ice blocks on 20th June, 2021. 
+
+There was also one drone survey of the CH20 AIR volume for validation purposes (see Table \ref{tab:uav}). The
+RMSE of that observation with the modelled volume was $19\, m^3$ which is 18 \% of the max ice volume of CH20
+AIR.
 
 \subsection{AIR ice volume estimates}
 
@@ -1221,15 +1236,17 @@ is then:
 As mentioned, the goal of an uncertainty quantification is to describe the unknown distribution of the model
 output through statistical metrics. A useful metric is the $(100 \cdot x)$-th percentile $P_x$ of $V_{ice}$,
 which defines a value below  which $100 \cdot x$ percent of the model outputs are located. We can combine two
-percentiles to create a prediction interval $I_x$, which is a range of values within which a $100 \cdot x$
-percentage of the outputs $V_{ice}$ occur: 
+percentiles to create a prediction interval, which is a range of values within which a $100 \cdot x$
+percentage of the outputs $V_{ice}$ occur. In our methodology, we use the 90 \% prediction interval $I^k$, as
+the metric to compare the uncertainties of a given set of parameters $Q^k$. This is defined as:  
 
 \begin{equation}
-I_x = [P_{(x/2)}, P_{(1-x/2)}]
+I^k = [P_{(0.9/2)}, P_{(1-0.9/2)}]
 \end{equation}
 
-The $90\,\%$ prediction interval, $I_{0.9}$, gives us the interval within which $90\,\%$ of the ice volume
-outcomes occur, which also means that $5\,\%$ of the outcomes are above and $5\,\%$ are below this interval.
+% The $90\,\%$ prediction interval, $I^k$, gives us the interval within which $90\,\%$ of the ice volume outcomes
+% occur when all the parameters in $Q^k$ are varied assuming each has an independent uniform probability density
+% function. $5\,\%$ of the outcomes are above and $5\,\%$ are below this interval.
 
 \subsubsection{Sensitivity analysis}
 
@@ -1266,7 +1283,7 @@ where $p$ is the polynomial order. The polynomials $\phi_n(Q)$ are chosen so the
 probability density function $\phi_Q$.
 
 The first and total-order indices can also be calculated directly from the polynomial chaos expansion. On the
-other hand, the $90\, \%$ prediction interval ($I_{0.9}$) must be estimated by using $\hat{U}$ as a surrogate
+other hand, the $90\, \%$ prediction interval ($I$) must be estimated by using $\hat{U}$ as a surrogate
 model.
 
 \section*{Conflict of Interest Statement} The authors declare that the research was conducted in the absence of
