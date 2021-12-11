@@ -165,7 +165,9 @@ Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height of the A
 \subsection{Meteorological data}
 
 Air temperature, relative humidity, wind speed, pressure, longwave, shortwave direct and diffuse radiation are
-required to calculate the surface energy balance of an AIR (see Table \ref{tab:Observations}).
+required to calculate the surface energy balance of an AIR (see Table \ref{tab:Observations}). The study period
+starts when the fountain was first switched on and ends when the respective AIR melted completely. These two
+dates are denoted as start and expiry dates henceforth.
 
 For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (WIGOS-ID 0-756-0-GTT).
 In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding the shortwave and
@@ -175,7 +177,7 @@ correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point
 $\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming
 shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear regressions. The zero wind
 speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were
-replaced using the ERA5 dataset.
+replaced using the ERA5 dataset. 
 
 For the IN site, two different weather data sources were used to log all the weather parameters required for the
 model. Temperature, humidity, wind speed and pressure data was logged with a weather station located 440 m away
@@ -190,8 +192,10 @@ setra sensor measured the pressure with an accuracy of $\pm\,0.01\, hPa$.
 
 \begin{table}
 	\centering
-	\caption{Summary of the weather and fountain observations. The weather measurements are shown using their
-		mean ($\mu$) and standard deviation ($\sigma$) during the simulation duration as $\mu \pm \sigma$. }
+  \caption{Summary of the weather and fountain observations. The expiry date refers to the date when  all of the
+  ice of the AIR completely disappeared and only the dome volume remains. The weather measurements are shown
+using their mean ($\mu$) and standard deviation ($\sigma$) during the study period as $\mu \pm \sigma$. }
+
 	\label{tab:Observations}
 	\begin{tabular}{@{}|lllllll|@{}}
 		\toprule
@@ -212,18 +216,18 @@ setra sensor measured the pressure with an accuracy of $\pm\,0.01\, hPa$.
 		457$                   & $95 \pm 404$                & $mm$                                                                        \\
 		\multicolumn{1}{|l|}{} & Pressure                    & $p_a         $  & $623 \pm 3$   & $794 \pm 9$  &
 		$798 \pm7$             & $hPa$                                                                                                     \\
-		\multicolumn{1}{|l|}{} & Simulation Start Date         &     & Jan 18 2021   & Nov 22 2020
+		\multicolumn{1}{|l|}{} & Start Date         &     & Jan 18 2021   & Nov 22 2020
 		                       & Jan 3 2020                       &                                                                      \\
-		\multicolumn{1}{|l|}{} & Simulation Duration         & $h_{total} $    & 3673          & 4003
-		                       & 1844                        & $hours$                                                                     \\\bottomrule
+		\multicolumn{1}{|l|}{} & Expiry Date      &     & June 20 2021 & May 10 2021
+		                       & April 6 2020                &                                                                      \\\bottomrule
 		\multicolumn{1}{|l|}{\multirow{4}{*}{\rotatebox[origin=c]{90}{Fountain}}}
 		                       & Discharge rate             & $d_F     $      & $60$          & $7.5$        &
 		$7.5$                  & $l/min$                                                                                                   \\
 		\multicolumn{1}{|l|}{} & Runtime                     & $t_F $          & 829           & 2155
 		                       & 1553                        & $hours$                                                                     \\
-		\multicolumn{1}{|l|}{} & Spray radius                & $r_{F}$         & 10.8          & 6.9
+		\multicolumn{1}{|l|}{} & Spray radius                & $r_{F}$         & 10.2          & 6.9
 		                       & 7.7                         & $m$                                                                         \\
-		\multicolumn{1}{|l|}{} & Water temperature           & $T_{F}$         & 1             & 3
+		\multicolumn{1}{|l|}{} & Water temperature           & $T_{F}$         & 1.5             & 1.5
 		                       & 3                           & $\degree C$                                                                 \\\midrule
 	\end{tabular}
 \end{table}
@@ -724,14 +728,8 @@ interval within which $90\,\%$ of the ice volume outcomes occur when all the par
 assuming each has an independent uniform probability density function. $5\,\%$ of the outcomes are above and
 $5\,\%$ are below this interval. The methodology to obtain this is described in Appendix \ref{sec:uncertainpy}.
 
-% In the
-% following analysis, only we use the 90 \% prediction interval (defined in Appendix \ref{sec:uncertainpy})
-% obtained at the end of the accumulation period or when the ice volume was at its maximum to compare these 3
-% types of uncertainties. 
-
 For validation, the calibrated model was tested with two datasets namely, the expiry date of all AIRs and the
-drone surveys of CH20 AIR. The expiry date signifies the time when all of the ice completely disappeared and only
-the dome volume remains.
+drone surveys of CH20 AIR.
 
 \begin{table}[h!]
   \caption{Free parameters in the model categorised as constant, derived, model hyperparameters, weather and
