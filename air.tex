@@ -409,7 +409,7 @@ atmosphere and the ice body of the AIR, respectively.  A sensitivity analysis wa
 to understand the influence of this factor and decide its value. Here, we define the surface temperature
 $T_{ice}$ to be the modelled average temperature of the icestupa surface layer.
 
-\subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}}
+\subsubsection{Net Shortwave Radiation \texorpdfstring{$q_{SW}$}{Lg}} \label{sec:SW}
 
 The net shortwave radiation $q_{SW}$ is computed as follows:
 
@@ -432,7 +432,7 @@ the last snowfall event. After snowfall, albedo changes over a time step, $\delt
 where $\alpha_{ice}$ is the bare ice albedo value (0.25), $\alpha_{snow}$ is the fresh snow albedo value (0.85)
 and $\tau$ is a decay rate (16 $days$), which determines how fast the albedo of the ageing snow recedes back to ice albedo.
 
-The area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
+The solar area fraction $f_{cone}$ of the ice structure exposed to the direct shortwave radiation depends on the shape
 considered. Using the solar elevation angle $\theta_{sun}$, the solar beam can be considered to have a vertical
 component, impinging on the horizontal surface (semicircular base of the AIR), and a horizontal component
 impinging on the vertical cross section (a triangle). The solar elevation angle $\theta_{sun}$ used is modelled
@@ -732,10 +732,10 @@ drone surveys of CH20 AIR.
   fountain forcing parameters with their respective values/ranges.}
 
 	\label{tab:parameters}
-	\begin{tabular}{@{}llllll@{}}
+	\begin{tabular}{lllll}
 		\toprule
 		\textbf{Constant Parameters}                       & \textbf{Symbol} & \textbf{Value} &
-    \textbf{Unit} & \textbf{References} \\\midrule
+    \textbf{Unit} & \textbf{References} \\
     Van Karman constant & $\kappa$      & 0.4        &dimensionless & \citeauthor{CuffeyPaterson_2010}              \\
     Stefan Boltzmann constant & $\sigma$ & $\num{5.67 e-8} $& $W\, m^{-2}\, K^{-4}$ & \citeauthor{CuffeyPaterson_2010}\\
     Air pressure at sea level & $p_{0,a}$ & 1013 & $hPa$  & \citeauthor{MolgHardy_2004}\\
@@ -748,25 +748,30 @@ drone surveys of CH20 AIR.
     Thermal conductivity of ice & $k_{ice}$ & 2.123  & $W\, m^{-1}\, K^{-1}$ & \citeauthor{Bonales_2017} \\
     Latent Heat of Sublimation & $L_{s}$ & \num{2.848e6}  & $J\, kg^{-1}$ &   \citeauthor{CuffeyPaterson_2010}\\
     Latent Heat of Fusion & $L_{f}$ & \num{3.34e5} & $J\, kg^{-1}$ & \citeauthor{CuffeyPaterson_2010}\\
-    Gravitational acceleration & $g$ & 9.81 & $m\, s^{-2}$ &\citeauthor{CuffeyPaterson_2010}\\\midrule
-    % Weather station height & $h_{AWS}$ & 2 & $m$ & assumed \\\midrule
-		\textbf{Derived Parameters} & \textbf{Symbol} & \textbf{} & \textbf{Unit} & \textbf{Section} \\\midrule
-    Atmospheric emissivity & $\epsilon_{a}$ & & dimensionless    & \ref{sec:LW}\\
-    Cloudiness & $cld$ &  & dimensionless  & assumed\\
-    Vapour pressure over water & $p_{v,w}$ &  & $hPa$  & \ref{sec:Qs}\\
-    Vapour pressure over ice & $p_{v,ice}$ &  & $hPa$ & \ref{sec:Qs}\\
+    Gravitational acceleration & $g$ & 9.81 & $m\, s^{-2}$ &\citeauthor{CuffeyPaterson_2010}\\
+    Weather station height & $h_{AWS}$ & 2 & $m$ & assumed \\
+    Model timestep                            & $\Delta t$            & $3600$           & $s$ & assumed \\
+    Fountain spray radius & $r_{F}$             &             & $m$& measured \\
+    Fountain runtime & $t_{F}$             &             &  $hours$ & measured \\\midrule
+		\textbf{Derived Parameters} & \textbf{Symbol} & \textbf{} & \textbf{Unit} & \textbf{Section} \\
     Radius of AIR & $r_{cone}$ &  & $m$ & \ref{sec:shape}\\
     Height of AIR & $h_{cone}$ &  & $m$ & \ref{sec:shape}\\
     Slope of AIR  & $s_{cone}$ &  & dimensionless & \ref{sec:shape}\\
     Thickness change of AIR  & $j_{cone}$ &  & $m$  & \ref{sec:shape}\\
+    Atmospheric emissivity & $\epsilon_{a}$ & & dimensionless    & \ref{sec:LW}\\
+    Cloudiness & $cld$ &  & dimensionless  & assumed\\
+    Vapour pressure over water & $p_{v,w}$ &  & $hPa$  & \ref{sec:Qs}\\
+    Vapour pressure over ice & $p_{v,ice}$ &  & $hPa$ & \ref{sec:Qs}\\
+    Solar elevation angle & $\theta_{sun}$ &  & $\degree$ & \ref{sec:SW}\\
+    Albedo & $\alpha$ &  & dimensionless & \ref{sec:SW}\\
+    Solar area fraction& $f_{cone}$ &  & dimensionless & \ref{sec:SW}\\
     Ice body and surface distance & $l_{cone}$ &  & $m$  & \ref{sec:Bulkflux}\\
-\midrule
-		\textbf{Model Hyperparameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
-    % Surface Area correction factor      & $A_{corr}$            & $[1,2]$            & dimensionless       & assumed       \\
-    Timestep                            & $\Delta t$            & $3600$           & $s$ & assumed \\
+    AIR surface temperature & $T_{ice}$ &  & $\degree C$  & \ref{sec:Bulkflux}\\
+    AIR bulk temperature & $T_{bulk}$ &  & $\degree C$  & \ref{sec:Bulkflux}\\\midrule
+		\textbf{Model Hyperparameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\
     Surface layer thickness             & $\Delta x$            & $[\num{1e-3},\num{1e-1}]$           & $m$ & assumed
     \\\midrule
-		\textbf{Weather Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+		\textbf{Weather Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\
     Ice Emissivity                      & $\epsilon_{ice}$      & $[0.95,0.99]$         & dimensionless & \citeauthor{HORI2006486}             \\
     Surface Roughness                   & $z_0$                 & $[\num{1e-3},\num{5e-3}]$            & $m$  & \citeauthor{BrockWillisSharp_2006}       \\
     Ice Albedo                          & $\alpha_{ice}$        & $[0.15,0.35]$         & dimensionless  &
@@ -777,11 +782,9 @@ drone surveys of CH20 AIR.
     Albedo Decay Rate                   & $\tau$                & $[10,22]$           & $days$ &
     \citeauthor{Schmidt_2017};      \\
     & &    &  & \citeauthor{OerlemansKnap_1998}      \\\midrule
-		\textbf{Fountain Forcing Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\\midrule
+		\textbf{Fountain Forcing Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\
     Discharge rate & $d_{F}$             & $\pm 50 \%$            & $l/min$& assumed  \\
-    Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\
-    Spray radius & $r_{F}$             &             & $m$& measured \\
-    Runtime & $t_{F}$             &             &  $hours$ & measured \\\bottomrule
+    Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\\bottomrule
 	\end{tabular}
 \end{table}
 
