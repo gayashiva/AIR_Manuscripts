@@ -790,19 +790,6 @@ drone surveys of CH20 AIR.
 
 \section{Results}
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
-	\end{center}
-  \caption{(a) Total-order sensitivities of all the uncertain parameters of the model with net water loss as the
-  objective. (b) The calibration of the sensitive parameter, $\Delta x$ with the RMSE between the drone and
-model estimates of the ice volume. The dots denote the optimum values. The estimates from the Swiss and Indian
-AIRs are denoted with blue and red colors respectively. }
-
-	\label{fig:param_hist}
-\end{figure}
-
-
 \subsection{Calibration of sensitive parameters}
 
 The total-order sensitivities of all the nine parameters with respect to the net water loss objective are shown
@@ -812,6 +799,29 @@ surface layer thickness. The RMSE between the drone surveys and the model ice vo
 surface layer thickness are shown in Fig. \ref{fig:param_hist} (b). The optimum value of $\Delta x$ was found to
 be 45 $mm$ and 65 $mm$ with an RMSE of 9 $m^3$ and 30 $m^3$ for CH21 and IN21 AIRs respectively.
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/Figure_5.jpg}
+	\end{center}
+  \caption{(a) Total-order sensitivities of all the uncertain parameters of the model with net water loss as the
+  objective. (b) The calibration of the sensitive parameter, $\Delta x$ with the RMSE between the drone and
+model estimates of the ice volume. The dots denote the optimum values. The estimates from the Swiss and Indian
+AIRs are denoted with blue and red colors respectively. }
+	\label{fig:param_hist}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/Figure_6.jpg}
+	\end{center}
+	\caption{Simulated ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and
+		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variations in weather and
+    the fountain parameters, respectively. Violet points indicate the drone ice volume observations.  The grey
+  dashed line represents the observed expiry date for each AIR.  }
+	\label{fig:results}
+\end{figure}
+
+\subsection{Validation}
 
 \subsection{Weather and fountain forcing uncertainty quantification}
 
@@ -839,18 +849,6 @@ simulated volume at the end of the accumulation period). This was predominantly 
 fountain's water temperature. However, for the Swiss site, the prediction interval of the fountain forcing
 parameters was similar to that of the weather parameters during the accumulation period. 
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/Figure_6.jpg}
-	\end{center}
-	\caption{Simulated ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and
-		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variations in weather and
-    the fountain parameters, respectively. Violet points indicate the drone ice volume observations.  The grey
-  dashed line represents the observed expiry date for each AIR.  }
-	\label{fig:results}
-\end{figure}
-
-\subsection{Validation}
 
 Model performance can be judged based on the ice volume left on the expiry date of all AIRs. In the case of CH21
 AIR no ice volume was left whereas for CH20 AIR ice volume of 12 $m^3$ was left on the expiry date. For the IN21
