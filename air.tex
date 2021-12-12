@@ -44,7 +44,6 @@
 
 \maketitle
 
-
 \begin{abstract}
 
   Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
@@ -191,12 +190,12 @@ $\pm\,1 \%$ respectively. A young sensor measured the wind speed with an accurac
 setra sensor measured the pressure with an accuracy of $\pm\,0.01\, hPa$. 
 
 \begin{table}
-	\centering
   \caption{Summary of the weather and fountain observations. The expiry date refers to the date when  all of the
   ice of the AIR completely disappeared and only the dome volume remains. The weather measurements are shown
 using their mean ($\mu$) and standard deviation ($\sigma$) during the study period as $\mu \pm \sigma$. }
 
 	\label{tab:Observations}
+	% \begin{tabular}{@{}|lllllll|@{}}
 	\begin{tabular}{@{}|lllllll|@{}}
 		\toprule
 		\textbf{}              & \textbf{Name}               & \textbf{Symbol} & \textbf{IN21} &
@@ -249,15 +248,6 @@ pipeline freezing events.
 
 \subsection{Drone surveys}
 
-Several photogrammetric surveys using drones were conducted on the Swiss and Indian sites. The details of these
-surveys and the methodology used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
-The digital elevation maps (DEMs) generated from the obtained imagery were analysed to document the radius,
-surface area and volume of the ice structure. The number of surveys available for the IN21, CH21 and CH20 AIRs
-were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was used to set the dome volume
-($V_{dome}$) for model initialisation. The remaining surveys were used for model calibration and validation.
-Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}), it had a much higher
-dome volume compared to the other AIRs.  
-
 \begin{table}
 	\centering
 	\caption{ Summary of the drone surveys}
@@ -306,6 +296,16 @@ dome volume compared to the other AIRs.
 	\end{tabular}
 
 \end{table}
+
+Several photogrammetric surveys using drones were conducted on the Swiss and Indian sites. The details of these
+surveys and the methodology used to produce the corresponding outputs are explained in Appendix \ref{sec:uav} .
+The digital elevation maps (DEMs) generated from the obtained imagery were analysed to document the radius,
+surface area and volume of the ice structure. The number of surveys available for the IN21, CH21 and CH20 AIRs
+were 6, 8 and 2 respectively (see Table \ref{tab:uav}). The first drone flight was used to set the dome volume
+($V_{dome}$) for model initialisation. The remaining surveys were used for model calibration and validation.
+Since the Indian AIR was built on top of another ice structure (see Fig. \ref{fig:2AIR}), it had a much higher
+dome volume compared to the other AIRs.  
+
 
 \section{Model setup}
 
@@ -727,7 +727,7 @@ $5\,\%$ are below this interval. The methodology to obtain this is described in 
 For validation, the calibrated model was tested with two datasets namely, the expiry date of all AIRs and the
 drone surveys of CH20 AIR.
 
-\begin{table}[h!]
+\begin{table}
   \caption{Free parameters in the model categorised as constant, derived, model hyperparameters, weather and
   fountain forcing parameters with their respective values/ranges.}
 
@@ -810,16 +810,6 @@ AIRs are denoted with blue and red colors respectively. }
 	\label{fig:param_hist}
 \end{figure}
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=\linewidth]{Figures/Figure_6.jpg}
-	\end{center}
-	\caption{Simulated ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and
-		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variations in weather and
-    the fountain parameters, respectively. Violet points indicate the drone ice volume observations.  The grey
-  dashed line represents the observed expiry date for each AIR.  }
-	\label{fig:results}
-\end{figure}
 
 \subsection{Validation}
 
@@ -858,6 +848,17 @@ disintegrated into several ice blocks on 20th June, 2021.
 There was also one drone survey of the CH20 AIR volume for validation purposes (see Table \ref{tab:uav}). The
 RMSE of that observation with the modelled volume was $19\, m^3$ which is 18 \% of the maximum simulated ice
 volume of CH20 AIR.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/Figure_6.jpg}
+	\end{center}
+	\caption{Simulated ice volume during the lifetime of the AIRs (blue curve). The shaded regions (light blue and
+		orange) represent the 90\% prediction interval of the AIR ice volume caused by the variations in weather and
+    the fountain parameters, respectively. Violet points indicate the drone ice volume observations.  The grey
+  dashed line represents the observed expiry date for each AIR.  }
+	\label{fig:results}
+\end{figure}
 
 \subsection{AIR ice volume estimates}
 
