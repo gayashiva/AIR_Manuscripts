@@ -91,7 +91,7 @@ and the corresponding loss of their main fresh water resources \citep{zanskar}.
 
 Around 26 villages in this region have been using artificial ice reservoirs (AIR) to adapt to these changes since
 they require very little infrastructure, skills and energy to be constructed in comparison to other water
-storage technologies \citep{IPCC_2019,10.1659/MRD-JOURNAL-D-18-00072.1, campaign}. An AIR is a human-made ice
+storage technologies \citep{IPCC_2019,10.1659/MRD-JOURNAL-D-18-00072.1}. An AIR is a human-made ice
 structure typically constructed during the cold winter months and designed to slowly release freshwater during
 the warm spring and summer months.  The main purpose of AIRs is irrigation. Therefore, AIRs are designed to
 store water in the form of ice as long into the summer as possible. The energy required to construct an AIR is
@@ -118,10 +118,10 @@ unknown.
 In this paper, we develop a physically-based model of vertical AIRs (or icestupas) that can estimate their
 freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of ice,
 meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the most
-sensitive parameters and the variance they caused. For calibration, we chose two AIR built across the winter
-of 2020/21 in India and Switzerland, and validated the model on a Swiss AIR built during winter 2019/20. Our
-model results provide a first step towards evaluating the potential of this decade old water storage technology
-worldwide.
+sensitive parameters and the variance they caused. For calibration, we chose two AIR built across the winter of
+2020/21 in India and Switzerland, and validated the model on a Swiss AIR built during winter 2019/20. Our model
+results provide a first step towards evaluating the potential of this decade old water storage technology
+worldwide \citep{campaign}.
 
 \section{Study Sites and data}
 
@@ -169,7 +169,7 @@ required to calculate the surface energy balance of an AIR (see Table \ref{tab:O
 starts when the fountain was first switched on and ends when the respective AIR melted completely. These two
 dates are denoted as start and expiry dates henceforth.
 
-For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (WIGOS-ID 0-756-0-GTT).
+For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (Station ID: 0-756-0-GTT).
 In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding the shortwave and
 longwave radiation data that were not measured directly. The CH temperature dataset had a correlation greater
 than 0.8 with the ERA5 temperature for both the winters. The ERA5 reanalysis dataset is known to have a high
@@ -398,11 +398,11 @@ into and out of a (thin) layer with thickness $\Delta x$:
 	\label{eqn:EB}
 \end{equation}
 
-Upward fluxes are positive and downward fluxes (into the ice surface) are negative. The first term is the energy change of the surface
-layer, which can be translated into a phase change energy should phase changes occur; $q_{SW}$ is the net
-shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are the turbulent latent and
-sensible heat fluxes. $q_{F}$ represents the heat exchange of the fountain water droplets with the AIR ice
-surface. $q_{G}$ represents ground heat flux between the AIR surface and its interior.
+Upward and downward fluxes relative to the ice surface are positive and negative respectively. The first term is
+the energy change of the surface layer, which can be translated into a phase change energy should phase changes
+occur; $q_{SW}$ is the net shortwave radiation; $q_{LW}$ is the net longwave radiation; $q_{L}$ and $q_{S}$ are
+the turbulent latent and sensible heat fluxes. $q_{F}$ represents the heat exchange of the fountain water
+droplets with the AIR ice surface. $q_{G}$ represents ground heat flux between the AIR surface and its interior.
 
 The energy flux acts upon the AIR surface layer, which has an upper and a lower boundary defined by the
 atmosphere and the ice body of the AIR, respectively.  A sensitivity analysis was later performed
@@ -1009,15 +1009,15 @@ favoured throughout the simulation duration. On the contrary, for the Swiss loca
 and the melting energy, as sublimation and deposition were favoured during the accumulation and ablation
 periods, respectively.
 
-The mass contribution of the sublimation/deposition process shown in Table \ref{tab:Results} was significantly
-smaller than the energy flux contribution of this process, since the heat of vaporization is around nine times
-higher than the heat of fusion. The magnitude of the sublimation/deposition process was significantly different
-for both of the AIRs:  IN21 AIR lost 2 \% of its mass input to sublimation compared to the 1 \% mass loss of the
-CH21 AIR (see Table \ref{tab:Results}). For the IN21 AIR, mass gain due to deposition was an order of magnitude
-smaller than the mass loss due to sublimation. For the CH21 AIR, there were no significant differences between
-the mass lost to sublimation and the mass gained by deposition. This was expected, since glaciers near the IN21
-location have been hypothesized to lose a significant amount of their mass through sublimation, as suggested by
-\cite{azam_2018}.
+The mass contribution of the sublimation/deposition process (shown in Table \ref{tab:Results}) was significantly
+smaller than the energy flux contribution of this process (shown in Table \ref{tab:turnover}), since the heat of
+vaporization is around nine times higher than the heat of fusion. The magnitude of the sublimation/deposition
+process was significantly different for both of the AIRs:  IN21 AIR lost 2 \% of its mass input to sublimation
+compared to the 1 \% mass loss of the CH21 AIR (see Table \ref{tab:Results}). For the IN21 AIR, mass gain due to
+deposition was an order of magnitude smaller than the mass loss due to sublimation. For the CH21 AIR, there were
+no significant differences between the mass lost to sublimation and the mass gained by deposition. This was
+expected, since glaciers near the IN21 location have been hypothesized to lose a significant amount of their
+mass through sublimation, as suggested by \cite{azam_2018}.
 
 The fountain had some influence on the energy fluxes through its water temperature, temperature forcing and
 albedo forcing. However, this influence was insignificant compared to its influence on the surface area which
@@ -1134,7 +1134,7 @@ summarized below:
 	      than $0.96$ and an RMSE less than $18 \, \%$ of the maximum ice volume for all the AIRs.
 
 	\item The ice volume achieved after the accumulation period was much higher for the Indian AIR compared to the
-	      Swiss AIRs. The lower radiation fluxes of the Indian location favored a faster thickness growth rate and the
+	      Swiss AIRs. The lower net radiation fluxes of the Indian location favored a faster thickness growth rate and the
 	      spray radius of the Indian fountain produced a higher surface area compared to the Swiss counterparts. Thus,
         the more than three times higher mean surface area and four times higher mean thickness growth rate
         during the two times shorter accumulation period of the Indian location result in a four times higher
@@ -1245,10 +1245,6 @@ the metric to compare the uncertainties of a given set of parameters $Q^k$. This
 \begin{equation}
 I^k = [P_{(0.9/2)}, P_{(1-0.9/2)}]
 \end{equation}
-
-% The $90\,\%$ prediction interval, $I^k$, gives us the interval within which $90\,\%$ of the ice volume outcomes
-% occur when all the parameters in $Q^k$ are varied assuming each has an independent uniform probability density
-% function. $5\,\%$ of the outcomes are above and $5\,\%$ are below this interval.
 
 \subsubsection{Sensitivity analysis}
 
