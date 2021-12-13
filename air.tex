@@ -508,8 +508,8 @@ respect to water ($p_{v,w}$) and with respect to ice ($p_{v,ice}$) was obtained 
 
 \begin{equation}
 	\begin{split}
-		p_{v,w}&=\frac{(34.494 - \frac{4924.99}{T_{a} + 237.1})}{(T_a + 105)^{1.57} \cdot 100} \cdot \frac{RH}{100} \\
-		p_{v,ice}&=\frac{(43.494 - \frac{6545.89}{T_{ice} + 278})}{(T_{ice} + 868)^{2} \cdot 100} \\
+		p_{v,w}&=e^{\frac{(34.494 - \frac{4924.99}{T_{a} + 237.1})}{(T_a + 105)^{1.57} \cdot 100}} \cdot \frac{RH}{100} \\
+		p_{v,ice}&=e^{\frac{(43.494 - \frac{6545.89}{T_{ice} + 278})}{(T_{ice} + 868)^{2} \cdot 100}} \\
 	\end{split} \label{eqn:vp}
 \end{equation}
 
