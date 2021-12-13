@@ -53,7 +53,7 @@
   of meteorological data in conjunction with fountain discharge rate (mass input of an AIR). Model calibration
   and validation were completed using ice volume and surface area measurements taken from several drone surveys.
   The model achieved an RMSE within $18 \%$ of the maximum ice volume with the ice volume observations for all
-  the three AIRs. The location in Ladakh, with a maximum ice volume around 4 times larger, was more favourable
+  the AIRs. The location in Ladakh, with a maximum ice volume around 4 times larger, was more favourable
   compared to the Guttannen site.  However, the corresponding water losses for all the AIRs were more than three
   quarters of the total fountain discharge due to high fountain wastewater. Drier and colder locations in
   relatively cloud free regions are expected to produce AIRs with a faster freezing rate and slower melting
@@ -96,7 +96,7 @@ the warm spring and summer months.  The main purpose of AIRs is irrigation. Ther
 store water in the form of ice as long into the summer as possible. The energy required to construct an AIR is
 usually derived from the gravitational head of the source water body. Some are constructed horizontally by
 freezing water using a series of checkdams while others are built vertically by spraying water through fountain
-systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the subject of this
+systems \citep{Nusser_2018}. The latter are colloquially referred to as icestupas and are the subject of this
 study.
 
 A typical AIR (see Fig. \ref{fig:old_icestupa}) simply requires a fountain nozzle mounted on a supply pipeline.
@@ -107,8 +107,8 @@ through the addition of metal pipes when significant ice accumulates below.  Typ
 constructed around the metal pipes so that pipe extensions can be done from within this dome. Threads, tree
 branches and fishing nets are used to guide and accelerate the ice formation.
 
-However, to date, no reliable estimates exist about the quantity of meltwater they can provide
-\citep{Nusser_2018} . Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
+However, to date, no reliable estimates exist about the quantity of meltwater an AIR can provide
+\citep{Nusser_2018}. Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
 losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). During their accumulation period, AIRs can
 lose excessive fountain water directly as wastewater and during the ablation period, sublimation losses could
 also be significant.  However, the relative contribution of these processes in the total water loss remains
@@ -127,9 +127,9 @@ worldwide \citep{campaign}.
 The model requires three kinds of datasets containing weather, fountain and AIR volume measurements to
 accurately calibrate, estimate and validate the ice volume of AIRs. Through the winters of 2018/19, 2019/20 and
 2020/21, such datasets were acquired for four AIRs in both Switzerland and India. Here, we present the results of
-three AIRs, which have a complete dataset. As shown in Table \ref{tab:Observations}, two of them were
-constructed in the same Swiss location called Guttannen (referred to with the prefix CH) but during different
-winters, and the other was constructed at Gangles, India (referred to with the prefix IN).
+three AIRs, which have a complete dataset. Two of them were constructed in the same Swiss location called
+Guttannen (referred to with the prefix CH) but during different winters, and the other was constructed at
+Gangles, India (referred to with the prefix IN).
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are
@@ -158,7 +158,7 @@ characterized by high seasonal variation. During January, the coldest month, the
 \citep{Nusser_2012}. Because of the rain shadow effect of the Himalayan Range, mean annual precipitation in Leh
 totals less than 100 mm, and there is high interannual variability. Whereas the average summer rainfall between
 July and September reaches 37.5 mm, the average winter precipitation between January and March amounts to 27.3
-mm and falls almost entirely as snow.  AIRs were constructed here as part of the Icestupa Competition  by the
+mm and falls almost entirely as snow.  AIRs were constructed here as part of the Ice Stupa Competition by the
 Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height of the AIR varied between 5 to 9\,$m$.
 
 \subsection{Meteorological data}
@@ -170,10 +170,10 @@ dates are denoted as start and expiry dates henceforth.
 
 For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (Station ID: 0-756-0-GTT).
 In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding the shortwave and
-longwave radiation data that were not measured directly. The CH temperature dataset had a correlation greater
-than 0.8 with the ERA5 temperature for both the winters. The ERA5 reanalysis dataset is known to have a high
-correlation with sites in Switzerland \citep{Scherrer_2020}. The ERA5 grid point chosen (46.64 $\degree$N, 8.25
-$\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming
+longwave radiation data that were not measured directly. The ERA5 reanalysis dataset is known to have a high
+correlation with sites in Switzerland \citep{Scherrer_2020}. The guttannen temperature dataset had a correlation
+greater than 0.8 with the ERA5 temperature for both the winters.  The ERA5 grid point chosen (46.64 $\degree$N,
+8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming
 shortwave and longwave radiation) were fitted with the meteoswiss dataset via linear regressions. The zero wind
 speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were
 replaced using the ERA5 dataset. 
@@ -183,11 +183,10 @@ model. Temperature, humidity, wind speed and pressure data was logged with a wea
 from the construction site. Shortwave radiation data was derived from another weather station located 15 km
 away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is less than 30 mm
 \citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. As a consequence, the
-diffuse fraction of the global shortwave radiation was also assumed to be negligible.
-
-Temperature and humidity were measured with a rotronic sensor with an accuracy of $\pm\,0.3\, \degree C$ and
-$\pm\,1 \%$ respectively. A young sensor measured the wind speed with an accuracy of $\pm\,0.3\, ms^{-1}$ and a
-setra sensor measured the pressure with an accuracy of $\pm\,0.01\, hPa$. 
+diffuse fraction of the global shortwave radiation was also assumed to be negligible. Temperature and humidity
+were measured with a rotronic sensor with an accuracy of $\pm\,0.3\, \degree C$ and $\pm\,1 \%$ respectively. A
+young sensor measured the wind speed with an accuracy of $\pm\,0.3\, ms^{-1}$ and a setra sensor measured the
+pressure with an accuracy of $\pm\,0.01\, hPa$. 
 
 \begin{table}
   \caption{Summary of the weather and fountain observations. The expiry date refers to the date when  all of the
@@ -1155,8 +1154,8 @@ of the influence of the location chosen and the fountain used. Our main conclusi
 
   \item The Indian construction site produced long lasting AIRs with higher maximum ice volumes since it was
     colder, drier and less cloudy compared to the Swiss construction site. Thus, the AIR technology is ideally
-    suited to serve as a water management strategy, especially in dry and cold mountain regions impacted by
-    climate change induced water stress.
+    suited to serve as a water management strategy, especially in dry and cold mountain regions such as in
+    Central Asia or the Andes impacted by climate change induced water stress.
 
 \end{itemize}
 
@@ -1176,7 +1175,7 @@ completely melted away on $6^{th}$ July 2015 \citep{iceends}.
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=10 cm]{Figures/gangles_DEM.jpg}
+		\includegraphics[width=10 cm]{Figures/Figure_8.jpg}
 	\end{center}
 	\caption{Digital elevation map of Indian AIR constructed from the drone survey on March 3, 2021. The green
 		area represents the area bounded by the marked perimeter and the red area represents gaps in the point cloud
