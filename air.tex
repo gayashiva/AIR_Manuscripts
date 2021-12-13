@@ -339,7 +339,7 @@ The model assumes the AIR shape to be a cone and assigns the following shape att
 \end{subequations}
 
 where $i$ denotes the model time step, $r_{cone}^i$ is the radius; $h_{cone}^i$ is the height; $A_{cone}^i$ is
-the surface area; $V_{cone}^i$ is the volume and $j_{cone}$ is the AIR surface normal thickness change as shown
+the surface area; $V_{cone}^i$ is the volume and $j_{cone}^i$ is the AIR surface normal thickness change as shown
 in Fig. \ref{fig:shape}. $M_{ice}^i$ is the mass of the AIR and $\Delta M_{ice}^i = M_{ice}^{i-1} -
 M_{ice}^{i-2}$. Henceforth, the equations used, display model time step superscript $i$ only if it is different
 from the current time step.
@@ -464,16 +464,16 @@ The incoming longwave radiation $LW_{in}$ for the Indian site, where no direct m
 determined as follows:
 
 \begin{equation}
-	LW_{in}=\sigma \cdot (\epsilon_a \cdot {(T_a+ 273.15)}^4)
+	LW_{in}=\sigma \cdot \epsilon_a \cdot {(T_a+ 273.15)}^4
 	\label{eqn:LWin}
 \end{equation}
 
 here $T_a$ represents the measured air temperature and $\epsilon_a$ denotes the atmospheric emissivity. We
 approximate atmospheric emissivity $\epsilon_a$ using the equation suggested by \cite{Brutsaert_1982},
-considering air temperature and vapor pressure (Eqn.  \ref{eqn:atm_e}). The vapor pressures over air and ice was
-obtained using Eqn. \ref{eqn:vp}.  The expression defined in \cite{Brutsaert_1975} for clear skies (first term
-in equation \ref{eqn:atm_e}) is extended with the correction for cloudy skies after \cite{Brutsaert_1982} as
-follows:
+considering air temperature and vapor pressure (Eqn.  \ref{eqn:atm_e}). The vapor pressure of air over water and
+ice was obtained using Eqn. \ref{eqn:vp}.  The expression defined in \cite{Brutsaert_1975} for clear skies
+(first term in equation \ref{eqn:atm_e}) is extended with the correction for cloudy skies after
+\cite{Brutsaert_1982} as follows:
 
 \begin{equation}
 	\epsilon_a=1.24 \cdot (\frac{p_{v,w}}{(T_a+273.15)})^{1/7}\cdot(1+0.22\cdot{cld}^2) \label{eqn:atm_e}
@@ -554,7 +554,7 @@ Eqn. \ref{eqn:qG} as follows:
 
 Since AIRs typically have conical shapes with $r_{cone} > h_{cone}$, we assume that the center of mass of the cone
 body is near the base of the fountain. Thus, the distance of every point in the AIR surface layer from the cone
-body's center of mass is between $h_{cone}$ and $r_{cone}$. We calculate $q_{G}$ assuming $l_{cone} = (r_{cone} +
+body's center of mass is between $h_{cone}$ and $r_{cone}$. Therefore, we calculate $q_{G}$ assuming $l_{cone} = (r_{cone} +
 	h_{cone})/2$.
 
 \subsubsection{Phase changes}
@@ -591,12 +591,12 @@ energy from turning a melting event into a freezing event, an additional conditi
 \end{equation}
 
 During a freezing event, the AIR surface is assumed to warm to $0 \degree C$. The available energy
-$(q_{total}-q_{L})$ is further augmented due to this change in surface temperature represented by the energy
+$(q_{total}-q_{L})$ is further increased due to this change in surface temperature represented by the energy
 flux:
 
 $$q_{0} = \frac{\rho_{ice} \cdot \Delta x \cdot c_{ice} \cdot T_{ice}^{i-1}}{\Delta t}$$
 
-The available fountain discharge may not be sufficient to utilize all the freezing energy. At such times, 
+The available fountain discharge ($\Delta M_{F}$) may not be sufficient to utilize all the freezing energy. At such times, 
 the additional freezing energy further cools down the surface temperature. Accordingly, the surface energy flux
 distribution during a freezing event can be represented as:
 
@@ -649,10 +649,10 @@ can also occur. As the differentiation between evaporation and sublimation (and 
 air temperature reaches 0 $\degree C$ is challenging, we assume that negative (positive) latent heat fluxes correspond
 only to sublimation (deposition), i.e. no evaporation (condensation) is calculated.
 
-Since we have categorized every time step as a freezing or melting event, we can determine the ice and meltwater
-generated using the associated energy fluxes as shown in equations \ref{eq:mwat} and \ref{eq:mcone}. Having calculated
-all of the other mass components, the fountain wastewater generated every time step can be calculated using Eqn.
-\ref{eq:MB}.
+Since we have categorized every time step as a freezing or melting event, we can determine the melting/freezing
+rates and the corresponding meltwater/ice quantities as shown in equations \ref{eq:m_freeze/melt}, \ref{eq:mwat}
+and \ref{eq:mcone}. Having calculated all of the other mass components, the fountain wastewater generated every
+time step can be calculated using Eqn. \ref{eq:MB}.
 
 \begin{subequations}
 	\begin{align}
@@ -707,7 +707,7 @@ fountain forcing parameters. These were fixed within a range based on literature
 
 The three types of uncertain parameters namely, model hyperparameters ($\Delta x$), fountain forcing parameters
 ($d_F, T_F$) and weather parameters ($\epsilon_{ice}, z_0, \alpha_{ice}, \alpha_{snow}, T_{ppt}, \tau$) are
-denoted as $Q^M, Q^F$ and $Q^W$ henceforth. Together, these 9 parameters cause a large uncertainty in the ice
+denoted as $Q^M, Q^F$ and $Q^W$ henceforth. Together, these nine parameters cause a large uncertainty in the ice
 volume estimates. In order to reduce this uncertainty, we perform a global sensitivity analysis with the net
 water loss as our objective. The objective of this sensitivity analysis was to reduce the dimension of the
 parameter space by calibrating the parameters with high total-order sensitivities ($S_{T_{j}} > 0.5$). The
@@ -816,7 +816,10 @@ AIRs are denoted with blue and red colors respectively. }
 The uncertainty in the ice volume estimates caused by the weather and fountain forcing parameters are shown in
 Fig. \ref{fig:results}. The ranges highlighted represent the corresponding $90\,\%$ prediction interval of the
 ice volume estimates. Weather uncertainty determination required 422 simulations whereas fountain forcing
-uncertainty determination required 32 simulations for each AIR. 
+uncertainty determination required 32 simulations for each AIR. Since the results presented below differ
+significantly during the fountain runtime, we divided the simulation duration of the AIR into accumulation and
+ablation periods. The accumulation (ablation) period ends (starts) at the last fountain discharge event. 
+ 
 
 The prediction interval of the weather and fountain forcing parameters behave differently during the
 accumulation and ablation period for all the AIRs. Prediction interval of the weather parameters increase
@@ -828,14 +831,16 @@ Weather uncertainty for the Indian site was low compared to the Swiss since prec
 variation in albedo was negligible. At the end of the accumulation period, the Indian weather prediction
 interval had a magnitude of  $73\,m^3$ which was 10 \% of the maximum simulated volume whereas the magnitude of
 the Swiss weather prediction interval was much higher (28 \% of the maximum simulated volume for the CH21 AIR).
-This was expected since 4 out of the 6 uncertain Indian weather parameters were part of the albedo module. Among
+This was expected since four out of the six uncertain Indian weather parameters were part of the albedo module. Among
 all the weather parameters, surface roughness caused the most variance in both the Indian and the Swiss ice
 volume estimate .
 
 Fountain forcing uncertainty for the Indian site was higher than its weather uncertainty (28 \% of the maximum
 simulated volume at the end of the accumulation period). This was predominantly due to the uncertainty in the
 fountain's water temperature. However, for the Swiss site, the prediction interval of the fountain forcing
-parameters was similar to that of the weather parameters during the accumulation period. 
+parameters was similar to that of the weather parameters during the accumulation period. Since the mean fountain
+discharge rate of the Indian location was eight times that of the Swiss, the uncertainty due to the fountain
+forcing parameters was expected to be larger for the Indian location.
 
 \subsection{Validation}
 
@@ -864,10 +869,8 @@ volume of CH20 AIR.
 Since this model used a surface energy balance model commonly applied on glaciers, we analyse the AIR temporal
 and spatial variation similar to how it is done for a glacier. Particularly, we used the AIR surface normal
 thickness change ($j_{cone}$) as a measure to quantify the location influence. Note that $j_{cone}$ is similar
-to the "specific mass balance" of a glacier with units $m \, w.\, e.$. Similarly, we divided the simulation duration
-of the AIR into accumulation and ablation periods. The accumulation (ablation) period ends (starts) at the last
-fountain discharge event. The thickness change during the accumulation and ablation period was referred to as
-thickness growth and decay respectively.
+to the "specific mass balance" of a glacier with units $m \, w.\, e.$. The thickness change during the
+accumulation and ablation period was referred to as thickness growth and decay respectively.
 
 The construction decisions responsible for the observed magnitude and variance of the ice volume estimates can
 be categorised based on the fountain used and the location selected. According to Eqn.  \ref{eq:m_freeze/melt},
@@ -1028,7 +1031,7 @@ earlier expiry date, as a larger surface area increased both the freezing and th
 \subsection{Model limitations}
 \subsubsection{Fountain quantification}
 
-The model requires the fountain spray radius to be provided as model input. This is a significant limitation
+The model requires the fountain spray radius to be provided as input. This is a significant limitation
 since the model is very sensitive to the spray radius parameter. Moreover, $r_F$ is not only determined by the
 fountain characteristics but also due to refreezing and melting events across the AIR perimeter. Therefore, the
 same fountain may produce different spray radius under different weather conditions.
@@ -1051,7 +1054,7 @@ The RMSE between the drone and the model estimates of the surface area for the I
 assumptions that lead to such a large error namely, assuming a conical shape and assuming a constant radius
 during the accumulation period.
 
-Both these assumptions are a consequence of favoring the model simplicity over accuracy. One could, for example,
+Both these assumptions are a consequence of favoring model simplicity over accuracy. One could, for example,
 model the AIR shape assuming its cross section is a gaussian curve instead of a triangle.  But such
 methodologies will involve inclusion of even more model parameters.
 
@@ -1099,10 +1102,10 @@ dampen melting rates.
 
 The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
 high water losses were caused by the fountain wastewater in both the AIRs. Therefore, the AIR wastes water
-mostly during the accumulation period. The freezing rate of the IN21 AIR was less than $20\, l/min$ for more than
-90 \% of the accumulation period, meaning that the growth was not limited by the water supply rate but by the
-freezing efficiency. The CH21 AIR freezing rate was able to reach the mean fountain discharge rate provided,
-albeit for only 2 hours out of the 2155 hours of fountain runtime available. 
+mostly during the accumulation period. The freezing rate of the IN21 AIR was less than $20 \, l\,min^{-1}$ for more
+than 90 \% of the accumulation period, meaning that the growth was not limited by the water supply rate but
+rather by the freezing rate. The CH21 AIR freezing rate was able to reach the mean fountain discharge rate
+provided, albeit for only 2 hours out of the 2155 hours of fountain runtime available. 
 
 \subsection{Fountain optimization}
 
@@ -1148,9 +1151,9 @@ of the influence of the location chosen and the fountain used. Our main conclusi
 	      melting rates negligible. Since the accumulation period produced much higher ice volumes, the Indian AIR was
 	      able to last much longer than the Swiss AIRs.
 
-	\item Water losses were high ($>77\,\%$) mostly due to fountain wastewater for all the AIRs. Vapour losses were
-	      insignificant ($<2\,\%$) in comparison. However, significant improvement in water storage efficiency is possible
-	      through optimization of fountain discharge rate.
+  \item Water losses were high ($>77\,\%$) mostly due to fountain wastewater for all the AIRs. Vapour losses
+    were insignificant ($<2\,\%$) in comparison. However, significant reduction in water loss is possible
+    through optimization of fountain discharge rate.
 
   \item The Indian construction site produced long lasting AIRs with higher maximum ice volumes since it was
     colder, drier and less cloudy compared to the Swiss construction site. Thus, the AIR technology is ideally
@@ -1203,7 +1206,7 @@ data). A sparse point cloud is created.
 cloud density than in the previous step (\cite{Furukawa_2010}; \cite{Molg_2017}). Thus, the spatial resolution of
 the products can be increased, and an irregular network for the next step can be created (\cite{Kung_2011}).
 
-(3) AIR delineation: Ice radius, area and volume are the three main final products. Perimeter was manually marked
+(3) AIR delineation: Ice radius, area and volume are the three final products. Perimeter was manually marked
 on the point cloud by identifying the AIR boundary (see Fig. \ref{fig:DEM}). For the Indian location, we identified identical rock features
 near the ice boundary to mark as vertices of this perimeter. For the Swiss AIR, no such feature was available due
 to snowfall, so instead the perimeter was marked by identifying the ice and snow boundary.
@@ -1257,9 +1260,9 @@ sensitivity index $S_j$ measures the direct effect each parameter has on the var
 Sobol indices give the sensitivity due to interactions between a parameter $Q_j$ and various other parameters.
 The total Sobol sensitivity $S_{T_{j}}$ includes the sensitivity of both the first-order effects, as well as the
 sensitivity due to interactions between a given parameter $Q_j$ and all combinations of the other
-parameters. The sum of the total Sobol sensitivity indices is equal to or greater than one,
-and is only equal to one if there are no interactions between the parameters. Our goal is to use sensitivity
-analysis to fix parameters with low sensitivity, so it total-order Sobol indices are an appropriate metric.
+parameters. The sum of the total Sobol sensitivity indices is equal to or greater than one, and is only equal to
+one if there are no interactions between the parameters. Our goal is to use sensitivity analysis to fix
+parameters with high sensitivity, so the total-order Sobol indices are an appropriate metric.
 
 \subsubsection{Polynomial Chaos Expansions}
 
@@ -1279,8 +1282,7 @@ given by
   N_p = \binom{d+p}{p}
 \end{equation}
 
-where $p$ is the polynomial order. The polynomials $\phi_n(Q)$ are chosen so they are orthogonal with respect to the
-probability density function $\phi_Q$.
+where $p$ is the polynomial order. 
 
 The first and total-order indices can also be calculated directly from the polynomial chaos expansion. On the
 other hand, the $90\, \%$ prediction interval ($I$) must be estimated by using $\hat{U}$ as a surrogate
