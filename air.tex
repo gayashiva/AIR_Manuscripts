@@ -656,7 +656,7 @@ time step can be calculated using Eqn. \ref{eq:MB}.
 
 \begin{subequations}
 	\begin{align}
-		\frac{\Delta M_{F}}{\Delta t} & = \left\{ \begin{array}{ll} 0.06 \cdot d_F/\Delta t
+		\frac{\Delta M_{F}}{\Delta t} & = \left\{ \begin{array}{ll} 60/\rho_w \cdot d_F/\Delta t
 			 & \textit{ if fountain is on} \\ 0 & \textit{ otherwise } \\\end{array} \right.                                             \\
 		\label{eq:ppt}
 		\frac{\Delta M_{ppt}}{\Delta t}                                    & = \left\{ \begin{array}{ll} \pi \cdot
@@ -1072,10 +1072,14 @@ just one drone survey closer to the end of the accumulation period.
 Theoretically, the parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice
 thickness $\Delta x$ should be small enough to represent the surface temperature variations at every model time
 step $\Delta t$ and (b) $\Delta x$ should be large enough for these temperature variations to not reach the
-bottom of the surface layer. Therefore, additional spatial and temporal ice temperature measurements of the AIR
-could have better constrained the range of the surface layer thickness parameter. The minimum modelled surface
-temperature was actually similar for all our three AIRs around $-24\,\degree C$. Therefore, one could, for
-example, calibrate $\Delta x$ to minimize the minimum observed versus modelled surface temperature ($T_{ice}$).  
+bottom of the surface layer. The minimum modelled ice and bulk temperatures decrease and increase with
+increasing $\Delta x$. Thus, we can reframe conditions (a) and (b) in terms of the relationship between
+$T_{ice}, T_{bulk}$ and $\Delta x$. For example, all three AIRs studied here had similar minimum modelled
+surface and bulk temperature around $-24\,\degree C$ and $-3\,\degree C$ respectively. Compared to $T_{bulk}$,
+the value of $T_{ice}$ is not too high in accordance with (a) and also not too low in accordance with (b). The
+magnitude of the difference expected between $T_{ice}$ and $T_{bulk}$ can be fixed with additional spatial and
+temporal ice temperature measurements of the AIR. This would lead to a better calibrated $\Delta x$. Therefore,
+uncertainty of the model could have been significantly reduced if such a temperature dataset had been available. 
 
 Practically, the surface layer thickness was also the only parameter compensating for the model's shape
 assumption. Since two AIRs merged to create the IN21 AIR, it had a drastically different shape evolution
