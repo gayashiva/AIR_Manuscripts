@@ -1034,16 +1034,16 @@ since the model is very sensitive to the spray radius parameter. Moreover, $r_F$
 fountain characteristics but also due to refreezing and melting events across the AIR perimeter. Therefore, the
 same fountain may produce different spray radius under different weather conditions.
 
-Contrary to our model assumptions, the parameters used to define the fountain were actually not independent. The
-fountain height, fountain aperture diameter (both ignored in this analysis), discharge rate, water temperature
-and spray radius were related through the trajectories of the water droplets. Particularly, the temporal
-variation of both the spray radius and the water temperature were completely ignored in the model. During the
-IN21 experiment, snow formation was observed, indicating that the fountain water droplets have the potential to
-freeze before deposition on the AIR surface. Modelling such processes would require modelling the conduction,
-convection and nucleation processes that all droplets undergo during their flight time. Therefore, a proper
-quantification of the fountain is much more complex and requires a closer look at the correlation of the
-fountain parameters amongst themselves and with the weather parameters. This will be investigated in a follow up
-study, with this study focusing on the weather aspects of the model.
+Contrary to our model assumptions, the parameters used to define the fountain were not independent. The fountain
+height, fountain aperture diameter (both ignored in this analysis), discharge rate, water temperature and spray
+radius were related through the trajectories of the water droplets. Particularly, the temporal variation of both
+the spray radius and the water temperature were completely ignored in the model. During the IN21 experiment,
+snow formation was observed, indicating that the fountain water droplets have the potential to freeze before
+deposition on the AIR surface. Modelling such processes would require modelling the conduction, convection and
+nucleation processes that all droplets undergo during their flight time. Therefore, a proper quantification of
+the fountain is much more complex and requires a closer look at the correlation of the fountain parameters
+amongst themselves and with the weather parameters. This will be investigated in a follow up study, with this
+study focusing on the weather aspects of the model.
 
 \subsubsection{Shape assumption}
 
@@ -1059,29 +1059,30 @@ methodologies will involve the inclusion of even more model parameters.
 \subsection{Model calibration, validation and uncertainty}
 
 The calibration process used has an inherent temporal and spatial bias due to the choice of when and how many
-drone surveys were possible in each location. Among the five surveys of IN21 AIR used for calibration, most of them
-were conducted around early March when the AIR volume was near its maximum whereas the seven surveys of the CH21
-location were more evenly spaced out in comparison (see Table \ref{tab:uav}). Moreover, the fountain spray
-radius is also biased as a consequence leading to further model error. Depending on the number of drone surveys
-in the accumulation versus ablation period, $r_F$ could be over or underestimated. This could be one of the
-reasons we observe a poor validation with the CH20 AIR since the spray radius is derived from just one drone
-survey in the accumulation period.
-
-The calibrated value of $\Delta x$ was different for the IN21 and CH21 AIRs. This is because the surface layer
-thickness is the only parameter compensating for the model's shape assumption. Since two AIRs merged to create
-the IN21 AIR, it had a drastically different shape evolution compared to the CH21 AIR. 
-
-The model calibration, validation and uncertainty could have been significantly improved with further
-measurements. In particular, the fountain forcing parameters could have been avoided with a complete discharge
-rate dataset. Four out of the six uncertain weather parameters namely, $\alpha_{ice}, \alpha_{snow}, \tau$ and
-$T_{ppt}$ could have been better constrained through periodic measurements with an albedometer and a snow height
-sensor. 
+drone surveys were possible in each location. Among the five surveys of IN21 AIR used for calibration, most of
+them were conducted around early March when the AIR volume was near its maximum whereas the seven surveys of the
+CH21 location were more evenly spaced out in comparison (see Table \ref{tab:uav}). Moreover, the fountain spray
+radius is also biased as a consequence leading to further model error. Overestimation of CH20 AIR's spray radius
+could be one of the reasons we observe an overestimation of its volume since the spray radius is derived from
+just one drone survey closer to the end of the accumulation period.
 
 Theoretically, the parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice
 thickness $\Delta x$ should be small enough to represent the surface temperature variations at every model time
 step $\Delta t$ and (b) $\Delta x$ should be large enough for these temperature variations to not reach the
-bottom of the surface layer. Therefore, the surface layer thickness could have been better constrained using
-measurements capturing both the spatial and temporal variation in the ice temperature of the AIR.
+bottom of the surface layer. Therefore, additional measurements of the bulk ($T_{bulk}$) and the surface
+temperature ($T_{ice}$) of the AIR could have better constrained the range of the surface layer thickness
+parameter.
+
+Practically, the surface layer thickness was also the only parameter compensating for the model's shape
+assumption. Since two AIRs merged to create the IN21 AIR, it had a drastically different shape evolution
+compared to the CH21 AIR. This also resulted in the different calibrated values of $\Delta x$ in the Indian
+and the Swiss location.
+
+Uncertainty caused due to the other model parameters could also have been significantly reduced with further
+measurements. In particular, the fountain forcing parameters could have been avoided with a complete discharge
+rate dataset. Four out of the six uncertain weather parameters namely, $\alpha_{ice}, \alpha_{snow}, \tau$ and
+$T_{ppt}$ could have been better constrained through periodic measurements with an albedometer and a snow height
+sensor. 
 
 The model results highlight the high water losses in all the chosen locations. This could have been verified
 independently if all AIR meltwater and wastewater had been stored in a tank. But there were two
@@ -1092,39 +1093,15 @@ these conditions were not met for our chosen locations, hence efforts to measure
 However, in an ideal location, this dataset could serve as a superior way to validate the model compared to the
 drone surveys which are also used for determining the spray radius.
 
-\subsection{Model application in new locations}
-
-Ice volume estimates at any new location can be obtained from the model when the meteorological data and some
-fountain parameters are known. The necessary fountain parameters are $r_F$ and $t_F$. The fountain runtime can
-be defined either with a fountain on and off date parameter or with a CSV file. Additionally, if $d_F$ is known,
-the associated water losses can also be determined. As discussed before, the model is very sensitive to $r_F$,
-therefore it is recommended to manually measure the spray radius with the chosen fountain and pipeline. 
-
-All weather parameters can be assumed to have the median values of their ranges defined in Table
-\ref{tab:parameters}. The model hyperparameter $\Delta x$ needs to be calibrated beforehand. For a new location,
-we can use the surface layer thickness of CH21 AIR ($45\,mm$) since it is representative of the shape evolution
-of a conical AIR.
-
-
-\subsection{Favourable AIR locations}
-
-Weather conditions play a significant role in making the Indian AIR larger and survive longer than the Swiss
-AIR, namely cloudiness, temperature and relative humidity. The lower cloudiness and mean winter temperature of
-the Indian location significantly reduced the net radiation flux during the accumulation period, enabling a
-faster AIR thickness growth. The lower winter temperature and humidity favour the sublimation over the
-deposition process, thus decreasing the magnitude of net turbulent fluxes during the ablation period. This results
-in a slower thickness decay. Hence, for AIRs with similar fountain parameters, we expect locations with lower
-cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity to dampen
-melting rates.
-
 \subsection{Water losses of AIRs}
 
 The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
-high water losses were caused by the fountain wastewater in both the AIRs. Therefore, the AIR wastes water
-mostly during the accumulation period. The freezing rate of the IN21 AIR was less than $20 \, l\,min^{-1}$ for
-more than 90 \% of the accumulation period, meaning that the growth was not limited by the water supply rate but
+high water losses were caused by the fountain wastewater in both the AIRs. Therefore, AIRs waste water mostly
+during the accumulation period. The freezing rate of the IN21 AIR was less than $20 \, l\,min^{-1}$ for more
+than 90 \% of the accumulation period, meaning that the growth was not limited by the water supply rate but
 rather by the freezing rate. The CH21 AIR freezing rate was able to reach the mean fountain discharge rate
 provided, albeit for only 2 hours out of the 2155 hours of fountain runtime available. 
+
 
 \subsection{Fountain optimization}
 
@@ -1144,6 +1121,42 @@ process is completely automated via a system that regulates the discharge in acc
 estimates. Such a system can also drain the complete pipeline to prevent any pipeline freezing events. Since
 none of these functions are energy intensive, this system can be deployed anywhere using a solar powered energy
 source.
+
+\subsection{Favourable AIR locations}
+
+Weather conditions play a significant role in making the Indian AIR larger and survive longer than the Swiss
+AIR, namely cloudiness, temperature and relative humidity. The lower cloudiness and mean winter temperature of
+the Indian location significantly reduced the net radiation flux during the accumulation period, enabling a
+faster AIR thickness growth. The lower winter temperature and humidity favour the sublimation over the
+deposition process, thus decreasing the magnitude of net turbulent fluxes during the ablation period. This
+results in a slower thickness decay. For AIRs with similar fountain parameters, we expect locations with lower
+cloudiness, lower mean winter temperature to augment freezing rates and locations with lower humidity to dampen
+melting rates. Hence, AIRs need to be inculcated in the water resource management strategy particularly in dry
+and cold mountain regions such as in Central Asia or the Andes with few other sustainable and affordable
+alternatives.
+
+\subsection{Model application in new locations}
+
+Since the model has been validated in two drastically different weather conditions and uses a methodology
+similar to the ones used on glaciers world over, we believe it's performance should be similar in any other
+location.  
+
+The meteorological data and some fountain parameters are necessary to obtain modelled ice volume estimates. The
+necessary fountain parameters are $r_F$ and $t_F$. The fountain runtime can be defined either with a fountain on
+and off date parameter or with a CSV file. Additionally, if $d_F$ is known, the associated water losses can also
+be determined. As discussed before, the model is very sensitive to $r_F$, therefore it is recommended to
+manually measure the spray radius with the chosen fountain and pipeline.
+
+All weather parameters can be assumed to have the median values of their ranges defined in Table
+\ref{tab:parameters}. The model hyperparameter $\Delta x$ needs to be calibrated beforehand. For a new location,
+we can use the surface layer thickness of CH21 AIR ($45\,mm$) since it is representative of the shape evolution
+of a conical AIR.
+
+The model is written in Python and completely based on open-source libraries. The model, source code, case
+studies and code examples for data preprocessing are provided on a freely accessible Git repository
+(https://github.com/Gayashiva/air\_model, last access: 17 December 2021) for non-profit purposes. As a vision
+for the future, it is conceivable to extend the AIR model for automatic AIR construction and build a community
+platform around it where scientists and farmers can improve and use the model together. 
 
 \section{Conclusions}
 
