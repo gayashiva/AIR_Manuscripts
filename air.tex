@@ -533,7 +533,7 @@ process is:
 	\label{eqn:qF}
 \end{equation}
 
-with $c_{water}$ as the specific heat of water(4186 J $kg^{-1} K^{-1}$).
+with $c_{water}$ as the specific heat of water (4186 J $kg^{-1} K^{-1}$).
 
 \subsubsection{Bulk Icestupa heat flux \texorpdfstring{$q_{G}$}{Lg}} \label{sec:Bulkflux}
 
@@ -1069,6 +1069,10 @@ radius is also biased as a consequence leading to further model error. Overestim
 could be one of the reasons we observe an overestimation of its volume since the spray radius is derived from
 just one drone survey closer to the end of the accumulation period.
 
+The calibration methodology assumed no correlation between the sensitive model hyperparameter $\Delta x$ and the
+other eight parameters. Since in our case the total order sensitivity of $\Delta x$ and the rest of the
+parameters was greater and lesser than 0.6 and 0.1 respectively, this was a reasonable assumption to make.
+
 Theoretically, the parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice
 thickness $\Delta x$ should be small enough to represent the surface temperature variations at every model time
 step $\Delta t$ and (b) $\Delta x$ should be large enough for these temperature variations to not reach the
@@ -1104,7 +1108,7 @@ drone surveys which are also used for determining the spray radius.
 \subsection{Water losses of AIRs}
 
 The net water losses of IN21 and CH21 AIR were $81\,\%$ and $77\,\%$ of the total mass input, respectively. The
-high water losses were caused by the fountain wastewater in both AIRs. Therefore, AIRs waste water mostly
+high water losses were caused by the fountain wastewater for both AIRs. Therefore, AIRs waste water mostly
 during the accumulation period. The freezing rate of the IN21 AIR was less than $20 \, l\,min^{-1}$ for more
 than 90 \% of the accumulation period, meaning that the growth was not limited by the water supply rate but
 rather by the freezing rate. The CH21 AIR freezing rate was able to reach the mean fountain discharge rate
