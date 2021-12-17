@@ -95,7 +95,7 @@ the warm spring and summer months.  The main purpose of AIRs is irrigation. Ther
 store water in the form of ice as long into the summer as possible. The energy required to construct an AIR is
 usually derived from the gravitational head of the source water body. Some are constructed horizontally by
 freezing water using a series of checkdams while others are built vertically by spraying water through fountain
-systems \citep{Nusser_2018}. The latter are colloquially referred to as icestupas and are the subject of this
+systems \citep{Nusser_2018}. The latter are colloquially referred to as Icestupas and are the subject of this
 study.
 
 A typical AIR (see Fig. \ref{fig:old_icestupa}) simply requires a fountain nozzle mounted on a supply pipeline.
@@ -112,7 +112,7 @@ losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). During their 
 lose excessive fountain water and during the ablation period, sublimation losses could also be significant.
 However, the relative contribution of these processes in the total water loss remains unknown.
 
-In this paper, we develop a physically-based model of vertical AIRs (or icestupas) that can estimate their
+In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their
 freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of ice,
 meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the most
 sensitive parameters and the variance they caused. For calibration, we chose two AIR built across the winter of
@@ -231,11 +231,11 @@ using their mean ($\mu$) and standard deviation ($\sigma$) during the study peri
 
 \subsection{Fountain observations}
 
-We define the fountain used through four attributes; namely, its spray radius, mean discharge quantity, discharge
+We define the fountain used through four attributes; namely, its spray radius, mean discharge rate, discharge
 runtime and water temperature as shown in Table \ref{tab:Observations}. Continuous measurement of the discharge
 rate was unsuccessful in all sites due to data logger malfunctions of the associated flowmeter. Instead the
 discharge duration was first determined and then the available discharge measurement was used to determine the
-average discharge quantity $d_F$ during these periods.  The spray radius $r_F$ was estimated from the mean AIR
+average discharge rate $d_F$ during these periods.  The spray radius $r_F$ was estimated from the mean AIR
 circumference measured in the drone surveys during the fountain runtime.
 
 The Swiss fountain discharge duration was extrapolated from just one fountain on and off event each. Even though
@@ -615,7 +615,8 @@ temperature at melting point. The total energy flux distribution during a meltin
 
 \begin{equation}
 	(q_{melt}, q_{T}) = \left\{ \begin{array}{ll}
-		(0, q_{total})                                                                                                                                                 & \textit{ if } T_{temp} < 0 \\
+		(0, q_{total})
+    & \textit{ if } T_{temp} \leq 0 \\
 		(\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}, q_{total}-\frac{T_{temp} \cdot \rho_{ice} \cdot c_{ice} \cdot \Delta x}{\Delta t}  ) & \textit{ if } T_{temp} > 0
 	\end{array} \right.
 \end{equation}
@@ -833,7 +834,7 @@ interval had a magnitude of  $73\,m^3$ which was 10 \% of the maximum simulated 
 the Swiss weather prediction interval was much higher (28 \% of the maximum simulated volume for the CH21 AIR).
 This was expected since four out of the six uncertain Indian weather parameters were part of the albedo module. Among
 all the weather parameters, surface roughness caused the most variance in both Indian and the Swiss ice
-volume estimate .
+volume estimates.
 
 Fountain forcing uncertainty for the Indian site was higher than its weather uncertainty (28 \% of the maximum
 simulated volume at the end of the accumulation period). This was predominantly due to the uncertainty in the
@@ -1070,7 +1071,7 @@ could be one of the reasons we observe an overestimation of its volume since the
 just one drone survey closer to the end of the accumulation period.
 
 The calibration methodology assumed no correlation between the sensitive model hyperparameter $\Delta x$ and the
-other eight parameters. Since in our case the total order sensitivity of $\Delta x$ and the rest of the
+other eight parameters. Since for all AIRs, the total order sensitivity of $\Delta x$ and the rest of the
 parameters was greater and lesser than 0.6 and 0.1, respectively, this was a reasonable assumption to make.
 
 Theoretically, the parameter selection for $\Delta x$ is based on the following two arguments: (a) the ice
@@ -1078,7 +1079,7 @@ thickness $\Delta x$ should be small enough to represent the surface temperature
 step $\Delta t$ and (b) $\Delta x$ should be large enough for these temperature variations to not reach the
 bottom of the surface layer. The minimum modelled ice and bulk temperatures decrease and increase with
 increasing $\Delta x$. Thus, we can reframe conditions (a) and (b) in terms of the relationship between
-$T_{ice}, T_{bulk}$ and $\Delta x$. For example, all three AIRs studied here had similar minimum modelled
+$T_{ice}, T_{bulk}$ and $\Delta x$. For example, all three AIRs studied had similar minimum modelled
 surface and bulk temperature around $-24\,\degree C$ and $-3\,\degree C$ respectively. Compared to $T_{bulk}$,
 the value of $T_{ice}$ is not too high in accordance with (a) and not too low in accordance with (b). The
 magnitude of the difference expected between $T_{ice}$ and $T_{bulk}$ can be fixed with additional spatial and
@@ -1118,7 +1119,7 @@ provided, albeit for only 2 hours out of the 2155 hours of fountain runtime avai
 \subsection{Fountain optimization}
 
 Water losses could have been reduced in two ways: (a) reducing the fountain runtime $t_F$ and (b) decreasing the
-mean fountain discharge $d_F$. For the CH21 AIR, strategy (a) could have saved considerable wastewater as no
+mean fountain discharge rate $d_F$. For the CH21 AIR, strategy (a) could have saved considerable wastewater as no
 freezing was possible for 37 \% of the accumulation period. For the IN21 site, strategy (b) would have yielded
 the least water loss as the freezing rate was more than half the mean discharge rate for just two hours . However,
 strategy (b) will also lead to a reduction in $r_F$ if it is not accompanied by a suitable change in the
@@ -1150,7 +1151,7 @@ alternatives exist.
 \subsection{Model application in new locations}
 
 Since the model has been validated in two drastically different weather conditions and uses a methodology
-similar to the ones used on glaciers the world over, we believe it's performance should be similar in any other
+similar to the ones used on glaciers worldwide, we believe it's performance should be similar in any other
 location.  
 
 The meteorological data and some fountain parameters are necessary to obtain modelled ice volume estimates. The
@@ -1168,7 +1169,7 @@ The model is written in Python and completely based on open-source libraries. Th
 studies and code examples for data preprocessing are provided on a freely accessible Git repository
 (https://github.com/Gayashiva/air\_model, last access: 17 December 2021) for non-profit purposes. As a vision
 for the future, it is conceivable to extend the AIR model for automatic AIR construction and build a community
-platform around it where scientists and farmers can improve and use the model together. 
+platform around it where scientific and mountain communities can improve and use the model together. 
 
 \section{Conclusions}
 
