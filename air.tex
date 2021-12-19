@@ -52,12 +52,12 @@
   of meteorological data in conjunction with fountain discharge rate (mass input of an AIR). Model calibration
   and validation were completed using ice volume and surface area measurements taken from several drone surveys.
   The model achieved an RMSE within $18 \%$ of the maximum ice volume with the ice volume observations for all
-  the AIRs. The location in Ladakh, with a maximum ice volume around 4 times larger, was more favourable
-  compared to the Guttannen site.  However, the corresponding water losses for all the AIRs were more than three
-  quarters of the total fountain discharge due to high fountain wastewater. Drier and colder locations in
-  relatively cloud-free regions are expected to produce AIRs with a faster freezing rate and slower melting
-  rate. This is a promising result for dry mountain regions, where AIR technology could provide a relatively
-  affordable and sustainable strategy to mitigate climate change induced water stress.
+  the AIRs. The location in Ladakh had a maximum ice volume around 4 times larger compared to the Guttannen
+  site.  However, the corresponding water losses for all the AIRs were more than three quarters of the total
+  fountain discharge due to high fountain wastewater. Drier and colder locations in relatively cloud-free
+  regions are expected to produce AIRs with a faster freezing rate and slower melting rate. This is a promising
+  result for dry mountain regions, where AIR technology could provide a relatively affordable and sustainable
+  strategy to mitigate climate change induced water stress.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -127,7 +127,8 @@ accurately calibrate, estimate and validate the ice volume of AIRs. Through the 
 2020/21, such datasets were acquired for four AIRs in both Switzerland and India. Here, we present the results of
 three AIRs, which have a complete dataset. Two of them were constructed in the same Swiss location called
 Guttannen (referred to with the prefix CH) but during different winters, and the other was constructed at
-Gangles, India (referred to with the prefix IN).
+Gangles, India (referred to with the prefix IN). The 2020/21 AIR constructed on both these locations are shown
+in Fig. \ref{fig:2AIR}.
 
 The Guttannen site (46.66 $\degree$N, 8.29 $\degree$E) in the Bern region lies at 1047 $m$ a.s.l.. In the winter
 (Oct-Apr), mean daily minimum and maximum air temperatures vary between -13 and 15 $\degree C$. Clear skies are
@@ -166,14 +167,14 @@ required to calculate the surface energy balance of an AIR (see Table \ref{tab:O
 starts when the fountain was first switched on and ends when the respective AIR melted completely. These two
 dates are denoted as start and expiry dates henceforth.
 
-For the CH site, the primary weather data source was a Meteoswiss AWS located 184 m away (Station ID: 0-756-0-GTT).
+For the CH site, the primary weather data source was a meteoswiss AWS located 184 m away (Station ID: 0-756-0-GTT).
 In addition, we used ERA5 reanalysis dataset \citep{era5} for filling data gaps and adding the shortwave and
 longwave radiation data that were not measured directly. The ERA5 reanalysis dataset is known to have a high
-correlation with sites in Switzerland \citep{Scherrer_2020}. The guttannen temperature dataset had a correlation
+correlation with sites in Switzerland \citep{Scherrer_2020}. The Guttannen temperature dataset had a correlation
 greater than 0.8 with the ERA5 temperature for both winters.  The ERA5 grid point chosen (46.64 $\degree$N,
 8.25 $\degree$E) for the Swiss site was around 3.6 km away from the actual site. ERA5 variables (except incoming
 shortwave and longwave radiation) were fitted to the meteoswiss dataset via linear regressions. The zero wind
-speed values recorded by the Meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were
+speed values recorded by the meteoswiss AWS whenever snow accumulated on the ultrasonic wind sensor were
 replaced using the ERA5 dataset. 
 
 For the IN site, two different weather data sources were used to log all weather parameters required for the
@@ -325,7 +326,6 @@ The model assumes the AIR shape to be a cone and assigns the following shape att
 
 \begin{subequations}
 
-	% \label{equations}
 	\begin{align}
 		\label{eq:A}
 		A_{cone}^i & = \pi \cdot r_{cone}^i \cdot \sqrt{{(r_{cone}^i)}^2 + {(h_{cone}^i})^ 2} \\
@@ -558,37 +558,32 @@ body's center of mass is between $h_{cone}$ and $r_{cone}$. Therefore, we calcul
 \subsubsection{Phase changes}
 
 In this section, the numerical procedures to model phase changes at the surface layer are explained. Let
-$T_{temp}$ be the calculated surface temperature. Even if the numerical heat transfer solution produces
-temperatures which are $T_{temp}>0\, \degree C$, say from intense shortwave radiation, the ice temperature must
-remain at $T_{temp} = 0\, \degree C$. The ‘‘excess’’ energy is used to drive the melting process. Moreover, the
-energy input is used to melt the surface ice layer, and not to raise the surface temperature to some unphysical
-value. Similarly, for freezing to occur, two conditions are required. Firstly, fountain water is present
-($\Delta M_{F} > 0 $) and secondly the calculated temperature of the ice, $T_{temp}$, is below $0\, \degree C$.
-Thus, depending on this surface temperature $T_{temp}$, the AIR can undergo further phase changes. So Eqn.
-\ref{eqn:EB} can be rewritten as:
+$T_{temp}$ be the calculated surface temperature. Therefore, Eqn. \ref{eqn:EB} can be rewritten as:
 
-\begin{subequations}
-	\begin{align}
-    q_{total} & =\rho_{ice} \cdot c_{ice} \cdot \frac{(T_{temp}-T_{ice})}{\Delta t} \cdot \Delta x \\
-    q_{total} & = q_{freeze/melt} + q_{T}
-  \end{align}
-\end{subequations}
+$$q_{total} =\rho_{ice} \cdot c_{ice} \cdot \frac{(T_{temp}-T_{ice})}{\Delta t} \cdot \Delta x$$
 
-where $q_{total}$ is represents the total energy available to be redistributed for the melting ($q_{melt}$),
-freezing ($q_{freeze}$) and surface temperature change ($q_{T}$) processes.
-
-We categorize every model time step as freezing or melting events. Freezing events can only occur if fountain
-water is available and $T_{temp}$ is below $0\,\degree C$. However, these two conditions are not sufficient as
-the latent heat turbulent fluxes can only contribute to temperature fluctuations. Therefore, for preventing
-latent heat energy from turning a melting event into a freezing event, an additional condition, namely,
-$(q_{total}-q_{L}) < 0$, is required.
+where $q_{total}$ represents the total energy available to be redistributed. Even if the numerical heat transfer
+solution produces temperatures which are $T_{temp}>0\, \degree C$, say from intense shortwave radiation, the ice
+temperature must remain at $T_{temp} = 0\, \degree C$. The ‘‘excess’’ energy is used to drive the melting
+process. Moreover, the energy input is used to melt the surface ice layer, and not to raise the surface
+temperature to some unphysical value. Similarly, for freezing to occur, three conditions are required. Firstly,
+fountain water is present ($\Delta M_{F} > 0 $) and secondly the calculated temperature of the ice, $T_{temp}$,
+is below $0\, \degree C$. However, these two conditions are not sufficient as the latent heat turbulent fluxes
+can only contribute to temperature fluctuations. Therefore, an additional condition, namely, $(q_{total}-q_{L})
+< 0$, is required. Depending on the above conditions, the total energy $q_{total}$ can be redistributed
+for the melting ($q_{melt}$), freezing ($q_{freeze}$) and surface temperature change ($q_{T}$) processes as
+follows:
 
 \begin{equation}
-	q_{freeze/melt} = \left\{ \begin{array}{ll}
-		q_{freeze} & \textit{ if } \Delta M_{F} > 0 \textit{ and } T_{temp} < 0 \textit{ and }(q_{total}-q_{L}) < 0 \\
-		q_{melt}   & \textit{ otherwise}
+	q_{total} = \left\{ \begin{array}{ll}
+		q_{freeze} + q_{T} & \textit{ if } \Delta M_{F} > 0 \textit{ and } T_{temp} < 0 \textit{ and }(q_{total}-q_{L}) < 0 \\
+		q_{melt} + q_{T}   & \textit{ otherwise}
 	\end{array} \right.
 \end{equation}
+
+Henceforth, time steps when the the total energy is redistributed to the freezing energy are called freezing
+events and the rest of the time steps are called melting events.
+
 
 During a freezing event, the AIR surface is assumed to warm to $0 \degree C$. The available energy
 $(q_{total}-q_{L})$ is further increased due to this change in surface temperature represented by the energy
@@ -783,7 +778,7 @@ drone surveys of CH20 AIR.
     \citeauthor{Schmidt_2017};      \\
     & &    &  & \citeauthor{OerlemansKnap_1998}      \\\midrule
 		\textbf{Fountain Forcing Parameters} & \textbf{Symbol} & \textbf{Range} & \textbf{Unit} & \textbf{References} \\
-    Discharge rate & $d_{F}$             & $\pm 50 \%$            & $l/min$& assumed  \\
+    Discharge rate & $d_{F}$             & $[0.5 \cdot d_{F},1.5 \cdot d_{F}]$            & $l/min$& assumed  \\
     Water temperature & $T_{F}$             & $[0,3]$            & $\degree C$  & assumed  \\\bottomrule
 	\end{tabular}
 \end{table}
