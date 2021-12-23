@@ -45,19 +45,21 @@
 
 \begin{abstract}
 
-  Mountain communities in Ladakh, India have been using Artificial Ice Reservoirs (AIRs) for additional
-  irrigation water supply. However, there is a large variability associated with this water supply due to the
-  local weather influences at the chosen location. This study compared the ice volume evolution of three AIRs
-  built in Ladakh, India and Guttannen, Switzerland using a surface energy balance model.  Model input consisted
-  of meteorological data in conjunction with fountain discharge rate (mass input of an AIR). Model calibration
-  and validation were completed using ice volume and surface area measurements taken from several drone surveys.
-  The model achieved an RMSE within $18 \%$ of the maximum ice volume with the ice volume observations for all
-  the AIRs. The location in Ladakh had a maximum ice volume around four times larger compared to the Guttannen
-  site.  However, the corresponding water losses for all the AIRs were more than three-quarters of the total
-  fountain discharge due to high fountain wastewater. Drier and colder locations in relatively cloud-free
-  regions are expected to produce AIRs with a faster freezing rate and slower melting rate. This is a promising
-  result for dry mountain regions, where AIR technology could provide a relatively affordable and sustainable
-  strategy to mitigate climate change induced water stress.
+  Since 2014, mountain communities in Ladakh, India have been constructing dozens of Artificial Ice Reservoirs
+  (AIRs) by spraying water through fountain systems every winter. The meltwater from these structures are
+  crucial to meet irrigation water demands during spring. However, there is a large variability associated with
+  this water supply due to the local weather influences at the chosen location. This study compared the ice
+  volume evolution of an AIR built in Ladakh, India with two others built in Guttannen, Switzerland using a
+  surface energy balance model.  Model input consisted of meteorological data in conjunction with fountain
+  discharge rate (mass input of an AIR). Model calibration and validation were completed using ice volume and
+  surface area measurements taken from several drone surveys. The model was successful in estimating the
+  observed ice volume evolution with a root mean squared error within $18 \%$ of the maximum ice volume for all
+  the AIRs. The location in Ladakh had a maximum ice volume four times larger compared to the Guttannen site.
+  However, the corresponding water losses for all the AIRs were more than three-quarters of the total fountain
+  discharge due to high fountain wastewater. Drier and colder locations in relatively cloud-free regions are
+  expected to produce long-lasting AIRs with higher maximum ice volumes. This is a promising result for dry
+  mountain regions, where AIR technology could provide a relatively affordable and sustainable strategy to
+  mitigate climate change induced water stress.
 
 	\tiny
 	\keyFont{ \section{Keywords:} icestupa, water storage, climate change adaptation, geoengineering } %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
@@ -71,11 +73,11 @@ by these changes are especially important for dry mountain environments such as 
 which directly rely on the seasonal meltwater for their farming and drinking needs \citep{HoelzleBarandun_2019,
 	Apel_2018, Buytaert_2017, Chen_2016, UNGERSHAYESTEH_2013}.
 
-Ladakh, sandwiched between the Himalayan ranges and the Karakoram, is one such region experiencing climate
+Ladakh, sandwiched between the Himalayan ranges and the Karakoram in India, is one such region experiencing climate
 change induced water stress. Glaciers in the Ladakh region are vital for sustaining agricultural activities which
 form the basis for regional food security and socio-economic development \citep{Labbal_2000, Schmidt_2012}.
 During a low precipitation year, glaciermelt and snowmelt are the only sources of water supply to the region
-\citep{Thayyen_2010}. Some villages in Ladakh, India have already been forced to relocate due to glacial retreat
+\citep{Thayyen_2010}. Some villages in Ladakh have already been forced to relocate due to glacial retreat
 and the corresponding loss of their main fresh water resources \citep{zanskar}.
 
 \begin{figure}
@@ -109,13 +111,13 @@ branches and fishing nets are used to guide and accelerate the ice formation.
 However, to date, no reliable estimates exist about the quantity of meltwater an AIR can provide
 \citep{Nusser_2018}. Moreover, preliminary estimates of AIRs in Ladakh indicate that they generate high water
 losses during their lifetimes (see Appendix \ref{sec:ladakhloss}). During their accumulation period, AIRs can
-lose excessive fountain water and during the ablation period, sublimation losses could also be significant.
+lose excessive fountain water and, during the ablation period, sublimation losses could also be significant.
 However, the relative contribution of these processes in the total water loss remains unknown.
 
 In this paper, we develop a physically-based model of vertical AIRs (or Icestupas) that can estimate their
 freezing and melting rates. Mass and energy balance equations were used to estimate the quantity of ice,
 meltwater, sublimation and wastewater. Sensitivity and uncertainty analysis were performed to identify the most
-sensitive parameters and the variance they caused. For calibration, we chose two AIR built across the winter of
+sensitive parameters and the variance they caused. For calibration, we chose two AIRs built across the winter of
 2020/21 in India and Switzerland, and validated the model on a Swiss AIR built during winter 2019/20. Our model
 results provide a first step towards evaluating the potential of this decade old water storage technology
 worldwide \citep{campaign}.
@@ -145,17 +147,15 @@ site during the construction of the AIR.
 	\begin{center}
 		\includegraphics[width=12 cm]{Figures/Figure_2.jpg}
 	\end{center}
-	\caption{The Swiss and Indian AIR on January 9 and March 3, 2021 respectively. Picture credits: Daniel Buerki (left)
-		and Thinles Norboo (right)}
-	\label{fig:2AIR}
-\end{figure}
+  \caption{The Swiss and Indian AIRs were 5 m and 13 m tall on January 9 and March 3, 2021 respectively. Picture
+credits: Daniel Buerki (left) and Thinles Norboo (right)} \label{fig:2AIR} \end{figure}
 
 The Gangles site (34.22 $\degree$N, 77.61 $\degree$E) is located around 20 km north of Leh city in the Ladakh
 region, lying at 4025 $m$ a.s.l.. The mean annual temperature is $5.6 \, \degree C$, and the thermal range is
 characterized by high seasonal variation. During January, the coldest month, the mean temperature drops to $-7.2
 \, \degree C$. During August, the warmest month, the mean temperature rises to $17.5 \, \degree C$
 \citep{Nusser_2012}. Because of the rain shadow effect of the Himalayan Range, the mean annual precipitation in Leh
-totals less than 100 mm, and there is high interannual variability. Whereas the average summer rainfall between
+totals less than 100 $mm$, and there is high interannual variability. Whereas the average summer rainfall between
 July and September reaches 37.5 mm, the average winter precipitation between January and March amounts to 27.3
 mm and falls almost entirely as snow.  AIRs were constructed here as part of the Ice Stupa Competition by the
 Himalayan Institute of Alternatives, Ladakh (HIAL). The fountain height of the AIR varied between 5 to 9\,$m$.
@@ -178,8 +178,8 @@ speed values recorded by the meteoswiss AWS whenever snow accumulated on the ult
 replaced using the ERA5 dataset. 
 
 For the IN site, two different weather data sources were used to log all weather parameters required for the
-model. Temperature, humidity, wind speed and pressure data was logged with a weather station located 440 m away
-from the construction site. Shortwave radiation data was derived from another weather station located 15 km
+model. Temperature, humidity, wind speed and pressure data were logged with a weather station located 440 m away
+from the construction site. Shortwave radiation data were derived from another weather station located 15 km
 away. Unfortunately, precipitation was not logged. Since winter precipitation in Ladakh is less than 30 mm
 \citep{Nusser_2012}, we can safely assume negligible precipitation and mostly clear skies. As a consequence, the
 diffuse fraction of the global shortwave radiation was also assumed to be negligible. Temperature and humidity
@@ -947,16 +947,18 @@ accumulation period since the rising air temperature increased the incoming long
 period. The mean longwave radiation flux (see Table \ref{tab:turnover}) was lower for the Indian site as its incoming longwave
 radiation was strongly reduced due to cloud free skies. (see Table \ref{tab:Observations}).
 
-Direct shortwave radiation was more than three times higher for the IN21 location due to its higher altitude,
-lower latitude and lower cloudiness. However, the energy turnover of the shortwave radiation for both sites
-were similar (see Table \ref{tab:turnover}). This was because the higher diffuse shortwave radiation at the
-Swiss location was compensating for its lower direct shortwave radiation. Since the IN21 site has mostly clear
-days, its diffuse shortwave radiation was very low (see Table \ref{tab:Observations}). Moreover, less than 20 \%
-of the AIR surface area on average was exposed to direct shortwave radiation flux for both locations due to
-the area fraction $f_{cone}$. Temporal variation in the $f_{cone}$ factor due to increasing solar elevation
-angle and decreasing AIR slope leads to higher shortwave radiation in the ablation period compared to the
-accumulation period. Albedo, on the other hand, only varied temporally for the Swiss location because there was
-no precipitation for the IN21 site.
+Global shortwave radiation was around two times higher for the Indian location due to its higher altitude and
+lower latitude. However, the energy turnover of the shortwave radiation for both sites were similar (see Table
+\ref{tab:turnover}). The main cause of this is the differential exposure of a conical structure to direct and
+diffuse fractions of global shortwave radiation. This effect is quantified by the area fraction parameter
+$f_{cone}$. Less than 20 \% of the AIR surface area on average was exposed to direct shortwave radiation flux
+for both locations. Cloudy days increase the diffuse fraction of global shortwave radiation. Therefore, the net
+shortwave radiation impact for the Indian site was significantly reduced as the study period had mostly clear
+days. Since the Swiss site had many cloudy days, its higher diffuse shortwave radiation enhanced the net
+shortwave radiation impact (see Table \ref{tab:Observations}). Temporal variation in the $f_{cone}$ factor due
+to increasing solar elevation angle and decreasing AIR slope leads to higher shortwave radiation in the ablation
+period compared to the accumulation period. Albedo, on the other hand, only varied temporally for the Swiss
+location because there was no precipitation for the Indian site.
 
 \begin{table}
 	\centering
